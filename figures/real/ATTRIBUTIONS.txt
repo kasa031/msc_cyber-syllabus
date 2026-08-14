@@ -1,0 +1,8 @@
+﻿# Free-reuse figures in figures/real/
+# term-*.svg and *-clear.svg are original study-app figures (no third-party copyright).
+#
+# Wikimedia Commons (verified local copies):
+onion-routing.svg | Onion diagram.svg | CC BY-SA 3.0 | HANtwister
+tor-onion-service.svg | Tor Onion Service Diagram.svg | CC BY-SA 4.0 | Tga.D
+osi-model.svg | OSI Model v1.svg | Public domain / CC0 | Offnfopt
+padlock.svg | Padlock.svg | CC0 | AJ Ashton

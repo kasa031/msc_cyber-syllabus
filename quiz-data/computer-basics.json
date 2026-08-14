@@ -1,0 +1,298 @@
+{
+  "course": "Computer basics",
+  "title": "Computer for dummies",
+  "cards": [
+    {
+      "id": "cb-file-folder",
+      "q": "What is the difference between a file and a folder?",
+      "a": "A file is one item (document, photo, program). A folder (directory) is a container that holds files and/or other folders.",
+      "tags": [
+        "files",
+        "folders"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pc-explorer.svg",
+        "alt": "Folder containing files",
+        "caption": "Folders organise files",
+        "shows": "Folders organise files"
+      }
+    },
+    {
+      "id": "cb-explorer",
+      "q": "How do you open File Explorer quickly on Windows?",
+      "a": "Press Win+E, or click the folder icon on the taskbar, or search 'File Explorer' in the Start menu.",
+      "tags": [
+        "explorer",
+        "shortcuts"
+      ]
+    },
+    {
+      "id": "cb-path-name",
+      "q": "In the path C:\\Users\\You\\Documents\\report.pdf - what is the path, and what is the filename?",
+      "a": "The path is the full location (C:\\Users\\You\\Documents\\report.pdf). The filename is report.pdf (name + extension).",
+      "tags": [
+        "paths",
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pc-path.svg",
+        "alt": "Path broken into drive, folders, and filename",
+        "caption": "Path = where; filename = which file",
+        "shows": "Path = where; filename = which file"
+      }
+    },
+    {
+      "id": "cb-address-bar",
+      "q": "Where in File Explorer can you see or type the full path?",
+      "a": "In the address bar at the top. Click it to reveal/edit the full path (e.g. C:\\Users\\...).",
+      "tags": [
+        "explorer",
+        "paths"
+      ]
+    },
+    {
+      "id": "cb-recycle",
+      "q": "What happens when you delete a file normally, and how do you remove it for good?",
+      "a": "It usually goes to the Recycle Bin (recoverable). Empty the Recycle Bin, or use Shift+Delete, to remove it permanently (harder to recover).",
+      "tags": [
+        "files",
+        "recycle-bin"
+      ]
+    },
+    {
+      "id": "cb-settings",
+      "q": "How do you open Windows Settings?",
+      "a": "Press Win+I, or Start -> Settings (gear icon).",
+      "tags": [
+        "settings",
+        "shortcuts"
+      ]
+    },
+    {
+      "id": "cb-taskmgr",
+      "q": "What is Task Manager for, and how do you open it?",
+      "a": "See running apps/processes, CPU/RAM use, and end a frozen program. Open with Ctrl+Shift+Esc (or Ctrl+Alt+Delete -> Task Manager).",
+      "tags": [
+        "task-manager"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pc-task-manager.svg",
+        "alt": "Task Manager concept with CPU and memory",
+        "caption": "Task Manager shows what is running",
+        "shows": "Task Manager shows what is running"
+      }
+    },
+    {
+      "id": "cb-downloads",
+      "q": "Where do browser downloads usually land on Windows?",
+      "a": "In your Downloads folder (often C:\\Users\\<you>\\Downloads). Check the browser's download list (Ctrl+J in many browsers) for the exact file.",
+      "tags": [
+        "browser",
+        "downloads"
+      ]
+    },
+    {
+      "id": "cb-extension",
+      "q": "What is a file extension (e.g. .pdf, .docx, .exe), and why does it matter?",
+      "a": "The suffix after the last dot tells Windows (and you) the file type and which app opens it. .exe means a program - don't run unknown ones.",
+      "tags": [
+        "files",
+        "extensions"
+      ]
+    },
+    {
+      "id": "cb-show-ext",
+      "q": "How can you make Windows always show file extensions in File Explorer?",
+      "a": "File Explorer -> View -> Show -> File name extensions (wording can vary slightly by Windows version).",
+      "tags": [
+        "explorer",
+        "extensions"
+      ]
+    },
+    {
+      "id": "cb-admin-user",
+      "q": "Administrator account vs standard user - what's the practical difference?",
+      "a": "An administrator can install software, change system settings, and manage other accounts. A standard user is limited - safer for everyday use; Windows prompts (UAC) when admin rights are needed.",
+      "tags": [
+        "accounts",
+        "security"
+      ]
+    },
+    {
+      "id": "cb-wifi",
+      "q": "Where do you connect to Wi-Fi or see network status on Windows?",
+      "a": "Click the network / Wi-Fi icon in the system tray (bottom-right), or Settings -> Network & internet.",
+      "tags": [
+        "network",
+        "wifi"
+      ]
+    },
+    {
+      "id": "cb-updates",
+      "q": "Where do you check for Windows updates?",
+      "a": "Settings -> Windows Update. Install updates regularly for security and bug fixes; reboot when asked.",
+      "tags": [
+        "updates",
+        "settings"
+      ]
+    },
+    {
+      "id": "cb-usb",
+      "q": "How do you safely remove a USB drive?",
+      "a": "Use 'Eject' / 'Safely remove hardware' on the USB icon in the system tray (or right-click the drive in File Explorer -> Eject) before unplugging, so files finish writing.",
+      "tags": [
+        "usb",
+        "hardware"
+      ]
+    },
+    {
+      "id": "cb-cloud-local",
+      "q": "Cloud storage vs local storage - what's the difference?",
+      "a": "Local = on this PC (or USB). Cloud = on the internet (OneDrive, Google Drive, etc.) - available on other devices when online; still sync copies may exist locally in a sync folder.",
+      "tags": [
+        "cloud",
+        "storage"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pc-cloud-local.svg",
+        "alt": "PC disk versus cloud sync",
+        "caption": "Local on the machine; cloud over the network",
+        "shows": "Local on the machine; cloud over the network"
+      }
+    },
+    {
+      "id": "cb-copy-paste",
+      "q": "What are the usual shortcuts for copy, cut, and paste?",
+      "a": "Copy Ctrl+C, Cut Ctrl+X, Paste Ctrl+V. Cut moves; copy duplicates. Works in Explorer and most apps.",
+      "tags": [
+        "shortcuts",
+        "clipboard"
+      ]
+    },
+    {
+      "id": "cb-screenshot",
+      "q": "How do you take a screenshot of part of the screen on modern Windows?",
+      "a": "Win+Shift+S opens Snipping Tool overlay to select an area. PrtSc copies the whole screen; Win+PrtSc often saves a full-screen shot to Pictures\\Screenshots.",
+      "tags": [
+        "screenshots",
+        "shortcuts"
+      ]
+    },
+    {
+      "id": "cb-desktop-docs",
+      "q": "Desktop vs Documents - how should you think about them?",
+      "a": "Both are folders under your user profile. Desktop is for quick access (icons on the screen); Documents is a better long-term place for coursework and files you don't need as icons.",
+      "tags": [
+        "folders",
+        "organisation"
+      ]
+    },
+    {
+      "id": "cb-start-search",
+      "q": "What's a fast way to find an app or setting without hunting menus?",
+      "a": "Press the Windows key and start typing the name (e.g. 'Notepad', 'Wi-Fi', 'Task Manager'). Select the result and Enter.",
+      "tags": [
+        "start",
+        "search"
+      ]
+    },
+    {
+      "id": "cb-browser-os",
+      "q": "What is the difference between the operating system and a web browser?",
+      "a": "The OS (Windows) runs the whole computer: files, hardware, apps. A browser (Chrome, Edge, Firefox) is an app for websites - it does not replace the OS.",
+      "tags": [
+        "os",
+        "browser"
+      ]
+    },
+    {
+      "id": "cb-minimise-close",
+      "q": "Minimise vs close (X) - what happens to the program?",
+      "a": "Minimise hides the window but the program keeps running (taskbar). Close (X) exits that window/app (unsaved work may be lost).",
+      "tags": [
+        "windows",
+        "ui"
+      ]
+    },
+    {
+      "id": "cb-right-click",
+      "q": "What does right-click usually do?",
+      "a": "Opens a context menu with actions for that item (Open, Copy, Rename, Properties, etc.). Very useful in File Explorer and on the desktop.",
+      "tags": [
+        "ui",
+        "explorer"
+      ]
+    },
+    {
+      "id": "cb-taskmgr-cpu",
+      "q": "Why open Task Manager when a PC feels slow?",
+      "a": "Check CPU, memory, and disk usage to see which process is consuming resources (Ctrl+Shift+Esc).",
+      "tags": [
+        "performance"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pc-task-manager.svg",
+        "alt": "Task Manager resource view",
+        "caption": "Find heavy processes",
+        "shows": "Find heavy processes"
+      }
+    },
+    {
+      "id": "cb-ext-risk",
+      "q": "Why can file extensions matter for security?",
+      "a": "The extension hints at the file type (e.g. .exe vs .pdf). Malware may disguise dangerous types; show extensions in Explorer to avoid surprises.",
+      "tags": [
+        "files",
+        "security"
+      ]
+    },
+    {
+      "id": "cb-admin-why",
+      "q": "When should you use an administrator account?",
+      "a": "Only when needed to install software or change system settings - daily browsing/email as a standard user reduces impact of mistakes and malware.",
+      "tags": [
+        "accounts",
+        "security"
+      ]
+    },
+    {
+      "id": "cb-cloud-sync",
+      "q": "What is a risk of assuming "the cloud always has my only copy"?",
+      "a": "Sync conflicts, accidental deletes, or account lockout can lose access - keep important local copies and know where the authoritative file lives.",
+      "tags": [
+        "cloud",
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pc-cloud-local.svg",
+        "alt": "Cloud versus local copies",
+        "caption": "Know where files live",
+        "shows": "Know where files live"
+      }
+    },
+    {
+      "id": "cb-updates-why",
+      "q": "Why install OS and app updates promptly?",
+      "a": "Updates often patch security vulnerabilities and fix bugs - delaying leaves known holes open.",
+      "tags": [
+        "security",
+        "updates"
+      ]
+    },
+    {
+      "id": "cb-wifi-public",
+      "q": "What is a basic caution on public Wi-Fi?",
+      "a": "Avoid sensitive logins on untrusted networks when possible; prefer HTTPS and consider a trusted network/VPN policy for confidential work.",
+      "tags": [
+        "network",
+        "security"
+      ]
+    }
+  ]
+}

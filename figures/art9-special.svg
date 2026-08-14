@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 190" width="440" height="190" role="img"><rect width="440" height="190" fill="#FFF1D1"/>
+<text x="220" y="26" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Special categories (Art. 9)</text>
+<rect x="20" y="50" width="400" height="100" rx="4" fill="#FFE8B8" stroke="#DF301C" stroke-width="3"/>
+<text x="220" y="85" fill="#1A1410" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Health · biometric · genetic · political</text>
+<text x="220" y="110" fill="#3D342C" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">religious · sexual orientation · race/ethnic</text>
+<text x="220" y="135" fill="#DF301C" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Default: prohibited unless Art. 9(2) exception</text>
+</svg>

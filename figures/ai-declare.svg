@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160" role="img"><rect width="400" height="160" fill="#FFF1D1"/>
+<text x="200" y="28" fill="#1A1410" font-size="15" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">AI declaration</text>
+<rect x="50" y="55" width="300" height="70" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
+<text x="200" y="85" fill="#FFFBF0" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Declare AI use (or non-use)</text>
+<text x="200" y="108" fill="#FFF1D1" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Missing declaration can fail</text>
+</svg>

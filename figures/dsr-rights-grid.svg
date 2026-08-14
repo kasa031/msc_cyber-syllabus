@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210" role="img"><rect width="460" height="210" fill="#FFF1D1"/><text x="230" y="24" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Data subject rights (Ch. III)</text>
+<rect x="20" y="45" width="100" height="55" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
+<text x="70" y="78" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Access</text>
+<rect x="130" y="45" width="100" height="55" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<text x="180" y="78" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Rectify</text>
+<rect x="240" y="45" width="100" height="55" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
+<text x="290" y="78" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Erase</text>
+<rect x="350" y="45" width="100" height="55" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
+<text x="400" y="78" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Restrict</text>
+<rect x="20" y="120" width="100" height="55" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<text x="70" y="153" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Portability</text>
+<rect x="130" y="120" width="100" height="55" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
+<text x="180" y="153" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Object</text>
+<rect x="240" y="120" width="100" height="55" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
+<text x="290" y="153" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Info</text>
+<rect x="350" y="120" width="100" height="55" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<text x="400" y="153" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Auto-dec.</text></svg>

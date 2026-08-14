@@ -1,0 +1,1669 @@
+{
+  "course": "ACIT4280",
+  "title": "Privacy / GDPR (L1-L6)",
+  "cards": [
+    {
+      "id": "4280-personal-data",
+      "q": "What is 'personal data' under GDPR Art. 4(1)?",
+      "a": "Any information relating to an identified or identifiable natural person (data subject)-directly or indirectly (e.g. name, ID number, location data, online identifier, factors specific to physical/physiological/genetic/mental/economic/cultural/social identity).",
+      "tags": [
+        "definitions",
+        "Art.4"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/personal-data-clear.svg",
+        "alt": "Personal data",
+        "caption": "Personal data = identifiable person info",
+        "shows": "Name, email, phone, IP and cookie IDs can qualify."
+      }
+    },
+    {
+      "id": "4280-processing",
+      "q": "What counts as 'processing' (Art. 4(2))?",
+      "a": "Any operation (or set of operations) performed on personal data-whether or not by automated means-e.g. collection, recording, organisation, storage, adaptation, retrieval, consultation, use, disclosure, restriction, erasure or destruction.",
+      "tags": [
+        "definitions",
+        "Art.4"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/processing-ops.svg",
+        "alt": "Processing operations overview",
+        "caption": "Processing covers almost every operation on personal data",
+        "shows": "Collect, store, use, share, erase - all count as processing under Art. 4(2)."
+      }
+    },
+    {
+      "id": "4280-art5",
+      "q": "Name the core Art. 5 principles for processing personal data.",
+      "a": "Lawfulness, fairness and transparency; purpose limitation; data minimisation; accuracy; storage limitation; integrity and confidentiality; accountability.",
+      "tags": [
+        "Art.5",
+        "principles"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-art5-principles.png",
+        "alt": "GDPR Article 5 principles slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-art6",
+      "q": "List the six lawful bases for processing under GDPR Art. 6(1).",
+      "a": "Consent; contract; legal obligation; vital interests; public interest / official authority; legitimate interests (controller or third party), with balancing where applicable.",
+      "tags": [
+        "Art.6",
+        "lawfulness"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-art6-lawfulness.png",
+        "alt": "GDPR Article 6 lawfulness conditions",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-consent",
+      "q": "What makes consent valid under GDPR (Art. 4(11) / Art. 7)?",
+      "a": "Freely given, specific, informed, and unambiguous indication by a clear affirmative action (no pre-ticked boxes). Controller must be able to demonstrate consent; withdrawal must be as easy as giving consent.",
+      "tags": [
+        "consent",
+        "Art.7"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-art6-lawfulness.png",
+        "alt": "Lawfulness and consent conditions",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-art9",
+      "q": "What are 'special categories' of personal data (Art. 9)?",
+      "a": "Data revealing racial/ethnic origin, political opinions, religious/philosophical beliefs, trade-union membership; genetic data; biometric data for uniquely identifying a person; health data; data concerning sex life or sexual orientation. Processing is prohibited unless an Art. 9(2) exception applies (e.g. explicit consent).",
+      "tags": [
+        "Art.9",
+        "special-categories"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-art9-special.png",
+        "alt": "GDPR Article 9 special categories",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-controller-processor",
+      "q": "Controller vs processor - what's the difference?",
+      "a": "Controller determines purposes and means of processing. Processor processes personal data on behalf of the controller; processing must be governed by a contract/legal act (Art. 28).",
+      "tags": [
+        "roles"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/gdpr-roles-clear.svg",
+        "alt": "GDPR roles",
+        "caption": "Controller decides; processor follows instructions",
+        "shows": "Controller instructs processor; data subject is the person."
+      }
+    },
+    {
+      "id": "4280-dsr",
+      "q": "Name key data subject rights under GDPR (Ch. III / Art. 12-22).",
+      "a": "Transparency/information (Art. 12-14); access (Art. 15); rectification (16); erasure/'right to be forgotten' (17); restriction (18); portability (20); object (21); not to be subject solely to automated decisions with legal/similarly significant effects (22). Also withdraw consent and lodge a complaint with a supervisory authority.",
+      "tags": [
+        "rights",
+        "Ch.III"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-dsr-overview.png",
+        "alt": "Data subject rights overview",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-lindqvist",
+      "q": "What is the main takeaway from Lindqvist (C-101/01) for privacy law?",
+      "a": "Publishing personal data about others on a website can be 'processing' and a transfer of personal data; the household exemption is narrow and does not cover making data accessible on the open internet to an indefinite number of people.",
+      "tags": [
+        "case-law",
+        "Lindqvist"
+      ]
+    },
+    {
+      "id": "4280-household",
+      "q": "What is the household exemption (Art. 2(2)(c))?",
+      "a": "GDPR does not apply to processing by a natural person in the course of a purely personal or household activity (with no connection to a professional/commercial activity). Narrowly interpreted (see Lindqvist).",
+      "tags": [
+        "scope"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/household.svg",
+        "alt": "Household exemption diagram",
+        "caption": "Household exemption is narrow",
+        "shows": "Purely personal/home use only. Publishing to the open internet is usually outside the exemption."
+      }
+    },
+    {
+      "id": "4280-territorial",
+      "q": "When does GDPR apply territorially (Art. 3)?",
+      "a": "Processing in the context of an establishment of a controller/processor in the Union, regardless of whether processing takes place in the Union; and to non-EU controllers/processors offering goods/services to data subjects in the Union or monitoring their behaviour in the Union.",
+      "tags": [
+        "Art.3",
+        "scope"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-scope-lex.png",
+        "alt": "GDPR scope lex generalis slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-pbd",
+      "q": "What does Privacy by Design / Art. 25 require in short?",
+      "a": "Art. 25(1): implement appropriate technical and organisational measures designed to implement data-protection principles and protect rights (data protection by design), from the earliest stage. Art. 25(2): by default only personal data necessary for each purpose are processed (data protection by default)-short storage, limited accessibility.",
+      "tags": [
+        "Art.25",
+        "PbD"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/cavoukian-pbd.png",
+        "alt": "Ann Cavoukian Privacy by Design slide",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-dpi",
+      "q": "When should you consider a DPIA (Art. 35)?",
+      "a": "When processing is likely to result in a high risk to the rights and freedoms of natural persons (especially new technologies / systematic large-scale processing of special categories, systematic monitoring, etc.). Prior consultation with the supervisory authority may be required (Art. 36).",
+      "tags": [
+        "Art.35",
+        "DPIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-process.png",
+        "alt": "PIA is a process slide",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-kosinski",
+      "q": "What is a key privacy takeaway from Kosinski et al. (PNAS 2013) used in the course readings?",
+      "a": "Private traits and attributes can be predicted from digital records of human behaviour (e.g. Facebook Likes)-showing how seemingly 'non-sensitive' data can reveal sensitive attributes (function creep / inference risk).",
+      "tags": [
+        "readings",
+        "inference"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/personal-data.svg",
+        "alt": "Inference from personal data traits",
+        "caption": "Sensitive inferences",
+        "shows": "Sensitive inferences"
+      }
+    },
+    {
+      "id": "4280-warren-brandeis",
+      "q": "What classic phrase did Warren & Brandeis (1890) associate with the right to privacy?",
+      "a": "The right 'to be let alone' (also phrased 'to be left alone')-a reaction to intrusive new media such as press photography.",
+      "tags": [
+        "history",
+        "Lecture1"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/warren-brandeis.png",
+        "alt": "Warren and Brandeis privacy history slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-udhr12",
+      "q": "What does Article 12 of the Universal Declaration of Human Rights (1948) protect regarding privacy?",
+      "a": "No one shall be subjected to arbitrary interference with privacy, family, home or correspondence, nor to attacks upon honour and reputation; everyone has the right to legal protection against such interference or attacks.",
+      "tags": [
+        "history",
+        "human-rights"
+      ]
+    },
+    {
+      "id": "4280-westin",
+      "q": "How does Westin (1967) define privacy (as cited in the course intro)?",
+      "a": "The claim of individuals to determine for themselves when, how, and to what extent information about them is communicated to others.",
+      "tags": [
+        "definitions",
+        "theory"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/westin-privacy.png",
+        "alt": "Alan Westin privacy slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-asymmetric-risk",
+      "q": "In Lecture 1's fairness framing, how are costs/risks of data use asymmetric between controller and individual?",
+      "a": "Controllers gain from collection/use (income, control, expertise) while individuals bear inspection costs, breach/abuse harms (reputation, loss, threats), knowledge asymmetry, and reduced freedom/control-access to personal data creates power over people.",
+      "tags": [
+        "Lecture1",
+        "fairness"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/risk-duality.png",
+        "alt": "Duality of risks diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-chilling",
+      "q": "What is the 'chilling effect' in the society/privacy slides?",
+      "a": "People retreat from controversial matters and relationships when institutions/controllers exercise power via data-undermining trust and participation.",
+      "tags": [
+        "Lecture1",
+        "society"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/function-creep.svg",
+        "alt": "Surveillance chilling effect metaphor",
+        "caption": "Behaviour changes under watch",
+        "shows": "Behaviour changes under watch"
+      }
+    },
+    {
+      "id": "4280-oecd-principles",
+      "q": "Name core basic privacy principles from OECD Guidelines / Lecture 1.",
+      "a": "Lawfulness (e.g. informed consent / collection limitation); data minimisation & avoidance; purpose specification & purpose binding (use limitation); transparency & intervenability; appropriate security; accountability. Note: 'non-sensitive' data do not exist-function creep examples include loyalty-card misuse and Lidl video monitoring.",
+      "tags": [
+        "OECD",
+        "principles"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/privacy-principles-basic.png",
+        "alt": "Basic privacy principles slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-function-creep",
+      "q": "What is 'function creep' (purpose misuse) as taught in Lecture 1?",
+      "a": "Using data collected for one purpose for another, unintended purpose-e.g. loyalty-card data against customer interests, or workplace video monitoring scandals (Lidl 2006).",
+      "tags": [
+        "Lecture1",
+        "purpose-limitation"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/function-creep.svg",
+        "alt": "Stated purpose drifting to new uses",
+        "caption": "Purpose limitation risk",
+        "shows": "Purpose limitation risk"
+      }
+    },
+    {
+      "id": "4280-flipped",
+      "q": "How is ACIT4280 taught (format) according to the Aug 13 2026 intro?",
+      "a": "Flipped classroom: students read/watch Canvas material before class; bi-weekly online lectures with case studies & student presentations; group home assignment (groups of 3) with written report + presentation; final timed digital exam on Inspera.",
+      "tags": [
+        "course",
+        "format"
+      ]
+    },
+    {
+      "id": "4280-art12",
+      "q": "What does Art. 12 require for communicating with data subjects?",
+      "a": "Information must be concise, transparent, intelligible, easily accessible, in clear and plain language (Art. 29 WP recommends multi-layered privacy policies). Prefer electronic means for electronic requests; may use standardised machine-readable icons.",
+      "tags": [
+        "Art.12",
+        "transparency"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-dsr-art12.png",
+        "alt": "Transparency Article 12 slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-art13-15",
+      "q": "What key information must transparency/access cover (Art. 13 & 15)?",
+      "a": "Controller identity & contact (incl. DPO); purposes & legal basis; recipients; international transfers; retention periods; data subject rights; existence of automated decision-making (logic, significance, consequences). Access: electronic copy of the data (Art. 15), without adversely affecting others' rights/freedoms (trade secrets, IP).",
+      "tags": [
+        "Art.13",
+        "Art.15"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-dsr-overview.png",
+        "alt": "Data subject rights overview",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-erasure",
+      "q": "When does the right to erasure (Art. 17) apply?",
+      "a": "Without undue delay when data are no longer necessary; consent withdrawn and no other legal basis; objection succeeds; unlawful processing; legal obligation to erase; and related grounds in Art. 17. If made public, take reasonable steps to inform other controllers.",
+      "tags": [
+        "Art.17",
+        "rights"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-dsr-overview.png",
+        "alt": "Data subject rights overview",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-portability",
+      "q": "What is the right to data portability (Art. 20), and what does it exclude?",
+      "a": "Where processing is based on consent or contract: receive personal data in a structured, commonly used, machine-readable format and transmit to another controller (or have it transmitted directly). Does not include derived data or data received from third parties (e.g. reputation scores).",
+      "tags": [
+        "Art.20",
+        "rights"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-dsr-overview.png",
+        "alt": "Data subject rights overview",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-object-auto",
+      "q": "What do Art. 21 and Art. 22 protect?",
+      "a": "Art. 21: right to object to processing based on legitimate interests/public interest (incl. profiling), to direct marketing (incl. profiling), and in some research/statistics cases. Art. 22: right not to be subject to a decision based solely on automated processing that produces legal effects or similarly significantly affects the person.",
+      "tags": [
+        "Art.21",
+        "Art.22"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-dsr-overview.png",
+        "alt": "Data subject rights overview",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-google-spain",
+      "q": "Why is Google Spain / Costeja (C-131/12) linked to data subject rights in the materials?",
+      "a": "CJEU judgment on the 'right to be forgotten' / delisting-connected in course materials to erasure/transparency rights (Art. 17 context).",
+      "tags": [
+        "case-law",
+        "rights"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/google-spain.svg",
+        "alt": "Search results and right to be forgotten",
+        "caption": "Costeja balancing",
+        "shows": "Costeja balancing"
+      }
+    },
+    {
+      "id": "4280-onestop",
+      "q": "What 'clear rules for business' does the L8 GDPR obligations material highlight?",
+      "a": "One single set of rules; one-stop-shop (deal with one lead supervisory authority); European rules on European soil (non-EU companies offering services in the EU must apply the same rules); risk-based approach.",
+      "tags": [
+        "L8",
+        "governance"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/one-stop.svg",
+        "alt": "Lead supervisory authority cooperation",
+        "caption": "One-stop-shop idea",
+        "shows": "One-stop-shop idea"
+      }
+    },
+    {
+      "id": "4280-breach72",
+      "q": "What are the GDPR data-breach notification duties (Art. 33-34)?",
+      "a": "Notify the supervisory authority without undue delay and, where feasible, within 72 hours (Art. 33). Notify the data subject if the breach is likely to result in a high risk to their rights and freedoms (Art. 34).",
+      "tags": [
+        "Art.33",
+        "breach"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/breach-72h.svg",
+        "alt": "72-hour breach notification timeline",
+        "caption": "Art. 33 clock",
+        "shows": "Art. 33 clock"
+      }
+    },
+    {
+      "id": "4280-art32",
+      "q": "What does security of processing (Art. 32) emphasise?",
+      "a": "Appropriate technical and organisational measures ensuring confidentiality, integrity and availability-examples include pseudonymisation and/or encryption.",
+      "tags": [
+        "Art.32",
+        "security"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/encryption-padlock-clear.svg",
+        "alt": "Encryption diagram",
+        "caption": "Art. 32 includes encryption as a security measure",
+        "shows": "Encryption turns plaintext into ciphertext."
+      }
+    },
+    {
+      "id": "4280-records-dpo",
+      "q": "What are Art. 30 records and Art. 38 DPO obligations (high level)?",
+      "a": "Controllers/processors must maintain records of processing activities (Art. 30). Designate a DPO (Art. 38) unless processing is not a core business activity (as framed in L8 slides).",
+      "tags": [
+        "Art.30",
+        "Art.38"
+      ]
+    },
+    {
+      "id": "4280-transfers",
+      "q": "How may personal data be transferred to third countries (Art. 45-49 overview)?",
+      "a": "Primarily where the Commission has decided an adequate level of protection (Art. 45). Otherwise safeguards such as standard contractual clauses (Art. 46), binding corporate rules (Art. 47), or limited exceptions (Art. 49, e.g. explicit consent). Materials note Privacy Shield replaced Safe Harbor after Schrems, with ongoing adequacy concerns.",
+      "tags": [
+        "transfers",
+        "Art.45"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/transfers.svg",
+        "alt": "Adequacy SCCs BCRs transfer tools",
+        "caption": "Art. 45-49 overview",
+        "shows": "Art. 45-49 overview"
+      }
+    },
+    {
+      "id": "4280-fines",
+      "q": "What is the two-tier administrative fine structure under Art. 83?",
+      "a": "Lower tier: up to the greater of EUR10 million or 2% of global annual turnover. Higher tier (serious breaches): up to the greater of EUR20 million or 4% of global annual turnover. Fines must be effective, proportionate and dissuasive.",
+      "tags": [
+        "Art.83",
+        "enforcement"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/fine-tiers.svg",
+        "alt": "Two-tier GDPR administrative fines",
+        "caption": "Art. 83 percentages",
+        "shows": "Art. 83 percentages"
+      }
+    },
+    {
+      "id": "4280-edpb",
+      "q": "What replaced the Article 29 Working Party under the GDPR institutional setup?",
+      "a": "The European Data Protection Board (EDPB), Art. 68-73. Supervisory authorities (Art. 51-59) monitor, assess and enforce; data subjects can lodge complaints.",
+      "tags": [
+        "EDPB",
+        "governance"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/edpb.svg",
+        "alt": "Article 29 WP replaced by EDPB",
+        "caption": "Institutional continuity",
+        "shows": "Institutional continuity"
+      }
+    },
+    {
+      "id": "4280-eprivacy-lex",
+      "q": "How does the draft ePrivacy Regulation relate to the GDPR?",
+      "a": "It is lex specialis to the GDPR: specific privacy rules for electronic communications; intended as a directly applicable Regulation replacing the ePrivacy ('Cookie') Directive; extends to OTT services such as Skype, WhatsApp, Facebook Messenger, Gmail, etc.",
+      "tags": [
+        "ePrivacy",
+        "L9"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/gdpr-scope-lex.png",
+        "alt": "Scope and lex generalis slide",
+        "caption": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-eprivacy-rules",
+      "q": "Name proposed main rules of the draft ePrivacy Regulation (L9).",
+      "a": "Privacy rules for communication content & metadata; simpler cookie rules (no consent for non-privacy-intrusive cookies; privacy-friendly browser defaults); anti-spam protection; limited processing by traditional telecoms for additional services/business development; enforcement by DPAs also in charge under GDPR.",
+      "tags": [
+        "ePrivacy",
+        "L9"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/eprivacy-gdpr-venn.svg",
+        "alt": "ePrivacy rules beside GDPR",
+        "caption": "Communications focus",
+        "shows": "Communications focus"
+      }
+    },
+    {
+      "id": "4280-eprivacy-concerns",
+      "q": "What 'grave' concerns did Art. 29 WP raise about the draft ePrivacy Regulation?",
+      "a": "Tracking of terminal equipment location; conditions for analysing content & metadata; tracking walls; default settings of terminal equipment/software.",
+      "tags": [
+        "ePrivacy",
+        "WP29"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/eprivacy-gdpr-venn.svg",
+        "alt": "ePrivacy draft concerns relative to GDPR",
+        "caption": "WP29 critique context",
+        "shows": "WP29 critique context"
+      }
+    },
+    {
+      "id": "4280-pets-minimise",
+      "q": "Give PET examples mapped to data minimisation (L10).",
+      "a": "Anonymity/pseudonymity tools: communication-level (Mixes, DC-nets, Tor, steganography); application-level (anonymous credentials, anonymous payment, PIR); data-level (k-anonymity, differential privacy, secret sharing).",
+      "tags": [
+        "PETs",
+        "L10"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-l10-mapping.png",
+        "alt": "Mapping GDPR principles to PETs",
+        "caption": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-pets-purpose",
+      "q": "Which PETs/tools are mapped to purpose limitation in L10?",
+      "a": "Privacy policy languages, sticky policies, functional separation.",
+      "tags": [
+        "PETs",
+        "purpose-limitation"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-l10-mapping.png",
+        "alt": "Mapping GDPR principles to PETs",
+        "caption": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-pets-transparency",
+      "q": "Which approaches map to lawfulness/fairness/transparency in L10?",
+      "a": "Algorithmic transparency & ethical data management, Fairness by Design, ex ante and ex post Transparency Enhancing Tools (TETs).",
+      "tags": [
+        "PETs",
+        "transparency"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-l10-mapping.png",
+        "alt": "Mapping GDPR principles to PETs",
+        "caption": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-pets-security",
+      "q": "Which controls map to integrity & confidentiality (Art. 5) in L10?",
+      "a": "Security controls including access control, authentication, encryption (e.g. TLS), logging.",
+      "tags": [
+        "PETs",
+        "security"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/padlock.svg",
+        "alt": "Padlock icon",
+        "caption": "Security PETs include encryption and access control",
+        "shows": "Padlock = confidentiality control.",
+        "attribution": "Source: Wikimedia Commons (CC0) - AJ Ashton"
+      }
+    },
+    {
+      "id": "4280-pets-accountability",
+      "q": "What maps to accountability in the L10 GDPR->PETs mapping?",
+      "a": "Privacy-preserving transparency logging, provenance, consent management.",
+      "tags": [
+        "PETs",
+        "accountability"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-l10-mapping.png",
+        "alt": "Mapping GDPR principles to PETs",
+        "caption": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 1 / L10). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-exam-format",
+      "q": "What is the ACIT4280 exam format (saved course plan FALL 2026)?",
+      "a": "Individual digital written exam, 3 hours, no aids (A-F). Coursework: one group assignment (report + presentation).",
+      "tags": [
+        "course",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-l2-pet-focus",
+      "q": "What has PET research historically focused on (Lecture 2)?",
+      "a": "Information hiding and control, inspired by legal/human-rights perspectives-yet there is a noted lack of widely deployed PETs in the 'real world'.",
+      "tags": [
+        "Lecture2",
+        "PETs"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/what-are-pets.png",
+        "alt": "What are PETs slide",
+        "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l2-concepts",
+      "q": "Name key PET concepts to remember from Pfitzmann-Hansen (Lecture 2).",
+      "a": "Unobservability; anonymity & pseudonymity; partial identities; unlinkability.",
+      "tags": [
+        "Lecture2",
+        "terminology"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-pfitzmann-lattice.png",
+        "alt": "Pfitzmann Hansen terminology lattice",
+        "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l2-authz",
+      "q": "In basic identity-based transactions, what is the difference between identification, authentication, and authorization?",
+      "a": "Identification: who is the user. Authentication: prove it is really that user. Authorization/non-repudiation: permit actions/documents (often with digital signatures) and create receipts. Pseudonyms can support privacy-enhancing identity management.",
+      "tags": [
+        "Lecture2",
+        "identity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/authn-authz.svg",
+        "alt": "Identification authentication authorization",
+        "caption": "Identity transaction basics",
+        "shows": "Identity transaction basics"
+      }
+    },
+    {
+      "id": "4280-l2-synthetic",
+      "q": "What are 'synthetic identities' in Lecture 2?",
+      "a": "Identifiers created from observed data (IP, combined accounts/location, behavioural mining, biometrics) beyond the data subject's control-can become person-related (e.g. via home/work patterns in location tracks).",
+      "tags": [
+        "Lecture2",
+        "identity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/k-anonymity-slide.png",
+        "alt": "K-anonymity slide",
+        "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l2-trilemma",
+      "q": "What is the Anonymity Trilemma (Lecture 2)?",
+      "a": "Strong anonymity, low bandwidth, and low latency-choose two (Das et al.). Tor is framed as a low-latency anonymity network (relays/bridges) for anonymous browsing.",
+      "tags": [
+        "Lecture2",
+        "Tor"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/onion-routing.svg",
+        "alt": "Onion routing",
+        "caption": "Anonymity trilemma and Tor trade-offs",
+        "shows": "Onion layers hide who talks to whom.",
+        "attribution": "Source: Wikimedia Commons (CC BY-SA 3.0) - HANtwister"
+      }
+    },
+    {
+      "id": "4280-l3-privacy-vs-dp",
+      "q": "How does Lecture 3 distinguish privacy from data protection?",
+      "a": "Privacy is fuzzy, contextual, a social construct. Data protection must be more discrete; proportionality of processing is key. Data protection is necessary but not sufficient for privacy.",
+      "tags": [
+        "Lecture3",
+        "PbD"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/privacy-vs-dp.png",
+        "alt": "Privacy and data protection slide",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-cavoukian",
+      "q": "List Ann Cavoukian's seven Privacy by Design principles (Lecture 3).",
+      "a": "1) Proactive not reactive / preventative not remedial; 2) Privacy as the default; 3) Privacy embedded into design; 4) Full functionality-positive-sum, not zero-sum; 5) End-to-end security-full lifecycle protection; 6) Visibility and transparency-keep it open; 7) Respect for user privacy-keep it user-centric.",
+      "tags": [
+        "Lecture3",
+        "Cavoukian"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/cavoukian-pbd.png",
+        "alt": "Ann Cavoukian Privacy by Design",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-goals",
+      "q": "Which privacy protection goals complement CIA in the Standard Data Protection Model / Hansen et al. (Lecture 3)?",
+      "a": "Alongside confidentiality (and CIA): transparency, intervenability, and unlinkability (privacy goals from the German DP community / SDM). Summary slide also frames CIA + unlinkability + transparency + intervenability.",
+      "tags": [
+        "Lecture3",
+        "goals"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/privacy-protection-goals.png",
+        "alt": "Privacy protection goals slide",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-paradigms",
+      "q": "Name the three privacy research paradigms in Lecture 3.",
+      "a": "Privacy as Confidentiality; Privacy as Control; Privacy as Practice.",
+      "tags": [
+        "Lecture3",
+        "paradigms"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/privacy-paradigms.png",
+        "alt": "Privacy paradigms slide",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-pbd-limit",
+      "q": "What practical limit of Cavoukian's PbD principles does Lecture 3 stress for developers?",
+      "a": "The seven principles do not provide hands-on instructions for engineers-you must still ask how to implement each principle in software.",
+      "tags": [
+        "Lecture3",
+        "PbD"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/dpbd-default.png",
+        "alt": "Data protection by design and by default",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-pia-def",
+      "q": "What is a Privacy Impact Assessment (PIA) according to Lecture 4?",
+      "a": "A systematic process for identifying and evaluating privacy risks/impacts of a project. Anticipatory-done in advance or in parallel with the initiative-not only a one-off report.",
+      "tags": [
+        "Lecture4",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-assessment.png",
+        "alt": "Privacy impact assessment slide",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-risk-formula",
+      "q": "How does qualitative risk assessment combine impact and likelihood (Lecture 4)?",
+      "a": "Risk(A) ~ impact(T(A)) x likelihood(T(A)) for threat T on asset A; classify resulting levels (typically low/moderate/high). Consider significance, likelihood, and magnitude of impact.",
+      "tags": [
+        "Lecture4",
+        "risk"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/risk-chart.png",
+        "alt": "Risk chart from Canvas course files",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-pia-outcome",
+      "q": "What outcomes are expected from a PIA (Lecture 4 summary)?",
+      "a": "Identify privacy impacts; assess them from all stakeholders' perspectives; show how negative impacts can be avoided or lessened; clarify residual/accepted impacts where unavoidable.",
+      "tags": [
+        "Lecture4",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-table1.png",
+        "alt": "PIA table from Canvas course files",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-risk-bias",
+      "q": "What bias in privacy risk assessment does Lecture 4 warn about?",
+      "a": "Risk management often focuses on risks to service providers/system owners rather than end users-yet all stakeholders are threatened; long-term privacy risk models (incl. duality of risks) are lacking.",
+      "tags": [
+        "Lecture4",
+        "risk"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/privacy-risk-analysis.png",
+        "alt": "Privacy risk analysis slide",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l5-isms",
+      "q": "Why is IT security management described as a 'horizontal' activity (Lecture 5)?",
+      "a": "It cuts across quality, operations, HR, and facility management-most departments contact security management. Organizing an ISMS needs management support, a cross-role panel, and regular incident/priority meetings.",
+      "tags": [
+        "Lecture5",
+        "ISMS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pdca-iso.png",
+        "alt": "PDCA ISO 27000 diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l5-treatment",
+      "q": "What is risk treatment via controls (Lecture 5)?",
+      "a": "Select and implement technical and/or administrative controls (from catalogues such as ISO 27001 annex / NIST SP 800-53 privacy & security controls) to reduce or remove risks in infrastructure, procedures and resources.",
+      "tags": [
+        "Lecture5",
+        "controls"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/risk-treatment.png",
+        "alt": "Risk treatment with privacy controls",
+        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l5-incident",
+      "q": "Outline the incident-management stages from ISO/IEC 27035 as taught in Lecture 5.",
+      "a": "1) Plan and prepare (policy, IR/CSIRT team); 2) Detect and report; 3) Assess/decide it is an incident; 4) Respond (contain, eradicate, recover, forensics); 5) Lessons learned / improvements.",
+      "tags": [
+        "Lecture5",
+        "incident"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/incident-stages.svg",
+        "alt": "Incident management stage sequence",
+        "caption": "ISO/IEC 27035 sketch",
+        "shows": "ISO/IEC 27035 sketch"
+      }
+    },
+    {
+      "id": "4280-l5-privacy-controls",
+      "q": "What does Lecture 5 emphasise about many privacy controls?",
+      "a": "Many privacy controls are administrative (not only technical). Privacy/security management is a complex multi-role process; prepare relationships with emergency response before incidents happen.",
+      "tags": [
+        "Lecture5",
+        "controls"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/control-selection.png",
+        "alt": "Control selection diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l2-eid",
+      "q": "What is an e-ID in Lecture 2 terms?",
+      "a": "A portion of digital data plus algorithms (hard/software) whose purpose is to convince a computer that a particular, possibly privileged, person is using it - may be official (passport-based) or soft (email/pseudonym).",
+      "tags": [
+        "Lecture2",
+        "identity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/authn-authz.svg",
+        "alt": "e-ID identity claim",
+        "caption": "Digital identity evidence",
+        "shows": "Digital identity evidence"
+      }
+    },
+    {
+      "id": "4280-l2-identity-cats",
+      "q": "Name Pfitzmann-style categories of identity control from Lecture 2.",
+      "a": "Me-Identity (what I define), Our-Identity (what others and I define), Their-Identity (what others define as my identity).",
+      "tags": [
+        "Lecture2",
+        "identity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pet-concepts.svg",
+        "alt": "Identity category control",
+        "caption": "Who defines identity",
+        "shows": "Who defines identity"
+      }
+    },
+    {
+      "id": "4280-l2-identifiability",
+      "q": "What is identifiability (Pfitzmann-Hansen) as taught in Lecture 2?",
+      "a": "From an attacker's view: the attacker can sufficiently identify the subject within an identifiability set - subjects may be indistinguishable or distinguishable by attributes/usage patterns.",
+      "tags": [
+        "Lecture2",
+        "terminology"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pet-concepts.svg",
+        "alt": "Identifiability set idea",
+        "caption": "Pfitzmann-Hansen",
+        "shows": "Pfitzmann-Hansen"
+      }
+    },
+    {
+      "id": "4280-l2-aaa",
+      "q": "Beyond CIA, which AAA security objectives does Lecture 2 list?",
+      "a": "Authentication, Authorization, and Accounting (logging/tracking of users and data/sessions).",
+      "tags": [
+        "Lecture2",
+        "security"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/authn-authz.svg",
+        "alt": "Authentication authorization accounting",
+        "caption": "AAA beside CIA",
+        "shows": "AAA beside CIA"
+      }
+    },
+    {
+      "id": "4280-l2-mixnets",
+      "q": "What classic paper/idea starts mix networks in Lecture 2?",
+      "a": "David Chaum (1981) "Untraceable Electronic Mail, Return Addresses, and Digital Pseudonyms" - mix format and mixing strategy for strong anonymity (often at latency/bandwidth cost).",
+      "tags": [
+        "Lecture2",
+        "PETs",
+        "mixnets"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/mixnets-slide.png",
+        "alt": "Mixnets slide",
+        "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l2-tor-path",
+      "q": "What is a typical Tor circuit path for anonymous browsing (Lecture 2)?",
+      "a": "Client traffic goes via guard (entry), middle, and exit relays - low-latency anonymity network for browsing; bridges help when Tor is blocked.",
+      "tags": [
+        "Lecture2",
+        "Tor"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/tor-onion-service.svg",
+        "alt": "Tor diagram",
+        "caption": "Tor path through relays",
+        "shows": "Entry, middle and exit hops peel layers.",
+        "attribution": "Source: Wikimedia Commons (CC BY-SA 4.0) - Tga.D"
+      }
+    },
+    {
+      "id": "4280-l2-onion",
+      "q": "What anonymity property do onion services emphasise (Lecture 2)?",
+      "a": "Recipient anonymity (who is receiving requests) plus self-authenticated, end-to-end encrypted services; single onion services are a related deployment variant.",
+      "tags": [
+        "Lecture2",
+        "Tor"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/onion-routing.svg",
+        "alt": "Onion routing",
+        "caption": "Onion routing principle",
+        "shows": "Layers of encryption like an onion.",
+        "attribution": "Source: Wikimedia Commons (CC BY-SA 3.0) - HANtwister"
+      }
+    },
+    {
+      "id": "4280-l2-tets",
+      "q": "Ex-ante vs ex-post Transparency Enhancing Tools (TETs) - give examples from Lecture 2.",
+      "a": "Ex-ante: privacy policy languages (e.g. P3P/PPL), multi-layered policies and icons. Ex-post: dashboards / Data Track-style tools that show what was disclosed and support access/intervenability.",
+      "tags": [
+        "Lecture2",
+        "TETs",
+        "transparency"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-tet-categories.png",
+        "alt": "TET categories diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l2-privacy-protect",
+      "q": "Lecture 2 summary: privacy protection consists of which elements?",
+      "a": "Protect communication content and relationship; protect identities; conceal activity (unobservability); unlinkability of actions; transparency of collection/processing/storage; intervenability and rectification opportunities.",
+      "tags": [
+        "Lecture2",
+        "PETs"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pet-concepts.svg",
+        "alt": "Privacy protection elements",
+        "caption": "Lecture 2 wrap-up",
+        "shows": "Lecture 2 wrap-up"
+      }
+    },
+    {
+      "id": "4280-l2-pets-objectives",
+      "q": "What objectives do PETs target beyond raw data security (Lecture 2)?",
+      "a": "Control over personal data / transparency; data minimisation/avoidance; identity management; lawful processing; plus data security and integrity.",
+      "tags": [
+        "Lecture2",
+        "PETs"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-timeline.png",
+        "alt": "PET timeline from Canvas files",
+        "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-trilogy",
+      "q": "What "trilogy" of applications does Cavoukian's PbD extend to (Lecture 3)?",
+      "a": "1) IT systems; 2) accountable business practices; 3) physical design and networked infrastructure.",
+      "tags": [
+        "Lecture3",
+        "Cavoukian",
+        "PbD"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pbd-7.svg",
+        "alt": "PbD trilogy of applications",
+        "caption": "Systems practices infrastructure",
+        "shows": "Systems practices infrastructure"
+      }
+    },
+    {
+      "id": "4280-l3-default",
+      "q": "What does "Privacy as the Default" mean (Cavoukian principle 2)?",
+      "a": "Maximum privacy without user action - personal data are automatically protected; if the individual does nothing, privacy remains intact.",
+      "tags": [
+        "Lecture3",
+        "Cavoukian"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/dpbd-default.png",
+        "alt": "Data protection by design and by default",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-positive-sum",
+      "q": "What does Cavoukian's "positive-sum, not zero-sum" principle argue?",
+      "a": "Accommodate legitimate interests in a win-win way - avoid false dichotomies such as privacy vs security; both can be designed together.",
+      "tags": [
+        "Lecture3",
+        "Cavoukian"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pbd-7.svg",
+        "alt": "Positive-sum PbD principle",
+        "caption": "Not privacy versus security",
+        "shows": "Not privacy versus security"
+      }
+    },
+    {
+      "id": "4280-l3-unlinkability",
+      "q": "Give example measures for unlinkability (Standard Data Protection Model / Lecture 3).",
+      "a": "Restrict processing/transfer rights; close unnecessary interfaces; organisational separation; purpose-specific pseudonyms/anonymisation/anonymous credentials; regulated purpose-change procedures.",
+      "tags": [
+        "Lecture3",
+        "goals"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pet-concepts.svg",
+        "alt": "Unlinkability measures",
+        "caption": "Separate and pseudonymise",
+        "shows": "Separate and pseudonymise"
+      }
+    },
+    {
+      "id": "4280-l3-intervenability",
+      "q": "What does intervenability require in practice (Lecture 3)?",
+      "a": "Means for consent/withdrawal/objection; support for rights (correct/block/erase); SPoC for data subjects; traceability of controller actions granting rights - ability to intervene in processing.",
+      "tags": [
+        "Lecture3",
+        "goals"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/dsr-rights-grid.svg",
+        "alt": "Intervenability and data subject rights",
+        "caption": "Act on processing",
+        "shows": "Act on processing"
+      }
+    },
+    {
+      "id": "4280-l3-paradigm-conf",
+      "q": "What characterises the "Privacy as Confidentiality" research paradigm?",
+      "a": "Once data is disclosed, privacy is lost; emphasis on data minimisation and crypto; centralised collection seen as bad; strong open-source/reproducibility culture.",
+      "tags": [
+        "Lecture3",
+        "paradigms"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/privacy-vs-dp.svg",
+        "alt": "Privacy as confidentiality paradigm",
+        "caption": "Hide and minimise",
+        "shows": "Hide and minimise"
+      }
+    },
+    {
+      "id": "4280-l3-paradigm-control",
+      "q": "What characterises "Privacy as Control"?",
+      "a": "Privacy as ability to control personal data - purpose, intervenability, transparency, accountability (classic data-protection framing); disclosure may still be in your interest (e.g. healthcare).",
+      "tags": [
+        "Lecture3",
+        "paradigms"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/privacy-vs-dp.svg",
+        "alt": "Privacy as control paradigm",
+        "caption": "Data protection framing",
+        "shows": "Data protection framing"
+      }
+    },
+    {
+      "id": "4280-l3-mistake-storage",
+      "q": "Hansen mistake 1: what is "Storage as Default"?",
+      "a": "Storing personal data without justifying need, retention period, and access control - violates minimisation, purpose binding, and right to be forgotten.",
+      "tags": [
+        "Lecture3",
+        "design-mistakes"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/function-creep.svg",
+        "alt": "Storage as default mistake",
+        "caption": "Justify retention",
+        "shows": "Justify retention"
+      }
+    },
+    {
+      "id": "4280-l3-mistake-link",
+      "q": "Hansen mistake 2: what is "Linkability as Default"?",
+      "a": "No unidentified use possible; transactions are linkable across contexts - enables profiling and may violate minimisation/purpose binding.",
+      "tags": [
+        "Lecture3",
+        "design-mistakes"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pet-concepts.svg",
+        "alt": "Linkability as default",
+        "caption": "Prefer unlinkable use",
+        "shows": "Prefer unlinkable use"
+      }
+    },
+    {
+      "id": "4280-l3-pia-vs-dpia",
+      "q": "PIA vs DPIA mandatory status as stressed in Lecture 3?",
+      "a": "PIAs are not generally mandatory; DPIAs are required only in particular high-risk cases (GDPR Art. 35). Treating every PIA as mandatory can cause "PIA fatigue".",
+      "tags": [
+        "Lecture3",
+        "DPIA",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-assessment.png",
+        "alt": "Privacy impact assessment slide",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-pia-process",
+      "q": "Why is treating PIA as a one-time early task a mistake (Lecture 3)?",
+      "a": "PIA should be a continuing process across the lifecycle, not a single checklist completed once and forgotten for years.",
+      "tags": [
+        "Lecture3",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-process.png",
+        "alt": "PIA is a process",
+        "caption": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 3). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l3-cause-effect",
+      "q": "How does Lecture 3 separate cause and effect in privacy risk layers?",
+      "a": "Cause: user privacy risks / infringement of personal life. Effects for the organisation: reputation damage, fines, lawsuits, loss of trust. Do not only manage organisational effects.",
+      "tags": [
+        "Lecture3",
+        "risk"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/risk-matrix.svg",
+        "alt": "User privacy risk versus org effects",
+        "caption": "Cause versus effect",
+        "shows": "Cause versus effect"
+      }
+    },
+    {
+      "id": "4280-l4-privacy-types",
+      "q": "Which four privacy targets should a PIA consider (Lecture 4 summary)?",
+      "a": "Privacy of personal information; privacy of the person; privacy of personal behaviour; privacy of personal communications.",
+      "tags": [
+        "Lecture4",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pia-flow.svg",
+        "alt": "Four privacy targets in PIA",
+        "caption": "Broader than data fields",
+        "shows": "Broader than data fields"
+      }
+    },
+    {
+      "id": "4280-l4-pia-core",
+      "q": "Name several core PIA elements from PIAF (Lecture 4).",
+      "a": "Ongoing process; scalability; all privacy types; accountability; transparency; stakeholder involvement; publication/registry (with sensitive-info limits); risk management and legal compliance; audit and review.",
+      "tags": [
+        "Lecture4",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-table2.png",
+        "alt": "PIA table from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-controls-types",
+      "q": "Preventive vs detective, technical vs non-technical controls (Lecture 4)?",
+      "a": "Preventive: stop violations; detective: detect them. Technical: PETs/security in the system. Non-technical: processes, procedures, policies, operations.",
+      "tags": [
+        "Lecture4",
+        "controls"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/controls-diagram.png",
+        "alt": "Privacy controls diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-solove-impact",
+      "q": "How does Solove's taxonomy help PIA impact thinking (readings/Lecture 4)?",
+      "a": "Privacy-violating actions: information collection, processing, dissemination, and invasions - risk starts already at collection, before invasion.",
+      "tags": [
+        "Lecture4",
+        "Solove"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/solove-taxonomy.png",
+        "alt": "Solove taxonomy from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-enisa-impact",
+      "q": "What ENISA SME impact levels are taught for individuals' privacy harm?",
+      "a": "Low (minor inconvenience), Medium (significant but manageable inconvenience), High (serious difficulties), Very high (significant/irreversible consequences).",
+      "tags": [
+        "Lecture4",
+        "risk",
+        "ENISA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/solove-redrawn.png",
+        "alt": "Solove redrawn impact diagram",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l4-pia-report",
+      "q": "What should a PIA report typically contain (Lecture 4)?",
+      "a": "Project description; privacy issues analysis; business case for any intrusion; alternatives considered; privacy design features; residual risks; recommendations and implementation/audit path.",
+      "tags": [
+        "Lecture4",
+        "PIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pia-table1.png",
+        "alt": "PIA table from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 4). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l5-pdca",
+      "q": "What continuous cycle frames ISO/security management in Lecture 5?",
+      "a": "Plan-Do-Check-Act (PDCA): continuous improvement over repeated rounds of planning, implementing controls, monitoring, and corrective action.",
+      "tags": [
+        "Lecture5",
+        "ISMS",
+        "PDCA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pdca-cycle-slide.png",
+        "alt": "Plan-Do-Check-Act cycle slide",
+        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l5-iso-domains",
+      "q": "Give examples of ISO/IEC 27001:2013 Annex A domains from Lecture 5.",
+      "a": "Among 14 domains: policies; organisation; HR security; asset management; access control; cryptography; physical security; operations; communications; system acquisition/dev; suppliers; incident management; business continuity; compliance.",
+      "tags": [
+        "Lecture5",
+        "ISO27001"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/art32-security.svg",
+        "alt": "ISO 27001 control domains",
+        "caption": "Annex A overview",
+        "shows": "Annex A overview"
+      }
+    },
+    {
+      "id": "4280-l5-triggers",
+      "q": "List triggers that should start a new PDCA / re-assessment (Lecture 5).",
+      "a": "Regular schedule; infrastructure/software/supplier/outsourcing changes; major updates; staff/location/product changes; "world change" (new attacks, tools, crypto breaks).",
+      "tags": [
+        "Lecture5",
+        "ISMS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pdca.svg",
+        "alt": "PDCA re-assessment triggers",
+        "caption": "When to re-run PDCA",
+        "shows": "When to re-run PDCA"
+      }
+    },
+    {
+      "id": "4280-l5-linddun",
+      "q": "What do the LINDDUN letters stand for (Lecture 5/6)?",
+      "a": "Linkability, Identifiability, Non-repudiation, Detectability, Disclosure of information, Unawareness, Non-compliance - privacy threat categories used with DFDs/threat trees.",
+      "tags": [
+        "Lecture5",
+        "Lecture6",
+        "LINDDUN"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/linddun-steps.png",
+        "alt": "LINDDUN steps diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l5-stakeholders",
+      "q": "Who are typical ISMS "players" vs subjects in Lecture 5?",
+      "a": "Players: Board, CEO, ISMS Forum (CTO/CSO/DPO/management/product owners). Subjects: humans and assets (equipment, networks, apps, information stores).",
+      "tags": [
+        "Lecture5",
+        "ISMS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/gdpr-roles.svg",
+        "alt": "ISMS stakeholders sketch",
+        "caption": "Governance roles",
+        "shows": "Governance roles"
+      }
+    },
+    {
+      "id": "4280-l5-smartcar-task",
+      "q": "What risk-analysis task does the smart-car factory case ask groups to do?",
+      "a": "Identify critical information assets; find security/privacy threats per asset; assess likelihood/damage (ENISA-style); rank risks highest to lowest - applying management method to a connected production scenario.",
+      "tags": [
+        "Lecture5",
+        "case-study"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/risk-matrix.svg",
+        "alt": "Smart car case risk ranking",
+        "caption": "Assets threats ranking",
+        "shows": "Assets threats ranking"
+      }
+    },
+    {
+      "id": "4280-l5-oasis",
+      "q": "How is OASIS Privacy by Design for Software Engineers framed in Lecture 5?",
+      "a": "As a PDCA-style method that includes risk analysis - privacy management documentation approach for engineers (PbD-SE).",
+      "tags": [
+        "Lecture5",
+        "PbD"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/oasis-cycle.png",
+        "alt": "OASIS privacy management cycle from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l6-hoepman8",
+      "q": "List Hoepman-style privacy design strategies from Lecture 6.",
+      "a": "Minimise; Hide; Separate; Aggregate (abstract); Inform; Control; Enforce; Demonstrate.",
+      "tags": [
+        "Lecture6",
+        "strategies"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
+        "alt": "Hoepman privacy strategies from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l6-minimise",
+      "q": "What does the Minimise strategy ask (Lecture 6)?",
+      "a": "Restrict personal data processed to the minimal amount needed for the purpose; ask if another design fulfils the purpose with less data (e.g. pseudonyms instead of real names).",
+      "tags": [
+        "Lecture6",
+        "strategies"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
+        "alt": "Hoepman privacy strategies from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l6-separate",
+      "q": "What does the Separate strategy recommend?",
+      "a": "Process personal data in distributed compartments when possible - prefer distributed/local over centralised remote processing (e.g. contact data and purchase data in separate stores).",
+      "tags": [
+        "Lecture6",
+        "strategies"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
+        "alt": "Hoepman privacy strategies from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l6-demonstrate",
+      "q": "Why is Demonstrate especially GDPR-relevant (Lecture 6)?",
+      "a": "Controllers must be able to show how the privacy policy and legal requirements are implemented (accountability) - e.g. recent audit evidence.",
+      "tags": [
+        "Lecture6",
+        "strategies",
+        "accountability"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
+        "alt": "Hoepman privacy strategies from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l6-dark-list",
+      "q": "Name privacy dark patterns from the Lecture 6 survey excerpt.",
+      "a": "Privacy Zuckering; Bad Defaults; Forced Registration; Hidden Legalese; Immortal Accounts; Address Book Leeching; Shadow User Profiles (several tied to identity management).",
+      "tags": [
+        "Lecture6",
+        "dark-patterns"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/hoepman-threats.png",
+        "alt": "Hoepman threats diagram from Canvas",
+        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
+        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+      }
+    },
+    {
+      "id": "4280-l6-fogging",
+      "q": "What is the dark pattern "Fogging identification with security"?",
+      "a": "While collecting identity attributes, the service claims the extra data is for the user's security - obscuring the real acquisition purpose (MAXIMIZE/CENTRALIZE/OBSCURE strategies).",
+      "tags": [
+        "Lecture6",
+        "dark-patterns"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/function-creep.svg",
+        "alt": "Fogging ID collection with security",
+        "caption": "Purpose obscured",
+        "shows": "Purpose obscured"
+      }
+    },
+    {
+      "id": "4280-l6-architecture",
+      "q": "How does Lecture 6 summarise software architecture (IEEE 1471-style)?",
+      "a": "Fundamental organisation of a system: components, relationships to each other and the environment, and principles guiding design and evolution.",
+      "tags": [
+        "Lecture6",
+        "architecture"
+      ]
+    },
+    {
+      "id": "4280-l6-iso25010",
+      "q": "Name top-level ISO 25010 quality attributes listed in Lecture 6 (incl. security).",
+      "a": "Functional suitability; performance efficiency; compatibility; usability; reliability; security; maintainability; portability.",
+      "tags": [
+        "Lecture6",
+        "quality"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/cia-triad.svg",
+        "alt": "Security among quality attributes",
+        "caption": "ISO 25010 includes security",
+        "shows": "ISO 25010 includes security"
+      }
+    },
+    {
+      "id": "4280-title-scope",
+      "q": "What lecture themes does ACIT4280 cover after the GDPR foundations?",
+      "a": "PETs (L2); Privacy by Design / protection goals / paradigms (L3); PIA and privacy risk (L4); privacy/security management and cases (L5); privacy engineering, strategies, patterns and dark patterns (L6).",
+      "tags": [
+        "course"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pets-taxonomy.svg",
+        "alt": "Course lecture arc PETs to engineering",
+        "caption": "L2 to L6 arc",
+        "shows": "L2 to L6 arc"
+      }
+    }
+  ]
+}

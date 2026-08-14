@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200" role="img">
+  <rect width="360" height="200" fill="#FFF1D1"/>
+  <text x="180" y="28" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Path anatomy</text>
+  <rect x="24" y="52" width="48" height="36" rx="4" fill="#00B7CD"/>
+  <text x="48" y="75" fill="#FFF1D1" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">C:</text>
+  <text x="82" y="75" fill="#1A1410" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif">\</text>
+  <rect x="94" y="52" width="72" height="36" rx="4" fill="#FF9100"/>
+  <text x="130" y="75" fill="#1A1410" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Users</text>
+  <text x="176" y="75" fill="#1A1410" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif">\</text>
+  <rect x="188" y="52" width="72" height="36" rx="4" fill="#FF9100"/>
+  <text x="224" y="75" fill="#1A1410" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Docs</text>
+  <text x="270" y="75" fill="#1A1410" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif">\</text>
+  <rect x="282" y="52" width="54" height="36" rx="4" fill="#DF301C"/>
+  <text x="309" y="75" fill="#FFF1D1" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">file</text>
+  <text x="48" y="118" fill="#00B7CD" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">drive</text>
+  <text x="177" y="118" fill="#FF9100" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">folders</text>
+  <text x="309" y="118" fill="#DF301C" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">name</text>
+  <text x="180" y="158" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">report.pdf ê filename (name + .pdf extension)</text>
+  <text x="180" y="182" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Full path = drive + folders + filename</text>
+</svg>

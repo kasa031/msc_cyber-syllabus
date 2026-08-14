@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" role="img" aria-label="GDPR roles: controller, processor, data subject">
+  <rect width="560" height="300" fill="#FFF1D1"/>
+  <text x="280" y="28" fill="#1A1410" font-size="16" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">GDPR roles (who does what)</text>
+  <rect x="30" y="55" width="150" height="110" rx="6" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
+  <text x="105" y="85" fill="#FFFBF0" font-size="14" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Controller</text>
+  <text x="105" y="110" fill="#FFF1D1" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Decides WHY and</text>
+  <text x="105" y="128" fill="#FFF1D1" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">HOW data is used</text>
+  <text x="105" y="148" fill="#FFF1D1" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">(e.g. a company)</text>
+  <path d="M185 110 H215" stroke="#1A1410" stroke-width="2" marker-end="url(#a)"/>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1A1410"/></marker></defs>
+  <text x="200" y="100" fill="#DF301C" font-size="11" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">instructs</text>
+  <rect x="220" y="55" width="150" height="110" rx="6" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+  <text x="295" y="85" fill="#1A1410" font-size="14" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Processor</text>
+  <text x="295" y="110" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Processes data</text>
+  <text x="295" y="128" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">ON BEHALF of</text>
+  <text x="295" y="148" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">the controller</text>
+  <rect x="400" y="55" width="140" height="110" rx="6" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
+  <text x="470" y="85" fill="#FFFBF0" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Data subject</text>
+  <text x="470" y="110" fill="#FFF1D1" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">The person the</text>
+  <text x="470" y="128" fill="#FFF1D1" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">data is about</text>
+  <text x="470" y="148" fill="#FFF1D1" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">(you / a customer)</text>
+  <rect x="30" y="190" width="500" height="85" rx="6" fill="#ffffff" stroke="#1A1410" stroke-width="1.5"/>
+  <text x="280" y="218" fill="#1A1410" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Remember</text>
+  <text x="280" y="242" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Controller = decides purposes. Processor = follows instructions (Art. 28 contract).</text>
+  <text x="280" y="262" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Data subject = natural person with rights (access, erasure, ...).</text>
+</svg>

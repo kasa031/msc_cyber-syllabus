@@ -1,0 +1,486 @@
+{
+  "course": "ACIT4100",
+  "title": "Understanding & Communicating Research",
+  "cards": [
+    {
+      "id": "4100-zotero",
+      "q": "What do you use Zotero (or similar) for in research work?",
+      "a": "Reference management: store sources, organise a literature survey, and generate citations/reference lists (APA7 / course requirements).",
+      "tags": [
+        "tools",
+        "references"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/zotero.svg",
+        "alt": "Reference management illustration",
+        "caption": "Zotero stores sources and builds citations",
+        "shows": "Reference managers keep PDFs/metadata and generate APA reference lists."
+      }
+    },
+    {
+      "id": "4100-litsearch",
+      "q": "Name three sensible steps in a literature search (as the course trains).",
+      "a": "1) Clarify topic/question and search terms. 2) Search relevant databases and sort/categorise hits. 3) Critically assess sources and build a taxonomy/spreadsheet for the essay.",
+      "tags": [
+        "literature"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/research-process-clear.svg",
+        "alt": "Research process",
+        "caption": "Literature search is a clear process",
+        "shows": "Question -> search -> assess -> write and cite."
+      }
+    },
+    {
+      "id": "4100-imrad",
+      "q": "What is IMRaD, and when is it used?",
+      "a": "Introduction-Methods-Results-and-Discussion: common structure in empirical research articles. The ACIT4100 essay is not a typical IMRaD literature review-it should understand and communicate research in a classic/narrative style.",
+      "tags": [
+        "genre"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/imrad.svg",
+        "alt": "IMRaD",
+        "caption": "IMRaD structures research articles",
+        "shows": "Introduction/Discussion broad; Methods/Results focused."
+      }
+    },
+    {
+      "id": "4100-claim",
+      "q": "What distinguishes a claim from evidence in academic text / Toulmin?",
+      "a": "A claim is what you assert; evidence/data supports the claim. The Toulmin model (used in the course's rhetoric/ethics assessment) separates claim, data/grounds, warrant, and more.",
+      "tags": [
+        "rhetoric",
+        "Toulmin"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/toulmin.svg",
+        "alt": "Claim versus evidence boxes",
+        "caption": "Toulmin-style distinction",
+        "shows": "Toulmin-style distinction"
+      }
+    },
+    {
+      "id": "4100-peer",
+      "q": "Why is peer review important?",
+      "a": "Quality control before publication: other researchers assess method, argumentation and contribution-a central part of the publication tradition you should describe in the essay.",
+      "tags": [
+        "publishing"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/peer-review-clear.svg",
+        "alt": "Peer review",
+        "caption": "Peer review checks quality before publication",
+        "shows": "Author -> journal -> expert reviewers."
+      }
+    },
+    {
+      "id": "4100-rq",
+      "q": "What characterises a good research question for this course?",
+      "a": "Scoped, relevant to ACIT/your specialisation, researchable via literature (not anthropological fieldwork), and suited to make methods, ethics and the research field visible-not just a 'technology product'.",
+      "tags": [
+        "essay"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/rq-focus.svg",
+        "alt": "Research question focus",
+        "caption": "A clear research question keeps the essay focused",
+        "shows": "One evaluable question beats a vague theme dump."
+      }
+    },
+    {
+      "id": "4100-cite",
+      "q": "When must you cite in academic text?",
+      "a": "When you use others' ideas, data, wording or unique content-including when paraphrasing. Missing citation = plagiarism of ideas/words. The course requires an APA7-based standard.",
+      "tags": [
+        "plagiarism",
+        "APA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/apa-cite-clear.svg",
+        "alt": "APA citation",
+        "caption": "Always credit sources (APA)",
+        "shows": "Paraphrase still needs a citation."
+      }
+    },
+    {
+      "id": "4100-essay-focus",
+      "q": "What is the 2026 essay focus shift in ACIT4100?",
+      "a": "Away from mainly describing a technology, toward understanding and communicating research: methods, history/tradition, notable researchers/venues, regulation/ethics, industry/society relations-summarise and synthesise others' work, not invent new empirical findings.",
+      "tags": [
+        "essay",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/research-process-clear.svg",
+        "alt": "Research process",
+        "caption": "Essay = communicate research clearly",
+        "shows": "Focus the question, use quality sources, synthesise and cite."
+      }
+    },
+    {
+      "id": "4100-styles",
+      "q": "Which writing styles must the ACIT4100 essay mainly use?",
+      "a": "Classic style (Steven Pinker, covered in the course) and/or narrative style (short-story techniques). Hybrids (classic with narrative 'cut-scenes') are allowed. Style cannot compensate for thin research content.",
+      "tags": [
+        "classic-style",
+        "narrative"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Essay structure supporting required styles",
+        "caption": "Classic and narrative craft",
+        "shows": "Classic and narrative craft"
+      }
+    },
+    {
+      "id": "4100-apa7-strict",
+      "q": "How does ACIT4100's referencing standard differ from plain APA7 for scientific papers?",
+      "a": "Based on APA7 but stricter for scientific papers: include page number and paragraph number. Books/websites follow conventional APA7. See Kildekompasset APA 7th.",
+      "tags": [
+        "APA",
+        "references"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/apa-cite-clear.svg",
+        "alt": "APA citation",
+        "caption": "APA anatomy: Author. (Year). Title. Source.",
+        "shows": "Colour-coded reference parts. In-text: (Author, Year)."
+      }
+    },
+    {
+      "id": "4100-assess-stars",
+      "q": "Which assessment categories are weighted most heavily (***) in the essay rubric?",
+      "a": "Literature survey (***) and Research methods (***). Rhetoric and Flow/structure are **; Ethics **; Visual presentation and Language/other are *.",
+      "tags": [
+        "assessment"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/assess-stars.svg",
+        "alt": "Star-weighted assessment categories",
+        "caption": "Triple-star criteria matter most",
+        "shows": "Triple-star criteria matter most"
+      }
+    },
+    {
+      "id": "4100-lit-threshold",
+      "q": "What literature volume is discussed in assessment / failure criteria?",
+      "a": "Rubric: ~10 research articles is low, ~20 is high (how they are used matters more). Failure risk if fewer than 10 research papers. The course plan notes a mandatory spreadsheet survey (threshold can differ by document year-follow current Canvas/2026 requirements).",
+      "tags": [
+        "literature",
+        "requirements"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/litsearch.svg",
+        "alt": "Literature volume expectation",
+        "caption": "Enough quality sources",
+        "shows": "Enough quality sources"
+      }
+    },
+    {
+      "id": "4100-ai-declaration",
+      "q": "What AI-related requirement can fail the essay regardless of AI use?",
+      "a": "A 'Declaration of AI use' at the end is required whether or not AI was used. Using text-generation engines to circumvent writing the essay yourself can be treated as cheating.",
+      "tags": [
+        "AI",
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ai-declare.svg",
+        "alt": "Mandatory AI use declaration",
+        "caption": "Missing declaration can fail",
+        "shows": "Missing declaration can fail"
+      }
+    },
+    {
+      "id": "4100-plagiarism-forms",
+      "q": "Name major plagiarism forms from the Avoiding Plagiarism reading.",
+      "a": "Verbatim (word-for-word / mosaic); plagiarism of ideas (paraphrase without credit); self-plagiarism/duplicate publication; loose paraphrasing that keeps another's logic; failing to cite non-scholarly sources that contributed unique information.",
+      "tags": [
+        "plagiarism"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/plagiarism-vs-cite.svg",
+        "alt": "Plagiarism forms versus proper citation",
+        "caption": "Avoiding plagiarism reading",
+        "shows": "Avoiding plagiarism reading"
+      }
+    },
+    {
+      "id": "4100-mandatory",
+      "q": "What are the two mandatory goal-posts before the essay exam (from saved course pages)?",
+      "a": "1) Literature taxonomy/spreadsheet (scientific papers threshold for approval). 2) Video presentation 5-10 minutes on the essay topic. (Exact due dates/word counts: verify current Canvas-saved PDFs and course plan differ slightly by year.)",
+      "tags": [
+        "requirements"
+      ]
+    },
+    {
+      "id": "4100-syllabus-topics",
+      "q": "Give examples of weekly themes from the saved ACIT4100 syllabus.",
+      "a": "Rhetoric & persuasive arguments; searching/sorting literature; philosophy of science; research methods; using AI for research; classic style; narrative templates; public speaking; role of the expert; plagiarism; Q&A.",
+      "tags": [
+        "syllabus"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Weekly themes feeding the research funnel",
+        "caption": "Syllabus topic examples",
+        "shows": "Syllabus topic examples"
+      }
+    },
+    {
+      "id": "4100-ethics-rubric",
+      "q": "What should the ethics discussion in the essay cover (assessment criteria)?",
+      "a": "Identify ethical issues (professional ethics, research ethics, societal impact); present different viewpoints; de-construct arguments. The course plan also requires ethical challenges of research and societal uses.",
+      "tags": [
+        "ethics"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ethics-essay.svg",
+        "alt": "Stakeholders harms duties ethics lens",
+        "caption": "Ethics discussion criteria",
+        "shows": "Ethics discussion criteria"
+      }
+    },
+    {
+      "id": "4100-disqualify",
+      "q": "List key reasons an essay may fail (from assessment information).",
+      "a": "Missing AI-use declaration; insufficient research literature (<10); not evaluable against criteria; insufficient research focus; not technology-related; no standard referencing; too much rewrite of sources ('not your own text'). Cheating: generative text to bypass writing, uncited copying, using others' paper lists instead of own searches.",
+      "tags": [
+        "assessment",
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ai-declare.svg",
+        "alt": "Integrity failures that can fail the essay",
+        "caption": "Declaration and plagiarism risks",
+        "shows": "Declaration and plagiarism risks"
+      }
+    },
+    {
+      "id": "4100-wordcount-2026",
+      "q": "What is the ACIT4100 essay word count for 2026/2027?",
+      "a": "Individual essay 4500-5500 words (A-F). All aids allowed if sources are cited correctly.",
+      "tags": [
+        "essay",
+        "2026",
+        "requirements"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Essay length and structure",
+        "caption": "Check current Canvas too",
+        "shows": "Check current Canvas too"
+      }
+    },
+    {
+      "id": "4100-essay-must-include",
+      "q": "Which three content blocks must the ACIT4100 essay include (course plan)?",
+      "a": "1) Literature survey. 2) Discussion of methods used in the reviewed material. 3) Ethical challenges (research ethics and societal uses).",
+      "tags": [
+        "essay",
+        "requirements"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Survey methods ethics funnel",
+        "caption": "Three mandatory content areas",
+        "shows": "Three mandatory content areas"
+      }
+    },
+    {
+      "id": "4100-mandatory-7",
+      "q": "What does the saved course plan say about the literature spreadsheet threshold?",
+      "a": "Mandatory spreadsheet/taxonomy with meta-info and at least 7 relevant research papers (assessment documents also discuss ~10 as a failure risk - follow current Canvas).",
+      "tags": [
+        "requirements",
+        "literature"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/litsearch.svg",
+        "alt": "Literature spreadsheet volume",
+        "caption": "Meet the published threshold",
+        "shows": "Meet the published threshold"
+      }
+    },
+    {
+      "id": "4100-video",
+      "q": "What is the video goal-post before the essay exam?",
+      "a": "A 5-10 minute recording/presentation on the essay topic (mandatory work requirement).",
+      "tags": [
+        "requirements"
+      ]
+    },
+    {
+      "id": "4100-synthesize",
+      "q": "Are you expected to produce new empirical findings in the ACIT4100 essay?",
+      "a": "No. Summarize, synthesize and communicate what others have published; you are not trained as anthropologists inventing new fieldwork models.",
+      "tags": [
+        "essay",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Synthesize published research",
+        "caption": "Communicate existing knowledge",
+        "shows": "Communicate existing knowledge"
+      }
+    },
+    {
+      "id": "4100-apa-page-para",
+      "q": "For scientific papers in ACIT4100 APA7-based referencing, what extra detail is required?",
+      "a": "Include page number and paragraph number (stricter than plain APA7). Books and websites follow conventional APA7. See Kildekompasset APA 7th.",
+      "tags": [
+        "APA",
+        "references"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/apa-anatomy.svg",
+        "alt": "APA citation with page and paragraph",
+        "caption": "Stricter for papers",
+        "shows": "Stricter for papers"
+      }
+    },
+    {
+      "id": "4100-toulmin-parts",
+      "q": "Name the main Toulmin parts used in the course's rhetoric/ethics work.",
+      "a": "Claim (assertion), data/grounds (evidence), and warrant (why the evidence supports the claim); further parts may include backing, qualifier, and rebuttal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/toulmin.svg",
+        "alt": "Claim data warrant Toulmin",
+        "caption": "Argument structure",
+        "shows": "Argument structure"
+      }
+    },
+    {
+      "id": "4100-paraphrase",
+      "q": "Does paraphrasing remove the need to cite?",
+      "a": "No. Using another's ideas or unique content in your own words still requires citation; otherwise it is idea plagiarism.",
+      "tags": [
+        "plagiarism",
+        "APA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/plagiarism-vs-cite.svg",
+        "alt": "Paraphrase still needs citation",
+        "caption": "Credit the source",
+        "shows": "Credit the source"
+      }
+    },
+    {
+      "id": "4100-vancouver",
+      "q": "What authorship convention is named in the ACIT4100 learning outcomes?",
+      "a": "The Vancouver convention on authorship (who qualifies as an author) - part of research integrity and publishing tradition.",
+      "tags": [
+        "publishing",
+        "integrity"
+      ]
+    },
+    {
+      "id": "4100-methods-types",
+      "q": "What method families should you be able to discuss when reviewing papers?",
+      "a": "Qualitative and quantitative research methods (and how papers in your field typically design experiments/labs or studies) - identify methods used in the literature you survey.",
+      "tags": [
+        "methods"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/imrad.svg",
+        "alt": "Methods section awareness",
+        "caption": "Name methods in the survey",
+        "shows": "Name methods in the survey"
+      }
+    },
+    {
+      "id": "4100-phil-science",
+      "q": "Give examples of philosophy-of-science themes listed for ACIT4100.",
+      "a": "Falsificationism/paradigms and traditions within philosophy of science (explicit or implicit in a research field) - connect them to how your field publishes and argues.",
+      "tags": [
+        "syllabus",
+        "philosophy"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Philosophy of science in the funnel",
+        "caption": "Paradigms and falsification",
+        "shows": "Paradigms and falsification"
+      }
+    },
+    {
+      "id": "4100-perspectives",
+      "q": "List example perspectives the 2026 essay requirements suggest for describing a research field.",
+      "a": "Methods/methodologies; lab/experimental designs; philosophy-of-science tradition; publication venues; history of the field; codes of conduct/regulation; industry/society relations; ethical effects.",
+      "tags": [
+        "essay",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Essay perspectives outline",
+        "caption": "Mix perspectives with criteria",
+        "shows": "Mix perspectives with criteria"
+      }
+    },
+    {
+      "id": "4100-kildekompasset",
+      "q": "Where does the course point you for APA 7th details?",
+      "a": "Kildekompasset APA 7th (Norwegian and English): https://www.kildekompasset.no/en/referencing-styles/apa-7th/",
+      "tags": [
+        "APA",
+        "tools"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/apa-anatomy.svg",
+        "alt": "APA reference anatomy",
+        "caption": "Use Kildekompasset",
+        "shows": "Use Kildekompasset"
+      }
+    },
+    {
+      "id": "4100-classic-pinker",
+      "q": "What is "classic style" in this course?",
+      "a": "Writing style as described by Steven Pinker and covered in class - clear, reader-oriented prose suitable for popular-science / expert communication (may be hybridised with narrative cut-scenes).",
+      "tags": [
+        "classic-style"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Classic style essay craft",
+        "caption": "Pinker classic style",
+        "shows": "Pinker classic style"
+      }
+    }
+  ]
+}

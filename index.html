@@ -1,0 +1,3477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tutorial &amp; Quiz | MSc Cybersecurity Practise Syllabus 1st Year</title>
+  <meta name="description" content="Terminal tutorial and Anki-style spaced-repetition quiz for MSc Cybersecurity Practise Syllabus 1st Year. Works offline. No personal data." />
+  <meta property="og:title" content="MSc Cybersecurity Practise Syllabus 1st Year" />
+  <meta property="og:description" content="Terminal tutorial and spaced-repetition quiz. Offline-friendly. No personal data." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#DF301C" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="MSc Cyber Y1" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/favicon.svg?v=lock3" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock3" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock3" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock3" sizes="192x192" />
+  <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
+  <link rel="stylesheet" href="fonts/fonts.css" />
+
+  <style>
+    /* First-paint: cream canvas before fonts settle (avoids white FOUC flash) */
+    html { background: #FFF1D1; }
+
+    :root {
+      /* Canonical palette - do not change without owner confirmation */
+      --palette-red: #DF301C;
+      --palette-orange: #FF9100;
+      --palette-cream: #FFF1D1;
+      --palette-turquoise: #00B7CD;
+
+      --ink: #1A1410;
+      --ink-2: #241C16;
+      --ink-3: #2E241C;
+      --slate: #3D342C;
+      --mist: #8A7B6A;
+      --fog: #C9BBA8;
+      --paper: var(--palette-cream);
+      --paper-2: #FFE8B8;
+      --surface: #FFFBF0;
+      --line: #E5D4A8;
+      --line-soft: #F0E4C0;
+      --signal: var(--palette-turquoise);
+      --signal-bright: var(--palette-turquoise);
+      --signal-soft: #CCF4F8;
+      --signal-deep: var(--palette-turquoise);
+      --ochre: var(--palette-orange);
+      --ochre-soft: #FFE4B3;
+      --warn: var(--palette-red);
+      --warn-hot: #C42818;
+      --warn-soft: #FAD5CF;
+      --console: #1A1410;
+      --console-fg: #FFF1D1;
+      --console-dim: #C4B49A;
+      --prompt: var(--palette-turquoise);
+      --max: 52rem;
+      --page-gutter: 1.25rem;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --focus: 0 0 0 3px rgba(0, 183, 205, 0.45);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --touch: 2.75rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+      overflow-x: hidden;
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #FFF1D1;
+      background-attachment: fixed;
+      min-height: 100vh;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+      padding-left: var(--safe-left);
+      padding-right: var(--safe-right);
+      padding-bottom: var(--safe-bottom);
+    }
+    :focus-visible { outline: none; box-shadow: var(--focus); }
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    [tabindex]:focus-visible {
+      outline: none;
+      box-shadow: var(--focus);
+    }
+
+    /* -- Hero -- */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #FFF1D1;
+      color: var(--ink);
+      padding: calc(clamp(2.5rem, 8vw, 5.5rem) + var(--safe-top)) 0 clamp(3rem, 7vw, 4.5rem);
+      min-height: min(72vh, 36rem);
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--warn);
+      z-index: 2;
+    }
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      padding-left: var(--page-gutter);
+      padding-right: var(--page-gutter);
+      text-align: left;
+      animation: heroIn 0.9s var(--ease) both;
+    }
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(1.25rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .brand {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: clamp(0.72rem, 2.1vw, 0.95rem);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+      color: var(--warn);
+      margin: 0 0 1.25rem;
+      display: inline-block;
+      max-width: min(100%, 36rem);
+      padding-bottom: 0.4rem;
+      border-bottom: 3px solid var(--warn);
+      text-wrap: pretty;
+    }
+    .brand-courses { color: var(--slate); font-weight: 500; }
+    .brand-course {
+      font: inherit;
+      font-weight: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .brand-course:hover {
+      color: var(--signal);
+      border-bottom-color: var(--signal);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    .brand-course:focus-visible {
+      color: var(--signal);
+      border-bottom-color: var(--signal);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      border-radius: 2px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5.6vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+      max-width: min(16ch, 100%);
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .hero-lede {
+      margin: 0 0 1.85rem;
+      max-width: 30rem;
+      color: var(--slate);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      align-self: flex-start;
+      gap: 0.65rem;
+      font: inherit;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.85rem 1.35rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: var(--warn);
+      color: #fff;
+      text-decoration: none;
+      margin: 0;
+      transition: background 0.2s, transform 0.2s var(--ease);
+    }
+    .cta:hover { background: var(--warn-hot); transform: translateY(-1px); }
+    .cta:active { transform: translateY(0); }
+    .cta-arrow {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-weight: 500;
+      transition: transform 0.2s var(--ease);
+    }
+    .cta:hover .cta-arrow { transform: translateX(3px); }
+
+    /* -- Shell -- */
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--page-gutter) 4rem;
+    }
+    .shell-lift {
+      margin-top: -1.75rem;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 640px) {
+      :root { --page-gutter: 1rem; }
+      .shell { padding: 0 var(--page-gutter) 3.25rem; }
+      .shell-lift { margin-top: -1.25rem; }
+    }
+
+    /* -- Tabs -- */
+    .mode-tabs {
+      display: flex;
+      gap: 0;
+      margin: 0 0 1.5rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-2);
+      border-radius: 4px 4px 0 0;
+      overflow: visible;
+    }
+    .mode-tabs button {
+      flex: 1;
+      min-width: 0;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 0.95rem 1rem;
+      min-height: var(--touch);
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      cursor: pointer;
+      background: transparent;
+      color: #000;
+      transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+    .mode-tabs button:hover { color: #000; background: rgba(26,20,16,0.04); transform: translateY(-1px); }
+    .mode-tabs button.active {
+      color: #fff;
+      border-bottom-color: var(--palette-turquoise);
+      background: var(--palette-turquoise);
+    }
+    .mode-tabs button.active:hover {
+      color: #DF301C;
+      background: var(--palette-turquoise);
+      transform: translateY(-1px);
+    }
+    .mode-tabs button:active { transform: translateY(0); }
+
+    .panel { display: none; animation: panelIn 0.28s var(--ease) both; }
+    .panel.active { display: block; }
+    @keyframes panelIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* -- Tutorial surface -- */
+    .lab {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      padding: 1.5rem 1.25rem 1.35rem;
+    }
+    @media (min-width: 560px) {
+      .lab { padding: 1.75rem 1.6rem 1.5rem; }
+    }
+
+    .setup-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem;
+    }
+    .setup-lede {
+      margin: 0 0 1.35rem;
+      color: var(--slate);
+      max-width: 38rem;
+    }
+    .track-label {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin: 0 0 0.65rem;
+    }
+    .track-pick {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0 0 1rem;
+    }
+    @media (min-width: 520px) {
+      .track-pick { grid-template-columns: 1fr 1fr; }
+    }
+    .track-btn {
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      background: var(--paper-2);
+      border: 1.5px solid var(--line);
+      border-radius: 4px;
+      padding: 1rem 1.1rem;
+      color: var(--ink);
+      transition: border-color 0.15s, background 0.15s, transform 0.15s var(--ease);
+    }
+    .track-btn:hover {
+      border-color: var(--signal);
+      background: var(--signal-soft);
+      transform: translateY(-1px);
+    }
+    .track-btn strong {
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+    }
+    .track-btn span { font-size: 0.88rem; color: var(--slate); line-height: 1.4; }
+    .track-btn .mono-hint {
+      display: block;
+      margin-top: 0.45rem;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--signal);
+    }
+
+    .resume-note {
+      margin: 0.85rem 0 0;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--slate);
+      background: var(--paper-2);
+      border-left: 3px solid var(--signal);
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* -- Progress -- */
+    .tut-progress-wrap { margin-bottom: 1.35rem; }
+    .tut-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+      font-size: 0.85rem;
+      color: var(--slate);
+    }
+    .tut-progress-meta strong {
+      font-weight: 600;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .meta-stats {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.75rem;
+    }
+    .meta-stats .stat {
+      color: var(--slate);
+    }
+    .meta-stats .stat b {
+      color: var(--ochre);
+      font-weight: 700;
+    }
+    .meta-stats .stat[title*="streak"] b,
+    .meta-stats .stat[title*="rad"] b {
+      color: var(--ochre);
+      background: var(--ochre-soft);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+    }
+    .tut-bar {
+      height: 4px;
+      background: var(--line-soft);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .tut-bar > span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--signal);
+      border-radius: 2px;
+      transition: width 0.45s var(--ease);
+    }
+
+    /* -- Step content -- */
+    .step-stage {
+      animation: stepIn 0.4s var(--ease) both;
+    }
+    .step-stage.swap {
+      animation: stepSwap 0.35s var(--ease) both;
+    }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(0.5rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes stepSwap {
+      from { opacity: 0; transform: translateX(0.4rem); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .tut-tag {
+      display: inline-block;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--signal);
+      margin-bottom: 0.55rem;
+    }
+    .tut-tag.rep { color: var(--ochre); }
+    .tut-prompt {
+      font-size: clamp(1.2rem, 3vw, 1.45rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin: 0 0 0.4rem;
+      color: var(--ink);
+    }
+    .tut-why {
+      color: var(--slate);
+      margin: 0 0 1.15rem;
+      font-size: 0.95rem;
+    }
+
+    /* -- Console -- */
+    .console {
+      background: var(--console);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--ink-3);
+      margin: 0 0 0.85rem;
+    }
+    .console-chrome {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      background: var(--ink-2);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .console-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .console-dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5A4A3A;
+      display: block;
+    }
+    .console-title {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.7rem;
+      color: var(--console-dim);
+      margin-left: 0.25rem;
+    }
+    .console-body {
+      padding: 0.85rem 1rem 1rem;
+    }
+    .cmd-row {
+      display: flex;
+      gap: 0.55rem;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .prompt-char {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-weight: 600;
+      color: var(--prompt);
+      align-self: center;
+      font-size: 1.05rem;
+      user-select: none;
+    }
+    #cmd-input {
+      flex: 1;
+      min-width: 10rem;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.95rem;
+      padding: 0.7rem 0.8rem;
+      border: 1.5px solid #4A3E32;
+      border-radius: 3px;
+      background: #241C16;
+      color: #FFF1D1;
+      caret-color: var(--prompt);
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    #cmd-input::placeholder { color: var(--console-dim); opacity: 1; }
+    #cmd-input:focus {
+      border-color: var(--palette-turquoise);
+      box-shadow: 0 0 0 2px rgba(0, 183, 205, 0.35);
+    }
+    #cmd-input.wrong {
+      border-color: var(--warn);
+      background: #2A1512;
+      animation: shake 0.35s ease;
+    }
+    #cmd-input.ok {
+      border-color: var(--signal-bright);
+      background: #122428;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      75% { transform: translateX(3px); }
+    }
+
+    .btn {
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      padding: 0.7rem 1.1rem;
+      background: var(--signal);
+      color: #fff;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .btn:hover { background: var(--signal-bright); }
+    .btn-primary {
+      background: var(--warn);
+    }
+    .btn-primary:hover { background: var(--warn-hot); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn.ghost {
+      background: transparent;
+      color: var(--slate);
+      border: 1px solid var(--line);
+    }
+    .btn.ghost:hover {
+      background: var(--paper-2);
+      color: var(--ink);
+      border-color: var(--mist);
+    }
+    .btn.console-check {
+      background: var(--signal-deep);
+      align-self: stretch;
+    }
+    .btn.console-check:hover { background: var(--signal-bright); }
+
+    .tut-feedback {
+      min-height: 1.35rem;
+      margin: 0.15rem 0 0.85rem;
+      font-size: 0.92rem;
+      transition: opacity 0.2s;
+    }
+    .tut-feedback.ok { color: var(--signal); font-weight: 500; }
+    .tut-feedback.soft { color: var(--ochre); }
+    .tut-feedback.hint-box {
+      background: var(--ochre-soft);
+      border-left: 3px solid var(--ochre);
+      padding: 0.7rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      color: var(--ink);
+      margin-top: 0.35rem;
+    }
+    .tut-feedback.reveal-box {
+      background: var(--signal-soft);
+      border-left: 3px solid var(--signal);
+      padding: 0.7rem 0.9rem;
+      border-radius: 0 4px 4px 0;
+      color: var(--ink);
+      margin-top: 0.35rem;
+    }
+    .tut-feedback code {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.88em;
+      background: rgba(26,20,16,0.08);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+    }
+
+    .tut-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .tut-done {
+      text-align: center;
+      padding: 1.75rem 0.5rem 0.5rem;
+      animation: stepIn 0.5s var(--ease) both;
+    }
+    .tut-done h2 {
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.65rem;
+      border: none;
+      padding: 0;
+      color: var(--ink);
+    }
+    .tut-done p {
+      color: var(--slate);
+      max-width: 28rem;
+      margin: 0 auto 0.65rem;
+    }
+    .tut-done .tut-actions { justify-content: center; margin-top: 1.25rem; }
+
+    .hidden { display: none !important; }
+
+    /* -- Exercises -- */
+    .ov-wrap {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      padding: 1.5rem 1.25rem 2rem;
+    }
+    @media (min-width: 560px) {
+      .ov-wrap { padding: 1.75rem 1.6rem 2.25rem; }
+    }
+
+    nav.toc {
+      background: var(--paper-2);
+      border-left: 3px solid var(--signal);
+      padding: 1rem 1.2rem;
+      margin: 0 0 2rem;
+      border-radius: 0 4px 4px 0;
+    }
+    nav.toc strong {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate);
+      font-weight: 600;
+    }
+    nav.toc ol {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+      columns: 1;
+    }
+    @media (min-width: 520px) {
+      nav.toc ol { columns: 2; column-gap: 1.5rem; }
+    }
+    nav.toc li { break-inside: avoid; margin: 0.2rem 0; }
+    nav.toc a {
+      color: var(--ink-2);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+    }
+    nav.toc a:hover { color: var(--signal); text-decoration: underline; }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 2.35rem 0 0.75rem;
+      padding-top: 0.65rem;
+      color: var(--ink);
+      border-top: 1px solid var(--line-soft);
+    }
+    .ov-wrap > h2:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 1.15rem 0 0.4rem;
+      color: var(--slate);
+    }
+    p { margin: 0.6rem 0; }
+    a { color: var(--signal); }
+    a:hover { color: var(--signal-bright); }
+    .maal { color: var(--slate); margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
+    .maal strong { color: var(--slate); font-weight: 600; }
+
+    .steps { list-style: none; padding-left: 0; margin: 0.45rem 0 1rem; }
+    .steps li {
+      padding: 0.3rem 0;
+      display: grid;
+      grid-template-columns: 1.7rem 1fr;
+      gap: 0.35rem;
+    }
+    .steps .letter {
+      font-weight: 600;
+      color: var(--signal);
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.9rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 0.75rem 0 1.15rem;
+      background: var(--paper-2);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+      border-bottom: 1px solid var(--line-soft);
+      vertical-align: top;
+    }
+    th {
+      background: var(--ink-2);
+      color: var(--console-fg);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.55); }
+
+    code, kbd {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.86em;
+      background: var(--signal-soft);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+      color: var(--ink);
+    }
+    kbd {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-size: 0.8em;
+    }
+    pre {
+      background: var(--console);
+      color: var(--console-fg);
+      padding: 1rem 1.1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      border-left: 3px solid var(--signal);
+      margin: 0.75rem 0 1.15rem;
+    }
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      font-size: 0.84rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.45rem;
+      border-radius: 2px;
+      background: var(--signal-soft);
+      color: var(--signal);
+      margin-right: 0.3rem;
+    }
+    .badge.ps { background: var(--signal-soft); color: var(--signal-deep); }
+    .badge.arch { background: var(--ochre-soft); color: var(--ochre); }
+    .badge.both { background: var(--signal-soft); color: var(--signal); }
+
+    .callout {
+      background: var(--ochre-soft);
+      border-left: 3px solid var(--ochre);
+      padding: 0.8rem 1rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    details.hint {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.55rem 1rem;
+      margin: 0.65rem 0 1.15rem;
+    }
+    details.hint summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--slate);
+      list-style: none;
+      font-size: 0.95rem;
+      padding: 0.2rem 0;
+    }
+    details.hint summary::-webkit-details-marker { display: none; }
+    details.hint summary::before {
+      content: "+";
+      display: inline-block;
+      width: 1.1rem;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      color: var(--signal);
+      font-weight: 600;
+    }
+    details.hint[open] summary::before { content: "-"; }
+    details.hint[open] summary { margin-bottom: 0.5rem; }
+
+    ul.check { list-style: none; padding-left: 0; }
+    ul.check li {
+      padding: 0.3rem 0 0.3rem 1.55rem;
+      position: relative;
+      color: var(--slate);
+    }
+    ul.check li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      border: 1.5px solid var(--signal);
+      border-radius: 2px;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding: 1.25rem 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--slate);
+      font-size: 0.88rem;
+    }
+    footer a { font-weight: 500; }
+    footer .footer-copy { margin: 0; }
+    footer .footer-privacy {
+      margin: 0.55rem 0 0;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--mist);
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* -- Course tabs -- */
+    .course-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0 0 0.85rem;
+      padding: 0.35rem;
+      background: #FF9100;
+      border: none;
+      border-radius: 4px;
+    }
+    .course-tabs button {
+      flex: 1 1 auto;
+      min-width: 7.5rem;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.7rem 0.75rem;
+      min-height: var(--touch);
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      background: transparent;
+      color: #000;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+    .course-tabs button:not(.active):hover {
+      background: #00B7CD;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .course-tabs button.active {
+      background: var(--palette-turquoise);
+      color: #fff;
+    }
+    .course-tabs button.active:hover {
+      color: #DF301C;
+      background: var(--palette-turquoise);
+      transform: translateY(-1px);
+    }
+    .course-tabs button:active { transform: translateY(0); }
+    .course-panel { display: none; }
+    .course-panel.active { display: block; animation: panelIn 0.28s var(--ease) both; }
+
+    /* -- Quiz / SR -- */
+    .quiz-wrap {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1.5rem 1.25rem 1.75rem;
+    }
+    @media (min-width: 560px) {
+      .quiz-wrap { padding: 1.75rem 1.6rem 2rem; }
+    }
+    .quiz-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 0 0 1.15rem;
+    }
+    .quiz-meta .setup-title { margin: 0; }
+    .quiz-queue {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--slate);
+      margin: 0;
+    }
+    .quiz-queue b { color: var(--signal); font-weight: 600; }
+    .quiz-card {
+      position: relative;
+      min-height: 11rem;
+      background: var(--paper-2);
+      border: 1.5px solid var(--line);
+      border-radius: 4px;
+      padding: 1.35rem 1.2rem;
+      margin: 0 0 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .quiz-card.revealed {
+      border-color: var(--signal);
+      background: var(--surface);
+    }
+    .quiz-label {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin: 0 0 0.55rem;
+    }
+    .quiz-q {
+      font-size: clamp(1.15rem, 2.8vw, 1.35rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin: 0;
+      color: var(--ink);
+    }
+    .quiz-figure {
+      margin: 0.85rem 0 0;
+      padding: 0.65rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .quiz-figure.hidden { display: none; }
+    .quiz-figure-label {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin: 0 0 0.45rem;
+    }
+    .quiz-figure-media {
+      display: block;
+      width: 100%;
+      max-width: 28rem;
+      margin: 0 auto;
+      line-height: 0;
+    }
+    .quiz-figure-media svg,
+    .quiz-figure-media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 18rem;
+      object-fit: contain;
+    }
+    .quiz-figure-caption {
+      margin: 0.5rem 0 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      text-align: center;
+    }
+    .quiz-figure-shows {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--slate);
+      text-align: center;
+    }
+    .quiz-figure-shows.hidden,
+    .quiz-figure-attr.hidden { display: none; }
+    .quiz-figure-attr {
+      margin: 0.35rem 0 0;
+      font-size: 0.68rem;
+      line-height: 1.35;
+      color: var(--slate);
+      text-align: center;
+      opacity: 0.9;
+    }
+    .quiz-a {
+      margin: 1rem 0 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line-soft);
+      color: var(--slate);
+      font-size: 1.02rem;
+      line-height: 1.5;
+    }
+    .quiz-a.hidden { display: none; }
+    .quiz-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.85rem 0 0;
+    }
+    .quiz-tags span {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      padding: 0.15rem 0.4rem;
+      background: var(--signal-soft);
+      color: var(--signal);
+      border-radius: 2px;
+    }
+    .quiz-grades {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+    @media (min-width: 480px) {
+      .quiz-grades { grid-template-columns: repeat(4, 1fr); }
+    }
+    .quiz-grades button {
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 0.65rem 0.45rem 0.7rem;
+      min-height: var(--touch);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      border: 1.5px solid var(--line);
+      background: var(--paper-2);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.12rem;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s var(--ease);
+    }
+    .quiz-grades .grade-ivl {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 1;
+      line-height: 1;
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      background: rgba(26,20,16,0.12);
+      margin-bottom: 0.2rem;
+    }
+    .quiz-grades button:hover {
+      transform: translateY(-1px);
+      border-color: var(--mist);
+    }
+    .quiz-grades button[data-grade="again"] {
+      background: var(--warn);
+      color: #fff;
+      border-color: var(--warn);
+    }
+    .quiz-grades button[data-grade="again"]:hover { background: var(--warn-hot); border-color: var(--warn-hot); }
+    .quiz-grades button[data-grade="again"] .grade-ivl { background: rgba(255,241,209,0.22); }
+    .quiz-grades button[data-grade="hard"] {
+      background: var(--ochre);
+      color: var(--ink);
+      border-color: var(--ochre);
+    }
+    .quiz-grades button[data-grade="hard"]:hover { background: #E88200; border-color: #E88200; }
+    .quiz-grades button[data-grade="good"] {
+      background: var(--palette-turquoise);
+      color: #fff;
+      border-color: var(--palette-turquoise);
+    }
+    .quiz-grades button[data-grade="good"]:hover { background: var(--signal-bright); border-color: var(--signal-bright); color: #fff; }
+    .quiz-grades button[data-grade="good"] .grade-ivl { background: rgba(255,241,209,0.22); }
+    .quiz-grades button[data-grade="easy"] {
+      background: var(--signal-deep);
+      color: #fff;
+      border-color: var(--signal-deep);
+    }
+    .quiz-grades button[data-grade="easy"] .grade-ivl { background: rgba(255,241,209,0.22); }
+    .quiz-grades button[data-grade="easy"]:hover { background: var(--signal-bright); border-color: var(--signal-bright); }
+    .quiz-empty {
+      text-align: center;
+      padding: 2.5rem 1.25rem;
+      color: var(--slate);
+      background: var(--paper-2);
+      border: 1.5px dashed var(--line);
+      border-radius: 4px;
+      margin: 0 0 0.35rem;
+    }
+    .quiz-empty h3 {
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0 0 0.55rem;
+      border: none;
+      padding: 0;
+    }
+    .quiz-empty p {
+      max-width: 22rem;
+      margin: 0 auto;
+      line-height: 1.5;
+      font-size: 0.98rem;
+    }
+    .quiz-footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.45rem 1rem;
+      margin-top: 1rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--line-soft);
+    }
+    .quiz-footer-meta .quiz-shortcuts {
+      margin: 0;
+      padding-top: 0;
+      border-top: none;
+      flex: 1 1 12rem;
+    }
+    .quiz-reset-quiet {
+      flex: 0 0 auto;
+      margin-left: auto;
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 500;
+      line-height: 1.3;
+      padding: 0.28rem 0.55rem;
+      min-height: 0;
+      color: var(--mist);
+      background: var(--palette-cream);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+    .quiz-reset-quiet:hover {
+      color: var(--slate);
+      border-color: var(--slate);
+      opacity: 1;
+    }
+    .quiz-reset-quiet:focus-visible {
+      outline: none;
+      box-shadow: var(--focus);
+    }
+    .sub-tabs-note {
+      font-size: 0.85rem;
+      color: var(--slate);
+      margin: 0 0 0.75rem;
+    }
+    .course-tabs-sticky {
+      position: sticky;
+      top: var(--safe-top);
+      z-index: 20;
+      background: #FF9100;
+      box-shadow: 0 1px 0 rgba(26,20,16,0.1);
+    }
+    .course-tabs button .tab-short { display: none; }
+    @media (max-width: 640px) {
+      .course-tabs {
+        gap: 0.3rem;
+        padding: 0.4rem;
+        margin-bottom: 0.75rem;
+      }
+      .course-tabs button {
+        min-width: 0;
+        font-size: 0.75rem;
+        padding: 0.75rem 0.5rem;
+        min-height: var(--touch);
+      }
+      .course-tabs button .tab-full { display: none; }
+      .course-tabs button .tab-short { display: inline; }
+      .lab, .quiz-wrap { padding-left: 1rem; padding-right: 1rem; }
+      .mode-tabs button { padding: 0.85rem 0.65rem; font-size: 0.85rem; }
+    }
+    .quiz-progress-wrap { margin: 0 0 1rem; }
+    .quiz-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--slate);
+    }
+    .quiz-progress-meta strong {
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .quiz-shortcuts {
+      margin: 0;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.68rem;
+      color: var(--mist);
+      line-height: 1.55;
+      opacity: 0.95;
+    }
+    .quiz-shortcuts kbd {
+      font-size: 0.65rem;
+      padding: 0.08em 0.32em;
+      background: var(--paper);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+    .quiz-materials {
+      margin: 0 0 1rem;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--slate);
+      background: var(--signal-soft);
+      border-left: 3px solid var(--signal);
+      border-radius: 0 4px 4px 0;
+    }
+    .quiz-materials.hidden { display: none; }
+    .quiz-card {
+      cursor: pointer;
+    }
+    .quiz-card:focus-visible {
+      outline: none;
+      box-shadow: var(--focus);
+    }
+    .quiz-card.revealed { cursor: default; }
+
+    /* PWA install tip */
+    .install-tip {
+      margin: 0 0 0.85rem;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--slate);
+      background: var(--paper-2);
+      border-left: 3px solid var(--palette-turquoise);
+      border-radius: 0 4px 4px 0;
+    }
+    .install-tip[hidden] { display: none !important; }
+
+    @media print {
+      .hero::after,
+      .cta,
+      .course-tabs,
+      .mode-tabs,
+      .install-tip,
+      .quiz-footer-meta,
+      .quiz-shortcuts,
+      .quiz-grades,
+      #quiz-reveal-row,
+      .tut-actions { display: none !important; }
+      .hero { min-height: 0; padding: 1rem 0 0.75rem; }
+      .shell-lift { margin-top: 0; }
+      .panel, .course-panel { display: block !important; animation: none !important; }
+      body { background: #fff; color: #000; }
+      .console, pre {
+        border: 1px solid #333;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+
+    /* -- Computer for dummies (bottom + PC course) -- */
+    .dummies-section {
+      margin: 2.5rem 0 1.5rem;
+      padding: 1.5rem 1.35rem 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--palette-turquoise);
+      border-radius: 4px;
+    }
+    .dummies-section[hidden] { display: none !important; }
+    .dummies-section h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .dummies-section .dummies-lede {
+      margin: 0 0 1.15rem;
+      color: var(--slate);
+      max-width: 38rem;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+    .dummies-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+    .pc-setup-note {
+      margin: 0 0 1rem;
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open Quiz ACIT4050">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Research">4100</button></span></p>
+      <h1>Type the commands. Learn them for good.</h1>
+      <p class="hero-lede">Terminal tutorial for ACIT4050, plus spaced-repetition quiz for your courses - works offline on phone and PC.</p>
+      <a class="cta" href="#lab" id="cta-start">Start tutorial <span class="cta-arrow" aria-hidden="true">-></span></a>
+    </div>
+  </header>
+
+  <div class="shell">
+    <div class="shell-lift" id="lab">
+      <div class="course-tabs course-tabs-sticky" role="tablist" aria-label="Courses">
+        <button type="button" role="tab" id="tab-course-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0"><span class="tab-full">Terminal ACIT4050</span><span class="tab-short">Terminal</span></button>
+        <button type="button" role="tab" id="tab-course-acit4050" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1"><span class="tab-full">Quiz ACIT4050</span><span class="tab-short">4050</span></button>
+        <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-full">ACIT4280 Privacy</span><span class="tab-short">4280</span></button>
+        <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-full">ACIT4100 Research</span><span class="tab-short">4100</span></button>
+        <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-full">Computer basics</span><span class="tab-short">PC</span></button>
+      </div>
+      <p class="install-tip" id="install-tip">Tip: on phone, use Add to Home Screen for a full-screen shortcut.</p>
+
+      <!-- ========== TERMINAL (ACIT4050) ========== -->
+      <div id="course-terminal" class="course-panel active">
+      <p class="sub-tabs-note">Tutorial and exercises with answers.</p>
+      <div class="mode-tabs" role="tablist" aria-label="View">
+        <button type="button" role="tab" id="tab-tutorial" class="active" aria-selected="true" aria-controls="panel-tutorial" tabindex="0">Interactive tutorial</button>
+        <button type="button" role="tab" id="tab-ovelser" aria-selected="false" aria-controls="panel-ovelser" tabindex="-1">Exercises with answers</button>
+      </div>
+
+      <!-- ========== TUTORIAL ========== -->
+      <section id="panel-tutorial" class="panel active" role="tabpanel" aria-labelledby="tab-tutorial">
+        <div class="lab">
+          <div id="tut-setup">
+            <h2 class="setup-title">Choose a track</h2>
+            <p class="setup-lede">Type the command in the console. Mistakes are fine - hint after two tries, answer after three.</p>
+            <p class="track-label">Environment</p>
+            <div class="track-pick">
+              <button type="button" class="track-btn" data-track="ps">
+                <strong>Windows PowerShell</strong>
+                <span>Practice on your PC now - no VM needed.</span>
+                <span class="mono-hint">PS C:\&gt;</span>
+              </button>
+              <button type="button" class="track-btn" data-track="arch">
+                <strong>Arch / Linux</strong>
+                <span>When the cyberlab VM is running (bash).</span>
+                <span class="mono-hint">user@arch:~$</span>
+              </button>
+            </div>
+            <p id="resume-note" class="resume-note hidden"></p>
+            <div class="tut-actions">
+              <button type="button" class="btn ghost hidden" id="btn-resume">Continue where you left off</button>
+              <button type="button" class="btn ghost hidden" id="btn-reset">Start over</button>
+            </div>
+          </div>
+
+          <div id="tut-play" class="hidden">
+            <div class="tut-progress-wrap">
+              <div class="tut-progress-meta">
+                <span><strong id="tut-step-label">Step 1</strong></span>
+                <div class="meta-stats">
+                  <span class="stat" id="tut-track-label">PowerShell</span>
+                  <span class="stat" title="Correct answers in a row">streak <b id="tut-streak">0</b></span>
+                  <span class="stat" title="Review steps">rep <b id="tut-reps">0</b></span>
+                </div>
+              </div>
+              <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="tut-bar" aria-label="Progress">
+                <span id="tut-bar-fill"></span>
+              </div>
+            </div>
+
+            <div class="step-stage" id="step-stage">
+              <div class="tut-tag" id="tut-tag">New command</div>
+              <p class="tut-prompt" id="tut-prompt">...</p>
+              <p class="tut-why" id="tut-why"></p>
+
+              <div class="console">
+                <div class="console-chrome">
+                  <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                  <span class="console-title" id="console-title">terminal - ACIT4050</span>
+                </div>
+                <div class="console-body">
+                  <div class="cmd-row">
+                    <span class="prompt-char" id="prompt-char" aria-hidden="true">></span>
+                    <input id="cmd-input" type="text" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type a command..." aria-label="Command" />
+                    <button type="button" class="btn console-check" id="btn-check">Check</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tut-feedback" id="tut-feedback" aria-live="polite"></div>
+            </div>
+
+            <div class="tut-actions">
+              <button type="button" class="btn ghost" id="btn-skip">Skip (show answer)</button>
+              <button type="button" class="btn ghost" id="btn-change-track">Switch track</button>
+            </div>
+          </div>
+
+          <div id="tut-done" class="tut-done hidden">
+            <h2>Tutorial complete</h2>
+            <p>You finished the tutorial. Common commands were repeated on purpose to strengthen learning.</p>
+            <p>Next: <strong>Exercises with answers</strong>, or practice the commands in your own terminal.</p>
+            <div class="tut-actions">
+              <button type="button" class="btn" id="btn-restart">Run the tutorial again</button>
+              <button type="button" class="btn ghost" id="btn-to-ovelser">Go to exercises</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== EXERCISES ========== -->
+      <section id="panel-ovelser" class="panel" role="tabpanel" aria-labelledby="tab-ovelser" hidden>
+        <div class="ov-wrap">
+          <nav class="toc" aria-label="Contents">
+            <strong>Contents</strong>
+            <ol>
+              <li><a href="#miljo">Which environment?</a></li>
+              <li><a href="#o1">Exercise 1 - Navigation</a></li>
+              <li><a href="#o2">Exercise 2 - Folders</a></li>
+              <li><a href="#o3">Exercise 3 - Files</a></li>
+              <li><a href="#o4">Exercise 4 - Copy / delete</a></li>
+              <li><a href="#o5">Exercise 5 - Pipe and search</a></li>
+              <li><a href="#o6">Exercise 6 - Permissions</a></li>
+              <li><a href="#o7">Exercise 7 - Packages</a></li>
+              <li><a href="#o8">Exercise 8 - Ping</a></li>
+              <li><a href="#o9">Exercise 9 - IP</a></li>
+              <li><a href="#o10">Exercise 10 - Checksum</a></li>
+              <li><a href="#o11">Exercise 11 - History</a></li>
+              <li><a href="#o12">Exercise 12 - Mini challenge</a></li>
+            </ol>
+          </nav>
+
+          <h2 id="miljo">Which environment?</h2>
+          <table>
+            <thead><tr><th>Environment</th><th>When</th><th>Open</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Windows PowerShell</strong></td><td>Now, without a VM</td><td>Start -> PowerShell</td></tr>
+              <tr><td><strong>Arch cyberlab</strong></td><td>When the Arch VM is running</td><td><code>Start_cyberlab_Arch.bat</code> -> terminal in GNOME</td></tr>
+            </tbody>
+          </table>
+          <div class="callout">
+            Host key in VirtualBox: <kbd>Right Ctrl</kbd>. On Linux: paste often with <kbd>Ctrl+Shift+V</kbd>. Cancel with <kbd>Ctrl+C</kbd>.
+          </div>
+
+          <h2 id="o1">Exercise 1: Where am I?</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> Find out where you are, and move around.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Show the current directory</li>
+            <li><span class="letter">b)</span> List the files in the folder</li>
+            <li><span class="letter">c)</span> Go up one level</li>
+            <li><span class="letter">d)</span> Go to the home directory</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>pwd</code> / <code>Get-Location</code></td><td><code>pwd</code></td></tr>
+                <tr><td>b)</td><td><code>dir</code> / <code>ls</code></td><td><code>ls</code> / <code>ls -la</code></td></tr>
+                <tr><td>c)</td><td><code>cd ..</code></td><td><code>cd ..</code></td></tr>
+                <tr><td>d)</td><td><code>cd ~</code></td><td><code>cd ~</code></td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o2">Exercise 2: Make a practice folder</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> Create a safe folder to practice in.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Go to Desktop / home</li>
+            <li><span class="letter">b)</span> Create <code>terminal-practice</code></li>
+            <li><span class="letter">c)</span> Create the subfolders <code>notes</code> and <code>data</code></li>
+            <li><span class="letter">d)</span> Confirm with <code>dir</code> / <code>ls</code></li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>cd ~\Desktop</code></td><td><code>cd ~</code></td></tr>
+                <tr><td>b)-c)</td><td><code>New-Item -ItemType Directory -Force -Path terminal-practice\notes, terminal-practice\data</code></td><td><code>mkdir -p ~/terminal-practice/{notes,data}</code></td></tr>
+                <tr><td>d)</td><td><code>cd terminal-practice</code> | <code>dir</code></td><td><code>cd ~/terminal-practice</code> | <code>ls</code></td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o3">Exercise 3: Create a file and read it</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> Write, read, and append text in a file.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Create <code>notes/hello.txt</code> with one line</li>
+            <li><span class="letter">b)</span> Show the contents</li>
+            <li><span class="letter">c)</span> Append one more line (without deleting)</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>"text" | Set-Content .\notes\hello.txt</code></td><td><code>echo "text" &gt; .../hello.txt</code></td></tr>
+                <tr><td>b)</td><td><code>type .\notes\hello.txt</code></td><td><code>cat .../hello.txt</code></td></tr>
+                <tr><td>c)</td><td><code>"Line 2" | Add-Content .\notes\hello.txt</code></td><td><code>echo "Line 2" &gt;&gt; .../hello.txt</code></td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o4">Exercise 4: Copy, move, delete</h2>
+          <p><span class="badge both">Both</span> - only inside <code>terminal-practice</code></p>
+          <p class="maal"><strong>Goal:</strong> Copy, rename, and delete safely.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Copy <code>hello.txt</code> to <code>data/hello-copy.txt</code></li>
+            <li><span class="letter">b)</span> Rename the copy: <code>hello-archive.txt</code></li>
+            <li><span class="letter">c)</span> Create and delete <code>data/delete-me.txt</code></li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>Copy-Item .\notes\hello.txt .\data\hello-copy.txt</code></td><td><code>cp ~/terminal-practice/notes/hello.txt ~/terminal-practice/data/hello-copy.txt</code></td></tr>
+                <tr><td>b)</td><td><code>Move-Item .\data\hello-copy.txt .\data\hello-archive.txt</code></td><td><code>mv .../hello-copy.txt .../hello-archive.txt</code></td></tr>
+                <tr><td>c)</td><td><code>"x" | Set-Content .\data\delete-me.txt</code> | <code>Remove-Item .\data\delete-me.txt</code></td><td><code>echo x &gt; .../delete-me.txt</code> | <code>rm .../delete-me.txt</code></td></tr>
+              </tbody>
+            </table>
+            <p class="callout" style="margin-top:0.75rem;">Avoid <code>rm -rf</code> / <code>Remove-Item -Recurse</code> outside the practice folder.</p>
+          </details>
+
+          <h2 id="o5">Exercise 5: Pipe and search</h2>
+          <p><span class="badge arch">Arch recommended</span></p>
+          <p class="maal"><strong>Goal:</strong> Pass output along and filter it.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> List files recursively under <code>terminal-practice</code></li>
+            <li><span class="letter">b)</span> Filter lines containing <code>hello</code></li>
+            <li><span class="letter">c)</span> Count the matches</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)-b)</td><td><code>Get-ChildItem .\ -Recurse -File | Where-Object Name -match 'hello'</code></td><td><code>find ~/terminal-practice -type f | grep hello</code></td></tr>
+                <tr><td>c)</td><td><code>(...).Count</code></td><td><code>... | wc -l</code></td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o6">Exercise 6: Permissions</h2>
+          <p><span class="badge arch">Arch only</span></p>
+          <p class="maal"><strong>Goal:</strong> See and change who can read a file.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Create <code>notes/secret.txt</code></li>
+            <li><span class="letter">b)</span> Show permissions with <code>ls -l</code></li>
+            <li><span class="letter">c)</span> Set <code>chmod 600</code>, check again</li>
+            <li><span class="letter">d)</span> (Optional) <code>chmod 644</code></li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>echo "..." &gt; ~/terminal-practice/notes/secret.txt</code></td></tr>
+                <tr><td>b)</td><td><code>ls -l .../secret.txt</code></td></tr>
+                <tr><td>c)</td><td><code>chmod 600 ...</code> -> expect <code>-rw-------</code></td></tr>
+                <tr><td>d)</td><td><code>chmod 644 ...</code></td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o7">Exercise 7: Packages</h2>
+          <p><span class="badge arch">Arch only</span></p>
+          <p class="maal"><strong>Goal:</strong> Update, search, and optionally install.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Update the package database</li>
+            <li><span class="letter">b)</span> Search for <code>tree</code></li>
+            <li><span class="letter">c)</span> (Optional) Install <code>tree</code></li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>sudo pacman -Sy</code></td></tr>
+                <tr><td>b)</td><td><code>pacman -Ss tree</code></td></tr>
+                <tr><td>c)</td><td><code>sudo pacman -S tree</code></td></tr>
+              </tbody>
+            </table>
+            <p>Ubuntu/Kali later: <code>sudo apt update</code> / <code>sudo apt install tree</code>.</p>
+          </details>
+
+          <h2 id="o8">Exercise 8: Network - ping</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> Check network connectivity.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Ping <code>1.1.1.1</code></li>
+            <li><span class="letter">b)</span> Ping <code>example.com</code></li>
+            <li><span class="letter">c)</span> Stop with <kbd>Ctrl+C</kbd> if it loops</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>ping 1.1.1.1</code></td><td><code>ping -c 4 1.1.1.1</code></td></tr>
+                <tr><td>b)</td><td><code>ping example.com</code></td><td><code>ping -c 4 example.com</code></td></tr>
+                <tr><td>c)</td><td><kbd>Ctrl+C</kbd></td><td><kbd>Ctrl+C</kbd></td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o9">Exercise 9: IP address</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> Find your IPv4 address.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Show network interfaces / IP</li>
+            <li><span class="letter">b)</span> Find IPv4 (often <code>192.168....</code> or <code>10....</code>)</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>ipconfig</code></td><td><code>ip addr</code> / <code>ip -4 addr show</code></td></tr>
+                <tr><td>b)</td><td>Look at the IPv4 lines</td><td>Look at <code>inet</code> lines</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o10">Exercise 10: Checksum</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> See that changing a file changes SHA256.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Compute SHA256 for <code>hello.txt</code></li>
+            <li><span class="letter">b)</span> Change the file, compute again</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>Get-FileHash .\notes\hello.txt -Algorithm SHA256</code></td><td><code>sha256sum .../hello.txt</code></td></tr>
+                <tr><td>b)</td><td><code>Add-Content ...</code> + hash again</td><td><code>echo "change" &gt;&gt; ...</code> + hash again</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o11">Exercise 11: History and help</h2>
+          <p><span class="badge both">Both</span></p>
+          <p class="maal"><strong>Goal:</strong> Find old commands and read help.</p>
+          <h3>Do this</h3>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Show command history</li>
+            <li><span class="letter">b)</span> Open help for one command</li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+            <table>
+              <thead><tr><th>Step</th><th>PowerShell</th><th>Arch</th></tr></thead>
+              <tbody>
+                <tr><td>a)</td><td><code>Get-History</code></td><td><code>history | tail -20</code></td></tr>
+                <tr><td>b)</td><td><code>Get-Help Get-ChildItem</code></td><td><code>man ls</code> (quit with <code>q</code>)</td></tr>
+              </tbody>
+            </table>
+          </details>
+
+          <h2 id="o12">Exercise 12: Mini challenge</h2>
+          <p><span class="badge both">Optional</span></p>
+          <p class="maal"><strong>Goal:</strong> Create <code>notes/report.txt</code> using only the terminal.</p>
+          <h3>Do this</h3>
+          <p>The file should contain:</p>
+          <ul class="steps">
+            <li><span class="letter">a)</span> Today's date</li>
+            <li><span class="letter">b)</span> Username</li>
+            <li><span class="letter">c)</span> Hostname</li>
+            <li><span class="letter">d)</span> Number of files under <code>terminal-practice</code></li>
+          </ul>
+          <details class="hint"><summary>Answer key</summary>
+<pre><code># Arch
+{ date; whoami; hostname; find ~/terminal-practice -type f | wc -l; } &gt; ~/terminal-practice/notes/report.txt
+
+# PowerShell
+@(Get-Date; $env:USERNAME; $env:COMPUTERNAME; (Get-ChildItem .\ -Recurse -File).Count) | Set-Content .\notes\report.txt</code></pre>
+          </details>
+
+          <h2>Checklist</h2>
+          <ul class="check">
+            <li>Exercises 1-4 (navigation + files)</li>
+            <li>Exercise 5 (pipe)</li>
+            <li>Exercises 6-7 when Arch is running</li>
+            <li>Exercises 8-10 (network + checksum)</li>
+            <li>Next: Kali + Ubuntu in VirtualBox</li>
+          </ul>
+        </div>
+      </section>
+      </div><!-- /course-terminal -->
+
+
+      <!-- ========== COMPUTER BASICS (PC literacy) ========== -->
+      <div id="course-pc" class="course-panel" hidden>
+        <p class="sub-tabs-note">Windows PC literacy - not course theory.</p>
+        <div class="mode-tabs" role="tablist" aria-label="Computer basics view">
+          <button type="button" role="tab" id="tab-pc-tutorial" class="active" aria-selected="true" aria-controls="panel-pc-tutorial" tabindex="0">Interactive tutorial</button>
+          <button type="button" role="tab" id="tab-pc-quiz" aria-selected="false" aria-controls="course-quiz" tabindex="-1">Quiz</button>
+        </div>
+
+        <section id="panel-pc-tutorial" class="panel active" role="tabpanel" aria-labelledby="tab-pc-tutorial">
+          <div class="lab">
+            <div id="pc-tut-setup">
+              <h2 class="setup-title">Computer for dummies</h2>
+              <p class="pc-setup-note">Type short answers (shortcuts or keywords). Hint after two tries, answer after three.</p>
+              <p class="setup-lede">Basics of your PC: where things live, what files and settings mean, and how to find your way around Windows.</p>
+              <div class="tut-actions">
+                <button type="button" class="btn" id="btn-pc-start">Start PC tutorial</button>
+                <button type="button" class="btn ghost hidden" id="btn-pc-resume">Continue where you left off</button>
+                <button type="button" class="btn ghost hidden" id="btn-pc-reset">Start over</button>
+              </div>
+              <p id="pc-resume-note" class="resume-note hidden"></p>
+            </div>
+
+            <div id="pc-tut-play" class="hidden">
+              <div class="tut-progress-wrap">
+                <div class="tut-progress-meta">
+                  <span><strong id="pc-tut-step-label">Step 1</strong></span>
+                  <div class="meta-stats">
+                    <span class="stat" id="pc-tut-track-label">Windows</span>
+                    <span class="stat" title="Correct answers in a row">streak <b id="pc-tut-streak">0</b></span>
+                  </div>
+                </div>
+                <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pc-tut-bar" aria-label="PC tutorial progress">
+                  <span id="pc-tut-bar-fill"></span>
+                </div>
+              </div>
+
+              <div class="step-stage" id="pc-step-stage">
+                <div class="tut-tag" id="pc-tut-tag">Concept</div>
+                <p class="tut-prompt" id="pc-tut-prompt">...</p>
+                <p class="tut-why" id="pc-tut-why"></p>
+
+                <div class="console">
+                  <div class="console-chrome">
+                    <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                    <span class="console-title" id="pc-console-title">PC basics - Windows</span>
+                  </div>
+                  <div class="console-body">
+                    <div class="cmd-row">
+                      <span class="prompt-char" aria-hidden="true">></span>
+                      <input id="pc-cmd-input" type="text" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type a short answer..." aria-label="Answer" />
+                      <button type="button" class="btn console-check" id="btn-pc-check">Check</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tut-feedback" id="pc-tut-feedback" aria-live="polite"></div>
+              </div>
+
+              <div class="tut-actions">
+                <button type="button" class="btn ghost" id="btn-pc-skip">Skip (show answer)</button>
+                <button type="button" class="btn ghost" id="btn-pc-to-setup">Back to start</button>
+              </div>
+            </div>
+
+            <div id="pc-tut-done" class="tut-done hidden">
+              <h2>PC tutorial complete</h2>
+              <p>You covered File Explorer, paths, Settings, Task Manager, downloads, extensions, and everyday shortcuts.</p>
+              <p>Next: try the <strong>Quiz</strong> flashcards for spaced repetition.</p>
+              <div class="tut-actions">
+                <button type="button" class="btn" id="btn-pc-restart">Run the tutorial again</button>
+                <button type="button" class="btn ghost" id="btn-pc-to-quiz">Open quiz</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ========== QUIZ (shared panel, deck by course tab) ========== -->
+      <div id="course-quiz" class="course-panel" hidden>
+        <div class="quiz-wrap">
+          <div class="quiz-meta">
+            <h2 class="setup-title" id="quiz-course-title">Quiz</h2>
+            <p class="quiz-queue" id="quiz-queue"><b>0</b> cards in queue</p>
+          </div>
+          <p class="setup-lede" id="quiz-lede" style="margin-top:-0.5rem;">Anki-style SM-2 - progress is stored locally in the browser.</p>
+          <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
+
+          <div class="quiz-progress-wrap" id="quiz-progress-wrap">
+            <div class="quiz-progress-meta">
+              <span><strong id="quiz-step-label">Card -</strong></span>
+              <span class="meta-stats">
+                <span class="stat">done <b id="quiz-done-count">0</b></span>
+                <span class="stat">total <b id="quiz-total-count">0</b></span>
+              </span>
+            </div>
+            <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quiz-bar" aria-label="Quiz progress">
+              <span id="quiz-bar-fill"></span>
+            </div>
+          </div>
+
+          <div id="quiz-active">
+            <div class="quiz-card" id="quiz-card" tabindex="0" role="button" aria-label="Quiz card - press to show answer">
+              <p class="quiz-label" id="quiz-face-label">Question</p>
+              <p class="quiz-q" id="quiz-q">...</p>
+              <figure class="quiz-figure hidden" id="quiz-figure" aria-label="Figure">
+                <p class="quiz-figure-label">Figure</p>
+                <div class="quiz-figure-media" id="quiz-figure-media"></div>
+                <figcaption class="quiz-figure-caption hidden" id="quiz-figure-caption"></figcaption>
+                <p class="quiz-figure-shows hidden" id="quiz-figure-shows"></p>
+                <p class="quiz-figure-attr hidden" id="quiz-figure-attr"></p>
+              </figure>
+              <div class="quiz-a hidden" id="quiz-a"></div>
+              <div class="quiz-tags" id="quiz-tags"></div>
+            </div>
+
+            <div class="tut-actions" id="quiz-reveal-row">
+              <button type="button" class="btn" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
+            </div>
+
+            <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
+              <button type="button" data-grade="again" title="In ~1 min | key 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span></button>
+              <button type="button" data-grade="hard" title="In ~10 min | key 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span></button>
+              <button type="button" data-grade="good" title="In ~1 day | key 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span></button>
+              <button type="button" data-grade="easy" title="In ~4 days | key 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span></button>
+            </div>
+          </div>
+
+          <div id="quiz-empty" class="quiz-empty hidden">
+            <h3 id="quiz-empty-title">Nothing due right now</h3>
+            <p id="quiz-empty-text">All caught up for this course. Come back later, or review every card anyway.</p>
+            <div class="tut-actions" id="quiz-empty-actions" style="justify-content:center;margin-top:1rem;">
+              <button type="button" class="btn" id="quiz-study-all">Study all cards anyway</button>
+            </div>
+          </div>
+
+          <div class="quiz-footer-meta">
+            <p class="quiz-shortcuts" id="quiz-shortcuts">
+              <kbd>1</kbd>-<kbd>4</kbd> rate | <kbd>Space</kbd> answer | &lt;- -&gt; course
+            </p>
+            <button type="button" class="quiz-reset-quiet" id="quiz-reset">Reset progress (this course)</button>
+          </div>
+        </div>
+      </div>
+
+
+      <section class="dummies-section" id="computer-dummies" aria-labelledby="dummies-title">
+        <h2 id="dummies-title">Computer for dummies</h2>
+        <p class="dummies-lede">Basics of your PC: where things live, what files and settings mean, and how to find your way around Windows - not course theory.</p>
+        <div class="dummies-actions">
+          <button type="button" class="btn" id="btn-dummies-tutorial">Start PC tutorial</button>
+          <button type="button" class="btn ghost" id="btn-dummies-quiz">Open quiz</button>
+        </div>
+      </section>
+
+      <footer>
+        <p class="footer-copy">&copy; Ms.Tery</p>
+        <p class="footer-privacy">Study progress is stored solely on this device via the browser's local storage. This application does not use cookies for tracking, does not require authentication, and does not transmit personal data to third parties for analytics or advertising.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="quiz-decks.js"></script>
+  <script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "acit4050-terminal-tut-v1";
+  var QUIZ_PREFIX = "acit-srs-v2-";
+  var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
+
+  /* -- Steps: PowerShell -- */
+  var STEPS_PS = [
+    { id: "ps-whoami", prompt: "Who are you logged in as?", why: "Useful to know in the lab and on servers.", accept: ["whoami"], hint: "One command, no arguments. Starts with 'who'.", answer: "whoami", tag: "New" },
+    { id: "ps-pwd", prompt: "Show which directory you are in.", why: "Always good to know 'where am I?'", accept: ["pwd", "get-location"], hint: "Short: pwd. Or the long PowerShell form Get-Location.", answer: "pwd", tag: "New" },
+    { id: "ps-dir", prompt: "List the files in the current directory.", why: "See what is there before you move.", accept: ["dir", "ls", "get-childitem", "gci"], hint: "Classic Windows: dir. ls also works in modern PowerShell.", answer: "dir", tag: "New" },
+    { id: "ps-clear", prompt: "Clear the terminal screen.", why: "Clean up when it gets messy.", accept: ["clear", "cls", "clear-host"], hint: "cls or clear.", answer: "cls", tag: "New" },
+    { id: "ps-cd-up", prompt: "Go up one level in the directory tree.", why: "Navigation: upwards.", accept: ["cd .."], hint: "cd and two dots.", answer: "cd ..", tag: "New" },
+    { id: "ps-cd-home", prompt: "Go to your home directory.", why: "Quick return to your base.", accept: ["cd ~", "cd $home", "cd $env:userprofile"], hint: "cd ~ is shortest.", answer: "cd ~", tag: "New" },
+    { id: "ps-pwd-rep", prompt: "Review: Show the current directory again.", why: "pwd comes up often - drill it in.", accept: ["pwd", "get-location"], hint: "Same as before: pwd.", answer: "pwd", tag: "Review", rep: true },
+    { id: "ps-mkdir", prompt: "Create the folder practice (in the current directory).", why: "mkdir / New-Item create folders.", accept: ["mkdir practice", "md practice", "new-item -itemtype directory practice", "new-item -itemtype directory -path practice", "new-item practice -itemtype directory"], hint: "mkdir practice is easiest.", answer: "mkdir practice", tag: "New" },
+    { id: "ps-cd-in", prompt: "Enter the folder practice.", why: "cd + folder name.", accept: ["cd practice", "cd .\\practice"], hint: "cd practice", answer: "cd practice", tag: "New" },
+    { id: "ps-dir-rep", prompt: "Review: List the contents here.", why: "dir / ls - remember them.", accept: ["dir", "ls", "get-childitem", "gci"], hint: "dir or ls.", answer: "dir", tag: "Review", rep: true },
+    { id: "ps-echo", prompt: "Write the text hi to the file note.txt (new file / overwrite).", why: "Create files without opening Notepad.", accept: ['"hi" | set-content note.txt', '"hi" | set-content .\note.txt', "echo hi > note.txt", "echo hi > .\note.txt", "'hi' | set-content note.txt"], hint: "PowerShell: \"hi\" | Set-Content note.txt", answer: '"hi" | Set-Content note.txt', tag: "New" },
+    { id: "ps-type", prompt: "Show the contents of note.txt.", why: "type / Get-Content read files.", accept: ["type note.txt", "type .\\note.txt", "get-content note.txt", "get-content .\\note.txt", "cat note.txt"], hint: "type note.txt", answer: "type note.txt", tag: "New" },
+    { id: "ps-whoami-rep", prompt: "Review: Who are you?", why: "whoami sticks with repetition.", accept: ["whoami"], hint: "whoami", answer: "whoami", tag: "Review", rep: true },
+    { id: "ps-findstr", prompt: "Search for the word hi in note.txt.", why: "findstr is Windows' grep cousin.", accept: ["findstr hi note.txt", "findstr hi .\\note.txt", "select-string hi note.txt", "select-string -path note.txt -pattern hi"], hint: "findstr hi note.txt", answer: "findstr hi note.txt", tag: "New" },
+    { id: "ps-pipe", prompt: "List files and pipe to findstr to filter on txt.", why: "Pipe (|): output -> next command.", accept: ["dir | findstr txt", "ls | findstr txt", "get-childitem | findstr txt", "dir | select-string txt"], hint: "dir | findstr txt", answer: "dir | findstr txt", tag: "New" },
+    { id: "ps-pwd-rep2", prompt: "Review: Where are you now?", why: "Last check on pwd.", accept: ["pwd", "get-location"], hint: "pwd", answer: "pwd", tag: "Review", rep: true },
+    { id: "ps-clear-rep", prompt: "Review: Clear the screen.", why: "cls / clear.", accept: ["clear", "cls", "clear-host"], hint: "cls", answer: "cls", tag: "Review", rep: true },
+    { id: "ps-help", prompt: "Show help for Get-ChildItem.", why: "Get-Help is your friend.", accept: ["get-help get-childitem", "help get-childitem", "get-help get-childitem -full"], hint: "Get-Help Get-ChildItem", answer: "Get-Help Get-ChildItem", tag: "New" },
+    { id: "ps-cd-up-rep", prompt: "Review: Go up one level.", why: "cd .. is used all the time.", accept: ["cd .."], hint: "cd ..", answer: "cd ..", tag: "Review", rep: true },
+    { id: "ps-ipconfig", prompt: "Show network info (IP etc.).", why: "ipconfig on Windows.", accept: ["ipconfig", "ipconfig /all"], hint: "ipconfig", answer: "ipconfig", tag: "New" }
+  ];
+
+  /* -- Steps: Arch -- */
+  var STEPS_ARCH = [
+    { id: "a-whoami", prompt: "Who are you logged in as?", why: "Useful in the lab and on servers.", accept: ["whoami"], hint: "whoami", answer: "whoami", tag: "New" },
+    { id: "a-pwd", prompt: "Show which directory you are in.", why: "Always good to know 'where am I?'", accept: ["pwd"], hint: "pwd", answer: "pwd", tag: "New" },
+    { id: "a-ls", prompt: "List the files in the current directory.", why: "See what is there.", accept: ["ls", "ls -l", "ls -la", "ls -al"], hint: "ls (or ls -la for more detail).", answer: "ls", tag: "New" },
+    { id: "a-clear", prompt: "Clear the terminal screen.", why: "Clean up when it gets messy.", accept: ["clear"], hint: "clear", answer: "clear", tag: "New" },
+    { id: "a-cd-up", prompt: "Go up one level.", why: "Navigating upwards.", accept: ["cd .."], hint: "cd ..", answer: "cd ..", tag: "New" },
+    { id: "a-cd-home", prompt: "Go to the home directory.", why: "Quick return.", accept: ["cd", "cd ~", "cd $home"], hint: "cd ~ or just cd", answer: "cd ~", tag: "New" },
+    { id: "a-pwd-rep", prompt: "Review: Show the current directory.", why: "pwd - drill it in.", accept: ["pwd"], hint: "pwd", answer: "pwd", tag: "Review", rep: true },
+    { id: "a-mkdir", prompt: "Create the folder practice.", why: "mkdir creates folders.", accept: ["mkdir practice", "mkdir ./practice"], hint: "mkdir practice", answer: "mkdir practice", tag: "New" },
+    { id: "a-cd-in", prompt: "Enter the folder practice.", why: "cd + name.", accept: ["cd practice", "cd ./practice"], hint: "cd practice", answer: "cd practice", tag: "New" },
+    { id: "a-ls-rep", prompt: "Review: List the contents.", why: "ls is remembered best by use.", accept: ["ls", "ls -l", "ls -la", "ls -al"], hint: "ls", answer: "ls", tag: "Review", rep: true },
+    { id: "a-echo", prompt: "Write the text hi to the file note.txt (new file).", why: "echo and > create files.", accept: ["echo hi > note.txt", 'echo "hi" > note.txt', "echo 'hi' > note.txt"], hint: "echo hi > note.txt", answer: "echo hi > note.txt", tag: "New" },
+    { id: "a-cat", prompt: "Show the contents of note.txt.", why: "cat reads files.", accept: ["cat note.txt", "cat ./note.txt"], hint: "cat note.txt", answer: "cat note.txt", tag: "New" },
+    { id: "a-whoami-rep", prompt: "Review: Who are you?", why: "whoami again.", accept: ["whoami"], hint: "whoami", answer: "whoami", tag: "Review", rep: true },
+    { id: "a-grep", prompt: "Search for the word hi in note.txt.", why: "grep filters text.", accept: ["grep hi note.txt", "grep hi ./note.txt"], hint: "grep hi note.txt", answer: "grep hi note.txt", tag: "New" },
+    { id: "a-pipe", prompt: "List files recursively under home, filter on note (pipe).", why: "find | grep - classic Linux pipe.", accept: ["find ~ -type f | grep note", "find . -type f | grep note", "ls -r | grep note", "find ~/practice -type f | grep note"], hint: "find ~ -type f | grep note (or equivalent).", answer: "find ~ -type f | grep note", tag: "New" },
+    { id: "a-chmod", prompt: "Make note.txt read/write for you only (chmod 600).", why: "Permissions on Linux.", accept: ["chmod 600 note.txt", "chmod 600 ./note.txt"], hint: "chmod 600 note.txt", answer: "chmod 600 note.txt", tag: "New" },
+    { id: "a-ls-l", prompt: "Show detailed permissions for note.txt.", why: "ls -l shows -rw------- etc.", accept: ["ls -l note.txt", "ls -l ./note.txt"], hint: "ls -l note.txt", answer: "ls -l note.txt", tag: "New" },
+    { id: "a-pwd-rep2", prompt: "Review: Where are you?", why: "pwd one last time.", accept: ["pwd"], hint: "pwd", answer: "pwd", tag: "Review", rep: true },
+    { id: "a-clear-rep", prompt: "Review: Clear the screen.", why: "clear.", accept: ["clear"], hint: "clear", answer: "clear", tag: "Review", rep: true },
+    { id: "a-man", prompt: "Open the manual for ls.", why: "man is Linux help. (Quit with q in a real terminal.)", accept: ["man ls"], hint: "man ls", answer: "man ls", tag: "New" }
+  ];
+
+  /* -- State -- */
+  var state = {
+    track: null,
+    index: 0,
+    fails: 0,
+    revealed: false,
+    streak: 0,
+    repsDone: 0
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function stepsFor(track) {
+    return track === "arch" ? STEPS_ARCH : STEPS_PS;
+  }
+
+  function normalize(s) {
+    return String(s || "")
+      .replace(/\u00a0/g, " ")
+      .trim()
+      .replace(/\s+/g, " ")
+      .replace(/\s*\|\s*/g, " | ")
+      .replace(/\s*>\s*/g, " > ")
+      .replace(/\s*>>\s*/g, " >> ")
+      .toLowerCase();
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+      if (parsed.track !== "ps" && parsed.track !== "arch") return null;
+      var idx = Number(parsed.index);
+      if (!isFinite(idx) || idx < 0) idx = 0;
+      var streak = Number(parsed.streak);
+      var reps = Number(parsed.repsDone);
+      return {
+        track: parsed.track,
+        index: Math.floor(idx),
+        streak: isFinite(streak) && streak > 0 ? Math.floor(streak) : 0,
+        repsDone: isFinite(reps) && reps > 0 ? Math.floor(reps) : 0,
+        updated: typeof parsed.updated === "number" ? parsed.updated : Date.now()
+      };
+    } catch (e) {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e2) { /* ignore */ }
+      return null;
+    }
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        track: state.track,
+        index: state.index,
+        streak: state.streak,
+        repsDone: state.repsDone,
+        updated: Date.now()
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function clearSave() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+  }
+
+  function updateMeta() {
+    var streakEl = $("tut-streak");
+    var repsEl = $("tut-reps");
+    if (streakEl) streakEl.textContent = String(state.streak);
+    if (repsEl) repsEl.textContent = String(state.repsDone);
+  }
+
+  function animateStep() {
+    var stage = $("step-stage");
+    if (!stage) return;
+    stage.classList.remove("swap");
+    void stage.offsetWidth;
+    stage.classList.add("swap");
+  }
+
+
+  /* -- Computer for dummies / PC literacy tutorial -- */
+  var PC_STORAGE_KEY = "computer-basics-tut-v1";
+  var STEPS_PC = [
+    { id: "pc-explorer", prompt: "Which keyboard shortcut opens File Explorer?", why: "Fast way to browse files and folders.", accept: ["win+e", "windows+e", "win + e"], hint: "Windows key + the letter E.", answer: "Win+E", tag: "Shortcut" },
+    { id: "pc-folder", prompt: "What do you call a container that holds files (and other containers)?", why: "Folders (directories) keep your work organised.", accept: ["folder", "a folder", "directory", "a directory", "folders", "directories"], hint: "Also called a directory.", answer: "folder", tag: "Concept" },
+    { id: "pc-filename", prompt: "In C:\\Users\\You\\Documents\\report.pdf - what is the filename?", why: "Path = where; filename = which file.", accept: ["report.pdf", "report"], hint: "The last part after the final backslash (include .pdf if you can).", answer: "report.pdf", tag: "Paths" },
+    { id: "pc-path", prompt: "What do we call the full location string like C:\\Users\\You\\Documents\\report.pdf?", why: "The address bar in Explorer shows the path.", accept: ["path", "a path", "filepath", "file path", "full path", "the path"], hint: "One word: p...h", answer: "path", tag: "Paths" },
+    { id: "pc-recycle", prompt: "Where do deleted files usually go first (so you can restore them)?", why: "Emptying it removes them more permanently.", accept: ["recycle bin", "the recycle bin", "recyclebin", "trash", "recycling bin"], hint: "Icon often on the Desktop.", answer: "Recycle Bin", tag: "Files" },
+    { id: "pc-settings", prompt: "Which shortcut opens Windows Settings?", why: "Wi-Fi, updates, accounts - start here.", accept: ["win+i", "windows+i", "win + i"], hint: "Windows key + I.", answer: "Win+I", tag: "Shortcut" },
+    { id: "pc-taskmgr", prompt: "Which shortcut opens Task Manager?", why: "End a frozen app; see CPU and memory use.", accept: ["ctrl+shift+esc", "ctrl + shift + esc", "control+shift+esc", "taskmgr", "ctrl+alt+delete"], hint: "Ctrl+Shift+Esc (or type taskmgr).", answer: "Ctrl+Shift+Esc", tag: "Shortcut" },
+    { id: "pc-downloads", prompt: "What is the usual folder name for browser downloads?", why: "Check here when a file 'disappears' after download.", accept: ["downloads", "download", "the downloads folder", "downloads folder"], hint: "Under your user profile.", answer: "Downloads", tag: "Browser" },
+    { id: "pc-ext", prompt: "In notes.pdf, what do we call the '.pdf' part?", why: "It signals the file type and which app opens it.", accept: ["extension", "file extension", "the extension", "suffix", "file suffix"], hint: "File e...", answer: "extension", tag: "Files" },
+    { id: "pc-admin", prompt: "Which account type can install system software and change protected settings?", why: "Everyday use is safer as a standard user; Windows asks when elevation is needed.", accept: ["admin", "administrator", "administrator account", "admin account", "an administrator"], hint: "Opposite of a standard user.", answer: "administrator", tag: "Accounts" },
+    { id: "pc-screenshot", prompt: "Which shortcut opens the snip tool to capture part of the screen?", why: "Handy for lab notes and bug reports.", accept: ["win+shift+s", "windows+shift+s", "win + shift + s"], hint: "Win+Shift+S.", answer: "Win+Shift+S", tag: "Shortcut" },
+    { id: "pc-clipboard", prompt: "What shortcut copies the selected item?", why: "Pair with Ctrl+V to paste.", accept: ["ctrl+c", "control+c", "ctrl + c", "cmd+c"], hint: "Ctrl and the letter for Copy.", answer: "Ctrl+C", tag: "Shortcut" }
+  ];
+
+  var pcState = {
+    index: 0,
+    fails: 0,
+    revealed: false,
+    streak: 0
+  };
+
+  function pcNormalize(s) {
+    return String(s || "")
+      .replace(/\u00a0/g, " ")
+      .trim()
+      .replace(/\s+/g, " ")
+      .replace(/\s*\+\s*/g, "+")
+      .toLowerCase();
+  }
+
+  function pcLoad() {
+    try {
+      var raw = localStorage.getItem(PC_STORAGE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return null;
+      var idx = Number(parsed.index);
+      if (!isFinite(idx) || idx < 0) idx = 0;
+      var streak = Number(parsed.streak);
+      return {
+        index: Math.floor(idx),
+        streak: isFinite(streak) && streak > 0 ? Math.floor(streak) : 0
+      };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function pcSave() {
+    try {
+      localStorage.setItem(PC_STORAGE_KEY, JSON.stringify({
+        index: pcState.index,
+        streak: pcState.streak,
+        updated: Date.now()
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function pcClearSave() {
+    try { localStorage.removeItem(PC_STORAGE_KEY); } catch (e) { /* ignore */ }
+  }
+
+  function pcUpdateMeta() {
+    var el = $("pc-tut-streak");
+    if (el) el.textContent = String(pcState.streak);
+  }
+
+  function pcAnimateStep() {
+    var stage = $("pc-step-stage");
+    if (!stage) return;
+    stage.classList.remove("swap");
+    void stage.offsetWidth;
+    stage.classList.add("swap");
+  }
+
+  function pcSetProgress(pct) {
+    var fill = $("pc-tut-bar-fill");
+    var bar = $("pc-tut-bar");
+    if (fill) fill.style.width = pct + "%";
+    if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
+  }
+
+  function pcShowSetup() {
+    var setup = $("pc-tut-setup");
+    var play = $("pc-tut-play");
+    var done = $("pc-tut-done");
+    if (!setup) return;
+    setup.classList.remove("hidden");
+    if (play) play.classList.add("hidden");
+    if (done) done.classList.add("hidden");
+    var saved = pcLoad();
+    var note = $("pc-resume-note");
+    var btnResume = $("btn-pc-resume");
+    var btnReset = $("btn-pc-reset");
+    if (saved && typeof saved.index === "number" && saved.index < STEPS_PC.length) {
+      var stepNum = Math.min(Math.max(saved.index, 0) + 1, STEPS_PC.length);
+      if (note) {
+        note.textContent = "Saved progress: step " + stepNum + " of " + STEPS_PC.length + ".";
+        note.classList.remove("hidden");
+      }
+      if (btnResume) btnResume.classList.remove("hidden");
+      if (btnReset) btnReset.classList.remove("hidden");
+    } else {
+      if (note) note.classList.add("hidden");
+      if (btnResume) btnResume.classList.add("hidden");
+      if (btnReset) btnReset.classList.add("hidden");
+    }
+  }
+
+  function pcStart(index, restoreMeta) {
+    pcState.index = index || 0;
+    pcState.fails = 0;
+    pcState.revealed = false;
+    if (restoreMeta && typeof restoreMeta.streak === "number") {
+      pcState.streak = restoreMeta.streak;
+    } else if (!restoreMeta) {
+      pcState.streak = 0;
+    }
+    pcSave();
+    $("pc-tut-setup").classList.add("hidden");
+    $("pc-tut-done").classList.add("hidden");
+    $("pc-tut-play").classList.remove("hidden");
+    pcUpdateMeta();
+    pcRenderStep();
+  }
+
+  function pcRenderStep() {
+    if (pcState.index >= STEPS_PC.length) {
+      pcFinish();
+      return;
+    }
+    var step = STEPS_PC[pcState.index];
+    pcState.fails = 0;
+    pcState.revealed = false;
+    $("pc-tut-step-label").textContent = "Step " + (pcState.index + 1) + " of " + STEPS_PC.length;
+    pcSetProgress((pcState.index / STEPS_PC.length) * 100);
+    $("pc-tut-tag").textContent = step.tag || "Concept";
+    $("pc-tut-tag").classList.remove("rep");
+    $("pc-tut-prompt").textContent = step.prompt;
+    $("pc-tut-why").textContent = step.why || "";
+    $("pc-tut-feedback").textContent = "";
+    $("pc-tut-feedback").className = "tut-feedback";
+    pcUpdateMeta();
+    pcAnimateStep();
+    var input = $("pc-cmd-input");
+    input.value = "";
+    input.classList.remove("wrong", "ok");
+    input.disabled = false;
+    $("btn-pc-check").disabled = false;
+    input.focus();
+  }
+
+  function pcFinish() {
+    $("pc-tut-play").classList.add("hidden");
+    $("pc-tut-done").classList.remove("hidden");
+    pcSetProgress(100);
+    pcClearSave();
+  }
+
+  function pcCheckAnswer() {
+    if (pcState.revealed) return;
+    var step = STEPS_PC[pcState.index];
+    if (!step) return;
+    var input = $("pc-cmd-input");
+    var given = pcNormalize(input.value);
+    if (!given) {
+      var fbEmpty = $("pc-tut-feedback");
+      fbEmpty.className = "tut-feedback soft";
+      fbEmpty.textContent = "Type a short answer first.";
+      input.focus();
+      return;
+    }
+    var ok = step.accept.some(function (a) { return pcNormalize(a) === given; });
+    var fb = $("pc-tut-feedback");
+    if (ok) {
+      pcState.streak += 1;
+      pcUpdateMeta();
+      input.classList.remove("wrong");
+      input.classList.add("ok");
+      fb.className = "tut-feedback ok";
+      fb.textContent = "Correct - " + step.answer;
+      pcState.index += 1;
+      pcSave();
+      setTimeout(function () { pcRenderStep(); }, 550);
+      return;
+    }
+    pcState.streak = 0;
+    pcUpdateMeta();
+    pcState.fails += 1;
+    input.classList.add("wrong");
+    fb.className = "tut-feedback bad";
+    if (pcState.fails === 1) {
+      fb.textContent = "Not quite - try again.";
+    } else if (pcState.fails === 2) {
+      fb.textContent = "Hint: " + step.hint;
+    } else {
+      pcState.revealed = true;
+      fb.textContent = "Answer: " + step.answer;
+      input.value = step.answer;
+      input.disabled = true;
+      $("btn-pc-check").disabled = true;
+      setTimeout(function () {
+        pcState.index += 1;
+        pcSave();
+        pcRenderStep();
+      }, 1200);
+    }
+  }
+
+  function pcSkip() {
+    var step = STEPS_PC[pcState.index];
+    if (!step || pcState.revealed) return;
+    pcState.revealed = true;
+    pcState.streak = 0;
+    pcUpdateMeta();
+    var input = $("pc-cmd-input");
+    input.value = step.answer;
+    input.classList.remove("wrong");
+    input.disabled = true;
+    $("btn-pc-check").disabled = true;
+    var fb = $("pc-tut-feedback");
+    fb.className = "tut-feedback soft";
+    fb.textContent = "Answer: " + step.answer;
+    setTimeout(function () {
+      pcState.index += 1;
+      pcSave();
+      pcRenderStep();
+    }, 900);
+  }
+
+  /* -- Course tabs + mode tabs -- */
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function setCourseTabIndex(activeKey) {
+    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
+      var on = btn.getAttribute("data-course") === activeKey;
+      btn.tabIndex = on ? 0 : -1;
+    });
+  }
+
+function syncInstallTip(courseKey) {
+    var tip = $("install-tip");
+    if (!tip) return;
+    var standalone = window.matchMedia("(display-mode: standalone)").matches
+      || window.navigator.standalone === true;
+    tip.hidden = standalone || courseKey !== "terminal";
+  }
+
+function syncComputerDummies(courseKey) {
+    var sec = $("computer-dummies");
+    if (!sec) return;
+    sec.hidden = courseKey !== "terminal";
+  }
+
+function showCourse(courseKey) {
+    var isTerminal = courseKey === "terminal";
+    var isPc = courseKey === "computer-basics";
+    var isQuiz = !isTerminal && !isPc;
+    var term = $("course-terminal");
+    var pc = $("course-pc");
+    var quiz = $("course-quiz");
+    if (!term || !quiz) return;
+
+    term.classList.toggle("active", isTerminal);
+    term.hidden = !isTerminal;
+    if (pc) {
+      pc.classList.toggle("active", isPc);
+      pc.hidden = !isPc;
+    }
+    quiz.classList.toggle("active", isQuiz);
+    quiz.hidden = !isQuiz;
+
+    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
+      var on = btn.getAttribute("data-course") === courseKey;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    setCourseTabIndex(courseKey);
+    syncInstallTip(courseKey);
+    syncComputerDummies(courseKey);
+
+    if (isPc) {
+      var tTut = $("tab-pc-tutorial");
+      var tQuiz = $("tab-pc-quiz");
+      var panelTut = $("panel-pc-tutorial");
+      if (panelTut) {
+        panelTut.classList.add("active");
+        panelTut.hidden = false;
+      }
+      if (tTut) {
+        tTut.classList.add("active");
+        tTut.setAttribute("aria-selected", "true");
+        tTut.tabIndex = 0;
+      }
+      if (tQuiz) {
+        tQuiz.classList.remove("active");
+        tQuiz.setAttribute("aria-selected", "false");
+        tQuiz.tabIndex = -1;
+      }
+      pcShowSetup();
+      return;
+    }
+
+    if (isQuiz) {
+      quizState.deckKey = courseKey;
+      quizState.forceAll = false;
+      quizState.sessionQueue = null;
+      quizState.sessionStartCount = 0;
+      quizState.sessionDone = 0;
+      quizLoadAndShow();
+    }
+  }
+
+
+  function showPanel(which) {
+    showCourse("terminal");
+    var tut = $("panel-tutorial");
+    var ov = $("panel-ovelser");
+    var tTut = $("tab-tutorial");
+    var tOv = $("tab-ovelser");
+    var isTut = which === "tutorial";
+    tut.classList.toggle("active", isTut);
+    ov.classList.toggle("active", !isTut);
+    tut.hidden = !isTut;
+    ov.hidden = isTut;
+    tTut.classList.toggle("active", isTut);
+    tOv.classList.toggle("active", !isTut);
+    tTut.setAttribute("aria-selected", isTut ? "true" : "false");
+    tOv.setAttribute("aria-selected", isTut ? "false" : "true");
+    tTut.tabIndex = isTut ? 0 : -1;
+    tOv.tabIndex = isTut ? -1 : 0;
+  }
+
+  document.querySelectorAll(".course-tabs button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      showCourse(btn.getAttribute("data-course"));
+    });
+  });
+
+  document.querySelectorAll(".brand-course").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var key = btn.getAttribute("data-course");
+      if (!key) return;
+      showCourse(key);
+      var lab = $("lab");
+      if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
+      var tab = document.querySelector('.course-tabs button[data-course="' + key + '"]');
+      if (tab) tab.focus();
+    });
+  });
+
+  $("tab-tutorial").addEventListener("click", function () { showPanel("tutorial"); });
+  $("tab-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
+  $("btn-to-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
+
+  $("cta-start").addEventListener("click", function (e) {
+    e.preventDefault();
+    showPanel("tutorial");
+    var lab = $("lab");
+    if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!$("tut-setup").classList.contains("hidden")) {
+      var btn = document.querySelector(".track-btn");
+      if (btn) btn.focus();
+    } else if (!$("tut-play").classList.contains("hidden")) {
+      $("cmd-input").focus();
+    }
+  });
+
+  /* -- Quiz / spaced repetition - Anki-compatible SM-2 (not FSRS) -- */
+  var quizState = {
+    deckKey: "acit4050",
+    card: null,
+    revealed: false,
+    forceAll: false,
+    sessionQueue: null,
+    sessionStartCount: 0,
+    sessionDone: 0,
+    sched: {}
+  };
+
+  var MINUTE = 60 * 1000;
+  var DAY = 24 * 60 * MINUTE;
+  var LEARNING_STEPS_MS = [1 * MINUTE, 10 * MINUTE];
+  var GRADUATING_DAYS = 1;
+  var EASY_INTERVAL_DAYS = 4;
+  var STARTING_EASE = 2.5;
+  var MIN_EASE = 1.3;
+  var EASY_BONUS = 1.3;
+  var HARD_FACTOR = 1.2;
+  var LEARNING_REQUEUE_MS = 15 * MINUTE;
+
+  function quizStorageKey(deckKey) {
+    return QUIZ_PREFIX + deckKey;
+  }
+
+  function quizStorageKeyV1(deckKey) {
+    return QUIZ_PREFIX_V1 + deckKey;
+  }
+
+  function quizDefaultCard() {
+    return {
+      due: 0,
+      interval: 0,
+      ease: STARTING_EASE,
+      repetitions: 0,
+      lapses: 0,
+      learningStep: 0,
+      status: "learning"
+    };
+  }
+
+  function quizMigrateFromV1(old) {
+    if (!old || typeof old !== "object") return quizDefaultCard();
+    var ease = typeof old.ease === "number" && !isNaN(old.ease) ? old.ease : STARTING_EASE;
+    var due = typeof old.due === "number" && !isNaN(old.due) ? old.due : 0;
+    var reps = typeof old.repetitions === "number" ? old.repetitions
+      : (typeof old.reps === "number" ? old.reps : 0);
+    var lapses = typeof old.lapses === "number" && !isNaN(old.lapses) ? old.lapses : 0;
+    var rawIvl = typeof old.interval === "number" && !isNaN(old.interval) ? old.interval : 0;
+    /* v1 stored interval in ms; v2 uses days */
+    var intervalDays = 0;
+    var status = "learning";
+    var learningStep = 0;
+    if (old.status === "learning" || old.status === "review" || old.status === "relearning") {
+      status = old.status;
+      intervalDays = rawIvl >= 1000 ? rawIvl / DAY : rawIvl;
+      learningStep = typeof old.learningStep === "number" ? old.learningStep : 0;
+    } else if (reps > 0 && rawIvl >= DAY) {
+      status = "review";
+      intervalDays = rawIvl / DAY;
+    } else if (reps > 0 && rawIvl > 0) {
+      status = "learning";
+      learningStep = rawIvl >= 10 * MINUTE ? 1 : 0;
+    }
+    return {
+      due: due,
+      interval: Math.max(0, intervalDays),
+      ease: Math.max(MIN_EASE, ease),
+      repetitions: Math.max(0, reps),
+      lapses: Math.max(0, lapses),
+      learningStep: Math.max(0, learningStep),
+      status: status
+    };
+  }
+
+  function quizNormalizeCard(raw) {
+    if (!raw || typeof raw !== "object") return quizDefaultCard();
+    if (raw.status === "learning" || raw.status === "review" || raw.status === "relearning") {
+      var c = quizDefaultCard();
+      c.due = typeof raw.due === "number" && !isNaN(raw.due) ? raw.due : 0;
+      c.interval = typeof raw.interval === "number" && !isNaN(raw.interval) ? Math.max(0, raw.interval) : 0;
+      c.ease = typeof raw.ease === "number" && !isNaN(raw.ease) ? Math.max(MIN_EASE, raw.ease) : STARTING_EASE;
+      c.repetitions = typeof raw.repetitions === "number" ? raw.repetitions
+        : (typeof raw.reps === "number" ? raw.reps : 0);
+      c.lapses = typeof raw.lapses === "number" && !isNaN(raw.lapses) ? raw.lapses : 0;
+      c.learningStep = typeof raw.learningStep === "number" && !isNaN(raw.learningStep) ? raw.learningStep : 0;
+      c.status = raw.status;
+      return c;
+    }
+    return quizMigrateFromV1(raw);
+  }
+
+  function quizLoadSched(deckKey) {
+    try {
+      var raw = localStorage.getItem(quizStorageKey(deckKey));
+      if (!raw) {
+        var v1raw = localStorage.getItem(quizStorageKeyV1(deckKey));
+        if (!v1raw) return {};
+        var v1parsed = JSON.parse(v1raw);
+        if (!v1parsed || typeof v1parsed !== "object" || Array.isArray(v1parsed)) return {};
+        var migrated = {};
+        Object.keys(v1parsed).forEach(function (id) {
+          migrated[id] = quizMigrateFromV1(v1parsed[id]);
+        });
+        try {
+          localStorage.setItem(quizStorageKey(deckKey), JSON.stringify(migrated));
+          localStorage.removeItem(quizStorageKeyV1(deckKey));
+        } catch (eMig) { /* ignore */ }
+        return migrated;
+      }
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+      var out = {};
+      Object.keys(parsed).forEach(function (id) {
+        out[id] = quizNormalizeCard(parsed[id]);
+      });
+      return out;
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function quizSaveSched() {
+    try {
+      localStorage.setItem(quizStorageKey(quizState.deckKey), JSON.stringify(quizState.sched));
+    } catch (e) { /* ignore */ }
+  }
+
+  function quizGetDeck(deckKey) {
+    var decks = window.QUIZ_DECKS || {};
+    return decks[deckKey] || null;
+  }
+
+  function quizEnsureCard(sched, cardId) {
+    sched[cardId] = quizNormalizeCard(sched[cardId]);
+    return sched[cardId];
+  }
+
+  function quizDueCards(deck, sched, forceAll) {
+    var now = Date.now();
+    var due = [];
+    (deck.cards || []).forEach(function (c) {
+      if (!c || !c.id) return;
+      var s = quizEnsureCard(sched, c.id);
+      if (forceAll || s.due <= now) due.push(c);
+    });
+    due.sort(function (a, b) {
+      return (sched[a.id].due || 0) - (sched[b.id].due || 0);
+    });
+    return due;
+  }
+
+  function quizCloneSched(s) {
+    return {
+      due: s.due,
+      interval: s.interval,
+      ease: s.ease,
+      repetitions: s.repetitions,
+      lapses: s.lapses,
+      learningStep: s.learningStep,
+      status: s.status
+    };
+  }
+
+  function quizFormatInterval(ms) {
+    if (ms < 90 * 1000) return "<1m";
+    if (ms < 60 * MINUTE) return Math.max(1, Math.round(ms / MINUTE)) + "m";
+    if (ms < DAY) {
+      var hours = Math.max(1, Math.round(ms / (60 * MINUTE)));
+      return hours + "h";
+    }
+    var days = ms / DAY;
+    if (days < 30.5) return Math.max(1, Math.round(days)) + "d";
+    if (days < 365) {
+      var months = days / 30.4375;
+      var mRound = Math.round(months * 10) / 10;
+      return (mRound % 1 === 0 ? String(mRound) : mRound.toFixed(1)) + "mo";
+    }
+    var years = Math.round((days / 365.25) * 10) / 10;
+    return (years % 1 === 0 ? String(years) : years.toFixed(1)) + "y";
+  }
+
+  function quizFuzzDays(days) {
+    if (days < 2) return days;
+    var fuzz = 0.05;
+    var min = days * (1 - fuzz);
+    var max = days * (1 + fuzz);
+    return min + Math.random() * (max - min);
+  }
+
+  function quizLearningHardMs(step) {
+    var cur = LEARNING_STEPS_MS[Math.min(step, LEARNING_STEPS_MS.length - 1)];
+    var next = step + 1 < LEARNING_STEPS_MS.length
+      ? LEARNING_STEPS_MS[step + 1]
+      : GRADUATING_DAYS * DAY;
+    return Math.round((cur + next) / 2);
+  }
+
+  /** Apply Anki-style SM-2 grade; mutates s; returns delay ms until due. */
+  function quizApplyGrade(s, grade, now, withFuzz) {
+    now = now || Date.now();
+    var delayMs = 0;
+    var inLearning = s.status === "learning" || s.status === "relearning";
+
+    if (grade === "again") {
+      if (s.status === "review") {
+        s.lapses += 1;
+        s.ease = Math.max(MIN_EASE, (s.ease || STARTING_EASE) - 0.2);
+        s.interval = 0;
+        s.status = "relearning";
+      } else if (s.status !== "relearning") {
+        s.status = "learning";
+      }
+      s.learningStep = 0;
+      delayMs = LEARNING_STEPS_MS[0];
+      s.due = now + delayMs;
+      return delayMs;
+    }
+
+    if (inLearning) {
+      if (grade === "hard") {
+        delayMs = quizLearningHardMs(s.learningStep || 0);
+        s.due = now + delayMs;
+        return delayMs;
+      }
+      if (grade === "good") {
+        var step = s.learningStep || 0;
+        if (step + 1 < LEARNING_STEPS_MS.length) {
+          s.learningStep = step + 1;
+          delayMs = LEARNING_STEPS_MS[s.learningStep];
+          s.due = now + delayMs;
+          return delayMs;
+        }
+        /* Graduate */
+        s.status = "review";
+        s.learningStep = 0;
+        s.repetitions = (s.repetitions || 0) + 1;
+        s.interval = GRADUATING_DAYS;
+        delayMs = s.interval * DAY;
+        s.due = now + delayMs;
+        return delayMs;
+      }
+      /* easy - graduate with easy interval */
+      s.status = "review";
+      s.learningStep = 0;
+      s.repetitions = (s.repetitions || 0) + 1;
+      s.ease = (s.ease || STARTING_EASE) + 0.15;
+      s.interval = EASY_INTERVAL_DAYS;
+      delayMs = s.interval * DAY;
+      s.due = now + delayMs;
+      return delayMs;
+    }
+
+    /* Review */
+    var prev = Math.max(GRADUATING_DAYS, s.interval || GRADUATING_DAYS);
+    var ease = s.ease || STARTING_EASE;
+    var nextDays;
+
+    if (grade === "hard") {
+      s.ease = Math.max(MIN_EASE, ease - 0.15);
+      nextDays = Math.max(prev * HARD_FACTOR, prev + 1);
+    } else if (grade === "good") {
+      nextDays = prev * ease;
+    } else {
+      /* easy */
+      s.ease = ease + 0.15;
+      nextDays = prev * ease * EASY_BONUS;
+    }
+
+    if (withFuzz) nextDays = quizFuzzDays(nextDays);
+    nextDays = Math.max(1, Math.round(nextDays * 100) / 100);
+    s.interval = nextDays;
+    s.repetitions = (s.repetitions || 0) + 1;
+    s.status = "review";
+    delayMs = Math.round(nextDays * DAY);
+    s.due = now + delayMs;
+    return delayMs;
+  }
+
+  function quizPreviewGrades(cardId) {
+    var base = quizEnsureCard(quizState.sched, cardId);
+    var now = Date.now();
+    var out = {};
+    ["again", "hard", "good", "easy"].forEach(function (g) {
+      var clone = quizCloneSched(base);
+      var ms = quizApplyGrade(clone, g, now, false);
+      out[g] = { ms: ms, label: quizFormatInterval(ms) };
+    });
+    return out;
+  }
+
+  function quizUpdateGradePreviews() {
+    if (!quizState.card) return;
+    var prev = quizPreviewGrades(quizState.card.id);
+    var keys = { "1": "again", "2": "hard", "3": "good", "4": "easy" };
+    Object.keys(keys).forEach(function (num) {
+      var g = keys[num];
+      var ivl = document.querySelector('#quiz-grades [data-ivl="' + g + '"]');
+      if (ivl) ivl.textContent = prev[g].label;
+      var btn = document.querySelector('#quiz-grades button[data-grade="' + g + '"]');
+      if (btn) btn.title = prev[g].label + " | key " + num;
+    });
+  }
+
+  function quizGrade(cardId, grade) {
+    var s = quizEnsureCard(quizState.sched, cardId);
+    quizApplyGrade(s, grade, Date.now(), true);
+    quizSaveSched();
+  }
+
+  function quizUpdateQueueLabel(n) {
+    var el = $("quiz-queue");
+    if (!el) return;
+    var count = Math.max(0, Number(n) || 0);
+    el.textContent = "";
+    var b = document.createElement("b");
+    b.textContent = String(count);
+    el.appendChild(b);
+    el.appendChild(document.createTextNode(" cards in queue"));
+  }
+
+  function quizUpdateProgress() {
+    var total = quizState.sessionStartCount || 0;
+    var done = quizState.sessionDone || 0;
+    var left = (quizState.sessionQueue && quizState.sessionQueue.length) || 0;
+    var stepEl = $("quiz-step-label");
+    var doneEl = $("quiz-done-count");
+    var totalEl = $("quiz-total-count");
+    var fill = $("quiz-bar-fill");
+    var bar = $("quiz-bar");
+    if (doneEl) doneEl.textContent = String(done);
+    if (totalEl) totalEl.textContent = String(total);
+    if (stepEl) {
+      if (!total && !left) stepEl.textContent = "No cards in session";
+      else if (!left) stepEl.textContent = "Session complete";
+      else stepEl.textContent = left + " left in this session";
+    }
+    var pct = total ? Math.min(100, (done / total) * 100) : 0;
+    if (fill) fill.style.width = pct + "%";
+    if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
+  }
+
+  function quizUpdateMaterials(deckKey) {
+    var box = $("quiz-materials");
+    if (!box) return;
+    if (deckKey === "acit4280") {
+      box.classList.remove("hidden");
+      box.innerHTML = "Syllabus: ACIT4280 Lectures 1-6 (GDPR, PETs, PbD, PIA/risk, management, privacy engineering/patterns) + Ch.1. Quiz in English.";
+    } else if (deckKey === "acit4050") {
+      box.classList.remove("hidden");
+      box.innerHTML = "Tip: Use the Terminal tab to practise commands, then quiz here (CIA, networking, PowerShell/bash essentials + course plan).";
+    } else if (deckKey === "acit4100") {
+      box.classList.remove("hidden");
+      box.innerHTML = "Syllabus: ACIT4100 syllabus, essay requirements, APA/plagiarism. Quiz covers research communication - not your personal essay topic.";
+    } else {
+      box.classList.add("hidden");
+      box.textContent = "";
+    }
+  }
+
+  function quizRenderFigure(card) {
+    var wrap = $("quiz-figure");
+    var media = $("quiz-figure-media");
+    var cap = $("quiz-figure-caption");
+    var shows = $("quiz-figure-shows");
+    var attr = $("quiz-figure-attr");
+    if (!wrap || !media) return;
+    media.innerHTML = "";
+    function hideMeta(el) {
+      if (!el) return;
+      el.textContent = "";
+      el.classList.add("hidden");
+    }
+    hideMeta(cap);
+    hideMeta(shows);
+    hideMeta(attr);
+    var fig = card && card.figure;
+    if (!fig || (fig.type !== "img" && fig.type !== "svg")) {
+      wrap.classList.add("hidden");
+      return;
+    }
+    wrap.classList.remove("hidden");
+    var alt = fig.alt || "Figure";
+    if (fig.type === "img" && fig.src) {
+      var img = document.createElement("img");
+      img.src = fig.src;
+      img.alt = alt;
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.onerror = function () {
+        wrap.classList.add("hidden");
+        media.innerHTML = "";
+      };
+      media.appendChild(img);
+    } else if (fig.type === "svg" && fig.svg) {
+      media.innerHTML = fig.svg;
+      var svgEl = media.querySelector("svg");
+      if (svgEl && !svgEl.getAttribute("aria-label") && !svgEl.getAttribute("aria-labelledby")) {
+        svgEl.setAttribute("role", "img");
+        svgEl.setAttribute("aria-label", alt);
+      }
+    } else {
+      wrap.classList.add("hidden");
+      return;
+    }
+    if (cap && fig.caption) {
+      cap.textContent = fig.caption;
+      cap.classList.remove("hidden");
+    }
+    if (shows && fig.shows) {
+      shows.textContent = "What this shows: " + fig.shows;
+      shows.classList.remove("hidden");
+    }
+    if (attr && fig.attribution) {
+      attr.textContent = fig.attribution;
+      attr.classList.remove("hidden");
+    }
+  }
+
+  function quizRenderCard(card) {
+    quizState.card = card;
+    quizState.revealed = false;
+    $("quiz-active").classList.remove("hidden");
+    $("quiz-empty").classList.add("hidden");
+    $("quiz-card").classList.remove("revealed");
+    $("quiz-card").setAttribute("aria-label", "Quiz card - press Space or Enter to show answer");
+    $("quiz-face-label").textContent = "Question";
+    $("quiz-q").textContent = card.q;
+    quizRenderFigure(card);
+    var aEl = $("quiz-a");
+    aEl.textContent = card.a;
+    aEl.classList.add("hidden");
+    $("quiz-reveal-row").classList.remove("hidden");
+    $("quiz-grades").classList.add("hidden");
+
+    var tags = $("quiz-tags");
+    tags.innerHTML = "";
+    (card.tags || []).forEach(function (t) {
+      var span = document.createElement("span");
+      span.textContent = t;
+      tags.appendChild(span);
+    });
+    quizUpdateProgress();
+  }
+
+  function quizShowEmpty(dueCount, opts) {
+    opts = opts || {};
+    quizState.card = null;
+    $("quiz-active").classList.add("hidden");
+    $("quiz-empty").classList.remove("hidden");
+    var title = $("quiz-empty-title");
+    var text = $("quiz-empty-text");
+    var actions = $("quiz-empty-actions");
+    if (opts.missingDeck) {
+      if (title) title.textContent = "No cards loaded";
+      if (text) text.textContent = "Quiz deck not found. Check that quiz-decks.js is in the same folder as index.html (also works with file://).";
+      if (actions) actions.classList.add("hidden");
+    } else {
+      if (title) title.textContent = "Nothing due right now";
+      if (text) text.textContent = "All caught up for this course. Come back later, or review every card anyway.";
+      if (actions) actions.classList.remove("hidden");
+    }
+    quizUpdateQueueLabel(dueCount);
+    quizUpdateProgress();
+  }
+
+  function quizLoadAndShow() {
+    var deck = quizGetDeck(quizState.deckKey);
+    if (!deck) {
+      $("quiz-course-title").textContent = "Quiz";
+      $("quiz-lede").textContent = "No cards found for this course. Check that quiz-decks.js is in the same folder and loads (file://-friendly).";
+      quizUpdateMaterials(null);
+      quizState.sessionStartCount = 0;
+      quizState.sessionDone = 0;
+      quizState.sessionQueue = null;
+      quizShowEmpty(0, { missingDeck: true });
+      return;
+    }
+
+    if (!Array.isArray(deck.cards) || !deck.cards.length) {
+      $("quiz-course-title").textContent = (deck.course || "Quiz") + " - " + (deck.title || "Quiz");
+      $("quiz-lede").textContent = "This course has no cards yet.";
+      quizUpdateMaterials(quizState.deckKey);
+      quizState.sessionStartCount = 0;
+      quizState.sessionDone = 0;
+      quizState.sessionQueue = null;
+      quizShowEmpty(0, { missingDeck: true });
+      return;
+    }
+
+    quizState.sched = quizLoadSched(quizState.deckKey);
+    (deck.cards || []).forEach(function (c) { if (c && c.id) quizEnsureCard(quizState.sched, c.id); });
+
+    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Quiz");
+    $("quiz-lede").textContent = "Anki-style SM-2 - progress is stored locally in the browser.";
+    quizUpdateMaterials(quizState.deckKey);
+
+    var byId = {};
+    (deck.cards || []).forEach(function (c) { if (c && c.id) byId[c.id] = c; });
+
+    var queue;
+    if (quizState.sessionQueue && quizState.sessionQueue.length) {
+      queue = quizState.sessionQueue.map(function (id) { return byId[id]; }).filter(Boolean);
+      if (queue.length !== quizState.sessionQueue.length) {
+        quizState.sessionQueue = queue.map(function (c) { return c.id; });
+      }
+      if (!queue.length) {
+        quizState.sessionQueue = null;
+        quizState.forceAll = false;
+      }
+    }
+    if (!quizState.sessionQueue || !quizState.sessionQueue.length) {
+      if (quizState.forceAll) {
+        quizState.sessionQueue = (deck.cards || []).filter(function (c) { return c && c.id; }).map(function (c) { return c.id; });
+        quizState.sessionStartCount = quizState.sessionQueue.length;
+        quizState.sessionDone = 0;
+        queue = quizState.sessionQueue.map(function (id) { return byId[id]; }).filter(Boolean);
+      } else {
+        queue = quizDueCards(deck, quizState.sched, false);
+        quizState.sessionQueue = queue.map(function (c) { return c.id; });
+        quizState.sessionStartCount = quizState.sessionQueue.length;
+        quizState.sessionDone = 0;
+      }
+    }
+
+    if (!queue) queue = [];
+    quizUpdateQueueLabel(queue.length);
+
+    if (!queue.length) {
+      quizState.sessionQueue = null;
+      quizState.forceAll = false;
+      quizShowEmpty(0);
+      return;
+    }
+    quizRenderCard(queue[0]);
+  }
+
+  function quizReveal() {
+    if (!quizState.card || quizState.revealed) return;
+    quizState.revealed = true;
+    $("quiz-card").classList.add("revealed");
+    $("quiz-card").setAttribute("aria-label", "Answer shown - rate with 1-4");
+    $("quiz-face-label").textContent = "Answer";
+    $("quiz-a").classList.remove("hidden");
+    $("quiz-reveal-row").classList.add("hidden");
+    quizUpdateGradePreviews();
+    $("quiz-grades").classList.remove("hidden");
+  }
+
+  function quizAfterGrade(grade) {
+    if (!quizState.card) return;
+    var id = quizState.card.id;
+    quizGrade(id, grade);
+    quizState.sessionDone += 1;
+    if (quizState.sessionQueue && quizState.sessionQueue.length) {
+      quizState.sessionQueue = quizState.sessionQueue.filter(function (cid) { return cid !== id; });
+      var s = quizState.sched[id];
+      var delay = s && typeof s.due === "number" ? s.due - Date.now() : 0;
+      var requeueLearning = s && (s.status === "learning" || s.status === "relearning") && delay <= LEARNING_REQUEUE_MS;
+      if (grade === "again" || requeueLearning) {
+        quizState.sessionQueue.push(id);
+        if (grade === "again") {
+          quizState.sessionDone = Math.max(0, quizState.sessionDone - 1);
+        }
+      }
+      if (!quizState.sessionQueue.length) {
+        quizState.sessionQueue = null;
+        quizState.forceAll = false;
+      }
+    }
+    quizLoadAndShow();
+  }
+
+  $("quiz-reveal").addEventListener("click", quizReveal);
+  $("quiz-card").addEventListener("click", function () {
+    if (!quizState.revealed && quizState.card) quizReveal();
+  });
+  $("quiz-card").addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      if (!quizState.revealed && quizState.card) {
+        e.preventDefault();
+        quizReveal();
+      }
+    }
+  });
+  $("quiz-grades").addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-grade]");
+    if (!btn) return;
+    quizAfterGrade(btn.getAttribute("data-grade"));
+  });
+  $("quiz-reset").addEventListener("click", function () {
+    if (!confirm("Reset spaced-repetition for " + quizState.deckKey + "?")) return;
+    try {
+      localStorage.removeItem(quizStorageKey(quizState.deckKey));
+      localStorage.removeItem(quizStorageKeyV1(quizState.deckKey));
+    } catch (e) { /* ignore */ }
+    quizState.forceAll = false;
+    quizState.sessionQueue = null;
+    quizState.sessionStartCount = 0;
+    quizState.sessionDone = 0;
+    quizLoadAndShow();
+  });
+  $("quiz-study-all").addEventListener("click", function () {
+    quizState.forceAll = true;
+    quizState.sessionQueue = null;
+    quizState.sessionStartCount = 0;
+    quizState.sessionDone = 0;
+    quizLoadAndShow();
+  });
+
+  function isTypingTarget(el) {
+    if (!el) return false;
+    var tag = (el.tagName || "").toLowerCase();
+    return tag === "input" || tag === "textarea" || tag === "select" || el.isContentEditable;
+  }
+
+  function quizPanelActive() {
+    var quiz = $("course-quiz");
+    return quiz && !quiz.hidden && quiz.classList.contains("active");
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+    /* Course tab arrows when focus is on a course tab */
+    if (e.target && e.target.closest && e.target.closest(".course-tabs")) {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".course-tabs button"));
+      var idx = tabs.indexOf(e.target.closest("button"));
+      if (idx >= 0 && (e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "Home" || e.key === "End")) {
+        e.preventDefault();
+        var next = idx;
+        if (e.key === "ArrowRight") next = (idx + 1) % tabs.length;
+        if (e.key === "ArrowLeft") next = (idx - 1 + tabs.length) % tabs.length;
+        if (e.key === "Home") next = 0;
+        if (e.key === "End") next = tabs.length - 1;
+        tabs[next].focus();
+        showCourse(tabs[next].getAttribute("data-course"));
+        return;
+      }
+    }
+
+    if (!quizPanelActive() || isTypingTarget(e.target)) return;
+
+    if ((e.key === " " || e.key === "Enter") && quizState.card && !quizState.revealed) {
+      e.preventDefault();
+      quizReveal();
+      return;
+    }
+    if (quizState.revealed && quizState.card) {
+      var map = { "1": "again", "2": "hard", "3": "good", "4": "easy" };
+      if (map[e.key]) {
+        e.preventDefault();
+        quizAfterGrade(map[e.key]);
+      }
+    }
+  });
+
+
+  function showPcMode(which) {
+    var isQuiz = which === "quiz";
+    var term = $("course-terminal");
+    var pc = $("course-pc");
+    var quiz = $("course-quiz");
+    var panelTut = $("panel-pc-tutorial");
+    if (term) {
+      term.classList.remove("active");
+      term.hidden = true;
+    }
+    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
+      var on = btn.getAttribute("data-course") === "computer-basics";
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    setCourseTabIndex("computer-basics");
+
+    var tTut = $("tab-pc-tutorial");
+    var tQuiz = $("tab-pc-quiz");
+
+    /* Keep course-pc visible so Tutorial | Quiz mode tabs stay on screen */
+    if (pc) {
+      pc.classList.add("active");
+      pc.hidden = false;
+    }
+
+    if (isQuiz) {
+      if (panelTut) {
+        panelTut.classList.remove("active");
+        panelTut.hidden = true;
+      }
+      if (quiz) {
+        quiz.classList.add("active");
+        quiz.hidden = false;
+      }
+      if (tTut) {
+        tTut.classList.remove("active");
+        tTut.setAttribute("aria-selected", "false");
+        tTut.tabIndex = -1;
+      }
+      if (tQuiz) {
+        tQuiz.classList.add("active");
+        tQuiz.setAttribute("aria-selected", "true");
+        tQuiz.tabIndex = 0;
+      }
+      quizState.deckKey = "computer-basics";
+      quizState.forceAll = false;
+      quizState.sessionQueue = null;
+      quizState.sessionStartCount = 0;
+      quizState.sessionDone = 0;
+      quizLoadAndShow();
+    } else {
+      if (quiz) {
+        quiz.classList.remove("active");
+        quiz.hidden = true;
+      }
+      if (panelTut) {
+        panelTut.classList.add("active");
+        panelTut.hidden = false;
+      }
+      if (tTut) {
+        tTut.classList.add("active");
+        tTut.setAttribute("aria-selected", "true");
+        tTut.tabIndex = 0;
+      }
+      if (tQuiz) {
+        tQuiz.classList.remove("active");
+        tQuiz.setAttribute("aria-selected", "false");
+        tQuiz.tabIndex = -1;
+      }
+      pcShowSetup();
+    }
+  }
+
+  function openPcTutorialFromCta() {
+    showPcMode("tutorial");
+    var lab = $("lab");
+    if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
+    var saved = pcLoad();
+    if (saved && saved.index < STEPS_PC.length) {
+      pcStart(saved.index, { streak: saved.streak || 0 });
+    } else {
+      pcStart(0);
+    }
+  }
+
+  function openPcQuizFromCta() {
+    showPcMode("quiz");
+    var lab = $("lab");
+    if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* -- Tutorial UI -- */
+  function showSetup() {
+    $("tut-setup").classList.remove("hidden");
+    $("tut-play").classList.add("hidden");
+    $("tut-done").classList.add("hidden");
+
+    var saved = load();
+    var note = $("resume-note");
+    var btnResume = $("btn-resume");
+    var btnReset = $("btn-reset");
+    if (saved && (saved.track === "ps" || saved.track === "arch") && typeof saved.index === "number") {
+      var total = stepsFor(saved.track).length;
+      var label = saved.track === "arch" ? "Arch / Linux" : "PowerShell";
+      var stepNum = Math.min(Math.max(saved.index, 0) + 1, total);
+      note.textContent = "Saved progress: " + label + ", step " + stepNum + " of " + total + ".";
+      note.classList.remove("hidden");
+      btnResume.classList.remove("hidden");
+      btnReset.classList.remove("hidden");
+    } else {
+      note.classList.add("hidden");
+      btnResume.classList.add("hidden");
+      btnReset.classList.add("hidden");
+    }
+  }
+
+  function startTrack(track, index, restoreMeta) {
+    state.track = track;
+    state.index = index || 0;
+    state.fails = 0;
+    state.revealed = false;
+    if (restoreMeta && typeof restoreMeta.streak === "number") {
+      state.streak = restoreMeta.streak;
+      state.repsDone = restoreMeta.repsDone || 0;
+    } else if (!restoreMeta) {
+      state.streak = 0;
+      state.repsDone = 0;
+    }
+    save();
+    $("tut-setup").classList.add("hidden");
+    $("tut-done").classList.add("hidden");
+    $("tut-play").classList.remove("hidden");
+    $("tut-track-label").textContent = track === "arch" ? "Arch / Linux" : "PowerShell";
+    $("console-title").textContent = track === "arch" ? "bash - cyberlab" : "powershell - local";
+    $("prompt-char").textContent = track === "arch" ? "$" : ">";
+    updateMeta();
+    renderStep();
+  }
+
+  function setProgress(pct) {
+    $("tut-bar-fill").style.width = pct + "%";
+    var bar = $("tut-bar");
+    if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
+  }
+
+  function renderStep() {
+    var list = stepsFor(state.track);
+    if (state.index >= list.length) {
+      finish();
+      return;
+    }
+    var step = list[state.index];
+    state.fails = 0;
+    state.revealed = false;
+
+    $("tut-step-label").textContent = "Step " + (state.index + 1) + " of " + list.length;
+    setProgress((state.index / list.length) * 100);
+    $("tut-tag").textContent = step.rep ? "Review" : (step.tag === "New" || step.tag === "Ny" ? "New command" : (step.tag || "New command"));
+    $("tut-tag").classList.toggle("rep", !!step.rep);
+    $("tut-prompt").textContent = step.prompt;
+    $("tut-why").textContent = step.why || "";
+    $("tut-feedback").textContent = "";
+    $("tut-feedback").className = "tut-feedback";
+    updateMeta();
+    animateStep();
+
+    var input = $("cmd-input");
+    input.value = "";
+    input.classList.remove("wrong", "ok");
+    input.disabled = false;
+    $("btn-check").disabled = false;
+    input.focus();
+  }
+
+  function finish() {
+    $("tut-play").classList.add("hidden");
+    $("tut-done").classList.remove("hidden");
+    setProgress(100);
+    clearSave();
+  }
+
+  function checkAnswer() {
+    if (state.revealed) return;
+    var list = stepsFor(state.track);
+    var step = list[state.index];
+    if (!step) return;
+
+    var input = $("cmd-input");
+    var given = normalize(input.value);
+    if (!given) {
+      var fbEmpty = $("tut-feedback");
+      fbEmpty.className = "tut-feedback soft";
+      fbEmpty.textContent = "Type a command first.";
+      input.focus();
+      return;
+    }
+    var ok = step.accept.some(function (a) { return normalize(a) === given; });
+
+    var fb = $("tut-feedback");
+    if (ok) {
+      input.classList.remove("wrong");
+      input.classList.add("ok");
+      fb.className = "tut-feedback ok";
+      fb.textContent = "Correct.";
+      input.disabled = true;
+      $("btn-check").disabled = true;
+      state.streak += 1;
+      if (step.rep) state.repsDone += 1;
+      updateMeta();
+      state.index += 1;
+      save();
+      setTimeout(function () {
+        renderStep();
+      }, 480);
+      return;
+    }
+
+    state.fails += 1;
+    state.streak = 0;
+    updateMeta();
+    input.classList.remove("ok");
+    input.classList.remove("wrong");
+    void input.offsetWidth;
+    input.classList.add("wrong");
+
+    if (state.fails >= 3) {
+      state.revealed = true;
+      fb.className = "tut-feedback reveal-box";
+      fb.innerHTML = "The answer is <code>" + escapeHtml(step.answer) + "</code> - type it in to continue.";
+      state.revealed = false;
+      return;
+    }
+    if (state.fails === 2) {
+      fb.className = "tut-feedback hint-box";
+      fb.textContent = "Hint: " + step.hint;
+      return;
+    }
+    fb.className = "tut-feedback soft";
+    fb.textContent = "Not quite - try again.";
+  }
+
+  function revealAndAdvance() {
+    var list = stepsFor(state.track);
+    var step = list[state.index];
+    if (!step) return;
+    var fb = $("tut-feedback");
+    fb.className = "tut-feedback reveal-box";
+    fb.innerHTML = "Answer: <code>" + escapeHtml(step.answer) + "</code>";
+    $("cmd-input").value = step.answer;
+    $("cmd-input").classList.add("ok");
+    state.revealed = true;
+    state.streak = 0;
+    updateMeta();
+    state.index += 1;
+    save();
+    setTimeout(function () { renderStep(); }, 850);
+  }
+
+  /* events */
+  document.querySelectorAll(".track-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      startTrack(btn.getAttribute("data-track"), 0);
+    });
+  });
+
+  $("btn-resume").addEventListener("click", function () {
+    var saved = load();
+    if (saved && saved.track) {
+      var total = stepsFor(saved.track).length;
+      var idx = typeof saved.index === "number" ? saved.index : 0;
+      if (idx < 0) idx = 0;
+      if (idx >= total) {
+        clearSave();
+        showSetup();
+        return;
+      }
+      startTrack(saved.track, idx, {
+        streak: saved.streak || 0,
+        repsDone: saved.repsDone || 0
+      });
+    }
+  });
+
+  $("btn-reset").addEventListener("click", function () {
+    clearSave();
+    state.streak = 0;
+    state.repsDone = 0;
+    showSetup();
+  });
+
+  $("btn-restart").addEventListener("click", function () {
+    clearSave();
+    state.streak = 0;
+    state.repsDone = 0;
+    showSetup();
+  });
+
+  $("btn-change-track").addEventListener("click", function () {
+    showSetup();
+  });
+
+  $("btn-check").addEventListener("click", checkAnswer);
+  $("cmd-input").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      checkAnswer();
+    }
+  });
+
+  $("btn-skip").addEventListener("click", revealAndAdvance);
+
+  /* keyboard tabs (tutorial / exercises) */
+  $("tab-tutorial").addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      $("tab-ovelser").focus();
+      showPanel("ovelser");
+    }
+  });
+  $("tab-ovelser").addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      $("tab-tutorial").focus();
+      showPanel("tutorial");
+    }
+  });
+
+  /* init */
+
+  /* -- Wire PC tutorial controls -- */
+  if ($("btn-pc-start")) {
+    $("btn-pc-start").addEventListener("click", function () { pcStart(0); });
+  }
+  if ($("btn-pc-resume")) {
+    $("btn-pc-resume").addEventListener("click", function () {
+      var saved = pcLoad();
+      if (saved) pcStart(saved.index, { streak: saved.streak || 0 });
+      else pcStart(0);
+    });
+  }
+  if ($("btn-pc-reset")) {
+    $("btn-pc-reset").addEventListener("click", function () {
+      pcClearSave();
+      pcShowSetup();
+      pcStart(0);
+    });
+  }
+  if ($("btn-pc-check")) {
+    $("btn-pc-check").addEventListener("click", pcCheckAnswer);
+  }
+  if ($("pc-cmd-input")) {
+    $("pc-cmd-input").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        pcCheckAnswer();
+      }
+    });
+  }
+  if ($("btn-pc-skip")) {
+    $("btn-pc-skip").addEventListener("click", pcSkip);
+  }
+  if ($("btn-pc-to-setup")) {
+    $("btn-pc-to-setup").addEventListener("click", function () {
+      pcSave();
+      pcShowSetup();
+    });
+  }
+  if ($("btn-pc-restart")) {
+    $("btn-pc-restart").addEventListener("click", function () { pcStart(0); });
+  }
+  if ($("btn-pc-to-quiz")) {
+    $("btn-pc-to-quiz").addEventListener("click", function () { showPcMode("quiz"); });
+  }
+  if ($("tab-pc-tutorial")) {
+    $("tab-pc-tutorial").addEventListener("click", function () { showPcMode("tutorial"); });
+  }
+  if ($("tab-pc-quiz")) {
+    $("tab-pc-quiz").addEventListener("click", function () { showPcMode("quiz"); });
+  }
+  if ($("btn-dummies-tutorial")) {
+    $("btn-dummies-tutorial").addEventListener("click", openPcTutorialFromCta);
+  }
+  if ($("btn-dummies-quiz")) {
+    $("btn-dummies-quiz").addEventListener("click", openPcQuizFromCta);
+  }
+
+  showCourse("terminal");
+  showPanel("tutorial");
+  showSetup();
+})();
+  </script>
+
+  <script>
+  if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./sw.js").catch(function () { /* ignore offline/file:// */ });
+    });
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 254" width="520" height="254" role="img" aria-label="Windows PowerShell">
+  <defs>
+    <filter id="sh" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="520" height="254" fill="#FFF1D1"/>
+  <rect x="12" y="12" width="496" height="230" rx="8" fill="#1e1e1e" filter="url(#sh)"/>
+  <rect x="12" y="12" width="496" height="28" rx="8" fill="#2d2d2d"/>
+  <rect x="12" y="32" width="496" height="8" fill="#2d2d2d"/>
+  <circle cx="28" cy="26" r="5" fill="#DF301C"/>
+  <circle cx="46" cy="26" r="5" fill="#FF9100"/>
+  <circle cx="64" cy="26" r="5" fill="#00B7CD"/>
+  <text x="260" y="30" fill="#c8c8c8" font-size="11" font-family="Consolas, 'Courier New', monospace" text-anchor="middle">Windows PowerShell</text>
+  <text x="28" y="52" fill="#FF9100" font-size="13" font-family="Consolas, 'Courier New', monospace">PS C:\Users\student&gt; Get-Location</text>
+  <text x="28" y="74" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace"></text>
+  <text x="28" y="96" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace">Path</text>
+  <text x="28" y="118" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace">----</text>
+  <text x="28" y="140" fill="#FFF1D1" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">C:\Users\student</text>
+  <text x="28" y="162" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace"></text>
+  <text x="28" y="184" fill="#FF9100" font-size="13" font-family="Consolas, 'Courier New', monospace">PS C:\Users\student&gt; pwd</text>
+  <text x="28" y="206" fill="#FFF1D1" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">C:\Users\student</text>
+</svg>

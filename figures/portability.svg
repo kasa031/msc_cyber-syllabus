@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160" role="img"><rect width="400" height="160" fill="#FFF1D1"/>
+<text x="200" y="28" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Data portability (Art. 20)</text>
+<rect x="40" y="55" width="120" height="70" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="100" y="90" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Your data</text>
+<line x1="160" y1="90" x2="200" y2="90" stroke="#1A1410" stroke-width="3"/>
+<text x="180" y="78" fill="#FF9100" font-size="18" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">→</text>
+<rect x="200" y="55" width="160" height="70" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/><text x="280" y="85" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Structured,</text><text x="280" y="105" fill="#3D342C" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">machine-readable</text>
+</svg>

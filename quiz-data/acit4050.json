@@ -1,0 +1,558 @@
+{
+  "course": "ACIT4050",
+  "title": "Terminal & lab",
+  "cards": [
+    {
+      "id": "4050-pwd",
+      "q": "Which command shows the current directory (both PowerShell and Linux)?",
+      "a": "pwd (PowerShell: also Get-Location).",
+      "tags": [
+        "navigation",
+        "terminal"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-pwd-both.svg",
+        "alt": "Side-by-side Linux and PowerShell pwd screenshots",
+        "caption": "pwd shows your current directory",
+        "shows": "Linux prints /home/student. PowerShell pwd (Get-Location) prints C:\\Users\\student. Same idea on both systems."
+      }
+    },
+    {
+      "id": "4050-ls",
+      "q": "How do you list files in the current folder? (PowerShell vs Arch)",
+      "a": "PowerShell: dir / ls / Get-ChildItem. Arch: ls (or ls -la for details).",
+      "tags": [
+        "navigation",
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-ls.svg",
+        "alt": "Terminal ls",
+        "caption": "ls lists files in the current folder",
+        "shows": "Short ls then detailed ls -la. PowerShell: dir / Get-ChildItem."
+      }
+    },
+    {
+      "id": "4050-cd",
+      "q": "How do you go up one level, and how do you go to the home directory?",
+      "a": "Up: cd ..  | Home: cd ~ (on Linux also just cd). PowerShell: also cd $HOME.",
+      "tags": [
+        "navigation"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-cd.svg",
+        "alt": "Terminal cd",
+        "caption": "cd changes where you are",
+        "shows": "cd Documents; pwd; cd ..; cd ~."
+      }
+    },
+    {
+      "id": "4050-mkdir",
+      "q": "How do you create a folder (and several subfolders) in the terminal?",
+      "a": "mkdir foldername. PowerShell: also New-Item -ItemType Directory. Arch: mkdir -p path/{a,b} for several at once.",
+      "tags": [
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-mkdir.svg",
+        "alt": "Terminal mkdir",
+        "caption": "mkdir creates folders",
+        "shows": "mkdir -p creates nested folders."
+      }
+    },
+    {
+      "id": "4050-pipe",
+      "q": "What does a pipe (|) do in the terminal?",
+      "a": "Sends output from one command as input to the next (e.g. find | grep hello, or Get-ChildItem | Where-Object).",
+      "tags": [
+        "pipe",
+        "grep"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-pipe.svg",
+        "alt": "Terminal pipe",
+        "caption": "Pipe | sends output to the next command",
+        "shows": "Left command stdout becomes right command stdin."
+      }
+    },
+    {
+      "id": "4050-chmod",
+      "q": "What does chmod 600 mean on a Linux file?",
+      "a": "Owner gets read+write (rw-------); group/others get no access. r=4, w=2, x=1.",
+      "tags": [
+        "permissions",
+        "linux"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-chmod.svg",
+        "alt": "Terminal chmod",
+        "caption": "chmod 600 = owner read+write only",
+        "shows": "After chmod 600, ls -l shows -rw-------."
+      }
+    },
+    {
+      "id": "4050-hash",
+      "q": "Why does SHA256 change when you change a file?",
+      "a": "The checksum is a fingerprint of the whole contents; any change yields a new hash. Used to verify ISOs (SHA256SUMS).",
+      "tags": [
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-hash.svg",
+        "alt": "Terminal hash",
+        "caption": "Any change yields a new hash fingerprint",
+        "shows": "sha256sum changes completely when the file changes."
+      }
+    },
+    {
+      "id": "4050-host",
+      "q": "Which key is the Host key in VirtualBox (to release the mouse pointer)?",
+      "a": "Right Ctrl.",
+      "tags": [
+        "virtualbox"
+      ]
+    },
+    {
+      "id": "4050-ping",
+      "q": "How do you ping 1.1.1.1 with a limited number of packets on Linux?",
+      "a": "ping -c 4 1.1.1.1 (otherwise stop with Ctrl+C). PowerShell: ping 1.1.1.1 (often 4 attempts by default).",
+      "tags": [
+        "network"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/osi-model.svg",
+        "alt": "OSI model",
+        "caption": "Ping uses ICMP at the network layer",
+        "shows": "OSI Network layer (layer 3). Linux: ping -c 4 limits packets.",
+        "attribution": "Source: Wikimedia Commons (Public domain / CC0) - Offnfopt"
+      }
+    },
+    {
+      "id": "4050-pacman",
+      "q": "How do you search for and install the package tree on Arch?",
+      "a": "Search: pacman -Ss tree. Install: sudo pacman -S tree. Update the database first: sudo pacman -Sy. (Ubuntu/Kali later: apt update / apt install).",
+      "tags": [
+        "packages",
+        "arch"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-pacman.svg",
+        "alt": "Terminal pacman",
+        "caption": "pacman: sync, search, install",
+        "shows": "pacman -Sy then -Ss then -S."
+      }
+    },
+    {
+      "id": "4050-cat",
+      "q": "How do you show the contents of a text file in the terminal?",
+      "a": "Arch: cat file.txt. PowerShell: Get-Content / type file.txt.",
+      "tags": [
+        "files"
+      ]
+    },
+    {
+      "id": "4050-append",
+      "q": "How do you append a line to a file without deleting what is already there?",
+      "a": "Arch: echo \"text\" >> file.txt. PowerShell: \"text\" | Add-Content file.txt. (A single > / Set-Content overwrites.)",
+      "tags": [
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-redirect.svg",
+        "alt": "Terminal redirect",
+        "caption": ">> appends; > overwrites",
+        "shows": "echo a > file overwrites; echo b >> file appends."
+      }
+    },
+    {
+      "id": "4050-cp-mv-rm",
+      "q": "Which commands copy, move/rename, and delete a file? (PowerShell vs bash)",
+      "a": "bash: cp, mv, rm. PowerShell: Copy-Item, Move-Item, Remove-Item. Practise only inside a practice folder - rm -rf / -Recurse is dangerous.",
+      "tags": [
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-ls.svg",
+        "alt": "Terminal listing",
+        "caption": "List first - then copy, move or delete",
+        "shows": "Always ls/dir before rm/cp/mv."
+      }
+    },
+    {
+      "id": "4050-find-grep",
+      "q": "How do you find files under a folder and filter names with 'hello' on Arch?",
+      "a": "find ~/terminal-practice -type f | grep hello (count with | wc -l). PowerShell: Get-ChildItem -Recurse -File | Where-Object Name -match 'hello'.",
+      "tags": [
+        "pipe",
+        "search"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-pipe.svg",
+        "alt": "Terminal grep",
+        "caption": "find/grep filter streams with pipes",
+        "shows": "Pipe into grep to keep matching lines."
+      }
+    },
+    {
+      "id": "4050-chmod644",
+      "q": "What does chmod 644 mean?",
+      "a": "Owner read+write; group and others read only (-rw-r--r--). Common for ordinary text files.",
+      "tags": [
+        "permissions",
+        "linux"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-chmod.svg",
+        "alt": "chmod permissions",
+        "caption": "644 is rw-r--r--",
+        "shows": "Owner write; others read. Compare with 600."
+      }
+    },
+    {
+      "id": "4050-ip",
+      "q": "How do you show the IPv4 address on Arch vs Windows?",
+      "a": "Arch: ip addr or ip -4 addr show (look for inet). Windows: ipconfig or Get-NetIPAddress -AddressFamily IPv4.",
+      "tags": [
+        "network"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/osi-model.svg",
+        "alt": "OSI model",
+        "caption": "IP addressing lives at the network layer",
+        "shows": "OSI Network layer carries IP addresses.",
+        "attribution": "Source: Wikimedia Commons (Public domain / CC0) - Offnfopt"
+      }
+    },
+    {
+      "id": "4050-sha256",
+      "q": "Which command computes SHA256 for a file?",
+      "a": "Arch: sha256sum file. PowerShell: Get-FileHash file -Algorithm SHA256.",
+      "tags": [
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-hash.svg",
+        "alt": "Terminal sha256sum",
+        "caption": "Verify ISO integrity with SHA-256",
+        "shows": "Compare sha256sum output to SHA256SUMS."
+      }
+    },
+    {
+      "id": "4050-history-help",
+      "q": "How do you view command history and help?",
+      "a": "Arch: history | tail -20; man ls (quit with q). PowerShell: Get-History; Get-Help Get-ChildItem -Full.",
+      "tags": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "4050-ctrlc",
+      "q": "How do you interrupt a running command in a Linux terminal?",
+      "a": "Ctrl+C. (Copy/paste often: Ctrl+Shift+C / Ctrl+Shift+V.)",
+      "tags": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "4050-emneplan-lab",
+      "q": "According to the ACIT4050 course plan: how many assignments, and which VMs are recommended at the same time?",
+      "a": "8 assignments (must be approved before the exam). Recommended: at least one Kali Linux and one Ubuntu or Windows VM at the same time. Exam: individual written 3 hours, no aids.",
+      "tags": [
+        "syllabus"
+      ]
+    },
+    {
+      "id": "4050-emneplan-fokus",
+      "q": "What is the main focus of ACIT4050 according to the course plan?",
+      "a": "Practical and theoretical cybersecurity: penetration testing, cyber defence mechanisms, societal aspects, and the security - privacy relationship; real incidents are analysed.",
+      "tags": [
+        "syllabus"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/course-focus-4050.svg",
+        "alt": "Hands-on terminal and security focus",
+        "caption": "ACIT4050 emphasises lab practice",
+        "shows": "ACIT4050 emphasises lab practice"
+      }
+    },
+    {
+      "id": "4050-cia",
+      "q": "What does the CIA triad stand for in information security?",
+      "a": "Confidentiality, Integrity, and Availability - the classic security goals used throughout ACIT4050 and related courses.",
+      "tags": [
+        "security",
+        "CIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/cia-triad.svg",
+        "alt": "CIA triad",
+        "caption": "CIA: Confidentiality, Integrity, Availability",
+        "shows": "Three classic security goals. Lab work trains all three."
+      }
+    },
+    {
+      "id": "4050-confidentiality",
+      "q": "What is confidentiality?",
+      "a": "Information is not available or disclosed to unauthorized parties (at rest or in transit).",
+      "tags": [
+        "security",
+        "CIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/cia-triad.svg",
+        "alt": "Confidentiality node of CIA",
+        "caption": "Keep data from unauthorized eyes",
+        "shows": "Keep data from unauthorized eyes"
+      }
+    },
+    {
+      "id": "4050-integrity",
+      "q": "What is integrity?",
+      "a": "Information is not modified by unauthorized parties or in an unauthorized manner (checksums/hashes help detect change).",
+      "tags": [
+        "security",
+        "CIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-hash.svg",
+        "alt": "Terminal hash",
+        "caption": "Integrity: detect unexpected changes",
+        "shows": "Hashes flag tampering or corruption."
+      }
+    },
+    {
+      "id": "4050-availability",
+      "q": "What is availability?",
+      "a": "Authorized users can access information and services when needed (systems remain usable under expected conditions).",
+      "tags": [
+        "security",
+        "CIA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/cia-triad.svg",
+        "alt": "Availability node of CIA",
+        "caption": "Access when needed",
+        "shows": "Access when needed"
+      }
+    },
+    {
+      "id": "4050-authn-authz",
+      "q": "Authentication vs authorization - what is the difference?",
+      "a": "Authentication: verify who you are (prove identity). Authorization: decide what you may do after you are authenticated.",
+      "tags": [
+        "security",
+        "identity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/authn-authz.svg",
+        "alt": "Authentication versus authorization",
+        "caption": "Prove identity then grant access",
+        "shows": "Prove identity then grant access"
+      }
+    },
+    {
+      "id": "4050-attack-surface",
+      "q": "What is an attack surface (lab / system sense)?",
+      "a": "The set of points where an attacker can try to enter or extract data (open services, interfaces, files, accounts, networks). Reducing unnecessary exposure shrinks it.",
+      "tags": [
+        "security"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/attack-surface.svg",
+        "alt": "System attack surface sketch",
+        "caption": "Fewer entry points is safer",
+        "shows": "Fewer entry points is safer"
+      }
+    },
+    {
+      "id": "4050-sudo",
+      "q": "What does sudo do on Linux?",
+      "a": "Runs a command with elevated privileges (typically as root) after authorization. Use sparingly; prefer ordinary user for daily work.",
+      "tags": [
+        "linux",
+        "terminal"
+      ]
+    },
+    {
+      "id": "4050-whoami",
+      "q": "How do you show the current user and host name?",
+      "a": "Linux: whoami and hostname. PowerShell: $env:USERNAME and $env:COMPUTERNAME (or whoami / hostname where available).",
+      "tags": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "4050-absolute-relative",
+      "q": "Absolute vs relative path - what is the difference?",
+      "a": "Absolute starts from the root (e.g. /home/user/file or C:\\Users\\...). Relative is from the current directory (e.g. ./notes or ..\\parent).",
+      "tags": [
+        "navigation",
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-cd.svg",
+        "alt": "Terminal paths",
+        "caption": "Absolute path from root; relative from here",
+        "shows": "pwd shows absolute path. cd Documents is relative."
+      }
+    },
+    {
+      "id": "4050-ls-la",
+      "q": "What does ls -la show that plain ls often hides?",
+      "a": "Long listing including permissions, owner, size, time, and usually hidden files (names starting with .).",
+      "tags": [
+        "linux",
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-ls.svg",
+        "alt": "Terminal ls -la",
+        "caption": "ls -la shows permissions and hidden files",
+        "shows": "Mode bits like -rw------- appear in the listing."
+      }
+    },
+    {
+      "id": "4050-findstr",
+      "q": "How do you search for text inside a file on Windows PowerShell vs Linux?",
+      "a": "PowerShell: findstr word file.txt or Select-String. Linux: grep word file.txt.",
+      "tags": [
+        "search",
+        "terminal"
+      ]
+    },
+    {
+      "id": "4050-overwrite",
+      "q": "What is the difference between > and >> when writing to a file?",
+      "a": "Single > overwrites (or creates) the file. Double >> appends without deleting existing content. PowerShell: Set-Content vs Add-Content.",
+      "tags": [
+        "files"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-redirect.svg",
+        "alt": "Terminal overwrite",
+        "caption": "> overwrites file contents",
+        "shows": "> replaces previous content."
+      }
+    },
+    {
+      "id": "4050-pkg-mgr",
+      "q": "What is a package manager, and which ones does the course material prepare you for?",
+      "a": "Tool to search/install/update software packages safely. Arch cyberlab: pacman. Ubuntu/Kali later: apt (sudo apt update / apt install).",
+      "tags": [
+        "packages"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pacman-flow.svg",
+        "alt": "Package search and install flow",
+        "caption": "Update then install",
+        "shows": "Update then install"
+      }
+    },
+    {
+      "id": "4050-ping-purpose",
+      "q": "What does ping test?",
+      "a": "Reachability/latency to a host using ICMP echo (network layer). Limited count on Linux: ping -c 4 host.",
+      "tags": [
+        "network"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/term-ping.svg",
+        "alt": "Terminal ping",
+        "caption": "Ping checks reachability with ICMP echoes",
+        "shows": "Successful replies mean the host answered."
+      }
+    },
+    {
+      "id": "4050-emneplan-pc",
+      "q": "What PC/VM resources does the ACIT4050 course plan recommend for labs?",
+      "a": "At least one Kali and one Ubuntu or Windows VM at once. Minimum guide: 4 CPU cores, 8 GB RAM, about 100-120 GB free disk. Basic Linux skills (packages, simple commands) are expected.",
+      "tags": [
+        "syllabus",
+        "lab"
+      ]
+    },
+    {
+      "id": "4050-emneplan-exam",
+      "q": "What is the ACIT4050 exam format (course plan FALL 2026)?",
+      "a": "Individual written exam, 3 hours, no aids, A-F. Eight assignments must be approved before the exam.",
+      "tags": [
+        "syllabus",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-security-privacy",
+      "q": "According to the ACIT4050 learning outcomes, what relationship should you be able to describe?",
+      "a": "The relationship between security and privacy, plus societal aspects of cybersecurity and cyber governance problems.",
+      "tags": [
+        "syllabus",
+        "privacy"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/course-focus-4050.svg",
+        "alt": "Security and privacy in course focus",
+        "caption": "Security and privacy together",
+        "shows": "Security and privacy together"
+      }
+    },
+    {
+      "id": "4050-pentest-defence",
+      "q": "Name two practical skill areas highlighted in the ACIT4050 course introduction.",
+      "a": "Penetration testing and cyber defence mechanisms (plus analysing real incidents and explaining them to experts and non-experts).",
+      "tags": [
+        "syllabus"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/course-focus-4050.svg",
+        "alt": "Hands-on cyber defence focus",
+        "caption": "Pentest and defence",
+        "shows": "Pentest and defence"
+      }
+    },
+    {
+      "id": "4050-copy-paste-term",
+      "q": "How do you often copy/paste in a Linux terminal without interrupting Ctrl+C?",
+      "a": "Ctrl+Shift+C to copy and Ctrl+Shift+V to paste (Ctrl+C interrupts the running process).",
+      "tags": [
+        "terminal"
+      ]
+    },
+    {
+      "id": "4050-man-help",
+      "q": "How do you open built-in documentation for a command?",
+      "a": "Linux: man ls (quit with q). PowerShell: Get-Help Get-ChildItem -Full.",
+      "tags": [
+        "terminal"
+      ]
+    }
+  ]
+}

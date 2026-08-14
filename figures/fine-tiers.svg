@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" width="420" height="180" role="img"><rect width="420" height="180" fill="#FFF1D1"/>
+<text x="210" y="26" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Art. 83 fine tiers</text>
+<rect x="30" y="55" width="170" height="85" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<text x="115" y="85" fill="#1A1410" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Up to 2% /</text>
+<text x="115" y="108" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">€10M</text>
+<text x="115" y="128" fill="#3D342C" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">lower tier</text>
+<rect x="220" y="55" width="170" height="85" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
+<text x="305" y="85" fill="#FFFBF0" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Up to 4% /</text>
+<text x="305" y="108" fill="#FFFBF0" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">€20M</text>
+<text x="305" y="128" fill="#FFF1D1" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">core duties</text>
+</svg>

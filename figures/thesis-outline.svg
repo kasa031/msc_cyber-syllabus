@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260" role="img"><rect width="360" height="260" fill="#FFF1D1"/>
+<text x="180" y="24" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Essay / thesis outline</text>
+<rect x="50" y="45" width="260" height="28" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="180" y="64" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">1 Introduction + RQ</text>
+<rect x="50" y="80" width="260" height="28" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/><text x="180" y="99" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">2 Background / lit</text>
+<rect x="50" y="115" width="260" height="28" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/><text x="180" y="134" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">3 Analysis / argument</text>
+<rect x="50" y="150" width="260" height="28" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="180" y="169" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">4 Ethics / discussion</text>
+<rect x="50" y="185" width="260" height="28" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/><text x="180" y="204" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">5 Conclusion</text>
+<rect x="50" y="220" width="260" height="28" rx="4" fill="#FFE8B8" stroke="#1A1410" stroke-width="2"/><text x="180" y="239" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">References (APA)</text>
+</svg>

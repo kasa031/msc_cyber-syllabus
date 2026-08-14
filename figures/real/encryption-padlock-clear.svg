@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 260" width="540" height="260" role="img" aria-label="Encryption: plaintext to ciphertext with key">
+  <rect width="540" height="260" fill="#FFF1D1"/>
+  <text x="270" y="28" fill="#1A1410" font-size="16" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Encryption (lock the data)</text>
+  <rect x="30" y="60" width="120" height="70" rx="6" fill="#ffffff" stroke="#1A1410" stroke-width="2"/>
+  <text x="90" y="90" fill="#1A1410" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Plaintext</text>
+  <text x="90" y="110" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">readable data</text>
+  <path d="M155 95 H200" stroke="#1A1410" stroke-width="2"/>
+  <rect x="205" y="55" width="130" height="80" rx="6" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
+  <text x="270" y="85" fill="#FFFBF0" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Encrypt</text>
+  <text x="270" y="105" fill="#FFF1D1" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">+ secret key</text>
+  <text x="270" y="122" fill="#FFF1D1" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">(or public key)</text>
+  <path d="M340 95 H385" stroke="#1A1410" stroke-width="2"/>
+  <rect x="390" y="60" width="120" height="70" rx="6" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
+  <text x="450" y="90" fill="#FFFBF0" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Ciphertext</text>
+  <text x="450" y="110" fill="#FFF1D1" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">unreadable</text>
+  <rect x="30" y="160" width="480" height="75" rx="6" fill="#ffffff" stroke="#1A1410" stroke-width="1.5"/>
+  <text x="270" y="188" fill="#1A1410" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">GDPR Art. 32 example measure</text>
+  <text x="270" y="212" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Encryption protects confidentiality if storage or transfer is breached.</text>
+</svg>

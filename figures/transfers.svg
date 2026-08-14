@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 180" width="440" height="180" role="img"><rect width="440" height="180" fill="#FFF1D1"/>
+<text x="220" y="24" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Third-country transfers</text>
+<rect x="20" y="50" width="100" height="70" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="70" y="90" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Adequacy</text>
+<rect x="135" y="50" width="100" height="70" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/><text x="185" y="85" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">SCCs /</text><text x="185" y="105" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">BCRs</text>
+<rect x="250" y="50" width="100" height="70" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/><text x="300" y="90" fill="#FFFBF0" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Derogations</text>
+<rect x="365" y="50" width="55" height="70" rx="4" fill="#FFE8B8" stroke="#1A1410" stroke-width="2"/><text x="392" y="90" fill="#1A1410" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">…</text>
+<text x="220" y="150" fill="#3D342C" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Art. 45-49 - document the mechanism</text>
+</svg>
