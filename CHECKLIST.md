@@ -1,4 +1,4 @@
-# Ready for GitHub Pages (published)
+﻿# Ready for GitHub Pages (published)
 
 This folder (`acit-study-quiz`) is the **clean, publishable** study app.
 Live: https://kasa031.github.io/msc_cyber-syllabus/
@@ -25,12 +25,12 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 - [ ] Add to Home Screen / Install app
 - [ ] Open from home screen offline after first online visit
 
-## Technical status (lock16)
+## Technical status (lock17)
 
 - Mobile: viewport-fit, safe-area, touch targets ~44px, skip link, hash deep-links (`#4050`, `#4280`, `#4100`, `#pc`)
 - PWA: absolute `start_url` / `scope` under `/msc_cyber-syllabus/`
 - `file://` and GitHub Pages: decks via `quiz-decks.js` (JSON fallback if needed)
-- SW: network-first quiz payloads + body validation; cache name `msc-cyber-lock16`
+- SW: network-first quiz payloads + body validation; cache name `msc-cyber-lock17`
 - Tutorial Show answer: stays on step until Continue (no auto-advance flash)
 - Quiz grades: Easy is outline turquoise (distinct from filled Good)
 - Deck counts: ACIT4050=65, ACIT4280=118, ACIT4100=67, computer-basics=28

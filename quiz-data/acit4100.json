@@ -191,11 +191,12 @@
     },
     {
       "id": "4100-ai-declaration",
-      "q": "What must the Declaration of AI use contain, and where does it go?",
-      "a": "At the end of the essay after the reference list: list tool(s) used and what activities, OR state that no AI was used. Not counted in the word limit. Using AI is not mandatory for a good grade. Aligns with OsloMet guidelines: https://student.oslomet.no/en/veiledning-kunstig-intelligens-studentoppgaver",
+      "q": "What AI declaration is required, and what happens if it is missing?",
+      "a": "At the end of the essay (after the reference list): list tool(s) and activities, OR state that no AI was used. Not in the word count. Missing the Declaration of AI use means fail, whether or not AI was used. Aligns with OsloMet AI guidance.",
       "tags": [
         "AI",
         "integrity",
+        "assessment",
         "requirements"
       ],
       "figure": {
@@ -329,7 +330,7 @@
     {
       "id": "4100-disqualify",
       "q": "List key reasons an essay may fail (from assessment information).",
-      "a": "Missing AI-use declaration; insufficient research literature (<10); not evaluable against criteria; insufficient research focus; not technology-related; no standard referencing; too much rewrite of sources ('not your own text'). Cheating: generative text to bypass writing, uncited copying, using others' paper lists instead of own searches.",
+      "a": "Missing AI-use declaration (fail); insufficient research literature (minimum 10 considered); cannot follow evaluation criteria; insufficient research focus; not technology-related; no standard referencing; too much rewrite of sources ('not your own text'). Common word-count/cheating rules still apply; list not complete.",
       "tags": [
         "assessment",
         "integrity"
@@ -869,6 +870,331 @@
         "exam",
         "mandatory",
         "retake"
+      ]
+    },
+    {
+      "id": "4100-oslomet-share-breach",
+      "q": "Why is sharing your ACIT4100 essay with other students a breach?",
+      "a": "The essay is an individual exam. Sharing it with others breaks exam rules. Official OsloMet cheating info: https://student.oslomet.no/en/cheating",
+      "tags": [
+        "integrity",
+        "exam",
+        "OsloMet"
+      ]
+    },
+    {
+      "id": "4100-oslomet-source-plagiarism",
+      "q": "Is plagiarism from sources allowed if you do not share your essay with classmates?",
+      "a": "No. Plagiarism from sources is also forbidden - do not present others' text or ideas as your own without proper citation.",
+      "tags": [
+        "integrity",
+        "plagiarism",
+        "OsloMet"
+      ]
+    },
+    {
+      "id": "4100-oslomet-detection",
+      "q": "How does OsloMet check electronic essay submissions for cheating?",
+      "a": "Submissions are checked against the internet and other exams (including previous years and courses). The system can detect synonym swaps and systematic rewriting.",
+      "tags": [
+        "integrity",
+        "OsloMet"
+      ]
+    },
+    {
+      "id": "4100-oslomet-process",
+      "q": "What is the process if cheating is suspected at OsloMet?",
+      "a": "A report is made; the student is notified and invited to a meeting; the case goes to a central committee; then a judgment is issued.",
+      "tags": [
+        "integrity",
+        "OsloMet"
+      ]
+    },
+    {
+      "id": "4100-oslomet-penalties",
+      "q": "What penalties can follow an OsloMet cheating judgment?",
+      "a": "Acquittal; annulled grade (must retake the course); or annulled grade plus expulsion from all Norwegian higher education for up to 1 year. In ACIT4100, experience is that cheaters often get the strongest penalty.",
+      "tags": [
+        "integrity",
+        "OsloMet"
+      ]
+    },
+    {
+      "id": "4100-teacher-help-boundary",
+      "q": "How do ACIT4100 teachers help with writing about others' research?",
+      "a": "They help you write ABOUT others' work - not write what those authors write. You must produce your own wording and understanding.",
+      "tags": [
+        "teaching",
+        "essay",
+        "integrity"
+      ]
+    },
+    {
+      "id": "4100-assess-caution",
+      "q": "What caution does the essay assessment information give about using the star list?",
+      "a": "Do not try to calculate your grade from the list (you lack other essays). Do not reverse-engineer category weights with example essays - the list is revised yearly. Stars are coarse relative importance only. Rubrics may feel unclear early; meaning grows during the course. List = what they look for, not how to execute well.",
+      "tags": [
+        "assessment"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/assess-stars.svg",
+        "alt": "Assessment caution",
+        "caption": "Stars guide; do not reverse-engineer grades",
+        "shows": "Relative weight only; list evolves yearly."
+      }
+    },
+    {
+      "id": "4100-stars-meaning",
+      "q": "What do the stars (*, **, ***) mean in the ACIT4100 essay rubric?",
+      "a": "Coarse relative importance when grading: *** weighs more than **, which weighs more than *. Not a full hidden points formula. Categories: Literature survey *** and Research methods ***; Flow/structure **, Rhetoric **, Ethics **; Visual presentation * and Language/other *.",
+      "tags": [
+        "assessment"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/assess-stars.svg",
+        "alt": "Star weights",
+        "caption": "More stars = more weight",
+        "shows": "*** lit + methods; ** flow/rhetoric/ethics; * visual/language."
+      }
+    },
+    {
+      "id": "4100-two-sensors",
+      "q": "How many sensors read each ACIT4100 essay, and what may compensate?",
+      "a": "Two sensors read each essay. Strong performance in one category may sometimes compensate for weaknesses elsewhere - but structured criteria still aim for transparency.",
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "id": "4100-flow-structure",
+      "q": "What does Flow / structure (**) look for in the essay?",
+      "a": "Easy to follow with guiding text: paragraphs stick to one topic/point; introduction communicates the focus; segues (transitions) between sections; coherent overall structure.",
+      "tags": [
+        "assessment",
+        "structure"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Flow and structure",
+        "caption": "Topic paragraphs, intro focus, segues",
+        "shows": "Guide the reader; keep a coherent path."
+      }
+    },
+    {
+      "id": "4100-rhetoric-rubric",
+      "q": "What does Rhetoric (**) look for in the essay?",
+      "a": "Rhetorical and dramatic devices plus appropriate style: capture attention in the introduction; rhetorical devices; dramatic devices for interest/engagement; use rhetoric terminology and the Toulmin model (e.g. how others frame an issue, or in ethics); written in classic style.",
+      "tags": [
+        "assessment",
+        "rhetoric",
+        "Toulmin"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/toulmin.svg",
+        "alt": "Rhetoric and Toulmin",
+        "caption": "Attention, devices, Toulmin, classic style",
+        "shows": "Rhetoric ** includes classic style and Toulmin."
+      }
+    },
+    {
+      "id": "4100-lit-survey-use",
+      "q": "Beyond paper count, what does Literature survey (***) reward?",
+      "a": "How papers are used matters more than raw count (~10 low, ~20 high). Aggregate and categorize articles; use categorization to highlight aspects/observations; add non-scientific material (media, podcasts, dictionaries) for context; present literature in a storyline order.",
+      "tags": [
+        "assessment",
+        "literature"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/litsearch.svg",
+        "alt": "Literature survey use",
+        "caption": "Categorize, contextualize, storyline",
+        "shows": "Use > count; build a narrative path through sources."
+      }
+    },
+    {
+      "id": "4100-methods-rubric",
+      "q": "What does Research methods (***) require in the essay?",
+      "a": "Identify key research methods/approaches in your literature; describe them; discuss some (background, paradigm, strengths and weaknesses); give examples of how papers in your survey used the method.",
+      "tags": [
+        "assessment",
+        "methods"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/imrad.svg",
+        "alt": "Research methods rubric",
+        "caption": "Identify, discuss, exemplify methods",
+        "shows": "Paradigm + strengths/weaknesses + literature examples."
+      }
+    },
+    {
+      "id": "4100-visual-rubric",
+      "q": "What does Visual presentation (*) require?",
+      "a": "Images/diagrams share a consistent visual format, including titles and captions. Visuals complement written text - they must not replace it. Do not drop diagrams without advising the reader how to understand them.",
+      "tags": [
+        "assessment",
+        "visual"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/assess-stars.svg",
+        "alt": "Visual presentation",
+        "caption": "Consistent captions; complement text",
+        "shows": "Same format; guide the reader; do not replace prose."
+      }
+    },
+    {
+      "id": "4100-language-rubric",
+      "q": "What does Language / other (*) cover, and which reference styles are mentioned?",
+      "a": "General English proficiency, plus proper quotes and referencing. The language bullet says must follow IEEE or APA. Primary course standard for ACIT4100 is still APA7-based and stricter for scientific papers (page + paragraph). Books/websites: conventional APA7. See Kildekompasset.",
+      "tags": [
+        "assessment",
+        "language",
+        "APA",
+        "references"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/apa-anatomy.svg",
+        "alt": "Language and referencing",
+        "caption": "English + quotes/refs; APA7-stricter primary",
+        "shows": "Language * mentions IEEE or APA; course primary = APA7-stricter for papers."
+      }
+    },
+    {
+      "id": "4100-ref-books-web",
+      "q": "Do books and websites need page and paragraph numbers under the ACIT4100 referencing standard?",
+      "a": "No. The stricter page + paragraph rule applies to scientific papers. Books and websites follow conventional APA7.",
+      "tags": [
+        "APA",
+        "references"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/apa-cite-clear.svg",
+        "alt": "APA for books and websites",
+        "caption": "Papers stricter; books/web conventional APA7",
+        "shows": "Page+paragraph = papers only."
+      }
+    },
+    {
+      "id": "4100-cheat-report",
+      "q": "Which signs may lead to reporting the essay for cheating (assessment information)?",
+      "a": "List not complete. Signs of circumventing collect-organize-structure-write with own skills: text-generation engines; masking others text as your own; using text/images/content without reference; using paper lists from other literature reviews instead of your own searches. Ask staff if unsure.",
+      "tags": [
+        "assessment",
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/plagiarism-vs-cite.svg",
+        "alt": "Cheating report signs",
+        "caption": "Own search, own writing, proper credit",
+        "shows": "Generators, masking, no refs, borrowed paper lists."
+      }
+    },
+    {
+      "id": "4100-not-own-text",
+      "q": "What is \"not your own text\" as a fail reason (distinct from plagiarism)?",
+      "a": "Too much of the essay is merely a rewrite of other sources. May not be plagiarism in mild cases, but sensors cannot find enough of you composing with your own writing skills - so the essay can fail on that basis.",
+      "tags": [
+        "assessment",
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/plagiarism-vs-cite.svg",
+        "alt": "Not your own text",
+        "caption": "Rewrite-heavy text can fail",
+        "shows": "Compose; do not only rephrase sources."
+      }
+    },
+    {
+      "id": "4100-fail-min-papers",
+      "q": "What literature minimum can lead to considering a fail?",
+      "a": "Fewer than 10 research papers: sensors will consider failing. Rubric also treats ~10 as low and ~20 as high, but how papers are used matters more than count alone.",
+      "tags": [
+        "assessment",
+        "literature",
+        "requirements"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/litsearch.svg",
+        "alt": "Minimum research papers",
+        "caption": "Under 10 research papers = fail risk",
+        "shows": "Min 10; use quality and synthesis."
+      }
+    },
+    {
+      "id": "4100-fail-tech-focus",
+      "q": "Name research-focus and topic fails from the assessment information.",
+      "a": "Consider fail if: cannot evaluate against the criteria list; insufficient research focus; not related to technology; no standard reference format. Also fail if missing AI declaration or under 10 research papers (see other cards).",
+      "tags": [
+        "assessment"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/rq-focus.svg",
+        "alt": "Technology and research focus",
+        "caption": "Research + technology + evaluable criteria",
+        "shows": "Stay on research/technology and meet the rubric."
+      }
+    },
+    {
+      "id": "4100-lit-storyline",
+      "q": "What does a literature \"storyline\" mean in the survey criterion?",
+      "a": "The order in which you present literature should show a deliberate narrative path - not a random dump of papers. Storyline supports coherence with Flow/structure.",
+      "tags": [
+        "assessment",
+        "literature"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Literature storyline",
+        "caption": "Ordered path through the literature",
+        "shows": "Sequence = argument, not a pile of cites."
+      }
+    },
+    {
+      "id": "4100-nonscientific-context",
+      "q": "May you use non-scientific sources in the literature survey criterion?",
+      "a": "Yes - to substantiate, complement, or give useful context to the research literature (e.g. media articles, podcasts, dictionaries). They support, not replace, research articles.",
+      "tags": [
+        "assessment",
+        "literature"
+      ]
+    },
+    {
+      "id": "4100-apa7-primary",
+      "q": "What is the primary referencing standard for ACIT4100 essays?",
+      "a": "APA7-based, mandatory for every essay regardless of writing style. Stricter for scientific papers (page number AND paragraph number). Books/websites: conventional APA7. Language rubric mentions IEEE or APA for quotes/refs, but the course primary standard is this APA7-stricter rule. Details: Kildekompasset APA 7th.",
+      "tags": [
+        "APA",
+        "references",
+        "assessment"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/apa-anatomy.svg",
+        "alt": "Primary APA7-stricter standard",
+        "caption": "APA7-based + page and paragraph for papers",
+        "shows": "Primary course standard; IEEE/APA note is secondary in Language *."
+      }
+    },
+    {
+      "id": "4100-assess-not-typical",
+      "q": "Why do teachers share the star criteria instead of only example essays?",
+      "a": "They grade something slightly different from a normal literature survey. Example texts can help but also confuse when topics/styles differ. The star categories help you self-evaluate against what sensors look for.",
+      "tags": [
+        "assessment",
+        "essay"
       ]
     }
   ]
