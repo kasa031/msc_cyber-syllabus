@@ -17,10 +17,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock3" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock3" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock3" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock3" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock7" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock7" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock7" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock7" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1867,6 +1867,9 @@
             <div class="tut-actions" id="quiz-empty-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn" id="quiz-study-all">Study all cards anyway</button>
             </div>
+            <div class="tut-actions hidden" id="quiz-reload-actions" style="justify-content:center;margin-top:1rem;">
+              <button type="button" class="btn" id="quiz-reload-data">Reload quiz data</button>
+            </div>
           </div>
 
           <div class="quiz-footer-meta">
@@ -1895,14 +1898,23 @@
     </div>
   </div>
 
-  <script src="quiz-decks.js"></script>
+  <script src="quiz-decks.js?v=lock7" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script>
-(function () {
+  (function () {
   "use strict";
 
   var STORAGE_KEY = "acit4050-terminal-tut-v1";
   var QUIZ_PREFIX = "acit-srs-v2-";
   var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
+  var QUIZ_EXPECTED = { acit4050: 41, acit4280: 106, acit4100: 32, "computer-basics": 28 };
+  var QUIZ_JSON_FILES = {
+    acit4050: "quiz-data/acit4050.json",
+    acit4280: "quiz-data/acit4280.json",
+    acit4100: "quiz-data/acit4100.json",
+    "computer-basics": "quiz-data/computer-basics.json"
+  };
+  var quizDeckFallbackPromise = null;
+  var quizDeckFallbackTried = false;
 
   /* -- Steps: PowerShell -- */
   var STEPS_PS = [
@@ -2548,6 +2560,84 @@ function showCourse(courseKey) {
     return decks[deckKey] || null;
   }
 
+  function quizDecksHealthy() {
+    var decks = window.QUIZ_DECKS;
+    if (!decks || typeof decks !== "object") return false;
+    return Object.keys(QUIZ_EXPECTED).every(function (key) {
+      var d = decks[key];
+      return d && Array.isArray(d.cards) && d.cards.length > 0;
+    });
+  }
+
+  function quizValidateDecksDev() {
+    try {
+      if (window.__QUIZ_DECKS_LOAD_ERROR) {
+        console.warn("[quiz] quiz-decks.js failed to load (network or parse).");
+      }
+      if (!window.QUIZ_DECKS) {
+        console.warn("[quiz] QUIZ_DECKS is missing.");
+        return;
+      }
+      var bad = [];
+      Object.keys(QUIZ_EXPECTED).forEach(function (key) {
+        var deck = window.QUIZ_DECKS[key];
+        var n = deck && Array.isArray(deck.cards) ? deck.cards.length : -1;
+        if (n !== QUIZ_EXPECTED[key]) bad.push(key + "=" + n + " (want " + QUIZ_EXPECTED[key] + ")");
+      });
+      var host = location.hostname;
+      var isDev = location.search.indexOf("dev=1") >= 0 || host === "localhost" || host === "127.0.0.1";
+      if (bad.length) console.warn("[quiz] deck count mismatch:", bad.join(", "));
+      else if (isDev) console.info("[quiz] deck self-test OK", QUIZ_EXPECTED);
+    } catch (e) { /* ignore */ }
+  }
+
+  function quizFetchJsonFallback() {
+    if (quizDeckFallbackPromise) return quizDeckFallbackPromise;
+    quizDeckFallbackPromise = Promise.all(Object.keys(QUIZ_JSON_FILES).map(function (key) {
+      return fetch(QUIZ_JSON_FILES[key], { cache: "no-store" }).then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status + " for " + key);
+        return res.json().then(function (data) { return [key, data]; });
+      });
+    })).then(function (pairs) {
+      var decks = window.QUIZ_DECKS && typeof window.QUIZ_DECKS === "object" ? window.QUIZ_DECKS : {};
+      pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
+      window.QUIZ_DECKS = decks;
+      quizDeckFallbackPromise = null;
+      return quizDecksHealthy();
+    }).catch(function (err) {
+      quizDeckFallbackPromise = null;
+      console.warn("[quiz] JSON fallback failed", err);
+      return false;
+    });
+    return quizDeckFallbackPromise;
+  }
+
+  function quizPurgeCachesAndReload() {
+    var chain = Promise.resolve();
+    if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+      try {
+        navigator.serviceWorker.controller.postMessage({ type: "PURGE_CACHES" });
+      } catch (e) { /* ignore */ }
+    }
+    if ("caches" in window) {
+      chain = chain.then(function () { return caches.keys(); }).then(function (keys) {
+        return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+      });
+    }
+    if ("serviceWorker" in navigator) {
+      chain = chain.then(function () { return navigator.serviceWorker.getRegistrations(); }).then(function (regs) {
+        return Promise.all(regs.map(function (reg) { return reg.unregister(); }));
+      });
+    }
+    chain.then(function () {
+      var u = new URL(location.href);
+      u.searchParams.set("deckbust", String(Date.now()));
+      location.replace(u.toString());
+    }).catch(function () {
+      location.reload();
+    });
+  }
+
   function quizEnsureCard(sched, cardId) {
     sched[cardId] = quizNormalizeCard(sched[cardId]);
     return sched[cardId];
@@ -2868,14 +2958,22 @@ function showCourse(courseKey) {
     var title = $("quiz-empty-title");
     var text = $("quiz-empty-text");
     var actions = $("quiz-empty-actions");
+    var reloadActions = $("quiz-reload-actions");
     if (opts.missingDeck) {
-      if (title) title.textContent = "No cards loaded";
-      if (text) text.textContent = "Quiz data did not load. Online: hard-refresh or reopen the home-screen app. Offline: open once online so quiz-decks.js can cache.";
+      if (title) title.textContent = "Quiz data missing";
+      if (text) {
+        var reason = window.__QUIZ_DECKS_LOAD_ERROR
+          ? "quiz-decks.js failed to load or parse."
+          : "Cards for this course are not available in memory.";
+        text.textContent = reason + " Tap Reload quiz data to clear the offline cache and fetch a fresh copy. Online required once; then offline works again.";
+      }
       if (actions) actions.classList.add("hidden");
+      if (reloadActions) reloadActions.classList.remove("hidden");
     } else {
       if (title) title.textContent = "Nothing due right now";
       if (text) text.textContent = "All caught up for this course. Come back later, or review every card anyway.";
       if (actions) actions.classList.remove("hidden");
+      if (reloadActions) reloadActions.classList.add("hidden");
     }
     quizUpdateQueueLabel(dueCount);
     quizUpdateProgress();
@@ -2885,12 +2983,18 @@ function showCourse(courseKey) {
     var deck = quizGetDeck(quizState.deckKey);
     if (!deck) {
       $("quiz-course-title").textContent = "Quiz";
-      $("quiz-lede").textContent = "No cards found for this course. Check that quiz-decks.js is in the same folder and loads (file://-friendly).";
+      $("quiz-lede").textContent = "Quiz cards did not load. Use Reload quiz data below, or open the site online once so the app can cache quiz-decks.js.";
       quizUpdateMaterials(null);
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
       quizState.sessionQueue = null;
       quizShowEmpty(0, { missingDeck: true });
+      if (!quizDeckFallbackTried) {
+        quizDeckFallbackTried = true;
+        quizFetchJsonFallback().then(function (ok) {
+          if (ok) quizLoadAndShow();
+        });
+      }
       return;
     }
 
@@ -3024,6 +3128,11 @@ function showCourse(courseKey) {
     quizState.sessionDone = 0;
     quizLoadAndShow();
   });
+  if ($("quiz-reload-data")) {
+    $("quiz-reload-data").addEventListener("click", function () {
+      quizPurgeCachesAndReload();
+    });
+  }
 
   function isTypingTarget(el) {
     if (!el) return false;
@@ -3460,6 +3569,7 @@ function showCourse(courseKey) {
     $("btn-dummies-quiz").addEventListener("click", openPcQuizFromCta);
   }
 
+  quizValidateDecksDev();
   showCourse("terminal");
   showPanel("tutorial");
   showSetup();
@@ -3469,7 +3579,29 @@ function showCourse(courseKey) {
   <script>
   if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
     window.addEventListener("load", function () {
-      navigator.serviceWorker.register("./sw.js").catch(function () { /* ignore offline/file:// */ });
+      var refreshing = false;
+      navigator.serviceWorker.addEventListener("controllerchange", function () {
+        if (refreshing) return;
+        refreshing = true;
+        location.reload();
+      });
+      navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).then(function (reg) {
+        try { reg.update(); } catch (e) { /* ignore */ }
+        function promptWaiting(worker) {
+          if (!worker) return;
+          worker.postMessage({ type: "SKIP_WAITING" });
+        }
+        if (reg.waiting) promptWaiting(reg.waiting);
+        reg.addEventListener("updatefound", function () {
+          var nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener("statechange", function () {
+            if (nw.state === "installed" && navigator.serviceWorker.controller) {
+              promptWaiting(nw);
+            }
+          });
+        });
+      }).catch(function () { /* ignore offline/file:// */ });
     });
   }
   </script>

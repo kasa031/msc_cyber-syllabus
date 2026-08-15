@@ -3020,4 +3020,30 @@
     ]
   }
 };
+
+  var EXPECTED = {
+    acit4050: 41,
+    acit4280: 106,
+    acit4100: 32,
+    "computer-basics": 28
+  };
+
+  global.QUIZ_DECKS_META = {
+    version: "lock7",
+    expected: EXPECTED,
+    loadedAt: Date.now()
+  };
+  global.__QUIZ_DECKS_LOAD_OK = true;
+
+  try {
+    var mismatch = [];
+    Object.keys(EXPECTED).forEach(function (key) {
+      var deck = global.QUIZ_DECKS[key];
+      var n = deck && Array.isArray(deck.cards) ? deck.cards.length : -1;
+      if (n !== EXPECTED[key]) mismatch.push(key + "=" + n);
+    });
+    if (mismatch.length && typeof console !== "undefined" && console.warn) {
+      console.warn("[quiz-decks] count mismatch:", mismatch.join(", "));
+    }
+  } catch (e) { /* ignore */ }
 })(typeof window !== "undefined" ? window : globalThis);

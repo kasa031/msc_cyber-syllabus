@@ -3,7 +3,21 @@
  * Same-origin only - never cache cross-origin responses.
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  */
-const CACHE = "msc-cyber-lock6";
+const CACHE = "msc-cyber-lock7";
+/* Shell + quiz payloads must install; figures may be skipped if missing. */
+const CRITICAL = [
+  "./",
+  "./index.html",
+  "./quiz-decks.js",
+  "./quiz-data/acit4050.json",
+  "./quiz-data/acit4280.json",
+  "./quiz-data/acit4100.json",
+  "./quiz-data/computer-basics.json",
+  "./fonts/fonts.css",
+  "./manifest.webmanifest",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
+];
 const ASSETS = [
   "./",
   "./index.html",
@@ -128,15 +142,17 @@ function cacheOk(request, response) {
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) =>
-      Promise.all(
-        ASSETS.map((url) =>
+    caches.open(CACHE).then(async (cache) => {
+      /* Fail install if shell/quiz cannot cache - avoids empty offline shell. */
+      await Promise.all(CRITICAL.map((url) => cache.add(url)));
+      await Promise.all(
+        ASSETS.filter((url) => !CRITICAL.includes(url)).map((url) =>
           cache.add(url).catch(() => {
-            /* Skip missing assets so install still succeeds (subdir / Pages). */
+            /* Optional figures/fonts - skip missing so install still succeeds. */
           })
         )
-      )
-    ).then(() => self.skipWaiting())
+      );
+    }).then(() => self.skipWaiting())
   );
 });
 
@@ -147,6 +163,30 @@ self.addEventListener("activate", (event) => {
     ).then(() => self.clients.claim())
   );
 });
+
+self.addEventListener("message", (event) => {
+  const data = event.data;
+  if (!data) return;
+  if (data === "SKIP_WAITING" || data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+    return;
+  }
+  if (data.type === "PURGE_CACHES") {
+    event.waitUntil(
+      caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k))))
+        .then(() => self.clients.claim())
+    );
+  }
+});
+
+function looksLikeQuizJs(response, pathOnly) {
+  if (!response || !response.ok) return false;
+  if (!(pathOnly.endsWith("/quiz-decks.js") || pathOnly.endsWith("quiz-decks.js"))) return true;
+  const ct = (response.headers.get("content-type") || "").toLowerCase();
+  /* Reject HTML error pages accidentally served as quiz-decks.js. */
+  if (ct.includes("text/html")) return false;
+  return true;
+}
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
@@ -168,12 +208,15 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          cacheOk(event.request, response);
+          if (looksLikeQuizJs(response, pathOnly)) cacheOk(event.request, response);
           return response;
         })
         .catch(() =>
-          caches.match(event.request).then((cached) => {
+          caches.match(event.request, { ignoreSearch: true }).then((cached) => {
             if (cached) return cached;
+            if (isQuizPayload && pathOnly.endsWith("quiz-decks.js")) {
+              return caches.match("./quiz-decks.js");
+            }
             if (isNav) return caches.match("./index.html").then((h) => h || caches.match("./"));
             return undefined;
           })
