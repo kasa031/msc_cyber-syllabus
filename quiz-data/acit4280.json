@@ -481,6 +481,202 @@
       }
     },
     {
+      "id": "4280-pets-chaum-mixmaster",
+      "q": "Who opened PET research, and what was the first practically available PET system?",
+      "a": "David Chaum (1981 MIX paper: anonymous/unobservable e-mail via layered encryption and mixing). MixMaster later implemented the idea and is cited as the first practically available PET system.",
+      "tags": [
+        "PETs",
+        "Lecture2",
+        "history",
+        "WillPETS"
+      ]
+    },
+    {
+      "id": "4280-pets-transparency-vs-opacity",
+      "q": "How do transparency tools differ from opacity tools in the PETs typology (Fritsch)?",
+      "a": "Transparency tools create insight into what data is processed, how, and by whom (e.g. audits, audit interfaces, log files; legal rights to be informed). Opacity tools hide a person's identity or link to data (e.g. MixMaster, Tor, pseudonyms/PrivacyABCs; election secrecy).",
+      "tags": [
+        "PETs",
+        "Lecture2",
+        "transparency",
+        "opacity",
+        "WillPETS"
+      ]
+    },
+    {
+      "id": "4280-pets-opacity-techniques",
+      "q": "List opacity-tool techniques from the Will PETS page (Fritsch).",
+      "a": "Obfuscation; encryption; data separation; anonymization and pseudonymization; access restrictions; use restrictions. Historically many PETs were opacity tools (hide, restrict or control personal data).",
+      "tags": [
+        "PETs",
+        "opacity",
+        "WillPETS"
+      ]
+    },
+    {
+      "id": "4280-pets-hedbom-tet",
+      "q": "Per Hedbom, what can a transparency tool for privacy do?",
+      "a": "One or more of: (1) inform the data subject (or proxy) about intended collection/storage/processing; (2) give access to stored data and/or processing logic; (3) provide counter-profiling so the subject can anticipate how data match group profiles that affect risks/opportunities.",
+      "tags": [
+        "TETs",
+        "transparency",
+        "Hedbom",
+        "WillPETS"
+      ]
+    },
+    {
+      "id": "4280-pets-pulls-conflict",
+      "q": "How can transparency conflict with data minimisation (Pulls)?",
+      "a": "Logging processing or making activity visible to third parties can create new privacy risks. Example: confidentiality of a private conversation is natural privacy, while making that conversation transparent to a third party violates the parties' privacy expectation.",
+      "tags": [
+        "TETs",
+        "data-minimisation",
+        "Pulls",
+        "WillPETS"
+      ]
+    },
+    {
+      "id": "4280-pets-exante-expost",
+      "q": "Ex-ante vs ex-post TETs - what is the timing distinction?",
+      "a": "Ex-ante TETs inform before processing (policies, notices, acceptance). Ex-post TETs inspect after (or in realtime during) processing - audits, dashboards, intervenability/remediation tools.",
+      "tags": [
+        "TETs",
+        "Lecture2",
+        "WillPETS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-tetcat.png",
+        "alt": "TetCat classification of TETs (Zimmermann 2015)",
+        "caption": "Figure 2: TetCat (Zimmermann, 2015) from ACIT4280 PETs page.",
+        "shows": "Untrusted Assertion; trusted Ex Ante Awareness/Declaration; Ex Post Audit/Intervention/Remediation."
+      }
+    },
+    {
+      "id": "4280-pets-tetcat-overview",
+      "q": "Sketch Zimmermann TetCat: which six leaf TET types, and the main splits?",
+      "a": "Splits: Assumption of Security Untrusted vs (Semi-)Trusted; then Action Timing Ex Ante vs Ex Post/Realtime; then Interaction Level Read Only vs Interactive. Leaves: Assertion; Awareness; Declaration; Audit; Intervention; Remediation.",
+      "tags": [
+        "TETs",
+        "TetCat",
+        "Zimmermann",
+        "WillPETS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-tetcat.png",
+        "alt": "TetCat classification of TETs (Zimmermann 2015)",
+        "caption": "Figure 2: TetCat (Zimmermann, 2015) from ACIT4280 PETs page.",
+        "shows": "Untrusted Assertion; trusted Ex Ante Awareness/Declaration; Ex Post Audit/Intervention/Remediation."
+      }
+    },
+    {
+      "id": "4280-pets-tetcat-assertion",
+      "q": "In TetCat, what is an Assertion TET?",
+      "a": "Untrusted path only: the tool relies on assertions/declarations by the data processor rather than trusted observation of actual processing (AS: Untrusted -> Assertion TET).",
+      "tags": [
+        "TETs",
+        "TetCat",
+        "Zimmermann",
+        "WillPETS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-tetcat.png",
+        "alt": "TetCat classification of TETs (Zimmermann 2015)",
+        "caption": "Figure 2: TetCat (Zimmermann, 2015) from ACIT4280 PETs page.",
+        "shows": "Untrusted Assertion; trusted Ex Ante Awareness/Declaration; Ex Post Audit/Intervention/Remediation."
+      }
+    },
+    {
+      "id": "4280-pets-tetcat-exante",
+      "q": "In TetCat, how do Awareness and Declaration TETs differ (trusted, ex ante)?",
+      "a": "Both are (Semi-)Trusted and Ex Ante. Awareness TET = Read Only (informative). Declaration TET = Interactive (data subject inspects/accepts processing).",
+      "tags": [
+        "TETs",
+        "TetCat",
+        "Zimmermann",
+        "WillPETS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-tetcat.png",
+        "alt": "TetCat classification of TETs (Zimmermann 2015)",
+        "caption": "Figure 2: TetCat (Zimmermann, 2015) from ACIT4280 PETs page.",
+        "shows": "Untrusted Assertion; trusted Ex Ante Awareness/Declaration; Ex Post Audit/Intervention/Remediation."
+      }
+    },
+    {
+      "id": "4280-pets-tetcat-expost",
+      "q": "In TetCat, how do Audit, Intervention and Remediation TETs differ (trusted, ex post)?",
+      "a": "All (Semi-)Trusted and Ex Post/Realtime. Audit = Read Only inspection. Interactive Collection/Usage -> Intervention TET (limit collection/use). Interactive Collection/Usage & Modification/Deletion -> Remediation TET (also change/remove data).",
+      "tags": [
+        "TETs",
+        "TetCat",
+        "Zimmermann",
+        "WillPETS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-tetcat.png",
+        "alt": "TetCat classification of TETs (Zimmermann 2015)",
+        "caption": "Figure 2: TetCat (Zimmermann, 2015) from ACIT4280 PETs page.",
+        "shows": "Untrusted Assertion; trusted Ex Ante Awareness/Declaration; Ex Post Audit/Intervention/Remediation."
+      }
+    },
+    {
+      "id": "4280-pets-fritsch-timeline",
+      "q": "Fritsch PET timeline decades (1970s-2000+): key milestones per decade?",
+      "a": "1970s: data protection in computers debate. 1980s: Mix invented; information hiding; steganography. 1990s: MixMaster; IP/ISDN/GSM Mixes; credentials; commercialization. 2000+: more regulation; internationalization; compliance; large research projects; application focus.",
+      "tags": [
+        "PETs",
+        "history",
+        "Fritsch",
+        "WillPETS"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/pets-timeline-fritsch.png",
+        "alt": "Historic development of PETs (Fritsch 2007)",
+        "caption": "Figure 1: PET timeline (Fritsch, 2007) from ACIT4280 PETs page.",
+        "shows": "1970s debate; 1980s Mix/hiding; 1990s MixMaster/commercialization; 2000+ compliance."
+      }
+    },
+    {
+      "id": "4280-sticky-policies",
+      "q": "What are sticky policies (Pearson & Casassa-Mont 2011), and why do they matter for managed privacy?",
+      "a": "Machine-readable privacy preferences that travel with the personal data as it moves across systems and parties, so the agreed constraints 'stick' after disclosure/sharing-supporting purpose limitation and multi-party privacy management beyond a single controller.",
+      "tags": [
+        "managed-privacy",
+        "sticky-policies",
+        "PETs",
+        "Chapter5"
+      ]
+    },
+    {
+      "id": "4280-managed-privacy-roadmap",
+      "q": "What is the theme of Fritsch & Abie's 2008 research road map on managing privacy risks?",
+      "a": "Treat privacy as something to manage systematically in information systems (privacy risk management / 'managed privacy'): identify and handle privacy risks (incl. duality of risks to users vs organisations), not only react with ad-hoc PETs or legal checklists. Sets a research agenda for managing privacy risks end-to-end.",
+      "tags": [
+        "managed-privacy",
+        "privacy-risk",
+        "Chapter5",
+        "Fritsch"
+      ]
+    },
+    {
+      "id": "4280-zimmermann-tetcat",
+      "q": "How does Zimmermann (2015) categorise TETs (TetCat), beyond simple ex-ante vs ex-post?",
+      "a": "Uses key parameters Assurance Level (trustworthiness of info), Application Time (ex ante / ex post / real time), and Interactivity Level (read-only insight vs control). TetCat groups TETs into categories such as Assertion, Awareness/Declaration, Audit, Intervention and Remediation TETs. Distinct from Pfitzmann-Hansen anonymity terminology.",
+      "tags": [
+        "managed-privacy",
+        "TETs",
+        "Zimmermann",
+        "Chapter5",
+        "Lecture2"
+      ]
+    },
+    {
       "id": "4280-flipped",
       "q": "How is ACIT4280 taught (format) according to the Aug 13 2026 intro?",
       "a": "Flipped classroom: students read/watch Canvas material before class; bi-weekly online lectures with case studies & student presentations; group home assignment (groups of 3) with written report + presentation; final timed digital exam on Inspera.",
@@ -1243,7 +1439,7 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/pets-tet-categories.png",
+        "src": "figures/pensum/ACIT4280/curated/pets-tetcat.png",
         "alt": "TET categories diagram from Canvas",
         "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
         "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
@@ -1275,7 +1471,7 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/pets-timeline.png",
+        "src": "figures/pensum/ACIT4280/curated/pets-timeline-fritsch.png",
         "alt": "PET timeline from Canvas files",
         "caption": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas.",
         "shows": "From course materials (ACIT4280 Lecture 2). Source: lecture slides / Canvas."
