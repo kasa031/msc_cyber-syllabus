@@ -657,9 +657,18 @@
       ]
     },
     {
+      "id": "4050-infection-classes",
+      "q": "Name Lecture 1's three classifications of infections (malware types by how infection spreads).",
+      "a": "Virus, Worms, and Trojans.",
+      "tags": [
+        "Lecture1",
+        "malware"
+      ]
+    },
+    {
       "id": "4050-virus",
       "q": "What is a computer virus according to Lecture 1?",
-      "a": "Code that cannot live on its own: it inserts into an existing program and runs whenever the host runs. It spreads by inserting into other executables. Initial infection can come from a once-run program (e.g. a link in e-mail).",
+      "a": "Code that cannot live on its own: it attaches/inserts into a host program or file and runs whenever that host runs. It spreads by infecting other executables (often when the host is shared or executed). Initial infection can come from a once-run program (e.g. a link in e-mail).",
       "tags": [
         "Lecture1",
         "malware"
@@ -668,7 +677,7 @@
     {
       "id": "4050-worm",
       "q": "How does a worm differ from a virus (Lecture 1)?",
-      "a": "A worm is a complete standalone program that needs no host. It spreads without altering existing executables, e.g. by exploiting OS vulnerabilities or via e-mail attachments/links that download and run it.",
+      "a": "A worm is self-contained and needs no host file. It self-replicates across networks without altering existing executables, e.g. by exploiting OS vulnerabilities or via e-mail attachments/links that download and run it.",
       "tags": [
         "Lecture1",
         "malware"
@@ -677,7 +686,16 @@
     {
       "id": "4050-trojan",
       "q": "What is a Trojan in Lecture 1's malware classification?",
-      "a": "Malware embedded in a seemingly innocent application that the user knowingly downloads and runs (screensaver, weather widget, fake virus scanner, e-mail attachment, or malicious web page). Unlike viruses/worms, it is not primarily stealth self-spreading.",
+      "a": "Malware embedded in a seemingly legitimate/useful application that the user knowingly downloads and runs (screensaver, weather widget, fake virus scanner, e-mail attachment, or malicious web page). After that trust, the payload (e.g. backdoor) runs. Unlike viruses/worms, it typically does not self-replicate.",
+      "tags": [
+        "Lecture1",
+        "malware"
+      ]
+    },
+    {
+      "id": "4050-trojan-vs-virus-worm",
+      "q": "How does a Trojan operate differently from a virus and a worm?",
+      "a": "Virus: needs a host program/file; spreads by attaching and when the host runs or is shared. Worm: standalone; self-replicates across networks with no host file. Trojan: appears legitimate/useful and tricks the user into installing/running it; typically does not self-replicate - the harm is the payload/backdoor after the user trusts it.",
       "tags": [
         "Lecture1",
         "malware"
