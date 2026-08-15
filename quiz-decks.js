@@ -701,6 +701,30 @@
         "tags": ["Lecture1","syllabus"]
       },
       {
+        "id": "4050-staff-roles",
+        "q": "Who is the ACIT4050 course manager, main lecturers, and TA (fall 2026 welcome)?",
+        "a": "Course manager / lecturer / examiner: Nurul Momen. Lectures mostly by Olav Lysne and Nurul Momen. TA: Ahsan Sonar (lab setup help).",
+        "tags": ["syllabus","staff"]
+      },
+      {
+        "id": "4050-staff-email",
+        "q": "What is the primary contact email for ACIT4050 communication (fall 2026)?",
+        "a": "nurul.momen@oslomet.no (Nurul Momen). Check Canvas Announcements for schedule changes.",
+        "tags": ["syllabus","staff"]
+      },
+      {
+        "id": "4050-intro-assign",
+        "q": "When is Canvas Assignment: Introduction Lecture available and due (fall 2026)?",
+        "a": "Available Mon 17 Aug 2026 00:00 through Tue 25 Aug 2026 23:59 (locked until 17 Aug 00:00). Due Tue 25 Aug 23:59. Worth 100 points.",
+        "tags": ["syllabus","assignment"]
+      },
+      {
+        "id": "4050-welcome-canvas",
+        "q": "Where are ACIT4050 materials, and what does the fall 2026 welcome stress about the course?",
+        "a": "All materials are in Canvas Modules (schedule may change via Announcements). Hands-on work: penetration testing, societal/theoretical cyber defence, and real incidents; guest lectures are hoped for.",
+        "tags": ["syllabus"]
+      },
+      {
         "id": "4050-man-help",
         "q": "How do you open built-in documentation for a command?",
         "a": "Linux: man ls (quit with q). PowerShell: Get-Help Get-ChildItem -Full.",
@@ -4137,14 +4161,14 @@
 };
 
   var EXPECTED = {
-    acit4050: 65,
+    acit4050: 69,
     acit4280: 118,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock20",
+    version: "lock21",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
