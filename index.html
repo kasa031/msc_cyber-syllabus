@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock13" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock13" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock13" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock13" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock14" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock14" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock14" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock14" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1483,7 +1483,7 @@
             </div>
 
             <div class="tut-actions">
-              <button type="button" class="btn ghost" id="btn-skip">Skip (show answer)</button>
+              <button type="button" class="btn ghost" id="btn-skip">Show answer</button>
               <button type="button" class="btn ghost" id="btn-change-track">Switch track</button>
             </div>
           </div>
@@ -1845,7 +1845,7 @@
               </div>
 
               <div class="tut-actions">
-                <button type="button" class="btn ghost" id="btn-pc-skip">Skip (show answer)</button>
+                <button type="button" class="btn ghost" id="btn-pc-skip">Show answer</button>
                 <button type="button" class="btn ghost" id="btn-pc-to-setup">Back to start</button>
               </div>
             </div>
@@ -1950,7 +1950,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock13" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock14" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script>
   (function () {
   "use strict";
@@ -2228,6 +2228,13 @@
     pcRenderStep();
   }
 
+  function pcResetRevealBtn() {
+    var btn = $("btn-pc-skip");
+    if (!btn) return;
+    btn.textContent = "Show answer";
+    btn.classList.add("ghost");
+  }
+
   function pcRenderStep() {
     if (pcState.index >= STEPS_PC.length) {
       pcFinish();
@@ -2246,6 +2253,7 @@
     $("pc-tut-feedback").className = "tut-feedback";
     pcUpdateMeta();
     pcAnimateStep();
+    pcResetRevealBtn();
     var input = $("pc-cmd-input");
     input.value = "";
     input.classList.remove("wrong", "ok");
@@ -2298,38 +2306,45 @@
     } else if (pcState.fails === 2) {
       fb.textContent = "Hint: " + step.hint;
     } else {
-      pcState.revealed = true;
-      fb.textContent = "Answer: " + step.answer;
-      input.value = step.answer;
-      input.disabled = true;
-      $("btn-pc-check").disabled = true;
-      setTimeout(function () {
-        pcState.index += 1;
-        pcSave();
-        pcRenderStep();
-      }, 1200);
+      pcRevealAnswerStay("Answer: " + step.answer);
+    }
+  }
+
+  /** Reveal answer and stay until user taps Continue (no auto-advance). */
+  function pcRevealAnswerStay(feedbackText) {
+    var step = STEPS_PC[pcState.index];
+    if (!step) return;
+    pcState.revealed = true;
+    pcState.streak = 0;
+    pcUpdateMeta();
+    pcSave();
+    var input = $("pc-cmd-input");
+    input.value = step.answer;
+    input.classList.remove("wrong");
+    input.classList.add("ok");
+    input.disabled = true;
+    $("btn-pc-check").disabled = true;
+    var fb = $("pc-tut-feedback");
+    fb.className = "tut-feedback reveal-box";
+    fb.textContent = feedbackText || ("Answer: " + step.answer);
+    var btn = $("btn-pc-skip");
+    if (btn) {
+      btn.textContent = "Continue";
+      btn.classList.remove("ghost");
+      try { btn.focus(); } catch (e) { /* ignore */ }
     }
   }
 
   function pcSkip() {
-    var step = STEPS_PC[pcState.index];
-    if (!step || pcState.revealed) return;
-    pcState.revealed = true;
-    pcState.streak = 0;
-    pcUpdateMeta();
-    var input = $("pc-cmd-input");
-    input.value = step.answer;
-    input.classList.remove("wrong");
-    input.disabled = true;
-    $("btn-pc-check").disabled = true;
-    var fb = $("pc-tut-feedback");
-    fb.className = "tut-feedback soft";
-    fb.textContent = "Answer: " + step.answer;
-    setTimeout(function () {
+    if (pcState.revealed) {
       pcState.index += 1;
       pcSave();
       pcRenderStep();
-    }, 900);
+      return;
+    }
+    var step = STEPS_PC[pcState.index];
+    if (!step) return;
+    pcRevealAnswerStay("Answer: " + step.answer);
   }
 
   /* -- Course tabs + mode tabs -- */
@@ -2694,7 +2709,7 @@ function showCourse(courseKey) {
         return;
       }
       var meta = window.QUIZ_DECKS_META;
-      if (!meta || meta.version !== "lock13") {
+      if (!meta || meta.version !== "lock14") {
         console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
@@ -2722,7 +2737,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock13-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock14-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -3483,6 +3498,13 @@ function showCourse(courseKey) {
     if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
   }
 
+  function resetRevealBtn() {
+    var btn = $("btn-skip");
+    if (!btn) return;
+    btn.textContent = "Show answer";
+    btn.classList.add("ghost");
+  }
+
   function renderStep() {
     var list = stepsFor(state.track);
     if (state.index >= list.length) {
@@ -3503,6 +3525,7 @@ function showCourse(courseKey) {
     $("tut-feedback").className = "tut-feedback";
     updateMeta();
     animateStep();
+    resetRevealBtn();
 
     var input = $("cmd-input");
     input.value = "";
@@ -3579,21 +3602,34 @@ function showCourse(courseKey) {
     fb.textContent = "Not quite - try again.";
   }
 
-  function revealAndAdvance() {
+  /** Reveal answer and stay until user taps Continue (no auto-advance). */
+  function revealAnswerStay() {
     var list = stepsFor(state.track);
     var step = list[state.index];
     if (!step) return;
+    if (state.revealed) {
+      state.index += 1;
+      save();
+      renderStep();
+      return;
+    }
     var fb = $("tut-feedback");
     fb.className = "tut-feedback reveal-box";
     fb.innerHTML = "Answer: <code>" + escapeHtml(step.answer) + "</code>";
-    $("cmd-input").value = step.answer;
-    $("cmd-input").classList.add("ok");
+    var input = $("cmd-input");
+    input.value = step.answer;
+    input.classList.remove("wrong");
+    input.classList.add("ok");
+    input.disabled = true;
+    $("btn-check").disabled = true;
     state.revealed = true;
     state.streak = 0;
     updateMeta();
-    state.index += 1;
     save();
-    setTimeout(function () { renderStep(); }, 850);
+    var btn = $("btn-skip");
+    btn.textContent = "Continue";
+    btn.classList.remove("ghost");
+    try { btn.focus(); } catch (e) { /* ignore */ }
   }
 
   /* events */
@@ -3643,11 +3679,12 @@ function showCourse(courseKey) {
   $("cmd-input").addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
-      checkAnswer();
+      if (state.revealed) revealAnswerStay();
+      else checkAnswer();
     }
   });
 
-  $("btn-skip").addEventListener("click", revealAndAdvance);
+  $("btn-skip").addEventListener("click", revealAnswerStay);
 
   /* keyboard tabs (tutorial / exercises) */
   $("tab-tutorial").addEventListener("keydown", function (e) {
@@ -3692,7 +3729,8 @@ function showCourse(courseKey) {
     $("pc-cmd-input").addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
-        pcCheckAnswer();
+        if (pcState.revealed) pcSkip();
+        else pcCheckAnswer();
       }
     });
   }
