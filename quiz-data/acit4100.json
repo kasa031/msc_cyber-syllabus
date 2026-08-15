@@ -276,8 +276,8 @@
     },
     {
       "id": "4100-wordcount-2026",
-      "q": "What is the ACIT4100 essay word count for 2026/2027?",
-      "a": "Individual essay 4500-5500 words (A-F). All aids allowed if sources are cited correctly.",
+      "q": "What is the ACIT4100 essay word count (current Canvas)?",
+      "a": "Individual essay 5500-6500 words (A-F). Not group work. Old intro video may still say ~12000 words - that is outdated. Confirm on current Canvas / OsloMet course page for your year.",
       "tags": [
         "essay",
         "2026",
@@ -309,8 +309,8 @@
     },
     {
       "id": "4100-mandatory-7",
-      "q": "What does the saved course plan say about the literature spreadsheet threshold?",
-      "a": "Mandatory spreadsheet/taxonomy with meta-info and at least 7 relevant research papers (assessment documents also discuss ~10 as a failure risk - follow current Canvas).",
+      "q": "What literature spreadsheet threshold should you follow for Mandatory 1?",
+      "a": "Current Canvas: taxonomy spreadsheet with 10+ scientific papers. Older saved course plans mentioned at least 7 - always follow the threshold published on current Canvas.",
       "tags": [
         "requirements",
         "literature"
@@ -481,6 +481,141 @@
         "caption": "Pinker classic style",
         "shows": "Pinker classic style"
       }
+    },
+    {
+      "id": "4100-course-name",
+      "q": "What is the current ACIT4100 course name, and what outdated title may still appear in old video?",
+      "a": "Current: Understanding and Communicating Research. Old intro video may still say Research methods & Ethics - treat that title as outdated; trust Canvas.",
+      "tags": [
+        "course-info",
+        "canvas"
+      ]
+    },
+    {
+      "id": "4100-teachers",
+      "q": "Who teaches ACIT4100 now (current Canvas)?",
+      "a": "Kyrre Begnum and Sylvia Lysgård. Older materials naming Pedro / Kristine are outdated.",
+      "tags": [
+        "course-info",
+        "canvas"
+      ]
+    },
+    {
+      "id": "4100-flipped",
+      "q": "How does the flipped classroom work in ACIT4100?",
+      "a": "Study the digital material BEFORE class. Class time is for activities and assisted individual work (not a first-time lecture of the week's content).",
+      "tags": [
+        "teaching",
+        "flipped"
+      ]
+    },
+    {
+      "id": "4100-attendance",
+      "q": "Is attendance mandatory, and what classroom rules apply?",
+      "a": "Attendance is not mandatory, but if you come, arrive on time. Breaks and meals are outside the classroom.",
+      "tags": [
+        "teaching",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-publish-ahead",
+      "q": "How far ahead do teachers publish weekly digital material?",
+      "a": "At least one week ahead, so you can prepare before class.",
+      "tags": [
+        "teaching",
+        "canvas"
+      ]
+    },
+    {
+      "id": "4100-exam-individual",
+      "q": "Is the ACIT4100 exam group work, and what length should you ignore from old video?",
+      "a": "No - it is an individual essay (5500-6500 words on current Canvas). Old video length ~12000 words is outdated. Not a group exam.",
+      "tags": [
+        "exam",
+        "requirements"
+      ]
+    },
+    {
+      "id": "4100-not-typical-review",
+      "q": "Is the ACIT4100 essay a typical literature review?",
+      "a": "No. It is not a typical literature review - write to the published assessment criteria (methods, ethics, communicating research, etc.), not a generic review template.",
+      "tags": [
+        "essay",
+        "assessment"
+      ]
+    },
+    {
+      "id": "4100-mand1-due",
+      "q": "What is Mandatory 1, and when is it roughly due?",
+      "a": "Literature taxonomy spreadsheet (10+ scientific papers threshold). Due around 26 September as listed on Canvas (Canvas may show .25 / year quirks - always use the date shown for your course year).",
+      "tags": [
+        "requirements",
+        "deadlines"
+      ]
+    },
+    {
+      "id": "4100-mand2-due",
+      "q": "What is Mandatory 2, and when is it roughly due?",
+      "a": "Recorded video presentation 5-10 minutes on your essay topic. Due around 31 October (confirm exact date/time on Canvas for your year).",
+      "tags": [
+        "requirements",
+        "deadlines"
+      ]
+    },
+    {
+      "id": "4100-essay-deadline",
+      "q": "When is the essay exam roughly due?",
+      "a": "Around 5 December at noon on Canvas for the current run - always verify the exact deadline and year on Canvas / OsloMet (do not treat a pasted year as absolute truth).",
+      "tags": [
+        "exam",
+        "deadlines"
+      ]
+    },
+    {
+      "id": "4100-writing-weekly",
+      "q": "How should you plan time for the ACIT4100 essay?",
+      "a": "Writing takes weekly time across the semester - do not leave the full essay for the final weeks after the mandatory goal-posts.",
+      "tags": [
+        "essay",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-english-plain",
+      "q": "What English level is expected in the essay?",
+      "a": "Plain, grammatically correct English is enough. Advanced / fancy language is not an advantage in assessment.",
+      "tags": [
+        "essay",
+        "language"
+      ]
+    },
+    {
+      "id": "4100-oslomet-page",
+      "q": "Where do you find formal exam details (word count, form, year)?",
+      "a": "OsloMet course information page for ACIT4100 - select the correct academic year. Cross-check Canvas for work requirements and deadlines.",
+      "tags": [
+        "exam",
+        "course-info"
+      ]
+    },
+    {
+      "id": "4100-trust-canvas",
+      "q": "If old intro video conflicts with Canvas (name, teachers, word count), what do you trust?",
+      "a": "Trust current Canvas and the OsloMet course page for your year. Intro video can lag (old course title, old staff, old ~12000-word length).",
+      "tags": [
+        "canvas",
+        "course-info"
+      ]
+    },
+    {
+      "id": "4100-class-purpose",
+      "q": "What is class time mainly for in ACIT4100?",
+      "a": "Activities plus assisted individual work on your essay/literature process - after you have already done the digital prep.",
+      "tags": [
+        "teaching",
+        "flipped"
+      ]
     }
   ]
 }
