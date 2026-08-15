@@ -891,126 +891,6 @@
         }
       },
       {
-        "id": "4280-bismarck",
-        "q": "What privacy milestone followed the Bismarck deathbed photo scandal (1898)?",
-        "a": "Photographers entered the bedroom, staged the corpse for photos, and offered copies via newspaper ads; they were arrested and imprisoned. In 1907 a law on the 'right on own image' followed (Lecture 1 history).",
-        "tags": [
-          "Lecture1",
-          "history"
-        ]
-      },
-      {
-        "id": "4280-privacy-usecases",
-        "q": "Name three 'obvious use cases' for privacy from Lecture 1 (how privacy shapes society).",
-        "a": "Voting secrecy as a foundation for democracy; protection against discrimination based on political opinion, relationships, religion or philosophy; enabling personal freedom and independence in thinking and development. Access to and control over personal data creates power over individuals.",
-        "tags": [
-          "Lecture1",
-          "society"
-        ]
-      },
-      {
-        "id": "4280-asymmetric-cost",
-        "q": "What is the asymmetric cost problem in Lecture 1's fairness framing?",
-        "a": "Data controllers can collect and use data relatively easily, while the individual bears the hard work of inspecting and stopping collection/use.",
-        "tags": [
-          "Lecture1",
-          "fairness"
-        ]
-      },
-      {
-        "id": "4280-asymmetric-knowledge",
-        "q": "What is the asymmetric knowledge problem between controller and individual (Lecture 1)?",
-        "a": "Controllers have domain experts, budgets, and knowledge of business models and data processing/informatics; individuals typically do not.",
-        "tags": [
-          "Lecture1",
-          "fairness"
-        ]
-      },
-      {
-        "id": "4280-asymmetric-profit",
-        "q": "How does Lecture 1 frame profit asymmetry around personal data?",
-        "a": "Controllers get income and growth from data (and 'free' apps); individuals face price discrimination, impulse shopping pressure, and being judged by others.",
-        "tags": [
-          "Lecture1",
-          "fairness"
-        ]
-      },
-      {
-        "id": "4280-sovereignty",
-        "q": "What 'attack on sovereignty' risk does Lecture 1 link to data about members of society?",
-        "a": "Knowledge about each member enables selecting, discriminating and manipulating public discourse, public trust and public reputation; individuals need transparency about origins and motivation of communication.",
-        "tags": [
-          "Lecture1",
-          "society"
-        ]
-      },
-      {
-        "id": "4280-pol-norway",
-        "q": "How does GDPR relate to Norwegian law in Lecture 1's privacy-principles overview?",
-        "a": "In EU/EFTA, GDPR is 'translated' into national laws-e.g. Personopplysningsloven in Norway. Historically: national laws from the 1970s, then EU harmonisation via a directive, then GDPR (with e-Privacy enrichment still expected); other regions and sectors (health, finance) have their own rules.",
-        "tags": [
-          "Lecture1",
-          "Norway",
-          "GDPR"
-        ]
-      },
-      {
-        "id": "4280-nonsensitive-myth",
-        "q": "What does Lecture 1 claim about so-called 'non-sensitive' data?",
-        "a": "'Non-sensitive' data do not exist: purpose misuse / function creep can turn ordinary data into harmful uses (examples: Lidl video monitoring; loyalty-card data used against customer interests).",
-        "tags": [
-          "Lecture1",
-          "principles"
-        ],
-        "figure": {
-          "type": "img",
-          "src": "figures/function-creep.svg",
-          "alt": "Ordinary data reused for new purposes",
-          "caption": "Function creep undermines 'non-sensitive' labels",
-          "shows": "Purpose binding matters even for everyday data."
-        }
-      },
-      {
-        "id": "4280-enforcement-tracker",
-        "q": "Which public tracker does Lecture 1 Case study 1 point to for real GDPR fines?",
-        "a": "The GDPR fines / enforcement tracker at enforcementtracker.com-use it to pick an organisation, understand its business motive, identify which GDPR part was violated, and summarise for class.",
-        "tags": [
-          "Lecture1",
-          "case-study",
-          "enforcement"
-        ]
-      },
-      {
-        "id": "4280-ico-lawful-tool",
-        "q": "What tool does Lecture 1 Case study 2 recommend for checking legal grounds for processing?",
-        "a": "The ICO lawful-basis interactive guidance tool (ico.org.uk GDPR resources): pick a site with a clear service and privacy policy, then evaluate legal grounds for processing.",
-        "tags": [
-          "Lecture1",
-          "case-study",
-          "Art.6"
-        ]
-      },
-      {
-        "id": "4280-webbkoll",
-        "q": "What does Lecture 1 Case study 3 use Webbkoll (webbkoll.dataskydd.net) for?",
-        "a": "Assess third-party data sharing on a chosen web page: compare the privacy policy's sharing claims with what Webbkoll observes in practice, then summarise findings.",
-        "tags": [
-          "Lecture1",
-          "case-study",
-          "transparency"
-        ]
-      },
-      {
-        "id": "4280-oecd-minimise",
-        "q": "What does Lecture 1 say data minimisation and avoidance require (OECD-linked)?",
-        "a": "Data should be adequate, relevant and not excessive; minimise collection, use, sharing, linkability and retention (cf. OECD Data Quality / related principles).",
-        "tags": [
-          "Lecture1",
-          "OECD",
-          "minimisation"
-        ]
-      },
-      {
         "id": "4280-flipped",
         "q": "How is ACIT4280 taught (format) according to the Aug 13 2026 intro?",
         "a": "Flipped classroom: students read/watch Canvas material before class; bi-weekly online lectures with case studies & student presentations; group home assignment (groups of 3) with written report + presentation; final timed digital exam on Inspera.",
@@ -3143,13 +3023,13 @@
 
   var EXPECTED = {
     acit4050: 41,
-    acit4280: 118,
+    acit4280: 106,
     acit4100: 32,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock9",
+    version: "lock8",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
