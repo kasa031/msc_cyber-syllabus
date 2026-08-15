@@ -3,11 +3,15 @@
  * Same-origin only - never cache cross-origin responses.
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  */
-const CACHE = "msc-cyber-lock5";
+const CACHE = "msc-cyber-lock6";
 const ASSETS = [
   "./",
   "./index.html",
   "./quiz-decks.js",
+  "./quiz-data/acit4050.json",
+  "./quiz-data/acit4280.json",
+  "./quiz-data/acit4100.json",
+  "./quiz-data/computer-basics.json",
   "./fonts/fonts.css",
   "./fonts/space-grotesk-400.woff2",
   "./fonts/space-grotesk-500.woff2",
@@ -153,8 +157,14 @@ self.addEventListener("fetch", (event) => {
   const isNav = event.request.mode === "navigate" ||
     (event.request.headers.get("accept") || "").includes("text/html");
 
-  if (isNav) {
-    /* Network-first for HTML so updates show when online. */
+  const pathOnly = url.pathname;
+  const isQuizPayload =
+    pathOnly.endsWith("/quiz-decks.js") ||
+    pathOnly.endsWith("quiz-decks.js") ||
+    pathOnly.includes("/quiz-data/");
+
+  if (isNav || isQuizPayload) {
+    /* Network-first for HTML + quiz decks so card updates show when online. */
     event.respondWith(
       fetch(event.request)
         .then((response) => {
@@ -162,9 +172,11 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(() =>
-          caches.match(event.request).then((cached) =>
-            cached || caches.match("./index.html") || caches.match("./")
-          )
+          caches.match(event.request).then((cached) => {
+            if (cached) return cached;
+            if (isNav) return caches.match("./index.html").then((h) => h || caches.match("./"));
+            return undefined;
+          })
         )
     );
     return;

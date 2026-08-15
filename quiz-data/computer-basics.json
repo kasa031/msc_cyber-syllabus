@@ -262,7 +262,7 @@
     },
     {
       "id": "cb-cloud-sync",
-      "q": "What is a risk of assuming "the cloud always has my only copy"?",
+      "q": "What is a risk of assuming \"the cloud always has my only copy\"?",
       "a": "Sync conflicts, accidental deletes, or account lockout can lose access - keep important local copies and know where the authoritative file lives.",
       "tags": [
         "cloud",

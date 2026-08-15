@@ -2870,7 +2870,7 @@ function showCourse(courseKey) {
     var actions = $("quiz-empty-actions");
     if (opts.missingDeck) {
       if (title) title.textContent = "No cards loaded";
-      if (text) text.textContent = "Quiz deck not found. Check that quiz-decks.js is in the same folder as index.html (also works with file://).";
+      if (text) text.textContent = "Quiz data did not load. Online: hard-refresh or reopen the home-screen app. Offline: open once online so quiz-decks.js can cache.";
       if (actions) actions.classList.add("hidden");
     } else {
       if (title) title.textContent = "Nothing due right now";

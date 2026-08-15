@@ -1594,7 +1594,7 @@
       {
         "id": "4280-l2-mixnets",
         "q": "What classic paper/idea starts mix networks in Lecture 2?",
-        "a": "David Chaum (1981) "Untraceable Electronic Mail, Return Addresses, and Digital Pseudonyms" - mix format and mixing strategy for strong anonymity (often at latency/bandwidth cost).",
+        "a": "David Chaum (1981) \"Untraceable Electronic Mail, Return Addresses, and Digital Pseudonyms\" - mix format and mixing strategy for strong anonymity (often at latency/bandwidth cost).",
         "tags": [
           "Lecture2",
           "PETs",
@@ -1693,7 +1693,7 @@
       },
       {
         "id": "4280-l3-trilogy",
-        "q": "What "trilogy" of applications does Cavoukian's PbD extend to (Lecture 3)?",
+        "q": "What \"trilogy\" of applications does Cavoukian's PbD extend to (Lecture 3)?",
         "a": "1) IT systems; 2) accountable business practices; 3) physical design and networked infrastructure.",
         "tags": [
           "Lecture3",
@@ -1710,7 +1710,7 @@
       },
       {
         "id": "4280-l3-default",
-        "q": "What does "Privacy as the Default" mean (Cavoukian principle 2)?",
+        "q": "What does \"Privacy as the Default\" mean (Cavoukian principle 2)?",
         "a": "Maximum privacy without user action - personal data are automatically protected; if the individual does nothing, privacy remains intact.",
         "tags": [
           "Lecture3",
@@ -1726,7 +1726,7 @@
       },
       {
         "id": "4280-l3-positive-sum",
-        "q": "What does Cavoukian's "positive-sum, not zero-sum" principle argue?",
+        "q": "What does Cavoukian's \"positive-sum, not zero-sum\" principle argue?",
         "a": "Accommodate legitimate interests in a win-win way - avoid false dichotomies such as privacy vs security; both can be designed together.",
         "tags": [
           "Lecture3",
@@ -1774,7 +1774,7 @@
       },
       {
         "id": "4280-l3-paradigm-conf",
-        "q": "What characterises the "Privacy as Confidentiality" research paradigm?",
+        "q": "What characterises the \"Privacy as Confidentiality\" research paradigm?",
         "a": "Once data is disclosed, privacy is lost; emphasis on data minimisation and crypto; centralised collection seen as bad; strong open-source/reproducibility culture.",
         "tags": [
           "Lecture3",
@@ -1790,7 +1790,7 @@
       },
       {
         "id": "4280-l3-paradigm-control",
-        "q": "What characterises "Privacy as Control"?",
+        "q": "What characterises \"Privacy as Control\"?",
         "a": "Privacy as ability to control personal data - purpose, intervenability, transparency, accountability (classic data-protection framing); disclosure may still be in your interest (e.g. healthcare).",
         "tags": [
           "Lecture3",
@@ -1806,7 +1806,7 @@
       },
       {
         "id": "4280-l3-mistake-storage",
-        "q": "Hansen mistake 1: what is "Storage as Default"?",
+        "q": "Hansen mistake 1: what is \"Storage as Default\"?",
         "a": "Storing personal data without justifying need, retention period, and access control - violates minimisation, purpose binding, and right to be forgotten.",
         "tags": [
           "Lecture3",
@@ -1822,7 +1822,7 @@
       },
       {
         "id": "4280-l3-mistake-link",
-        "q": "Hansen mistake 2: what is "Linkability as Default"?",
+        "q": "Hansen mistake 2: what is \"Linkability as Default\"?",
         "a": "No unidentified use possible; transactions are linkable across contexts - enables profiling and may violate minimisation/purpose binding.",
         "tags": [
           "Lecture3",
@@ -1839,7 +1839,7 @@
       {
         "id": "4280-l3-pia-vs-dpia",
         "q": "PIA vs DPIA mandatory status as stressed in Lecture 3?",
-        "a": "PIAs are not generally mandatory; DPIAs are required only in particular high-risk cases (GDPR Art. 35). Treating every PIA as mandatory can cause "PIA fatigue".",
+        "a": "PIAs are not generally mandatory; DPIAs are required only in particular high-risk cases (GDPR Art. 35). Treating every PIA as mandatory can cause \"PIA fatigue\".",
         "tags": [
           "Lecture3",
           "DPIA",
@@ -2018,7 +2018,7 @@
       {
         "id": "4280-l5-triggers",
         "q": "List triggers that should start a new PDCA / re-assessment (Lecture 5).",
-        "a": "Regular schedule; infrastructure/software/supplier/outsourcing changes; major updates; staff/location/product changes; "world change" (new attacks, tools, crypto breaks).",
+        "a": "Regular schedule; infrastructure/software/supplier/outsourcing changes; major updates; staff/location/product changes; \"world change\" (new attacks, tools, crypto breaks).",
         "tags": [
           "Lecture5",
           "ISMS"
@@ -2050,7 +2050,7 @@
       },
       {
         "id": "4280-l5-stakeholders",
-        "q": "Who are typical ISMS "players" vs subjects in Lecture 5?",
+        "q": "Who are typical ISMS \"players\" vs subjects in Lecture 5?",
         "a": "Players: Board, CEO, ISMS Forum (CTO/CSO/DPO/management/product owners). Subjects: humans and assets (equipment, networks, apps, information stores).",
         "tags": [
           "Lecture5",
@@ -2179,7 +2179,7 @@
       },
       {
         "id": "4280-l6-fogging",
-        "q": "What is the dark pattern "Fogging identification with security"?",
+        "q": "What is the dark pattern \"Fogging identification with security\"?",
         "a": "While collecting identity attributes, the service claims the extra data is for the user's security - obscuring the real acquisition purpose (MAXIMIZE/CENTRALIZE/OBSCURE strategies).",
         "tags": [
           "Lecture6",
@@ -2706,7 +2706,7 @@
       },
       {
         "id": "4100-classic-pinker",
-        "q": "What is "classic style" in this course?",
+        "q": "What is \"classic style\" in this course?",
         "a": "Writing style as described by Steven Pinker and covered in class - clear, reader-oriented prose suitable for popular-science / expert communication (may be hybridised with narrative cut-scenes).",
         "tags": [
           "classic-style"
@@ -2985,7 +2985,7 @@
       },
       {
         "id": "cb-cloud-sync",
-        "q": "What is a risk of assuming "the cloud always has my only copy"?",
+        "q": "What is a risk of assuming \"the cloud always has my only copy\"?",
         "a": "Sync conflicts, accidental deletes, or account lockout can lose access - keep important local copies and know where the authoritative file lives.",
         "tags": [
           "cloud",
