@@ -2503,933 +2503,1202 @@
     "course": "ACIT4100",
     "title": "Understanding & Communicating Research",
     "cards": [
-        {
-          "id": "4100-zotero",
-          "q": "What do you use Zotero (or similar) for in research work?",
-          "a": "Reference management: store sources, organise a literature survey, and generate citations/reference lists (APA7 / course requirements).",
-          "tags": [
-            "tools",
-            "references"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/zotero.svg",
-            "alt": "Reference management illustration",
-            "caption": "Zotero stores sources and builds citations",
-            "shows": "Reference managers keep PDFs/metadata and generate APA reference lists."
-          }
-        },
-        {
-          "id": "4100-litsearch",
-          "q": "Name three sensible steps in a literature search (as the course trains).",
-          "a": "1) Clarify topic/question and search terms. 2) Search relevant databases and sort/categorise hits. 3) Critically assess sources and build a taxonomy/spreadsheet for the essay.",
-          "tags": [
-            "literature"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/real/research-process-clear.svg",
-            "alt": "Research process",
-            "caption": "Literature search is a clear process",
-            "shows": "Question -> search -> assess -> write and cite."
-          }
-        },
-        {
-          "id": "4100-imrad",
-          "q": "What is IMRaD, and when is it used?",
-          "a": "Introduction-Methods-Results-and-Discussion: common structure in empirical research articles. The ACIT4100 essay is not a typical IMRaD literature review-it should understand and communicate research in a classic/narrative style.",
-          "tags": [
-            "genre"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/imrad.svg",
-            "alt": "IMRaD",
-            "caption": "IMRaD structures research articles",
-            "shows": "Introduction/Discussion broad; Methods/Results focused."
-          }
-        },
-        {
-          "id": "4100-claim",
-          "q": "What distinguishes a claim from evidence in academic text / Toulmin?",
-          "a": "A claim is what you assert; evidence/data supports the claim. The Toulmin model (used in the course's rhetoric/ethics assessment) separates claim, data/grounds, warrant, and more.",
-          "tags": [
-            "rhetoric",
-            "Toulmin"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/toulmin.svg",
-            "alt": "Claim versus evidence boxes",
-            "caption": "Toulmin-style distinction",
-            "shows": "Toulmin-style distinction"
-          }
-        },
-        {
-          "id": "4100-peer",
-          "q": "Why is peer review important?",
-          "a": "Quality control before publication: other researchers assess method, argumentation and contribution-a central part of the publication tradition you should describe in the essay.",
-          "tags": [
-            "publishing"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/real/peer-review-clear.svg",
-            "alt": "Peer review",
-            "caption": "Peer review checks quality before publication",
-            "shows": "Author -> journal -> expert reviewers."
-          }
-        },
-        {
-          "id": "4100-rq",
-          "q": "What characterises a good research question for this course?",
-          "a": "Scoped, relevant to ACIT/your specialisation, researchable via literature (not anthropological fieldwork), and suited to make methods, ethics and the research field visible-not just a 'technology product'.",
-          "tags": [
-            "essay"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/rq-focus.svg",
-            "alt": "Research question focus",
-            "caption": "A clear research question keeps the essay focused",
-            "shows": "One evaluable question beats a vague theme dump."
-          }
-        },
-        {
-          "id": "4100-cite",
-          "q": "When must you cite in academic text?",
-          "a": "When you use others' ideas, data, wording or unique content-including when paraphrasing. Missing citation = plagiarism of ideas/words. The course requires an APA7-based standard.",
-          "tags": [
-            "plagiarism",
-            "APA"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/real/apa-cite-clear.svg",
-            "alt": "APA citation",
-            "caption": "Always credit sources (APA)",
-            "shows": "Paraphrase still needs a citation."
-          }
-        },
-        {
-          "id": "4100-essay-focus",
-          "q": "What is the 2026 essay focus shift in ACIT4100?",
-          "a": "Away from mainly describing a technology, toward understanding and communicating research: methods, history/tradition, notable researchers/venues, regulation/ethics, industry/society relations-summarise and synthesise others' work, not invent new empirical findings.",
-          "tags": [
-            "essay",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/real/research-process-clear.svg",
-            "alt": "Research process",
-            "caption": "Essay = communicate research clearly",
-            "shows": "Focus the question, use quality sources, synthesise and cite."
-          }
-        },
-        {
-          "id": "4100-styles",
-          "q": "Which writing styles must the ACIT4100 essay mainly use?",
-          "a": "Classic style (Steven Pinker, covered in the course) and/or narrative style (short-story techniques). Hybrids (classic with narrative 'cut-scenes') are allowed. Style cannot compensate for thin research content.",
-          "tags": [
-            "classic-style",
-            "narrative"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/thesis-outline.svg",
-            "alt": "Essay structure supporting required styles",
-            "caption": "Classic and narrative craft",
-            "shows": "Classic and narrative craft"
-          }
-        },
-        {
-          "id": "4100-apa7-strict",
-          "q": "How does ACIT4100's referencing standard differ from plain APA7 for scientific papers?",
-          "a": "Based on APA7 but stricter for scientific papers: include page number and paragraph number. Books/websites follow conventional APA7. See Kildekompasset APA 7th.",
-          "tags": [
-            "APA",
-            "references"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/real/apa-cite-clear.svg",
-            "alt": "APA citation",
-            "caption": "APA anatomy: Author. (Year). Title. Source.",
-            "shows": "Colour-coded reference parts. In-text: (Author, Year)."
-          }
-        },
-        {
-          "id": "4100-assess-stars",
-          "q": "Which assessment categories are weighted most heavily (***) in the essay rubric?",
-          "a": "Literature survey (***) and Research methods (***). Rhetoric and Flow/structure are **; Ethics **; Visual presentation and Language/other are *.",
-          "tags": [
-            "assessment"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/assess-stars.svg",
-            "alt": "Star-weighted assessment categories",
-            "caption": "Triple-star criteria matter most",
-            "shows": "Triple-star criteria matter most"
-          }
-        },
-        {
-          "id": "4100-lit-threshold",
-          "q": "What literature volume is discussed in assessment / failure criteria?",
-          "a": "Rubric: ~10 research articles is low, ~20 is high (how they are used matters more). Failure risk if fewer than 10 research papers. The course plan notes a mandatory spreadsheet survey (threshold can differ by document year-follow current Canvas/2026 requirements).",
-          "tags": [
-            "literature",
-            "requirements"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/litsearch.svg",
-            "alt": "Literature volume expectation",
-            "caption": "Enough quality sources",
-            "shows": "Enough quality sources"
-          }
-        },
-        {
-          "id": "4100-ai-declaration",
-          "q": "What must the Declaration of AI use contain, and where does it go?",
-          "a": "At the end of the essay after the reference list: list tool(s) used and what activities, OR state that no AI was used. Not counted in the word limit. Using AI is not mandatory for a good grade. Aligns with OsloMet guidelines: https://student.oslomet.no/en/veiledning-kunstig-intelligens-studentoppgaver",
-          "tags": [
-            "AI",
-            "integrity",
-            "requirements"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/ai-declare.svg",
-            "alt": "Mandatory AI use declaration",
-            "caption": "Declare tools or non-use",
-            "shows": "After references; not in word count."
-          }
-        },
-        {
-          "id": "4100-ai-write-cheat",
-          "q": "When is using AI treated as cheating in the ACIT4100 essay?",
-          "a": "Using AI to literally write parts of the essay is cheating. The exam requires you to write the essay; generated text is not writing and tries to circumvent the exam.",
-          "tags": [
-            "AI",
-            "integrity"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/ai-declare.svg",
-            "alt": "AI writing essay is cheating",
-            "caption": "You must write the essay",
-            "shows": "Generated essay text = cheating."
-          }
-        },
-        {
-          "id": "4100-ai-cheat-examples",
-          "q": "Give four examples of AI use that count as cheating for the essay.",
-          "a": "1) AI writes the essay/parts from your ideas. 2) AI fixes up your draft. 3) AI generates an essay from your material. 4) AI restyles your paragraph into essay style. All leave text that was not really written by you.",
-          "tags": [
-            "AI",
-            "integrity"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/ai-declare.svg",
-            "alt": "Cheating AI writing examples",
-            "caption": "AI must not write your essay text",
-            "shows": "Ideas/draft/material/restyle still cheating."
-          }
-        },
-        {
-          "id": "4100-ai-bland-text",
-          "q": "Why does AI-generated essay text often get weak grades, beyond integrity?",
-          "a": "LLM text often reads bland, polished and business-like - little personality - and says little despite fancy language. It also short-circuits learning to understand and communicate research, which you develop by writing yourself.",
-          "tags": [
-            "AI",
-            "essay",
-            "learning"
-          ]
-        },
-        {
-          "id": "4100-ai-allowed",
-          "q": "Which AI uses does ACIT4100 endorse for the essay process?",
-          "a": "Summarise/explain research articles; group articles into categories; have AI summarise YOUR draft/outline so you check coverage against your ideas; discuss topic/structure; help find material / common knowledge; teach grammar/writing from YOUR paragraph so YOU improve. Mentoring support - not masking your writing.",
-          "tags": [
-            "AI",
-            "essay"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/ai-declare.svg",
-            "alt": "Allowed AI mentoring uses",
-            "caption": "AI as mentor, not ghostwriter",
-            "shows": "Support learning; do not write for you."
-          }
-        },
-        {
-          "id": "4100-ai-grammarly",
-          "q": "Is Grammarly (or similar spell/style checkers) cheating in ACIT4100?",
-          "a": "Not cheating if they only work on text you write yourself. Not endorsed either: they often make wording overly advanced/academic. Rare synonyms do not improve the text.",
-          "tags": [
-            "AI",
-            "language"
-          ]
-        },
-        {
-          "id": "4100-plagiarism-forms",
-          "q": "Name major plagiarism forms from the Avoiding Plagiarism reading.",
-          "a": "Verbatim (word-for-word / mosaic); plagiarism of ideas (paraphrase without credit); self-plagiarism/duplicate publication; loose paraphrasing that keeps another's logic; failing to cite non-scholarly sources that contributed unique information.",
-          "tags": [
-            "plagiarism"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/plagiarism-vs-cite.svg",
-            "alt": "Plagiarism forms versus proper citation",
-            "caption": "Avoiding plagiarism reading",
-            "shows": "Avoiding plagiarism reading"
-          }
-        },
-        {
-          "id": "4100-mandatory",
-          "q": "What are the two mandatory goal-posts before the essay exam (from saved course pages)?",
-          "a": "1) Literature taxonomy/spreadsheet (scientific papers threshold for approval). 2) Video presentation 5-10 minutes on the essay topic. (Exact due dates/word counts: verify current Canvas-saved PDFs and course plan differ slightly by year.)",
-          "tags": [
-            "requirements"
-          ]
-        },
-        {
-          "id": "4100-syllabus-topics",
-          "q": "Give examples of weekly themes from the saved ACIT4100 syllabus.",
-          "a": "Rhetoric & persuasive arguments; searching/sorting literature; philosophy of science; research methods; using AI for research; classic style; narrative templates; public speaking; role of the expert; plagiarism; Q&A.",
-          "tags": [
-            "syllabus"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/research-funnel.svg",
-            "alt": "Weekly themes feeding the research funnel",
-            "caption": "Syllabus topic examples",
-            "shows": "Syllabus topic examples"
-          }
-        },
-        {
-          "id": "4100-ethics-rubric",
-          "q": "What should the ethics discussion in the essay cover (assessment criteria)?",
-          "a": "Identify ethical issues (professional ethics, research ethics, societal impact); present different viewpoints; de-construct arguments. The course plan also requires ethical challenges of research and societal uses.",
-          "tags": [
-            "ethics"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/ethics-essay.svg",
-            "alt": "Stakeholders harms duties ethics lens",
-            "caption": "Ethics discussion criteria",
-            "shows": "Ethics discussion criteria"
-          }
-        },
-        {
-          "id": "4100-disqualify",
-          "q": "List key reasons an essay may fail (from assessment information).",
-          "a": "Missing AI-use declaration; insufficient research literature (<10); not evaluable against criteria; insufficient research focus; not technology-related; no standard referencing; too much rewrite of sources ('not your own text'). Cheating: generative text to bypass writing, uncited copying, using others' paper lists instead of own searches.",
-          "tags": [
-            "assessment",
-            "integrity"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/ai-declare.svg",
-            "alt": "Integrity failures that can fail the essay",
-            "caption": "Declaration and plagiarism risks",
-            "shows": "Declaration and plagiarism risks"
-          }
-        },
-        {
-          "id": "4100-wordcount-2026",
-          "q": "What is the ACIT4100 essay word count (current Canvas)?",
-          "a": "Individual essay 5500-6500 words (A-F). Not group work. Old intro video may still say ~12000 words - that is outdated. Confirm on current Canvas / OsloMet course page for your year.",
-          "tags": [
-            "essay",
-            "2026",
-            "requirements"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/thesis-outline.svg",
-            "alt": "Essay length and structure",
-            "caption": "Check current Canvas too",
-            "shows": "Check current Canvas too"
-          }
-        },
-        {
-          "id": "4100-essay-must-include",
-          "q": "Which three content blocks must the ACIT4100 essay include (course plan)?",
-          "a": "1) Literature survey. 2) Discussion of methods used in the reviewed material. 3) Ethical challenges (research ethics and societal uses).",
-          "tags": [
-            "essay",
-            "requirements"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/research-funnel.svg",
-            "alt": "Survey methods ethics funnel",
-            "caption": "Three mandatory content areas",
-            "shows": "Three mandatory content areas"
-          }
-        },
-        {
-          "id": "4100-mandatory-7",
-          "q": "What literature spreadsheet threshold should you follow for Mandatory 1?",
-          "a": "Current Canvas: taxonomy spreadsheet with 10+ scientific papers. Older saved course plans mentioned at least 7 - always follow the threshold published on current Canvas.",
-          "tags": [
-            "requirements",
-            "literature"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/litsearch.svg",
-            "alt": "Literature spreadsheet volume",
-            "caption": "Meet the published threshold",
-            "shows": "Meet the published threshold"
-          }
-        },
-        {
-          "id": "4100-video",
-          "q": "What is the video goal-post before the essay exam?",
-          "a": "A 5-10 minute recording/presentation on the essay topic (mandatory work requirement).",
-          "tags": [
-            "requirements"
-          ]
-        },
-        {
-          "id": "4100-synthesize",
-          "q": "Are you expected to produce new empirical findings in the ACIT4100 essay?",
-          "a": "No. Summarize, synthesize and communicate what others have published; you are not trained as anthropologists inventing new fieldwork models.",
-          "tags": [
-            "essay",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/research-funnel.svg",
-            "alt": "Synthesize published research",
-            "caption": "Communicate existing knowledge",
-            "shows": "Communicate existing knowledge"
-          }
-        },
-        {
-          "id": "4100-apa-page-para",
-          "q": "For scientific papers in ACIT4100 APA7-based referencing, what extra detail is required?",
-          "a": "Include page number and paragraph number (stricter than plain APA7). Books and websites follow conventional APA7. See Kildekompasset APA 7th.",
-          "tags": [
-            "APA",
-            "references"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/apa-anatomy.svg",
-            "alt": "APA citation with page and paragraph",
-            "caption": "Stricter for papers",
-            "shows": "Stricter for papers"
-          }
-        },
-        {
-          "id": "4100-toulmin-parts",
-          "q": "Name the main Toulmin parts used in the course's rhetoric/ethics work.",
-          "a": "Claim (assertion), data/grounds (evidence), and warrant (why the evidence supports the claim); further parts may include backing, qualifier, and rebuttal.",
-          "tags": [
-            "rhetoric",
-            "Toulmin"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/toulmin.svg",
-            "alt": "Claim data warrant Toulmin",
-            "caption": "Argument structure",
-            "shows": "Argument structure"
-          }
-        },
-        {
-          "id": "4100-paraphrase",
-          "q": "Does paraphrasing remove the need to cite?",
-          "a": "No. Using another's ideas or unique content in your own words still requires citation; otherwise it is idea plagiarism.",
-          "tags": [
-            "plagiarism",
-            "APA"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/plagiarism-vs-cite.svg",
-            "alt": "Paraphrase still needs citation",
-            "caption": "Credit the source",
-            "shows": "Credit the source"
-          }
-        },
-        {
-          "id": "4100-vancouver",
-          "q": "What authorship convention is named in the ACIT4100 learning outcomes?",
-          "a": "The Vancouver convention on authorship (who qualifies as an author) - part of research integrity and publishing tradition.",
-          "tags": [
-            "publishing",
-            "integrity"
-          ]
-        },
-        {
-          "id": "4100-methods-types",
-          "q": "What method families should you be able to discuss when reviewing papers?",
-          "a": "Qualitative and quantitative research methods (and how papers in your field typically design experiments/labs or studies) - identify methods used in the literature you survey.",
-          "tags": [
-            "methods"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/imrad.svg",
-            "alt": "Methods section awareness",
-            "caption": "Name methods in the survey",
-            "shows": "Name methods in the survey"
-          }
-        },
-        {
-          "id": "4100-phil-science",
-          "q": "Give examples of philosophy-of-science themes listed for ACIT4100.",
-          "a": "Falsificationism/paradigms and traditions within philosophy of science (explicit or implicit in a research field) - connect them to how your field publishes and argues.",
-          "tags": [
-            "syllabus",
-            "philosophy"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/research-funnel.svg",
-            "alt": "Philosophy of science in the funnel",
-            "caption": "Paradigms and falsification",
-            "shows": "Paradigms and falsification"
-          }
-        },
-        {
-          "id": "4100-perspectives",
-          "q": "List example perspectives the 2026 essay requirements suggest for describing a research field.",
-          "a": "Methods/methodologies; lab/experimental designs; philosophy-of-science tradition; publication venues; history of the field; codes of conduct/regulation; industry/society relations; ethical effects.",
-          "tags": [
-            "essay",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/thesis-outline.svg",
-            "alt": "Essay perspectives outline",
-            "caption": "Mix perspectives with criteria",
-            "shows": "Mix perspectives with criteria"
-          }
-        },
-        {
-          "id": "4100-kildekompasset",
-          "q": "Where does the course point you for APA 7th details?",
-          "a": "Kildekompasset APA 7th (Norwegian and English): https://www.kildekompasset.no/en/referencing-styles/apa-7th/",
-          "tags": [
-            "APA",
-            "tools"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/apa-anatomy.svg",
-            "alt": "APA reference anatomy",
-            "caption": "Use Kildekompasset",
-            "shows": "Use Kildekompasset"
-          }
-        },
-        {
-          "id": "4100-classic-pinker",
-          "q": "What is \"classic style\" in this course?",
-          "a": "Writing style as described by Steven Pinker and covered in class - clear, reader-oriented prose suitable for popular-science / expert communication (may be hybridised with narrative cut-scenes).",
-          "tags": [
-            "classic-style"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/thesis-outline.svg",
-            "alt": "Classic style essay craft",
-            "caption": "Pinker classic style",
-            "shows": "Pinker classic style"
-          }
-        },
-        {
-          "id": "4100-course-name",
-          "q": "What is the current ACIT4100 course name, and what outdated title may still appear in old video?",
-          "a": "Current: Understanding and Communicating Research. Old intro video may still say Research methods & Ethics - treat that title as outdated; trust Canvas.",
-          "tags": [
-            "course-info",
-            "canvas"
-          ]
-        },
-        {
-          "id": "4100-teachers",
-          "q": "Who teaches ACIT4100 now (current Canvas)?",
-          "a": "Kyrre Begnum and Sylvia Lysgård. Older materials naming Pedro / Kristine are outdated.",
-          "tags": [
-            "course-info",
-            "canvas"
-          ]
-        },
-        {
-          "id": "4100-flipped",
-          "q": "How does the flipped classroom work in ACIT4100?",
-          "a": "Study the digital material BEFORE class. Class time is for activities and assisted individual work (not a first-time lecture of the week's content).",
-          "tags": [
-            "teaching",
-            "flipped"
-          ]
-        },
-        {
-          "id": "4100-attendance",
-          "q": "Is attendance mandatory, and what classroom rules apply?",
-          "a": "Attendance is NOT obligatory - you do not need to notify staff if absent. Sessions are built for active participation / group work. If you come, arrive on time; breaks and meals are outside the classroom.",
-          "tags": [
-            "teaching",
-            "practical",
-            "faq"
-          ]
-        },
-        {
-          "id": "4100-publish-ahead",
-          "q": "How far ahead do teachers publish weekly digital material?",
-          "a": "At least one week ahead, so you can prepare before class.",
-          "tags": [
-            "teaching",
-            "canvas"
-          ]
-        },
-        {
-          "id": "4100-exam-individual",
-          "q": "Is the ACIT4100 exam group work, and what length should you ignore from old video?",
-          "a": "No - it is an individual essay (5500-6500 words on current Canvas). Old video length ~12000 words is outdated. Not a group exam.",
-          "tags": [
-            "exam",
-            "requirements"
-          ]
-        },
-        {
-          "id": "4100-not-typical-review",
-          "q": "Is the ACIT4100 essay a typical literature review?",
-          "a": "No. It is not a typical literature review - write to the published assessment criteria (methods, ethics, communicating research, etc.), not a generic review template.",
-          "tags": [
-            "essay",
-            "assessment"
-          ]
-        },
-        {
-          "id": "4100-mand1-due",
-          "q": "What is Mandatory 1, and when is it roughly due?",
-          "a": "Literature taxonomy spreadsheet (10+ scientific papers threshold). Due around 26 September as listed on Canvas (Canvas may show .25 / year quirks - always use the date shown for your course year).",
-          "tags": [
-            "requirements",
-            "deadlines"
-          ]
-        },
-        {
-          "id": "4100-mand2-due",
-          "q": "What is Mandatory 2, and when is it roughly due?",
-          "a": "Recorded video presentation 5-10 minutes on your essay topic. Due around 31 October (confirm exact date/time on Canvas for your year).",
-          "tags": [
-            "requirements",
-            "deadlines"
-          ]
-        },
-        {
-          "id": "4100-essay-deadline",
-          "q": "When is the essay exam roughly due?",
-          "a": "Around 5 December at noon on Canvas for the current run - always verify the exact deadline and year on Canvas / OsloMet (do not treat a pasted year as absolute truth).",
-          "tags": [
-            "exam",
-            "deadlines"
-          ]
-        },
-        {
-          "id": "4100-writing-weekly",
-          "q": "How should you plan time for the ACIT4100 essay?",
-          "a": "Writing takes weekly time across the semester - do not leave the full essay for the final weeks after the mandatory goal-posts.",
-          "tags": [
-            "essay",
-            "practical"
-          ]
-        },
-        {
-          "id": "4100-english-plain",
-          "q": "What English level is expected in the essay?",
-          "a": "Plain, grammatically correct English is enough. Advanced / fancy language is not an advantage in assessment.",
-          "tags": [
-            "essay",
-            "language"
-          ]
-        },
-        {
-          "id": "4100-oslomet-page",
-          "q": "Where do you find formal exam details (word count, form, year)?",
-          "a": "OsloMet course information page for ACIT4100 - select the correct academic year. Cross-check Canvas for work requirements and deadlines.",
-          "tags": [
-            "exam",
-            "course-info"
-          ]
-        },
-        {
-          "id": "4100-trust-canvas",
-          "q": "If old intro video conflicts with Canvas (name, teachers, word count), what do you trust?",
-          "a": "Trust current Canvas and the OsloMet course page for your year. Intro video can lag (old course title, old staff, old ~12000-word length).",
-          "tags": [
-            "canvas",
-            "course-info"
-          ]
-        },
-        {
-          "id": "4100-class-purpose",
-          "q": "What is class time mainly for in ACIT4100?",
-          "a": "Active participation and group work: activities plus assisted individual work on your essay/literature process - after you have already done the digital prep.",
-          "tags": [
-            "teaching",
-            "flipped",
-            "faq"
-          ]
-        },
-        {
-          "id": "4100-topic-choice",
-          "q": "What may you choose as the ACIT4100 essay topic (Essay requirements 2026)?",
-          "a": "A field of research of your own choosing within the scope of the ACIT program. Focus on the research itself (understanding and communicating research), not mainly a technology with research around it.",
-          "tags": [
-            "essay",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/rq-focus.svg",
-            "alt": "Choose a research field within ACIT",
-            "caption": "Own research field within ACIT",
-            "shows": "Topic = research field, not a product pitch."
-          }
-        },
-        {
-          "id": "4100-not-judge",
-          "q": "Should you judge the quality of research findings like a domain expert?",
-          "a": "No. Search, summarize, synthesize and communicate what others have published. You may discuss how you interpret findings, but you are not expected to judge their quality as an expert. You are not trained anthropologists uncovering new knowledge.",
-          "tags": [
-            "essay",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/research-funnel.svg",
-            "alt": "Synthesize do not judge as expert",
-            "caption": "Report and interpret, do not referee",
-            "shows": "Communicate published knowledge; do not act as expert referee."
-          }
-        },
-        {
-          "id": "4100-criteria-prescribe",
-          "q": "Who decides which essay perspectives are more mandatory than others?",
-          "a": "The assessment criteria document: clear expectations prescribe some areas as more mandatory. You choose the mix of perspectives, but you must check that document and cover the prescribed priorities.",
-          "tags": [
-            "essay",
-            "assessment",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/assess-stars.svg",
-            "alt": "Assessment criteria set mandatory areas",
-            "caption": "Check the criteria document",
-            "shows": "Mix is yours; mandatory weight comes from the rubric."
-          }
-        },
-        {
-          "id": "4100-own-effort",
-          "q": "Do weekly course materials alone cover the essay perspectives?",
-          "a": "No. Weekly content gets you started on most topics, but you still need substantial own effort, including skill training in reading scientific works. Class also includes writing exercises.",
-          "tags": [
-            "essay",
-            "2026",
-            "teaching"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/real/research-process-clear.svg",
-            "alt": "Own reading and writing practice",
-            "caption": "Course starts; you deepen",
-            "shows": "Prep + own reading + in-class writing drills."
-          }
-        },
-        {
-          "id": "4100-content-over-style",
-          "q": "Can excellent style compensate for thin research content in the essay?",
-          "a": "No. Style is only a wrapper around information that must be communicated. Best grades go to essays that are rich in content and well executed in classic and/or narrative style.",
-          "tags": [
-            "essay",
-            "classic-style",
-            "narrative",
-            "2026"
-          ],
-          "figure": {
-            "type": "img",
-            "src": "figures/thesis-outline.svg",
-            "alt": "Content first then style craft",
-            "caption": "Content first, style wraps it",
-            "shows": "Rich research content + well executed style."
-          }
-        },
-        {
-          "id": "4100-not-hybrid",
-          "q": "Is ACIT4100 hybrid (online + campus in parallel)?",
-          "a": "No. The course is not hybrid - expect on-campus sessions for participation/group work (plus the flipped digital prep before class).",
-          "tags": [
-            "teaching",
-            "faq",
-            "practical"
-          ]
-        },
-        {
-          "id": "4100-not-recorded",
-          "q": "Are ACIT4100 class sessions recorded?",
-          "a": "No. Classes are not recorded so students can speak more comfortably and so learning from participation stays in the room.",
-          "tags": [
-            "teaching",
-            "faq",
-            "practical"
-          ]
-        },
-        {
-          "id": "4100-oria-access",
-          "q": "How do you access research articles for ACIT4100 (library FAQ)?",
-          "a": "Search Oria via the OsloMet library (https://www.oslomet.no/en/ul) - log in; use VPN or the OsloMet network when needed. Google Scholar often works too.",
-          "tags": [
-            "literature",
-            "faq",
-            "tools"
-          ]
-        },
-        {
-          "id": "4100-inspera",
-          "q": "Where do you hand in the ACIT4100 exam?",
-          "a": "Inspera via Studentweb - see https://student.oslomet.no/hjemmeeksamen for home-exam / Inspera access guidance.",
-          "tags": [
-            "exam",
-            "faq",
-            "practical"
-          ]
-        },
-        {
-          "id": "4100-candidate-number",
-          "q": "Where do you find your candidate number before the exam deadline?",
-          "a": "In Studentweb - look up your candidate number there before the hand-in deadline.",
-          "tags": [
-            "exam",
-            "faq",
-            "practical"
-          ]
-        },
-        {
-          "id": "4100-video-cc",
-          "q": "What should you know about course video captions and browsers (Canvas FAQ)?",
-          "a": "Closed captions (CC) are English-only (speech recognition). Supported browsers: Chrome, Firefox, Edge, Safari. Allow pop-ups so video tools work.",
-          "tags": [
-            "canvas",
-            "faq",
-            "practical"
-          ]
-        },
-        {
-          "id": "4100-konte-fail",
-          "q": "What happens if you fail the ACIT4100 essay exam?",
-          "a": "A continuation exam (konte) is available. It counts as a new exam attempt. Reasons for failing are listed in the assessment information document.",
-          "tags": [
-            "exam",
-            "konte",
-            "course-info"
-          ]
-        },
-        {
-          "id": "4100-konte-same-essay",
-          "q": "If you failed ACIT4100, can you keep working on the same essay for the continuation exam?",
-          "a": "Yes. Failed students may continue working on the same essay they submitted. How much rework is needed varies.",
-          "tags": [
-            "exam",
-            "konte",
-            "essay"
-          ]
-        },
-        {
-          "id": "4100-retake-new-essay",
-          "q": "If you passed ACIT4100 but want a better grade next year, can you improve the same essay?",
-          "a": "No. You must submit a new essay. Unlike failed students on konte, you cannot improve the same base text.",
-          "tags": [
-            "exam",
-            "retake",
-            "essay"
-          ]
-        },
-        {
-          "id": "4100-mandatory-two-years",
-          "q": "How long do previously approved mandatory assignments stay valid when retaking ACIT4100?",
-          "a": "Only for the past two years. If older, you must redo them.",
-          "tags": [
-            "exam",
-            "mandatory",
-            "retake"
-          ]
-        },
-        {
-          "id": "4100-oslomet-share-breach",
-          "q": "Why is sharing your ACIT4100 essay with other students a breach?",
-          "a": "The essay is an individual exam. Sharing it with others breaks exam rules. Official OsloMet cheating info: https://student.oslomet.no/en/cheating",
-          "tags": [
-            "integrity",
-            "exam",
-            "OsloMet"
-          ]
-        },
-        {
-          "id": "4100-oslomet-source-plagiarism",
-          "q": "Is plagiarism from sources allowed if you do not share your essay with classmates?",
-          "a": "No. Plagiarism from sources is also forbidden - do not present others' text or ideas as your own without proper citation.",
-          "tags": [
-            "integrity",
-            "plagiarism",
-            "OsloMet"
-          ]
-        },
-        {
-          "id": "4100-oslomet-detection",
-          "q": "How does OsloMet check electronic essay submissions for cheating?",
-          "a": "Submissions are checked against the internet and other exams (including previous years and courses). The system can detect synonym swaps and systematic rewriting.",
-          "tags": [
-            "integrity",
-            "OsloMet"
-          ]
-        },
-        {
-          "id": "4100-oslomet-process",
-          "q": "What is the process if cheating is suspected at OsloMet?",
-          "a": "A report is made; the student is notified and invited to a meeting; the case goes to a central committee; then a judgment is issued.",
-          "tags": [
-            "integrity",
-            "OsloMet"
-          ]
-        },
-        {
-          "id": "4100-oslomet-penalties",
-          "q": "What penalties can follow an OsloMet cheating judgment?",
-          "a": "Acquittal; annulled grade (must retake the course); or annulled grade plus expulsion from all Norwegian higher education for up to 1 year. In ACIT4100, experience is that cheaters often get the strongest penalty.",
-          "tags": [
-            "integrity",
-            "OsloMet"
-          ]
-        },
-        {
-          "id": "4100-teacher-help-boundary",
-          "q": "How do ACIT4100 teachers help with writing about others' research?",
-          "a": "They help you write ABOUT others' work - not write what those authors write. You must produce your own wording and understanding.",
-          "tags": [
-            "teaching",
-            "essay",
-            "integrity"
-          ]
+      {
+        "id": "4100-zotero",
+        "q": "What do you use Zotero (or similar) for in research work?",
+        "a": "Reference management: store sources, organise a literature survey, and generate citations/reference lists (APA7 / course requirements).",
+        "tags": [
+          "tools",
+          "references"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/zotero.svg",
+          "alt": "Reference management illustration",
+          "caption": "Zotero stores sources and builds citations",
+          "shows": "Reference managers keep PDFs/metadata and generate APA reference lists."
         }
-      ]
+      },
+      {
+        "id": "4100-litsearch",
+        "q": "Name three sensible steps in a literature search (as the course trains).",
+        "a": "1) Clarify topic/question and search terms. 2) Search relevant databases and sort/categorise hits. 3) Critically assess sources and build a taxonomy/spreadsheet for the essay.",
+        "tags": [
+          "literature"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/research-process-clear.svg",
+          "alt": "Research process",
+          "caption": "Literature search is a clear process",
+          "shows": "Question -> search -> assess -> write and cite."
+        }
+      },
+      {
+        "id": "4100-imrad",
+        "q": "What is IMRaD, and when is it used?",
+        "a": "Introduction-Methods-Results-and-Discussion: common structure in empirical research articles. The ACIT4100 essay is not a typical IMRaD literature review-it should understand and communicate research in a classic/narrative style.",
+        "tags": [
+          "genre"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/imrad.svg",
+          "alt": "IMRaD",
+          "caption": "IMRaD structures research articles",
+          "shows": "Introduction/Discussion broad; Methods/Results focused."
+        }
+      },
+      {
+        "id": "4100-claim",
+        "q": "What distinguishes a claim from evidence in academic text / Toulmin?",
+        "a": "A claim is what you assert; evidence/data supports the claim. The Toulmin model (used in the course's rhetoric/ethics assessment) separates claim, data/grounds, warrant, and more.",
+        "tags": [
+          "rhetoric",
+          "Toulmin"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/toulmin.svg",
+          "alt": "Claim versus evidence boxes",
+          "caption": "Toulmin-style distinction",
+          "shows": "Toulmin-style distinction"
+        }
+      },
+      {
+        "id": "4100-peer",
+        "q": "Why is peer review important?",
+        "a": "Quality control before publication: other researchers assess method, argumentation and contribution-a central part of the publication tradition you should describe in the essay.",
+        "tags": [
+          "publishing"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/peer-review-clear.svg",
+          "alt": "Peer review",
+          "caption": "Peer review checks quality before publication",
+          "shows": "Author -> journal -> expert reviewers."
+        }
+      },
+      {
+        "id": "4100-rq",
+        "q": "What characterises a good research question for this course?",
+        "a": "Scoped, relevant to ACIT/your specialisation, researchable via literature (not anthropological fieldwork), and suited to make methods, ethics and the research field visible-not just a 'technology product'.",
+        "tags": [
+          "essay"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/rq-focus.svg",
+          "alt": "Research question focus",
+          "caption": "A clear research question keeps the essay focused",
+          "shows": "One evaluable question beats a vague theme dump."
+        }
+      },
+      {
+        "id": "4100-cite",
+        "q": "When must you cite in academic text?",
+        "a": "When you use others' ideas, data, wording or unique content-including when paraphrasing. Missing citation = plagiarism of ideas/words. The course requires an APA7-based standard.",
+        "tags": [
+          "plagiarism",
+          "APA"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/apa-cite-clear.svg",
+          "alt": "APA citation",
+          "caption": "Always credit sources (APA)",
+          "shows": "Paraphrase still needs a citation."
+        }
+      },
+      {
+        "id": "4100-essay-focus",
+        "q": "What is the 2026 essay focus shift in ACIT4100?",
+        "a": "Away from mainly describing a technology, toward understanding and communicating research: methods, history/tradition, notable researchers/venues, regulation/ethics, industry/society relations-summarise and synthesise others' work, not invent new empirical findings.",
+        "tags": [
+          "essay",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/research-process-clear.svg",
+          "alt": "Research process",
+          "caption": "Essay = communicate research clearly",
+          "shows": "Focus the question, use quality sources, synthesise and cite."
+        }
+      },
+      {
+        "id": "4100-styles",
+        "q": "Which writing styles must the ACIT4100 essay mainly use?",
+        "a": "Classic style (Steven Pinker, covered in the course) and/or narrative style (short-story techniques). Hybrids (classic with narrative 'cut-scenes') are allowed. Style cannot compensate for thin research content.",
+        "tags": [
+          "classic-style",
+          "narrative"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Essay structure supporting required styles",
+          "caption": "Classic and narrative craft",
+          "shows": "Classic and narrative craft"
+        }
+      },
+      {
+        "id": "4100-apa7-strict",
+        "q": "How does ACIT4100's referencing standard differ from plain APA7 for scientific papers?",
+        "a": "Based on APA7 but stricter for scientific papers: include page number and paragraph number. Books/websites follow conventional APA7. See Kildekompasset APA 7th.",
+        "tags": [
+          "APA",
+          "references"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/apa-cite-clear.svg",
+          "alt": "APA citation",
+          "caption": "APA anatomy: Author. (Year). Title. Source.",
+          "shows": "Colour-coded reference parts. In-text: (Author, Year)."
+        }
+      },
+      {
+        "id": "4100-assess-stars",
+        "q": "Which assessment categories are weighted most heavily (***) in the essay rubric?",
+        "a": "Literature survey (***) and Research methods (***). Rhetoric and Flow/structure are **; Ethics **; Visual presentation and Language/other are *.",
+        "tags": [
+          "assessment"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/assess-stars.svg",
+          "alt": "Star-weighted assessment categories",
+          "caption": "Triple-star criteria matter most",
+          "shows": "Triple-star criteria matter most"
+        }
+      },
+      {
+        "id": "4100-lit-threshold",
+        "q": "What literature volume is discussed in assessment / failure criteria?",
+        "a": "Rubric: ~10 research articles is low, ~20 is high (how they are used matters more). Failure risk if fewer than 10 research papers. The course plan notes a mandatory spreadsheet survey (threshold can differ by document year-follow current Canvas/2026 requirements).",
+        "tags": [
+          "literature",
+          "requirements"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/litsearch.svg",
+          "alt": "Literature volume expectation",
+          "caption": "Enough quality sources",
+          "shows": "Enough quality sources"
+        }
+      },
+      {
+        "id": "4100-ai-declaration",
+        "q": "What AI declaration is required, and what happens if it is missing?",
+        "a": "At the end of the essay (after the reference list): list tool(s) and activities, OR state that no AI was used. Not in the word count. Missing the Declaration of AI use means fail, whether or not AI was used. Aligns with OsloMet AI guidance.",
+        "tags": [
+          "AI",
+          "integrity",
+          "assessment",
+          "requirements"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ai-declare.svg",
+          "alt": "Mandatory AI use declaration",
+          "caption": "Declare tools or non-use",
+          "shows": "After references; not in word count."
+        }
+      },
+      {
+        "id": "4100-ai-write-cheat",
+        "q": "When is using AI treated as cheating in the ACIT4100 essay?",
+        "a": "Using AI to literally write parts of the essay is cheating. The exam requires you to write the essay; generated text is not writing and tries to circumvent the exam.",
+        "tags": [
+          "AI",
+          "integrity"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ai-declare.svg",
+          "alt": "AI writing essay is cheating",
+          "caption": "You must write the essay",
+          "shows": "Generated essay text = cheating."
+        }
+      },
+      {
+        "id": "4100-ai-cheat-examples",
+        "q": "Give four examples of AI use that count as cheating for the essay.",
+        "a": "1) AI writes the essay/parts from your ideas. 2) AI fixes up your draft. 3) AI generates an essay from your material. 4) AI restyles your paragraph into essay style. All leave text that was not really written by you.",
+        "tags": [
+          "AI",
+          "integrity"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ai-declare.svg",
+          "alt": "Cheating AI writing examples",
+          "caption": "AI must not write your essay text",
+          "shows": "Ideas/draft/material/restyle still cheating."
+        }
+      },
+      {
+        "id": "4100-ai-bland-text",
+        "q": "Why does AI-generated essay text often get weak grades, beyond integrity?",
+        "a": "LLM text often reads bland, polished and business-like - little personality - and says little despite fancy language. It also short-circuits learning to understand and communicate research, which you develop by writing yourself.",
+        "tags": [
+          "AI",
+          "essay",
+          "learning"
+        ]
+      },
+      {
+        "id": "4100-ai-allowed",
+        "q": "Which AI uses does ACIT4100 endorse for the essay process?",
+        "a": "Summarise/explain research articles; group articles into categories; have AI summarise YOUR draft/outline so you check coverage against your ideas; discuss topic/structure; help find material / common knowledge; teach grammar/writing from YOUR paragraph so YOU improve. Mentoring support - not masking your writing.",
+        "tags": [
+          "AI",
+          "essay"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ai-declare.svg",
+          "alt": "Allowed AI mentoring uses",
+          "caption": "AI as mentor, not ghostwriter",
+          "shows": "Support learning; do not write for you."
+        }
+      },
+      {
+        "id": "4100-ai-grammarly",
+        "q": "Is Grammarly (or similar spell/style checkers) cheating in ACIT4100?",
+        "a": "Not cheating if they only work on text you write yourself. Not endorsed either: they often make wording overly advanced/academic. Rare synonyms do not improve the text.",
+        "tags": [
+          "AI",
+          "language"
+        ]
+      },
+      {
+        "id": "4100-plagiarism-forms",
+        "q": "Name major plagiarism forms from the Avoiding Plagiarism reading.",
+        "a": "Verbatim (word-for-word / mosaic); plagiarism of ideas (paraphrase without credit); self-plagiarism/duplicate publication; loose paraphrasing that keeps another's logic; failing to cite non-scholarly sources that contributed unique information.",
+        "tags": [
+          "plagiarism"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/plagiarism-vs-cite.svg",
+          "alt": "Plagiarism forms versus proper citation",
+          "caption": "Avoiding plagiarism reading",
+          "shows": "Avoiding plagiarism reading"
+        }
+      },
+      {
+        "id": "4100-mandatory",
+        "q": "What are the two mandatory goal-posts before the essay exam (from saved course pages)?",
+        "a": "1) Literature taxonomy/spreadsheet (scientific papers threshold for approval). 2) Video presentation 5-10 minutes on the essay topic. (Exact due dates/word counts: verify current Canvas-saved PDFs and course plan differ slightly by year.)",
+        "tags": [
+          "requirements"
+        ]
+      },
+      {
+        "id": "4100-syllabus-topics",
+        "q": "Give examples of weekly themes from the saved ACIT4100 syllabus.",
+        "a": "Rhetoric & persuasive arguments; searching/sorting literature; philosophy of science; research methods; using AI for research; classic style; narrative templates; public speaking; role of the expert; plagiarism; Q&A.",
+        "tags": [
+          "syllabus"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Weekly themes feeding the research funnel",
+          "caption": "Syllabus topic examples",
+          "shows": "Syllabus topic examples"
+        }
+      },
+      {
+        "id": "4100-ethics-rubric",
+        "q": "What should the ethics discussion in the essay cover (assessment criteria)?",
+        "a": "Identify ethical issues (professional ethics, research ethics, societal impact); present different viewpoints; de-construct arguments. The course plan also requires ethical challenges of research and societal uses.",
+        "tags": [
+          "ethics"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ethics-essay.svg",
+          "alt": "Stakeholders harms duties ethics lens",
+          "caption": "Ethics discussion criteria",
+          "shows": "Ethics discussion criteria"
+        }
+      },
+      {
+        "id": "4100-disqualify",
+        "q": "List key reasons an essay may fail (from assessment information).",
+        "a": "Missing AI-use declaration (fail); insufficient research literature (minimum 10 considered); cannot follow evaluation criteria; insufficient research focus; not technology-related; no standard referencing; too much rewrite of sources ('not your own text'). Common word-count/cheating rules still apply; list not complete.",
+        "tags": [
+          "assessment",
+          "integrity"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ai-declare.svg",
+          "alt": "Integrity failures that can fail the essay",
+          "caption": "Declaration and plagiarism risks",
+          "shows": "Declaration and plagiarism risks"
+        }
+      },
+      {
+        "id": "4100-wordcount-2026",
+        "q": "What is the ACIT4100 essay word count (current Canvas)?",
+        "a": "Individual essay 5500-6500 words (A-F). Not group work. Old intro video may still say ~12000 words - that is outdated. Confirm on current Canvas / OsloMet course page for your year.",
+        "tags": [
+          "essay",
+          "2026",
+          "requirements"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Essay length and structure",
+          "caption": "Check current Canvas too",
+          "shows": "Check current Canvas too"
+        }
+      },
+      {
+        "id": "4100-essay-must-include",
+        "q": "Which three content blocks must the ACIT4100 essay include (course plan)?",
+        "a": "1) Literature survey. 2) Discussion of methods used in the reviewed material. 3) Ethical challenges (research ethics and societal uses).",
+        "tags": [
+          "essay",
+          "requirements"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Survey methods ethics funnel",
+          "caption": "Three mandatory content areas",
+          "shows": "Three mandatory content areas"
+        }
+      },
+      {
+        "id": "4100-mandatory-7",
+        "q": "What literature spreadsheet threshold should you follow for Mandatory 1?",
+        "a": "Current Canvas: taxonomy spreadsheet with 10+ scientific papers. Older saved course plans mentioned at least 7 - always follow the threshold published on current Canvas.",
+        "tags": [
+          "requirements",
+          "literature"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/litsearch.svg",
+          "alt": "Literature spreadsheet volume",
+          "caption": "Meet the published threshold",
+          "shows": "Meet the published threshold"
+        }
+      },
+      {
+        "id": "4100-video",
+        "q": "What is the video goal-post before the essay exam?",
+        "a": "A 5-10 minute recording/presentation on the essay topic (mandatory work requirement).",
+        "tags": [
+          "requirements"
+        ]
+      },
+      {
+        "id": "4100-synthesize",
+        "q": "Are you expected to produce new empirical findings in the ACIT4100 essay?",
+        "a": "No. Summarize, synthesize and communicate what others have published; you are not trained as anthropologists inventing new fieldwork models.",
+        "tags": [
+          "essay",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Synthesize published research",
+          "caption": "Communicate existing knowledge",
+          "shows": "Communicate existing knowledge"
+        }
+      },
+      {
+        "id": "4100-apa-page-para",
+        "q": "For scientific papers in ACIT4100 APA7-based referencing, what extra detail is required?",
+        "a": "Include page number and paragraph number (stricter than plain APA7). Books and websites follow conventional APA7. See Kildekompasset APA 7th.",
+        "tags": [
+          "APA",
+          "references"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/apa-anatomy.svg",
+          "alt": "APA citation with page and paragraph",
+          "caption": "Stricter for papers",
+          "shows": "Stricter for papers"
+        }
+      },
+      {
+        "id": "4100-toulmin-parts",
+        "q": "Name the main Toulmin parts used in the course's rhetoric/ethics work.",
+        "a": "Claim (assertion), data/grounds (evidence), and warrant (why the evidence supports the claim); further parts may include backing, qualifier, and rebuttal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/toulmin.svg",
+          "alt": "Claim data warrant Toulmin",
+          "caption": "Argument structure",
+          "shows": "Argument structure"
+        }
+      },
+      {
+        "id": "4100-paraphrase",
+        "q": "Does paraphrasing remove the need to cite?",
+        "a": "No. Using another's ideas or unique content in your own words still requires citation; otherwise it is idea plagiarism.",
+        "tags": [
+          "plagiarism",
+          "APA"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/plagiarism-vs-cite.svg",
+          "alt": "Paraphrase still needs citation",
+          "caption": "Credit the source",
+          "shows": "Credit the source"
+        }
+      },
+      {
+        "id": "4100-vancouver",
+        "q": "What authorship convention is named in the ACIT4100 learning outcomes?",
+        "a": "The Vancouver convention on authorship (who qualifies as an author) - part of research integrity and publishing tradition.",
+        "tags": [
+          "publishing",
+          "integrity"
+        ]
+      },
+      {
+        "id": "4100-methods-types",
+        "q": "What method families should you be able to discuss when reviewing papers?",
+        "a": "Qualitative and quantitative research methods (and how papers in your field typically design experiments/labs or studies) - identify methods used in the literature you survey.",
+        "tags": [
+          "methods"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/imrad.svg",
+          "alt": "Methods section awareness",
+          "caption": "Name methods in the survey",
+          "shows": "Name methods in the survey"
+        }
+      },
+      {
+        "id": "4100-phil-science",
+        "q": "Give examples of philosophy-of-science themes listed for ACIT4100.",
+        "a": "Falsificationism/paradigms and traditions within philosophy of science (explicit or implicit in a research field) - connect them to how your field publishes and argues.",
+        "tags": [
+          "syllabus",
+          "philosophy"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Philosophy of science in the funnel",
+          "caption": "Paradigms and falsification",
+          "shows": "Paradigms and falsification"
+        }
+      },
+      {
+        "id": "4100-perspectives",
+        "q": "List example perspectives the 2026 essay requirements suggest for describing a research field.",
+        "a": "Methods/methodologies; lab/experimental designs; philosophy-of-science tradition; publication venues; history of the field; codes of conduct/regulation; industry/society relations; ethical effects.",
+        "tags": [
+          "essay",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Essay perspectives outline",
+          "caption": "Mix perspectives with criteria",
+          "shows": "Mix perspectives with criteria"
+        }
+      },
+      {
+        "id": "4100-kildekompasset",
+        "q": "Where does the course point you for APA 7th details?",
+        "a": "Kildekompasset APA 7th (Norwegian and English): https://www.kildekompasset.no/en/referencing-styles/apa-7th/",
+        "tags": [
+          "APA",
+          "tools"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/apa-anatomy.svg",
+          "alt": "APA reference anatomy",
+          "caption": "Use Kildekompasset",
+          "shows": "Use Kildekompasset"
+        }
+      },
+      {
+        "id": "4100-classic-pinker",
+        "q": "What is \"classic style\" in this course?",
+        "a": "Writing style as described by Steven Pinker and covered in class - clear, reader-oriented prose suitable for popular-science / expert communication (may be hybridised with narrative cut-scenes).",
+        "tags": [
+          "classic-style"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Classic style essay craft",
+          "caption": "Pinker classic style",
+          "shows": "Pinker classic style"
+        }
+      },
+      {
+        "id": "4100-course-name",
+        "q": "What is the current ACIT4100 course name, and what outdated title may still appear in old video?",
+        "a": "Current: Understanding and Communicating Research. Old intro video may still say Research methods & Ethics - treat that title as outdated; trust Canvas.",
+        "tags": [
+          "course-info",
+          "canvas"
+        ]
+      },
+      {
+        "id": "4100-teachers",
+        "q": "Who teaches ACIT4100 now (current Canvas)?",
+        "a": "Kyrre Begnum and Sylvia Lysgård. Older materials naming Pedro / Kristine are outdated.",
+        "tags": [
+          "course-info",
+          "canvas"
+        ]
+      },
+      {
+        "id": "4100-flipped",
+        "q": "How does the flipped classroom work in ACIT4100?",
+        "a": "Study the digital material BEFORE class. Class time is for activities and assisted individual work (not a first-time lecture of the week's content).",
+        "tags": [
+          "teaching",
+          "flipped"
+        ]
+      },
+      {
+        "id": "4100-attendance",
+        "q": "Is attendance mandatory, and what classroom rules apply?",
+        "a": "Attendance is NOT obligatory - you do not need to notify staff if absent. Sessions are built for active participation / group work. If you come, arrive on time; breaks and meals are outside the classroom.",
+        "tags": [
+          "teaching",
+          "practical",
+          "faq"
+        ]
+      },
+      {
+        "id": "4100-publish-ahead",
+        "q": "How far ahead do teachers publish weekly digital material?",
+        "a": "At least one week ahead, so you can prepare before class.",
+        "tags": [
+          "teaching",
+          "canvas"
+        ]
+      },
+      {
+        "id": "4100-exam-individual",
+        "q": "Is the ACIT4100 exam group work, and what length should you ignore from old video?",
+        "a": "No - it is an individual essay (5500-6500 words on current Canvas). Old video length ~12000 words is outdated. Not a group exam.",
+        "tags": [
+          "exam",
+          "requirements"
+        ]
+      },
+      {
+        "id": "4100-not-typical-review",
+        "q": "Is the ACIT4100 essay a typical literature review?",
+        "a": "No. It is not a typical literature review - write to the published assessment criteria (methods, ethics, communicating research, etc.), not a generic review template.",
+        "tags": [
+          "essay",
+          "assessment"
+        ]
+      },
+      {
+        "id": "4100-mand1-due",
+        "q": "What is Mandatory 1, and when is it roughly due?",
+        "a": "Literature taxonomy spreadsheet (10+ scientific papers threshold). Due around 26 September as listed on Canvas (Canvas may show .25 / year quirks - always use the date shown for your course year).",
+        "tags": [
+          "requirements",
+          "deadlines"
+        ]
+      },
+      {
+        "id": "4100-mand2-due",
+        "q": "What is Mandatory 2, and when is it roughly due?",
+        "a": "Recorded video presentation 5-10 minutes on your essay topic. Due around 31 October (confirm exact date/time on Canvas for your year).",
+        "tags": [
+          "requirements",
+          "deadlines"
+        ]
+      },
+      {
+        "id": "4100-essay-deadline",
+        "q": "When is the essay exam roughly due?",
+        "a": "Around 5 December at noon on Canvas for the current run - always verify the exact deadline and year on Canvas / OsloMet (do not treat a pasted year as absolute truth).",
+        "tags": [
+          "exam",
+          "deadlines"
+        ]
+      },
+      {
+        "id": "4100-writing-weekly",
+        "q": "How should you plan time for the ACIT4100 essay?",
+        "a": "Writing takes weekly time across the semester - do not leave the full essay for the final weeks after the mandatory goal-posts.",
+        "tags": [
+          "essay",
+          "practical"
+        ]
+      },
+      {
+        "id": "4100-english-plain",
+        "q": "What English level is expected in the essay?",
+        "a": "Plain, grammatically correct English is enough. Advanced / fancy language is not an advantage in assessment.",
+        "tags": [
+          "essay",
+          "language"
+        ]
+      },
+      {
+        "id": "4100-oslomet-page",
+        "q": "Where do you find formal exam details (word count, form, year)?",
+        "a": "OsloMet course information page for ACIT4100 - select the correct academic year. Cross-check Canvas for work requirements and deadlines.",
+        "tags": [
+          "exam",
+          "course-info"
+        ]
+      },
+      {
+        "id": "4100-trust-canvas",
+        "q": "If old intro video conflicts with Canvas (name, teachers, word count), what do you trust?",
+        "a": "Trust current Canvas and the OsloMet course page for your year. Intro video can lag (old course title, old staff, old ~12000-word length).",
+        "tags": [
+          "canvas",
+          "course-info"
+        ]
+      },
+      {
+        "id": "4100-class-purpose",
+        "q": "What is class time mainly for in ACIT4100?",
+        "a": "Active participation and group work: activities plus assisted individual work on your essay/literature process - after you have already done the digital prep.",
+        "tags": [
+          "teaching",
+          "flipped",
+          "faq"
+        ]
+      },
+      {
+        "id": "4100-topic-choice",
+        "q": "What may you choose as the ACIT4100 essay topic (Essay requirements 2026)?",
+        "a": "A field of research of your own choosing within the scope of the ACIT program. Focus on the research itself (understanding and communicating research), not mainly a technology with research around it.",
+        "tags": [
+          "essay",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/rq-focus.svg",
+          "alt": "Choose a research field within ACIT",
+          "caption": "Own research field within ACIT",
+          "shows": "Topic = research field, not a product pitch."
+        }
+      },
+      {
+        "id": "4100-not-judge",
+        "q": "Should you judge the quality of research findings like a domain expert?",
+        "a": "No. Search, summarize, synthesize and communicate what others have published. You may discuss how you interpret findings, but you are not expected to judge their quality as an expert. You are not trained anthropologists uncovering new knowledge.",
+        "tags": [
+          "essay",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Synthesize do not judge as expert",
+          "caption": "Report and interpret, do not referee",
+          "shows": "Communicate published knowledge; do not act as expert referee."
+        }
+      },
+      {
+        "id": "4100-criteria-prescribe",
+        "q": "Who decides which essay perspectives are more mandatory than others?",
+        "a": "The assessment criteria document: clear expectations prescribe some areas as more mandatory. You choose the mix of perspectives, but you must check that document and cover the prescribed priorities.",
+        "tags": [
+          "essay",
+          "assessment",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/assess-stars.svg",
+          "alt": "Assessment criteria set mandatory areas",
+          "caption": "Check the criteria document",
+          "shows": "Mix is yours; mandatory weight comes from the rubric."
+        }
+      },
+      {
+        "id": "4100-own-effort",
+        "q": "Do weekly course materials alone cover the essay perspectives?",
+        "a": "No. Weekly content gets you started on most topics, but you still need substantial own effort, including skill training in reading scientific works. Class also includes writing exercises.",
+        "tags": [
+          "essay",
+          "2026",
+          "teaching"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/research-process-clear.svg",
+          "alt": "Own reading and writing practice",
+          "caption": "Course starts; you deepen",
+          "shows": "Prep + own reading + in-class writing drills."
+        }
+      },
+      {
+        "id": "4100-content-over-style",
+        "q": "Can excellent style compensate for thin research content in the essay?",
+        "a": "No. Style is only a wrapper around information that must be communicated. Best grades go to essays that are rich in content and well executed in classic and/or narrative style.",
+        "tags": [
+          "essay",
+          "classic-style",
+          "narrative",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Content first then style craft",
+          "caption": "Content first, style wraps it",
+          "shows": "Rich research content + well executed style."
+        }
+      },
+      {
+        "id": "4100-not-hybrid",
+        "q": "Is ACIT4100 hybrid (online + campus in parallel)?",
+        "a": "No. The course is not hybrid - expect on-campus sessions for participation/group work (plus the flipped digital prep before class).",
+        "tags": [
+          "teaching",
+          "faq",
+          "practical"
+        ]
+      },
+      {
+        "id": "4100-not-recorded",
+        "q": "Are ACIT4100 class sessions recorded?",
+        "a": "No. Classes are not recorded so students can speak more comfortably and so learning from participation stays in the room.",
+        "tags": [
+          "teaching",
+          "faq",
+          "practical"
+        ]
+      },
+      {
+        "id": "4100-oria-access",
+        "q": "How do you access research articles for ACIT4100 (library FAQ)?",
+        "a": "Search Oria via the OsloMet library (https://www.oslomet.no/en/ul) - log in; use VPN or the OsloMet network when needed. Google Scholar often works too.",
+        "tags": [
+          "literature",
+          "faq",
+          "tools"
+        ]
+      },
+      {
+        "id": "4100-inspera",
+        "q": "Where do you hand in the ACIT4100 exam?",
+        "a": "Inspera via Studentweb - see https://student.oslomet.no/hjemmeeksamen for home-exam / Inspera access guidance.",
+        "tags": [
+          "exam",
+          "faq",
+          "practical"
+        ]
+      },
+      {
+        "id": "4100-candidate-number",
+        "q": "Where do you find your candidate number before the exam deadline?",
+        "a": "In Studentweb - look up your candidate number there before the hand-in deadline.",
+        "tags": [
+          "exam",
+          "faq",
+          "practical"
+        ]
+      },
+      {
+        "id": "4100-video-cc",
+        "q": "What should you know about course video captions and browsers (Canvas FAQ)?",
+        "a": "Closed captions (CC) are English-only (speech recognition). Supported browsers: Chrome, Firefox, Edge, Safari. Allow pop-ups so video tools work.",
+        "tags": [
+          "canvas",
+          "faq",
+          "practical"
+        ]
+      },
+      {
+        "id": "4100-konte-fail",
+        "q": "What happens if you fail the ACIT4100 essay exam?",
+        "a": "A continuation exam (konte) is available. It counts as a new exam attempt. Reasons for failing are listed in the assessment information document.",
+        "tags": [
+          "exam",
+          "konte",
+          "course-info"
+        ]
+      },
+      {
+        "id": "4100-konte-same-essay",
+        "q": "If you failed ACIT4100, can you keep working on the same essay for the continuation exam?",
+        "a": "Yes. Failed students may continue working on the same essay they submitted. How much rework is needed varies.",
+        "tags": [
+          "exam",
+          "konte",
+          "essay"
+        ]
+      },
+      {
+        "id": "4100-retake-new-essay",
+        "q": "If you passed ACIT4100 but want a better grade next year, can you improve the same essay?",
+        "a": "No. You must submit a new essay. Unlike failed students on konte, you cannot improve the same base text.",
+        "tags": [
+          "exam",
+          "retake",
+          "essay"
+        ]
+      },
+      {
+        "id": "4100-mandatory-two-years",
+        "q": "How long do previously approved mandatory assignments stay valid when retaking ACIT4100?",
+        "a": "Only for the past two years. If older, you must redo them.",
+        "tags": [
+          "exam",
+          "mandatory",
+          "retake"
+        ]
+      },
+      {
+        "id": "4100-oslomet-share-breach",
+        "q": "Why is sharing your ACIT4100 essay with other students a breach?",
+        "a": "The essay is an individual exam. Sharing it with others breaks exam rules. Official OsloMet cheating info: https://student.oslomet.no/en/cheating",
+        "tags": [
+          "integrity",
+          "exam",
+          "OsloMet"
+        ]
+      },
+      {
+        "id": "4100-oslomet-source-plagiarism",
+        "q": "Is plagiarism from sources allowed if you do not share your essay with classmates?",
+        "a": "No. Plagiarism from sources is also forbidden - do not present others' text or ideas as your own without proper citation.",
+        "tags": [
+          "integrity",
+          "plagiarism",
+          "OsloMet"
+        ]
+      },
+      {
+        "id": "4100-oslomet-detection",
+        "q": "How does OsloMet check electronic essay submissions for cheating?",
+        "a": "Submissions are checked against the internet and other exams (including previous years and courses). The system can detect synonym swaps and systematic rewriting.",
+        "tags": [
+          "integrity",
+          "OsloMet"
+        ]
+      },
+      {
+        "id": "4100-oslomet-process",
+        "q": "What is the process if cheating is suspected at OsloMet?",
+        "a": "A report is made; the student is notified and invited to a meeting; the case goes to a central committee; then a judgment is issued.",
+        "tags": [
+          "integrity",
+          "OsloMet"
+        ]
+      },
+      {
+        "id": "4100-oslomet-penalties",
+        "q": "What penalties can follow an OsloMet cheating judgment?",
+        "a": "Acquittal; annulled grade (must retake the course); or annulled grade plus expulsion from all Norwegian higher education for up to 1 year. In ACIT4100, experience is that cheaters often get the strongest penalty.",
+        "tags": [
+          "integrity",
+          "OsloMet"
+        ]
+      },
+      {
+        "id": "4100-teacher-help-boundary",
+        "q": "How do ACIT4100 teachers help with writing about others' research?",
+        "a": "They help you write ABOUT others' work - not write what those authors write. You must produce your own wording and understanding.",
+        "tags": [
+          "teaching",
+          "essay",
+          "integrity"
+        ]
+      },
+      {
+        "id": "4100-assess-caution",
+        "q": "What caution does the essay assessment information give about using the star list?",
+        "a": "Do not try to calculate your grade from the list (you lack other essays). Do not reverse-engineer category weights with example essays - the list is revised yearly. Stars are coarse relative importance only. Rubrics may feel unclear early; meaning grows during the course. List = what they look for, not how to execute well.",
+        "tags": [
+          "assessment"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/assess-stars.svg",
+          "alt": "Assessment caution",
+          "caption": "Stars guide; do not reverse-engineer grades",
+          "shows": "Relative weight only; list evolves yearly."
+        }
+      },
+      {
+        "id": "4100-stars-meaning",
+        "q": "What do the stars (*, **, ***) mean in the ACIT4100 essay rubric?",
+        "a": "Coarse relative importance when grading: *** weighs more than **, which weighs more than *. Not a full hidden points formula. Categories: Literature survey *** and Research methods ***; Flow/structure **, Rhetoric **, Ethics **; Visual presentation * and Language/other *.",
+        "tags": [
+          "assessment"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/assess-stars.svg",
+          "alt": "Star weights",
+          "caption": "More stars = more weight",
+          "shows": "*** lit + methods; ** flow/rhetoric/ethics; * visual/language."
+        }
+      },
+      {
+        "id": "4100-two-sensors",
+        "q": "How many sensors read each ACIT4100 essay, and what may compensate?",
+        "a": "Two sensors read each essay. Strong performance in one category may sometimes compensate for weaknesses elsewhere - but structured criteria still aim for transparency.",
+        "tags": [
+          "assessment"
+        ]
+      },
+      {
+        "id": "4100-flow-structure",
+        "q": "What does Flow / structure (**) look for in the essay?",
+        "a": "Easy to follow with guiding text: paragraphs stick to one topic/point; introduction communicates the focus; segues (transitions) between sections; coherent overall structure.",
+        "tags": [
+          "assessment",
+          "structure"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Flow and structure",
+          "caption": "Topic paragraphs, intro focus, segues",
+          "shows": "Guide the reader; keep a coherent path."
+        }
+      },
+      {
+        "id": "4100-rhetoric-rubric",
+        "q": "What does Rhetoric (**) look for in the essay?",
+        "a": "Rhetorical and dramatic devices plus appropriate style: capture attention in the introduction; rhetorical devices; dramatic devices for interest/engagement; use rhetoric terminology and the Toulmin model (e.g. how others frame an issue, or in ethics); written in classic style.",
+        "tags": [
+          "assessment",
+          "rhetoric",
+          "Toulmin"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/toulmin.svg",
+          "alt": "Rhetoric and Toulmin",
+          "caption": "Attention, devices, Toulmin, classic style",
+          "shows": "Rhetoric ** includes classic style and Toulmin."
+        }
+      },
+      {
+        "id": "4100-lit-survey-use",
+        "q": "Beyond paper count, what does Literature survey (***) reward?",
+        "a": "How papers are used matters more than raw count (~10 low, ~20 high). Aggregate and categorize articles; use categorization to highlight aspects/observations; add non-scientific material (media, podcasts, dictionaries) for context; present literature in a storyline order.",
+        "tags": [
+          "assessment",
+          "literature"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/litsearch.svg",
+          "alt": "Literature survey use",
+          "caption": "Categorize, contextualize, storyline",
+          "shows": "Use > count; build a narrative path through sources."
+        }
+      },
+      {
+        "id": "4100-methods-rubric",
+        "q": "What does Research methods (***) require in the essay?",
+        "a": "Identify key research methods/approaches in your literature; describe them; discuss some (background, paradigm, strengths and weaknesses); give examples of how papers in your survey used the method.",
+        "tags": [
+          "assessment",
+          "methods"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/imrad.svg",
+          "alt": "Research methods rubric",
+          "caption": "Identify, discuss, exemplify methods",
+          "shows": "Paradigm + strengths/weaknesses + literature examples."
+        }
+      },
+      {
+        "id": "4100-visual-rubric",
+        "q": "What does Visual presentation (*) require?",
+        "a": "Images/diagrams share a consistent visual format, including titles and captions. Visuals complement written text - they must not replace it. Do not drop diagrams without advising the reader how to understand them.",
+        "tags": [
+          "assessment",
+          "visual"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/assess-stars.svg",
+          "alt": "Visual presentation",
+          "caption": "Consistent captions; complement text",
+          "shows": "Same format; guide the reader; do not replace prose."
+        }
+      },
+      {
+        "id": "4100-language-rubric",
+        "q": "What does Language / other (*) cover, and which reference styles are mentioned?",
+        "a": "General English proficiency, plus proper quotes and referencing. The language bullet says must follow IEEE or APA. Primary course standard for ACIT4100 is still APA7-based and stricter for scientific papers (page + paragraph). Books/websites: conventional APA7. See Kildekompasset.",
+        "tags": [
+          "assessment",
+          "language",
+          "APA",
+          "references"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/apa-anatomy.svg",
+          "alt": "Language and referencing",
+          "caption": "English + quotes/refs; APA7-stricter primary",
+          "shows": "Language * mentions IEEE or APA; course primary = APA7-stricter for papers."
+        }
+      },
+      {
+        "id": "4100-ref-books-web",
+        "q": "Do books and websites need page and paragraph numbers under the ACIT4100 referencing standard?",
+        "a": "No. The stricter page + paragraph rule applies to scientific papers. Books and websites follow conventional APA7.",
+        "tags": [
+          "APA",
+          "references"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/apa-cite-clear.svg",
+          "alt": "APA for books and websites",
+          "caption": "Papers stricter; books/web conventional APA7",
+          "shows": "Page+paragraph = papers only."
+        }
+      },
+      {
+        "id": "4100-cheat-report",
+        "q": "Which signs may lead to reporting the essay for cheating (assessment information)?",
+        "a": "List not complete. Signs of circumventing collect-organize-structure-write with own skills: text-generation engines; masking others text as your own; using text/images/content without reference; using paper lists from other literature reviews instead of your own searches. Ask staff if unsure.",
+        "tags": [
+          "assessment",
+          "integrity"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/plagiarism-vs-cite.svg",
+          "alt": "Cheating report signs",
+          "caption": "Own search, own writing, proper credit",
+          "shows": "Generators, masking, no refs, borrowed paper lists."
+        }
+      },
+      {
+        "id": "4100-not-own-text",
+        "q": "What is \"not your own text\" as a fail reason (distinct from plagiarism)?",
+        "a": "Too much of the essay is merely a rewrite of other sources. May not be plagiarism in mild cases, but sensors cannot find enough of you composing with your own writing skills - so the essay can fail on that basis.",
+        "tags": [
+          "assessment",
+          "integrity"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/plagiarism-vs-cite.svg",
+          "alt": "Not your own text",
+          "caption": "Rewrite-heavy text can fail",
+          "shows": "Compose; do not only rephrase sources."
+        }
+      },
+      {
+        "id": "4100-fail-min-papers",
+        "q": "What literature minimum can lead to considering a fail?",
+        "a": "Fewer than 10 research papers: sensors will consider failing. Rubric also treats ~10 as low and ~20 as high, but how papers are used matters more than count alone.",
+        "tags": [
+          "assessment",
+          "literature",
+          "requirements"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/litsearch.svg",
+          "alt": "Minimum research papers",
+          "caption": "Under 10 research papers = fail risk",
+          "shows": "Min 10; use quality and synthesis."
+        }
+      },
+      {
+        "id": "4100-fail-tech-focus",
+        "q": "Name research-focus and topic fails from the assessment information.",
+        "a": "Consider fail if: cannot evaluate against the criteria list; insufficient research focus; not related to technology; no standard reference format. Also fail if missing AI declaration or under 10 research papers (see other cards).",
+        "tags": [
+          "assessment"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/rq-focus.svg",
+          "alt": "Technology and research focus",
+          "caption": "Research + technology + evaluable criteria",
+          "shows": "Stay on research/technology and meet the rubric."
+        }
+      },
+      {
+        "id": "4100-lit-storyline",
+        "q": "What does a literature \"storyline\" mean in the survey criterion?",
+        "a": "The order in which you present literature should show a deliberate narrative path - not a random dump of papers. Storyline supports coherence with Flow/structure.",
+        "tags": [
+          "assessment",
+          "literature"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Literature storyline",
+          "caption": "Ordered path through the literature",
+          "shows": "Sequence = argument, not a pile of cites."
+        }
+      },
+      {
+        "id": "4100-nonscientific-context",
+        "q": "May you use non-scientific sources in the literature survey criterion?",
+        "a": "Yes - to substantiate, complement, or give useful context to the research literature (e.g. media articles, podcasts, dictionaries). They support, not replace, research articles.",
+        "tags": [
+          "assessment",
+          "literature"
+        ]
+      },
+      {
+        "id": "4100-apa7-primary",
+        "q": "What is the primary referencing standard for ACIT4100 essays?",
+        "a": "APA7-based, mandatory for every essay regardless of writing style. Stricter for scientific papers (page number AND paragraph number). Books/websites: conventional APA7. Language rubric mentions IEEE or APA for quotes/refs, but the course primary standard is this APA7-stricter rule. Details: Kildekompasset APA 7th.",
+        "tags": [
+          "APA",
+          "references",
+          "assessment"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/apa-anatomy.svg",
+          "alt": "Primary APA7-stricter standard",
+          "caption": "APA7-based + page and paragraph for papers",
+          "shows": "Primary course standard; IEEE/APA note is secondary in Language *."
+        }
+      },
+      {
+        "id": "4100-assess-not-typical",
+        "q": "Why do teachers share the star criteria instead of only example essays?",
+        "a": "They grade something slightly different from a normal literature survey. Example texts can help but also confuse when topics/styles differ. The star categories help you self-evaluate against what sensors look for.",
+        "tags": [
+          "assessment",
+          "essay"
+        ]
+      }
+    ]
   },
 "computer-basics": {
     "course": "Computer basics",
@@ -3734,12 +4003,12 @@
   var EXPECTED = {
     acit4050: 65,
     acit4280: 118,
-    acit4100: 73,
+    acit4100: 91,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock17",
+    version: "lock18",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
