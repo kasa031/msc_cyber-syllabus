@@ -3,7 +3,7 @@
  * Same-origin only - never cache cross-origin responses.
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  */
-const CACHE = "msc-cyber-lock8";
+const CACHE = "msc-cyber-lock9";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
