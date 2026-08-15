@@ -557,6 +557,150 @@
         ]
       },
       {
+        "id": "4050-info-vs-cyber",
+        "q": "How does Lecture 1 distinguish information security from cyber security?",
+        "a": "Information security covers physical and logical controls over data and information assets (automated or manual). Cyber security is the subset limited to information stored on computers or communicated between computers.",
+        "tags": ["Lecture1","security"]
+      },
+      {
+        "id": "4050-hierarchy-trust",
+        "q": "What is the hierarchy of trust for a computer system (Lecture 1)?",
+        "a": "Entities trust themselves and all technology layers below them. Other trust relations should be imposed by a higher-layer entity, a user, a systems manager, and/or cryptographic protocols.",
+        "tags": ["Lecture1","systems"]
+      },
+      {
+        "id": "4050-trust-maint",
+        "q": "Who maintains the hierarchy of trust for software vs for the instruction set and below?",
+        "a": "Software: the companies that developed it (security mistakes fixed via software updates). Instruction set and below: component manufacturers and system integrators (firmware updates when possible).",
+        "tags": ["Lecture1","systems"]
+      },
+      {
+        "id": "4050-sep-untrusted",
+        "q": "What must not interfere with each other in unauthorized ways (separation of untrusted entities)?",
+        "a": "Processes, applications, users, and instances of operating systems must not interfere with each other unauthorizedly.",
+        "tags": ["Lecture1","systems"]
+      },
+      {
+        "id": "4050-admin-user-duty",
+        "q": "Name four responsibilities Lecture 1 assigns to system administrators and users for separating untrusted entities.",
+        "a": "Examples: healthy passwords; strong cryptography; admission control (physical and logical); system/firewall configuration; software and systems updates; installing only authorized software; care with mail attachments; not connecting to unauthorized hardware (Wi-Fi, Bluetooth, USB).",
+        "tags": ["Lecture1","lab","security"]
+      },
+      {
+        "id": "4050-sep-hypervisor",
+        "q": "Who is responsible for separating operating systems on the same hardware, and what does that involve?",
+        "a": "The hypervisor (configured by the administrator): privileges in shared file systems, virtually separate file systems, process isolation support, and resource scheduling to avoid denial of service.",
+        "tags": ["Lecture1","virtualbox","systems"]
+      },
+      {
+        "id": "4050-network-protect",
+        "q": "In a networked environment, which protections does Lecture 1 list for administrators and users?",
+        "a": "Firewalls (allowed traffic); NATs (hide addresses/structure); VPNs (logically separate networks with different privileges); cryptographic protocols (integrity and confidentiality); redundancy, scheduling and capacity (availability).",
+        "tags": ["Lecture1","network"]
+      },
+      {
+        "id": "4050-zero-day",
+        "q": "What are zero days, and where does Lecture 1 say most incidents come from?",
+        "a": "Zero days are security holes known to someone but not yet closed (or unpatched). Most incidents involve mistakes by users or system administrators; problems also arise from software/hardware developers and known holes without updates.",
+        "tags": ["Lecture1","security"]
+      },
+      {
+        "id": "4050-virus",
+        "q": "What is a computer virus according to Lecture 1?",
+        "a": "Code that cannot live on its own: it inserts into an existing program and runs whenever the host runs. It spreads by inserting into other executables. Initial infection can come from a once-run program (e.g. a link in e-mail).",
+        "tags": ["Lecture1","malware"]
+      },
+      {
+        "id": "4050-worm",
+        "q": "How does a worm differ from a virus (Lecture 1)?",
+        "a": "A worm is a complete standalone program that needs no host. It spreads without altering existing executables, e.g. by exploiting OS vulnerabilities or via e-mail attachments/links that download and run it.",
+        "tags": ["Lecture1","malware"]
+      },
+      {
+        "id": "4050-trojan",
+        "q": "What is a Trojan in Lecture 1's malware classification?",
+        "a": "Malware embedded in a seemingly innocent application that the user knowingly downloads and runs (screensaver, weather widget, fake virus scanner, e-mail attachment, or malicious web page). Unlike viruses/worms, it is not primarily stealth self-spreading.",
+        "tags": ["Lecture1","malware"]
+      },
+      {
+        "id": "4050-malware-detect",
+        "q": "How does Lecture 1 say detection differs for Trojans/worms vs viruses?",
+        "a": "Trojans and worms can be spotted via process/application lists. Viruses often require analysis of the infected program. Malicious actions may reveal any of them - sometimes too late.",
+        "tags": ["Lecture1","malware"]
+      },
+      {
+        "id": "4050-spyware",
+        "q": "What is the task of spyware (Lecture 1)?",
+        "a": "Collect sensitive information from the infected system and transfer it to the attacker (keystrokes, document contents, or system analysis for future attacks).",
+        "tags": ["Lecture1","malware"]
+      },
+      {
+        "id": "4050-ransomware",
+        "q": "How does ransomware typically work according to Lecture 1?",
+        "a": "Malware that lets the attacker demand ransom - most often by encrypting vital information and requiring payment to make it available again (targets availability/access to data).",
+        "tags": ["Lecture1","malware","CIA"]
+      },
+      {
+        "id": "4050-rootkit",
+        "q": "What is a rootkit, and why is it hard to remove (Lecture 1)?",
+        "a": "Techniques that mask malware presence, usually via privileged (root/admin) access. Not bad per se, but central to sophisticated attacks; hard to detect/remove because they can subvert anti-malware tools.",
+        "tags": ["Lecture1","malware"]
+      },
+      {
+        "id": "4050-bot-botnet",
+        "q": "What is a bot and a botnet (Lecture 1)?",
+        "a": "A bot lets a botmaster remotely control a system. A botnet is many such machines under one controller, typically used for attacks on other computers or for sending spam.",
+        "tags": ["Lecture1","malware","network"]
+      },
+      {
+        "id": "4050-ddos",
+        "q": "What are DoS and DDoS attacks, and which CIA goal do they target?",
+        "a": "Denial of Service / Distributed Denial of Service: overload a target with requests or traffic (often via a botnet flooding together). They target availability; common targets include web and other servers.",
+        "tags": ["Lecture1","network","CIA"]
+      },
+      {
+        "id": "4050-nist-six",
+        "q": "Name the six functions of the NIST Cybersecurity Framework 2.0 (Lecture 1).",
+        "a": "Identify, Protect, Detect, Respond, Recover, and Govern - the highest-level pillars of a holistic cybersecurity program.",
+        "tags": ["Lecture1","NIST"]
+      },
+      {
+        "id": "4050-nist-ai",
+        "q": "According to Lecture 1, how does AI change the NIST CSF functions?",
+        "a": "AI profoundly changes Detect and heavily influences Respond and Protect. It is a more generic tool for Identify, Recover, and Govern (and should not be solely responsible for Identify or Govern).",
+        "tags": ["Lecture1","NIST","AI"]
+      },
+      {
+        "id": "4050-killchain-seven",
+        "q": "List the seven Lockheed Martin Cyber Kill Chain stages from Lecture 1.",
+        "a": "1) Reconnaissance 2) Weaponization 3) Delivery 4) Exploitation 5) Installation 6) Command and control 7) Action on objectives.",
+        "tags": ["Lecture1","kill-chain"]
+      },
+      {
+        "id": "4050-killchain-ai",
+        "q": "Which Kill Chain stages does Lecture 1 say AI simplifies massively?",
+        "a": "Reconnaissance and Weaponization massively; Delivery to some extent; Exploitation massively via better recon/weaponization; Installation partly. C2 and Action on objectives are not directly driven by AI, though AI can help hide or detect protective actions.",
+        "tags": ["Lecture1","kill-chain","AI"]
+      },
+      {
+        "id": "4050-mitre-attack",
+        "q": "What is MITRE ATT&CK, and why does Lecture 1 point to it?",
+        "a": "An extended, more detailed kill-chain-style knowledge base (attack.mitre.org) with vulnerabilities, mitigations, and detection mechanisms - useful examples beyond the simplified Lockheed Martin chain.",
+        "tags": ["Lecture1","kill-chain"]
+      },
+      {
+        "id": "4050-assign-hard",
+        "q": "What does Lecture 1 say about ACIT4050 assignments and deadlines?",
+        "a": "At least 11 assignments will be given; at least 8 must be completed to qualify for the exam. One-week deadlines are hard. Graded pass/fail only - they do not count toward the final course grade. Final exam: written, no supporting material, A-F.",
+        "tags": ["Lecture1","syllabus","exam"]
+      },
+      {
+        "id": "4050-week1-canvas",
+        "q": "What are the rules for this week's Canvas intro quiz assignment (Lecture 1)?",
+        "a": "Interactive Canvas quiz in exam-like style; max 100 points; need at least 60 to accept; five attempts before the deadline; only the maximum score counts. It does not count toward the final course grade.",
+        "tags": ["Lecture1","syllabus"]
+      },
+      {
         "id": "4050-man-help",
         "q": "How do you open built-in documentation for a command?",
         "a": "Linux: man ls (quit with q). PowerShell: Get-Help Get-ChildItem -Full.",
@@ -3142,14 +3286,14 @@
 };
 
   var EXPECTED = {
-    acit4050: 41,
+    acit4050: 65,
     acit4280: 118,
     acit4100: 32,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock11",
+    version: "lock12",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
