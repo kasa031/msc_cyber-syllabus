@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock24" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock24" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock24" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock24" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock25" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock25" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock25" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock25" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -936,6 +936,206 @@
     .course-panel { display: none; }
     .course-panel.active { display: block; animation: panelIn 0.28s var(--ease) both; }
 
+    /* -- Framework practice (NIST + Kill Chain) - slide colors on diagrams -- */
+    .practice-wrap {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 0 0 4px 4px;
+      padding: 1.35rem 1.15rem 2rem;
+    }
+    @media (min-width: 560px) {
+      .practice-wrap { padding: 1.6rem 1.5rem 2.25rem; }
+    }
+    .practice-intro {
+      margin: 0 0 1rem;
+      color: var(--slate);
+      font-size: 0.98rem;
+      max-width: 38rem;
+    }
+    .practice-block {
+      margin-top: 0.5rem;
+    }
+    .practice-block[hidden] { display: none !important; }
+    .fp-hint {
+      margin: 0.35rem 0 0.85rem;
+      padding: 0.65rem 0.85rem;
+      background: var(--ochre-soft);
+      border-left: 3px solid var(--ochre);
+      border-radius: 0 4px 4px 0;
+      color: var(--ink);
+      font-size: 0.92rem;
+    }
+    .fp-board {
+      display: flex;
+      justify-content: center;
+      margin: 0.5rem 0 1rem;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .nist-wheel-svg {
+      width: min(100%, 22rem);
+      height: auto;
+      display: block;
+    }
+    .nist-slot-path {
+      transition: opacity 0.2s var(--ease), filter 0.2s var(--ease);
+      cursor: pointer;
+    }
+    .nist-slot.is-target .nist-slot-path {
+      filter: brightness(1.08);
+      stroke: var(--signal);
+      stroke-width: 3.5;
+    }
+    .nist-slot-text {
+      font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      fill: rgba(26, 20, 16, 0.45);
+      pointer-events: none;
+      letter-spacing: 0.02em;
+    }
+    .nist-slot-text.is-set { fill: #1A1410; font-size: 12px; }
+    .nist-hub-title {
+      font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      fill: #1A1410;
+      pointer-events: none;
+    }
+    .nist-hub-sub {
+      font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      fill: #3D342C;
+      pointer-events: none;
+    }
+    .kill-row {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.2rem;
+      width: 100%;
+      max-width: 44rem;
+      overflow-x: auto;
+      padding: 0.35rem 0.15rem 0.6rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .kill-chevron {
+      position: relative;
+      flex: 1 0 4.4rem;
+      min-width: 4.4rem;
+      min-height: 3.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #9BB8D4;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-align: center;
+      padding: 0.45rem 0.55rem 0.45rem 0.85rem;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+    .kill-chevron:first-child {
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+      padding-left: 0.45rem;
+    }
+    .kill-chevron.is-empty { background: #B7CBE0; color: rgba(26, 20, 16, 0.4); }
+    .kill-chevron.is-target { outline: 2px solid var(--signal); outline-offset: 2px; }
+    .kill-chevron.is-filled { background: var(--kill-blue, #4A7FB5); color: #fff; }
+    .kill-chevron .fp-slot-label { pointer-events: none; line-height: 1.15; }
+    .fp-tray {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 0.75rem 0 0.5rem;
+      min-height: 2.75rem;
+    }
+    .fp-chip {
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      min-height: var(--touch);
+      padding: 0.55rem 0.95rem;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      color: var(--ink);
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s, opacity 0.2s;
+    }
+    .fp-chip:hover { border-color: var(--mist); background: #fff; }
+    .fp-chip.is-selected {
+      background: var(--signal-soft);
+      border-color: var(--signal);
+      box-shadow: var(--focus);
+    }
+    .fp-chip.is-placed {
+      opacity: 0.35;
+      cursor: default;
+      pointer-events: none;
+    }
+    .fp-ghost {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 80;
+      pointer-events: none;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid var(--signal);
+      box-shadow: 0 8px 24px rgba(26, 20, 16, 0.18);
+      opacity: 0.95;
+      will-change: transform;
+    }
+    .fp-status {
+      min-height: 1.35rem;
+      margin: 0.35rem 0 0.75rem;
+      font-size: 0.92rem;
+      color: var(--slate);
+      text-align: center;
+    }
+    .fp-status.ok { color: var(--signal); font-weight: 600; }
+    .fp-status.soft { color: var(--ochre); font-weight: 500; }
+    .fp-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .fp-slot.is-shake {
+      animation: shake 0.4s var(--ease);
+    }
+    .practice-block.fp-complete .nist-wheel-svg,
+    .practice-block.fp-complete .kill-row {
+      animation: panelIn 0.45s var(--ease) both;
+    }
+    .practice-link-row {
+      margin: 0.75rem 0 0;
+      padding: 0.75rem 0.9rem;
+      background: var(--paper-2);
+      border-left: 3px solid var(--signal);
+      border-radius: 0 4px 4px 0;
+    }
+    .practice-link-row p {
+      margin: 0 0 0.55rem;
+      font-size: 0.92rem;
+      color: var(--slate);
+    }
+    .practice-link-row .tut-actions { margin: 0; }
+
     /* -- Quiz / SR -- */
     .quiz-wrap {
       background: var(--surface);
@@ -1405,6 +1605,7 @@
       <div class="course-tabs course-tabs-sticky" role="tablist" aria-label="Courses">
         <button type="button" role="tab" id="tab-course-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0"><span class="tab-full">Terminal ACIT4050</span><span class="tab-short">Terminal</span></button>
         <button type="button" role="tab" id="tab-course-acit4050" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1"><span class="tab-full">Quiz ACIT4050</span><span class="tab-short">4050</span></button>
+        <button type="button" role="tab" id="tab-course-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1"><span class="tab-full">Practice 4050</span><span class="tab-short">Practice</span></button>
         <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-full">ACIT4280 Privacy</span><span class="tab-short">4280</span></button>
         <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-full">ACIT4100 Research</span><span class="tab-short">4100</span></button>
         <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-full">Computer basics</span><span class="tab-short">PC</span></button>
@@ -1930,6 +2131,46 @@
             </p>
             <button type="button" class="quiz-reset-quiet" id="quiz-reset">Reset progress (this course)</button>
           </div>
+
+          <div class="practice-link-row" id="quiz-practice-link" hidden>
+            <p>ACIT4050 diagrams: drag the NIST CSF functions and Kill Chain stages into place.</p>
+            <div class="tut-actions">
+              <button type="button" class="btn" id="btn-open-nist">NIST CSF wheel</button>
+              <button type="button" class="btn ghost" id="btn-open-killchain">Kill Chain</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== PRACTICE (NIST + Kill Chain) ========== -->
+      <div id="course-practice" class="course-panel" hidden>
+        <div class="practice-wrap">
+          <h2 class="setup-title">ACIT4050 practice</h2>
+          <p class="practice-intro">Drag (or tap-select, then tap a slot) the labels onto the diagram. Wrong placements bounce back. Reset shuffles the chips.</p>
+          <div class="mode-tabs" role="tablist" aria-label="Practice exercises">
+            <button type="button" role="tab" id="tab-practice-nist" class="active" aria-selected="true" aria-controls="practice-nist" tabindex="0">NIST CSF 2.0</button>
+            <button type="button" role="tab" id="tab-practice-kill" aria-selected="false" aria-controls="practice-kill" tabindex="-1">Kill Chain</button>
+          </div>
+
+          <section id="practice-nist" class="practice-block panel active" role="tabpanel" aria-labelledby="tab-practice-nist">
+            <p class="fp-hint">Hint: <strong>Govern</strong> is the inner surrounding ring - governance wraps the other five functions.</p>
+            <div class="fp-board" id="nist-wheel" aria-label="NIST CSF wheel drop zones"></div>
+            <p class="fp-status" id="nist-status" aria-live="polite"></p>
+            <div class="fp-tray" id="nist-tray" aria-label="NIST function labels"></div>
+            <div class="fp-actions">
+              <button type="button" class="btn ghost" id="nist-reset">Reset</button>
+            </div>
+          </section>
+
+          <section id="practice-kill" class="practice-block panel" role="tabpanel" aria-labelledby="tab-practice-kill" hidden>
+            <p class="fp-hint">Place the seven Lockheed Martin stages left to right in attack order (medium blue chevrons).</p>
+            <div class="fp-board" id="kill-board" aria-label="Kill Chain chevron slots"></div>
+            <p class="fp-status" id="kill-status" aria-live="polite"></p>
+            <div class="fp-tray" id="kill-tray" aria-label="Kill Chain stage labels"></div>
+            <div class="fp-actions">
+              <button type="button" class="btn ghost" id="kill-reset">Reset</button>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -1950,7 +2191,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock24" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock25" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock25"></script>
   <script>
   (function () {
   "use strict";
@@ -1958,7 +2200,7 @@
   var STORAGE_KEY = "acit4050-terminal-tut-v1";
   var QUIZ_PREFIX = "acit-srs-v2-";
   var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
-  var QUIZ_EXPECTED = { acit4050: 83, acit4280: 118, acit4100: 102, "computer-basics": 28 };
+  var QUIZ_EXPECTED = { acit4050: 85, acit4280: 118, acit4100: 102, "computer-basics": 28 };
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
     acit4280: "quiz-data/acit4280.json",
@@ -2381,10 +2623,12 @@ function syncComputerDummies(courseKey) {
 function showCourse(courseKey) {
     var isTerminal = courseKey === "terminal";
     var isPc = courseKey === "computer-basics";
-    var isQuiz = !isTerminal && !isPc;
+    var isPractice = courseKey === "practice";
+    var isQuiz = !isTerminal && !isPc && !isPractice;
     var term = $("course-terminal");
     var pc = $("course-pc");
     var quiz = $("course-quiz");
+    var practice = $("course-practice");
     if (!term || !quiz) return;
 
     term.classList.toggle("active", isTerminal);
@@ -2392,6 +2636,10 @@ function showCourse(courseKey) {
     if (pc) {
       pc.classList.toggle("active", isPc);
       pc.hidden = !isPc;
+    }
+    if (practice) {
+      practice.classList.toggle("active", isPractice);
+      practice.hidden = !isPractice;
     }
     quiz.classList.toggle("active", isQuiz);
     quiz.hidden = !isQuiz;
@@ -2404,6 +2652,9 @@ function showCourse(courseKey) {
     setCourseTabIndex(courseKey);
     syncInstallTip(courseKey);
     syncComputerDummies(courseKey);
+
+    var practiceLink = $("quiz-practice-link");
+    if (practiceLink) practiceLink.hidden = courseKey !== "acit4050";
 
     if (isPc) {
       var tTut = $("tab-pc-tutorial");
@@ -2428,6 +2679,11 @@ function showCourse(courseKey) {
       return;
     }
 
+    if (isPractice) {
+      syncCourseHash(courseKey);
+      return;
+    }
+
     if (isQuiz) {
       quizState.deckKey = courseKey;
       quizState.forceAll = false;
@@ -2445,6 +2701,11 @@ function showCourse(courseKey) {
     "4050": "acit4050",
     "quiz-4050": "acit4050",
     acit4050: "acit4050",
+    practice: "practice",
+    nist: "practice",
+    "nist-csf": "practice",
+    killchain: "practice",
+    "kill-chain": "practice",
     "4280": "acit4280",
     "quiz-4280": "acit4280",
     acit4280: "acit4280",
@@ -2458,6 +2719,7 @@ function showCourse(courseKey) {
   var COURSE_TO_HASH = {
     terminal: "terminal",
     acit4050: "4050",
+    practice: "practice",
     acit4280: "4280",
     acit4100: "4100",
     "computer-basics": "pc"
@@ -2482,6 +2744,7 @@ function showCourse(courseKey) {
   }
 
   function applyHashRoute() {
+    var h = (location.hash || "").replace(/^#/, "").toLowerCase();
     var course = courseFromHash();
     if (!course) return;
     syncingHash = true;
@@ -2492,6 +2755,12 @@ function showCourse(courseKey) {
         showSetup();
       } else if (course === "computer-basics") {
         showCourse("computer-basics");
+      } else if (course === "practice") {
+        showCourse("practice");
+        if (globalThis.FrameworkPractice && FrameworkPractice.showSection) {
+          if (h === "killchain" || h === "kill-chain") FrameworkPractice.showSection("killchain");
+          else FrameworkPractice.showSection("nist");
+        }
       } else {
         showCourse(course);
       }
@@ -2541,6 +2810,34 @@ function showCourse(courseKey) {
   $("tab-tutorial").addEventListener("click", function () { showPanel("tutorial"); });
   $("tab-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
   $("btn-to-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
+
+  function openPractice(section) {
+    showCourse("practice");
+    if (window.FrameworkPractice && FrameworkPractice.showSection) {
+      FrameworkPractice.showSection(section === "killchain" ? "killchain" : "nist");
+    }
+    try {
+      history.replaceState(null, "", section === "killchain" ? "#killchain" : "#nist");
+    } catch (e) { /* ignore */ }
+    var lab = $("lab");
+    if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  if ($("btn-open-nist")) {
+    $("btn-open-nist").addEventListener("click", function () { openPractice("nist"); });
+  }
+  if ($("btn-open-killchain")) {
+    $("btn-open-killchain").addEventListener("click", function () { openPractice("killchain"); });
+  }
+  if ($("tab-practice-nist")) {
+    $("tab-practice-nist").addEventListener("click", function () {
+      try { history.replaceState(null, "", "#nist"); } catch (e) { /* ignore */ }
+    });
+  }
+  if ($("tab-practice-kill")) {
+    $("tab-practice-kill").addEventListener("click", function () {
+      try { history.replaceState(null, "", "#killchain"); } catch (e) { /* ignore */ }
+    });
+  }
 
   $("cta-start").addEventListener("click", function (e) {
     e.preventDefault();
@@ -2709,7 +3006,7 @@ function showCourse(courseKey) {
         return;
       }
       var meta = window.QUIZ_DECKS_META;
-      if (!meta || meta.version !== "lock24") {
+      if (!meta || meta.version !== "lock25") {
         console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
@@ -2737,7 +3034,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock24-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock25-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;

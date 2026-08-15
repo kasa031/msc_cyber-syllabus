@@ -778,9 +778,27 @@
       ]
     },
     {
+      "id": "4050-nist-govern",
+      "q": "In the NIST CSF 2.0 wheel (Lecture 1), where does Govern sit relative to the other functions?",
+      "a": "Govern is the inner surrounding ring - organisational governance wraps Identify, Protect, Detect, Respond, and Recover.",
+      "tags": [
+        "Lecture1",
+        "NIST"
+      ]
+    },
+    {
       "id": "4050-killchain-seven",
       "q": "List the seven Lockheed Martin Cyber Kill Chain stages from Lecture 1.",
       "a": "1) Reconnaissance 2) Weaponization 3) Delivery 4) Exploitation 5) Installation 6) Command and control 7) Action on objectives.",
+      "tags": [
+        "Lecture1",
+        "kill-chain"
+      ]
+    },
+    {
+      "id": "4050-killchain-order",
+      "q": "Name the Lockheed Martin Kill Chain stages in order using the short slide labels.",
+      "a": "Recon, Weaponise, Deliver, Exploit, Install, C2, Action (left to right).",
       "tags": [
         "Lecture1",
         "kill-chain"

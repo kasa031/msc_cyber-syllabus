@@ -3,12 +3,13 @@
  * Same-origin only - never cache cross-origin responses.
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  */
-const CACHE = "msc-cyber-lock24";
+const CACHE = "msc-cyber-lock25";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
   "./index.html",
   "./quiz-decks.js",
+  "./framework-practice.js",
   "./quiz-data/acit4050.json",
   "./quiz-data/acit4280.json",
   "./quiz-data/acit4100.json",
@@ -22,6 +23,7 @@ const ASSETS = [
   "./",
   "./index.html",
   "./quiz-decks.js",
+  "./framework-practice.js",
   "./quiz-data/acit4050.json",
   "./quiz-data/acit4280.json",
   "./quiz-data/acit4100.json",
