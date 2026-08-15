@@ -575,6 +575,30 @@
         "tags": ["Lecture1","systems"]
       },
       {
+        "id": "4050-trust-soft-upper",
+        "q": "For the software (upper) layers in the hierarchy of trust, who maintains trust and how are discovered security mistakes corrected?",
+        "a": "Maintained by the software companies that developed it. Discovered security mistakes are corrected through software security updates.",
+        "tags": ["Lecture1","systems"]
+      },
+      {
+        "id": "4050-trust-stack",
+        "q": "List the hierarchy of trust technology layers from top to bottom (Lecture 1).",
+        "a": "1) Application 2) Operating System 3) Hardware Adaptation Layer (HAL) 4) Instruction set 5) Integrated circuits for memory, processing and communication 6) Logic gates 7) Transistors 8) Physical phenomena. Device drivers span the OS and HAL.",
+        "tags": ["Lecture1","systems"]
+      },
+      {
+        "id": "4050-trust-drivers",
+        "q": "Where do device drivers sit in the Lecture 1 hierarchy of trust stack?",
+        "a": "They span the Operating System and the Hardware Adaptation Layer (HAL) - beside both, not a separate numbered layer of their own.",
+        "tags": ["Lecture1","systems"]
+      },
+      {
+        "id": "4050-trust-upper-lower",
+        "q": "In the hierarchy of trust stack, which layers are the upper software-oriented part vs the lower hardware/physics part?",
+        "a": "Upper: Application, Operating System (with device drivers), and Hardware Adaptation Layer. Lower: Instruction set, integrated circuits, logic gates, transistors, and physical phenomena.",
+        "tags": ["Lecture1","systems"]
+      },
+      {
         "id": "4050-sep-untrusted",
         "q": "What must not interfere with each other in unauthorized ways (separation of untrusted entities)?",
         "a": "Processes, applications, users, and instances of operating systems must not interfere with each other unauthorizedly.",
@@ -4161,14 +4185,14 @@
 };
 
   var EXPECTED = {
-    acit4050: 69,
+    acit4050: 73,
     acit4280: 118,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock21",
+    version: "lock22",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

@@ -1,4 +1,4 @@
-# MSc Cybersecurity Practise Syllabus 1st Year
+﻿# MSc Cybersecurity Practise Syllabus 1st Year
 
 Simple **offline** study app: terminal tutorial (ACIT4050) + spaced-repetition quiz for ACIT4050 / ACIT4280 / ACIT4100.
 
@@ -43,7 +43,7 @@ Deep links (same origin): `#terminal`, `#4050`, `#4280`, `#4100`, `#pc`.
 
 Repo: `kasa031/msc_cyber-syllabus` (master). Pages serves `/msc_cyber-syllabus/`.
 
-After larger app changes, bump the cache name in `sw.js` (e.g. `msc-cyber-lock21`) and the `?v=` query on `quiz-decks.js` / icons so phones drop stale shells.
+After larger app changes, bump the cache name in `sw.js` (e.g. `msc-cyber-lock22`) and the `?v=` query on `quiz-decks.js` / icons so phones drop stale shells.
 
 ## Files
 
