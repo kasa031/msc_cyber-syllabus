@@ -2793,7 +2793,7 @@
       {
         "id": "4100-mandatory",
         "q": "What are the two mandatory goal-posts before the essay exam (from saved course pages)?",
-        "a": "1) Literature taxonomy/spreadsheet (scientific papers threshold for approval). 2) Video presentation 5-10 minutes on the essay topic. (Exact due dates/word counts: verify current Canvas-saved PDFs and course plan differ slightly by year.)",
+        "a": "1) Assignment 1 - Literature taxonomy spreadsheet (scientific papers threshold for approval). 2) Assignment 2 - Presentation recording (5-10 minutes on the essay topic). Exact due dates: verify current Canvas (year labels may lag).",
         "tags": [
           "requirements"
         ]
@@ -3120,8 +3120,8 @@
       },
       {
         "id": "4100-mand1-due",
-        "q": "What is Mandatory 1, and when is it roughly due?",
-        "a": "Literature taxonomy spreadsheet (10+ scientific papers threshold). Due around 26 September as listed on Canvas (Canvas may show .25 / year quirks - always use the date shown for your course year).",
+        "q": "What is Assignment 1 (official Grades name), and when is it roughly due?",
+        "a": "Assignment 1 - Literature taxonomy spreadsheet (10+ scientific papers threshold). Due around 26 September as listed on Canvas (Canvas/Grades may show 2025 / year quirks - always verify the year for your course run).",
         "tags": [
           "requirements",
           "deadlines"
@@ -3129,8 +3129,8 @@
       },
       {
         "id": "4100-mand2-due",
-        "q": "What is Mandatory 2, and when is it roughly due?",
-        "a": "Recorded video presentation 5-10 minutes on your essay topic. Due around 31 October (confirm exact date/time on Canvas for your year).",
+        "q": "What is Assignment 2 (official Grades name), and when is it roughly due?",
+        "a": "Assignment 2 - Presentation recording (5-10 minute video on the essay topic). Due around 31 October (confirm exact date/time and year on Canvas).",
         "tags": [
           "requirements",
           "deadlines"
@@ -3801,6 +3801,39 @@
           "APA"
         ]
       }
+    ,
+      {
+        "id": "4100-mandatory-info-quiz",
+        "q": "Why must you pass the Mandatory information quiz in ACIT4100?",
+        "a": "It must be passed to open the rest of the course in Canvas. (Course information quiz is separate; both appear under Grades.)",
+        "tags": [
+          "canvas",
+          "requirements",
+          "quiz"
+        ]
+      }
+    ,
+      {
+        "id": "4100-assign1-official",
+        "q": "What is the official Canvas/Grades name of Assignment 1 in ACIT4100?",
+        "a": "Assignment 1 - Literature taxonomy spreadsheet. Due around 26 September noon on Canvas (dates may still show year 2025 - verify the year for your run).",
+        "tags": [
+          "requirements",
+          "deadlines",
+          "canvas"
+        ]
+      }
+    ,
+      {
+        "id": "4100-assign2-official",
+        "q": "What is the official Canvas/Grades name of Assignment 2 in ACIT4100?",
+        "a": "Assignment 2 - Presentation recording. Due around 31 October noon on Canvas (dates may still show year 2025 - verify the year for your run).",
+        "tags": [
+          "requirements",
+          "deadlines",
+          "canvas"
+        ]
+      }
     ]
   },
 "computer-basics": {
@@ -4106,12 +4139,12 @@
   var EXPECTED = {
     acit4050: 65,
     acit4280: 118,
-    acit4100: 99,
+    acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock19",
+    version: "lock20",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
