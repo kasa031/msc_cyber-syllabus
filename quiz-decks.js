@@ -2693,7 +2693,7 @@
       {
         "id": "4100-ai-declaration",
         "q": "What AI declaration is required, and what happens if it is missing?",
-        "a": "At the end of the essay (after the reference list): list tool(s) and activities, OR state that no AI was used. Not in the word count. Missing the Declaration of AI use means fail, whether or not AI was used. Aligns with OsloMet AI guidance.",
+        "a": "At the end of the essay (after the reference list): list tool(s) and activities, OR state that no AI was used. Not in the word count. Using AI is not mandatory for a good grade. Missing the Declaration of AI use means fail, whether or not AI was used. OsloMet: https://student.oslomet.no/en/veiledning-kunstig-intelligens-studentoppgaver",
         "tags": [
           "AI",
           "integrity",
@@ -3039,10 +3039,12 @@
       },
       {
         "id": "4100-classic-pinker",
-        "q": "What is \"classic style\" in this course?",
-        "a": "Writing style as described by Steven Pinker and covered in class - clear, reader-oriented prose suitable for popular-science / expert communication (may be hybridised with narrative cut-scenes).",
+        "q": "What is 'classic style' in this course (Pinker / Sense of Style)?",
+        "a": "Clear, reader-oriented prose as described by Steven Pinker (The Sense of Style) and covered in class - suitable for popular-science / expert communication. May be hybridised with narrative cut-scenes. Pinker's book is on the optional source list (not pensum), but classic style itself is course-relevant for the essay.",
         "tags": [
-          "classic-style"
+          "classic-style",
+          "Pinker",
+          "optional-sources"
         ],
         "figure": {
           "type": "img",
@@ -3697,6 +3699,107 @@
           "assessment",
           "essay"
         ]
+      },
+      {
+        "id": "4100-sources-not-pensum",
+        "q": "Is the Canvas \"List of source material\" mandatory pensum for ACIT4100?",
+        "a": "No. The course has no single textbook. The listed books/talks are NOT part of the curriculum; they are optional deeper material ordered by topic (Writing, Philosophy of science, Political philosophy, Rhetoric, Technology and Society), not by importance.",
+        "tags": [
+          "meta",
+          "optional-sources",
+          "not-pensum"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Optional deeper sources",
+          "caption": "Source list = fordypning, not pensum",
+          "shows": "No single textbook; dive deeper only if useful."
+        }
+      },
+      {
+        "id": "4100-freytag-pyramid",
+        "q": "What is Freytag's Pyramid useful for in ACIT4100 essay styles?",
+        "a": "A classic narrative arc (exposition, rising action, climax, falling action, denouement/resolution). Useful if you write in narrative / short-story style or use narrative cut-scenes inside classic prose. Listed under Writing on the optional source list - craft tool, not a book to memorise as pensum.",
+        "tags": [
+          "narrative",
+          "optional-sources",
+          "Writing"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Narrative arc sketch",
+          "caption": "Freytag-style story shape",
+          "shows": "Shape tension for narrative essay sections."
+        }
+      },
+      {
+        "id": "4100-narrative-templates",
+        "q": "How do narrative templates relate to the ACIT4100 essay (vs memorising every Writing source)?",
+        "a": "Syllabus week on narrative templates supports short-story techniques and hybrids with classic style. Optional Writing sources (e.g. Olson on narrative, Freytag's Pyramid) can deepen craft; you do not need to memorise the full source list as if it were pensum.",
+        "tags": [
+          "narrative",
+          "meta",
+          "optional-sources"
+        ]
+      },
+      {
+        "id": "4100-overleaf-locators",
+        "q": "For scientific papers in ACIT4100, which locators must citations include?",
+        "a": "Both a page number and a paragraph number (or a line range when that fits better). The Overleaf example shows how to attach these locators in LaTeX citations.",
+        "tags": [
+          "APA",
+          "Overleaf",
+          "references"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/apa-anatomy.svg",
+          "alt": "Citation with page and paragraph locators",
+          "caption": "Page + paragraph (or lines) for papers",
+          "shows": "Course rule: scientific papers need precise locators, not only author-year."
+        }
+      },
+      {
+        "id": "4100-overleaf-packages",
+        "q": "Which packages does the ACIT4100 Overleaf APA example emphasise, and how is biblatex set up?",
+        "a": "csquotes and biblatex. Configure biblatex with style=apa and backend=biber (plus sorting options as in the example). Document style and spacing can change; those packages are the important part.",
+        "tags": [
+          "Overleaf",
+          "LaTeX",
+          "APA"
+        ]
+      },
+      {
+        "id": "4100-overleaf-cite-cmds",
+        "q": "In the Overleaf example, when do you use parencite versus textcite (with optional locators)?",
+        "a": "parencite = parenthetical citation. textcite = narrative citation (author names in the sentence). Both can take a locator such as [\\pno~17, para.~3] before the bib key.",
+        "tags": [
+          "Overleaf",
+          "LaTeX",
+          "references"
+        ]
+      },
+      {
+        "id": "4100-overleaf-illustrative",
+        "q": "Is hansen2024 in the Overleaf referencing example a real paper for your essay?",
+        "a": "No. It is an illustrative bib entry (fake DOI) only to demonstrate page/paragraph locators - not a source you should treat as real research.",
+        "tags": [
+          "Overleaf",
+          "references",
+          "integrity"
+        ]
+      },
+      {
+        "id": "4100-overleaf-apa-pdf",
+        "q": "Where is the compiled APA_example.pdf for the Overleaf referencing demo?",
+        "a": "On the ACIT4100 Canvas page Referencing example for OverLeaf / LaTeX (download APA_example.pdf there). The page also shows the LaTeX/bib setup.",
+        "tags": [
+          "Overleaf",
+          "Canvas",
+          "APA"
+        ]
       }
     ]
   },
@@ -4003,12 +4106,12 @@
   var EXPECTED = {
     acit4050: 65,
     acit4280: 118,
-    acit4100: 91,
+    acit4100: 99,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock18",
+    version: "lock19",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
