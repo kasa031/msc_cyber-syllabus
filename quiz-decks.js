@@ -1692,6 +1692,114 @@
         ]
       },
       {
+        "id": "4280-pet-lim-dimensions",
+        "q": "Along which three dimensions are limitations of PETs in practice discussed?",
+        "a": "Technological limitations; usability / ergonomy; and maturity of PETs in IT investment decisions (cost/benefit framing).",
+        "tags": [
+          "PETs",
+          "limitations",
+          "managed-privacy",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-tech",
+        "q": "Give technological limitation examples for PETs in practice.",
+        "a": "Cryptography often costly to run; TOR can be slow; Privacy ABCs / IDEMIX / U-Prove can be computationally expensive; sticky-policy approaches add complexity when policies must travel with data across parties.",
+        "tags": [
+          "PETs",
+          "limitations",
+          "technology",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-usability",
+        "q": "What usability / ergonomy limits PETs in practice?",
+        "a": "Procedural restrictions plus performance/complexity burdens. Usable privacy is its own research field. User acceptance is a hard limit (Fritsch & Fuglerud): if users will not or cannot use the PET, the privacy gain fails in practice.",
+        "tags": [
+          "PETs",
+          "limitations",
+          "usability",
+          "Fuglerud",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-cost-drivers",
+        "q": "Is PET / IT the main cost driver of organisational privacy work?",
+        "a": "Often no. Privacy office, training, legal and policy work frequently dominate (Ponemon 2004). Roughly ~1/3 of privacy-office spend and under half of training spend may go to IT systems - so PETs are only part of the privacy bill.",
+        "tags": [
+          "PETs",
+          "limitations",
+          "cost",
+          "Ponemon",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-compliance-goal",
+        "q": "What investment goal do organisations often optimise for instead of maximum privacy?",
+        "a": "Cheapest sufficient compliance: spend on privacy measures up to where marginal spend roughly equals expected cost of non-compliance (fines, breach fallout, reputation) - not maximising privacy regardless of cost.",
+        "tags": [
+          "PETs",
+          "limitations",
+          "compliance",
+          "cost",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-ropi",
+        "q": "What is ROPI (Fritsch & Abie), and what is the formula?",
+        "a": "Return on Privacy Investment. ROPI = PB * CB - ICB (privacy benefit times cost of breach, minus investment/cost of the privacy controls). Needs breach incidence lists and cost data - which are mostly white spots empirically.",
+        "tags": [
+          "PETs",
+          "ROPI",
+          "Fritsch",
+          "Abie",
+          "managed-privacy",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-summary",
+        "q": "Summarise common practical critiques of PETs.",
+        "a": "Often poorly aligned with real organisational needs; costly; poorly usable; unclear performance/benefit; complicate development; and many remain research prototypes rather than production-ready products.",
+        "tags": [
+          "PETs",
+          "limitations",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-roadmap-roads",
+        "q": "Fritsch & Abie (2008) research roadmap: which three 'roads' for managing privacy risks?",
+        "a": "1) Risk model (how to model privacy risks systematically). 2) Cost & effect (measure investment vs privacy effect, e.g. ROPI thinking). 3) Empirics (evidence from real breaches, deployments, and outcomes).",
+        "tags": [
+          "PETs",
+          "roadmap",
+          "Fritsch",
+          "Abie",
+          "managed-privacy",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-pet-lim-breach-empirics",
+        "q": "What has been the main solid empirics source for privacy-risk evidence so far?",
+        "a": "Mandatory breach reporting / breach notification regimes - they create observable incident data. Broader cost/benefit and PET-effectiveness data remain sparse (many white spots).",
+        "tags": [
+          "PETs",
+          "empirics",
+          "breach",
+          "Chapter5"
+        ]
+      },
+      {
         "id": "4280-flipped",
         "q": "How is ACIT4280 taught (format) according to the Aug 13 2026 intro?",
         "a": "Flipped classroom: students read/watch Canvas material before class; bi-weekly online lectures with case studies & student presentations; group home assignment (groups of 3) with written report + presentation; final timed digital exam on Inspera.",
@@ -4672,13 +4780,13 @@
 
   var EXPECTED = {
     acit4050: 85,
-    acit4280: 138,
+    acit4280: 147,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock28",
+    version: "lock29",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
