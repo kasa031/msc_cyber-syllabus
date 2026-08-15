@@ -1218,7 +1218,8 @@
         "a": "No one shall be subjected to arbitrary interference with privacy, family, home or correspondence, nor to attacks upon honour and reputation; everyone has the right to legal protection against such interference or attacks.",
         "tags": [
           "history",
-          "human-rights"
+          "human-rights",
+        "Lecture1"
         ]
       },
       {
@@ -1420,6 +1421,43 @@
           "OECD",
           "minimisation"
         ]
+      },
+      {
+        "id": "4280-asymmetric-control",
+        "q": "What is the asymmetric control / power problem in Lecture 1's fairness framing?",
+        "a": "Controllers gain control and power through access to personal data, while individuals lose freedom and practical control over how data about them is used-data access becomes power over people.",
+        "tags": [
+          "Lecture1",
+          "fairness"
+        ]
+      },
+      {
+        "id": "4280-purpose-binding",
+        "q": "What do purpose specification and purpose binding require (OECD / Lecture 1 basic principles)?",
+        "a": "Collect and process data only for specified, explicit purposes (purpose specification); do not reuse for incompatible purposes (purpose binding / use limitation). Function creep violates this.",
+        "tags": [
+          "Lecture1",
+          "OECD",
+          "purpose-limitation"
+        ]
+      },
+      {
+        "id": "4280-cia-insufficient",
+        "q": "Why is the CIA triad (confidentiality, integrity, availability) insufficient for data protection / privacy?",
+        "a": "CIA secures systems and data against unauthorised access, tampering and downtime, but does not cover privacy-specific goals such as transparency, intervenability and unlinkability (or purpose limitation / fairness). Data protection needs CIA plus those privacy protection goals.",
+        "tags": [
+          "Lecture1",
+          "Lecture3",
+          "CIA",
+          "protection-goals"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/cia-triad.svg",
+          "alt": "CIA triad alone is not full data protection",
+          "caption": "CIA is necessary but not sufficient for privacy",
+          "shows": "Add transparency, intervenability, unlinkability (SDM / Hansen et al.)."
+        }
       },
       {
         "id": "4280-flipped",
@@ -4402,13 +4440,13 @@
 
   var EXPECTED = {
     acit4050: 85,
-    acit4280: 118,
+    acit4280: 121,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock25",
+    version: "lock26",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
