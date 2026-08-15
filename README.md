@@ -1,11 +1,12 @@
-# MSc Cybersecurity Practise Syllabus 1st Year
+﻿# MSc Cybersecurity Practise Syllabus 1st Year
 
 Simple **offline** study app: terminal tutorial (ACIT4050) + spaced-repetition quiz for ACIT4050 / ACIT4280 / ACIT4100.
 
 UI language: **English**. App name spelling: **Practise** (as requested).
 
-> **Ready for GitHub - do not push until the owner confirms.**  
-> See [CHECKLIST.md](./CHECKLIST.md) for the privacy audit and smoke test before publishing.
+Live: https://kasa031.github.io/msc_cyber-syllabus/
+
+See [CHECKLIST.md](./CHECKLIST.md) for the privacy audit and phone smoke test.
 
 ## Privacy
 
@@ -36,9 +37,13 @@ When the page is hosted on **HTTPS** (e.g. GitHub Pages):
 
 Home-screen short name: **MSc Cyber Y1**.
 
+Deep links (same origin): `#terminal`, `#4050`, `#4280`, `#4100`, `#pc`.
+
 ## Publish to GitHub Pages
 
-**First:** Confirm the checklist in CHECKLIST.md. Then create the repo and enable Pages. **Do not push until you confirm.**
+Repo: `kasa031/msc_cyber-syllabus` (master). Pages serves `/msc_cyber-syllabus/`.
+
+After larger app changes, bump the cache name in `sw.js` (e.g. `msc-cyber-lock9`) and the `?v=` query on `quiz-decks.js` / icons so phones drop stale shells.
 
 ## Files
 
@@ -46,12 +51,12 @@ Home-screen short name: **MSc Cyber Y1**.
 |------|------|
 | `index.html` | Tutorial + quiz UI (English) |
 | `quiz-decks.js` | Quiz cards (runtime) |
-| `quiz-data/*.json` | Same cards as JSON (maintenance; not loaded at runtime) |
+| `quiz-data/*.json` | Same cards as JSON (fallback + maintenance) |
 | `fonts/` | Self-hosted Space Grotesk + JetBrains Mono (offline) |
 | `Open-Study-App.bat` | Double-click launcher (no server) |
 | `manifest.webmanifest` + `sw.js` | PWA / home screen (http/https only) |
 | `icons/` | App icons |
-| `CHECKLIST.md` | Ready-for-GitHub + privacy |
+| `CHECKLIST.md` | Privacy + smoke test |
 
 ## Updating the quiz
 

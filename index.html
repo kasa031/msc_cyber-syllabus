@@ -10,6 +10,7 @@
   <meta property="og:title" content="MSc Cybersecurity Practise Syllabus 1st Year" />
   <meta property="og:description" content="Terminal tutorial and spaced-repetition quiz. Offline-friendly. No personal data." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kasa031.github.io/msc_cyber-syllabus/" />
   <meta name="twitter:card" content="summary" />
   <meta name="theme-color" content="#DF301C" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock7" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock7" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock7" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock7" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock8" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock8" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock8" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock8" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -98,6 +99,26 @@
     input:focus-visible,
     [tabindex]:focus-visible {
       outline: none;
+      box-shadow: var(--focus);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 0.75rem;
+      top: 0.75rem;
+      z-index: 100;
+      padding: 0.65rem 1rem;
+      background: #DF301C;
+      color: #FFF1D1;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      transform: translateY(-200%);
+      transition: transform 0.15s var(--ease);
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      transform: translateY(0);
       box-shadow: var(--focus);
     }
 
@@ -1339,6 +1360,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#lab">Skip to content</a>
   <header class="hero">
     <div class="hero-inner">
       <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open Quiz ACIT4050">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Research">4100</button></span></p>
@@ -1348,7 +1370,7 @@
     </div>
   </header>
 
-  <div class="shell">
+  <main class="shell" id="main">
     <div class="shell-lift" id="lab">
       <div class="course-tabs course-tabs-sticky" role="tablist" aria-label="Courses">
         <button type="button" role="tab" id="tab-course-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0"><span class="tab-full">Terminal ACIT4050</span><span class="tab-short">Terminal</span></button>
@@ -1854,14 +1876,14 @@
             </div>
 
             <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
-              <button type="button" data-grade="again" title="In ~1 min | key 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span></button>
-              <button type="button" data-grade="hard" title="In ~10 min | key 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span></button>
-              <button type="button" data-grade="good" title="In ~1 day | key 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span></button>
-              <button type="button" data-grade="easy" title="In ~4 days | key 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span></button>
+              <button type="button" data-grade="again" title="Again - keyboard 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span></button>
+              <button type="button" data-grade="hard" title="Hard - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span></button>
+              <button type="button" data-grade="good" title="Good - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span></button>
+              <button type="button" data-grade="easy" title="Easy - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span></button>
             </div>
           </div>
 
-          <div id="quiz-empty" class="quiz-empty hidden">
+          <div id="quiz-empty" class="quiz-empty hidden" role="status" aria-live="polite">
             <h3 id="quiz-empty-title">Nothing due right now</h3>
             <p id="quiz-empty-text">All caught up for this course. Come back later, or review every card anyway.</p>
             <div class="tut-actions" id="quiz-empty-actions" style="justify-content:center;margin-top:1rem;">
@@ -1896,9 +1918,9 @@
         <p class="footer-privacy">Study progress is stored solely on this device via the browser's local storage. This application does not use cookies for tracking, does not require authentication, and does not transmit personal data to third parties for analytics or advertising.</p>
       </footer>
     </div>
-  </div>
+  </main>
 
-  <script src="quiz-decks.js?v=lock7" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock8" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script>
   (function () {
   "use strict";
@@ -1906,7 +1928,7 @@
   var STORAGE_KEY = "acit4050-terminal-tut-v1";
   var QUIZ_PREFIX = "acit-srs-v2-";
   var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
-  var QUIZ_EXPECTED = { acit4050: 41, acit4280: 106, acit4100: 32, "computer-basics": 28 };
+  var QUIZ_EXPECTED = { acit4050: 41, acit4280: 118, acit4100: 32, "computer-basics": 28 };
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
     acit4280: "quiz-data/acit4280.json",
@@ -2368,6 +2390,68 @@ function showCourse(courseKey) {
       quizState.sessionDone = 0;
       quizLoadAndShow();
     }
+    syncCourseHash(courseKey);
+  }
+
+  var HASH_TO_COURSE = {
+    lab: "terminal",
+    terminal: "terminal",
+    "4050": "acit4050",
+    "quiz-4050": "acit4050",
+    acit4050: "acit4050",
+    "4280": "acit4280",
+    "quiz-4280": "acit4280",
+    acit4280: "acit4280",
+    "4100": "acit4100",
+    "quiz-4100": "acit4100",
+    acit4100: "acit4100",
+    pc: "computer-basics",
+    "computer-basics": "computer-basics",
+    quiz: "acit4050"
+  };
+  var COURSE_TO_HASH = {
+    terminal: "terminal",
+    acit4050: "4050",
+    acit4280: "4280",
+    acit4100: "4100",
+    "computer-basics": "pc"
+  };
+  var syncingHash = false;
+
+  function syncCourseHash(courseKey) {
+    if (syncingHash) return;
+    var next = COURSE_TO_HASH[courseKey];
+    if (!next) return;
+    var cur = (location.hash || "").replace(/^#/, "").toLowerCase();
+    if (HASH_TO_COURSE[cur] === courseKey) return;
+    try {
+      history.replaceState(null, "", "#" + next);
+    } catch (e) { /* ignore */ }
+  }
+
+  function courseFromHash() {
+    var h = (location.hash || "").replace(/^#/, "").toLowerCase();
+    if (!h) return null;
+    return HASH_TO_COURSE[h] || null;
+  }
+
+  function applyHashRoute() {
+    var course = courseFromHash();
+    if (!course) return;
+    syncingHash = true;
+    try {
+      if (course === "terminal") {
+        showCourse("terminal");
+        showPanel("tutorial");
+        showSetup();
+      } else if (course === "computer-basics") {
+        showCourse("computer-basics");
+      } else {
+        showCourse(course);
+      }
+    } finally {
+      syncingHash = false;
+    }
   }
 
 
@@ -2565,7 +2649,7 @@ function showCourse(courseKey) {
     if (!decks || typeof decks !== "object") return false;
     return Object.keys(QUIZ_EXPECTED).every(function (key) {
       var d = decks[key];
-      return d && Array.isArray(d.cards) && d.cards.length > 0;
+      return d && Array.isArray(d.cards) && d.cards.length === QUIZ_EXPECTED[key];
     });
   }
 
@@ -2577,6 +2661,10 @@ function showCourse(courseKey) {
       if (!window.QUIZ_DECKS) {
         console.warn("[quiz] QUIZ_DECKS is missing.");
         return;
+      }
+      var meta = window.QUIZ_DECKS_META;
+      if (!meta || meta.version !== "lock8") {
+        console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
       Object.keys(QUIZ_EXPECTED).forEach(function (key) {
@@ -2602,6 +2690,10 @@ function showCourse(courseKey) {
       var decks = window.QUIZ_DECKS && typeof window.QUIZ_DECKS === "object" ? window.QUIZ_DECKS : {};
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
+      if (!window.QUIZ_DECKS_META) {
+        window.QUIZ_DECKS_META = { version: "lock8-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+      }
+      window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
       return quizDecksHealthy();
     }).catch(function (err) {
@@ -2610,6 +2702,11 @@ function showCourse(courseKey) {
       return false;
     });
     return quizDeckFallbackPromise;
+  }
+
+  function quizEnsureDecksReady() {
+    if (quizDecksHealthy()) return Promise.resolve(true);
+    return quizFetchJsonFallback();
   }
 
   function quizPurgeCachesAndReload() {
@@ -2981,9 +3078,16 @@ function showCourse(courseKey) {
 
   function quizLoadAndShow() {
     var deck = quizGetDeck(quizState.deckKey);
-    if (!deck) {
-      $("quiz-course-title").textContent = "Quiz";
-      $("quiz-lede").textContent = "Quiz cards did not load. Use Reload quiz data below, or open the site online once so the app can cache quiz-decks.js.";
+    var countMismatch = deck && Array.isArray(deck.cards) && QUIZ_EXPECTED[quizState.deckKey]
+      && deck.cards.length !== QUIZ_EXPECTED[quizState.deckKey];
+    if (!deck || countMismatch) {
+      if (countMismatch) {
+        $("quiz-course-title").textContent = "Quiz";
+        $("quiz-lede").textContent = "Quiz deck looks incomplete (" + deck.cards.length + " cards). Reloading data may help.";
+      } else {
+        $("quiz-course-title").textContent = "Quiz";
+        $("quiz-lede").textContent = "Quiz cards did not load. Use Reload quiz data below, or open the site online once so the app can cache quiz-decks.js.";
+      }
       quizUpdateMaterials(null);
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
@@ -2993,6 +3097,7 @@ function showCourse(courseKey) {
         quizDeckFallbackTried = true;
         quizFetchJsonFallback().then(function (ok) {
           if (ok) quizLoadAndShow();
+          else quizDeckFallbackTried = false;
         });
       }
       return;
@@ -3066,6 +3171,9 @@ function showCourse(courseKey) {
     $("quiz-reveal-row").classList.add("hidden");
     quizUpdateGradePreviews();
     $("quiz-grades").classList.remove("hidden");
+    try {
+      $("quiz-grades").scrollIntoView({ block: "nearest", behavior: "smooth" });
+    } catch (e) { /* ignore */ }
   }
 
   function quizAfterGrade(grade) {
@@ -3254,6 +3362,7 @@ function showCourse(courseKey) {
       }
       pcShowSetup();
     }
+    syncCourseHash("computer-basics");
   }
 
   function openPcTutorialFromCta() {
@@ -3573,6 +3682,12 @@ function showCourse(courseKey) {
   showCourse("terminal");
   showPanel("tutorial");
   showSetup();
+  quizEnsureDecksReady().then(function () {
+    if (courseFromHash()) applyHashRoute();
+  });
+  window.addEventListener("hashchange", function () {
+    applyHashRoute();
+  });
 })();
   </script>
 

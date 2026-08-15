@@ -10,5 +10,5 @@
   <rect x="200" y="106" width="48" height="12" rx="2" fill="#FF9100"/>
   <text x="64" y="144" fill="#1A1410" font-size="12" font-family="Segoe UI, Arial, sans-serif">Frozen app?</text>
   <text x="200" y="144" fill="#DF301C" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif">End task</text>
-  <text x="180" y="186" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Ctrl+Shift+Esc · CPU / Memory bars</text>
+  <text x="180" y="186" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Ctrl+Shift+Esc - CPU / Memory bars</text>
 </svg>

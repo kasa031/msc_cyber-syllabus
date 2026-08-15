@@ -1,9 +1,9 @@
-﻿/* Offline cache for MSc Cybersecurity Practise Syllabus 1st Year (GitHub Pages / HTTPS).
+/* Offline cache for MSc Cybersecurity Practise Syllabus 1st Year (GitHub Pages / HTTPS).
  * Bump CACHE on deploy so clients drop stale shells.
  * Same-origin only - never cache cross-origin responses.
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  */
-const CACHE = "msc-cyber-lock7";
+const CACHE = "msc-cyber-lock8";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
@@ -179,13 +179,38 @@ self.addEventListener("message", (event) => {
   }
 });
 
+function isQuizDecksPath(pathOnly) {
+  return pathOnly.endsWith("/quiz-decks.js") || pathOnly.endsWith("quiz-decks.js");
+}
+
 function looksLikeQuizJs(response, pathOnly) {
   if (!response || !response.ok) return false;
-  if (!(pathOnly.endsWith("/quiz-decks.js") || pathOnly.endsWith("quiz-decks.js"))) return true;
+  if (!isQuizDecksPath(pathOnly)) return true;
   const ct = (response.headers.get("content-type") || "").toLowerCase();
   /* Reject HTML error pages accidentally served as quiz-decks.js. */
   if (ct.includes("text/html")) return false;
+  const len = response.headers.get("content-length");
+  if (len && Number(len) > 0 && Number(len) < 1000) return false;
   return true;
+}
+
+function cacheQuizDecksCanonical(response) {
+  if (!response || !response.ok) return;
+  const copy = response.clone();
+  caches.open(CACHE).then((cache) => {
+    cache.put("./quiz-decks.js", copy).catch(() => {});
+  }).catch(() => {});
+}
+
+async function validateQuizDecksBody(response) {
+  try {
+    const text = await response.clone().text();
+    if (!text || text.length < 1000) return false;
+    if (text.trimStart().startsWith("<!")) return false;
+    return text.indexOf("QUIZ_DECKS") !== -1 && text.indexOf("__QUIZ_DECKS_LOAD_OK") !== -1;
+  } catch (e) {
+    return false;
+  }
 }
 
 self.addEventListener("fetch", (event) => {
@@ -199,22 +224,35 @@ self.addEventListener("fetch", (event) => {
 
   const pathOnly = url.pathname;
   const isQuizPayload =
-    pathOnly.endsWith("/quiz-decks.js") ||
-    pathOnly.endsWith("quiz-decks.js") ||
+    isQuizDecksPath(pathOnly) ||
     pathOnly.includes("/quiz-data/");
 
   if (isNav || isQuizPayload) {
     /* Network-first for HTML + quiz decks so card updates show when online. */
     event.respondWith(
       fetch(event.request)
-        .then((response) => {
+        .then(async (response) => {
+          if (isQuizDecksPath(pathOnly)) {
+            if (!looksLikeQuizJs(response, pathOnly)) {
+              const cached = await caches.match("./quiz-decks.js");
+              return cached || response;
+            }
+            const bodyOk = await validateQuizDecksBody(response);
+            if (!bodyOk) {
+              const cached = await caches.match("./quiz-decks.js");
+              return cached || response;
+            }
+            cacheOk(event.request, response);
+            cacheQuizDecksCanonical(response);
+            return response;
+          }
           if (looksLikeQuizJs(response, pathOnly)) cacheOk(event.request, response);
           return response;
         })
         .catch(() =>
           caches.match(event.request, { ignoreSearch: true }).then((cached) => {
             if (cached) return cached;
-            if (isQuizPayload && pathOnly.endsWith("quiz-decks.js")) {
+            if (isQuizPayload && isQuizDecksPath(pathOnly)) {
               return caches.match("./quiz-decks.js");
             }
             if (isNav) return caches.match("./index.html").then((h) => h || caches.match("./"));
