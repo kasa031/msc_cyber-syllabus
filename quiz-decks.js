@@ -1219,7 +1219,7 @@
         "tags": [
           "history",
           "human-rights",
-        "Lecture1"
+          "Lecture1"
         ]
       },
       {
@@ -1468,6 +1468,42 @@
           "Lecture2",
           "history",
           "WillPETS"
+        ]
+      },
+      {
+        "id": "4280-pets-what-is-pet",
+        "q": "What does PET mean (plain oral exam answer)?",
+        "a": "Privacy Enhancing Technology (or Privacy Enhancing Technologies): technical measures that protect privacy - e.g. by hiding identity/links or by making processing more transparent and controllable.",
+        "tags": [
+          "PETs",
+          "definitions",
+          "oral",
+          "Lecture2"
+        ]
+      },
+      {
+        "id": "4280-pets-what-is-tet",
+        "q": "What does TET mean?",
+        "a": "Transparency Enhancing Tool (or Transparency Enhancing Tools / transparency tools): PETs that create insight into what personal data is processed, how, and by whom - so the data subject (or auditor) can understand and often intervene.",
+        "tags": [
+          "TETs",
+          "definitions",
+          "oral",
+          "Lecture2",
+          "transparency"
+        ]
+      },
+      {
+        "id": "4280-pets-hide-vs-show",
+        "q": "Opacity tools vs transparency tools in one line - with examples?",
+        "a": "Opacity tools hide (identity or link to data), e.g. Tor / Mixes. Transparency tools show (what is processed, how, by whom), e.g. privacy dashboards, audit logs, notices.",
+        "tags": [
+          "PETs",
+          "TETs",
+          "opacity",
+          "transparency",
+          "oral",
+          "Lecture2"
         ]
       },
       {
@@ -4636,13 +4672,13 @@
 
   var EXPECTED = {
     acit4050: 85,
-    acit4280: 135,
+    acit4280: 138,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock27",
+    version: "lock28",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
