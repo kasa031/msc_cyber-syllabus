@@ -775,15 +775,23 @@
     {
       "id": "4280-pet-lim-ropi",
       "q": "What is ROPI (Fritsch & Abie), and what is the formula?",
-      "a": "Return on Privacy Investment. ROPI = PB * CB - ICB (privacy benefit times cost of breach, minus investment/cost of the privacy controls). Needs breach incidence lists and cost data - which are mostly white spots empirically.",
+      "a": "Return on Privacy Investment - ROSI-like for privacy. For a privacy breach: ROPI = PB * CB - ICB, where PB = probability of privacy breach, CB = cost of privacy breach, ICB = investment cost of the countermeasure for that breach. Needs breach lists and cost data (mostly empirical white spots).",
       "tags": [
         "PETs",
         "ROPI",
         "Fritsch",
         "Abie",
         "managed-privacy",
-        "Chapter5"
-      ]
+        "Chapter5",
+        "oral"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/ropi-instrument.png",
+        "alt": "Return on privacy investment instrument (nested Value of Privacy / Value at Risk / ROPI)",
+        "caption": "Figure 1: ROPI instrument (Fritsch). From ACIT4280 Limitations of PETs.",
+        "shows": "Nested Value of Privacy > Value at Risk > ROPI; risk model LB/PB/CB; tools LC, ICB, efficiency."
+      }
     },
     {
       "id": "4280-pet-lim-summary",
@@ -798,16 +806,25 @@
     },
     {
       "id": "4280-pet-lim-roadmap-roads",
-      "q": "Fritsch & Abie (2008) research roadmap: which three 'roads' for managing privacy risks?",
-      "a": "1) Risk model (how to model privacy risks systematically). 2) Cost & effect (measure investment vs privacy effect, e.g. ROPI thinking). 3) Empirics (evidence from real breaches, deployments, and outcomes).",
+      "q": "Fritsch & Abie (2008) research roadmap: which three roads, and what is the goal?",
+      "a": "1) Risk Model Road (risk analysis + risk impact models). 2) Cost & Effect Lane with a Countermeasures Catalog (PET): functional abstraction, effectiveness, efficiency. 3) Empirics Road (personal-information lifecycle empirics: value at risk, incidents/damage cost). All three feed the goal: a Return on Privacy Investment (ROPI) instrument. Start = PET R&D.",
       "tags": [
         "PETs",
         "roadmap",
         "Fritsch",
         "Abie",
+        "ROPI",
         "managed-privacy",
-        "Chapter5"
-      ]
+        "Chapter5",
+        "oral"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/fritsch-abie-roadmap.png",
+        "alt": "Roadmap to privacy risk management (Fritsch and Abie 2008)",
+        "caption": "Figure 2: Three roads toward a ROPI instrument (Fritsch & Abie, 2008).",
+        "shows": "Risk Model Road, Cost & Effect Lane (PET catalog), Empirics Road -> ROPI instrument."
+      }
     },
     {
       "id": "4280-pet-lim-breach-empirics",
@@ -819,6 +836,95 @@
         "breach",
         "Chapter5"
       ]
+    },
+    {
+      "id": "4280-pet-lim-ropi-nested",
+      "q": "ROPI figure (Fritsch): what are the three nested layers from outer to inner?",
+      "a": "Value of Privacy (outer) contains Value at Risk, which contains ROPI (Return on Privacy Investment). ROPI is the reduction of privacy risk through investment, sitting inside the value-at-risk slice of total privacy value.",
+      "tags": [
+        "PETs",
+        "ROPI",
+        "Fritsch",
+        "Chapter5",
+        "oral"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/ropi-instrument.png",
+        "alt": "ROPI nested Value of Privacy, Value at Risk, ROPI",
+        "caption": "Figure 1: nested Value of Privacy > Value at Risk > ROPI.",
+        "shows": "Three nested boxes for the ROPI instrument."
+      }
+    },
+    {
+      "id": "4280-pet-lim-ropi-risk-model",
+      "q": "ROPI Privacy Risk Model: what are LB, PB and CB?",
+      "a": "LB = list/set of privacy breaches (Privacy Breaches). PB = risk/probability of a privacy breach. CB = cost of a privacy breach. These feed Value at Risk in the ROPI instrument figure.",
+      "tags": [
+        "PETs",
+        "ROPI",
+        "risk",
+        "Fritsch",
+        "Chapter5",
+        "oral"
+      ]
+    },
+    {
+      "id": "4280-pet-lim-ropi-tools",
+      "q": "ROPI Privacy Tools & Investment: what are LC, ICB and efficiency?",
+      "a": "LC = list of effective countermeasures (e.g. PETs). ICB = investment cost per breach and countermeasure. Efficiency = efficiency of the countermeasure. Together with the risk model they support ROPI = PB * CB - ICB.",
+      "tags": [
+        "PETs",
+        "ROPI",
+        "investment",
+        "Fritsch",
+        "Chapter5",
+        "oral"
+      ]
+    },
+    {
+      "id": "4280-pet-lim-ropi-value-after",
+      "q": "How does Canvas express Value_after_investment using Value of Privacy, Value at Risk and ROPI?",
+      "a": "Value_after_investment = Value_of_Privacy - (Value_at_Risk - ROPI). So ROPI reduces the value at risk inside total privacy value (investment lowers residual privacy risk).",
+      "tags": [
+        "PETs",
+        "ROPI",
+        "Fritsch",
+        "Chapter5"
+      ]
+    },
+    {
+      "id": "4280-pet-lim-roadmap-cost-effect",
+      "q": "What sits on the Cost & Effect Lane of the Fritsch & Abie roadmap?",
+      "a": "A Countermeasures Catalog (PET) with three ingredients: PET functional abstraction, PET effectiveness, and PET efficiency - so PETs can be compared as building blocks with function, cost and QoS toward the ROPI instrument.",
+      "tags": [
+        "PETs",
+        "roadmap",
+        "Fritsch",
+        "Abie",
+        "Chapter5"
+      ]
+    },
+    {
+      "id": "4280-pet-lim-roadmap-goal",
+      "q": "What is the goal of the Fritsch & Abie privacy-risk research roadmap?",
+      "a": "A Return on Privacy Investment (ROPI) instrument - reached along the research timeline from PET R&D via Risk Model Road, Cost & Effect Lane (PET catalog), and Empirics Road.",
+      "tags": [
+        "PETs",
+        "roadmap",
+        "ROPI",
+        "Fritsch",
+        "Abie",
+        "Chapter5",
+        "oral"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pensum/ACIT4280/curated/fritsch-abie-roadmap.png",
+        "alt": "Goal: Return on Privacy Investment Instrument",
+        "caption": "Figure 2: roadmap goal is the ROPI instrument.",
+        "shows": "Start PET R&D -> three roads -> ROPI instrument goal."
+      }
     },
     {
       "id": "4280-flipped",
