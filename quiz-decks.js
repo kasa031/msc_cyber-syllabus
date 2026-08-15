@@ -280,8 +280,8 @@
       },
       {
         "id": "4050-emneplan-lab",
-        "q": "According to the ACIT4050 course plan: how many assignments, and which VMs are recommended at the same time?",
-        "a": "8 assignments (must be approved before the exam). Recommended: at least one Kali Linux and one Ubuntu or Windows VM at the same time. Exam: individual written 3 hours, no aids.",
+        "q": "According to Lecture 1 / the course outline: how many assignments, and what must you pass to sit the exam?",
+        "a": "At least 11 assignments will be given; at least 8 must be completed (pass) to qualify for the final exam. One-week deadlines are HARD. Pass/fail only - they do not count in the final grade. Labs still recommend Kali + Ubuntu/Windows VMs.",
         "tags": [
           "syllabus"
         ]
@@ -303,8 +303,8 @@
       },
       {
         "id": "4050-cia",
-        "q": "What does the CIA triad stand for in information security?",
-        "a": "Confidentiality, Integrity, and Availability - the classic security goals used throughout ACIT4050 and related courses.",
+        "q": "What do we defend according to Lecture 1, and what three properties does that require?",
+        "a": "Defend your systems so that no one can make them work contrary to your interests and intentions. That means maintaining Confidentiality, Integrity, and Availability (the CIA triad).",
         "tags": [
           "security",
           "CIA"
@@ -319,8 +319,8 @@
       },
       {
         "id": "4050-confidentiality",
-        "q": "What is confidentiality?",
-        "a": "Information is not available or disclosed to unauthorized parties (at rest or in transit).",
+        "q": "What does Confidentiality mean in Lecture 1's CIA triad?",
+        "a": "Protecting information from being accessed by unauthorized parties.",
         "tags": [
           "security",
           "CIA"
@@ -335,8 +335,8 @@
       },
       {
         "id": "4050-integrity",
-        "q": "What is integrity?",
-        "a": "Information is not modified by unauthorized parties or in an unauthorized manner (checksums/hashes help detect change).",
+        "q": "What does Integrity mean in Lecture 1's CIA triad?",
+        "a": "Ensuring the authenticity of information - that information is not altered, and that the source of the information is genuine.",
         "tags": [
           "security",
           "CIA"
@@ -351,8 +351,8 @@
       },
       {
         "id": "4050-availability",
-        "q": "What is availability?",
-        "a": "Authorized users can access information and services when needed (systems remain usable under expected conditions).",
+        "q": "What does Availability mean in Lecture 1's CIA triad?",
+        "a": "Information is accessible to authorized users.",
         "tags": [
           "security",
           "CIA"
@@ -510,8 +510,8 @@
       },
       {
         "id": "4050-emneplan-exam",
-        "q": "What is the ACIT4050 exam format (course plan FALL 2026)?",
-        "a": "Individual written exam, 3 hours, no aids, A-F. Eight assignments must be approved before the exam.",
+        "q": "What is the ACIT4050 final exam format (Lecture 1 course outline)?",
+        "a": "Final written exam - no supporting material permitted. Graded A to F. You must have completed at least 8 of the (at least 11) assignments to qualify.",
         "tags": [
           "syllabus",
           "exam"
@@ -558,207 +558,316 @@
       },
       {
         "id": "4050-info-vs-cyber",
-        "q": "How does Lecture 1 distinguish information security from cyber security?",
-        "a": "Information security covers physical and logical controls over data and information assets (automated or manual). Cyber security is the subset limited to information stored on computers or communicated between computers.",
-        "tags": ["Lecture1","security"]
+        "q": "How does Lecture 1 (citing Peltier) distinguish information security from cyber security?",
+        "a": "Information security uses physical and logical access controls so data and information assets are used properly and not unauthorizedly modified, destroyed, disclosed, lost, or accessed (automated or manual records/files) - plus legal barriers. Cyber security is the subset limited to information stored on computers or communicated between computers.",
+        "tags": [
+          "Lecture1",
+          "security"
+        ]
       },
       {
         "id": "4050-hierarchy-trust",
         "q": "What is the hierarchy of trust for a computer system (Lecture 1)?",
         "a": "Entities trust themselves and all technology layers below them. Other trust relations should be imposed by a higher-layer entity, a user, a systems manager, and/or cryptographic protocols.",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-trust-maint",
         "q": "Who maintains the hierarchy of trust for software vs for the instruction set and below?",
         "a": "Software: the companies that developed it (security mistakes fixed via software updates). Instruction set and below: component manufacturers and system integrators (firmware updates when possible).",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-trust-soft-upper",
         "q": "For the software (upper) layers in the hierarchy of trust, who maintains trust and how are discovered security mistakes corrected?",
         "a": "Maintained by the software companies that developed it. Discovered security mistakes are corrected through software security updates.",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-trust-stack",
         "q": "List the hierarchy of trust technology layers from top to bottom (Lecture 1).",
         "a": "1) Application 2) Operating System 3) Hardware Adaptation Layer (HAL) 4) Instruction set 5) Integrated circuits for memory, processing and communication 6) Logic gates 7) Transistors 8) Physical phenomena. Device drivers span the OS and HAL.",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-trust-drivers",
         "q": "Where do device drivers sit in the Lecture 1 hierarchy of trust stack?",
         "a": "They span the Operating System and the Hardware Adaptation Layer (HAL) - beside both, not a separate numbered layer of their own.",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-trust-upper-lower",
         "q": "In the hierarchy of trust stack, which layers are the upper software-oriented part vs the lower hardware/physics part?",
         "a": "Upper: Application, Operating System (with device drivers), and Hardware Adaptation Layer. Lower: Instruction set, integrated circuits, logic gates, transistors, and physical phenomena.",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-sep-untrusted",
         "q": "What must not interfere with each other in unauthorized ways (separation of untrusted entities)?",
         "a": "Processes, applications, users, and instances of operating systems must not interfere with each other unauthorizedly.",
-        "tags": ["Lecture1","systems"]
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
       },
       {
         "id": "4050-admin-user-duty",
         "q": "Name four responsibilities Lecture 1 assigns to system administrators and users for separating untrusted entities.",
         "a": "Examples: healthy passwords; strong cryptography; admission control (physical and logical); system/firewall configuration; software and systems updates; installing only authorized software; care with mail attachments; not connecting to unauthorized hardware (Wi-Fi, Bluetooth, USB).",
-        "tags": ["Lecture1","lab","security"]
+        "tags": [
+          "Lecture1",
+          "lab",
+          "security"
+        ]
       },
       {
         "id": "4050-sep-hypervisor",
         "q": "Who is responsible for separating operating systems on the same hardware, and what does that involve?",
         "a": "The hypervisor (configured by the administrator): privileges in shared file systems, virtually separate file systems, process isolation support, and resource scheduling to avoid denial of service.",
-        "tags": ["Lecture1","virtualbox","systems"]
+        "tags": [
+          "Lecture1",
+          "virtualbox",
+          "systems"
+        ]
       },
       {
         "id": "4050-network-protect",
         "q": "In a networked environment, which protections does Lecture 1 list for administrators and users?",
         "a": "Firewalls (allowed traffic); NATs (hide addresses/structure); VPNs (logically separate networks with different privileges); cryptographic protocols (integrity and confidentiality); redundancy, scheduling and capacity (availability).",
-        "tags": ["Lecture1","network"]
+        "tags": [
+          "Lecture1",
+          "network"
+        ]
       },
       {
         "id": "4050-zero-day",
         "q": "What are zero days, and where does Lecture 1 say most incidents come from?",
         "a": "Zero days are security holes known to someone but not yet closed (or unpatched). Most incidents involve mistakes by users or system administrators; problems also arise from software/hardware developers and known holes without updates.",
-        "tags": ["Lecture1","security"]
+        "tags": [
+          "Lecture1",
+          "security"
+        ]
       },
       {
         "id": "4050-infection-classes",
         "q": "Name Lecture 1's three classifications of infections (malware types by how infection spreads).",
         "a": "Virus, Worms, and Trojans.",
-        "tags": ["Lecture1","malware"]
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-virus",
         "q": "What is a computer virus according to Lecture 1?",
         "a": "Code that cannot live on its own: it attaches/inserts into a host program or file and runs whenever that host runs. It spreads by infecting other executables (often when the host is shared or executed). Initial infection can come from a once-run program (e.g. a link in e-mail).",
-        "tags": ["Lecture1","malware"]
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-worm",
         "q": "How does a worm differ from a virus (Lecture 1)?",
         "a": "A worm is self-contained and needs no host file. It self-replicates across networks without altering existing executables, e.g. by exploiting OS vulnerabilities or via e-mail attachments/links that download and run it.",
-        "tags": ["Lecture1","malware"]
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-trojan",
         "q": "What is a Trojan in Lecture 1's malware classification?",
         "a": "Malware embedded in a seemingly legitimate/useful application that the user knowingly downloads and runs (screensaver, weather widget, fake virus scanner, e-mail attachment, or malicious web page). After that trust, the payload (e.g. backdoor) runs. Unlike viruses/worms, it typically does not self-replicate.",
-        "tags": ["Lecture1","malware"]
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-trojan-vs-virus-worm",
         "q": "How does a Trojan operate differently from a virus and a worm?",
         "a": "Virus: needs a host program/file; spreads by attaching and when the host runs or is shared. Worm: standalone; self-replicates across networks with no host file. Trojan: appears legitimate/useful and tricks the user into installing/running it; typically does not self-replicate - the harm is the payload/backdoor after the user trusts it.",
-        "tags": ["Lecture1","malware"]
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-malware-detect",
         "q": "How does Lecture 1 say detection differs for Trojans/worms vs viruses?",
         "a": "Trojans and worms can be spotted via process/application lists. Viruses often require analysis of the infected program. Malicious actions may reveal any of them - sometimes too late.",
-        "tags": ["Lecture1","malware"]
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-spyware",
-        "q": "What is the task of spyware (Lecture 1)?",
-        "a": "Collect sensitive information from the infected system and transfer it to the attacker (keystrokes, document contents, or system analysis for future attacks).",
-        "tags": ["Lecture1","malware"]
+        "q": "What is spyware according to Lecture 1 (classification by intent)?",
+        "a": "Its task is to collect sensitive information from the system it resides on and transfer it to the attacker - e.g. keystroke logging, analysing document contents, or analysing the system itself in preparation for future attacks.",
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-ransomware",
-        "q": "How does ransomware typically work according to Lecture 1?",
-        "a": "Malware that lets the attacker demand ransom - most often by encrypting vital information and requiring payment to make it available again (targets availability/access to data).",
-        "tags": ["Lecture1","malware","CIA"]
+        "q": "What is ransomware according to Lecture 1 (classification by intent)?",
+        "a": "Malware that puts the attacker in a position to require a ransom from the system owner. Most often by encrypting vital information and requiring compensation to make it available again.",
+        "tags": [
+          "Lecture1",
+          "malware",
+          "CIA"
+        ]
       },
       {
         "id": "4050-rootkit",
-        "q": "What is a rootkit, and why is it hard to remove (Lecture 1)?",
-        "a": "Techniques that mask malware presence, usually via privileged (root/admin) access. Not bad per se, but central to sophisticated attacks; hard to detect/remove because they can subvert anti-malware tools.",
-        "tags": ["Lecture1","malware"]
+        "q": "What is a rootkit according to Lecture 1 (classification by intent)?",
+        "a": "A set of techniques used to mask the presence of malware, usually via privileged root/administrator access. Not bad per se, but central to most sophisticated attacks; hard to detect/remove because they can subvert anti-malware tools.",
+        "tags": [
+          "Lecture1",
+          "malware"
+        ]
       },
       {
         "id": "4050-bot-botnet",
-        "q": "What is a bot and a botnet (Lecture 1)?",
-        "a": "A bot lets a botmaster remotely control a system. A botnet is many such machines under one controller, typically used for attacks on other computers or for sending spam.",
-        "tags": ["Lecture1","malware","network"]
+        "q": "What is a bot and a botnet according to Lecture 1 (classification by intent)?",
+        "a": "A bot gives the attacker (botmaster) remote control of a system. A botnet is many infected machines under one botmaster - typically used to attack other computers or send spam.",
+        "tags": [
+          "Lecture1",
+          "malware",
+          "network"
+        ]
       },
       {
         "id": "4050-ddos",
-        "q": "What are DoS and DDoS attacks, and which CIA goal do they target?",
-        "a": "Denial of Service / Distributed Denial of Service: overload a target with requests or traffic (often via a botnet flooding together). They target availability; common targets include web and other servers.",
-        "tags": ["Lecture1","network","CIA"]
+        "q": "What are DoS and DDoS attacks according to Lecture 1?",
+        "a": "Denial of Service and Distributed Denial of Service. They target availability by overloading a target with requests or traffic. Usually performed with botnets where all bots flood the target at once. Targets are often web servers, but other servers too.",
+        "tags": [
+          "Lecture1",
+          "network",
+          "CIA"
+        ]
       },
       {
         "id": "4050-nist-six",
         "q": "Name the six functions of the NIST Cybersecurity Framework 2.0 (Lecture 1).",
         "a": "Identify, Protect, Detect, Respond, Recover, and Govern - the highest-level pillars of a holistic cybersecurity program.",
-        "tags": ["Lecture1","NIST"]
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
       },
       {
         "id": "4050-nist-ai",
         "q": "According to Lecture 1, how does AI change the NIST CSF functions?",
         "a": "AI profoundly changes Detect and heavily influences Respond and Protect. It is a more generic tool for Identify, Recover, and Govern (and should not be solely responsible for Identify or Govern).",
-        "tags": ["Lecture1","NIST","AI"]
+        "tags": [
+          "Lecture1",
+          "NIST",
+          "AI"
+        ]
       },
       {
         "id": "4050-killchain-seven",
         "q": "List the seven Lockheed Martin Cyber Kill Chain stages from Lecture 1.",
         "a": "1) Reconnaissance 2) Weaponization 3) Delivery 4) Exploitation 5) Installation 6) Command and control 7) Action on objectives.",
-        "tags": ["Lecture1","kill-chain"]
+        "tags": [
+          "Lecture1",
+          "kill-chain"
+        ]
       },
       {
         "id": "4050-killchain-ai",
         "q": "Which Kill Chain stages does Lecture 1 say AI simplifies massively?",
         "a": "Reconnaissance and Weaponization massively; Delivery to some extent; Exploitation massively via better recon/weaponization; Installation partly. C2 and Action on objectives are not directly driven by AI, though AI can help hide or detect protective actions.",
-        "tags": ["Lecture1","kill-chain","AI"]
+        "tags": [
+          "Lecture1",
+          "kill-chain",
+          "AI"
+        ]
       },
       {
         "id": "4050-mitre-attack",
         "q": "What is MITRE ATT&CK, and why does Lecture 1 point to it?",
         "a": "An extended, more detailed kill-chain-style knowledge base (attack.mitre.org) with vulnerabilities, mitigations, and detection mechanisms - useful examples beyond the simplified Lockheed Martin chain.",
-        "tags": ["Lecture1","kill-chain"]
+        "tags": [
+          "Lecture1",
+          "kill-chain"
+        ]
       },
       {
         "id": "4050-assign-hard",
         "q": "What does Lecture 1 say about ACIT4050 assignments and deadlines?",
         "a": "At least 11 assignments will be given; at least 8 must be completed to qualify for the exam. One-week deadlines are hard. Graded pass/fail only - they do not count toward the final course grade. Final exam: written, no supporting material, A-F.",
-        "tags": ["Lecture1","syllabus","exam"]
+        "tags": [
+          "Lecture1",
+          "syllabus",
+          "exam"
+        ]
       },
       {
         "id": "4050-week1-canvas",
         "q": "What are the rules for this week's Canvas intro quiz assignment (Lecture 1)?",
         "a": "Interactive Canvas quiz in exam-like style; max 100 points; need at least 60 to accept; five attempts before the deadline; only the maximum score counts. It does not count toward the final course grade.",
-        "tags": ["Lecture1","syllabus"]
+        "tags": [
+          "Lecture1",
+          "syllabus"
+        ]
       },
       {
         "id": "4050-staff-roles",
         "q": "Who is the ACIT4050 course manager, main lecturers, and TA (fall 2026 welcome)?",
         "a": "Course manager / lecturer / examiner: Nurul Momen. Lectures mostly by Olav Lysne and Nurul Momen. TA: Ahsan Sonar (lab setup help).",
-        "tags": ["syllabus","staff"]
+        "tags": [
+          "syllabus",
+          "staff"
+        ]
       },
       {
         "id": "4050-staff-email",
-        "q": "What is the primary contact email for ACIT4050 communication (fall 2026)?",
-        "a": "nurul.momen@oslomet.no (Nurul Momen). Check Canvas Announcements for schedule changes.",
-        "tags": ["syllabus","staff"]
+        "q": "What are the ACIT4050 lecturer contact emails (Lecture 1)?",
+        "a": "Nurul Momen: nurul.momen@oslomet.no. Olav Lysne: olavl@oslomet.no. Primary course contact is often Nurul; check Canvas Announcements for schedule changes.",
+        "tags": [
+          "syllabus",
+          "staff"
+        ]
       },
       {
         "id": "4050-intro-assign",
         "q": "When is Canvas Assignment: Introduction Lecture available and due (fall 2026)?",
         "a": "Available Mon 17 Aug 2026 00:00 through Tue 25 Aug 2026 23:59 (locked until 17 Aug 00:00). Due Tue 25 Aug 23:59. Worth 100 points.",
-        "tags": ["syllabus","assignment"]
+        "tags": [
+          "syllabus",
+          "assignment"
+        ]
       },
       {
         "id": "4050-welcome-canvas",
         "q": "Where are ACIT4050 materials, and what does the fall 2026 welcome stress about the course?",
         "a": "All materials are in Canvas Modules (schedule may change via Announcements). Hands-on work: penetration testing, societal/theoretical cyber defence, and real incidents; guest lectures are hoped for.",
-        "tags": ["syllabus"]
+        "tags": [
+          "syllabus"
+        ]
       },
       {
         "id": "4050-man-help",
@@ -766,6 +875,86 @@
         "a": "Linux: man ls (quit with q). PowerShell: Get-Help Get-ChildItem -Full.",
         "tags": [
           "terminal"
+        ]
+      },
+      {
+        "id": "4050-dos-vs-ddos",
+        "q": "DoS vs DDoS (Lecture 1): how do they differ, and what do they share?",
+        "a": "Both target availability by overloading a target with requests/traffic (often web or other servers). DoS is the general Denial of Service idea (can be from a single source). DDoS is Distributed: usually a botnet where many bots flood the target simultaneously.",
+        "tags": [
+          "Lecture1",
+          "network",
+          "CIA",
+          "contrast"
+        ]
+      },
+      {
+        "id": "4050-intent-four",
+        "q": "Name Lecture 1's four malware classes according to intent.",
+        "a": "Spyware, Ransomware, Bot, and Rootkit - classified by what the malware is for (intent), not by how it spreads.",
+        "tags": [
+          "Lecture1",
+          "malware",
+          "intent"
+        ]
+      },
+      {
+        "id": "4050-intent-vs-spread",
+        "q": "Lecture 1: how does classification by intent differ from virus/worm/Trojan?",
+        "a": "Virus / worm / Trojan classify how infection spreads or is delivered. Spyware / ransomware / bot / rootkit classify intent (steal data, demand ransom, remote control, hide malware). The same sample can fit both axes (e.g. a Trojan that installs ransomware).",
+        "tags": [
+          "Lecture1",
+          "malware",
+          "contrast"
+        ]
+      },
+      {
+        "id": "4050-spyware-vs-ransomware",
+        "q": "Spyware vs ransomware (Lecture 1 intent classes) - contrast the goals.",
+        "a": "Spyware: collect sensitive info and transfer it to the attacker (keystrokes, documents, system prep for later attacks). Ransomware: force a ransom - most often encrypt vital info and demand payment to restore availability.",
+        "tags": [
+          "Lecture1",
+          "malware",
+          "intent",
+          "contrast"
+        ]
+      },
+      {
+        "id": "4050-bot-vs-rootkit",
+        "q": "Bot vs rootkit (Lecture 1 intent classes) - contrast the roles.",
+        "a": "Bot: remote control by a botmaster (many bots = botnet for attacks/spam). Rootkit: techniques to mask malware presence, usually with root/admin privileges - not bad per se, but central to sophisticated attacks and hard to detect/remove (can subvert anti-malware).",
+        "tags": [
+          "Lecture1",
+          "malware",
+          "intent",
+          "contrast"
+        ]
+      },
+      {
+        "id": "4050-sep-os",
+        "q": "Whose duty is separating processes/apps and users on one computer (Lecture 1)?",
+        "a": "The operating system (often configured by admin/user). For processes/apps: privileged file systems, memory mapping, CPU scheduling, peripheral virtualization. For users: passwords, privileges (e.g. root), separate file systems / access control, process isolation, resource scheduling against DoS.",
+        "tags": [
+          "Lecture1",
+          "systems"
+        ]
+      },
+      {
+        "id": "4050-recording",
+        "q": "What does Lecture 1 say about lecture recordings and student voice?",
+        "a": "Screen and sound only - you are not visible. Voice may be recorded identifiably; ask in breaks/after if you prefer not. Contact the lecturer to remove a recorded question.",
+        "tags": [
+          "Lecture1",
+          "syllabus"
+        ]
+      },
+      {
+        "id": "4050-syllabus-hard",
+        "q": "What is the ACIT4050 syllabus, and how are assignment deadlines graded (Lecture 1)?",
+        "a": "Syllabus = content of the lectures. Assignments: one-week HARD deadlines; pass/fail only; do not count toward the final course grade. At least 11 given; at least 8 must be completed to sit the exam.",
+        "tags": [
+          "Lecture1",
+          "syllabus"
         ]
       }
     ]
@@ -3860,8 +4049,7 @@
           "Canvas",
           "APA"
         ]
-      }
-    ,
+      },
       {
         "id": "4100-mandatory-info-quiz",
         "q": "Why must you pass the Mandatory information quiz in ACIT4100?",
@@ -3871,8 +4059,7 @@
           "requirements",
           "quiz"
         ]
-      }
-    ,
+      },
       {
         "id": "4100-assign1-official",
         "q": "What is the official Canvas/Grades name of Assignment 1 in ACIT4100?",
@@ -3882,8 +4069,7 @@
           "deadlines",
           "canvas"
         ]
-      }
-    ,
+      },
       {
         "id": "4100-assign2-official",
         "q": "What is the official Canvas/Grades name of Assignment 2 in ACIT4100?",
@@ -3896,7 +4082,7 @@
       }
     ]
   },
-"computer-basics": {
+  "computer-basics": {
     "course": "Computer basics",
     "title": "Computer for dummies",
     "cards": [
@@ -4197,14 +4383,14 @@
 };
 
   var EXPECTED = {
-    acit4050: 75,
+    acit4050: 83,
     acit4280: 118,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock23",
+    version: "lock24",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

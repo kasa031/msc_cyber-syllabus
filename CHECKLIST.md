@@ -25,12 +25,12 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 - [ ] Add to Home Screen / Install app
 - [ ] Open from home screen offline after first online visit
 
-## Technical status (lock22)
+## Technical status (lock24)
 
 - Mobile: viewport-fit, safe-area, touch targets ~44px, skip link, hash deep-links (`#4050`, `#4280`, `#4100`, `#pc`)
 - PWA: absolute `start_url` / `scope` under `/msc_cyber-syllabus/`
 - `file://` and GitHub Pages: decks via `quiz-decks.js` (JSON fallback if needed)
-- SW: network-first quiz payloads + body validation; cache name `msc-cyber-lock22`
+- SW: network-first quiz payloads + body validation; cache name `msc-cyber-lock24`
 - Tutorial Show answer: stays on step until Continue (no auto-advance flash)
 - Quiz grades: Easy is outline turquoise (distinct from filled Good)
-- Deck counts: ACIT4050=73, ACIT4280=118, ACIT4100=102, computer-basics=28
+- Deck counts: ACIT4050=83, ACIT4280=118, ACIT4100=102, computer-basics=28

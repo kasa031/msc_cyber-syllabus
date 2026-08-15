@@ -270,8 +270,8 @@
     },
     {
       "id": "4050-emneplan-lab",
-      "q": "According to the ACIT4050 course plan: how many assignments, and which VMs are recommended at the same time?",
-      "a": "8 assignments (must be approved before the exam). Recommended: at least one Kali Linux and one Ubuntu or Windows VM at the same time. Exam: individual written 3 hours, no aids.",
+      "q": "According to Lecture 1 / the course outline: how many assignments, and what must you pass to sit the exam?",
+      "a": "At least 11 assignments will be given; at least 8 must be completed (pass) to qualify for the final exam. One-week deadlines are HARD. Pass/fail only - they do not count in the final grade. Labs still recommend Kali + Ubuntu/Windows VMs.",
       "tags": [
         "syllabus"
       ]
@@ -293,8 +293,8 @@
     },
     {
       "id": "4050-cia",
-      "q": "What does the CIA triad stand for in information security?",
-      "a": "Confidentiality, Integrity, and Availability - the classic security goals used throughout ACIT4050 and related courses.",
+      "q": "What do we defend according to Lecture 1, and what three properties does that require?",
+      "a": "Defend your systems so that no one can make them work contrary to your interests and intentions. That means maintaining Confidentiality, Integrity, and Availability (the CIA triad).",
       "tags": [
         "security",
         "CIA"
@@ -309,8 +309,8 @@
     },
     {
       "id": "4050-confidentiality",
-      "q": "What is confidentiality?",
-      "a": "Information is not available or disclosed to unauthorized parties (at rest or in transit).",
+      "q": "What does Confidentiality mean in Lecture 1's CIA triad?",
+      "a": "Protecting information from being accessed by unauthorized parties.",
       "tags": [
         "security",
         "CIA"
@@ -325,8 +325,8 @@
     },
     {
       "id": "4050-integrity",
-      "q": "What is integrity?",
-      "a": "Information is not modified by unauthorized parties or in an unauthorized manner (checksums/hashes help detect change).",
+      "q": "What does Integrity mean in Lecture 1's CIA triad?",
+      "a": "Ensuring the authenticity of information - that information is not altered, and that the source of the information is genuine.",
       "tags": [
         "security",
         "CIA"
@@ -341,8 +341,8 @@
     },
     {
       "id": "4050-availability",
-      "q": "What is availability?",
-      "a": "Authorized users can access information and services when needed (systems remain usable under expected conditions).",
+      "q": "What does Availability mean in Lecture 1's CIA triad?",
+      "a": "Information is accessible to authorized users.",
       "tags": [
         "security",
         "CIA"
@@ -500,8 +500,8 @@
     },
     {
       "id": "4050-emneplan-exam",
-      "q": "What is the ACIT4050 exam format (course plan FALL 2026)?",
-      "a": "Individual written exam, 3 hours, no aids, A-F. Eight assignments must be approved before the exam.",
+      "q": "What is the ACIT4050 final exam format (Lecture 1 course outline)?",
+      "a": "Final written exam - no supporting material permitted. Graded A to F. You must have completed at least 8 of the (at least 11) assignments to qualify.",
       "tags": [
         "syllabus",
         "exam"
@@ -548,8 +548,8 @@
     },
     {
       "id": "4050-info-vs-cyber",
-      "q": "How does Lecture 1 distinguish information security from cyber security?",
-      "a": "Information security covers physical and logical controls over data and information assets (automated or manual). Cyber security is the subset limited to information stored on computers or communicated between computers.",
+      "q": "How does Lecture 1 (citing Peltier) distinguish information security from cyber security?",
+      "a": "Information security uses physical and logical access controls so data and information assets are used properly and not unauthorizedly modified, destroyed, disclosed, lost, or accessed (automated or manual records/files) - plus legal barriers. Cyber security is the subset limited to information stored on computers or communicated between computers.",
       "tags": [
         "Lecture1",
         "security"
@@ -712,8 +712,8 @@
     },
     {
       "id": "4050-spyware",
-      "q": "What is the task of spyware (Lecture 1)?",
-      "a": "Collect sensitive information from the infected system and transfer it to the attacker (keystrokes, document contents, or system analysis for future attacks).",
+      "q": "What is spyware according to Lecture 1 (classification by intent)?",
+      "a": "Its task is to collect sensitive information from the system it resides on and transfer it to the attacker - e.g. keystroke logging, analysing document contents, or analysing the system itself in preparation for future attacks.",
       "tags": [
         "Lecture1",
         "malware"
@@ -721,8 +721,8 @@
     },
     {
       "id": "4050-ransomware",
-      "q": "How does ransomware typically work according to Lecture 1?",
-      "a": "Malware that lets the attacker demand ransom - most often by encrypting vital information and requiring payment to make it available again (targets availability/access to data).",
+      "q": "What is ransomware according to Lecture 1 (classification by intent)?",
+      "a": "Malware that puts the attacker in a position to require a ransom from the system owner. Most often by encrypting vital information and requiring compensation to make it available again.",
       "tags": [
         "Lecture1",
         "malware",
@@ -731,8 +731,8 @@
     },
     {
       "id": "4050-rootkit",
-      "q": "What is a rootkit, and why is it hard to remove (Lecture 1)?",
-      "a": "Techniques that mask malware presence, usually via privileged (root/admin) access. Not bad per se, but central to sophisticated attacks; hard to detect/remove because they can subvert anti-malware tools.",
+      "q": "What is a rootkit according to Lecture 1 (classification by intent)?",
+      "a": "A set of techniques used to mask the presence of malware, usually via privileged root/administrator access. Not bad per se, but central to most sophisticated attacks; hard to detect/remove because they can subvert anti-malware tools.",
       "tags": [
         "Lecture1",
         "malware"
@@ -740,8 +740,8 @@
     },
     {
       "id": "4050-bot-botnet",
-      "q": "What is a bot and a botnet (Lecture 1)?",
-      "a": "A bot lets a botmaster remotely control a system. A botnet is many such machines under one controller, typically used for attacks on other computers or for sending spam.",
+      "q": "What is a bot and a botnet according to Lecture 1 (classification by intent)?",
+      "a": "A bot gives the attacker (botmaster) remote control of a system. A botnet is many infected machines under one botmaster - typically used to attack other computers or send spam.",
       "tags": [
         "Lecture1",
         "malware",
@@ -750,8 +750,8 @@
     },
     {
       "id": "4050-ddos",
-      "q": "What are DoS and DDoS attacks, and which CIA goal do they target?",
-      "a": "Denial of Service / Distributed Denial of Service: overload a target with requests or traffic (often via a botnet flooding together). They target availability; common targets include web and other servers.",
+      "q": "What are DoS and DDoS attacks according to Lecture 1?",
+      "a": "Denial of Service and Distributed Denial of Service. They target availability by overloading a target with requests or traffic. Usually performed with botnets where all bots flood the target at once. Targets are often web servers, but other servers too.",
       "tags": [
         "Lecture1",
         "network",
@@ -835,8 +835,8 @@
     },
     {
       "id": "4050-staff-email",
-      "q": "What is the primary contact email for ACIT4050 communication (fall 2026)?",
-      "a": "nurul.momen@oslomet.no (Nurul Momen). Check Canvas Announcements for schedule changes.",
+      "q": "What are the ACIT4050 lecturer contact emails (Lecture 1)?",
+      "a": "Nurul Momen: nurul.momen@oslomet.no. Olav Lysne: olavl@oslomet.no. Primary course contact is often Nurul; check Canvas Announcements for schedule changes.",
       "tags": [
         "syllabus",
         "staff"
@@ -865,6 +865,86 @@
       "a": "Linux: man ls (quit with q). PowerShell: Get-Help Get-ChildItem -Full.",
       "tags": [
         "terminal"
+      ]
+    },
+    {
+      "id": "4050-dos-vs-ddos",
+      "q": "DoS vs DDoS (Lecture 1): how do they differ, and what do they share?",
+      "a": "Both target availability by overloading a target with requests/traffic (often web or other servers). DoS is the general Denial of Service idea (can be from a single source). DDoS is Distributed: usually a botnet where many bots flood the target simultaneously.",
+      "tags": [
+        "Lecture1",
+        "network",
+        "CIA",
+        "contrast"
+      ]
+    },
+    {
+      "id": "4050-intent-four",
+      "q": "Name Lecture 1's four malware classes according to intent.",
+      "a": "Spyware, Ransomware, Bot, and Rootkit - classified by what the malware is for (intent), not by how it spreads.",
+      "tags": [
+        "Lecture1",
+        "malware",
+        "intent"
+      ]
+    },
+    {
+      "id": "4050-intent-vs-spread",
+      "q": "Lecture 1: how does classification by intent differ from virus/worm/Trojan?",
+      "a": "Virus / worm / Trojan classify how infection spreads or is delivered. Spyware / ransomware / bot / rootkit classify intent (steal data, demand ransom, remote control, hide malware). The same sample can fit both axes (e.g. a Trojan that installs ransomware).",
+      "tags": [
+        "Lecture1",
+        "malware",
+        "contrast"
+      ]
+    },
+    {
+      "id": "4050-spyware-vs-ransomware",
+      "q": "Spyware vs ransomware (Lecture 1 intent classes) - contrast the goals.",
+      "a": "Spyware: collect sensitive info and transfer it to the attacker (keystrokes, documents, system prep for later attacks). Ransomware: force a ransom - most often encrypt vital info and demand payment to restore availability.",
+      "tags": [
+        "Lecture1",
+        "malware",
+        "intent",
+        "contrast"
+      ]
+    },
+    {
+      "id": "4050-bot-vs-rootkit",
+      "q": "Bot vs rootkit (Lecture 1 intent classes) - contrast the roles.",
+      "a": "Bot: remote control by a botmaster (many bots = botnet for attacks/spam). Rootkit: techniques to mask malware presence, usually with root/admin privileges - not bad per se, but central to sophisticated attacks and hard to detect/remove (can subvert anti-malware).",
+      "tags": [
+        "Lecture1",
+        "malware",
+        "intent",
+        "contrast"
+      ]
+    },
+    {
+      "id": "4050-sep-os",
+      "q": "Whose duty is separating processes/apps and users on one computer (Lecture 1)?",
+      "a": "The operating system (often configured by admin/user). For processes/apps: privileged file systems, memory mapping, CPU scheduling, peripheral virtualization. For users: passwords, privileges (e.g. root), separate file systems / access control, process isolation, resource scheduling against DoS.",
+      "tags": [
+        "Lecture1",
+        "systems"
+      ]
+    },
+    {
+      "id": "4050-recording",
+      "q": "What does Lecture 1 say about lecture recordings and student voice?",
+      "a": "Screen and sound only - you are not visible. Voice may be recorded identifiably; ask in breaks/after if you prefer not. Contact the lecturer to remove a recorded question.",
+      "tags": [
+        "Lecture1",
+        "syllabus"
+      ]
+    },
+    {
+      "id": "4050-syllabus-hard",
+      "q": "What is the ACIT4050 syllabus, and how are assignment deadlines graded (Lecture 1)?",
+      "a": "Syllabus = content of the lectures. Assignments: one-week HARD deadlines; pass/fail only; do not count toward the final course grade. At least 11 given; at least 8 must be completed to sit the exam.",
+      "tags": [
+        "Lecture1",
+        "syllabus"
       ]
     }
   ]
