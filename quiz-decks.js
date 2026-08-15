@@ -1906,6 +1906,96 @@
         }
       },
       {
+        "id": "4280-priv-mgmt-two-aspects",
+        "q": "Figure 1: Aspects of privacy protection - which two pillars?",
+        "a": "Privacy protection = (1) Flow of personal data + (2) Identity management. Both need attention when handling personal data: control of data flows, and management of identities of data subjects and processors.",
+        "tags": [
+          "privacy-management",
+          "Chapter5",
+          "oral",
+          "data-flow",
+          "identity"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/pensum/ACIT4280/curated/privacy-protection-dataflow-idmgmt.png",
+          "alt": "Privacy Protection splits into Flow of Personal Data and Identity Management",
+          "caption": "Figure 1: Aspects of privacy protection: Data flow and identity management (ACIT4280 Canvas).",
+          "shows": "Left: Collect/Store/Process/Transfer/Delete. Right: Identify/Authenticate/Link/rights/ownership."
+        }
+      },
+      {
+        "id": "4280-priv-mgmt-data-flow-stages",
+        "q": "Name the personal-data flow stages in privacy management (Figure 1, left).",
+        "a": "Collect, Store, Process, Transfer, Delete.",
+        "tags": [
+          "privacy-management",
+          "data-flow",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
+        "id": "4280-priv-mgmt-id-mgmt",
+        "q": "What identity-management functions sit under privacy protection (Figure 1, right)?",
+        "a": "Identify; Authenticate; Link person (linkability of data sets - or absence thereof via anonymisation); give rights; express ownership; plus delegation of rights to other parties.",
+        "tags": [
+          "privacy-management",
+          "identity",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
+        "id": "4280-priv-mgmt-business-process",
+        "q": "How should personal-data handling as a 'business process' align with privacy?",
+        "a": "Data flow models aligned with the privacy policy (and business models) are a precondition for compliance; they demand role/access control for staff; plus identity management of data subjects over the full processing and storage period.",
+        "tags": [
+          "privacy-management",
+          "business-process",
+          "consent",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-priv-mgmt-epal-xacml",
+        "q": "EPAL vs XACML - and why is 'privacy policy' an ambiguous term?",
+        "a": "Formal machine-readable privacy constraint languages (XML): EPAL (Enterprise Privacy Authorization Language) and XACML (eXtensible Access Control Markup Language). 'Privacy policy' is ambiguous because the same name also means prose end-user policies written by legal experts - engineers need formal policies in harmony with those prose versions.",
+        "tags": [
+          "privacy-management",
+          "EPAL",
+          "XACML",
+          "policy",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
+        "id": "4280-sticky-policies-hp-arch",
+        "q": "Sticky Policies (HP / Pearson & Casassa-Mont): what is the architecture idea, and what makes it hard?",
+        "a": "HP research: trusted hardware executes processing only per policies attached to encrypted personal data; consent statements are part of the data-flow/access-control model. Very complex cryptographic system that must span the whole processing infrastructure including subcontractors - not just one controller.",
+        "tags": [
+          "sticky-policies",
+          "managed-privacy",
+          "HP",
+          "Pearson",
+          "Chapter5"
+        ]
+      },
+      {
+        "id": "4280-priv-mgmt-housekeeping",
+        "q": "Housekeeping needed so organisations can answer GDPR data-subject rights inquiries?",
+        "a": "Stringent data labelling/metadata (provenance, identity assurance, links to privacy policies and consent); privacy-friendly logs of processing and purpose; control when business/org/tech change forces policy/consent renewal; archival of past policy and consent versions; long-term identity management to recognise legitimate data subjects.",
+        "tags": [
+          "privacy-management",
+          "GDPR",
+          "DSR",
+          "housekeeping",
+          "Chapter5",
+          "oral"
+        ]
+      },
+      {
         "id": "4280-flipped",
         "q": "How is ACIT4280 taught (format) according to the Aug 13 2026 intro?",
         "a": "Flipped classroom: students read/watch Canvas material before class; bi-weekly online lectures with case studies & student presentations; group home assignment (groups of 3) with written report + presentation; final timed digital exam on Inspera.",
@@ -4886,13 +4976,13 @@
 
   var EXPECTED = {
     acit4050: 85,
-    acit4280: 153,
+    acit4280: 160,
     acit4100: 102,
     "computer-basics": 28
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock30",
+    version: "lock31",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
