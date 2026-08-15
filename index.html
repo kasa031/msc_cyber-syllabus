@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock12" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock12" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock12" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock12" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock13" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock13" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock13" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock13" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1129,7 +1129,7 @@
       color: var(--ink);
       border-color: var(--ochre);
     }
-    .quiz-grades button[data-grade="hard"]:hover { background: #E88200; border-color: #E88200; }
+    .quiz-grades button[data-grade="hard"]:hover { background: var(--palette-orange); border-color: var(--ink); }
     .quiz-grades button[data-grade="good"] {
       background: var(--palette-turquoise);
       color: #fff;
@@ -1950,7 +1950,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock12" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock13" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script>
   (function () {
   "use strict";
@@ -2409,6 +2409,7 @@ function showCourse(courseKey) {
         tQuiz.tabIndex = -1;
       }
       pcShowSetup();
+      syncCourseHash(courseKey);
       return;
     }
 
@@ -2693,7 +2694,7 @@ function showCourse(courseKey) {
         return;
       }
       var meta = window.QUIZ_DECKS_META;
-      if (!meta || meta.version !== "lock12") {
+      if (!meta || meta.version !== "lock13") {
         console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
@@ -2721,7 +2722,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock12-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock13-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;

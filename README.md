@@ -43,7 +43,7 @@ Deep links (same origin): `#terminal`, `#4050`, `#4280`, `#4100`, `#pc`.
 
 Repo: `kasa031/msc_cyber-syllabus` (master). Pages serves `/msc_cyber-syllabus/`.
 
-After larger app changes, bump the cache name in `sw.js` (e.g. `msc-cyber-lock12`) and the `?v=` query on `quiz-decks.js` / icons so phones drop stale shells.
+After larger app changes, bump the cache name in `sw.js` (e.g. `msc-cyber-lock13`) and the `?v=` query on `quiz-decks.js` / icons so phones drop stale shells.
 
 ## Files
 
