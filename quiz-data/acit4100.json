@@ -191,8 +191,25 @@
     },
     {
       "id": "4100-ai-declaration",
-      "q": "What AI-related requirement can fail the essay regardless of AI use?",
-      "a": "A 'Declaration of AI use' at the end is required whether or not AI was used. Using text-generation engines to circumvent writing the essay yourself can be treated as cheating.",
+      "q": "What must the Declaration of AI use contain, and where does it go?",
+      "a": "At the end of the essay after the reference list: list tool(s) used and what activities, OR state that no AI was used. Not counted in the word limit. Using AI is not mandatory for a good grade. Aligns with OsloMet guidelines: https://student.oslomet.no/en/veiledning-kunstig-intelligens-studentoppgaver",
+      "tags": [
+        "AI",
+        "integrity",
+        "requirements"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ai-declare.svg",
+        "alt": "Mandatory AI use declaration",
+        "caption": "Declare tools or non-use",
+        "shows": "After references; not in word count."
+      }
+    },
+    {
+      "id": "4100-ai-write-cheat",
+      "q": "When is using AI treated as cheating in the ACIT4100 essay?",
+      "a": "Using AI to literally write parts of the essay is cheating. The exam requires you to write the essay; generated text is not writing and tries to circumvent the exam.",
       "tags": [
         "AI",
         "integrity"
@@ -200,10 +217,61 @@
       "figure": {
         "type": "img",
         "src": "figures/ai-declare.svg",
-        "alt": "Mandatory AI use declaration",
-        "caption": "Missing declaration can fail",
-        "shows": "Missing declaration can fail"
+        "alt": "AI writing essay is cheating",
+        "caption": "You must write the essay",
+        "shows": "Generated essay text = cheating."
       }
+    },
+    {
+      "id": "4100-ai-cheat-examples",
+      "q": "Give four examples of AI use that count as cheating for the essay.",
+      "a": "1) AI writes the essay/parts from your ideas. 2) AI fixes up your draft. 3) AI generates an essay from your material. 4) AI restyles your paragraph into essay style. All leave text that was not really written by you.",
+      "tags": [
+        "AI",
+        "integrity"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ai-declare.svg",
+        "alt": "Cheating AI writing examples",
+        "caption": "AI must not write your essay text",
+        "shows": "Ideas/draft/material/restyle still cheating."
+      }
+    },
+    {
+      "id": "4100-ai-bland-text",
+      "q": "Why does AI-generated essay text often get weak grades, beyond integrity?",
+      "a": "LLM text often reads bland, polished and business-like - little personality - and says little despite fancy language. It also short-circuits learning to understand and communicate research, which you develop by writing yourself.",
+      "tags": [
+        "AI",
+        "essay",
+        "learning"
+      ]
+    },
+    {
+      "id": "4100-ai-allowed",
+      "q": "Which AI uses does ACIT4100 endorse for the essay process?",
+      "a": "Summarise/explain research articles; group articles into categories; have AI summarise YOUR draft/outline so you check coverage against your ideas; discuss topic/structure; help find material / common knowledge; teach grammar/writing from YOUR paragraph so YOU improve. Mentoring support - not masking your writing.",
+      "tags": [
+        "AI",
+        "essay"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ai-declare.svg",
+        "alt": "Allowed AI mentoring uses",
+        "caption": "AI as mentor, not ghostwriter",
+        "shows": "Support learning; do not write for you."
+      }
+    },
+    {
+      "id": "4100-ai-grammarly",
+      "q": "Is Grammarly (or similar spell/style checkers) cheating in ACIT4100?",
+      "a": "Not cheating if they only work on text you write yourself. Not endorsed either: they often make wording overly advanced/academic. Rare synonyms do not improve the text.",
+      "tags": [
+        "AI",
+        "language"
+      ]
     },
     {
       "id": "4100-plagiarism-forms",
@@ -512,10 +580,11 @@
     {
       "id": "4100-attendance",
       "q": "Is attendance mandatory, and what classroom rules apply?",
-      "a": "Attendance is not mandatory, but if you come, arrive on time. Breaks and meals are outside the classroom.",
+      "a": "Attendance is NOT obligatory - you do not need to notify staff if absent. Sessions are built for active participation / group work. If you come, arrive on time; breaks and meals are outside the classroom.",
       "tags": [
         "teaching",
-        "practical"
+        "practical",
+        "faq"
       ]
     },
     {
@@ -611,10 +680,195 @@
     {
       "id": "4100-class-purpose",
       "q": "What is class time mainly for in ACIT4100?",
-      "a": "Activities plus assisted individual work on your essay/literature process - after you have already done the digital prep.",
+      "a": "Active participation and group work: activities plus assisted individual work on your essay/literature process - after you have already done the digital prep.",
       "tags": [
         "teaching",
-        "flipped"
+        "flipped",
+        "faq"
+      ]
+    },
+    {
+      "id": "4100-topic-choice",
+      "q": "What may you choose as the ACIT4100 essay topic (Essay requirements 2026)?",
+      "a": "A field of research of your own choosing within the scope of the ACIT program. Focus on the research itself (understanding and communicating research), not mainly a technology with research around it.",
+      "tags": [
+        "essay",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/rq-focus.svg",
+        "alt": "Choose a research field within ACIT",
+        "caption": "Own research field within ACIT",
+        "shows": "Topic = research field, not a product pitch."
+      }
+    },
+    {
+      "id": "4100-not-judge",
+      "q": "Should you judge the quality of research findings like a domain expert?",
+      "a": "No. Search, summarize, synthesize and communicate what others have published. You may discuss how you interpret findings, but you are not expected to judge their quality as an expert. You are not trained anthropologists uncovering new knowledge.",
+      "tags": [
+        "essay",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Synthesize do not judge as expert",
+        "caption": "Report and interpret, do not referee",
+        "shows": "Communicate published knowledge; do not act as expert referee."
+      }
+    },
+    {
+      "id": "4100-criteria-prescribe",
+      "q": "Who decides which essay perspectives are more mandatory than others?",
+      "a": "The assessment criteria document: clear expectations prescribe some areas as more mandatory. You choose the mix of perspectives, but you must check that document and cover the prescribed priorities.",
+      "tags": [
+        "essay",
+        "assessment",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/assess-stars.svg",
+        "alt": "Assessment criteria set mandatory areas",
+        "caption": "Check the criteria document",
+        "shows": "Mix is yours; mandatory weight comes from the rubric."
+      }
+    },
+    {
+      "id": "4100-own-effort",
+      "q": "Do weekly course materials alone cover the essay perspectives?",
+      "a": "No. Weekly content gets you started on most topics, but you still need substantial own effort, including skill training in reading scientific works. Class also includes writing exercises.",
+      "tags": [
+        "essay",
+        "2026",
+        "teaching"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/research-process-clear.svg",
+        "alt": "Own reading and writing practice",
+        "caption": "Course starts; you deepen",
+        "shows": "Prep + own reading + in-class writing drills."
+      }
+    },
+    {
+      "id": "4100-content-over-style",
+      "q": "Can excellent style compensate for thin research content in the essay?",
+      "a": "No. Style is only a wrapper around information that must be communicated. Best grades go to essays that are rich in content and well executed in classic and/or narrative style.",
+      "tags": [
+        "essay",
+        "classic-style",
+        "narrative",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Content first then style craft",
+        "caption": "Content first, style wraps it",
+        "shows": "Rich research content + well executed style."
+      }
+    },
+    {
+      "id": "4100-not-hybrid",
+      "q": "Is ACIT4100 hybrid (online + campus in parallel)?",
+      "a": "No. The course is not hybrid - expect on-campus sessions for participation/group work (plus the flipped digital prep before class).",
+      "tags": [
+        "teaching",
+        "faq",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-not-recorded",
+      "q": "Are ACIT4100 class sessions recorded?",
+      "a": "No. Classes are not recorded so students can speak more comfortably and so learning from participation stays in the room.",
+      "tags": [
+        "teaching",
+        "faq",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-oria-access",
+      "q": "How do you access research articles for ACIT4100 (library FAQ)?",
+      "a": "Search Oria via the OsloMet library (https://www.oslomet.no/en/ul) - log in; use VPN or the OsloMet network when needed. Google Scholar often works too.",
+      "tags": [
+        "literature",
+        "faq",
+        "tools"
+      ]
+    },
+    {
+      "id": "4100-inspera",
+      "q": "Where do you hand in the ACIT4100 exam?",
+      "a": "Inspera via Studentweb - see https://student.oslomet.no/hjemmeeksamen for home-exam / Inspera access guidance.",
+      "tags": [
+        "exam",
+        "faq",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-candidate-number",
+      "q": "Where do you find your candidate number before the exam deadline?",
+      "a": "In Studentweb - look up your candidate number there before the hand-in deadline.",
+      "tags": [
+        "exam",
+        "faq",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-video-cc",
+      "q": "What should you know about course video captions and browsers (Canvas FAQ)?",
+      "a": "Closed captions (CC) are English-only (speech recognition). Supported browsers: Chrome, Firefox, Edge, Safari. Allow pop-ups so video tools work.",
+      "tags": [
+        "canvas",
+        "faq",
+        "practical"
+      ]
+    },
+    {
+      "id": "4100-konte-fail",
+      "q": "What happens if you fail the ACIT4100 essay exam?",
+      "a": "A continuation exam (konte) is available. It counts as a new exam attempt. Reasons for failing are listed in the assessment information document.",
+      "tags": [
+        "exam",
+        "konte",
+        "course-info"
+      ]
+    },
+    {
+      "id": "4100-konte-same-essay",
+      "q": "If you failed ACIT4100, can you keep working on the same essay for the continuation exam?",
+      "a": "Yes. Failed students may continue working on the same essay they submitted. How much rework is needed varies.",
+      "tags": [
+        "exam",
+        "konte",
+        "essay"
+      ]
+    },
+    {
+      "id": "4100-retake-new-essay",
+      "q": "If you passed ACIT4100 but want a better grade next year, can you improve the same essay?",
+      "a": "No. You must submit a new essay. Unlike failed students on konte, you cannot improve the same base text.",
+      "tags": [
+        "exam",
+        "retake",
+        "essay"
+      ]
+    },
+    {
+      "id": "4100-mandatory-two-years",
+      "q": "How long do previously approved mandatory assignments stay valid when retaking ACIT4100?",
+      "a": "Only for the past two years. If older, you must redo them.",
+      "tags": [
+        "exam",
+        "mandatory",
+        "retake"
       ]
     }
   ]
