@@ -1,9 +1,9 @@
-/* Offline cache for MSc Cybersecurity Practise Syllabus 1st Year (GitHub Pages / HTTPS).
+﻿/* Offline cache for MSc Cybersecurity Practise Syllabus 1st Year (GitHub Pages / HTTPS).
  * Bump CACHE on deploy so clients drop stale shells.
  * Same-origin only - never cache cross-origin responses.
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  */
-const CACHE = "msc-cyber-lock10";
+const CACHE = "msc-cyber-lock11";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",

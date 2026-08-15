@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock10" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock10" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock10" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock10" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock11" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock11" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock11" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock11" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1137,13 +1137,22 @@
     }
     .quiz-grades button[data-grade="good"]:hover { background: var(--signal-bright); border-color: var(--signal-bright); color: #fff; }
     .quiz-grades button[data-grade="good"] .grade-ivl { background: rgba(255,241,209,0.22); }
+    /* Easy: outline turquoise so it is distinct from filled Good */
     .quiz-grades button[data-grade="easy"] {
-      background: var(--signal-deep);
-      color: #fff;
-      border-color: var(--signal-deep);
+      background: var(--surface);
+      color: var(--palette-turquoise);
+      border-color: var(--palette-turquoise);
+      border-width: 2px;
     }
-    .quiz-grades button[data-grade="easy"] .grade-ivl { background: rgba(255,241,209,0.22); }
-    .quiz-grades button[data-grade="easy"]:hover { background: var(--signal-bright); border-color: var(--signal-bright); }
+    .quiz-grades button[data-grade="easy"] .grade-ivl {
+      background: var(--signal-soft);
+      color: var(--palette-turquoise);
+    }
+    .quiz-grades button[data-grade="easy"]:hover {
+      background: var(--signal-soft);
+      border-color: var(--palette-turquoise);
+      color: var(--ink);
+    }
     .quiz-empty {
       text-align: center;
       padding: 2.5rem 1.25rem;
@@ -1299,6 +1308,26 @@
     }
     .install-tip[hidden] { display: none !important; }
 
+    .sw-toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(1rem + var(--safe-bottom));
+      transform: translateX(-50%);
+      z-index: 90;
+      max-width: min(22rem, calc(100vw - 2rem));
+      padding: 0.65rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.35;
+      text-align: center;
+      color: var(--ink);
+      background: #FFF1D1;
+      border: 2px solid var(--palette-turquoise);
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(26, 20, 16, 0.12);
+    }
+    .sw-toast[hidden] { display: none !important; }
+
     @media print {
       .hero::after,
       .cta,
@@ -1361,6 +1390,7 @@
 </head>
 <body>
   <a class="skip-link" href="#lab">Skip to content</a>
+  <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
   <header class="hero">
     <div class="hero-inner">
       <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open Quiz ACIT4050">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Research">4100</button></span></p>
@@ -1845,7 +1875,7 @@
 
           <div class="quiz-progress-wrap" id="quiz-progress-wrap">
             <div class="quiz-progress-meta">
-              <span><strong id="quiz-step-label">Card -</strong></span>
+              <span><strong id="quiz-step-label">Ready</strong></span>
               <span class="meta-stats">
                 <span class="stat">done <b id="quiz-done-count">0</b></span>
                 <span class="stat">total <b id="quiz-total-count">0</b></span>
@@ -1896,7 +1926,7 @@
 
           <div class="quiz-footer-meta">
             <p class="quiz-shortcuts" id="quiz-shortcuts">
-              <kbd>1</kbd>-<kbd>4</kbd> rate | <kbd>Space</kbd> answer | &lt;- -&gt; course
+              <kbd>1</kbd>-<kbd>4</kbd> rate | <kbd>Space</kbd> answer | arrows on course tabs
             </p>
             <button type="button" class="quiz-reset-quiet" id="quiz-reset">Reset progress (this course)</button>
           </div>
@@ -1920,7 +1950,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock10" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock11" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script>
   (function () {
   "use strict";
@@ -2663,7 +2693,7 @@ function showCourse(courseKey) {
         return;
       }
       var meta = window.QUIZ_DECKS_META;
-      if (!meta || meta.version !== "lock10") {
+      if (!meta || meta.version !== "lock11") {
         console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
@@ -2691,7 +2721,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock10-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock11-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -3056,7 +3086,12 @@ function showCourse(courseKey) {
     var text = $("quiz-empty-text");
     var actions = $("quiz-empty-actions");
     var reloadActions = $("quiz-reload-actions");
-    if (opts.missingDeck) {
+    if (opts.loading) {
+      if (title) title.textContent = "Loading quiz data";
+      if (text) text.textContent = "Fetching cards for this course. This only takes a moment when you are online.";
+      if (actions) actions.classList.add("hidden");
+      if (reloadActions) reloadActions.classList.add("hidden");
+    } else if (opts.missingDeck) {
       if (title) title.textContent = "Quiz data missing";
       if (text) {
         var reason = window.__QUIZ_DECKS_LOAD_ERROR
@@ -3092,14 +3127,19 @@ function showCourse(courseKey) {
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
       quizState.sessionQueue = null;
-      quizShowEmpty(0, { missingDeck: true });
       if (!quizDeckFallbackTried) {
         quizDeckFallbackTried = true;
+        quizShowEmpty(0, { loading: true });
         quizFetchJsonFallback().then(function (ok) {
           if (ok) quizLoadAndShow();
-          else quizDeckFallbackTried = false;
+          else {
+            quizDeckFallbackTried = false;
+            quizShowEmpty(0, { missingDeck: true });
+          }
         });
+        return;
       }
+      quizShowEmpty(0, { missingDeck: true });
       return;
     }
 
@@ -3172,8 +3212,13 @@ function showCourse(courseKey) {
     quizUpdateGradePreviews();
     $("quiz-grades").classList.remove("hidden");
     try {
-      $("quiz-grades").scrollIntoView({ block: "nearest", behavior: "smooth" });
+      var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      $("quiz-grades").scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
     } catch (e) { /* ignore */ }
+    var firstGrade = document.querySelector('#quiz-grades button[data-grade="again"]');
+    if (firstGrade) {
+      try { firstGrade.focus(); } catch (e2) { /* ignore */ }
+    }
   }
 
   function quizAfterGrade(grade) {
@@ -3695,15 +3740,23 @@ function showCourse(courseKey) {
   if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
     window.addEventListener("load", function () {
       var refreshing = false;
+      function showSwToast(msg) {
+        var el = document.getElementById("sw-toast");
+        if (!el) return;
+        el.hidden = false;
+        el.textContent = msg;
+      }
       navigator.serviceWorker.addEventListener("controllerchange", function () {
         if (refreshing) return;
         refreshing = true;
+        showSwToast("Update applied - refreshing...");
         location.reload();
       });
       navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).then(function (reg) {
         try { reg.update(); } catch (e) { /* ignore */ }
         function promptWaiting(worker) {
           if (!worker) return;
+          showSwToast("Update ready - refreshing...");
           worker.postMessage({ type: "SKIP_WAITING" });
         }
         if (reg.waiting) promptWaiting(reg.waiting);
