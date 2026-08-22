@@ -174,6 +174,18 @@
       from { opacity: 0; transform: translateY(1.25rem); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem 1rem;
+      margin: 0 0 1.25rem;
+    }
+    .hero .profile-bar {
+      margin: 0;
+      justify-content: flex-end;
+    }
     .brand {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: clamp(0.72rem, 2.1vw, 0.95rem);
@@ -181,7 +193,7 @@
       letter-spacing: 0.01em;
       line-height: 1.4;
       color: var(--warn);
-      margin: 0 0 1.25rem;
+      margin: 0;
       display: inline-block;
       max-width: min(100%, 36rem);
       padding-bottom: 0.4rem;
@@ -2081,7 +2093,8 @@
       .quiz-grades,
       #quiz-reveal-row,
       .tut-actions,
-      #fx-layer { display: none !important; }
+      #fx-layer,
+      .profile-bar { display: none !important; }
       .hero { min-height: 0; padding: 1rem 0 0.75rem; }
       .shell-lift { margin-top: 0; }
       .panel, .course-panel { display: block !important; animation: none !important; }
@@ -2137,7 +2150,19 @@
   <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
   <header class="hero">
     <div class="hero-inner">
-      <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
+      <div class="hero-top">
+        <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
+        <div class="profile-bar" id="profile-bar">
+          <button type="button" class="profile-chip" id="profile-open" title="Your signed-in account">
+            <span class="profile-avatar" id="profile-avatar" aria-hidden="true">?</span>
+            <span id="profile-name-label">Sign in</span>
+          </button>
+          <button type="button" class="btn ghost" id="profile-settings-btn" hidden>Settings</button>
+          <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
+          <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
+          <button type="button" class="btn ghost" id="profile-logout" hidden>Sign out</button>
+        </div>
+      </div>
       <h1>Type the commands. Learn them for good.</h1>
       <p class="hero-lede">Quiz, diagrams and a terminal tutorial for ACIT4050, 4280 and 4100 - works offline on phone and PC.</p>
     </div>
@@ -2622,16 +2647,6 @@
             <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz</button>
           </div>
           <p class="study-mode-banner" id="study-mode-banner">Quiz: hide the answer, then rate the card. The app remembers what to drill.</p>
-          <div class="profile-bar" id="profile-bar">
-            <button type="button" class="profile-chip" id="profile-open" title="Your signed-in account">
-              <span class="profile-avatar" id="profile-avatar" aria-hidden="true">?</span>
-              <span id="profile-name-label">Sign in</span>
-            </button>
-            <button type="button" class="btn ghost" id="profile-settings-btn" hidden>Settings</button>
-            <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
-            <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
-            <button type="button" class="btn ghost" id="profile-logout" hidden>Sign out</button>
-          </div>
           <div id="study-auth" class="study-auth">
             <h3>Create your account</h3>
             <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings. <a href="privacy-policy.html">Read the privacy policy</a>.</p>
@@ -2902,8 +2917,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock71" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock71"></script>
+  <script src="quiz-decks.js?v=lock72" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock72"></script>
   <script>
   (function () {
   "use strict";
@@ -6279,8 +6294,12 @@ function showCourse(courseKey) {
 
   function profileOpenModal() {
     if (!profileIsAuthed()) {
+      showCourse("acit4050");
       studyAuthApplyUi();
-      if ($("auth-pass")) $("auth-pass").focus();
+      var lock = $("study-auth");
+      if (lock && lock.scrollIntoView) lock.scrollIntoView({ behavior: "smooth", block: "start" });
+      var focusEl = $("auth-new-name") || $("auth-pass");
+      if (focusEl) focusEl.focus();
       return;
     }
     var modal = $("profile-modal");
