@@ -1703,6 +1703,44 @@
           "rootkit",
           "exam"
         ]
+      },
+      {
+        "id": "4050-nist-detect-outcomes",
+        "q": "Which outcomes fall under the NIST CSF Detect function?",
+        "a": "Continuous monitoring for cybersecurity events, detecting anomalies and incidents in a timely manner, and verifying that protective measures actually work.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
+      },
+      {
+        "id": "4050-nist-detect-categories",
+        "q": "Name the Detect categories in NIST CSF.",
+        "a": "Anomalies and Events (DE.AE), Security Continuous Monitoring (DE.CM), and Detection Processes (DE.DP). CSF 2.0 merges these into Continuous Monitoring and Adverse Event Analysis.",
+        "tags": [
+          "Lecture1",
+          "NIST",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-nist-detect-validate",
+        "q": "Why does validating protective measures belong to Detect, not Protect?",
+        "a": "Detect covers monitoring, and NIST defines continuous monitoring as watching systems both to spot events and to verify the effectiveness of protective measures. Protect is about putting safeguards in place; Detect is about seeing whether they hold.",
+        "tags": [
+          "Lecture1",
+          "NIST",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-nist-roles-function",
+        "q": "Which NIST function covers defining cybersecurity roles and responsibilities?",
+        "a": "Govern in CSF 2.0 (it was Identify in CSF 1.1). It is organisational policy and accountability, not monitoring.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
       }
     ]
   },
@@ -6752,7 +6790,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 159,
+    acit4050: 163,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6760,7 +6798,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock49",
+    version: "lock50",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
