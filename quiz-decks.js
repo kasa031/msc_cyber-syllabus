@@ -974,6 +974,44 @@
           "Lecture1",
           "syllabus"
         ]
+      },
+      {
+        "id": "4050-new-quizzes-lti",
+        "q": "Why are exact ACIT4050 New Quizzes question texts not exported into this deck yet?",
+        "a": "Assignments use Canvas New Quizzes (external LTI). The classic Quizzes API is disabled in course 34599. Local crawl (Aug 2026) captured metadata only: pass at 60/100, five attempts, best score counts. Exporting questions needs a logged-in browser attempt (CDP) - tagged needs-canvas until crawled.",
+        "tags": [
+          "syllabus",
+          "Lecture1",
+          "needs-canvas"
+        ]
+      },
+      {
+        "id": "4050-assignments-count",
+        "q": "How many assignments must be approved in ACIT4050 before exam?",
+        "a": "Eight assignments (technical or theoretical), documented in reports - all must be approved.",
+        "tags": [
+          "syllabus",
+          "assignments"
+        ]
+      },
+      {
+        "id": "4050-vm-lab",
+        "q": "What VM setup does ACIT4050 recommend for labs?",
+        "a": "At least one Kali Linux and one Ubuntu or Windows VM running simultaneously; minimum 8 GB RAM, 4 CPU cores, ~100-120 GB free disk.",
+        "tags": [
+          "syllabus",
+          "lab",
+          "VM"
+        ]
+      },
+      {
+        "id": "4050-exam-format",
+        "q": "ACIT4050 exam format (Fall 2026 syllabus)?",
+        "a": "Individual written exam, 3 hours, no aids allowed, graded A-F.",
+        "tags": [
+          "syllabus",
+          "exam"
+        ]
       }
     ]
   },
@@ -981,6 +1019,26 @@
     "course": "ACIT4280",
     "title": "Privacy / GDPR (L1-L6)",
     "cards": [
+      {
+        "id": "4280-gdpr-structure",
+        "q": "How is the GDPR built? (two layers)",
+        "a": "Recitals (1-173) = explanation / intention (how to interpret the rules). Articles (1-99) = the actual binding rules. Cite articles for what is required; use recitals when you need meaning (e.g. anonymisation in Recital 26).",
+        "tags": [
+          "structure",
+          "GDPR",
+          "recitals"
+        ]
+      },
+      {
+        "id": "4280-recitals-vs-articles",
+        "q": "Recitals vs Articles: what is each for, and how many are there?",
+        "a": "Recitals 1-173 explain intention and help interpretation. Articles 1-99 are the legal obligations (principles, rights, duties, transfers, enforcement). Rule of thumb: Articles = must/shall; Recitals = what it means / why.",
+        "tags": [
+          "structure",
+          "GDPR",
+          "recitals"
+        ]
+      },
       {
         "id": "4280-personal-data",
         "q": "What is 'personal data' under GDPR Art. 4(1)?",
@@ -3098,10 +3156,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/pdca-cycle-slide.png",
-          "alt": "Plan-Do-Check-Act cycle slide",
-          "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+          "src": "figures/pdca.svg",
+          "alt": "Plan Do Check Act cycle",
+          "caption": "Continuous improvement"
         }
       },
       {
@@ -3132,8 +3189,7 @@
           "type": "img",
           "src": "figures/pdca.svg",
           "alt": "PDCA re-assessment triggers",
-          "caption": "When to re-run PDCA",
-          "shows": "When to re-run PDCA"
+          "caption": "When to re-run PDCA"
         }
       },
       {
@@ -3147,10 +3203,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/linddun-steps.png",
-          "alt": "LINDDUN steps diagram from Canvas",
-          "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+          "src": "figures/linddun.svg",
+          "alt": "LINDDUN threat categories",
+          "caption": "Threat-based privacy design"
         }
       },
       {
@@ -3195,10 +3250,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/oasis-cycle.png",
-          "alt": "OASIS privacy management cycle from Canvas",
-          "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+          "src": "figures/pdca.svg",
+          "alt": "OASIS PbD-SE as PDCA",
+          "caption": "Engineering documentation"
         }
       },
       {
@@ -3211,10 +3265,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-          "alt": "Hoepman privacy strategies from Canvas",
-          "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+          "src": "figures/hoepman-8.svg",
+          "alt": "Eight privacy design strategies",
+          "caption": "Hoepman strategies"
         }
       },
       {
@@ -3227,10 +3280,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-          "alt": "Hoepman privacy strategies from Canvas",
-          "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+          "src": "figures/hoepman-8.svg",
+          "alt": "Minimise among design strategies",
+          "caption": "Data minimisation strategy"
         }
       },
       {
@@ -3243,10 +3295,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-          "alt": "Hoepman privacy strategies from Canvas",
-          "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+          "src": "figures/hoepman-8.svg",
+          "alt": "Separate among design strategies",
+          "caption": "Harder full profiles"
         }
       },
       {
@@ -3260,10 +3311,9 @@
         ],
         "figure": {
           "type": "img",
-          "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-          "alt": "Hoepman privacy strategies from Canvas",
-          "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-          "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+          "src": "figures/hoepman-8.svg",
+          "alt": "Demonstrate among design strategies",
+          "caption": "Accountability evidence"
         }
       },
       {
@@ -3337,6 +3387,130 @@
           "caption": "L2 to L6 arc",
           "shows": "L2 to L6 arc"
         }
+      },
+      {
+        "id": "4280-supplement-smart-meter",
+        "q": "What topic does the Canvas supplement page \"Mobile Computing & Smart Metering\" cover?",
+        "a": "Privacy issues when mobile computing meets smart metering - course slides plus optional readings on granular energy/visitor-flow measurement and public debate.",
+        "tags": [
+          "supplement",
+          "smart-metering",
+          "Canvas"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/personal-data.svg",
+          "alt": "Smart metering privacy supplement",
+          "caption": "Mobile plus metering"
+        }
+      },
+      {
+        "id": "4280-supplement-smart-meter-reading",
+        "q": "Name one optional reading linked from Mobile Computing & Smart Metering (Canvas scrape Aug 2026).",
+        "a": "Examples: Swedish DPA (Datainspektionen) case on visitor flows measured too precisely in Vasteras (2015), or National Geographic \"Who's Watching? Privacy Concerns Persist as Smart Meters Roll Out\" (2012).",
+        "tags": [
+          "supplement",
+          "smart-metering",
+          "Canvas"
+        ]
+      },
+      {
+        "id": "4280-supplement-fitness-apps",
+        "q": "What is Casestudy-fitness-apps.pdf in ACIT4280 Canvas modules?",
+        "a": "A privacy-by-design case study PDF (Introduction module) about fitness apps - used for home assignment analysis; detailed question cards need the PDF text (not fully scraped yet).",
+        "tags": [
+          "supplement",
+          "case-study",
+          "Canvas",
+          "needs-canvas"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/pet-concepts.svg",
+          "alt": "Fitness apps case study PDF",
+          "caption": "PbD case PDF"
+        }
+      },
+      {
+        "id": "4280-2a-task",
+        "q": "What does ACIT4280 Assignment 2A ask students to do?",
+        "a": "Read three Canvas papers on TETs, access own data on Google or Facebook export dashboards, and write about 1500 words on which TET aspects the companies implement, which are missing, and how they compare with literature TETs.",
+        "tags": [
+          "assignment-2A",
+          "TETs",
+          "Canvas"
+        ]
+      },
+      {
+        "id": "4280-2a-papers",
+        "q": "Name the three papers on Canvas Assignment 2A (confirmed Aug 2026).",
+        "a": "Karegar et al. (2016) Data Track; Murmann and Fischer-Huebner (2017) usable ex post TETs survey; Zimmermann (2015) TetCat classification.",
+        "tags": [
+          "assignment-2A",
+          "TETs",
+          "literature"
+        ]
+      },
+      {
+        "id": "4280-2a-karegar-datatrack",
+        "q": "What is the Data Track (Karegar et al. 2016) in Assignment 2A context?",
+        "a": "A third-party TET that visualises personal-data exports so data subjects can exercise access and portability - users may prefer export, edit, then upload rather than trust a live dashboard alone.",
+        "tags": [
+          "assignment-2A",
+          "TETs",
+          "Karegar"
+        ]
+      },
+      {
+        "id": "4280-2a-murmann-expost",
+        "q": "What do Murmann and Fischer-Huebner (2017) emphasise about ex post TETs?",
+        "a": "Tools that give insight after disclosure, including possible consequences, in a form people can use - a file archive can fail as a TET if processing, recipients or consequences stay unclear.",
+        "tags": [
+          "assignment-2A",
+          "TETs",
+          "Murmann"
+        ]
+      },
+      {
+        "id": "4280-2a-zimmermann-assertion",
+        "q": "How does Zimmermann (2015) classify Google My Account in TetCat?",
+        "a": "Server-side, pull, organisation-scope dashboard - interactive for collection/modification/deletion, but Assurance Level Untrusted: an Assertion TET (insight into collected data, not a trusted audit of processing).",
+        "tags": [
+          "assignment-2A",
+          "TETs",
+          "Zimmermann",
+          "TetCat"
+        ]
+      },
+      {
+        "id": "4280-2a-tet-yardstick",
+        "q": "List four TET yardstick features coded in Assignment 2A (joint table).",
+        "a": "Examples: obtain a copy; machine-readable format; human-readable overview; named recipients/third parties; purposes and legal basis; consequences; visualisation of export; timeline; ex ante support; in-tool control; usable lay visualisation.",
+        "tags": [
+          "assignment-2A",
+          "TETs",
+          "coding"
+        ]
+      },
+      {
+        "id": "4280-2a-google-takeout-gap",
+        "q": "Assignment 2A finding: Google Takeout as portability vs as TET?",
+        "a": "Wide as access/portability (many product families export data copies) but narrow as a TET - archives rarely explain recipients, purposes or legal basis inside the zip.",
+        "tags": [
+          "assignment-2A",
+          "Google",
+          "Takeout"
+        ]
+      },
+      {
+        "id": "4280-2a-facebook-compare",
+        "q": "Assignment 2A: how do Google and Facebook score on the same TET yardstick?",
+        "a": "Close together on coded features: both implement access/portability; both miss export visualisation, consequences, ex ante support in the zip, and in-tool correction/erasure - Off-Facebook Activity is partial recipient transparency like Google ads lists.",
+        "tags": [
+          "assignment-2A",
+          "Facebook",
+          "Google"
+        ]
       }
     ]
   },
@@ -4671,6 +4845,173 @@
           "deadlines",
           "canvas"
         ]
+      },
+      {
+        "id": "4100-usable-saltzer-psych",
+        "q": "What is psychological acceptability in Saltzer and Schroeder (1975)?",
+        "a": "Protection mechanisms must be easy enough that people will actually use them - security that humans reject in practice fails. A founding usable-security idea before the field had a name.",
+        "tags": [
+          "usable-security",
+          "SpineA",
+          "philosophy"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Saltzer psychological acceptability",
+          "caption": "People must accept controls"
+        }
+      },
+      {
+        "id": "4100-usable-zurko-1996",
+        "q": "What did Zurko and Simon (1996) name?",
+        "a": "User-centered security - connecting Saltzer-style human factors to a research program inside security, not only HCI.",
+        "tags": [
+          "usable-security",
+          "SpineA"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "User-centered security 1996",
+          "caption": "Named the research program"
+        }
+      },
+      {
+        "id": "4100-usable-adams-sasse",
+        "q": "What is the main claim of Adams and Sasse (1999) \"Users are not the enemy\"?",
+        "a": "Blaming users as the weakest link ignores design and organisational causes shown in interviews - poor usability and policy drive many breaches, not an \"enemy within\".",
+        "tags": [
+          "usable-security",
+          "SpineA",
+          "ethics"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/ethics-essay.svg",
+          "alt": "Users are not the enemy",
+          "caption": "Design not blame"
+        }
+      },
+      {
+        "id": "4100-usable-johnny",
+        "q": "Why is \"Why Johnny can't encrypt\" (Whitten and Tygar, 1999) canonical?",
+        "a": "Usability evaluation of PGP 5.0: unusable crypto is insecure crypto. Introduces cognitive walkthrough-style evaluation for security tools.",
+        "tags": [
+          "usable-security",
+          "SpineA",
+          "methods"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/real/encryption-padlock-clear.svg",
+          "alt": "Johnny cannot encrypt PGP",
+          "caption": "Usability equals security"
+        }
+      },
+      {
+        "id": "4100-usable-grand-challenge",
+        "q": "What is Zurko's (2005) \"grand challenge\" for usable security?",
+        "a": "Usable security as a cross-disciplinary scientific challenge - not password tips but evidence, venues, and methods - ahead of SOUPS institutionalising the field.",
+        "tags": [
+          "usable-security",
+          "SpineA"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/research-funnel.svg",
+          "alt": "Grand challenge usable security",
+          "caption": "Science not tips"
+        }
+      },
+      {
+        "id": "4100-usable-soups",
+        "q": "What is SOUPS in usable security history?",
+        "a": "Symposium on Usable Privacy and Security - first held 2005 (Cranor general chair), growing from CHI/WUPSS workshops into a refereed venue for the field.",
+        "tags": [
+          "usable-security",
+          "SpineA",
+          "venues"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/peer-review.svg",
+          "alt": "SOUPS venue founding",
+          "caption": "Refereed usable security venue"
+        }
+      },
+      {
+        "id": "4100-usable-krol-methods",
+        "q": "Name principles from Krol et al. (2016) for robust security user studies.",
+        "a": "Include realistic primary tasks and risk, avoid priming, and design experiments so findings reflect real behaviour - five principles summarised for LASER; field standard for empirical usable security.",
+        "tags": [
+          "usable-security",
+          "SpineA",
+          "methods"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/imrad.svg",
+          "alt": "Robust user study design",
+          "caption": "Primary task and anti-priming"
+        }
+      },
+      {
+        "id": "4100-usable-essay-scope",
+        "q": "What must a usable-security essay be about (Karina Spine A / course rules)?",
+        "a": "The research field itself (canon, venues, methods, ethics) - not phishing training as main topic, not SOC job tips, not new empirical mini-master or IMRaD lab report.",
+        "tags": [
+          "usable-security",
+          "SpineA",
+          "essay",
+          "2026"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/thesis-outline.svg",
+          "alt": "Field not product essay",
+          "caption": "Research field focus"
+        }
+      },
+      {
+        "id": "4100-exam-words",
+        "q": "ACIT4100 exam essay word count?",
+        "a": "5500 to 6500 words - the essay is the exam, submitted at end of semester.",
+        "tags": [
+          "mandatory",
+          "exam",
+          "Canvas"
+        ]
+      },
+      {
+        "id": "4100-exam-deadline",
+        "q": "ACIT4100 exam submission deadline (verified exam office)?",
+        "a": "Friday 05 December 2025 at 12:00 (noon).",
+        "tags": [
+          "mandatory",
+          "exam",
+          "Canvas"
+        ]
+      },
+      {
+        "id": "4100-assign1-taxonomy",
+        "q": "What is Assignment 1 in ACIT4100 and its due date?",
+        "a": "A literature taxonomy (spreadsheet with metadata per source); threshold about ten or more scientific papers for approval. Due Friday 26 September 2025 at 12:00.",
+        "tags": [
+          "mandatory",
+          "assignment-1",
+          "Canvas"
+        ]
+      },
+      {
+        "id": "4100-assign2-video",
+        "q": "What is Assignment 2 in ACIT4100 and its due date?",
+        "a": "A recorded presentation (5-10 minutes) on your essay topic - watched offline by staff. Due Friday 31 October 2025 at 12:00.",
+        "tags": [
+          "mandatory",
+          "assignment-2",
+          "Canvas"
+        ]
       }
     ]
   },
@@ -4971,18 +5312,300 @@
         ]
       }
     ]
+  },
+  "fellesjam-general": {
+    "course": "Fellesjam",
+    "title": "General cyber foundations",
+    "cards": [
+      {
+        "id": "fj-curl",
+        "q": "What is curl used for on the command line?",
+        "a": "curl transfers data to or from a server using URLs. Common uses: fetch a page (curl https://example.com) or inspect HTTP headers only with curl -I (HEAD request, no body).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "cli",
+          "http"
+        ]
+      },
+      {
+        "id": "fj-dig",
+        "q": "What does dig do?",
+        "a": "dig (domain information groper) performs DNS lookups from the CLI - shows how a name resolves (A, MX, NS, etc.) and which DNS server answered.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-dns-analogy",
+        "q": "What is DNS, in plain terms?",
+        "a": "DNS (Domain Name System) maps human-readable domain names to IP addresses and other records - like a phone book for the internet.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-fqdn",
+        "q": "What is an FQDN?",
+        "a": "FQDN = Fully Qualified Domain Name - the complete hostname including all domain labels, e.g. www.example.com. (not a relative name like www only).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-bind-dig",
+        "q": "How do bind, bind9-tools, and dig relate on Ubuntu?",
+        "a": "BIND is one of the most widely used DNS server implementations. On Ubuntu, bind9-tools installs dig (and related utilities). bind9 is the server package.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "linux"
+        ]
+      },
+      {
+        "id": "fj-dns-a-record",
+        "q": "What is a DNS A record?",
+        "a": "An A record maps a hostname to an IPv4 address (e.g. www.example.com -> 93.184.216.34).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-dns-mx-record",
+        "q": "What is a DNS MX record?",
+        "a": "MX (Mail eXchange) records point a domain to mail servers that receive email for that domain, with priority values when several exist.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-zonefile",
+        "q": "What is a DNS zone file?",
+        "a": "A zone file is the text configuration for a DNS zone - it lists records (SOA, NS, A, MX, CNAME, etc.) served for a domain on an authoritative server.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-apt",
+        "q": "What is apt on Debian/Ubuntu?",
+        "a": "apt (Advanced Package Tool) installs, updates, and removes software packages from configured repositories (e.g. sudo apt update && sudo apt install bind9-tools).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-ipv4-ipv6",
+        "q": "IPv4 vs IPv6 - what is the main difference?",
+        "a": "IPv4 uses 32-bit addresses (e.g. 192.0.2.1). IPv6 uses 128-bit addresses (e.g. 2001:db8::1) for a much larger address space. DNS A = IPv4; AAAA = IPv6.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "network"
+        ]
+      },
+      {
+        "id": "fj-cdn",
+        "q": "What is a CDN (Content Delivery Network)?",
+        "a": "A CDN caches and serves static content from edge servers close to users - faster loads and less load on the origin. KeyCDN is one commercial CDN provider (example name in course materials).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "network",
+          "web"
+        ]
+      },
+      {
+        "id": "fj-tcp-port",
+        "q": "What is a TCP port?",
+        "a": "A 16-bit number (0-65535) that identifies a service on a host within one IP address. TCP (and UDP) use ports so many services can share one IP (e.g. 443 HTTPS, 53 DNS).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "network"
+        ]
+      },
+      {
+        "id": "fj-whois",
+        "q": "What is whois used for?",
+        "a": "whois queries registration databases for domain and IP allocation info - registrant contacts (often redacted), name servers, dates, etc.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-bash",
+        "q": "What is the bash shell?",
+        "a": "bash (Bourne Again SHell) is a common Unix/Linux command-line shell and scripting language - default on many distros; runs commands, scripts, pipes, and redirects.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-man",
+        "q": "What does man do?",
+        "a": "man opens the manual page for a command (e.g. man dig, man curl). Use / to search inside the page; q to quit.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-pgp",
+        "q": "What is PGP used for?",
+        "a": "PGP (Pretty Good Privacy) and OpenPGP-style tools provide encryption and digital signatures for email and files - confidentiality, integrity, and sender authentication via key pairs.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto"
+        ]
+      },
+      {
+        "id": "fj-linux-vs-ubuntu",
+        "q": "Linux vs Ubuntu - what is the difference?",
+        "a": "Linux is the kernel (core of the OS). Ubuntu is a Linux distribution (kernel + GNU tools + desktop/package management + vendor support). Many distros exist (Debian, Arch, Kali, etc.).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux"
+        ]
+      },
+      {
+        "id": "fj-encrypt-cipher-auth-hash",
+        "q": "Encryption vs cipher vs authentication vs hashing - how do they differ?",
+        "a": "Encryption: reversible hiding of data with a key. Cipher: the algorithm/mode that performs encryption. Authentication: proving identity (who you are). Hashing: one-way fingerprint of data (integrity, passwords) - not meant to be decrypted.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto"
+        ]
+      },
+      {
+        "id": "fj-openssl",
+        "q": "What is OpenSSL?",
+        "a": "OpenSSL is a widely used open-source toolkit for TLS/SSL and general cryptography - certificates, key generation, and the libssl/libcrypto libraries behind many servers and clients.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-tls",
+        "q": "What does TLS do on the web?",
+        "a": "TLS (Transport Layer Security) encrypts and authenticates traffic between client and server (e.g. HTTPS on port 443) - confidentiality and integrity in transit.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-tls12-tls13",
+        "q": "TLS 1.2 vs TLS 1.3 - what should you remember?",
+        "a": "Both are modern TLS versions. TLS 1.3 is newer: fewer weak cipher options, faster handshakes, and 1.3-only features. Servers and clients negotiate the highest version both support; disable legacy SSL/TLS 1.0/1.1.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-ssl-vs-tls",
+        "q": "SSL vs TLS - which name is correct today?",
+        "a": "SSL (Secure Sockets Layer) is the old protocol (SSLv3 and earlier are obsolete/insecure). TLS replaced SSL; people still say \"SSL\" but mean TLS. Use TLS 1.2+ or TLS 1.3 in practice.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-win-snap",
+        "q": "How do you snap two windows side by side on Windows?",
+        "a": "Select a window title bar and drag to the left or right edge until a outline appears, then pick the other window for the other half. Shortcut: Win+Left / Win+Right arrow keys.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "windows"
+        ]
+      },
+      {
+        "id": "fj-own-dns-free",
+        "q": "What does \"set up your own DNS server (free tier)\" usually mean in labs?",
+        "a": "Run an authoritative or recursive DNS instance you control - often in a VM or a provider free tier - configure a zone file (SOA, NS, A, MX), then test with dig @your-server. Exact steps depend on course lab (needs Canvas crawl for official procedure).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "needs-canvas"
+        ]
+      },
+      {
+        "id": "fj-nslookup",
+        "q": "What does nslookup do, and how does it differ from dig?",
+        "a": "nslookup queries DNS interactively or for one name (built into Windows and Linux). dig is more script-friendly and verbose. Both resolve names to records; dig is common on Linux lab VMs.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-mastodon-server",
+        "q": "What is a Mastodon server (\"Mastodontserver\" in Norwegian notes)?",
+        "a": "A Mastodon server (instance) runs fediverse software so users can post, follow, and federate with other instances via ActivityPub. In cyber labs it may mean self-hosting or connecting to an instance - not a separate protocol from Mastodon itself.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "fediverse",
+          "web"
+        ]
+      }
+    ]
   }
 };
 
   var EXPECTED = {
-    acit4050: 85,
-    acit4280: 160,
-    acit4100: 102,
-    "computer-basics": 28
+    acit4050: 89,
+    acit4280: 173,
+    acit4100: 114,
+    "computer-basics": 28,
+    "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock31",
+    version: "lock35",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
@@ -4998,5 +5621,5 @@
     if (mismatch.length && typeof console !== "undefined" && console.warn) {
       console.warn("[quiz-decks] count mismatch:", mismatch.join(", "));
     }
-  } catch (e) { /* ignore */ }
+  } catch (e) {}
 })(typeof window !== "undefined" ? window : globalThis);

@@ -1329,6 +1329,173 @@
         "deadlines",
         "canvas"
       ]
+    },
+    {
+      "id": "4100-usable-saltzer-psych",
+      "q": "What is psychological acceptability in Saltzer and Schroeder (1975)?",
+      "a": "Protection mechanisms must be easy enough that people will actually use them - security that humans reject in practice fails. A founding usable-security idea before the field had a name.",
+      "tags": [
+        "usable-security",
+        "SpineA",
+        "philosophy"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Saltzer psychological acceptability",
+        "caption": "People must accept controls"
+      }
+    },
+    {
+      "id": "4100-usable-zurko-1996",
+      "q": "What did Zurko and Simon (1996) name?",
+      "a": "User-centered security - connecting Saltzer-style human factors to a research program inside security, not only HCI.",
+      "tags": [
+        "usable-security",
+        "SpineA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "User-centered security 1996",
+        "caption": "Named the research program"
+      }
+    },
+    {
+      "id": "4100-usable-adams-sasse",
+      "q": "What is the main claim of Adams and Sasse (1999) \"Users are not the enemy\"?",
+      "a": "Blaming users as the weakest link ignores design and organisational causes shown in interviews - poor usability and policy drive many breaches, not an \"enemy within\".",
+      "tags": [
+        "usable-security",
+        "SpineA",
+        "ethics"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/ethics-essay.svg",
+        "alt": "Users are not the enemy",
+        "caption": "Design not blame"
+      }
+    },
+    {
+      "id": "4100-usable-johnny",
+      "q": "Why is \"Why Johnny can't encrypt\" (Whitten and Tygar, 1999) canonical?",
+      "a": "Usability evaluation of PGP 5.0: unusable crypto is insecure crypto. Introduces cognitive walkthrough-style evaluation for security tools.",
+      "tags": [
+        "usable-security",
+        "SpineA",
+        "methods"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/real/encryption-padlock-clear.svg",
+        "alt": "Johnny cannot encrypt PGP",
+        "caption": "Usability equals security"
+      }
+    },
+    {
+      "id": "4100-usable-grand-challenge",
+      "q": "What is Zurko's (2005) \"grand challenge\" for usable security?",
+      "a": "Usable security as a cross-disciplinary scientific challenge - not password tips but evidence, venues, and methods - ahead of SOUPS institutionalising the field.",
+      "tags": [
+        "usable-security",
+        "SpineA"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/research-funnel.svg",
+        "alt": "Grand challenge usable security",
+        "caption": "Science not tips"
+      }
+    },
+    {
+      "id": "4100-usable-soups",
+      "q": "What is SOUPS in usable security history?",
+      "a": "Symposium on Usable Privacy and Security - first held 2005 (Cranor general chair), growing from CHI/WUPSS workshops into a refereed venue for the field.",
+      "tags": [
+        "usable-security",
+        "SpineA",
+        "venues"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/peer-review.svg",
+        "alt": "SOUPS venue founding",
+        "caption": "Refereed usable security venue"
+      }
+    },
+    {
+      "id": "4100-usable-krol-methods",
+      "q": "Name principles from Krol et al. (2016) for robust security user studies.",
+      "a": "Include realistic primary tasks and risk, avoid priming, and design experiments so findings reflect real behaviour - five principles summarised for LASER; field standard for empirical usable security.",
+      "tags": [
+        "usable-security",
+        "SpineA",
+        "methods"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/imrad.svg",
+        "alt": "Robust user study design",
+        "caption": "Primary task and anti-priming"
+      }
+    },
+    {
+      "id": "4100-usable-essay-scope",
+      "q": "What must a usable-security essay be about (Karina Spine A / course rules)?",
+      "a": "The research field itself (canon, venues, methods, ethics) - not phishing training as main topic, not SOC job tips, not new empirical mini-master or IMRaD lab report.",
+      "tags": [
+        "usable-security",
+        "SpineA",
+        "essay",
+        "2026"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/thesis-outline.svg",
+        "alt": "Field not product essay",
+        "caption": "Research field focus"
+      }
+    },
+    {
+      "id": "4100-exam-words",
+      "q": "ACIT4100 exam essay word count?",
+      "a": "5500 to 6500 words - the essay is the exam, submitted at end of semester.",
+      "tags": [
+        "mandatory",
+        "exam",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "4100-exam-deadline",
+      "q": "ACIT4100 exam submission deadline (verified exam office)?",
+      "a": "Friday 05 December 2025 at 12:00 (noon).",
+      "tags": [
+        "mandatory",
+        "exam",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "4100-assign1-taxonomy",
+      "q": "What is Assignment 1 in ACIT4100 and its due date?",
+      "a": "A literature taxonomy (spreadsheet with metadata per source); threshold about ten or more scientific papers for approval. Due Friday 26 September 2025 at 12:00.",
+      "tags": [
+        "mandatory",
+        "assignment-1",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "4100-assign2-video",
+      "q": "What is Assignment 2 in ACIT4100 and its due date?",
+      "a": "A recorded presentation (5-10 minutes) on your essay topic - watched offline by staff. Due Friday 31 October 2025 at 12:00.",
+      "tags": [
+        "mandatory",
+        "assignment-2",
+        "Canvas"
+      ]
     }
   ]
 }

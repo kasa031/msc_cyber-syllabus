@@ -3,6 +3,26 @@
   "title": "Privacy / GDPR (L1-L6)",
   "cards": [
     {
+      "id": "4280-gdpr-structure",
+      "q": "How is the GDPR built? (two layers)",
+      "a": "Recitals (1-173) = explanation / intention (how to interpret the rules). Articles (1-99) = the actual binding rules. Cite articles for what is required; use recitals when you need meaning (e.g. anonymisation in Recital 26).",
+      "tags": [
+        "structure",
+        "GDPR",
+        "recitals"
+      ]
+    },
+    {
+      "id": "4280-recitals-vs-articles",
+      "q": "Recitals vs Articles: what is each for, and how many are there?",
+      "a": "Recitals 1-173 explain intention and help interpretation. Articles 1-99 are the legal obligations (principles, rights, duties, transfers, enforcement). Rule of thumb: Articles = must/shall; Recitals = what it means / why.",
+      "tags": [
+        "structure",
+        "GDPR",
+        "recitals"
+      ]
+    },
+    {
       "id": "4280-personal-data",
       "q": "What is 'personal data' under GDPR Art. 4(1)?",
       "a": "Any information relating to an identified or identifiable natural person (data subject)-directly or indirectly (e.g. name, ID number, location data, online identifier, factors specific to physical/physiological/genetic/mental/economic/cultural/social identity).",
@@ -2119,10 +2139,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/pdca-cycle-slide.png",
-        "alt": "Plan-Do-Check-Act cycle slide",
-        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+        "src": "figures/pdca.svg",
+        "alt": "Plan Do Check Act cycle",
+        "caption": "Continuous improvement"
       }
     },
     {
@@ -2153,8 +2172,7 @@
         "type": "img",
         "src": "figures/pdca.svg",
         "alt": "PDCA re-assessment triggers",
-        "caption": "When to re-run PDCA",
-        "shows": "When to re-run PDCA"
+        "caption": "When to re-run PDCA"
       }
     },
     {
@@ -2168,10 +2186,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/linddun-steps.png",
-        "alt": "LINDDUN steps diagram from Canvas",
-        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+        "src": "figures/linddun.svg",
+        "alt": "LINDDUN threat categories",
+        "caption": "Threat-based privacy design"
       }
     },
     {
@@ -2216,10 +2233,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/oasis-cycle.png",
-        "alt": "OASIS privacy management cycle from Canvas",
-        "caption": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 5). Source: lecture slides / Canvas."
+        "src": "figures/pdca.svg",
+        "alt": "OASIS PbD-SE as PDCA",
+        "caption": "Engineering documentation"
       }
     },
     {
@@ -2232,10 +2248,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-        "alt": "Hoepman privacy strategies from Canvas",
-        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+        "src": "figures/hoepman-8.svg",
+        "alt": "Eight privacy design strategies",
+        "caption": "Hoepman strategies"
       }
     },
     {
@@ -2248,10 +2263,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-        "alt": "Hoepman privacy strategies from Canvas",
-        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+        "src": "figures/hoepman-8.svg",
+        "alt": "Minimise among design strategies",
+        "caption": "Data minimisation strategy"
       }
     },
     {
@@ -2264,10 +2278,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-        "alt": "Hoepman privacy strategies from Canvas",
-        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+        "src": "figures/hoepman-8.svg",
+        "alt": "Separate among design strategies",
+        "caption": "Harder full profiles"
       }
     },
     {
@@ -2281,10 +2294,9 @@
       ],
       "figure": {
         "type": "img",
-        "src": "figures/pensum/ACIT4280/curated/hoepman-strategies.png",
-        "alt": "Hoepman privacy strategies from Canvas",
-        "caption": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas.",
-        "shows": "From course materials (ACIT4280 Lecture 6). Source: lecture slides / Canvas."
+        "src": "figures/hoepman-8.svg",
+        "alt": "Demonstrate among design strategies",
+        "caption": "Accountability evidence"
       }
     },
     {
@@ -2358,6 +2370,130 @@
         "caption": "L2 to L6 arc",
         "shows": "L2 to L6 arc"
       }
+    },
+    {
+      "id": "4280-supplement-smart-meter",
+      "q": "What topic does the Canvas supplement page \"Mobile Computing & Smart Metering\" cover?",
+      "a": "Privacy issues when mobile computing meets smart metering - course slides plus optional readings on granular energy/visitor-flow measurement and public debate.",
+      "tags": [
+        "supplement",
+        "smart-metering",
+        "Canvas"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/personal-data.svg",
+        "alt": "Smart metering privacy supplement",
+        "caption": "Mobile plus metering"
+      }
+    },
+    {
+      "id": "4280-supplement-smart-meter-reading",
+      "q": "Name one optional reading linked from Mobile Computing & Smart Metering (Canvas scrape Aug 2026).",
+      "a": "Examples: Swedish DPA (Datainspektionen) case on visitor flows measured too precisely in Vasteras (2015), or National Geographic \"Who's Watching? Privacy Concerns Persist as Smart Meters Roll Out\" (2012).",
+      "tags": [
+        "supplement",
+        "smart-metering",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "4280-supplement-fitness-apps",
+      "q": "What is Casestudy-fitness-apps.pdf in ACIT4280 Canvas modules?",
+      "a": "A privacy-by-design case study PDF (Introduction module) about fitness apps - used for home assignment analysis; detailed question cards need the PDF text (not fully scraped yet).",
+      "tags": [
+        "supplement",
+        "case-study",
+        "Canvas",
+        "needs-canvas"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/pet-concepts.svg",
+        "alt": "Fitness apps case study PDF",
+        "caption": "PbD case PDF"
+      }
+    },
+    {
+      "id": "4280-2a-task",
+      "q": "What does ACIT4280 Assignment 2A ask students to do?",
+      "a": "Read three Canvas papers on TETs, access own data on Google or Facebook export dashboards, and write about 1500 words on which TET aspects the companies implement, which are missing, and how they compare with literature TETs.",
+      "tags": [
+        "assignment-2A",
+        "TETs",
+        "Canvas"
+      ]
+    },
+    {
+      "id": "4280-2a-papers",
+      "q": "Name the three papers on Canvas Assignment 2A (confirmed Aug 2026).",
+      "a": "Karegar et al. (2016) Data Track; Murmann and Fischer-Huebner (2017) usable ex post TETs survey; Zimmermann (2015) TetCat classification.",
+      "tags": [
+        "assignment-2A",
+        "TETs",
+        "literature"
+      ]
+    },
+    {
+      "id": "4280-2a-karegar-datatrack",
+      "q": "What is the Data Track (Karegar et al. 2016) in Assignment 2A context?",
+      "a": "A third-party TET that visualises personal-data exports so data subjects can exercise access and portability - users may prefer export, edit, then upload rather than trust a live dashboard alone.",
+      "tags": [
+        "assignment-2A",
+        "TETs",
+        "Karegar"
+      ]
+    },
+    {
+      "id": "4280-2a-murmann-expost",
+      "q": "What do Murmann and Fischer-Huebner (2017) emphasise about ex post TETs?",
+      "a": "Tools that give insight after disclosure, including possible consequences, in a form people can use - a file archive can fail as a TET if processing, recipients or consequences stay unclear.",
+      "tags": [
+        "assignment-2A",
+        "TETs",
+        "Murmann"
+      ]
+    },
+    {
+      "id": "4280-2a-zimmermann-assertion",
+      "q": "How does Zimmermann (2015) classify Google My Account in TetCat?",
+      "a": "Server-side, pull, organisation-scope dashboard - interactive for collection/modification/deletion, but Assurance Level Untrusted: an Assertion TET (insight into collected data, not a trusted audit of processing).",
+      "tags": [
+        "assignment-2A",
+        "TETs",
+        "Zimmermann",
+        "TetCat"
+      ]
+    },
+    {
+      "id": "4280-2a-tet-yardstick",
+      "q": "List four TET yardstick features coded in Assignment 2A (joint table).",
+      "a": "Examples: obtain a copy; machine-readable format; human-readable overview; named recipients/third parties; purposes and legal basis; consequences; visualisation of export; timeline; ex ante support; in-tool control; usable lay visualisation.",
+      "tags": [
+        "assignment-2A",
+        "TETs",
+        "coding"
+      ]
+    },
+    {
+      "id": "4280-2a-google-takeout-gap",
+      "q": "Assignment 2A finding: Google Takeout as portability vs as TET?",
+      "a": "Wide as access/portability (many product families export data copies) but narrow as a TET - archives rarely explain recipients, purposes or legal basis inside the zip.",
+      "tags": [
+        "assignment-2A",
+        "Google",
+        "Takeout"
+      ]
+    },
+    {
+      "id": "4280-2a-facebook-compare",
+      "q": "Assignment 2A: how do Google and Facebook score on the same TET yardstick?",
+      "a": "Close together on coded features: both implement access/portability; both miss export visualisation, consequences, ex ante support in the zip, and in-tool correction/erasure - Off-Facebook Activity is partial recipient transparency like Google ads lists.",
+      "tags": [
+        "assignment-2A",
+        "Facebook",
+        "Google"
+      ]
     }
   ]
 }

@@ -964,6 +964,44 @@
         "Lecture1",
         "syllabus"
       ]
+    },
+    {
+      "id": "4050-new-quizzes-lti",
+      "q": "Why are exact ACIT4050 New Quizzes question texts not exported into this deck yet?",
+      "a": "Assignments use Canvas New Quizzes (external LTI). The classic Quizzes API is disabled in course 34599. Local crawl (Aug 2026) captured metadata only: pass at 60/100, five attempts, best score counts. Exporting questions needs a logged-in browser attempt (CDP) - tagged needs-canvas until crawled.",
+      "tags": [
+        "syllabus",
+        "Lecture1",
+        "needs-canvas"
+      ]
+    },
+    {
+      "id": "4050-assignments-count",
+      "q": "How many assignments must be approved in ACIT4050 before exam?",
+      "a": "Eight assignments (technical or theoretical), documented in reports - all must be approved.",
+      "tags": [
+        "syllabus",
+        "assignments"
+      ]
+    },
+    {
+      "id": "4050-vm-lab",
+      "q": "What VM setup does ACIT4050 recommend for labs?",
+      "a": "At least one Kali Linux and one Ubuntu or Windows VM running simultaneously; minimum 8 GB RAM, 4 CPU cores, ~100-120 GB free disk.",
+      "tags": [
+        "syllabus",
+        "lab",
+        "VM"
+      ]
+    },
+    {
+      "id": "4050-exam-format",
+      "q": "ACIT4050 exam format (Fall 2026 syllabus)?",
+      "a": "Individual written exam, 3 hours, no aids allowed, graded A-F.",
+      "tags": [
+        "syllabus",
+        "exam"
+      ]
     }
   ]
 }

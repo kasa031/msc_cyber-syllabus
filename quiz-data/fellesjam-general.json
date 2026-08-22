@@ -1,0 +1,162 @@
+{
+  "course": "Fellesjam",
+  "title": "General cyber foundations",
+  "cards": [
+    {
+      "id": "fj-curl",
+      "q": "What is curl used for on the command line?",
+      "a": "curl transfers data to or from a server using URLs. Common uses: fetch a page (curl https://example.com) or inspect HTTP headers only with curl -I (HEAD request, no body).",
+      "tags": ["fellesjam", "general", "cli", "http"]
+    },
+    {
+      "id": "fj-dig",
+      "q": "What does dig do?",
+      "a": "dig (domain information groper) performs DNS lookups from the CLI - shows how a name resolves (A, MX, NS, etc.) and which DNS server answered.",
+      "tags": ["fellesjam", "general", "dns", "cli"]
+    },
+    {
+      "id": "fj-dns-analogy",
+      "q": "What is DNS, in plain terms?",
+      "a": "DNS (Domain Name System) maps human-readable domain names to IP addresses and other records - like a phone book for the internet.",
+      "tags": ["fellesjam", "general", "dns"]
+    },
+    {
+      "id": "fj-fqdn",
+      "q": "What is an FQDN?",
+      "a": "FQDN = Fully Qualified Domain Name - the complete hostname including all domain labels, e.g. www.example.com. (not a relative name like www only).",
+      "tags": ["fellesjam", "general", "dns"]
+    },
+    {
+      "id": "fj-bind-dig",
+      "q": "How do bind, bind9-tools, and dig relate on Ubuntu?",
+      "a": "BIND is one of the most widely used DNS server implementations. On Ubuntu, bind9-tools installs dig (and related utilities). bind9 is the server package.",
+      "tags": ["fellesjam", "general", "dns", "linux"]
+    },
+    {
+      "id": "fj-dns-a-record",
+      "q": "What is a DNS A record?",
+      "a": "An A record maps a hostname to an IPv4 address (e.g. www.example.com -> 93.184.216.34).",
+      "tags": ["fellesjam", "general", "dns"]
+    },
+    {
+      "id": "fj-dns-mx-record",
+      "q": "What is a DNS MX record?",
+      "a": "MX (Mail eXchange) records point a domain to mail servers that receive email for that domain, with priority values when several exist.",
+      "tags": ["fellesjam", "general", "dns"]
+    },
+    {
+      "id": "fj-zonefile",
+      "q": "What is a DNS zone file?",
+      "a": "A zone file is the text configuration for a DNS zone - it lists records (SOA, NS, A, MX, CNAME, etc.) served for a domain on an authoritative server.",
+      "tags": ["fellesjam", "general", "dns"]
+    },
+    {
+      "id": "fj-apt",
+      "q": "What is apt on Debian/Ubuntu?",
+      "a": "apt (Advanced Package Tool) installs, updates, and removes software packages from configured repositories (e.g. sudo apt update && sudo apt install bind9-tools).",
+      "tags": ["fellesjam", "general", "linux", "cli"]
+    },
+    {
+      "id": "fj-ipv4-ipv6",
+      "q": "IPv4 vs IPv6 - what is the main difference?",
+      "a": "IPv4 uses 32-bit addresses (e.g. 192.0.2.1). IPv6 uses 128-bit addresses (e.g. 2001:db8::1) for a much larger address space. DNS A = IPv4; AAAA = IPv6.",
+      "tags": ["fellesjam", "general", "network"]
+    },
+    {
+      "id": "fj-cdn",
+      "q": "What is a CDN (Content Delivery Network)?",
+      "a": "A CDN caches and serves static content from edge servers close to users - faster loads and less load on the origin. KeyCDN is one commercial CDN provider (example name in course materials).",
+      "tags": ["fellesjam", "general", "network", "web"]
+    },
+    {
+      "id": "fj-tcp-port",
+      "q": "What is a TCP port?",
+      "a": "A 16-bit number (0-65535) that identifies a service on a host within one IP address. TCP (and UDP) use ports so many services can share one IP (e.g. 443 HTTPS, 53 DNS).",
+      "tags": ["fellesjam", "general", "network"]
+    },
+    {
+      "id": "fj-whois",
+      "q": "What is whois used for?",
+      "a": "whois queries registration databases for domain and IP allocation info - registrant contacts (often redacted), name servers, dates, etc.",
+      "tags": ["fellesjam", "general", "dns", "cli"]
+    },
+    {
+      "id": "fj-bash",
+      "q": "What is the bash shell?",
+      "a": "bash (Bourne Again SHell) is a common Unix/Linux command-line shell and scripting language - default on many distros; runs commands, scripts, pipes, and redirects.",
+      "tags": ["fellesjam", "general", "linux", "cli"]
+    },
+    {
+      "id": "fj-man",
+      "q": "What does man do?",
+      "a": "man opens the manual page for a command (e.g. man dig, man curl). Use / to search inside the page; q to quit.",
+      "tags": ["fellesjam", "general", "linux", "cli"]
+    },
+    {
+      "id": "fj-pgp",
+      "q": "What is PGP used for?",
+      "a": "PGP (Pretty Good Privacy) and OpenPGP-style tools provide encryption and digital signatures for email and files - confidentiality, integrity, and sender authentication via key pairs.",
+      "tags": ["fellesjam", "general", "crypto"]
+    },
+    {
+      "id": "fj-linux-vs-ubuntu",
+      "q": "Linux vs Ubuntu - what is the difference?",
+      "a": "Linux is the kernel (core of the OS). Ubuntu is a Linux distribution (kernel + GNU tools + desktop/package management + vendor support). Many distros exist (Debian, Arch, Kali, etc.).",
+      "tags": ["fellesjam", "general", "linux"]
+    },
+    {
+      "id": "fj-encrypt-cipher-auth-hash",
+      "q": "Encryption vs cipher vs authentication vs hashing - how do they differ?",
+      "a": "Encryption: reversible hiding of data with a key. Cipher: the algorithm/mode that performs encryption. Authentication: proving identity (who you are). Hashing: one-way fingerprint of data (integrity, passwords) - not meant to be decrypted.",
+      "tags": ["fellesjam", "general", "crypto"]
+    },
+    {
+      "id": "fj-openssl",
+      "q": "What is OpenSSL?",
+      "a": "OpenSSL is a widely used open-source toolkit for TLS/SSL and general cryptography - certificates, key generation, and the libssl/libcrypto libraries behind many servers and clients.",
+      "tags": ["fellesjam", "general", "crypto", "tls"]
+    },
+    {
+      "id": "fj-tls",
+      "q": "What does TLS do on the web?",
+      "a": "TLS (Transport Layer Security) encrypts and authenticates traffic between client and server (e.g. HTTPS on port 443) - confidentiality and integrity in transit.",
+      "tags": ["fellesjam", "general", "crypto", "tls"]
+    },
+    {
+      "id": "fj-tls12-tls13",
+      "q": "TLS 1.2 vs TLS 1.3 - what should you remember?",
+      "a": "Both are modern TLS versions. TLS 1.3 is newer: fewer weak cipher options, faster handshakes, and 1.3-only features. Servers and clients negotiate the highest version both support; disable legacy SSL/TLS 1.0/1.1.",
+      "tags": ["fellesjam", "general", "crypto", "tls"]
+    },
+    {
+      "id": "fj-ssl-vs-tls",
+      "q": "SSL vs TLS - which name is correct today?",
+      "a": "SSL (Secure Sockets Layer) is the old protocol (SSLv3 and earlier are obsolete/insecure). TLS replaced SSL; people still say \"SSL\" but mean TLS. Use TLS 1.2+ or TLS 1.3 in practice.",
+      "tags": ["fellesjam", "general", "crypto", "tls"]
+    },
+    {
+      "id": "fj-win-snap",
+      "q": "How do you snap two windows side by side on Windows?",
+      "a": "Select a window title bar and drag to the left or right edge until a outline appears, then pick the other window for the other half. Shortcut: Win+Left / Win+Right arrow keys.",
+      "tags": ["fellesjam", "general", "windows"]
+    },
+    {
+      "id": "fj-own-dns-free",
+      "q": "What does \"set up your own DNS server (free tier)\" usually mean in labs?",
+      "a": "Run an authoritative or recursive DNS instance you control - often in a VM or a provider free tier - configure a zone file (SOA, NS, A, MX), then test with dig @your-server. Exact steps depend on course lab (needs Canvas crawl for official procedure).",
+      "tags": ["fellesjam", "general", "dns", "needs-canvas"]
+    },
+    {
+      "id": "fj-nslookup",
+      "q": "What does nslookup do, and how does it differ from dig?",
+      "a": "nslookup queries DNS interactively or for one name (built into Windows and Linux). dig is more script-friendly and verbose. Both resolve names to records; dig is common on Linux lab VMs.",
+      "tags": ["fellesjam", "general", "dns", "cli"]
+    },
+    {
+      "id": "fj-mastodon-server",
+      "q": "What is a Mastodon server (\"Mastodontserver\" in Norwegian notes)?",
+      "a": "A Mastodon server (instance) runs fediverse software so users can post, follow, and federate with other instances via ActivityPub. In cyber labs it may mean self-hosting or connecting to an instance - not a separate protocol from Mastodon itself.",
+      "tags": ["fellesjam", "general", "fediverse", "web"]
+    }
+  ]
+}

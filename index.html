@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock31" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock31" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock31" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock31" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock32" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock32" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock32" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock32" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1176,6 +1176,40 @@
       border-color: var(--signal);
       background: var(--surface);
     }
+    .flash-mode .quiz-card {
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.45s var(--ease), border-color 0.2s, background 0.2s;
+    }
+    .flash-mode .quiz-card.flipped {
+      transform: rotateY(180deg);
+      border-color: var(--signal);
+      background: var(--surface);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flash-mode .quiz-card { transition: border-color 0.2s, background 0.2s; transform: none !important; }
+      .flash-mode .quiz-card.flipped { transform: none; }
+    }
+    .quiz-study-tabs { margin: 0.75rem 0 1rem; }
+    #flash-nav-row {
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+    .flash-index {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--slate);
+      padding: 0 0.35rem;
+      min-width: 5.5rem;
+      text-align: center;
+    }
+    .flash-mode #quiz-reveal-row,
+    .flash-mode #quiz-grades,
+    .flash-mode #quiz-reset { display: none; }
+    .quiz-mode #flash-nav-row { display: none !important; }
     .quiz-label {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.68rem;
@@ -1609,6 +1643,7 @@
         <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-full">ACIT4280 Privacy</span><span class="tab-short">4280</span></button>
         <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-full">ACIT4100 Research</span><span class="tab-short">4100</span></button>
         <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-full">Computer basics</span><span class="tab-short">PC</span></button>
+        <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-full">Fellesjam (mixed)</span><span class="tab-short">Mix</span></button>
       </div>
       <p class="install-tip" id="install-tip">Tip: on phone, use Add to Home Screen for a full-screen shortcut.</p>
 
@@ -2072,6 +2107,10 @@
             <p class="quiz-queue" id="quiz-queue"><b>0</b> cards in queue</p>
           </div>
           <p class="setup-lede" id="quiz-lede" style="margin-top:-0.5rem;">Anki-style SM-2 - progress is stored locally in the browser.</p>
+          <div class="mode-tabs quiz-study-tabs" role="tablist" aria-label="Study mode">
+            <button type="button" role="tab" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Flashcards</button>
+            <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz (SRS)</button>
+          </div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
 
           <div class="quiz-progress-wrap" id="quiz-progress-wrap">
@@ -2104,6 +2143,13 @@
 
             <div class="tut-actions" id="quiz-reveal-row">
               <button type="button" class="btn" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
+            </div>
+
+            <div class="tut-actions hidden" id="flash-nav-row" aria-label="Flashcard navigation">
+              <button type="button" class="btn ghost" id="flash-prev">Previous</button>
+              <span class="flash-index" id="flash-index-label" aria-live="polite">1 / 1</span>
+              <button type="button" class="btn ghost" id="flash-shuffle">Shuffle</button>
+              <button type="button" class="btn" id="flash-next">Next</button>
             </div>
 
             <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
@@ -2191,8 +2237,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock31" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock31"></script>
+  <script src="quiz-decks.js?v=lock35" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock32"></script>
   <script>
   (function () {
   "use strict";
@@ -2200,12 +2246,16 @@
   var STORAGE_KEY = "acit4050-terminal-tut-v1";
   var QUIZ_PREFIX = "acit-srs-v2-";
   var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
-  var QUIZ_EXPECTED = { acit4050: 85, acit4280: 160, acit4100: 102, "computer-basics": 28 };
+  var STUDY_MODE_PREFIX = "acit-study-mode-v1-";
+  var FLASH_PREFIX = "acit-flash-v1-";
+  var QUIZ_EXPECTED = { acit4050: 89, acit4280: 173, acit4100: 114, "computer-basics": 28, "fellesjam-general": 26 };
+  var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
     acit4280: "quiz-data/acit4280.json",
     acit4100: "quiz-data/acit4100.json",
-    "computer-basics": "quiz-data/computer-basics.json"
+    "computer-basics": "quiz-data/computer-basics.json",
+    "fellesjam-general": "quiz-data/fellesjam-general.json"
   };
   var quizDeckFallbackPromise = null;
   var quizDeckFallbackTried = false;
@@ -2690,7 +2740,7 @@ function showCourse(courseKey) {
       quizState.sessionQueue = null;
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
-      quizLoadAndShow();
+      studyLoadAndShow();
     }
     syncCourseHash(courseKey);
   }
@@ -2714,6 +2764,8 @@ function showCourse(courseKey) {
     acit4100: "acit4100",
     pc: "computer-basics",
     "computer-basics": "computer-basics",
+    fellesjam: "fellesjam",
+    mix: "fellesjam",
     quiz: "acit4050"
   };
   var COURSE_TO_HASH = {
@@ -2722,7 +2774,8 @@ function showCourse(courseKey) {
     practice: "practice",
     acit4280: "4280",
     acit4100: "4100",
-    "computer-basics": "pc"
+    "computer-basics": "pc",
+    fellesjam: "fellesjam"
   };
   var syncingHash = false;
 
@@ -2855,6 +2908,7 @@ function showCourse(courseKey) {
   /* -- Quiz / spaced repetition - Anki-compatible SM-2 (not FSRS) -- */
   var quizState = {
     deckKey: "acit4050",
+    studyMode: "quiz",
     card: null,
     revealed: false,
     forceAll: false,
@@ -2863,6 +2917,257 @@ function showCourse(courseKey) {
     sessionDone: 0,
     sched: {}
   };
+
+  var flashState = {
+    order: [],
+    index: 0,
+    flipped: false
+  };
+
+  function studyModeKey(deckKey) {
+    return STUDY_MODE_PREFIX + deckKey;
+  }
+
+  function flashStorageKey(deckKey) {
+    return FLASH_PREFIX + deckKey;
+  }
+
+  function loadStudyMode(deckKey) {
+    try {
+      var m = localStorage.getItem(studyModeKey(deckKey));
+      if (m === "flashcards" || m === "quiz") return m;
+    } catch (e) { /* ignore */ }
+    return "quiz";
+  }
+
+  function saveStudyMode(deckKey, mode) {
+    try { localStorage.setItem(studyModeKey(deckKey), mode); } catch (e) { /* ignore */ }
+  }
+
+  function applyStudyModeUi(mode) {
+    var courseQuiz = $("course-quiz");
+    var isFlash = mode === "flashcards";
+    if (courseQuiz) {
+      courseQuiz.classList.toggle("flash-mode", isFlash);
+      courseQuiz.classList.toggle("quiz-mode", !isFlash);
+    }
+    var tFlash = $("tab-study-flashcards");
+    var tQuiz = $("tab-study-quiz");
+    if (tFlash) {
+      tFlash.classList.toggle("active", isFlash);
+      tFlash.setAttribute("aria-selected", isFlash ? "true" : "false");
+      tFlash.tabIndex = isFlash ? 0 : -1;
+    }
+    if (tQuiz) {
+      tQuiz.classList.toggle("active", !isFlash);
+      tQuiz.setAttribute("aria-selected", isFlash ? "false" : "true");
+      tQuiz.tabIndex = isFlash ? -1 : 0;
+    }
+    var flashNav = $("flash-nav-row");
+    if (flashNav) flashNav.classList.toggle("hidden", !isFlash);
+    var lede = $("quiz-lede");
+    if (lede) {
+      lede.textContent = isFlash
+        ? "Flip through all cards - click or Space to flip. No spaced repetition in this mode."
+        : "Anki-style SM-2 - progress is stored locally in the browser.";
+    }
+  }
+
+  function setStudyMode(mode) {
+    if (mode !== "flashcards" && mode !== "quiz") mode = "quiz";
+    quizState.studyMode = mode;
+    saveStudyMode(quizState.deckKey, mode);
+    applyStudyModeUi(mode);
+    studyLoadAndShow();
+  }
+
+  function studyLoadAndShow() {
+    quizState.studyMode = loadStudyMode(quizState.deckKey);
+    applyStudyModeUi(quizState.studyMode);
+    if (quizState.studyMode === "flashcards") flashLoadAndShow();
+    else quizLoadAndShow();
+  }
+
+  function flashLoadState(deckKey) {
+    try {
+      var raw = localStorage.getItem(flashStorageKey(deckKey));
+      if (raw) return JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  function flashSaveState() {
+    try {
+      localStorage.setItem(flashStorageKey(quizState.deckKey), JSON.stringify({
+        order: flashState.order,
+        index: flashState.index
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function flashShuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i];
+      a[i] = a[j];
+      a[j] = tmp;
+    }
+    return a;
+  }
+
+  function flashBuildOrder(deck) {
+    var ids = (deck.cards || []).filter(function (c) { return c && c.id; }).map(function (c) { return c.id; });
+    var saved = flashLoadState(quizState.deckKey);
+    if (saved && Array.isArray(saved.order) && saved.order.length === ids.length) {
+      var ok = true;
+      var seen = {};
+      saved.order.forEach(function (id) {
+        if (ids.indexOf(id) < 0 || seen[id]) ok = false;
+        seen[id] = true;
+      });
+      if (ok) {
+        flashState.order = saved.order;
+        flashState.index = Math.min(Math.max(0, saved.index || 0), flashState.order.length - 1);
+        return;
+      }
+    }
+    flashState.order = ids;
+    flashState.index = 0;
+  }
+
+  function flashUpdateIndexLabel() {
+    var el = $("flash-index-label");
+    if (!el) return;
+    var n = flashState.order.length;
+    el.textContent = n ? String(flashState.index + 1) + " / " + String(n) : "0 / 0";
+  }
+
+  function flashUpdateProgress() {
+    var total = flashState.order.length;
+    var idx = flashState.index;
+    var stepEl = $("quiz-step-label");
+    var doneEl = $("quiz-done-count");
+    var totalEl = $("quiz-total-count");
+    var fill = $("quiz-bar-fill");
+    var bar = $("quiz-bar");
+    if (doneEl) doneEl.textContent = String(idx + 1);
+    if (totalEl) totalEl.textContent = String(total);
+    if (stepEl) {
+      stepEl.textContent = total ? "Card " + (idx + 1) + " of " + total : "No cards";
+    }
+    var pct = total ? Math.min(100, ((idx + 1) / total) * 100) : 0;
+    if (fill) fill.style.width = pct + "%";
+    if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
+    flashUpdateIndexLabel();
+    var qEl = $("quiz-queue");
+    if (qEl) {
+      qEl.textContent = "";
+      var b = document.createElement("b");
+      b.textContent = String(total);
+      qEl.appendChild(b);
+      qEl.appendChild(document.createTextNode(" cards in deck"));
+    }
+  }
+
+  function flashRenderCurrent() {
+    var deck = quizGetDeck(quizState.deckKey);
+    if (!deck || !flashState.order.length) return;
+    var byId = {};
+    (deck.cards || []).forEach(function (c) { if (c && c.id) byId[c.id] = c; });
+    var card = byId[flashState.order[flashState.index]];
+    if (!card) return;
+    flashState.flipped = false;
+    quizState.card = card;
+    quizState.revealed = false;
+    $("quiz-active").classList.remove("hidden");
+    $("quiz-empty").classList.add("hidden");
+    var cardEl = $("quiz-card");
+    cardEl.classList.remove("revealed", "flipped");
+    cardEl.setAttribute("aria-label", "Flashcard - press Space or click to flip");
+    $("quiz-face-label").textContent = "Question";
+    $("quiz-q").textContent = card.q;
+    quizRenderFigure(card);
+    var aEl = $("quiz-a");
+    aEl.textContent = card.a;
+    aEl.classList.add("hidden");
+    $("quiz-reveal-row").classList.add("hidden");
+    $("quiz-grades").classList.add("hidden");
+    var tags = $("quiz-tags");
+    tags.innerHTML = "";
+    (card.tags || []).forEach(function (t) {
+      var span = document.createElement("span");
+      span.textContent = t;
+      tags.appendChild(span);
+    });
+    flashUpdateProgress();
+    flashSaveState();
+  }
+
+  function flashFlip() {
+    if (!quizState.card) return;
+    flashState.flipped = !flashState.flipped;
+    var cardEl = $("quiz-card");
+    if (flashState.flipped) {
+      cardEl.classList.add("flipped", "revealed");
+      cardEl.setAttribute("aria-label", "Answer shown - Space or click to flip back");
+      $("quiz-face-label").textContent = "Answer";
+      $("quiz-a").classList.remove("hidden");
+    } else {
+      cardEl.classList.remove("flipped", "revealed");
+      cardEl.setAttribute("aria-label", "Flashcard - press Space or click to flip");
+      $("quiz-face-label").textContent = "Question";
+      $("quiz-a").classList.add("hidden");
+    }
+  }
+
+  function flashGo(delta) {
+    if (!flashState.order.length) return;
+    flashState.index = (flashState.index + delta + flashState.order.length) % flashState.order.length;
+    flashRenderCurrent();
+  }
+
+  function flashShuffleDeck() {
+    flashState.order = flashShuffle(flashState.order);
+    flashState.index = 0;
+    flashRenderCurrent();
+  }
+
+  function flashLoadAndShow() {
+    var deck = quizGetDeck(quizState.deckKey);
+    var expected = QUIZ_EXPECTED[quizState.deckKey];
+    var countMismatch = deck && Array.isArray(deck.cards) && expected
+      && deck.cards.length !== expected;
+    if (!deck || countMismatch) {
+      quizUpdateMaterials(null);
+      if (!quizDeckFallbackTried) {
+        quizDeckFallbackTried = true;
+        quizShowEmpty(0, { loading: true });
+        quizFetchJsonFallback().then(function (ok) {
+          if (ok) studyLoadAndShow();
+          else {
+            quizDeckFallbackTried = false;
+            quizShowEmpty(0, { missingDeck: true });
+          }
+        });
+        return;
+      }
+      quizShowEmpty(0, { missingDeck: true });
+      return;
+    }
+    if (!Array.isArray(deck.cards) || !deck.cards.length) {
+      quizShowEmpty(0, { missingDeck: true });
+      return;
+    }
+    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study");
+    quizUpdateMaterials(quizState.deckKey);
+    flashBuildOrder(deck);
+    if (!flashState.order.length) {
+      quizShowEmpty(0, { missingDeck: true });
+      return;
+    }
+    flashRenderCurrent();
+  }
 
   var MINUTE = 60 * 1000;
   var DAY = 24 * 60 * MINUTE;
@@ -2982,8 +3287,32 @@ function showCourse(courseKey) {
     } catch (e) { /* ignore */ }
   }
 
+  function quizBuildFellesjamDeck() {
+    var decks = window.QUIZ_DECKS || {};
+    var seen = {};
+    var cards = [];
+    FELLESJAM_SOURCE_DECKS.forEach(function (key) {
+      var d = decks[key];
+      if (!d || !Array.isArray(d.cards)) return;
+      d.cards.forEach(function (c) {
+        if (!c || !c.id || seen[c.id]) return;
+        seen[c.id] = true;
+        cards.push(c);
+      });
+    });
+    return {
+      course: "Fellesjam",
+      title: "Mixed (all courses + foundations)",
+      cards: cards
+    };
+  }
+
   function quizGetDeck(deckKey) {
     var decks = window.QUIZ_DECKS || {};
+    if (deckKey === "fellesjam") {
+      window.__FELLESJAM_MERGED = quizBuildFellesjamDeck();
+      return window.__FELLESJAM_MERGED;
+    }
     return decks[deckKey] || null;
   }
 
@@ -3006,7 +3335,7 @@ function showCourse(courseKey) {
         return;
       }
       var meta = window.QUIZ_DECKS_META;
-      if (!meta || meta.version !== "lock31") {
+      if (!meta || meta.version !== "lock35") {
         console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
@@ -3034,7 +3363,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock31-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock32-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -3299,6 +3628,9 @@ function showCourse(courseKey) {
     } else if (deckKey === "acit4100") {
       box.classList.remove("hidden");
       box.innerHTML = "Syllabus: ACIT4100 syllabus, essay requirements, APA/plagiarism. Quiz covers research communication - not your personal essay topic.";
+    } else if (deckKey === "fellesjam") {
+      box.classList.remove("hidden");
+      box.innerHTML = "Mixed deck: ACIT4050 + ACIT4280 + ACIT4100 + PC basics + general foundations (DNS, curl, TLS, CLI). Progress stored under Fellesjam.";
     } else {
       box.classList.add("hidden");
       box.textContent = "";
@@ -3425,6 +3757,10 @@ function showCourse(courseKey) {
   }
 
   function quizLoadAndShow() {
+    if (quizState.studyMode === "flashcards") {
+      flashLoadAndShow();
+      return;
+    }
     var deck = quizGetDeck(quizState.deckKey);
     var countMismatch = deck && Array.isArray(deck.cards) && QUIZ_EXPECTED[quizState.deckKey]
       && deck.cards.length !== QUIZ_EXPECTED[quizState.deckKey];
@@ -3560,16 +3896,33 @@ function showCourse(courseKey) {
 
   $("quiz-reveal").addEventListener("click", quizReveal);
   $("quiz-card").addEventListener("click", function () {
-    if (!quizState.revealed && quizState.card) quizReveal();
+    if (!quizState.card) return;
+    if (quizState.studyMode === "flashcards") flashFlip();
+    else if (!quizState.revealed) quizReveal();
   });
   $("quiz-card").addEventListener("keydown", function (e) {
     if (e.key === "Enter" || e.key === " ") {
-      if (!quizState.revealed && quizState.card) {
-        e.preventDefault();
-        quizReveal();
-      }
+      if (!quizState.card) return;
+      e.preventDefault();
+      if (quizState.studyMode === "flashcards") flashFlip();
+      else if (!quizState.revealed) quizReveal();
     }
   });
+  if ($("tab-study-flashcards")) {
+    $("tab-study-flashcards").addEventListener("click", function () { setStudyMode("flashcards"); });
+  }
+  if ($("tab-study-quiz")) {
+    $("tab-study-quiz").addEventListener("click", function () { setStudyMode("quiz"); });
+  }
+  if ($("flash-prev")) {
+    $("flash-prev").addEventListener("click", function () { flashGo(-1); });
+  }
+  if ($("flash-next")) {
+    $("flash-next").addEventListener("click", function () { flashGo(1); });
+  }
+  if ($("flash-shuffle")) {
+    $("flash-shuffle").addEventListener("click", function () { flashShuffleDeck(); });
+  }
   $("quiz-grades").addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-grade]");
     if (!btn) return;
@@ -3632,6 +3985,24 @@ function showCourse(courseKey) {
     }
 
     if (!quizPanelActive() || isTypingTarget(e.target)) return;
+
+    if (quizState.studyMode === "flashcards" && quizState.card) {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        flashGo(-1);
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        flashGo(1);
+        return;
+      }
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        flashFlip();
+        return;
+      }
+    }
 
     if ((e.key === " " || e.key === "Enter") && quizState.card && !quizState.revealed) {
       e.preventDefault();
@@ -3698,7 +4069,7 @@ function showCourse(courseKey) {
       quizState.sessionQueue = null;
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
-      quizLoadAndShow();
+      studyLoadAndShow();
     } else {
       if (quiz) {
         quiz.classList.remove("active");
