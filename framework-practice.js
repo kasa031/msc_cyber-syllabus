@@ -2,13 +2,15 @@
 (function (global) {
   "use strict";
 
+  /* Original NIST CSF wheel colors so the diagram matches the official figure.
+     `text` keeps the label readable on light segments. */
   var NIST_SLOTS = [
-    { id: "govern", label: "GOVERN", color: "#071952" },
-    { id: "identify", label: "IDENTIFY", color: "#0B666A" },
-    { id: "protect", label: "PROTECT", color: "#35A29F" },
-    { id: "detect", label: "DETECT", color: "#35A29F" },
-    { id: "respond", label: "RESPOND", color: "#0B666A" },
-    { id: "recover", label: "RECOVER", color: "#35A29F" }
+    { id: "govern", label: "GOVERN", color: "#6E7176", text: "#FFFFFF" },
+    { id: "identify", label: "IDENTIFY", color: "#4A90CE", text: "#FFFFFF" },
+    { id: "protect", label: "PROTECT", color: "#7E4E9C", text: "#FFFFFF" },
+    { id: "detect", label: "DETECT", color: "#E9B23C", text: "#1B1B1B" },
+    { id: "respond", label: "RESPOND", color: "#C0453D", text: "#FFFFFF" },
+    { id: "recover", label: "RECOVER", color: "#5FA85F", text: "#FFFFFF" }
   ];
 
   var KILL_SLOTS = [
@@ -21,7 +23,8 @@
     { id: "action", label: "Action" }
   ];
 
-  var KILL_BLUE = "#0B666A";
+  /* Lockheed Martin publishes the kill chain as medium-blue chevrons. */
+  var KILL_BLUE = "#2E6FA8";
 
   function shuffle(arr) {
     var a = arr.slice();
@@ -295,7 +298,7 @@
     svg.setAttribute("role", "img");
     svg.setAttribute("aria-label", "NIST Cybersecurity Framework 2.0 wheel with drop zones");
 
-    function pathSlot(id, d, fill, label, lx, ly) {
+    function pathSlot(id, d, fill, textFill, label, lx, ly) {
       var g = document.createElementNS(svgNS, "g");
       g.setAttribute("class", "fp-slot nist-slot is-empty");
       g.setAttribute("data-slot", id);
@@ -317,6 +320,7 @@
       t.setAttribute("text-anchor", "middle");
       t.setAttribute("dominant-baseline", "middle");
       t.setAttribute("class", "fp-slot-label nist-slot-text");
+      t.style.fill = textFill;
       t.textContent = "?";
       g.appendChild(t);
       svg.appendChild(g);
@@ -342,6 +346,7 @@
     govT.setAttribute("text-anchor", "middle");
     govT.setAttribute("dominant-baseline", "middle");
     govT.setAttribute("class", "fp-slot-label nist-slot-text");
+    govT.style.fill = NIST_SLOTS[0].text;
     govT.textContent = "?";
     govG.appendChild(govT);
     svg.appendChild(govG);
@@ -354,6 +359,7 @@
         seg.id,
         annularSector(cx, cy, rOut0, rOut1, seg.a0, seg.a1),
         meta.color,
+        meta.text,
         meta.label,
         pt.x,
         pt.y
@@ -364,7 +370,7 @@
     hub.setAttribute("cx", String(cx));
     hub.setAttribute("cy", String(cy));
     hub.setAttribute("r", String(rHub));
-    hub.setAttribute("fill", "#97FEED");
+    hub.setAttribute("fill", "#FFFFFF");
     hub.setAttribute("stroke", "#fff");
     hub.setAttribute("stroke-width", "2");
     svg.appendChild(hub);
@@ -426,6 +432,7 @@
       chip.type = "button";
       chip.className = "fp-chip";
       chip.setAttribute("data-id", item.id);
+      chip.style.borderLeft = "5px solid " + (item.color || KILL_BLUE);
       chip.textContent = item.label;
       tray.appendChild(chip);
     });
@@ -455,6 +462,7 @@
       var text = slotEl.querySelector(".fp-slot-label");
       if (text) {
         text.textContent = meta ? meta.label : id;
+        if (meta) text.style.fill = meta.text;
         text.classList.add("is-set");
       }
     }

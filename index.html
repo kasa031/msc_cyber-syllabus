@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock53" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock53" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock53" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock53" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock54" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock54" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock54" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock54" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -921,8 +921,9 @@
       border-radius: 4px;
     }
     .course-tabs button {
-      flex: 1 1 auto;
+      flex: 1 1 8rem;
       min-width: 7.5rem;
+      max-width: 13rem;
       font: inherit;
       font-weight: 700;
       font-size: 0.82rem;
@@ -1008,11 +1009,11 @@
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       font-size: 11px;
       font-weight: 700;
-      fill: rgba(151, 254, 237, 0.55);
+      opacity: 0.55;
       pointer-events: none;
       letter-spacing: 0.02em;
     }
-    .nist-slot-text.is-set { fill: #97FEED; font-size: 12px; }
+    .nist-slot-text.is-set { opacity: 1; font-size: 12px; }
     .nist-hub-title {
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       font-size: 15px;
@@ -1480,7 +1481,21 @@
       background: #0B666A;
       box-shadow: 0 1px 0 rgba(7,25,82,0.18);
     }
-    .course-tabs button .tab-short { display: none; }
+    .course-tabs button .tab-code {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .course-tabs button .tab-name {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      line-height: 1.25;
+      margin-top: 0.15rem;
+      opacity: 0.85;
+      text-wrap: balance;
+    }
     @media (max-width: 640px) {
       .course-tabs {
         gap: 0.3rem;
@@ -1490,11 +1505,11 @@
       .course-tabs button {
         min-width: 0;
         font-size: 0.75rem;
-        padding: 0.75rem 0.5rem;
+        padding: 0.6rem 0.5rem;
         min-height: var(--touch);
       }
-      .course-tabs button .tab-full { display: none; }
-      .course-tabs button .tab-short { display: inline; }
+      .course-tabs button .tab-code { font-size: 0.74rem; }
+      .course-tabs button .tab-name { font-size: 0.62rem; }
       .lab, .quiz-wrap { padding-left: 1rem; padding-right: 1rem; }
       .mode-tabs button { padding: 0.85rem 0.65rem; font-size: 0.85rem; }
     }
@@ -1701,7 +1716,7 @@
   <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
   <header class="hero">
     <div class="hero-inner">
-      <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open Quiz ACIT4050">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Research">4100</button></span></p>
+      <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
       <h1>Type the commands. Learn them for good.</h1>
       <p class="hero-lede">Terminal tutorial for ACIT4050, plus spaced-repetition quiz for your courses - works offline on phone and PC.</p>
       <a class="cta" href="#lab" id="cta-start">Start tutorial <span class="cta-arrow" aria-hidden="true">-></span></a>
@@ -1711,13 +1726,13 @@
   <main class="shell" id="main">
     <div class="shell-lift" id="lab">
       <div class="course-tabs course-tabs-sticky" role="tablist" aria-label="Courses">
-        <button type="button" role="tab" id="tab-course-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0"><span class="tab-full">Terminal ACIT4050</span><span class="tab-short">Terminal</span></button>
-        <button type="button" role="tab" id="tab-course-acit4050" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1"><span class="tab-full">Quiz ACIT4050</span><span class="tab-short">4050</span></button>
-        <button type="button" role="tab" id="tab-course-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1"><span class="tab-full">Practice 4050</span><span class="tab-short">Practice</span></button>
-        <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-full">ACIT4280 Privacy</span><span class="tab-short">4280</span></button>
-        <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-full">ACIT4100 Research</span><span class="tab-short">4100</span></button>
-        <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-full">Computer basics</span><span class="tab-short">PC</span></button>
-        <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-full">Fellesjam (mixed)</span><span class="tab-short">Mix</span></button>
+        <button type="button" role="tab" id="tab-course-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0"><span class="tab-code">ACIT4050</span><span class="tab-name">Terminal tutorial</span></button>
+        <button type="button" role="tab" id="tab-course-acit4050" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1"><span class="tab-code">ACIT4050</span><span class="tab-name">Applied Computer and Network Security</span></button>
+        <button type="button" role="tab" id="tab-course-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1"><span class="tab-code">ACIT4050</span><span class="tab-name">Framework diagrams</span></button>
+        <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-code">ACIT4280</span><span class="tab-name">Privacy by Design</span></button>
+        <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-code">ACIT4100</span><span class="tab-name">Understanding and Communicating Research</span></button>
+        <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-code">PC</span><span class="tab-name">Computer basics</span></button>
+        <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-code">Mixed</span><span class="tab-name">All courses combined</span></button>
       </div>
       <p class="install-tip" id="install-tip">Tip: on phone, use Add to Home Screen for a full-screen shortcut. <button type="button" class="install-tip-dismiss" id="install-tip-dismiss" aria-label="Hide this tip">Hide</button></p>
 
@@ -2317,8 +2332,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock53" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock53"></script>
+  <script src="quiz-decks.js?v=lock54" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock54"></script>
   <script>
   (function () {
   "use strict";
@@ -3444,7 +3459,7 @@ function showCourse(courseKey) {
       });
     });
     return {
-      course: "Fellesjam",
+      course: "Mixed",
       title: "Mixed (all courses + foundations)",
       cards: cards
     };
@@ -3506,7 +3521,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock53-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock54-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -3773,7 +3788,7 @@ function showCourse(courseKey) {
       box.innerHTML = "Syllabus: ACIT4100 syllabus, essay requirements, APA/plagiarism. Quiz covers research communication - not your personal essay topic.";
     } else if (deckKey === "fellesjam") {
       box.classList.remove("hidden");
-      box.innerHTML = "Mixed deck: ACIT4050 + ACIT4280 + ACIT4100 + PC basics + general foundations (DNS, curl, TLS, CLI). Progress stored under Fellesjam.";
+      box.innerHTML = "Mixed deck: ACIT4050 + ACIT4280 + ACIT4100 + PC basics + general foundations (DNS, curl, TLS, CLI). Progress is stored under the Mixed deck.";
     } else {
       box.classList.add("hidden");
       box.textContent = "";
