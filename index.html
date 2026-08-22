@@ -146,10 +146,10 @@
       background: #FFFFFF;
       border-bottom: 1px solid var(--line);
       color: var(--ink);
-      padding: calc(clamp(2.5rem, 8vw, 5.5rem) + var(--safe-top)) 0 clamp(3rem, 7vw, 4.5rem);
-      min-height: min(72vh, 36rem);
+      padding: calc(1.15rem + var(--safe-top)) 0 1.6rem;
+      min-height: 0;
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
     }
     .hero::after {
       content: "";
@@ -185,6 +185,52 @@
     .hero .profile-bar {
       margin: 0;
       justify-content: flex-end;
+    }
+    .hero-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 24rem);
+      gap: 1.25rem 1.75rem;
+      align-items: start;
+    }
+    .account-home {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-top: 4px solid #00B7CD;
+      border-radius: 4px;
+      padding: 0.95rem 1rem 1.05rem;
+    }
+    .account-home-title {
+      margin: 0 0 0.3rem;
+      color: #071952;
+      font-size: 1.15rem;
+    }
+    .account-home-lede {
+      margin: 0 0 0.75rem;
+      color: #071952;
+      font-size: 0.9rem;
+    }
+    .account-home .study-auth {
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+    }
+    .account-signed p {
+      margin: 0 0 0.65rem;
+      color: #071952;
+      font-size: 0.92rem;
+    }
+    .quiz-need-account {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.9rem;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-left: 4px solid #FF9100;
+      color: #071952;
+    }
+    .quiz-need-account[hidden] { display: none !important; }
+    @media (max-width: 52rem) {
+      .hero-body { grid-template-columns: 1fr; }
     }
     .brand {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
@@ -1490,6 +1536,8 @@
       overflow: auto;
     }
     .profile-modal[hidden] { display: none !important; }
+    #settings-body[hidden],
+    #settings-locked-note[hidden] { display: none !important; }
     .profile-modal-card {
       width: min(40rem, 100%);
       background: #FFFFFF;
@@ -2153,20 +2201,145 @@
       <div class="hero-top">
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
         <div class="profile-bar" id="profile-bar">
-          <button type="button" class="profile-chip" id="profile-open" title="Your signed-in account">
+          <button type="button" class="profile-chip" id="profile-open" title="Sign in or open your account">
             <span class="profile-avatar" id="profile-avatar" aria-hidden="true">?</span>
             <span id="profile-name-label">Sign in</span>
           </button>
-          <button type="button" class="btn ghost" id="profile-settings-btn" hidden>Settings</button>
+          <button type="button" class="btn ghost" id="profile-settings-btn">Settings</button>
           <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
           <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
           <button type="button" class="btn ghost" id="profile-logout" hidden>Sign out</button>
         </div>
       </div>
-      <h1>Type the commands. Learn them for good.</h1>
-      <p class="hero-lede">Quiz, diagrams and a terminal tutorial for ACIT4050, 4280 and 4100 - works offline on phone and PC.</p>
+      <div class="hero-body">
+        <div class="hero-copy">
+          <h1>Type the commands. Learn them for good.</h1>
+          <p class="hero-lede">Quiz, diagrams and a terminal tutorial for ACIT4050, 4280 and 4100 - works offline on phone and PC.</p>
+        </div>
+        <div class="account-home" id="account-home">
+          <h2 class="account-home-title">Account</h2>
+          <p class="account-home-lede">Sign in and Settings stay on this page. Data stays on this device. <a href="privacy-policy.html">Privacy policy</a>.</p>
+          <div id="study-auth" class="study-auth">
+            <h3>Create your account</h3>
+            <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings.</p>
+            <label for="auth-new-name">Name</label>
+            <input id="auth-new-name" type="text" maxlength="24" autocomplete="nickname" placeholder="Your name" />
+            <label for="auth-new-pass">Password (at least 8 characters)</label>
+            <input id="auth-new-pass" type="password" maxlength="64" autocomplete="new-password" />
+            <label for="auth-new-pass2">Repeat password</label>
+            <input id="auth-new-pass2" type="password" maxlength="64" autocomplete="new-password" />
+            <label for="auth-new-reset">Reset word (at least 8 characters)</label>
+            <input id="auth-new-reset" type="password" maxlength="64" autocomplete="off" />
+            <label for="auth-new-reset2">Repeat reset word</label>
+            <input id="auth-new-reset2" type="password" maxlength="64" autocomplete="off" />
+            <p>The reset word is for this page if you forget your name or password. Do not use the same text as the password.</p>
+            <p class="study-auth-error" id="auth-error" hidden></p>
+            <div class="tut-actions" style="margin:0.7rem 0 1.15rem;">
+              <button type="button" class="btn btn-primary" id="auth-create">Create account</button>
+            </div>
+            <h3>Sign in</h3>
+            <p>Already have an account on this device? Other names stay locked. You cannot open their scores.</p>
+            <label for="auth-account">Account</label>
+            <select id="auth-account"></select>
+            <label for="auth-pass" id="auth-pass-label">Password</label>
+            <input id="auth-pass" type="password" maxlength="64" autocomplete="current-password" />
+            <label for="auth-pass2" id="auth-pass2-label" hidden>Repeat password</label>
+            <input id="auth-pass2" type="password" maxlength="64" autocomplete="new-password" hidden />
+            <label for="auth-reset" id="auth-reset-label" hidden>Reset word (at least 8 characters)</label>
+            <input id="auth-reset" type="password" maxlength="64" autocomplete="off" hidden />
+            <label for="auth-reset2" id="auth-reset2-label" hidden>Repeat reset word</label>
+            <input id="auth-reset2" type="password" maxlength="64" autocomplete="off" hidden />
+            <div class="tut-actions" style="margin:0.7rem 0 0;">
+              <button type="button" class="btn btn-primary" id="auth-login">Sign in</button>
+              <button type="button" class="btn ghost" id="auth-forgot-toggle">Forgot name or password?</button>
+            </div>
+            <div id="auth-forgot" hidden>
+              <h3>Update this account</h3>
+              <p>Pick the account above. Prove it with the current password or the reset word. Then set a new name, a new password, or both.</p>
+              <label for="auth-fix-pass">Current password (if you remember it)</label>
+              <input id="auth-fix-pass" type="password" maxlength="64" autocomplete="current-password" />
+              <label for="auth-fix-reset">Reset word (if you forgot the password)</label>
+              <input id="auth-fix-reset" type="password" maxlength="64" autocomplete="off" />
+              <label for="auth-fix-name">New name (leave blank to keep the old one)</label>
+              <input id="auth-fix-name" type="text" maxlength="24" autocomplete="nickname" placeholder="New name" />
+              <label for="auth-fix-new">New password (leave blank to keep the old one)</label>
+              <input id="auth-fix-new" type="password" maxlength="64" autocomplete="new-password" />
+              <label for="auth-fix-new2">Repeat new password</label>
+              <input id="auth-fix-new2" type="password" maxlength="64" autocomplete="new-password" />
+              <div class="tut-actions" style="margin:0.7rem 0 0;">
+                <button type="button" class="btn btn-primary" id="auth-fix-save">Save and sign in</button>
+              </div>
+            </div>
+          </div>
+          <div id="account-signed" class="account-signed" hidden>
+            <p>You are signed in as <strong id="account-signed-name"></strong>. Use <strong>Settings</strong> for password, reset word, Share and trophies.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
+  <div id="profile-modal" class="profile-modal" hidden>
+    <div class="profile-modal-card" role="dialog" aria-labelledby="profile-modal-title">
+      <h3 id="profile-modal-title">Settings</h3>
+      <p id="settings-locked-note" hidden>Sign in in the Account box on this page first. Then Settings can change password, reset word, Share and trophies.</p>
+      <div id="settings-body">
+        <p>Only your signed-in scores are shown. Other names on this device stay locked. Sign out before a classmate uses this browser. <a href="privacy-policy.html">Privacy policy</a>.</p>
+        <ul class="profile-list" id="profile-list"></ul>
+        <label for="profile-rename">Your display name</label>
+        <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+          <input id="profile-rename" type="text" maxlength="24" placeholder="Your name" autocomplete="nickname" />
+          <button type="button" class="btn" id="profile-rename-save">Save name</button>
+        </div>
+        <h3>Password</h3>
+        <p>Change the password while you are signed in.</p>
+        <label for="settings-pass-now">Current password</label>
+        <input id="settings-pass-now" type="password" maxlength="64" autocomplete="current-password" />
+        <label for="settings-pass-new">New password (at least 8 characters)</label>
+        <input id="settings-pass-new" type="password" maxlength="64" autocomplete="new-password" />
+        <label for="settings-pass-new2">Repeat new password</label>
+        <input id="settings-pass-new2" type="password" maxlength="64" autocomplete="new-password" />
+        <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+          <button type="button" class="btn" id="settings-pass-save">Change password</button>
+        </div>
+        <h3>Reset word</h3>
+        <p id="settings-reset-lede">Used on this page if you forget your name or password. Do not use the same text as the password.</p>
+        <label for="settings-reset-now">Current password</label>
+        <input id="settings-reset-now" type="password" maxlength="64" autocomplete="current-password" />
+        <label for="settings-reset-new">New reset word (at least 8 characters)</label>
+        <input id="settings-reset-new" type="password" maxlength="64" autocomplete="off" />
+        <label for="settings-reset-new2">Repeat reset word</label>
+        <input id="settings-reset-new2" type="password" maxlength="64" autocomplete="off" />
+        <p class="study-auth-error" id="settings-account-msg" hidden></p>
+        <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+          <button type="button" class="btn" id="settings-reset-save">Save reset word</button>
+        </div>
+        <h3>Sharing</h3>
+        <p>Off by default. If you tick this, people who also share can see your name, points, streak and trophy count. Password and quiz cards stay private.</p>
+        <label class="settings-check" for="settings-share">
+          <input id="settings-share" type="checkbox" />
+          <span>Share my score on the class ranking</span>
+        </label>
+        <div id="rank-panel" hidden>
+          <h3>Class ranking</h3>
+          <p>Only classmates who also ticked Share appear here. 1st, 2nd and 3rd are the top scores.</p>
+          <p class="rank-empty" id="rank-status"></p>
+          <ol class="rank-list" id="rank-list"></ol>
+          <label for="rank-import-code">Add a classmate score code</label>
+          <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+            <input id="rank-import-code" type="text" maxlength="160" placeholder="Paste MSC1|... code" autocomplete="off" />
+            <button type="button" class="btn" id="rank-import-btn">Add</button>
+            <button type="button" class="btn ghost" id="rank-copy-btn">Copy my code</button>
+          </div>
+        </div>
+        <h3>Trophies and badges</h3>
+        <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
+        <div class="trophy-grid" id="trophy-grid"></div>
+      </div>
+      <div class="tut-actions">
+        <button type="button" class="btn btn-primary" id="profile-close">Close</button>
+      </div>
+    </div>
+  </div>
 
   <main class="shell" id="main">
     <div class="shell-lift" id="lab">
@@ -2647,56 +2820,10 @@
             <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz</button>
           </div>
           <p class="study-mode-banner" id="study-mode-banner">Quiz: hide the answer, then rate the card. The app remembers what to drill.</p>
-          <div id="study-auth" class="study-auth">
-            <h3>Create your account</h3>
-            <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings. <a href="privacy-policy.html">Read the privacy policy</a>.</p>
-            <label for="auth-new-name">Name</label>
-            <input id="auth-new-name" type="text" maxlength="24" autocomplete="nickname" placeholder="Your name" />
-            <label for="auth-new-pass">Password (at least 8 characters)</label>
-            <input id="auth-new-pass" type="password" maxlength="64" autocomplete="new-password" />
-            <label for="auth-new-pass2">Repeat password</label>
-            <input id="auth-new-pass2" type="password" maxlength="64" autocomplete="new-password" />
-            <label for="auth-new-reset">Reset word (at least 8 characters)</label>
-            <input id="auth-new-reset" type="password" maxlength="64" autocomplete="off" />
-            <label for="auth-new-reset2">Repeat reset word</label>
-            <input id="auth-new-reset2" type="password" maxlength="64" autocomplete="off" />
-            <p>The reset word is for the sign-in screen if you forget your name or password. Do not use the same text as the password.</p>
-            <p class="study-auth-error" id="auth-error" hidden></p>
-            <div class="tut-actions" style="margin:0.7rem 0 1.15rem;">
-              <button type="button" class="btn btn-primary" id="auth-create">Create account</button>
-            </div>
-            <h3>Sign in</h3>
-            <p>Already have an account on this device? Other names stay locked. You cannot open their scores.</p>
-            <label for="auth-account">Account</label>
-            <select id="auth-account"></select>
-            <label for="auth-pass" id="auth-pass-label">Password</label>
-            <input id="auth-pass" type="password" maxlength="64" autocomplete="current-password" />
-            <label for="auth-pass2" id="auth-pass2-label" hidden>Repeat password</label>
-            <input id="auth-pass2" type="password" maxlength="64" autocomplete="new-password" hidden />
-            <label for="auth-reset" id="auth-reset-label" hidden>Reset word (at least 8 characters)</label>
-            <input id="auth-reset" type="password" maxlength="64" autocomplete="off" hidden />
-            <label for="auth-reset2" id="auth-reset2-label" hidden>Repeat reset word</label>
-            <input id="auth-reset2" type="password" maxlength="64" autocomplete="off" hidden />
-            <div class="tut-actions" style="margin:0.7rem 0 0;">
-              <button type="button" class="btn btn-primary" id="auth-login">Sign in</button>
-              <button type="button" class="btn ghost" id="auth-forgot-toggle">Forgot name or password?</button>
-            </div>
-            <div id="auth-forgot" hidden>
-              <h3>Update this account</h3>
-              <p>Pick the account above. Prove it with the current password or the reset word. Then set a new name, a new password, or both.</p>
-              <label for="auth-fix-pass">Current password (if you remember it)</label>
-              <input id="auth-fix-pass" type="password" maxlength="64" autocomplete="current-password" />
-              <label for="auth-fix-reset">Reset word (if you forgot the password)</label>
-              <input id="auth-fix-reset" type="password" maxlength="64" autocomplete="off" />
-              <label for="auth-fix-name">New name (leave blank to keep the old one)</label>
-              <input id="auth-fix-name" type="text" maxlength="24" autocomplete="nickname" placeholder="New name" />
-              <label for="auth-fix-new">New password (leave blank to keep the old one)</label>
-              <input id="auth-fix-new" type="password" maxlength="64" autocomplete="new-password" />
-              <label for="auth-fix-new2">Repeat new password</label>
-              <input id="auth-fix-new2" type="password" maxlength="64" autocomplete="new-password" />
-              <div class="tut-actions" style="margin:0.7rem 0 0;">
-                <button type="button" class="btn btn-primary" id="auth-fix-save">Save and sign in</button>
-              </div>
+          <div id="quiz-need-account" class="quiz-need-account">
+            <p><strong>Sign in on this page first.</strong> Use the Account box at the top, or press Sign in / Settings in the header. The quiz stays locked until you do.</p>
+            <div class="tut-actions" style="margin:0.55rem 0 0;">
+              <button type="button" class="btn btn-primary" id="quiz-go-account">Go to Account</button>
             </div>
           </div>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
@@ -2709,65 +2836,6 @@
           </div>
           <div class="tut-actions study-hud-actions" id="study-hud-actions" hidden>
             <button type="button" class="btn btn-primary" id="quiz-drill-weak">Drill weak cards</button>
-          </div>
-          <div id="profile-modal" class="profile-modal" hidden>
-            <div class="profile-modal-card" role="dialog" aria-labelledby="profile-modal-title">
-              <h3 id="profile-modal-title">Settings</h3>
-              <p>Only your signed-in scores are shown. Other names on this device stay locked. Sign out before a classmate uses this browser. <a href="privacy-policy.html">Privacy policy</a>.</p>
-              <ul class="profile-list" id="profile-list"></ul>
-              <label for="profile-rename">Your display name</label>
-              <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-                <input id="profile-rename" type="text" maxlength="24" placeholder="Your name" autocomplete="nickname" />
-                <button type="button" class="btn" id="profile-rename-save">Save name</button>
-              </div>
-              <h3>Password</h3>
-              <p>Change the password while you are signed in.</p>
-              <label for="settings-pass-now">Current password</label>
-              <input id="settings-pass-now" type="password" maxlength="64" autocomplete="current-password" />
-              <label for="settings-pass-new">New password (at least 8 characters)</label>
-              <input id="settings-pass-new" type="password" maxlength="64" autocomplete="new-password" />
-              <label for="settings-pass-new2">Repeat new password</label>
-              <input id="settings-pass-new2" type="password" maxlength="64" autocomplete="new-password" />
-              <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-                <button type="button" class="btn" id="settings-pass-save">Change password</button>
-              </div>
-              <h3>Reset word</h3>
-              <p id="settings-reset-lede">Used on the sign-in screen if you forget your name or password. Do not use the same text as the password.</p>
-              <label for="settings-reset-now">Current password</label>
-              <input id="settings-reset-now" type="password" maxlength="64" autocomplete="current-password" />
-              <label for="settings-reset-new">New reset word (at least 8 characters)</label>
-              <input id="settings-reset-new" type="password" maxlength="64" autocomplete="off" />
-              <label for="settings-reset-new2">Repeat reset word</label>
-              <input id="settings-reset-new2" type="password" maxlength="64" autocomplete="off" />
-              <p class="study-auth-error" id="settings-account-msg" hidden></p>
-              <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-                <button type="button" class="btn" id="settings-reset-save">Save reset word</button>
-              </div>
-              <h3>Sharing</h3>
-              <p>Off by default. If you tick this, people who also share can see your name, points, streak and trophy count. Password and quiz cards stay private.</p>
-              <label class="settings-check" for="settings-share">
-                <input id="settings-share" type="checkbox" />
-                <span>Share my score on the class ranking</span>
-              </label>
-              <div id="rank-panel" hidden>
-                <h3>Class ranking</h3>
-                <p>Only classmates who also ticked Share appear here. 1st, 2nd and 3rd are the top scores.</p>
-                <p class="rank-empty" id="rank-status"></p>
-                <ol class="rank-list" id="rank-list"></ol>
-                <label for="rank-import-code">Add a classmate score code</label>
-                <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-                  <input id="rank-import-code" type="text" maxlength="160" placeholder="Paste MSC1|... code" autocomplete="off" />
-                  <button type="button" class="btn" id="rank-import-btn">Add</button>
-                  <button type="button" class="btn ghost" id="rank-copy-btn">Copy my code</button>
-                </div>
-              </div>
-              <h3>Trophies and badges</h3>
-              <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
-              <div class="trophy-grid" id="trophy-grid"></div>
-              <div class="tut-actions">
-                <button type="button" class="btn btn-primary" id="profile-close">Close</button>
-              </div>
-            </div>
           </div>
           <div id="trophy-toast" class="trophy-toast" hidden role="status" aria-live="polite"></div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
@@ -2917,8 +2985,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock72" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock72"></script>
+  <script src="quiz-decks.js?v=lock73" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock73"></script>
   <script>
   (function () {
   "use strict";
@@ -4646,10 +4714,19 @@ function showCourse(courseKey) {
     var authed = profileIsAuthed();
     var lock = $("study-auth");
     if (lock) lock.hidden = authed;
-    ["study-hud", "study-hud-actions", "quiz-progress-wrap", "profile-settings-btn", "profile-trophies-btn", "profile-sound-btn", "profile-logout"].forEach(function (id) {
+    var signed = $("account-signed");
+    if (signed) signed.hidden = !authed;
+    if ($("account-signed-name")) {
+      $("account-signed-name").textContent = authed ? (profileActive().name || "") : "";
+    }
+    var quizNeed = $("quiz-need-account");
+    if (quizNeed) quizNeed.hidden = authed;
+    ["study-hud", "study-hud-actions", "quiz-progress-wrap", "profile-trophies-btn", "profile-sound-btn", "profile-logout"].forEach(function (id) {
       var el = $(id);
       if (el) el.hidden = !authed;
     });
+    var settingsBtn = $("profile-settings-btn");
+    if (settingsBtn) settingsBtn.hidden = false;
     var active = $("quiz-active");
     var empty = $("quiz-empty");
     if (!authed) {
@@ -6292,18 +6369,30 @@ function showCourse(courseKey) {
     }
   }
 
+  function accountGoHome() {
+    var box = $("account-home") || $("study-auth");
+    if (box && box.scrollIntoView) box.scrollIntoView({ behavior: "smooth", block: "start" });
+    var focusEl = $("auth-new-name") || $("auth-pass");
+    if (focusEl && !profileIsAuthed()) focusEl.focus();
+  }
+
   function profileOpenModal() {
+    studyAuthApplyUi();
     if (!profileIsAuthed()) {
-      showCourse("acit4050");
-      studyAuthApplyUi();
-      var lock = $("study-auth");
-      if (lock && lock.scrollIntoView) lock.scrollIntoView({ behavior: "smooth", block: "start" });
-      var focusEl = $("auth-new-name") || $("auth-pass");
-      if (focusEl) focusEl.focus();
+      accountGoHome();
+      var modalLocked = $("profile-modal");
+      if (modalLocked) {
+        if ($("settings-locked-note")) $("settings-locked-note").hidden = false;
+        if ($("settings-body")) $("settings-body").hidden = true;
+        settingsSetMsg("");
+        modalLocked.hidden = false;
+      }
       return;
     }
     var modal = $("profile-modal");
     if (!modal) return;
+    if ($("settings-locked-note")) $("settings-locked-note").hidden = true;
+    if ($("settings-body")) $("settings-body").hidden = false;
     settingsSetMsg("");
     profileRenderModal();
     modal.hidden = false;
@@ -6314,8 +6403,23 @@ function showCourse(courseKey) {
     if (modal) modal.hidden = true;
   }
 
-  if ($("profile-open")) $("profile-open").addEventListener("click", profileOpenModal);
+  if ($("profile-open")) {
+    $("profile-open").addEventListener("click", function () {
+      if (!profileIsAuthed()) {
+        studyAuthApplyUi();
+        accountGoHome();
+        return;
+      }
+      profileOpenModal();
+    });
+  }
   if ($("profile-settings-btn")) $("profile-settings-btn").addEventListener("click", profileOpenModal);
+  if ($("quiz-go-account")) {
+    $("quiz-go-account").addEventListener("click", function () {
+      studyAuthApplyUi();
+      accountGoHome();
+    });
+  }
   if ($("profile-trophies-btn")) $("profile-trophies-btn").addEventListener("click", profileOpenModal);
   if ($("hud-trophies-box")) $("hud-trophies-box").addEventListener("click", profileOpenModal);
   if ($("hud-rank-box")) $("hud-rank-box").addEventListener("click", profileOpenModal);
