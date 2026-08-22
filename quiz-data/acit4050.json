@@ -1052,6 +1052,36 @@
         "syllabus",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4050-lecture-schedule-f26",
+      "q": "ACIT4050 Fall 2026 lecture schedule from Canvas modules (names + dates)?",
+      "a": "L1 Intro 18 Aug; L2 Phishing 25 Aug; L3 Networks 01 Sep; L4 IDS 08 Sep; L5 Firewalls 15 Sep; L6 Identity 22 Sep; L7 Security vs Privacy 29 Sep; L8 Anatomy of Attack 06 Oct; L9 Monitoring 13 Oct; L10 Supply chain 20 Oct; L11 Defense I 27 Oct; L12 Defense II 03 Nov; L13 Zero-Trust 10 Nov.",
+      "tags": [
+        "syllabus",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4050-hw-survey-vm-date",
+      "q": "When does the practical VM-heavy part of ACIT4050 start (hardware survey context)?",
+      "a": "Ismail Hassan teaches from 7 October; survey asks OS, RAM, and disk so labs match student hardware.",
+      "tags": [
+        "syllabus",
+        "lab",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4050-hw-survey-ram",
+      "q": "ACIT4050 hardware survey: which RAM option best matches syllabus VM guidance?",
+      "a": "More than 16 GB (syllabus recommends 8 GB minimum with Kali + Ubuntu/Windows simultaneously; survey tracks headroom).",
+      "tags": [
+        "lab",
+        "VM",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
     }
   ]
 }

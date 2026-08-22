@@ -1590,6 +1590,27 @@
         "Canvas-quiz",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4100-mquiz-exam-deadline",
+      "q": "Mandatory information quiz (ACIT4100): proposed essay submission deadline?",
+      "a": "05.12.25 at 12:00 (marked to be verified on Canvas for your run).",
+      "tags": [
+        "mandatory",
+        "exam",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-rhetoric-selftests",
+      "q": "How many Rhetoric self-test quizzes does ACIT4100 list in modules?",
+      "a": "Five parts (Rhetoric parts 1-5) as classic Canvas quizzes with unlimited attempts.",
+      "tags": [
+        "rhetoric",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
     }
   ]
 }

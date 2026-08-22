@@ -1062,6 +1062,36 @@
           "syllabus",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4050-lecture-schedule-f26",
+        "q": "ACIT4050 Fall 2026 lecture schedule from Canvas modules (names + dates)?",
+        "a": "L1 Intro 18 Aug; L2 Phishing 25 Aug; L3 Networks 01 Sep; L4 IDS 08 Sep; L5 Firewalls 15 Sep; L6 Identity 22 Sep; L7 Security vs Privacy 29 Sep; L8 Anatomy of Attack 06 Oct; L9 Monitoring 13 Oct; L10 Supply chain 20 Oct; L11 Defense I 27 Oct; L12 Defense II 03 Nov; L13 Zero-Trust 10 Nov.",
+        "tags": [
+          "syllabus",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-hw-survey-vm-date",
+        "q": "When does the practical VM-heavy part of ACIT4050 start (hardware survey context)?",
+        "a": "Ismail Hassan teaches from 7 October; survey asks OS, RAM, and disk so labs match student hardware.",
+        "tags": [
+          "syllabus",
+          "lab",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-hw-survey-ram",
+        "q": "ACIT4050 hardware survey: which RAM option best matches syllabus VM guidance?",
+        "a": "More than 16 GB (syllabus recommends 8 GB minimum with Kali + Ubuntu/Windows simultaneously; survey tracks headroom).",
+        "tags": [
+          "lab",
+          "VM",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -3580,6 +3610,125 @@
           "assignments",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4280-quiz1-pdca",
+        "q": "ACIT4280 Quiz 1: How are the four phases of IT management called?",
+        "a": "Plan, Do, Check, Act (PDCA cycle).",
+        "tags": [
+          "Ch1",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz1-pbd-principles",
+        "q": "ACIT4280 Quiz 1: How many principles does Privacy by Design have?",
+        "a": "Seven principles.",
+        "tags": [
+          "Ch1",
+          "PbD",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz1-solove-taxonomy",
+        "q": "ACIT4280 Quiz 1: Solove's four privacy-violating action groups?",
+        "a": "Information collection, information processing, information dissemination, and invasions.",
+        "tags": [
+          "Ch1",
+          "Solove",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz1-gdpr-stakeholders",
+        "q": "ACIT4280 Quiz 1: GDPR stakeholders named in the quiz?",
+        "a": "Data subject, data controller, and data processor.",
+        "tags": [
+          "Ch1",
+          "GDPR",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz1-cia-gaps",
+        "q": "ACIT4280 Quiz 1: Why is CIA alone insufficient for data protection law?",
+        "a": "It lacks data flow control, handling data subject consent, and minimizing consumption of personal data.",
+        "tags": [
+          "Ch1",
+          "CIA",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz1-pseudonym-types",
+        "q": "ACIT4280 Quiz 1: Pfitzmann/Hansen pseudonym types for online interaction?",
+        "a": "Person, role, relationship, role.relationship, and transaction pseudonyms.",
+        "tags": [
+          "Ch1",
+          "PET",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz-sw-arch",
+        "q": "ACIT4280 Software Architecture Concepts quiz (Canvas): what does it cover?",
+        "a": "Module 1: software architecture concepts, types of requirements, and quality attributes. All answers must be correct; unlimited attempts.",
+        "tags": [
+          "Ch2",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz-design-strategies",
+        "q": "ACIT4280 Privacy design strategies quiz: your task in each question?",
+        "a": "Name the privacy design strategies applied when an architect changes a system to improve privacy protection (module 3 scenarios).",
+        "tags": [
+          "Ch3",
+          "Hoepman",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz-dark-side",
+        "q": "ACIT4280 The Dark Side quiz covers which module topic?",
+        "a": "Privacy dark patterns (module 5). One question; must answer correctly; unlimited attempts.",
+        "tags": [
+          "Ch5",
+          "dark-patterns",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz-pia-risk",
+        "q": "ACIT4280 PIA and risk assessment quiz (Canvas classic): scope?",
+        "a": "Six questions on PIA and privacy risk assessment knowledge. Unlimited attempts; revert and change selections anytime.",
+        "tags": [
+          "Ch4",
+          "PIA",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-quiz-privacy-controls",
+        "q": "ACIT4280 Privacy controls quiz: what is assessed?",
+        "a": "Four questions on understanding privacy controls; you may submit new answers per question with unlimited attempts.",
+        "tags": [
+          "Ch5",
+          "controls",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -5175,6 +5324,27 @@
           "Canvas-quiz",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4100-mquiz-exam-deadline",
+        "q": "Mandatory information quiz (ACIT4100): proposed essay submission deadline?",
+        "a": "05.12.25 at 12:00 (marked to be verified on Canvas for your run).",
+        "tags": [
+          "mandatory",
+          "exam",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-rhetoric-selftests",
+        "q": "How many Rhetoric self-test quizzes does ACIT4100 list in modules?",
+        "a": "Five parts (Rhetoric parts 1-5) as classic Canvas quizzes with unlimited attempts.",
+        "tags": [
+          "rhetoric",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -5760,15 +5930,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 94,
-    acit4280: 175,
-    acit4100: 123,
+    acit4050: 97,
+    acit4280: 186,
+    acit4100: 125,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock37",
+    version: "lock38",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
