@@ -2632,6 +2632,55 @@
         "Canvas-quiz",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4280-1a-webbkoll-brief",
+      "q": "ACIT4280 group assignment 1A (Canvas): core task?",
+      "a": "Use Webbkoll (webbkoll.dataskydd.net) on listed Norwegian sites; report 1000-1500 words plus diagrams; 20-minute group presentation. Part 1: third-party tracking; then 1A evaluates legal grounds for five services.",
+      "tags": [
+        "1A",
+        "Webbkoll",
+        "assignments",
+        "pensum",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4280-legacy-q1",
+      "q": "Handling legacy data assignment (4280): first essay question theme?",
+      "a": "As privacy manager with 25 years of customer data and third-party sales: what do you do with old personal data collected before GDPR consent rules applied?",
+      "tags": [
+        "legacy",
+        "GDPR",
+        "assignments",
+        "pensum",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4280-legacy-q2",
+      "q": "Handling legacy data assignment (4280): second essay question theme?",
+      "a": "How do you identify data subjects requesting access when the social-media identity provider used for login no longer exists? Consider long-term business models.",
+      "tags": [
+        "legacy",
+        "GDPR",
+        "DSR",
+        "assignments",
+        "pensum",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4280-instantons-steps",
+      "q": "InstantONS impact assessment assignment (4280): required analysis structure?",
+      "a": "Identify controller/processors; summarize personal data sources/types; pick one personal data asset (PDA) for deeper analysis; then privacy impact, risk assessment, and control selection (max 2000 words, bullets/tables allowed).",
+      "tags": [
+        "PIA",
+        "risk",
+        "assignments",
+        "pensum",
+        "Canvas-crawl"
+      ]
     }
   ]
 }

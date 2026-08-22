@@ -1092,6 +1092,50 @@
           "Canvas-quiz",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4050-obligatory-completion",
+        "q": "What is the ACIT4050 Obligatory assignments completion Canvas item?",
+        "a": "Pass/fail assignment (1 point) tracking that all eight obligatory assignments are approved before exam - no due date in Canvas crawl.",
+        "tags": [
+          "syllabus",
+          "assignments",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-smishing",
+        "q": "What is smishing (ACIT4050 Lecture 2 reading list)?",
+        "a": "Phishing delivered via SMS/text messages (consumer-facing video material in Canvas module).",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-vishing",
+        "q": "What is vishing in ACIT4050 Lecture 2 materials?",
+        "a": "Voice phishing - social engineering by phone, including deepfaked voice calls (Canvas links press case and tutorial videos).",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-gophish",
+        "q": "What is Gophish in ACIT4050 Lecture 2 module?",
+        "a": "Open-source phishing framework listed as pensum alongside exploit-kit readings and the L03 assignment.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "lab",
+          "pensum",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -3729,6 +3773,55 @@
           "Canvas-quiz",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4280-1a-webbkoll-brief",
+        "q": "ACIT4280 group assignment 1A (Canvas): core task?",
+        "a": "Use Webbkoll (webbkoll.dataskydd.net) on listed Norwegian sites; report 1000-1500 words plus diagrams; 20-minute group presentation. Part 1: third-party tracking; then 1A evaluates legal grounds for five services.",
+        "tags": [
+          "1A",
+          "Webbkoll",
+          "assignments",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-legacy-q1",
+        "q": "Handling legacy data assignment (4280): first essay question theme?",
+        "a": "As privacy manager with 25 years of customer data and third-party sales: what do you do with old personal data collected before GDPR consent rules applied?",
+        "tags": [
+          "legacy",
+          "GDPR",
+          "assignments",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-legacy-q2",
+        "q": "Handling legacy data assignment (4280): second essay question theme?",
+        "a": "How do you identify data subjects requesting access when the social-media identity provider used for login no longer exists? Consider long-term business models.",
+        "tags": [
+          "legacy",
+          "GDPR",
+          "DSR",
+          "assignments",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-instantons-steps",
+        "q": "InstantONS impact assessment assignment (4280): required analysis structure?",
+        "a": "Identify controller/processors; summarize personal data sources/types; pick one personal data asset (PDA) for deeper analysis; then privacy impact, risk assessment, and control selection (max 2000 words, bullets/tables allowed).",
+        "tags": [
+          "PIA",
+          "risk",
+          "assignments",
+          "pensum",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -5930,15 +6023,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 97,
-    acit4280: 186,
+    acit4050: 101,
+    acit4280: 190,
     acit4100: 125,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock38",
+    version: "lock39",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

@@ -1082,6 +1082,50 @@
         "Canvas-quiz",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4050-obligatory-completion",
+      "q": "What is the ACIT4050 Obligatory assignments completion Canvas item?",
+      "a": "Pass/fail assignment (1 point) tracking that all eight obligatory assignments are approved before exam - no due date in Canvas crawl.",
+      "tags": [
+        "syllabus",
+        "assignments",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4050-smishing",
+      "q": "What is smishing (ACIT4050 Lecture 2 reading list)?",
+      "a": "Phishing delivered via SMS/text messages (consumer-facing video material in Canvas module).",
+      "tags": [
+        "Lecture2",
+        "phishing",
+        "pensum",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4050-vishing",
+      "q": "What is vishing in ACIT4050 Lecture 2 materials?",
+      "a": "Voice phishing - social engineering by phone, including deepfaked voice calls (Canvas links press case and tutorial videos).",
+      "tags": [
+        "Lecture2",
+        "phishing",
+        "pensum",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4050-gophish",
+      "q": "What is Gophish in ACIT4050 Lecture 2 module?",
+      "a": "Open-source phishing framework listed as pensum alongside exploit-kit readings and the L03 assignment.",
+      "tags": [
+        "Lecture2",
+        "phishing",
+        "lab",
+        "pensum",
+        "Canvas-crawl"
+      ]
     }
   ]
 }
