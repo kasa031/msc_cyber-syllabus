@@ -1307,6 +1307,51 @@
           "lab",
           "pensum"
         ]
+      },
+      {
+        "id": "4050-cia-eavesdrop",
+        "q": "CIA triad: eavesdropping on unencrypted email, or unauthorized access to personnel records?",
+        "a": "Confidentiality - the wrong party can see or hear data that should stay secret.",
+        "tags": [
+          "Lecture1",
+          "CIA"
+        ]
+      },
+      {
+        "id": "4050-cia-altered-data",
+        "q": "CIA triad: a bug that alters financial data?",
+        "a": "Integrity - data is changed so it is no longer correct, even if nobody stole it.",
+        "tags": [
+          "Lecture1",
+          "CIA"
+        ]
+      },
+      {
+        "id": "4050-cia-outage-ransom",
+        "q": "CIA triad: data-center fire that takes services down, or ransomware that makes files unusable?",
+        "a": "Availability - you cannot use the system or the files when you need them.",
+        "tags": [
+          "Lecture1",
+          "CIA"
+        ]
+      },
+      {
+        "id": "4050-nist-identify-examples",
+        "q": "Which activities sit under NIST CSF Identify?",
+        "a": "Asset inventory (hardware, software, data, people), mapping dependencies and critical services (including suppliers), and identifying cybersecurity risk to assets and capabilities.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
+      },
+      {
+        "id": "4050-nist-not-identify",
+        "q": "Encrypting data at rest, restoring after an outage, and incident-response communication - which NIST functions?",
+        "a": "Protect (encrypt), Recover (restore services), Respond (incident communication). None of these are Identify.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
       }
     ]
   },
@@ -6356,7 +6401,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 117,
+    acit4050: 122,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6364,7 +6409,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock43",
+    version: "lock44",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
