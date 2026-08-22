@@ -1592,6 +1592,77 @@
           "controls",
           "exam"
         ]
+      },
+      {
+        "id": "4050-separation-goal",
+        "q": "What is separation of untrusted entities in a secure computer system?",
+        "a": "Keeping processes, users, and systems apart so that one that is compromised or badly behaved cannot read, change, or starve another. It is the basis of multi-user and multi-tenant security.",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "OS-security"
+        ]
+      },
+      {
+        "id": "4050-separation-four-kinds",
+        "q": "Name the classic kinds of separation in computer security.",
+        "a": "Physical (different hardware), temporal (scheduling, run at different times), logical (permissions, address spaces, virtualization), and cryptographic (data separated by keys even on shared storage).",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-separation-cpu-scheduling",
+        "q": "How does CPU scheduling contribute to separation?",
+        "a": "The scheduler shares CPU time fairly, so one process cannot monopolise the processor and starve others. This protects Availability - it is separation in the time dimension against local denial of service.",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "CIA"
+        ]
+      },
+      {
+        "id": "4050-separation-virtualization",
+        "q": "How does virtualization support separation?",
+        "a": "A hypervisor runs several operating systems on the same hardware with isolated memory, disks, and virtual devices. A compromise in one VM should not reach the others - the same reason labs use Kali and Ubuntu VMs.",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "VM",
+          "lab"
+        ]
+      },
+      {
+        "id": "4050-separation-permissions",
+        "q": "How do file system permissions provide separation?",
+        "a": "Each file has an owner and access rules, so one user cannot read or modify another user's data. This enforces Confidentiality and Integrity between accounts on a shared machine.",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "CIA"
+        ]
+      },
+      {
+        "id": "4050-separation-process-isolation",
+        "q": "What is process isolation and sandboxing?",
+        "a": "Each application runs in its own address space with restricted rights, so it cannot read another process's memory or reach resources it was not granted. Browsers and mobile apps rely heavily on this.",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "OS-security"
+        ]
+      },
+      {
+        "id": "4050-separation-antipatterns",
+        "q": "Why are disabling password protection or preferring local software not separation measures?",
+        "a": "Removing authentication destroys separation between users, and local versus web-based software says nothing about isolation. Convenience choices are not access-control boundaries.",
+        "tags": [
+          "Lecture1",
+          "separation",
+          "exam"
+        ]
       }
     ]
   },
@@ -6641,7 +6712,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 148,
+    acit4050: 155,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6649,7 +6720,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock47",
+    version: "lock48",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
