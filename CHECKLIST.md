@@ -37,7 +37,7 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 
 ## Technical status (lock40)
 
-- Deck counts: ACIT4050=166, ACIT4280=200, ACIT4100=131, computer-basics=28, fellesjam-general=26 (Fellesjam pool=551)
+- Deck counts: ACIT4050=169, ACIT4280=200, ACIT4100=131, computer-basics=28, fellesjam-general=26 (Fellesjam pool=554)
 
 - Mobile: viewport-fit, safe-area, touch targets ~44px, skip link, hash deep-links (`#4050`, `#practice`, `#nist`, `#killchain`, `#4280`, `#4100`, `#pc`, `#fellesjam`)
 - PWA: absolute `start_url` / `scope` under `/msc_cyber-syllabus/`

@@ -1771,6 +1771,36 @@
           "CIA",
           "exam"
         ]
+      },
+      {
+        "id": "4050-hierarchy-of-trust",
+        "q": "What is the Hierarchy of Trust in a computing platform?",
+        "a": "Layers build on each other: hardware/CPU at the bottom, then firmware/BIOS/UEFI, then hypervisor and OS kernel, then system services, then applications and user data. A layer can never be more secure than the layers it rests on, so a compromise low down breaks everything above it.",
+        "tags": [
+          "Lecture1",
+          "trust",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-hierarchy-trust-verified",
+        "q": "Should higher layers simply trust lower layers by default?",
+        "a": "No. Dependence is unavoidable, but trust should be verified, not assumed. Secure boot and measured boot check signatures and integrity of firmware, bootloader and kernel at every startup, so trust in the hardware and boot chain is re-established each time the system starts.",
+        "tags": [
+          "Lecture1",
+          "trust",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-hierarchy-trust-maintenance",
+        "q": "Who maintains trust in the lower layers, and how?",
+        "a": "Hardware vendors and system integrators are responsible for firmware and platform updates. Software vendors fix discovered vulnerabilities through patches and updates. Users cannot verify CPU signatures manually - they rely on vendor signing keys and automated verification in the boot chain.",
+        "tags": [
+          "Lecture1",
+          "trust",
+          "exam"
+        ]
       }
     ]
   },
@@ -6820,7 +6850,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 166,
+    acit4050: 169,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6828,7 +6858,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock51",
+    version: "lock52",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
