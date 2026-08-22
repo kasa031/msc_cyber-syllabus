@@ -18,16 +18,16 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock52" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock52" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock52" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock52" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock53" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock53" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock53" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock53" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
   <style>
-    /* First-paint: mint canvas before fonts settle */
-    html { background: #97FEED; }
+    /* First-paint: white canvas before fonts settle */
+    html { background: #FFFFFF; }
 
     :root {
       /* Canonical palette (Karina, Aug 2026) - navy, teal, sea, mint */
@@ -44,19 +44,20 @@
       --ink-2: #071952;
       --ink-3: #0B666A;
       --slate: #0B666A;
-      --mist: #35A29F;
-      --fog: #35A29F;
-      --paper: var(--palette-mint);
-      --paper-2: #35A29F;
-      --surface: #97FEED;
-      --line: #35A29F;
-      --line-soft: #0B666A;
-      --signal: var(--palette-sea);
+      --mist: #0B666A;
+      --fog: #EDF6F5;
+      /* Reading surfaces stay white; palette colors are accents only */
+      --paper: #FFFFFF;
+      --paper-2: #F5FAFA;
+      --surface: #FFFFFF;
+      --line: #D5E6E5;
+      --line-soft: #E6F1F0;
+      --signal: var(--palette-teal);
       --signal-bright: var(--palette-sea);
-      --signal-soft: #35A29F;
-      --signal-deep: var(--palette-teal);
+      --signal-soft: #E4F5F2;
+      --signal-deep: var(--palette-navy);
       --ochre: var(--palette-teal);
-      --ochre-soft: #0B666A;
+      --ochre-soft: #E9F3F2;
       --warn: var(--palette-navy);
       --warn-hot: #071952;
       --warn-soft: #0B666A;
@@ -88,7 +89,7 @@
       font-size: 1.0625rem;
       line-height: 1.55;
       color: var(--ink);
-      background: #97FEED;
+      background: #FFFFFF;
       background-attachment: fixed;
       min-height: 100vh;
       min-height: 100dvh;
@@ -142,7 +143,8 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      background: #97FEED;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--line);
       color: var(--ink);
       padding: calc(clamp(2.5rem, 8vw, 5.5rem) + var(--safe-top)) 0 clamp(3rem, 7vw, 4.5rem);
       min-height: min(72vh, 36rem);
@@ -1451,7 +1453,7 @@
       padding: 0.28rem 0.55rem;
       min-height: 0;
       color: var(--mist);
-      background: var(--palette-cream);
+      background: var(--paper-2);
       border: 1px solid var(--line);
       border-radius: 3px;
       cursor: pointer;
@@ -1627,7 +1629,7 @@
       line-height: 1.35;
       text-align: center;
       color: var(--ink);
-      background: #97FEED;
+      background: #FFFFFF;
       border: 2px solid var(--palette-turquoise);
       border-radius: 4px;
       box-shadow: 0 4px 16px rgba(26, 20, 16, 0.12);
@@ -2315,8 +2317,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock52" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock52"></script>
+  <script src="quiz-decks.js?v=lock53" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock53"></script>
   <script>
   (function () {
   "use strict";
@@ -3504,7 +3506,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock52-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock53-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;

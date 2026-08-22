@@ -28,14 +28,14 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 ## Offline test (DevTools)
 
 1. Open https://kasa031.github.io/msc_cyber-syllabus/ (or local `index.html` via `Open-Study-App.bat` for `file://`)
-2. **HTTPS/PWA:** wait for service worker install (Application > Service Workers > `msc-cyber-lock52`)
+2. **HTTPS/PWA:** wait for service worker install (Application > Service Workers > `msc-cyber-lock53`)
 3. Browse each course tab once while online (4050, 4280, 4100, PC, Fellesjam) so figures prefetch
 4. Application > Service Workers > check **Offline**, or Network > **Offline**
 5. Reload - all decks, flashcards, quiz SRS, and card figures should match online
 6. Fellesjam pool = merged cards from all five source decks (554 cards)
 7. **file://:** no service worker; all content loads from disk (`quiz-decks.js`, `figures/pensum/` must exist beside `index.html`)
 
-## Technical status (lock52)
+## Technical status (lock53)
 
 - Deck counts: ACIT4050=169, ACIT4280=200, ACIT4100=131, computer-basics=28, fellesjam-general=26 (Fellesjam pool=554)
 
