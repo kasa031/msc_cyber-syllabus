@@ -63,7 +63,7 @@ Sist oppdatert: 2026-08-22 (ferdig kjøring)
 
 - [x] Bump cache lock i `sw.js` (`msc-cyber-lock34`) + `quiz-decks.js?v=lock34`
 - [x] Oppdater `CHECKLIST.md` deck counts
-- [ ] Git commit + push (kun etter Karina godkjenner)
+- [x] Git commit + push (lock36, full offline precache + pensum figures)
 - [ ] Phone smoke test på GitHub Pages
 
 ---
