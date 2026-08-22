@@ -1496,6 +1496,100 @@
         "assignment-2",
         "Canvas"
       ]
+    },
+    {
+      "id": "4100-course-info-plagiarism",
+      "q": "Course information quiz (ACIT4100): what is the stated consequence of plagiarism?",
+      "a": "You confirm you read OsloMet plagiarism rules; ultimate consequence of cheating can be expulsion from all higher education in Norway for up to one year.",
+      "tags": [
+        "mandatory",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-course-info-flipped",
+      "q": "Course information quiz (ACIT4100): which teaching model is named?",
+      "a": "Flipped classroom (not reverse teaching, traditional lectures, or PBL).",
+      "tags": [
+        "mandatory",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-course-info-structure",
+      "q": "Course information quiz (ACIT4100): mandatory work and exam format?",
+      "a": "Two mandatory assignments: (1) literature taxonomy spreadsheet, (2) video of presentation. Exam: individual essay 5500-6500 words.",
+      "tags": [
+        "mandatory",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-mquiz-ai-cheating",
+      "q": "Mandatory information quiz (ACIT4100): which AI use is cheating?",
+      "a": "Using AI to write or rewrite parts of your essay. Explaining a paper with AI, Grammarly grammar checks, or discussing your topic with a classmate are not listed as cheating in that question.",
+      "tags": [
+        "mandatory",
+        "AI",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-mquiz-ai-tools",
+      "q": "Mandatory information quiz (ACIT4100): which AI tools are allowed?",
+      "a": "Tools that help you understand material and improve your own writing (not tools whose main job is to create fluent English for you, and not a blanket ban on all generative AI).",
+      "tags": [
+        "mandatory",
+        "AI",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-mquiz-ai-declare",
+      "q": "Mandatory information quiz (ACIT4100): where must AI use be declared in the essay?",
+      "a": "In a declaration of use after the references section.",
+      "tags": [
+        "mandatory",
+        "AI",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-mquiz-flipped-detail",
+      "q": "Mandatory information quiz (ACIT4100): how does flipped classroom work here?",
+      "a": "You study the material before class and work on exercises during class time.",
+      "tags": [
+        "mandatory",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-mquiz-goalposts",
+      "q": "Mandatory information quiz (ACIT4100): why two mandatory assignments before the essay?",
+      "a": "They act as goalposts so you stay on track toward the essay (not graded components replacing the exam).",
+      "tags": [
+        "mandatory",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-mquiz-classic-style",
+      "q": "Mandatory information quiz (ACIT4100): which writing style is encouraged for the essay?",
+      "a": "Classic style (as described by Steven Pinker) - not legal/bureaucratic tone or narrative short-story style.",
+      "tags": [
+        "mandatory",
+        "writing",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
     }
   ]
 }

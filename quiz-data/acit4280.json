@@ -2494,6 +2494,25 @@
         "Facebook",
         "Google"
       ]
+    },
+    {
+      "id": "4280-canvas-module-quizzes",
+      "q": "Which classic Canvas module quizzes appear in ACIT4280 Chapter 1 (Aug 2026 crawl)?",
+      "a": "Concept of Privacy, Basic Privacy Principles, Privacy Laws, Mobile Computing and Smart Metering, Social Networks/Big Data/Cloud, Introduction to GDPR, Lawfulness and Consent, Data Subject Rights, Responsibilities and Rules, ePrivacy Regulation.",
+      "tags": [
+        "Ch1",
+        "Canvas-quiz",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4280-canvas-group-assignments",
+      "q": "What group home assignments does ACIT4280 list in Canvas (Aug 2026)?",
+      "a": "Nine New Quizzes group assignments (1A Webbkoll through 2A TETs and related) plus Form a group / Groups pages under Introduction.",
+      "tags": [
+        "assignments",
+        "Canvas-crawl"
+      ]
     }
   ]
 }

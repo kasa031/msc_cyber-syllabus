@@ -1012,6 +1012,56 @@
           "syllabus",
           "exam"
         ]
+      },
+      {
+        "id": "4050-lecture2-phishing",
+        "q": "What topics does ACIT4050 Lecture 2 (25 Aug) cover in Canvas?",
+        "a": "Phishing prelude: smishing, spear phishing/whaling, vishing/deepfake voice, AI-powered phishing, e-mail tracking pixels, Apache Phishing Kit report, and exploit kits (Gophish). Includes page Examples of possible exam questions.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-l03-assignment",
+        "q": "What is the L03 home assignment in ACIT4050 Lecture 2?",
+        "a": "L03 Assignment: Phishing with exploit kits (10 points, due 01 Sep 2026). Supporting refs include Mokoena et al. 2020 on social engineering with exploit kits and Gophish.",
+        "tags": [
+          "Lecture2",
+          "assignments",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-hardware-survey",
+        "q": "Why does ACIT4050 ask for a hardware survey on Canvas?",
+        "a": "Ismail Hassan teaches the practical part from 7 Oct; assignments need VMs. The survey (OS, RAM, disk) helps staff size lab tasks so students are not blocked by hardware limits.",
+        "tags": [
+          "syllabus",
+          "lab",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-intro-quiz-canvas",
+        "q": "ACIT4050 Assignment: Introduction Lecture (New Quizzes) rules from Canvas Aug 2026?",
+        "a": "100 points, pass at 60+, five attempts (best score), due 25 Aug 2026 23:59. New Quizzes LTI (classic Quizzes API disabled). Question text still inside the attempt, not in the API.",
+        "tags": [
+          "Lecture1",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-lecture-topics-f26",
+        "q": "Name four later ACIT4050 lecture themes listed in Canvas modules (Fall 2026).",
+        "a": "Examples: Networks (L3), IDS (L4), Firewalls (L5), Identity/AuthN/Access (L6), Security vs Privacy (L7), Anatomy of an Attack (L8), Zero-Trust (L13).",
+        "tags": [
+          "syllabus",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -3511,6 +3561,25 @@
           "Facebook",
           "Google"
         ]
+      },
+      {
+        "id": "4280-canvas-module-quizzes",
+        "q": "Which classic Canvas module quizzes appear in ACIT4280 Chapter 1 (Aug 2026 crawl)?",
+        "a": "Concept of Privacy, Basic Privacy Principles, Privacy Laws, Mobile Computing and Smart Metering, Social Networks/Big Data/Cloud, Introduction to GDPR, Lawfulness and Consent, Data Subject Rights, Responsibilities and Rules, ePrivacy Regulation.",
+        "tags": [
+          "Ch1",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-canvas-group-assignments",
+        "q": "What group home assignments does ACIT4280 list in Canvas (Aug 2026)?",
+        "a": "Nine New Quizzes group assignments (1A Webbkoll through 2A TETs and related) plus Form a group / Groups pages under Introduction.",
+        "tags": [
+          "assignments",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -5012,6 +5081,100 @@
           "assignment-2",
           "Canvas"
         ]
+      },
+      {
+        "id": "4100-course-info-plagiarism",
+        "q": "Course information quiz (ACIT4100): what is the stated consequence of plagiarism?",
+        "a": "You confirm you read OsloMet plagiarism rules; ultimate consequence of cheating can be expulsion from all higher education in Norway for up to one year.",
+        "tags": [
+          "mandatory",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-course-info-flipped",
+        "q": "Course information quiz (ACIT4100): which teaching model is named?",
+        "a": "Flipped classroom (not reverse teaching, traditional lectures, or PBL).",
+        "tags": [
+          "mandatory",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-course-info-structure",
+        "q": "Course information quiz (ACIT4100): mandatory work and exam format?",
+        "a": "Two mandatory assignments: (1) literature taxonomy spreadsheet, (2) video of presentation. Exam: individual essay 5500-6500 words.",
+        "tags": [
+          "mandatory",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-mquiz-ai-cheating",
+        "q": "Mandatory information quiz (ACIT4100): which AI use is cheating?",
+        "a": "Using AI to write or rewrite parts of your essay. Explaining a paper with AI, Grammarly grammar checks, or discussing your topic with a classmate are not listed as cheating in that question.",
+        "tags": [
+          "mandatory",
+          "AI",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-mquiz-ai-tools",
+        "q": "Mandatory information quiz (ACIT4100): which AI tools are allowed?",
+        "a": "Tools that help you understand material and improve your own writing (not tools whose main job is to create fluent English for you, and not a blanket ban on all generative AI).",
+        "tags": [
+          "mandatory",
+          "AI",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-mquiz-ai-declare",
+        "q": "Mandatory information quiz (ACIT4100): where must AI use be declared in the essay?",
+        "a": "In a declaration of use after the references section.",
+        "tags": [
+          "mandatory",
+          "AI",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-mquiz-flipped-detail",
+        "q": "Mandatory information quiz (ACIT4100): how does flipped classroom work here?",
+        "a": "You study the material before class and work on exercises during class time.",
+        "tags": [
+          "mandatory",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-mquiz-goalposts",
+        "q": "Mandatory information quiz (ACIT4100): why two mandatory assignments before the essay?",
+        "a": "They act as goalposts so you stay on track toward the essay (not graded components replacing the exam).",
+        "tags": [
+          "mandatory",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-mquiz-classic-style",
+        "q": "Mandatory information quiz (ACIT4100): which writing style is encouraged for the essay?",
+        "a": "Classic style (as described by Steven Pinker) - not legal/bureaucratic tone or narrative short-story style.",
+        "tags": [
+          "mandatory",
+          "writing",
+          "Canvas-quiz",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -5597,15 +5760,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 89,
-    acit4280: 173,
-    acit4100: 114,
+    acit4050: 94,
+    acit4280: 175,
+    acit4100: 123,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock36",
+    version: "lock37",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
