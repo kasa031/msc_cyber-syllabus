@@ -1352,6 +1352,33 @@
           "Lecture1",
           "NIST"
         ]
+      },
+      {
+        "id": "4050-nist-recover-outcomes",
+        "q": "Which outcomes belong to the NIST CSF Recover function?",
+        "a": "Recovery planning processes and procedures, improvements from lessons learned after incidents, and coordinating communications during recovery.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
+      },
+      {
+        "id": "4050-nist-recover-categories",
+        "q": "Name the three classic Recover categories in NIST CSF.",
+        "a": "Recovery Planning, Improvements, and Communications. In CSF 2.0 the improvement work is also tracked under Identify (ID.IM), but lessons learned still drive recovery.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
+      },
+      {
+        "id": "4050-nist-not-recover",
+        "q": "Asset inventory, awareness training, and continuous monitoring - which NIST functions?",
+        "a": "Identify (inventory of critical assets), Protect (awareness and training), Detect (continuous monitoring for anomalies). None of these are Recover.",
+        "tags": [
+          "Lecture1",
+          "NIST"
+        ]
       }
     ]
   },
@@ -6401,7 +6428,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 122,
+    acit4050: 125,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6409,7 +6436,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock44",
+    version: "lock45",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
