@@ -1379,6 +1379,33 @@
           "Lecture1",
           "NIST"
         ]
+      },
+      {
+        "id": "4050-infosec-vs-cybersec",
+        "q": "Information security vs cyber security - what is the relationship?",
+        "a": "Information security is the umbrella term. Cyber security is a subset focused on computer-based threats and protections.",
+        "tags": [
+          "Lecture1",
+          "definitions"
+        ]
+      },
+      {
+        "id": "4050-infosec-scope",
+        "q": "What does information security cover?",
+        "a": "All types of information regardless of form - stored digitally, on paper, spoken, or transmitted manually.",
+        "tags": [
+          "Lecture1",
+          "definitions"
+        ]
+      },
+      {
+        "id": "4050-cybersec-scope",
+        "q": "What does cyber security focus on specifically?",
+        "a": "Information stored or transmitted through digital systems and networks. It does not cover printed documents or purely physical records.",
+        "tags": [
+          "Lecture1",
+          "definitions"
+        ]
       }
     ]
   },
@@ -6428,7 +6455,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 125,
+    acit4050: 128,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6436,7 +6463,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock45",
+    version: "lock46",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
