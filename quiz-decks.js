@@ -1741,6 +1741,36 @@
           "Lecture1",
           "NIST"
         ]
+      },
+      {
+        "id": "4050-integrity-not-encryption",
+        "q": "Does integrity mean data must be encrypted in transit?",
+        "a": "No. Encryption hides content, which serves Confidentiality. Integrity is about detecting unauthorized change, and it uses hashes, message authentication codes, and digital signatures - encrypted data can still be corrupted or replayed.",
+        "tags": [
+          "Lecture1",
+          "CIA",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-availability-definition-nuance",
+        "q": "Is availability about restricting access to business hours?",
+        "a": "No. Availability means legitimate users can reach systems and data when they need them, with uptime and resilience. Limiting hours is an access-control or operational policy, not the security goal itself.",
+        "tags": [
+          "Lecture1",
+          "CIA",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-cia-mechanism-map",
+        "q": "Which mechanism protects which CIA goal?",
+        "a": "Confidentiality: encryption, access control, pseudonymisation. Integrity: hashes, MACs, digital signatures, version control. Availability: redundancy, backups, capacity planning, DDoS protection.",
+        "tags": [
+          "Lecture1",
+          "CIA",
+          "exam"
+        ]
       }
     ]
   },
@@ -6790,7 +6820,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 163,
+    acit4050: 166,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6798,7 +6828,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock50",
+    version: "lock51",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

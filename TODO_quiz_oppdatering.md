@@ -1,6 +1,6 @@
 # TODO: Quiz-oppdatering cyber1
 
-Sist oppdatert: 2026-08-22 (ferdig kjøring)
+Sist oppdatert: 2026-08-22 (lock38 deploy)
 
 ---
 
@@ -19,11 +19,11 @@ Sist oppdatert: 2026-08-22 (ferdig kjøring)
 
 ---
 
-## Fase 2 - ACIT4050 Canvas crawl (BLOCKERT uten Feide)
+## Fase 2 - ACIT4050 Canvas crawl (MCP + Edge CDP)
 
-- [ ] Hent ACIT4050 modules API (som 4280 `_fetch_canvas_modules.py`)
-- [ ] CDP: start New Quizzes forsøk, eksporter spørsmål per assignment
-- [ ] Map Lecture 2+ -> nye `4050-*` kort (Lecture 1 allerede i deck)
+- [x] Moduler/assignments crawlet (Edge CDP + MCP browser Aug 22)
+- [x] Meta-kort lecture schedule + hardware survey (lock38)
+- [ ] CDP/MCP: start New Quizzes forsøk, eksporter spørsmål per assignment (4050 Intro Lecture - Begin venter på OK)
 - [ ] DNS/lab-spørsmål fra pensum PDF -> kort (verifiser mot forelesning)
 - [ ] Oppdater `fj-own-dns-free` med offisiell lab-prosedyre
 
@@ -45,6 +45,7 @@ Sist oppdatert: 2026-08-22 (ferdig kjøring)
 
 - [x] Gå gjennom `_all_modules_scrape.json` modul for modul vs deck tags (hovedbulk OK)
 - [x] Supplement-kort: smart metering + fitness-apps PDF meta (`4280-supplement-*`)
+- [x] Canvas Quiz 1 (6 spørsmål fra attempt history) + Ch2-6 module quiz meta (lock38)
 - [ ] Assignment 1A/2A: case-kort (Webbkoll finnes; TETs case-detaljer trenger PDF/rapport)
 - [ ] YouTube supplement PDFs: manglende temaer (quiz-sider skipped i scrape)
 - [x] Tell opp forventet kortantall; bump EXPECTED (165)
@@ -54,16 +55,17 @@ Sist oppdatert: 2026-08-22 (ferdig kjøring)
 ## Fase 4 - ACIT4100 utvidelse
 
 - [x] Usable security Spine A (`reading_list.md` + `problemstilling.md`) -> 8 kort
-- [ ] Mandatory information quiz (crawl - needs Canvas)
+- [x] Mandatory information quiz + course info quiz (crawl attempt history -> 11 kort)
+- [x] Rhetoric self-test meta + exam deadline (lock38)
 - [ ] Assignment 1/2 detaljerte krav fra Canvas (delvis i deck)
 
 ---
 
 ## Fase 5 - Publisering
 
-- [x] Bump cache lock i `sw.js` (`msc-cyber-lock34`) + `quiz-decks.js?v=lock34`
-- [x] Oppdater `CHECKLIST.md` deck counts
-- [x] Git commit + push (lock36, full offline precache + pensum figures)
+- [x] Bump cache lock (`msc-cyber-lock38`) + `quiz-decks.js?v=lock38`
+- [x] Oppdater `CHECKLIST.md` deck counts (462 Fellesjam pool)
+- [x] Git commit + push (lock38)
 - [ ] Phone smoke test på GitHub Pages
 
 ---
