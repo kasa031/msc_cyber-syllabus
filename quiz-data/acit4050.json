@@ -1653,6 +1653,46 @@
         "separation",
         "exam"
       ]
+    },
+    {
+      "id": "4050-zero-day-vs-unpatched",
+      "q": "Zero-day vs a known unpatched vulnerability?",
+      "a": "Zero-day: no patch exists. Known unpatched (sometimes called n-day): the patch exists but has not been installed. Most real breaches exploit n-day flaws, not zero-days, because patching lags.",
+      "tags": [
+        "Lecture1",
+        "vulnerabilities",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-botnet-ddos",
+      "q": "Why is a botnet the typical tool for a DDoS attack?",
+      "a": "It gives the attacker thousands of infected machines on different networks. The traffic looks like it comes from many ordinary users, so simple IP blocking fails and the volume can overwhelm the target.",
+      "tags": [
+        "Lecture1",
+        "botnet",
+        "DoS"
+      ]
+    },
+    {
+      "id": "4050-human-factor",
+      "q": "Why are users and system administrators a frequent cause of incidents?",
+      "a": "Configuration mistakes, weak or reused passwords, over-broad permissions, and clicking malicious links. The human factor is a root cause, which is why training, least privilege, and safe defaults are core controls.",
+      "tags": [
+        "Lecture1",
+        "human-factor",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-rootkit-detection-myth",
+      "q": "Are rootkits easy to detect and harmless?",
+      "a": "No. A rootkit is built to hide by subverting the operating system, so normal tools may report a clean machine. It grants privileged persistent access and can do far more than spy. Detection often needs offline or boot-level scanning.",
+      "tags": [
+        "malware",
+        "rootkit",
+        "exam"
+      ]
     }
   ]
 }
