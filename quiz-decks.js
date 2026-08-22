@@ -1406,6 +1406,192 @@
           "Lecture1",
           "definitions"
         ]
+      },
+      {
+        "id": "4050-malware-definition",
+        "q": "What is malware?",
+        "a": "Malicious software - any code written to harm, spy on, or take control of a system without the owner's informed consent. The categories below differ mainly in how they spread and what payload they carry.",
+        "tags": [
+          "malware",
+          "definitions"
+        ]
+      },
+      {
+        "id": "4050-malware-two-questions",
+        "q": "Which two questions separate the malware categories?",
+        "a": "1) How does it spread (needs a host file, spreads itself over the network, or tricks a user into running it)? 2) What is the payload (steal, encrypt, spy, destroy, hide, mine)? Names like virus, worm, and trojan answer the first question.",
+        "tags": [
+          "malware",
+          "definitions"
+        ]
+      },
+      {
+        "id": "4050-trojan-origin",
+        "q": "Where does the name trojan horse come from, and why does it fit?",
+        "a": "The Greek wooden horse at Troy: the defenders carried the threat inside themselves. Likewise trojan malware passes the perimeter because the user invites it in, so firewalls and network controls do not stop it.",
+        "tags": [
+          "malware",
+          "trojan"
+        ]
+      },
+      {
+        "id": "4050-virus-vs-worm",
+        "q": "Virus vs worm - the key difference?",
+        "a": "A virus needs a host file plus a user who runs it. A worm is standalone and propagates itself over the network. That is why worm outbreaks scale in minutes while virus spread depends on human behaviour.",
+        "tags": [
+          "malware",
+          "virus",
+          "worm"
+        ]
+      },
+      {
+        "id": "4050-wiper",
+        "q": "What is wiper malware and how does it differ from ransomware?",
+        "a": "A wiper destroys data permanently with no intent to restore it, even if it displays a ransom note. The goal is sabotage, not profit (e.g. NotPetya).",
+        "tags": [
+          "malware",
+          "ransomware"
+        ]
+      },
+      {
+        "id": "4050-keylogger",
+        "q": "What is a keylogger?",
+        "a": "A form of spyware that records keystrokes to capture passwords, card numbers, and messages. Can be software or a hardware device between keyboard and machine.",
+        "tags": [
+          "malware",
+          "spyware"
+        ]
+      },
+      {
+        "id": "4050-adware",
+        "q": "What is adware, and when does it become malicious?",
+        "a": "Software that displays or injects advertising. It crosses into malware when it is installed without consent, cannot be removed, hijacks the browser, or tracks the user across sites.",
+        "tags": [
+          "malware",
+          "adware"
+        ]
+      },
+      {
+        "id": "4050-backdoor",
+        "q": "What is a backdoor?",
+        "a": "A hidden way into a system that bypasses normal authentication. It may be planted by malware, left behind by an attacker for later access, or built in deliberately by a vendor or developer.",
+        "tags": [
+          "malware",
+          "backdoor"
+        ]
+      },
+      {
+        "id": "4050-rat",
+        "q": "What is a RAT (remote access trojan)?",
+        "a": "A trojan that gives the attacker interactive remote control - file access, webcam, microphone, keystrokes, command execution - as if sitting at the machine.",
+        "tags": [
+          "malware",
+          "trojan",
+          "backdoor"
+        ]
+      },
+      {
+        "id": "4050-botnet",
+        "q": "What is a bot and a botnet?",
+        "a": "A bot is an infected machine controlled remotely. A botnet is a network of such machines used together for DDoS, spam, credential stuffing, or crypto mining. Coordinated through command and control (C2).",
+        "tags": [
+          "malware",
+          "botnet",
+          "kill-chain"
+        ]
+      },
+      {
+        "id": "4050-c2",
+        "q": "What is command and control (C2) in a malware infection?",
+        "a": "The channel the malware uses to reach the attacker for instructions and to send stolen data out. It is stage 6 of the Lockheed Martin Kill Chain, and blocking C2 traffic can stop an attack after installation.",
+        "tags": [
+          "malware",
+          "kill-chain",
+          "botnet"
+        ]
+      },
+      {
+        "id": "4050-dropper-loader",
+        "q": "What is a dropper or loader?",
+        "a": "Small first-stage malware whose only job is to fetch and install the real payload. Keeping it small and simple helps it slip past scanners, and the payload can be swapped at any time.",
+        "tags": [
+          "malware",
+          "trojan"
+        ]
+      },
+      {
+        "id": "4050-logic-bomb",
+        "q": "What is a logic bomb?",
+        "a": "Malicious code that lies dormant until a trigger condition is met - a date, a file change, or an employee being removed from payroll. Often associated with insider threats.",
+        "tags": [
+          "malware",
+          "insider"
+        ]
+      },
+      {
+        "id": "4050-fileless-malware",
+        "q": "What is fileless malware, and why is it hard to detect?",
+        "a": "Malware that runs in memory using legitimate tools already on the system, such as PowerShell or WMI (living off the land). There is little or no file on disk for signature-based antivirus to find.",
+        "tags": [
+          "malware",
+          "detection"
+        ]
+      },
+      {
+        "id": "4050-polymorphic-malware",
+        "q": "What are polymorphic and metamorphic malware?",
+        "a": "Malware that changes its own code or encryption on every copy so each sample has a different signature. This defeats simple signature matching and pushes defenders toward behaviour-based detection.",
+        "tags": [
+          "malware",
+          "detection"
+        ]
+      },
+      {
+        "id": "4050-cryptojacking",
+        "q": "What is cryptojacking?",
+        "a": "Malware that quietly uses your CPU or GPU to mine cryptocurrency for someone else. Symptoms are heat, fan noise, slowness, and battery drain rather than obvious data loss.",
+        "tags": [
+          "malware",
+          "cryptojacking"
+        ]
+      },
+      {
+        "id": "4050-scareware",
+        "q": "What is scareware?",
+        "a": "Fake alerts claiming the machine is infected, pushing the user to buy useless software or call a fraudulent support number. It exploits fear and urgency, the same influence levers as phishing.",
+        "tags": [
+          "malware",
+          "phishing"
+        ]
+      },
+      {
+        "id": "4050-pup",
+        "q": "What is a PUP (potentially unwanted program)?",
+        "a": "Software that is not clearly malicious but that users would not knowingly install - toolbars, bundled installers, aggressive trackers. Often arrives bundled with free downloads.",
+        "tags": [
+          "malware",
+          "adware"
+        ]
+      },
+      {
+        "id": "4050-malware-delivery-paths",
+        "q": "How does malware typically reach a machine?",
+        "a": "Phishing attachments and links, malicious or cracked downloads, exploit kits on compromised sites, removable media, unpatched internet-facing services, and supply-chain compromise of trusted software.",
+        "tags": [
+          "malware",
+          "phishing",
+          "Lecture2"
+        ]
+      },
+      {
+        "id": "4050-malware-defences",
+        "q": "Which defences reduce malware risk in an organisation?",
+        "a": "Patching, least privilege (no daily admin), application allowlisting, macro and script restrictions, email filtering, EDR with behaviour detection, network segmentation, tested offline backups, and user training.",
+        "tags": [
+          "malware",
+          "controls",
+          "exam"
+        ]
       }
     ]
   },
@@ -6455,7 +6641,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 128,
+    acit4050: 148,
     acit4280: 200,
     acit4100: 131,
     "computer-basics": 28,
@@ -6463,7 +6649,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock46",
+    version: "lock47",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
