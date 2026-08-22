@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Class notes | ACIT4280, ACIT4100 and ACIT4050</title>
+  <meta name="theme-color" content="#071952" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <style>
+    html { background: #FFFFFF; }
+    :root {
+      --navy: #071952;
+      --teal: #0B666A;
+      --sea: #35A29F;
+      --mint: #97FEED;
+      --line: #D5E6E5;
+      --fog: #F5FAFA;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--navy);
+      background: #FFFFFF;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 46rem; margin: 0 auto; padding: 1.25rem 1.25rem 3rem; }
+    h1 { font-size: 1.45rem; margin: 0 0 0.4rem; }
+    h2 { font-size: 1.15rem; margin: 1.6rem 0 0.45rem; color: var(--navy); }
+    h3 { font-size: 1rem; margin: 1.1rem 0 0.35rem; color: var(--teal); }
+    p, li { font-size: 0.95rem; }
+    .lede { color: var(--teal); margin: 0 0 1.1rem; }
+    .meta { font-size: 0.82rem; color: var(--teal); margin: 0 0 1.25rem; }
+    a { color: var(--teal); font-weight: 600; }
+    a:hover { color: var(--navy); }
+    section {
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--navy);
+      border-radius: 4px;
+      padding: 0.95rem 1rem 1.05rem;
+      margin: 0 0 1rem;
+      background: #FFFFFF;
+    }
+    section.seed { border-top-color: var(--sea); }
+    ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    .q { font-weight: 700; margin: 0 0 0.35rem; }
+    .links { margin: 0.65rem 0 0; padding: 0; list-style: none; }
+    .links li { margin: 0.25rem 0; }
+    .links a { word-break: break-word; }
+    .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 0.7rem 0; }
+    .bar-col { text-align: center; }
+    .bar-label { font-size: 0.78rem; font-weight: 700; margin: 0 0 0.35rem; }
+    .bar-track {
+      height: 7.2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: var(--fog);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .bar {
+      width: 2.4rem;
+      background: var(--sea);
+    }
+    .bar.low { height: 18%; background: var(--navy); }
+    .bar.high { height: 88%; }
+    .bar-under { font-size: 0.75rem; color: var(--teal); margin: 0.3rem 0 0; }
+    .src { font-size: 0.8rem; color: var(--teal); margin: 0.7rem 0 0; }
+    .back { display: inline-block; margin: 0 0 1rem; font-weight: 700; }
+    .tri {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem 0.85rem;
+      max-width: 16rem;
+      margin: 0.7rem 0 0.2rem;
+      text-align: center;
+    }
+    .tri .node {
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      width: 5.2rem;
+      height: 5.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--fog);
+      margin: 0 auto;
+    }
+    .tri .top { grid-column: 1 / -1; }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.45rem;
+      align-items: center;
+      margin: 0.7rem 0;
+      text-align: center;
+    }
+    .box {
+      border: 2px solid var(--navy);
+      padding: 0.5rem 0.65rem;
+      font-weight: 700;
+      background: var(--fog);
+    }
+    .oval {
+      border: 2px solid var(--teal);
+      border-radius: 2rem;
+      padding: 0.4rem 0.55rem;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+    .jump { font-size: 0.88rem; margin: 0 0 1rem; }
+    .stack {
+      max-width: 16rem;
+      margin: 0.7rem 0;
+      border: 2px solid var(--navy);
+    }
+    .stack div {
+      padding: 0.32rem 0.5rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.86rem;
+      border-bottom: 1px solid var(--line);
+      background: var(--fog);
+    }
+    .stack div:last-child { border-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html#notes">Back to the study app</a></p>
+    <h1>Class notes</h1>
+    <p class="lede">Organised from handwritten pages. Sources are linked. More pages will be added as you send them.</p>
+    <p class="jump"><a href="#acit4280">ACIT4280</a> · <a href="#acit4100">ACIT4100</a> · <a href="#acit4050">ACIT4050</a></p>
+    <h2 id="acit4280">ACIT4280 Privacy by Design</h2>
+    <p class="meta">Pages 1-5 - 22 Aug 2026</p>
+
+    <section id="p1-cyberwar">
+      <h2>1. Cyber warfare and Cambridge Analytica</h2>
+      <p class="q">Can the Cambridge Analytica situation be described as cyber warfare? Is every hack part of cyber war?</p>
+      <p>Usually <strong>no</strong> for Analytica, and <strong>no</strong> for ordinary hacking.</p>
+      <ul>
+        <li>Cambridge Analytica harvested Facebook profile data and used it for political targeting. That is influence, profiling and unlawful processing, not an armed attack on infrastructure.</li>
+        <li>Cyber war language is tighter: typically a state (or its proxy), a threshold of harm, and a link to armed conflict or the law of armed conflict. The Tallinn Manual is the usual reference.</li>
+        <li>Lecture 1 groups Analytica with Facebook election manipulation under a later "triality" of privacy risk: harm can hit the person, the organisation, <em>and</em> society (elections, trust).</li>
+      </ul>
+      <ul class="links">
+        <li><a href="https://www.theguardian.com/news/series/cambridge-analytica-files" target="_blank" rel="noopener">Guardian: Cambridge Analytica files</a></li>
+        <li><a href="https://ico.org.uk/action-weve-taken/investigation-into-data-analytics-for-political-purposes/" target="_blank" rel="noopener">ICO investigation (UK)</a></li>
+        <li><a href="https://ccdcoe.org/research/tallinn-manual/" target="_blank" rel="noopener">CCDCOE: Tallinn Manual</a></li>
+        <li><a href="https://www.icrc.org/en/document/cyber-warfare" target="_blank" rel="noopener">ICRC on cyber warfare</a></li>
+      </ul>
+    </section>
+
+    <section id="p1-triality">
+      <h2>2. Duality, then triality of privacy risk</h2>
+      <p>Older slide: <strong>duality</strong> of privacy risks (Fritsch and Abie, 2008): risk for the individual <em>and</em> for the organisation.</p>
+      <p>2023 update in the intro slides: <strong>triality</strong>. A third pole is <strong>society</strong> (elections, public debate, "personalised (cyber) war").</p>
+      <ul>
+        <li>Examples on the slide: Cambridge Analytica / Facebook; Team Jorge (harassment as a service).</li>
+      </ul>
+      <p class="src">Fritsch, L., Abie, H. (2008). Towards a Research Road Map to the Management of Privacy Risks in Information Systems. In: Sicherheit 2008, LNI 128, GI.</p>
+    </section>
+
+    <section id="p1-jorge">
+      <h2>3. Team Jorge</h2>
+      <p>Private Israeli outfit led by Tal Hanan. Investigated in 2023 for selling disinformation, hacking and "harassment as a service" around elections. Fits the society pole of triality: not a classic state cyber war, still organised harm at scale.</p>
+      <ul class="links">
+        <li><a href="https://www.theguardian.com/world/2023/feb/15/revealed-disinformation-team-jorge-claim-meddling-elections-tal-hanan" target="_blank" rel="noopener">Guardian: Team Jorge revealed (2023)</a></li>
+        <li><a href="https://www.haaretz.com/israel-news/security-aviation/2023-02-15/ty-article-magazine/.highlight/the-israeli-who-meddled-in-elections-around-the-world-and-the-clients-who-hired-him/00000186-5d73-d13c-a7e6-7dfb3d6b0000" target="_blank" rel="noopener">Haaretz on Tal Hanan</a></li>
+      </ul>
+    </section>
+
+    <section id="p1-oslo-dc">
+      <h2>4. Building a data centre in Oslo?</h2>
+      <p>Open lecture prompt, not a finished claim. Use it to ask: who is the controller, which country hosts the servers, and is there a Chapter V transfer if personal data leave the EEA?</p>
+      <ul class="links">
+        <li><a href="https://www.regjeringen.no/no/tema/energi/datasentre/" target="_blank" rel="noopener">Regjeringen: datasentre</a></li>
+        <li><a href="https://greenmountain.no/" target="_blank" rel="noopener">Green Mountain (Norwegian data centres)</a></li>
+        <li><a href="https://www.datatilsynet.no/regelverk-og-verktoy/internasjonalt/overende-av-personopplysninger-til-land-utenfor-eov/" target="_blank" rel="noopener">Datatilsynet: transfers outside the EEA</a></li>
+      </ul>
+    </section>
+
+    <section id="p1-enisa">
+      <h2>5. ENISA PIA impact levels</h2>
+      <p>Four levels aimed at harm to the <strong>individual</strong> (SME guideline, ch. 3):</p>
+      <ul>
+        <li><strong>Low</strong> - minor inconvenience (re-enter data, irritation).</li>
+        <li><strong>Medium</strong> - significant inconvenience they can still overcome (extra cost, stress, denied service).</li>
+        <li><strong>High</strong> - serious difficulties (lost job, money taken, health worse, blacklisting).</li>
+        <li><strong>Very high</strong> - serious or irreversible (cannot work, long-term illness, death).</li>
+      </ul>
+      <ul class="links">
+        <li><a href="https://www.enisa.europa.eu/publications/guidelines-for-smes-on-the-security-of-personal-data-processing" target="_blank" rel="noopener">ENISA: Guidelines for SMEs on the security of personal data processing (2016)</a></li>
+      </ul>
+      <p class="src">Quiz card already in the app: "What ENISA SME impact levels are taught for individuals' privacy harm?"</p>
+    </section>
+
+    <section id="p1-fines">
+      <h2>6. GDPR fines tracker, and where the money goes</h2>
+      <p>Lecture 1 points to the public enforcement tracker. Use it to pick an organisation, the business motive, and which GDPR part was broken.</p>
+      <p>The fine is paid to the <strong>state</strong> in the country of the supervisory authority (in Norway: the Treasury / statskassen). It does <strong>not</strong> go to Datatilsynet as pocket money, and it is <strong>not</strong> automatically paid to the victims. Victims use damages (Art. 82) or other remedies.</p>
+      <ul class="links">
+        <li><a href="https://www.enforcementtracker.com/" target="_blank" rel="noopener">CMS GDPR Enforcement Tracker</a></li>
+        <li><a href="https://gdpr-info.eu/art-83-gdpr/" target="_blank" rel="noopener">GDPR Art. 83 (administrative fines)</a></li>
+        <li><a href="https://gdpr-info.eu/art-82-gdpr/" target="_blank" rel="noopener">GDPR Art. 82 (compensation to the person)</a></li>
+        <li><a href="https://www.datatilsynet.no/regelverk-og-verktoy/lover-og-regler/administrative-gebyr/" target="_blank" rel="noopener">Datatilsynet on administrative fees</a></li>
+        <li><a href="https://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/" target="_blank" rel="noopener">World's Biggest Data Breaches (also on the intro slides)</a></li>
+      </ul>
+    </section>
+
+    <section id="p2-asymmetric">
+      <h2>7. Asymmetric risk and knowledge (ACIT4280)</h2>
+      <p>Your notebook drawings match Lecture 1 fairness framing.</p>
+      <h3>Asymmetric risk</h3>
+      <div class="bars" role="img" aria-label="Controller has a short risk bar. Individual has a tall risk bar.">
+        <div class="bar-col">
+          <p class="bar-label">Data controller</p>
+          <div class="bar-track"><span class="bar low"></span></div>
+          <p class="bar-under">Data breach / abuse (often a cost of business)</p>
+        </div>
+        <div class="bar-col">
+          <p class="bar-label">Individual</p>
+          <div class="bar-track"><span class="bar high"></span></div>
+          <p class="bar-under">Reputation loss and other personal harm</p>
+        </div>
+      </div>
+      <h3>Asymmetric knowledge</h3>
+      <div class="bars" role="img" aria-label="Controller has a tall knowledge bar. Individual has a short knowledge bar.">
+        <div class="bar-col">
+          <p class="bar-label">Data controller</p>
+          <div class="bar-track"><span class="bar high"></span></div>
+          <p class="bar-under">Experts, budget, the real processing</p>
+        </div>
+        <div class="bar-col">
+          <p class="bar-label">Individual</p>
+          <div class="bar-track"><span class="bar low"></span></div>
+          <p class="bar-under">Little visibility into what is done with the data</p>
+        </div>
+      </div>
+      <p class="src">Related quiz cards: asymmetric risk, cost, knowledge, profit and control.</p>
+    </section>
+
+    <section id="p2-zuboff">
+      <h2>8. "Survival capitalism" book</h2>
+      <p>Almost certainly <strong>The Age of Surveillance Capitalism</strong> (Shoshana Zuboff, 2019). The lecture point: personal data is extracted as a behavioural surplus and sold as prediction. Fits asymmetric knowledge and profit.</p>
+      <ul class="links">
+        <li><a href="https://shoshanazuboff.com/book/about/" target="_blank" rel="noopener">Zuboff: about the book</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/The_Age_of_Surveillance_Capitalism" target="_blank" rel="noopener">Wikipedia overview</a></li>
+      </ul>
+    </section>
+
+    <section class="seed" id="p2-writing">
+      <h2>9. Writing assignment seeds</h2>
+      <p>From the notebook under "Forslag til skriveoppg." Keep these as topic ideas, not finished answers.</p>
+      <h3>Dossier society</h3>
+      <p>Kenneth C. Laudon, <em>Dossier Society: Value Choices in the Design of National Information Systems</em> (1986). Early argument that large public information systems encode political choices, not just efficiency. Later notebook prompt: <em>What happens when tech giants start to drive politics?</em> Pair Laudon with that question (see also section 15).</p>
+      <ul class="links">
+        <li><a href="https://archive.org/details/dossiersocietyva0000laud" target="_blank" rel="noopener">Laudon, Dossier Society (Internet Archive)</a></li>
+      </ul>
+      <h3>USA, 1700s, everything had to be registered</h3>
+      <p>Possible anchors: colonial record-keeping; the first US census (1790); later the argument that "register everything" is an old state habit, not only a digital one. Good pair with dossier society.</p>
+      <ul class="links">
+        <li><a href="https://www.census.gov/programs-surveys/decennial-census/decade/1790/about-1790.html" target="_blank" rel="noopener">US Census Bureau: 1790 census</a></li>
+      </ul>
+      <h3>What AI does OsloMet give students?</h3>
+      <p>Check the live staff/student pages (tools change). Typical mix: Microsoft 365 Copilot where licensed, plus rules on what you may paste into public models.</p>
+      <ul class="links">
+        <li><a href="https://student.oslomet.no/" target="_blank" rel="noopener">OsloMet student pages</a></li>
+        <li><a href="https://www.oslomet.no/om/it" target="_blank" rel="noopener">OsloMet IT</a></li>
+      </ul>
+    </section>
+
+    <p class="meta">MITRE ATT&amp;CK and the Wi-Fi example from the notebook edge are now in section 20.</p>
+
+    <section id="p3-flip">
+      <h2>10. Flipped classroom (first-day list)</h2>
+      <p>Notebook order for how the course runs:</p>
+      <ul>
+        <li>prepare</li>
+        <li>class</li>
+        <li>group presentation</li>
+        <li>exam, multiple choice</li>
+        <li>Easter break</li>
+        <li>remember questions</li>
+        <li>form a group; one assignment is a case presentation relevant to the course</li>
+      </ul>
+      <p>Official Canvas wording is a bit fuller: read or watch before class; group of three; written report plus presentation; timed Inspera exam. Use Canvas if the notebook and the course page disagree.</p>
+      <p class="src">Quiz card already in the app: "How is ACIT4280 taught (format) according to the Aug 13 2026 intro?"</p>
+    </section>
+
+    <section id="p3-triangle">
+      <h2>11. Privacy: me, others, state</h2>
+      <p>The drawing is a triangle, not a company-only model. Privacy is a relation between you, other people, and the state.</p>
+      <div class="tri" role="img" aria-label="Triangle: others at the top, me at the left, state at the right. All three are linked.">
+        <div class="node top">others</div>
+        <div class="node">me</div>
+        <div class="node">state</div>
+      </div>
+      <p>Next to the drawing: <strong>right to be left alone</strong>. That is Warren and Brandeis (1890), usually quoted as the right to be let alone. Reaction to a new press and photography, not to Facebook.</p>
+      <p>Margin note: <em>Siden: (What is Russia)</em>. Left as an open prompt from the lecture. Do not invent a finished answer until the next page or slide names it.</p>
+      <ul class="links">
+        <li><a href="https://www.cs.cornell.edu/~shmat/courses/cs5436/warren-brandeis.pdf" target="_blank" rel="noopener">Warren and Brandeis (1890), The Right to Privacy (PDF)</a></li>
+      </ul>
+      <p class="src">Quiz card already in the app: Warren and Brandeis "to be let alone". New card: the me / others / state triangle.</p>
+    </section>
+
+    <section id="p3-system">
+      <h2>12. One system, two risk types</h2>
+      <p>The lower drawing splits one system into two kinds of harm:</p>
+      <div class="split" role="img" aria-label="A system box in the middle. Business risk on the left. User risk on the right.">
+        <div class="oval">Business risk</div>
+        <div class="box">System</div>
+        <div class="oval">User risk</div>
+      </div>
+      <p>Same idea as duality: the organisation can lose money or reputation; the person can lose privacy, money or safety. Triality later adds society (elections, trust).</p>
+    </section>
+
+    <section id="p4-case">
+      <h2>15. Case notes: principles, 72 hours, Ryde</h2>
+      <p>Writing / presentation cluster from the next page. Presentation slot on the page: <strong>20 min</strong>, focus <em>what we found</em>.</p>
+      <h3>Notebook "basic principles"</h3>
+      <p>The page lists only three: security, accountability, transparency. That is a first-day subset. Full Art. 5 also has lawfulness, fairness, purpose limitation, data minimisation, accuracy and storage limitation. Integrity and confidentiality is the security principle. Accountability is Art. 5(2): you must be able to <em>show</em> compliance.</p>
+      <h3>If data are lost, is there a time limit?</h3>
+      <p>Yes, but two clocks:</p>
+      <ul>
+        <li><strong>Art. 33</strong> - tell the supervisory authority without undue delay, and where feasible within <strong>72 hours</strong>.</li>
+        <li><strong>Art. 34</strong> - tell the people if the breach is likely to mean a <strong>high risk</strong> to their rights. No 72-hour number here. The duty is without undue delay.</li>
+      </ul>
+      <p>Tracker: search Norway on <a href="https://www.enforcementtracker.com/" target="_blank" rel="noopener">enforcementtracker.com</a>.</p>
+      <h3>Ryde (live case, Aug 2026)</h3>
+      <p>Ryde Technology AS (Oslo e-scooters) published a customer data breach on 2 August 2026. They say an unauthorised party copied account data: phone, email, date of birth, partial card numbers, payment history. They say ride locations were not taken. They notified Datatilsynet and the police.</p>
+      <p>Notebook question: <em>where can I bill you if my information is misused?</em> Support mail (<code>support@ryde-technology.com</code>) is customer service, not a damages invoice. Privacy rights: DPO (<code>dpo@ryde-technology.com</code>). Complaint: Datatilsynet. Money: Art. 82 in court, separately from a GDPR fine (the fine still goes to the state).</p>
+      <p>Lecture nudge on the page: <em>make a stronger statement of what is lost</em>. Name the data types. Do not say only "a breach happened".</p>
+      <p>First-hand notices on a customer account: in-app notice 5 Aug 2026, 19:42 (lists the data types above; says Datatilsynet and police are notified). Later SMS from "Ryde" (Monday 13:29): no new information since the previous notice. Follow-up goes to the DPO first, not support, and not Datatilsynet until the company has had a chance to answer.</p>
+      <ul class="links">
+        <li><a href="https://www.ryde-technology.com/security-incident-2026-08-02" target="_blank" rel="noopener">Ryde: security incident 2 Aug 2026</a></li>
+        <li><a href="https://www.ryde-technology.com/privacy-policy" target="_blank" rel="noopener">Ryde privacy policy (DPO contact)</a></li>
+        <li><a href="https://gdpr-info.eu/art-33-gdpr/" target="_blank" rel="noopener">GDPR Art. 33 (notify the authority)</a></li>
+        <li><a href="https://gdpr-info.eu/art-34-gdpr/" target="_blank" rel="noopener">GDPR Art. 34 (notify the person)</a></li>
+      </ul>
+      <p class="src">Quiz cards already in the app: Art. 5 list; Art. 33-34. New card: support mail is not the legal claim route.</p>
+    </section>
+
+    <section class="seed" id="p5-group-q">
+      <h2>17. Group questions (1A hand-in)</h2>
+      <p>Open questions from class, answered from Canvas so you do not have to guess.</p>
+      <ul>
+        <li><strong>Risk assessment from Ryde</strong> - use the live Aug 2026 breach (section 15) and the business-risk / user-risk split (section 12).</li>
+        <li><strong>Two papers, or just presentation?</strong> Both: one written report <strong>and</strong> a 20 min group presentation. Not two separate papers.</li>
+        <li><strong>Word count</strong> - report is 1000-1500 words plus diagrams.</li>
+        <li><strong>Always a group of 3?</strong> Yes for the home assignments. Email <code>lotharfr@oslomet.no</code> with subject ACIT4280 group plus three preferred assignment numbers.</li>
+        <li><strong>Submit the next lecture day, before lecture</strong> - that is the slot for the presentation / hand-in around the bi-weekly Thursday. Trust the live Canvas due date if it differs.</li>
+        <li><strong>Ikea.com</strong> - the listed Norwegian set is <code>ikea.no</code>. <code>ikea.com</code> gave different cookie and request counts in the group sheet.</li>
+        <li><strong>Pie chart (AI)</strong> - a chart is fine as a diagram. If AI draws it, say so. The numbers still have to come from Webbkoll, not from the model.</li>
+      </ul>
+      <p class="src">Quiz cards already in the app: 1A brief; group size of three.</p>
+    </section>
+
+    <h2 id="acit4100">ACIT4100 Understanding and Communicating Research</h2>
+    <p class="meta">Pages 1-2 - 22 Aug 2026</p>
+
+    <section id="p4100-keywords">
+      <h2>13. First-day keywords</h2>
+      <ul>
+        <li>critical thinking</li>
+        <li>formulate</li>
+        <li>understand research</li>
+        <li>every week a new topic</li>
+        <li>structure</li>
+        <li>all lectures are published</li>
+      </ul>
+      <p>Arrow on the page: next week is a debate (video). That matches the flipped week-2 prep (Toulmin / debate clips before class).</p>
+    </section>
+
+    <section id="p4100-work">
+      <h2>14. Two mandatory exercises, then exam</h2>
+      <ol>
+        <li>Taxonomy spreadsheet</li>
+        <li>5 min video</li>
+      </ol>
+      <p>Plus an exam (the crossed-out word on the page is not readable). Canvas is stricter on length and dates: spreadsheet with 10+ scientific papers (due 25 Sep 2026, 12:00); presentation recording; individual essay 5500-6500 words.</p>
+      <p>Also on the page:</p>
+      <ul>
+        <li>check in with the teacher if the topic is good</li>
+        <li>choose classical or narrative</li>
+        <li>choose topic in week 3</li>
+        <li>what is IMRAD?</li>
+      </ul>
+      <p><strong>IMRaD</strong> = Introduction, Methods, Results, and Discussion. Common in empirical papers. The ACIT4100 essay is <em>not</em> a typical IMRaD review. You still need to know the pattern so you can read papers. Your own text uses classic and/or narrative style.</p>
+      <ul class="links">
+        <li><a href="https://en.wikipedia.org/wiki/IMRAD" target="_blank" rel="noopener">Wikipedia: IMRaD</a></li>
+        <li><a href="index.html#4100">Open the ACIT4100 quiz</a></li>
+      </ul>
+      <p class="src">Quiz cards already in the app: IMRaD, classic/narrative style, taxonomy spreadsheet, flipped classroom.</p>
+    </section>
+
+    <section id="p4100-craft">
+      <h2>16. References, topic, and what makes text good</h2>
+      <p>For scientific papers the course wants <strong>page number and paragraph number</strong> (stricter than plain APA7). Overleaf is the course example for how to attach those locators in LaTeX.</p>
+      <ul>
+        <li>choose a topic close to the master thesis</li>
+        <li>read the research papers and the examples</li>
+        <li>look at what the exam requires and how it is scored</li>
+      </ul>
+      <h3>Text is good</h3>
+      <ol>
+        <li>Curiosity</li>
+        <li>Metaphor</li>
+        <li>Humour</li>
+        <li>Foreshadowing</li>
+        <li>Visualization</li>
+        <li>Tell a story</li>
+        <li>Conclusion</li>
+        <li>Give the reader a break</li>
+      </ol>
+      <p>These are craft tools for classic / narrative style. They do not replace sources, a claim, or a gradeable research point.</p>
+      <ul class="links">
+        <li><a href="https://oslomet.instructure.com/courses/34603/pages/referencing-example-for-overleaf-latex" target="_blank" rel="noopener">Canvas: Overleaf / LaTeX referencing example</a></li>
+      </ul>
+      <p class="src">Quiz cards already in the app: page + paragraph, Overleaf. New card: the eight "text is good" points.</p>
+    </section>
+
+    <h2 id="acit4050">ACIT4050 Applied Computer and Network Security</h2>
+    <p class="meta">Pages 1-2 - 22 Aug 2026</p>
+
+    <section id="p4050-info">
+      <h2>18. Information security vs cyber security</h2>
+      <p>Notebook arrow: information security points to <strong>access control</strong>, plus misuse, loss and so on. That matches Peltier in Lecture 1: keep data used properly, and stop unauthorised change, destruction, disclosure, loss or access. Paper files count. Legal barriers count.</p>
+      <p>Next line: <em>cyber security involves all info on your computer</em>. Official wording is tighter: cyber security is the <strong>subset</strong> for information stored on computers or sent between computers. Information security is the umbrella.</p>
+      <p class="src">Quiz cards already in the app: info vs cyber (Peltier); info vs cyber relationship.</p>
+    </section>
+
+    <section id="p4050-trust">
+      <h2>19. Hierarchy of trust</h2>
+      <p>Each layer trusts the layer below it. A higher layer, a user, an admin, or crypto has to impose any other trust.</p>
+      <p>Notebook stack (short). <em>Transitions</em> on the page is transistors:</p>
+      <div class="stack" role="img" aria-label="Notebook stack from top to bottom: App, OS, Hardware, Instruction, Logic gates, Transistors, Physical.">
+        <div>App</div>
+        <div>OS</div>
+        <div>Hardware</div>
+        <div>Instruction</div>
+        <div>Logic gates</div>
+        <div>Transistors</div>
+        <div>Physical</div>
+      </div>
+      <p>Lecture 1 exam list is eight layers, top to bottom:</p>
+      <ol>
+        <li>Application</li>
+        <li>Operating system</li>
+        <li>Hardware adaptation layer (HAL)</li>
+        <li>Instruction set</li>
+        <li>Integrated circuits (memory, processing, communication)</li>
+        <li>Logic gates</li>
+        <li>Transistors</li>
+        <li>Physical phenomena</li>
+      </ol>
+      <p>Device drivers sit across OS and HAL. They are not their own numbered layer. Learn the eight-layer list for the quiz.</p>
+      <p class="src">Quiz cards already in the app: trust rule, full stack, who maintains software vs hardware, drivers, upper vs lower.</p>
+    </section>
+
+    <section id="p4050-task">
+      <h2>20. TASK page: names and frameworks, not a build list</h2>
+      <p>The page is headed <strong>TASK</strong> and mixes defender words (scan) with attacker examples (virus, rootkit, bot, botnet, DDoS). Treat it as a <em>map of Lecture 1 terms</em>. Do not write or run a virus, rootkit, bot or DDoS. The course wants you to name the class, place it on NIST / Kill Chain / ATT&amp;CK, and know how a defender would detect or stop it.</p>
+      <h3>What the lines mean</h3>
+      <ul>
+        <li><strong>Scan for virus, trojan and so on</strong> - defender side. NIST <em>Detect</em>. Virus / worm / Trojan are how malware spreads. Spyware, ransomware, bot and rootkit are intent classes. The same sample can sit on both axes.</li>
+        <li><strong>Rootkit / hide</strong> - intent class: hide malware, often with admin rights, so normal tools may look clean. Exam point: hard to detect, not harmless.</li>
+        <li><strong>Bot / botnet / DDoS</strong> - a bot is remote control; a botnet is many bots; DDoS hits <em>availability</em> by flooding from many machines. C2 is Kill Chain stage 6. Blocking C2 can stop the attack after install.</li>
+        <li><strong>Build on NIST</strong> - CSF 2.0 six functions: Identify, Protect, Detect, Respond, Recover, Govern.</li>
+        <li><strong>Use MITRE ATT&amp;CK</strong> - finer kill-chain knowledge base (tactics, techniques, mitigations, detection). Site: <a href="https://attack.mitre.org/" target="_blank" rel="noopener">attack.mitre.org</a>.</li>
+        <li><strong>Lockheed Kill Chain</strong> - seven stages: Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command and control, Action on objectives. The page only wrote 1 and 2 plus "and so on".</li>
+        <li><strong>Example: cafe Wi-Fi, then work Wi-Fi</strong> - a trust-boundary story. An untrusted network, then a trusted one. Place it as recon / delivery risk, or as a user who carries a dirty laptop across the hierarchy of trust. Not a how-to.</li>
+        <li><strong>TODO: Wi-Fi card holder</strong> - lab hardware reminder (adapter in a holder). Not an attack step.</li>
+      </ul>
+      <p>Practice the seven stages in order in the app (Kill Chain drag).</p>
+      <ul class="links">
+        <li><a href="index.html#practice">Open NIST / Kill Chain practice</a></li>
+        <li><a href="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html" target="_blank" rel="noopener">Lockheed Martin: Cyber Kill Chain</a></li>
+        <li><a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener">NIST Cybersecurity Framework</a></li>
+      </ul>
+      <p class="src">Quiz cards already in the app: rootkit, bot/botnet, DDoS, NIST six, Kill Chain seven, MITRE ATT&amp;CK.</p>
+    </section>
+
+    <p class="back"><a href="index.html#4280">Open the ACIT4280 quiz</a> · <a href="index.html#4100">Open the ACIT4100 quiz</a> · <a href="index.html#4050">Open the ACIT4050 quiz</a></p>
+  </div>
+</body>
+</html>

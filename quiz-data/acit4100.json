@@ -1670,6 +1670,16 @@
         "pensum",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4100-good-text",
+      "q": "What eight craft points did the ACIT4100 first lecture list under Text is good?",
+      "a": "Curiosity, metaphor, humour, foreshadowing, visualization, tell a story, conclusion, give the reader a break. Craft only: they do not replace sources or a research claim.",
+      "tags": [
+        "classic-style",
+        "narrative",
+        "class-notes"
+      ]
     }
   ]
 }

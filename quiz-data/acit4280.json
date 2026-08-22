@@ -2784,6 +2784,93 @@
         "pensum",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4280-triality",
+      "q": "What is the triality of privacy risk (intro slides, 2023) compared with duality (Fritsch and Abie, 2008)?",
+      "a": "Duality: harm to the individual and to the organisation. Triality adds society (elections, public trust, personalised influence). Lecture examples: Cambridge Analytica / Facebook and Team Jorge.",
+      "tags": [
+        "Lecture1",
+        "risk",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-analytica-cyberwar",
+      "q": "Is Cambridge Analytica cyber warfare? Is every hack part of cyber war?",
+      "a": "Usually no. Analytica is profiling and political influence, not an armed attack. Cyber war typically needs a state or proxy and a harm threshold (see Tallinn Manual). Ordinary hacking is not automatically cyber war.",
+      "tags": [
+        "Lecture1",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-team-jorge",
+      "q": "What is Team Jorge in the ACIT4280 intro examples?",
+      "a": "A private outfit (Tal Hanan) reported in 2023 for selling disinformation, hacking and harassment as a service around elections. It illustrates society-level privacy / integrity harm, not a classic state cyber war.",
+      "tags": [
+        "Lecture1",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-fine-money",
+      "q": "Where does money from a GDPR administrative fine go?",
+      "a": "To the state (in Norway: the Treasury / statskassen), not to Datatilsynet as its own income and not automatically to victims. People seek compensation under Art. 82 separately. Tracker: enforcementtracker.com.",
+      "tags": [
+        "GDPR",
+        "enforcement",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-zuboff",
+      "q": "Which book is the usual match for a lecture note that says Survival Capitalism?",
+      "a": "The Age of Surveillance Capitalism (Shoshana Zuboff, 2019): behavioural surplus extracted from personal data and sold as prediction products.",
+      "tags": [
+        "Lecture1",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-dossier-society",
+      "q": "What is the Dossier Society reference useful for in an ACIT4280 writing topic?",
+      "a": "Kenneth C. Laudon (1986): large national information systems encode value choices, not only efficiency. Pair with older registration practices (e.g. the 1790 US census) to show 'register everything' is not only a digital habit.",
+      "tags": [
+        "writing",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-privacy-triangle",
+      "q": "What three poles did the lecture sketch around privacy (notebook: me, others, state)?",
+      "a": "Privacy is a relation between you, other people, and the state - not only hiding from a company. The classic phrase next to that drawing is the right to be left alone (Warren and Brandeis, 1890).",
+      "tags": [
+        "Lecture1",
+        "privacy",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-system-risk-split",
+      "q": "When a lecture drawing puts System in the middle, which two risk types branch off?",
+      "a": "Business risk (harm to the organisation) and user risk (harm to the person). Same idea as duality of privacy risk. Triality later adds society.",
+      "tags": [
+        "Lecture1",
+        "risk",
+        "class-notes"
+      ]
+    },
+    {
+      "id": "4280-ryde-claim",
+      "q": "After a company breach (Ryde, Aug 2026), is support mail where you bill them, and is there a time limit to tell people?",
+      "a": "Support mail is customer service, not a damages invoice. DPO for privacy rights; Datatilsynet to complain; Art. 82 in court for money. Art. 33: notify the authority without undue delay, where feasible in 72 hours. Art. 34: notify people only if high risk, without undue delay (no 72-hour number). Name what was lost, not only that a breach happened.",
+      "tags": [
+        "GDPR",
+        "Art.33",
+        "Art.34",
+        "class-notes"
+      ]
     }
   ]
 }

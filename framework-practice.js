@@ -479,12 +479,14 @@
     }
 
     var ctrl;
+    var nextBtn = root.querySelector("#nist-next");
 
     function setup() {
       buildNistSvg(wheel);
       fillTray(tray, NIST_SLOTS);
       dimEmpty();
       root.classList.remove("fp-complete");
+      if (nextBtn) nextBtn.hidden = true;
       if (status) {
         status.textContent = "Drag a function onto the wheel, or tap a chip then a slot.";
         status.className = "fp-status";
@@ -512,10 +514,12 @@
         },
         onComplete: function () {
           root.classList.add("fp-complete");
+          if (nextBtn) nextBtn.hidden = false;
           if (status) {
-            status.textContent = "Complete - NIST CSF 2.0 wheel matches the slide.";
+            status.textContent = "Complete - NIST CSF 2.0 wheel matches the slide. Next: Kill Chain.";
             status.className = "fp-status ok";
           }
+          if (typeof window.studyMarkFlag === "function") window.studyMarkFlag("nistDone");
         }
       });
       ctrl.bind();
@@ -540,11 +544,13 @@
     }
 
     var ctrl;
+    var nextBtn = root.querySelector("#kill-next");
 
     function setup() {
       buildKillChain(board);
       fillTray(tray, KILL_SLOTS);
       root.classList.remove("fp-complete");
+      if (nextBtn) nextBtn.hidden = true;
       if (status) {
         status.textContent = "Drag stages left to right, or tap a chip then a chevron.";
         status.className = "fp-status";
@@ -573,10 +579,12 @@
         },
         onComplete: function () {
           root.classList.add("fp-complete");
+          if (nextBtn) nextBtn.hidden = false;
           if (status) {
             status.textContent = "Complete - Lockheed Martin Kill Chain in order.";
             status.className = "fp-status ok";
           }
+          if (typeof window.studyMarkFlag === "function") window.studyMarkFlag("killDone");
         }
       });
       ctrl.bind();
@@ -618,6 +626,17 @@
     var tabK = document.getElementById("tab-practice-kill");
     if (tabN) tabN.addEventListener("click", function () { showPracticeSection("nist"); });
     if (tabK) tabK.addEventListener("click", function () { showPracticeSection("killchain"); });
+    var nistNext = document.getElementById("nist-next");
+    if (nistNext) {
+      nistNext.addEventListener("click", function () { showPracticeSection("killchain"); });
+    }
+    var killNext = document.getElementById("kill-next");
+    if (killNext) {
+      killNext.addEventListener("click", function () {
+        var quizTab = document.getElementById("tab-course-acit4050");
+        if (quizTab) quizTab.click();
+      });
+    }
     showPracticeSection("nist");
   }
 

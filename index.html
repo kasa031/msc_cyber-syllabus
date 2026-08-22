@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'" />
   <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Tutorial &amp; Quiz | MSc Cybersecurity Practise Syllabus 1st Year</title>
@@ -226,12 +226,15 @@
       text-wrap: balance;
     }
     .hero-lede {
-      margin: 0 0 1.85rem;
-      max-width: 30rem;
+      margin: 0;
+      max-width: 36rem;
       color: var(--slate);
       font-size: 1.05rem;
       font-weight: 400;
       line-height: 1.55;
+    }
+    .course-cta-row {
+      margin: 0 0 0.85rem;
     }
     .cta {
       display: inline-flex;
@@ -738,17 +741,23 @@
     p { margin: 0.6rem 0; }
     a { color: var(--signal); }
     a:hover { color: var(--signal-bright); }
-    .maal { color: var(--slate); margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
-    .maal strong { color: var(--slate); font-weight: 600; }
+    .maal { color: #071952; margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
+    .maal strong { color: #071952; font-weight: 600; }
+    .ov-wrap .steps li { color: #071952; }
+    .ov-wrap h3 { color: #071952; }
 
     .steps { list-style: none; padding-left: 0; margin: 0.45rem 0 1rem; }
     .steps li {
-      padding: 0.3rem 0;
-      display: grid;
-      grid-template-columns: 1.7rem 1fr;
-      gap: 0.35rem;
+      position: relative;
+      display: block;
+      padding: 0.45rem 0 0.45rem 2.1rem;
+      line-height: 1.55;
     }
     .steps .letter {
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      width: 1.85rem;
       font-weight: 600;
       color: var(--signal);
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
@@ -770,6 +779,9 @@
       padding: 0.5rem 0.7rem;
       border-bottom: 1px solid var(--line-soft);
       vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-height: 1.45;
     }
     th {
       background: var(--ink-2);
@@ -787,9 +799,14 @@
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.86em;
       background: var(--signal-soft);
-      padding: 0.1em 0.35em;
+      padding: 0.12em 0.4em;
       border-radius: 2px;
       color: var(--ink);
+      display: inline;
+      white-space: break-spaces;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-height: 1.45;
     }
     kbd {
       background: var(--paper);
@@ -857,7 +874,8 @@
     details.hint summary::before {
       content: "+";
       display: inline-block;
-      width: 1.1rem;
+      width: 1.25rem;
+      margin-right: 0.35rem;
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       color: var(--signal);
       font-weight: 600;
@@ -907,6 +925,99 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+    }
+
+    /* -- Motion (flat palette only, no gradients) -- */
+    #fx-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 140;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .fx-bit {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      margin: -4px 0 0 -4px;
+      border-radius: 2px;
+      animation: fxFly 0.7s var(--ease) forwards;
+    }
+    @keyframes fxFly {
+      to {
+        transform: translate(var(--dx), var(--dy)) scale(0.15);
+        opacity: 0;
+      }
+    }
+    .fx-ripple {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      border-radius: 50%;
+      background: #97FEED;
+      pointer-events: none;
+      animation: fxRipple 0.5s ease-out forwards;
+    }
+    @keyframes fxRipple {
+      to { transform: scale(16); opacity: 0; }
+    }
+    @keyframes hudPop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.22); color: #35A29F; }
+      100% { transform: scale(1); }
+    }
+    .hud-pop { animation: hudPop 0.38s var(--ease); }
+    .study-hud-item.is-hot b { color: #35A29F; }
+    .study-hud-item.is-hot {
+      border-color: #35A29F;
+    }
+    @keyframes fxPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+    .study-hud-item.is-hot.is-link,
+    .study-hud-item.is-hot b {
+      animation: fxPulse 1.4s var(--ease) infinite;
+    }
+    @keyframes fxToast {
+      from { transform: translateX(-50%) translateY(-14px); opacity: 0; }
+      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+    }
+    .trophy-toast:not([hidden]) {
+      animation: fxToast 0.4s var(--ease);
+    }
+    @keyframes fxModal {
+      from { transform: translateY(10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .profile-modal:not([hidden]) .profile-modal-card {
+      animation: fxModal 0.28s var(--ease);
+    }
+    @keyframes fxReveal {
+      0% { border-color: #97FEED; }
+      100% { border-color: var(--signal); }
+    }
+    .quiz-card.fx-reveal { animation: fxReveal 0.45s var(--ease); }
+    .quiz-card.fx-good { border-color: #35A29F; }
+    .quiz-card.fx-easy { border-color: #97FEED; }
+    .quiz-card.fx-again { animation: shake 0.4s; }
+    .quiz-grades button:active { transform: scale(0.96); }
+    .trophy-card.is-fresh {
+      border-color: #35A29F;
+      animation: hudPop 0.5s var(--ease);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #fx-layer,
+      .fx-bit,
+      .fx-ripple { display: none !important; }
+      .hud-pop,
+      .trophy-toast:not([hidden]),
+      .profile-modal:not([hidden]) .profile-modal-card,
+      .quiz-card.fx-reveal,
+      .quiz-card.fx-again,
+      .trophy-card.is-fresh,
+      .study-hud-item.is-hot b { animation: none !important; }
     }
 
     /* -- Course tabs -- */
@@ -1208,7 +1319,326 @@
       .flash-mode .quiz-card { transition: border-color 0.2s, background 0.2s; transform: none !important; }
       .flash-mode .quiz-card.flipped { transform: none; }
     }
-    .quiz-study-tabs { margin: 0.75rem 0 1rem; }
+    .quiz-study-tabs { margin: 0.75rem 0 0.65rem; }
+    .study-mode-banner {
+      margin: 0 0 0.75rem;
+      padding: 0.65rem 0.85rem;
+      background: var(--ochre-soft);
+      border-left: 3px solid #35A29F;
+      border-radius: 0 4px 4px 0;
+      color: var(--ink);
+      font-size: 0.92rem;
+    }
+    .flash-mode .study-mode-banner {
+      border-left-color: #0B666A;
+    }
+    .study-hud {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin: 0 0 0.75rem;
+    }
+    .study-hud[hidden],
+    .study-auth[hidden] { display: none !important; }
+    @media (min-width: 640px) {
+      .study-hud { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .study-hud { grid-template-columns: repeat(6, 1fr); }
+    }
+    .study-hud-item {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.55rem 0.65rem;
+      text-align: center;
+    }
+    .study-hud-item.is-link {
+      cursor: pointer;
+    }
+    .study-hud-k {
+      display: block;
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0B666A;
+      margin-bottom: 0.15rem;
+    }
+    .study-hud-item b {
+      font-size: 1.2rem;
+      color: #071952;
+      font-weight: 700;
+    }
+    .profile-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0 0 0.85rem;
+    }
+    .study-auth {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-top: 4px solid #071952;
+      border-radius: 4px;
+      padding: 1.1rem 1.15rem 1.25rem;
+      margin: 0 0 1rem;
+    }
+    .study-auth h3 {
+      margin: 0 0 0.4rem;
+      color: #071952;
+      font-size: 1.15rem;
+    }
+    .study-auth p {
+      margin: 0 0 0.85rem;
+      color: #071952;
+      font-size: 0.92rem;
+    }
+    .study-auth label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0B666A;
+      margin: 0.55rem 0 0.25rem;
+    }
+    .study-auth-error {
+      color: #071952;
+      font-weight: 700;
+      min-height: 1.2em;
+    }
+    .study-auth-error[hidden] { display: none !important; }
+    #profile-new-name,
+    #profile-rename,
+    #auth-account,
+    #auth-pass,
+    #auth-pass2,
+    #auth-reset,
+    #auth-reset2,
+    #auth-new-name,
+    #auth-new-pass,
+    #auth-new-pass2,
+    #auth-new-reset,
+    #auth-new-reset2,
+    #auth-fix-pass,
+    #auth-fix-reset,
+    #auth-fix-name,
+    #auth-fix-new,
+    #auth-fix-new2,
+    #settings-pass-now,
+    #settings-pass-new,
+    #settings-pass-new2,
+    #settings-reset-now,
+    #settings-reset-new,
+    #settings-reset-new2 {
+      min-height: var(--touch);
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font: inherit;
+      color: #071952;
+      background: #FFFFFF;
+      flex: 1 1 10rem;
+    }
+    .profile-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: var(--touch);
+      padding: 0.25rem 0.7rem 0.25rem 0.25rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      color: #071952;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .profile-avatar {
+      width: 1.85rem;
+      height: 1.85rem;
+      border-radius: 4px;
+      background: #071952;
+      color: #97FEED;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .profile-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(7, 25, 82, 0.45);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem;
+      overflow: auto;
+    }
+    .profile-modal[hidden] { display: none !important; }
+    .profile-modal-card {
+      width: min(40rem, 100%);
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1.15rem 1.2rem 1.3rem;
+    }
+    .settings-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin: 0.35rem 0 0.45rem;
+      font-weight: 600;
+      color: #071952;
+      cursor: pointer;
+    }
+    .settings-check input {
+      width: 1.15rem;
+      height: 1.15rem;
+      margin-top: 0.2rem;
+      flex: 0 0 auto;
+      accent-color: #35A29F;
+    }
+    .rank-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.85rem;
+    }
+    .rank-row {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr auto;
+      gap: 0.45rem;
+      align-items: center;
+      padding: 0.5rem 0.4rem;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .rank-row.is-you {
+      border: 1.5px solid #35A29F;
+      border-radius: 4px;
+      margin: 0.15rem 0;
+    }
+    .rank-place {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-weight: 700;
+      color: #071952;
+    }
+    .rank-row.is-top1 .rank-place { color: #071952; }
+    .rank-row.is-top2 .rank-place { color: #0B666A; }
+    .rank-row.is-top3 .rank-place { color: #35A29F; }
+    .rank-name { font-weight: 600; color: #071952; }
+    .rank-meta { font-size: 0.78rem; color: #0B666A; }
+    .rank-pts {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-weight: 700;
+      color: #071952;
+      white-space: nowrap;
+    }
+    .rank-empty {
+      margin: 0 0 0.85rem;
+      color: #071952;
+      font-size: 0.92rem;
+    }
+    #rank-import-code {
+      min-height: var(--touch);
+      padding: 0.4rem 0.65rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font: inherit;
+      color: #071952;
+      background: #FFFFFF;
+      flex: 1 1 10rem;
+    }
+    .profile-modal-card h3 {
+      margin: 0 0 0.45rem;
+      color: #071952;
+      font-size: 1.15rem;
+    }
+    .profile-modal-card p {
+      margin: 0 0 0.85rem;
+      color: #071952;
+      font-size: 0.92rem;
+    }
+    .profile-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.85rem;
+    }
+    .profile-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .trophy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+    @media (min-width: 520px) {
+      .trophy-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .trophy-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.65rem 0.7rem;
+      background: #FFFFFF;
+      min-height: 5.2rem;
+    }
+    .trophy-card.is-locked { opacity: 0.45; }
+    .trophy-card.is-on {
+      border-color: #35A29F;
+    }
+    .trophy-card.kind-badge.is-on {
+      border-color: #071952;
+    }
+    .trophy-group-title {
+      grid-column: 1 / -1;
+      margin: 0.55rem 0 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0B666A;
+    }
+    .trophy-icon { font-size: 1.25rem; line-height: 1; }
+    .trophy-title { font-weight: 700; color: #071952; margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
+    .trophy-hint { font-size: 0.75rem; color: #0B666A; margin: 0; }
+    .trophy-toast {
+      position: fixed;
+      left: 50%;
+      top: calc(1rem + var(--safe-top));
+      transform: translateX(-50%);
+      z-index: 95;
+      background: #FFFFFF;
+      border: 2px solid #35A29F;
+      border-radius: 4px;
+      padding: 0.7rem 1rem;
+      color: #071952;
+      font-weight: 700;
+      text-align: center;
+      max-width: min(22rem, calc(100vw - 2rem));
+    }
+    .trophy-toast[hidden] { display: none !important; }
+    .study-hud-actions {
+      justify-content: flex-start;
+      margin: 0 0 0.85rem;
+    }
+    .flash-mode #study-hud-actions { display: none !important; }
+    .quiz-card:not(.revealed):not(.flipped) #quiz-figure {
+      display: none !important;
+    }
+    .flash-mode .quiz-card {
+      border-style: dashed;
+      border-color: #0B666A;
+    }
+    .quiz-mode .quiz-card {
+      border-top: 4px solid #071952;
+    }
     #flash-nav-row {
       justify-content: center;
       align-items: center;
@@ -1223,6 +1653,13 @@
       padding: 0 0.35rem;
       min-width: 5.5rem;
       text-align: center;
+    }
+    .notes-frame {
+      width: 100%;
+      min-height: 70vh;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #FFFFFF;
     }
     .flash-mode #quiz-reveal-row,
     .flash-mode #quiz-grades,
@@ -1352,6 +1789,13 @@
       align-items: center;
       gap: 0.12rem;
       transition: border-color 0.15s, background 0.15s, transform 0.15s var(--ease);
+    }
+    .quiz-grades .grade-pts {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0.9;
     }
     .quiz-grades .grade-ivl {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
@@ -1561,30 +2005,6 @@
     }
     .quiz-card.revealed { cursor: default; }
 
-    /* PWA install tip */
-    .install-tip {
-      margin: 0 0 0.85rem;
-      padding: 0.55rem 0.85rem;
-      font-size: 0.82rem;
-      line-height: 1.4;
-      color: var(--slate);
-      background: var(--paper-2);
-      border-left: 3px solid var(--palette-turquoise);
-      border-radius: 0 4px 4px 0;
-    }
-    .install-tip[hidden] { display: none !important; }
-    .install-tip-dismiss {
-      margin-left: 0.45rem;
-      font: inherit;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--palette-turquoise);
-      background: transparent;
-      border: 0;
-      padding: 0.15rem 0.35rem;
-      cursor: pointer;
-      text-decoration: underline;
-    }
 
     .quiz-find {
       display: flex;
@@ -1656,12 +2076,12 @@
       .cta,
       .course-tabs,
       .mode-tabs,
-      .install-tip,
       .quiz-footer-meta,
       .quiz-shortcuts,
       .quiz-grades,
       #quiz-reveal-row,
-      .tut-actions { display: none !important; }
+      .tut-actions,
+      #fx-layer { display: none !important; }
       .hero { min-height: 0; padding: 1rem 0 0.75rem; }
       .shell-lift { margin-top: 0; }
       .panel, .course-panel { display: block !important; animation: none !important; }
@@ -1712,14 +2132,14 @@
   </style>
 </head>
 <body>
+  <div id="fx-layer" aria-hidden="true"></div>
   <a class="skip-link" href="#lab">Skip to content</a>
   <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
   <header class="hero">
     <div class="hero-inner">
       <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
       <h1>Type the commands. Learn them for good.</h1>
-      <p class="hero-lede">Terminal tutorial for ACIT4050, plus spaced-repetition quiz for your courses - works offline on phone and PC.</p>
-      <a class="cta" href="#lab" id="cta-start">Start tutorial <span class="cta-arrow" aria-hidden="true">-></span></a>
+      <p class="hero-lede">Quiz, diagrams and a terminal tutorial for ACIT4050, 4280 and 4100 - works offline on phone and PC.</p>
     </div>
   </header>
 
@@ -1730,15 +2150,16 @@
         <button type="button" role="tab" id="tab-course-acit4050" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1"><span class="tab-code">ACIT4050</span><span class="tab-name">Applied Computer and Network Security</span></button>
         <button type="button" role="tab" id="tab-course-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1"><span class="tab-code">ACIT4050</span><span class="tab-name">Framework diagrams</span></button>
         <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-code">ACIT4280</span><span class="tab-name">Privacy by Design</span></button>
+        <button type="button" role="tab" id="tab-course-notes" aria-selected="false" aria-controls="course-notes" data-course="notes" tabindex="-1"><span class="tab-code">Notes</span><span class="tab-name">Class notes and sources</span></button>
         <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-code">ACIT4100</span><span class="tab-name">Understanding and Communicating Research</span></button>
         <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-code">PC</span><span class="tab-name">Computer basics</span></button>
         <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-code">Mixed</span><span class="tab-name">All courses combined</span></button>
       </div>
-      <p class="install-tip" id="install-tip">Tip: on phone, use Add to Home Screen for a full-screen shortcut. <button type="button" class="install-tip-dismiss" id="install-tip-dismiss" aria-label="Hide this tip">Hide</button></p>
-
       <!-- ========== TERMINAL (ACIT4050) ========== -->
       <div id="course-terminal" class="course-panel active">
-      <p class="sub-tabs-note">Tutorial and exercises with answers.</p>
+      <div class="course-cta-row">
+        <a class="cta" href="#panel-tutorial" id="cta-start">Start ACIT4050 tutorial <span class="cta-arrow" aria-hidden="true">-></span></a>
+      </div>
       <div class="mode-tabs" role="tablist" aria-label="View">
         <button type="button" role="tab" id="tab-tutorial" class="active" aria-selected="true" aria-controls="panel-tutorial" tabindex="0">Interactive tutorial</button>
         <button type="button" role="tab" id="tab-ovelser" aria-selected="false" aria-controls="panel-ovelser" tabindex="-1">Exercises with answers</button>
@@ -2197,9 +2618,143 @@
           </div>
           <p class="setup-lede" id="quiz-lede" style="margin-top:-0.5rem;">Anki-style SM-2 - progress is stored locally in the browser.</p>
           <div class="mode-tabs quiz-study-tabs" role="tablist" aria-label="Study mode">
-            <button type="button" role="tab" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Flashcards</button>
-            <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz (SRS)</button>
+            <button type="button" role="tab" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Browse</button>
+            <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz</button>
           </div>
+          <p class="study-mode-banner" id="study-mode-banner">Quiz: hide the answer, then rate the card. The app remembers what to drill.</p>
+          <div class="profile-bar" id="profile-bar">
+            <button type="button" class="profile-chip" id="profile-open" title="Your signed-in account">
+              <span class="profile-avatar" id="profile-avatar" aria-hidden="true">?</span>
+              <span id="profile-name-label">Sign in</span>
+            </button>
+            <button type="button" class="btn ghost" id="profile-settings-btn" hidden>Settings</button>
+            <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
+            <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
+            <button type="button" class="btn ghost" id="profile-logout" hidden>Sign out</button>
+          </div>
+          <div id="study-auth" class="study-auth">
+            <h3>Create your account</h3>
+            <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings.</p>
+            <label for="auth-new-name">Name</label>
+            <input id="auth-new-name" type="text" maxlength="24" autocomplete="nickname" placeholder="Your name" />
+            <label for="auth-new-pass">Password (at least 8 characters)</label>
+            <input id="auth-new-pass" type="password" maxlength="64" autocomplete="new-password" />
+            <label for="auth-new-pass2">Repeat password</label>
+            <input id="auth-new-pass2" type="password" maxlength="64" autocomplete="new-password" />
+            <label for="auth-new-reset">Reset word (at least 8 characters)</label>
+            <input id="auth-new-reset" type="password" maxlength="64" autocomplete="off" />
+            <label for="auth-new-reset2">Repeat reset word</label>
+            <input id="auth-new-reset2" type="password" maxlength="64" autocomplete="off" />
+            <p>The reset word is for the sign-in screen if you forget your name or password. Do not use the same text as the password.</p>
+            <p class="study-auth-error" id="auth-error" hidden></p>
+            <div class="tut-actions" style="margin:0.7rem 0 1.15rem;">
+              <button type="button" class="btn btn-primary" id="auth-create">Create account</button>
+            </div>
+            <h3>Sign in</h3>
+            <p>Already have an account on this device? Other names stay locked. You cannot open their scores.</p>
+            <label for="auth-account">Account</label>
+            <select id="auth-account"></select>
+            <label for="auth-pass" id="auth-pass-label">Password</label>
+            <input id="auth-pass" type="password" maxlength="64" autocomplete="current-password" />
+            <label for="auth-pass2" id="auth-pass2-label" hidden>Repeat password</label>
+            <input id="auth-pass2" type="password" maxlength="64" autocomplete="new-password" hidden />
+            <label for="auth-reset" id="auth-reset-label" hidden>Reset word (at least 8 characters)</label>
+            <input id="auth-reset" type="password" maxlength="64" autocomplete="off" hidden />
+            <label for="auth-reset2" id="auth-reset2-label" hidden>Repeat reset word</label>
+            <input id="auth-reset2" type="password" maxlength="64" autocomplete="off" hidden />
+            <div class="tut-actions" style="margin:0.7rem 0 0;">
+              <button type="button" class="btn btn-primary" id="auth-login">Sign in</button>
+              <button type="button" class="btn ghost" id="auth-forgot-toggle">Forgot name or password?</button>
+            </div>
+            <div id="auth-forgot" hidden>
+              <h3>Update this account</h3>
+              <p>Pick the account above. Prove it with the current password or the reset word. Then set a new name, a new password, or both.</p>
+              <label for="auth-fix-pass">Current password (if you remember it)</label>
+              <input id="auth-fix-pass" type="password" maxlength="64" autocomplete="current-password" />
+              <label for="auth-fix-reset">Reset word (if you forgot the password)</label>
+              <input id="auth-fix-reset" type="password" maxlength="64" autocomplete="off" />
+              <label for="auth-fix-name">New name (leave blank to keep the old one)</label>
+              <input id="auth-fix-name" type="text" maxlength="24" autocomplete="nickname" placeholder="New name" />
+              <label for="auth-fix-new">New password (leave blank to keep the old one)</label>
+              <input id="auth-fix-new" type="password" maxlength="64" autocomplete="new-password" />
+              <label for="auth-fix-new2">Repeat new password</label>
+              <input id="auth-fix-new2" type="password" maxlength="64" autocomplete="new-password" />
+              <div class="tut-actions" style="margin:0.7rem 0 0;">
+                <button type="button" class="btn btn-primary" id="auth-fix-save">Save and sign in</button>
+              </div>
+            </div>
+          </div>
+          <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
+            <div class="study-hud-item" id="hud-points-box"><span class="study-hud-k">Points</span><b id="hud-points">0</b></div>
+            <div class="study-hud-item" id="hud-streak-box"><span class="study-hud-k">Streak</span><b id="hud-streak">0</b></div>
+            <div class="study-hud-item"><span class="study-hud-k">Due now</span><b id="hud-due">0</b></div>
+            <div class="study-hud-item"><span class="study-hud-k">To drill</span><b id="hud-weak">0</b></div>
+            <div class="study-hud-item is-link" id="hud-trophies-box" title="Open trophies"><span class="study-hud-k">Trophies</span><b id="hud-trophies">0</b></div>
+            <div class="study-hud-item is-link" id="hud-rank-box" title="Open ranking"><span class="study-hud-k">Rank</span><b id="hud-rank">-</b></div>
+          </div>
+          <div class="tut-actions study-hud-actions" id="study-hud-actions" hidden>
+            <button type="button" class="btn btn-primary" id="quiz-drill-weak">Drill weak cards</button>
+          </div>
+          <div id="profile-modal" class="profile-modal" hidden>
+            <div class="profile-modal-card" role="dialog" aria-labelledby="profile-modal-title">
+              <h3 id="profile-modal-title">Settings</h3>
+              <p>Only your signed-in scores are shown. Other names on this device stay locked. Sign out before a classmate uses this browser.</p>
+              <ul class="profile-list" id="profile-list"></ul>
+              <label for="profile-rename">Your display name</label>
+              <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+                <input id="profile-rename" type="text" maxlength="24" placeholder="Your name" autocomplete="nickname" />
+                <button type="button" class="btn" id="profile-rename-save">Save name</button>
+              </div>
+              <h3>Password</h3>
+              <p>Change the password while you are signed in.</p>
+              <label for="settings-pass-now">Current password</label>
+              <input id="settings-pass-now" type="password" maxlength="64" autocomplete="current-password" />
+              <label for="settings-pass-new">New password (at least 8 characters)</label>
+              <input id="settings-pass-new" type="password" maxlength="64" autocomplete="new-password" />
+              <label for="settings-pass-new2">Repeat new password</label>
+              <input id="settings-pass-new2" type="password" maxlength="64" autocomplete="new-password" />
+              <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+                <button type="button" class="btn" id="settings-pass-save">Change password</button>
+              </div>
+              <h3>Reset word</h3>
+              <p id="settings-reset-lede">Used on the sign-in screen if you forget your name or password. Do not use the same text as the password.</p>
+              <label for="settings-reset-now">Current password</label>
+              <input id="settings-reset-now" type="password" maxlength="64" autocomplete="current-password" />
+              <label for="settings-reset-new">New reset word (at least 8 characters)</label>
+              <input id="settings-reset-new" type="password" maxlength="64" autocomplete="off" />
+              <label for="settings-reset-new2">Repeat reset word</label>
+              <input id="settings-reset-new2" type="password" maxlength="64" autocomplete="off" />
+              <p class="study-auth-error" id="settings-account-msg" hidden></p>
+              <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+                <button type="button" class="btn" id="settings-reset-save">Save reset word</button>
+              </div>
+              <h3>Sharing</h3>
+              <p>Off by default. If you tick this, people who also share can see your name, points, streak and trophy count. Password and quiz cards stay private.</p>
+              <label class="settings-check" for="settings-share">
+                <input id="settings-share" type="checkbox" />
+                <span>Share my score on the class ranking</span>
+              </label>
+              <div id="rank-panel" hidden>
+                <h3>Class ranking</h3>
+                <p>Only classmates who also ticked Share appear here. 1st, 2nd and 3rd are the top scores.</p>
+                <p class="rank-empty" id="rank-status"></p>
+                <ol class="rank-list" id="rank-list"></ol>
+                <label for="rank-import-code">Add a classmate score code</label>
+                <div class="tut-actions" style="margin:0.35rem 0 1rem;">
+                  <input id="rank-import-code" type="text" maxlength="160" placeholder="Paste MSC1|... code" autocomplete="off" />
+                  <button type="button" class="btn" id="rank-import-btn">Add</button>
+                  <button type="button" class="btn ghost" id="rank-copy-btn">Copy my code</button>
+                </div>
+              </div>
+              <h3>Trophies and badges</h3>
+              <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
+              <div class="trophy-grid" id="trophy-grid"></div>
+              <div class="tut-actions">
+                <button type="button" class="btn btn-primary" id="profile-close">Close</button>
+              </div>
+            </div>
+          </div>
+          <div id="trophy-toast" class="trophy-toast" hidden role="status" aria-live="polite"></div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
           <div class="quiz-find" id="quiz-find" hidden>
             <label class="visually-hidden" for="quiz-search">Find cards</label>
@@ -2208,7 +2763,7 @@
             <span class="quiz-find-count" id="quiz-search-count" aria-live="polite"></span>
           </div>
 
-          <div class="quiz-progress-wrap" id="quiz-progress-wrap">
+          <div class="quiz-progress-wrap" id="quiz-progress-wrap" hidden>
             <div class="quiz-progress-meta">
               <span><strong id="quiz-step-label">Ready</strong></span>
               <span class="meta-stats">
@@ -2237,7 +2792,7 @@
             </div>
 
             <div class="tut-actions" id="quiz-reveal-row">
-              <button type="button" class="btn" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
+              <button type="button" class="btn btn-primary" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
             </div>
 
             <div class="tut-actions hidden" id="flash-nav-row" aria-label="Flashcard navigation">
@@ -2248,10 +2803,10 @@
             </div>
 
             <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
-              <button type="button" data-grade="again" title="Again - keyboard 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span></button>
-              <button type="button" data-grade="hard" title="Hard - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span></button>
-              <button type="button" data-grade="good" title="Good - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span></button>
-              <button type="button" data-grade="easy" title="Easy - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span></button>
+              <button type="button" data-grade="again" title="Again - 0 points - keyboard 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span><span class="grade-pts">0 pts</span></button>
+              <button type="button" data-grade="hard" title="Hard - 5 points - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
+              <button type="button" data-grade="good" title="Good - 10 points - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
+              <button type="button" data-grade="easy" title="Easy - 15 points - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span><span class="grade-pts">+15</span></button>
             </div>
           </div>
 
@@ -2300,6 +2855,7 @@
             <div class="fp-tray" id="nist-tray" aria-label="NIST function labels"></div>
             <div class="fp-actions">
               <button type="button" class="btn ghost" id="nist-reset">Reset</button>
+              <button type="button" class="btn btn-primary" id="nist-next" hidden>Next: Kill Chain</button>
             </div>
           </section>
 
@@ -2310,11 +2866,25 @@
             <div class="fp-tray" id="kill-tray" aria-label="Kill Chain stage labels"></div>
             <div class="fp-actions">
               <button type="button" class="btn ghost" id="kill-reset">Reset</button>
+              <button type="button" class="btn btn-primary" id="kill-next" hidden>Done - open ACIT4050 quiz</button>
             </div>
           </section>
         </div>
       </div>
 
+      <div id="course-notes" class="course-panel" hidden>
+        <div class="practice-wrap">
+          <h2 class="setup-title">Class notes</h2>
+          <p class="practice-intro">Handwritten pages organised with sources. Send the next two pages when you want them added.</p>
+          <div class="tut-actions" style="margin:0 0 0.85rem;">
+            <a class="btn btn-primary" href="class-notes.html">Open full notes page</a>
+            <button type="button" class="btn ghost" id="btn-notes-to-4280">Open ACIT4280 quiz</button>
+            <button type="button" class="btn ghost" id="btn-notes-to-4100">Open ACIT4100 quiz</button>
+            <button type="button" class="btn ghost" id="btn-notes-to-4050">Open ACIT4050 quiz</button>
+          </div>
+          <iframe class="notes-frame" src="class-notes.html" title="Class notes with sources"></iframe>
+        </div>
+      </div>
 
       <section class="dummies-section" id="computer-dummies" aria-labelledby="dummies-title">
         <h2 id="dummies-title">Computer for dummies</h2>
@@ -2327,13 +2897,13 @@
 
       <footer>
         <p class="footer-copy">&copy; Ms.Tery</p>
-        <p class="footer-privacy">Study progress is stored solely on this device via the browser's local storage. This application does not use cookies for tracking, does not require authentication, and does not transmit personal data to third parties for analytics or advertising.</p>
+        <p class="footer-privacy">Sign-in is local to this browser. Passwords are never stored: they are stretched with PBKDF2-SHA-256 and checked with a constant-time compare. Points, streaks and quiz queues are encrypted with AES-GCM on this device. Scores stay private unless you tick Share in Settings. A shared ranking shows only name, points, streak and trophy count, and only to people who also share. This application does not use cookies for tracking and does not transmit personal data to third parties for analytics or advertising.</p>
       </footer>
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock54" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock54"></script>
+  <script src="quiz-decks.js?v=lock70" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock70"></script>
   <script>
   (function () {
   "use strict";
@@ -2343,9 +2913,17 @@
   var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
   var STUDY_MODE_PREFIX = "acit-study-mode-v1-";
   var FLASH_PREFIX = "acit-flash-v1-";
+  var XP_KEY = "acit-study-xp-v1";
+  var PROFILES_KEY = "acit-profiles-v1";
+  var AUTH_SESSION_KEY = "acit-auth-session-v2";
+  var AUTH_LOCK_KEY = "acit-auth-lock-v1";
+  var VAULT_MARK = "ENC1.";
+  var KDF_NAME = "pbkdf2-sha256";
+  var KDF_ITERS = 310000;
+  var PASS_MIN_NEW = 8;
+  var RANK_BOARD_KEY = "acit-rank-board-v1";
   var LAST_COURSE_KEY = "acit-last-course-v1";
-  var INSTALL_TIP_KEY = "acit-hide-install-tip-v1";
-  var QUIZ_EXPECTED = { acit4050: 169, acit4280: 200, acit4100: 131, "computer-basics": 28, "fellesjam-general": 26 };
+  var QUIZ_EXPECTED = { acit4050: 169, acit4280: 209, acit4100: 132, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -2416,6 +2994,7 @@
   };
 
   var $ = function (id) { return document.getElementById(id); };
+  profileEnsure();
 
   function stepsFor(track) {
     return track === "arch" ? STEPS_ARCH : STEPS_PS;
@@ -2656,6 +3235,7 @@
     $("pc-tut-done").classList.remove("hidden");
     pcSetProgress(100);
     pcClearSave();
+    studyMarkFlag("pcTutDone");
   }
 
   function pcCheckAnswer() {
@@ -2753,16 +3333,6 @@
     });
   }
 
-function syncInstallTip(courseKey) {
-    var tip = $("install-tip");
-    if (!tip) return;
-    var dismissed = false;
-    try { dismissed = localStorage.getItem(INSTALL_TIP_KEY) === "1"; } catch (e) { /* ignore */ }
-    var standalone = window.matchMedia("(display-mode: standalone)").matches
-      || window.navigator.standalone === true;
-    tip.hidden = dismissed || standalone || courseKey !== "terminal";
-  }
-
 function syncComputerDummies(courseKey) {
     var sec = $("computer-dummies");
     if (!sec) return;
@@ -2773,11 +3343,13 @@ function showCourse(courseKey) {
     var isTerminal = courseKey === "terminal";
     var isPc = courseKey === "computer-basics";
     var isPractice = courseKey === "practice";
-    var isQuiz = !isTerminal && !isPc && !isPractice;
+    var isNotes = courseKey === "notes";
+    var isQuiz = !isTerminal && !isPc && !isPractice && !isNotes;
     var term = $("course-terminal");
     var pc = $("course-pc");
     var quiz = $("course-quiz");
     var practice = $("course-practice");
+    var notes = $("course-notes");
     if (!term || !quiz) return;
 
     term.classList.toggle("active", isTerminal);
@@ -2790,6 +3362,10 @@ function showCourse(courseKey) {
       practice.classList.toggle("active", isPractice);
       practice.hidden = !isPractice;
     }
+    if (notes) {
+      notes.classList.toggle("active", isNotes);
+      notes.hidden = !isNotes;
+    }
     quiz.classList.toggle("active", isQuiz);
     quiz.hidden = !isQuiz;
 
@@ -2800,7 +3376,6 @@ function showCourse(courseKey) {
     });
     setCourseTabIndex(courseKey);
     try { localStorage.setItem(LAST_COURSE_KEY, courseKey); } catch (e) { /* ignore */ }
-    syncInstallTip(courseKey);
     syncComputerDummies(courseKey);
 
     var practiceLink = $("quiz-practice-link");
@@ -2829,7 +3404,7 @@ function showCourse(courseKey) {
       return;
     }
 
-    if (isPractice) {
+    if (isPractice || isNotes) {
       syncCourseHash(courseKey);
       return;
     }
@@ -2837,6 +3412,7 @@ function showCourse(courseKey) {
     if (isQuiz) {
       quizState.deckKey = courseKey;
       quizState.forceAll = false;
+      quizState.weakOnly = false;
       quizState.sessionQueue = null;
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
@@ -2859,6 +3435,8 @@ function showCourse(courseKey) {
     "4280": "acit4280",
     "quiz-4280": "acit4280",
     acit4280: "acit4280",
+    notes: "notes",
+    "class-notes": "notes",
     "4100": "acit4100",
     "quiz-4100": "acit4100",
     acit4100: "acit4100",
@@ -2873,6 +3451,7 @@ function showCourse(courseKey) {
     acit4050: "4050",
     practice: "practice",
     acit4280: "4280",
+    notes: "notes",
     acit4100: "4100",
     "computer-basics": "pc",
     fellesjam: "fellesjam"
@@ -2975,6 +3554,15 @@ function showCourse(courseKey) {
     var lab = $("lab");
     if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
   }
+  if ($("btn-notes-to-4280")) {
+    $("btn-notes-to-4280").addEventListener("click", function () { showCourse("acit4280"); });
+  }
+  if ($("btn-notes-to-4100")) {
+    $("btn-notes-to-4100").addEventListener("click", function () { showCourse("acit4100"); });
+  }
+  if ($("btn-notes-to-4050")) {
+    $("btn-notes-to-4050").addEventListener("click", function () { showCourse("acit4050"); });
+  }
   if ($("btn-open-nist")) {
     $("btn-open-nist").addEventListener("click", function () { openPractice("nist"); });
   }
@@ -2992,18 +3580,20 @@ function showCourse(courseKey) {
     });
   }
 
-  $("cta-start").addEventListener("click", function (e) {
-    e.preventDefault();
-    showPanel("tutorial");
-    var lab = $("lab");
-    if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
-    if (!$("tut-setup").classList.contains("hidden")) {
-      var btn = document.querySelector(".track-btn");
-      if (btn) btn.focus();
-    } else if (!$("tut-play").classList.contains("hidden")) {
-      $("cmd-input").focus();
-    }
-  });
+  if ($("cta-start")) {
+    $("cta-start").addEventListener("click", function (e) {
+      e.preventDefault();
+      showPanel("tutorial");
+      var setup = $("tut-setup");
+      if (setup) setup.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (setup && !setup.classList.contains("hidden")) {
+        var btn = document.querySelector(".track-btn");
+        if (btn) btn.focus();
+      } else if ($("tut-play") && !$("tut-play").classList.contains("hidden") && $("cmd-input")) {
+        $("cmd-input").focus();
+      }
+    });
+  }
 
   /* -- Quiz / spaced repetition - Anki-compatible SM-2 (not FSRS) -- */
   var quizState = {
@@ -3015,6 +3605,7 @@ function showCourse(courseKey) {
     sessionQueue: null,
     sessionStartCount: 0,
     sessionDone: 0,
+    weakOnly: false,
     sched: {}
   };
 
@@ -3024,6 +3615,1397 @@ function showCourse(courseKey) {
     flipped: false,
     query: ""
   };
+
+  var XP_POINTS = { again: 0, hard: 5, good: 10, easy: 15 };
+  var studyAudioCtx = null;
+  function studyCourseCount(xp) {
+    var c = xp && xp.courses && typeof xp.courses === "object" ? xp.courses : {};
+    return Object.keys(c).filter(function (k) { return c[k]; }).length;
+  }
+
+  var TROPHIES = [
+    { id: "first-points", group: "Points", kind: "trophy", icon: "1", title: "First points", hint: "Score your first points", test: function (xp) { return (xp.points || 0) >= 5; } },
+    { id: "pts-50", group: "Points", kind: "trophy", icon: "50", title: "Warm up", hint: "Reach 50 points", test: function (xp) { return (xp.points || 0) >= 50; } },
+    { id: "pts-100", group: "Points", kind: "trophy", icon: "100", title: "Century", hint: "Reach 100 points", test: function (xp) { return (xp.points || 0) >= 100; } },
+    { id: "pts-250", group: "Points", kind: "trophy", icon: "250", title: "On a roll", hint: "Reach 250 points", test: function (xp) { return (xp.points || 0) >= 250; } },
+    { id: "pts-500", group: "Points", kind: "trophy", icon: "500", title: "Quiz ace", hint: "Reach 500 points", test: function (xp) { return (xp.points || 0) >= 500; } },
+    { id: "pts-1000", group: "Points", kind: "trophy", icon: "1k", title: "Deck master", hint: "Reach 1000 points", test: function (xp) { return (xp.points || 0) >= 1000; } },
+    { id: "pts-2000", group: "Points", kind: "trophy", icon: "2k", title: "High score", hint: "Reach 2000 points", test: function (xp) { return (xp.points || 0) >= 2000; } },
+    { id: "pts-5000", group: "Points", kind: "trophy", icon: "5k", title: "Legend", hint: "Reach 5000 points", test: function (xp) { return (xp.points || 0) >= 5000; } },
+    { id: "streak-1", group: "Streaks", kind: "badge", icon: "1d", title: "Showed up", hint: "Study on any day", test: function (xp) { return (xp.streak || 0) >= 1; } },
+    { id: "streak-3", group: "Streaks", kind: "trophy", icon: "3d", title: "3-day streak", hint: "Study 3 days in a row", test: function (xp) { return (xp.streak || 0) >= 3; } },
+    { id: "streak-7", group: "Streaks", kind: "trophy", icon: "7d", title: "Week streak", hint: "Study 7 days in a row", test: function (xp) { return (xp.streak || 0) >= 7; } },
+    { id: "streak-14", group: "Streaks", kind: "trophy", icon: "14d", title: "Fortnight", hint: "Study 14 days in a row", test: function (xp) { return (xp.streak || 0) >= 14; } },
+    { id: "streak-30", group: "Streaks", kind: "trophy", icon: "30d", title: "Month streak", hint: "Study 30 days in a row", test: function (xp) { return (xp.streak || 0) >= 30; } },
+    { id: "day-10", group: "Volume", kind: "trophy", icon: "10", title: "Busy day", hint: "Rate 10 cards in one day", test: function (xp) { return (xp.todayReviews || 0) >= 10 || (xp.maxTodayReviews || 0) >= 10; } },
+    { id: "day-25", group: "Volume", kind: "badge", icon: "25", title: "Long session", hint: "Rate 25 cards in one day", test: function (xp) { return (xp.todayReviews || 0) >= 25 || (xp.maxTodayReviews || 0) >= 25; } },
+    { id: "day-50", group: "Volume", kind: "trophy", icon: "50d", title: "Marathon", hint: "Rate 50 cards in one day", test: function (xp) { return (xp.todayReviews || 0) >= 50 || (xp.maxTodayReviews || 0) >= 50; } },
+    { id: "life-50", group: "Volume", kind: "trophy", icon: "50x", title: "Fifty reviews", hint: "Rate 50 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 50; } },
+    { id: "life-200", group: "Volume", kind: "trophy", icon: "200x", title: "Two hundred", hint: "Rate 200 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 200; } },
+    { id: "life-500", group: "Volume", kind: "trophy", icon: "500x", title: "Five hundred", hint: "Rate 500 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 500; } },
+    { id: "life-1000", group: "Volume", kind: "trophy", icon: "1kx", title: "Thousand cards", hint: "Rate 1000 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 1000; } },
+    { id: "honest", group: "Style", kind: "badge", icon: "A", title: "Honest miss", hint: "Press Again once", test: function (xp) { return (xp.againCount || 0) >= 1; } },
+    { id: "bounce", group: "Style", kind: "badge", icon: "A+", title: "Bounce back", hint: "Press Again 10 times", test: function (xp) { return (xp.againCount || 0) >= 10; } },
+    { id: "hard-10", group: "Style", kind: "badge", icon: "H", title: "Grit", hint: "Rate Hard 10 times", test: function (xp) { return (xp.hardCount || 0) >= 10; } },
+    { id: "good-25", group: "Style", kind: "badge", icon: "G", title: "Steady", hint: "Rate Good 25 times", test: function (xp) { return (xp.goodCount || 0) >= 25; } },
+    { id: "easy-10", group: "Style", kind: "badge", icon: "E", title: "Quick recall", hint: "Rate Easy 10 times", test: function (xp) { return (xp.easyCount || 0) >= 10; } },
+    { id: "easy-streak-5", group: "Style", kind: "badge", icon: "E5", title: "Hot streak", hint: "Easy on 5 cards in a row", test: function (xp) { return (xp.bestEasyStreak || 0) >= 5; } },
+    { id: "easy-streak-10", group: "Style", kind: "trophy", icon: "E10", title: "On fire", hint: "Easy on 10 cards in a row", test: function (xp) { return (xp.bestEasyStreak || 0) >= 10; } },
+    { id: "good-streak-5", group: "Style", kind: "badge", icon: "G5", title: "In the zone", hint: "Good on 5 cards in a row", test: function (xp) { return (xp.bestGoodStreak || 0) >= 5; } },
+    { id: "clean-ten", group: "Style", kind: "trophy", icon: "OK", title: "Clean sheet", hint: "Rate 10 cards in a day with no Again", test: function (xp) { return (xp.todayReviews || 0) >= 10 && (xp.todayAgain || 0) === 0; } },
+    { id: "night-owl", group: "Style", kind: "badge", icon: "N", title: "Night owl", hint: "Rate 5 cards after 21:00", test: function (xp) { return (xp.nightReviews || 0) >= 5; } },
+    { id: "early-bird", group: "Style", kind: "badge", icon: "B", title: "Early bird", hint: "Rate 5 cards before 09:00", test: function (xp) { return (xp.morningReviews || 0) >= 5; } },
+    { id: "account", group: "Explorer", kind: "badge", icon: "IN", title: "Signed in", hint: "Create or unlock your account", test: function (xp) { return (xp.accountReady || 0) >= 1; } },
+    { id: "course-4050", group: "Explorer", kind: "badge", icon: "40", title: "4050 starter", hint: "Rate a card in ACIT4050", test: function (xp) { return !!(xp.courses && xp.courses.acit4050); } },
+    { id: "course-4280", group: "Explorer", kind: "badge", icon: "42", title: "4280 starter", hint: "Rate a card in ACIT4280", test: function (xp) { return !!(xp.courses && xp.courses.acit4280); } },
+    { id: "course-4100", group: "Explorer", kind: "badge", icon: "41", title: "4100 starter", hint: "Rate a card in ACIT4100", test: function (xp) { return !!(xp.courses && xp.courses.acit4100); } },
+    { id: "course-pc", group: "Explorer", kind: "badge", icon: "PC", title: "PC starter", hint: "Rate a card in Computer basics", test: function (xp) { return !!(xp.courses && xp.courses["computer-basics"]); } },
+    { id: "course-mix", group: "Explorer", kind: "badge", icon: "MX", title: "Mixed starter", hint: "Rate a card in Mixed", test: function (xp) { return !!(xp.courses && xp.courses.fellesjam); } },
+    { id: "explorer-3", group: "Explorer", kind: "trophy", icon: "3C", title: "Course hopper", hint: "Rate cards in 3 different decks", test: function (xp) { return studyCourseCount(xp) >= 3; } },
+    { id: "explorer-all", group: "Explorer", kind: "trophy", icon: "5C", title: "Full tour", hint: "Rate cards in all 5 decks", test: function (xp) { return studyCourseCount(xp) >= 5; } },
+    { id: "browse-1", group: "Explorer", kind: "badge", icon: "BR", title: "Browser", hint: "Flip a card in Browse", test: function (xp) { return (xp.browseFlips || 0) >= 1; } },
+    { id: "browse-25", group: "Explorer", kind: "badge", icon: "BR+", title: "Deck walker", hint: "Flip 25 cards in Browse", test: function (xp) { return (xp.browseFlips || 0) >= 25; } },
+    { id: "tut-term", group: "Explorer", kind: "trophy", icon: "TT", title: "Terminal graduate", hint: "Finish the ACIT4050 terminal tutorial", test: function (xp) { return (xp.tutDone || 0) >= 1; } },
+    { id: "tut-pc", group: "Explorer", kind: "badge", icon: "TP", title: "PC graduate", hint: "Finish the Computer basics tutorial", test: function (xp) { return (xp.pcTutDone || 0) >= 1; } },
+    { id: "nist", group: "Explorer", kind: "badge", icon: "NI", title: "NIST wheel", hint: "Complete the NIST CSF diagram", test: function (xp) { return (xp.nistDone || 0) >= 1; } },
+    { id: "kill", group: "Explorer", kind: "badge", icon: "KC", title: "Kill Chain", hint: "Complete the Kill Chain diagram", test: function (xp) { return (xp.killDone || 0) >= 1; } },
+    { id: "frameworks", group: "Explorer", kind: "trophy", icon: "FW", title: "Framework pair", hint: "Complete both practice diagrams", test: function (xp) { return (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1; } },
+    { id: "drill", group: "Drill", kind: "trophy", icon: "D", title: "Drill sergeant", hint: "Start a weak-card drill", test: function (xp) { return (xp.drills || 0) >= 1; } },
+    { id: "drill-5", group: "Drill", kind: "badge", icon: "D5", title: "Drill habit", hint: "Start 5 weak-card drills", test: function (xp) { return (xp.drills || 0) >= 5; } }
+  ];
+
+  function profileDefaultStore() {
+    return { activeId: "p1", profiles: [{ id: "p1", name: "Student 1", created: Date.now(), sound: true, shareRank: false }] };
+  }
+
+  function profileSessionRaw() {
+    try {
+      var raw = sessionStorage.getItem(AUTH_SESSION_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      return parsed && parsed.id && parsed.dek ? parsed : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function profileSessionId() {
+    var s = profileSessionRaw();
+    return s ? String(s.id) : "";
+  }
+
+  function profileSessionDek() {
+    var s = profileSessionRaw();
+    if (!s) return null;
+    var bytes = vaultHexToBytes(s.dek);
+    return bytes && bytes.length === 32 ? bytes : null;
+  }
+
+  function profileSetSession(id, dekBytes) {
+    if (!id || !dekBytes || dekBytes.length !== 32) return;
+    try {
+      sessionStorage.setItem(AUTH_SESSION_KEY, JSON.stringify({
+        id: id,
+        at: Date.now(),
+        dek: vaultBytesToHex(dekBytes)
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function profileClearSession() {
+    try { sessionStorage.removeItem(AUTH_SESSION_KEY); } catch (e) { /* ignore */ }
+  }
+
+  function profileIsAuthed() {
+    var id = profileSessionId();
+    if (!id || !profileSessionDek()) return false;
+    var store = profileLoadStore();
+    return store.profiles.some(function (p) { return p.id === id; });
+  }
+
+  function profileHasPass(p) {
+    return !!(p && p.passHash && p.passSalt);
+  }
+
+  function profileHasReset(p) {
+    return !!(p && p.recHash && p.recSalt);
+  }
+
+  function profileNameTaken(name, exceptId) {
+    var needle = String(name || "").replace(/\s+/g, " ").trim().toLowerCase();
+    if (!needle) return false;
+    return profileLoadStore().profiles.some(function (p) {
+      return p.id !== exceptId && (p.name || "").toLowerCase() === needle;
+    });
+  }
+
+  function profileFind(id) {
+    var found = null;
+    profileLoadStore().profiles.forEach(function (p) { if (p.id === id) found = p; });
+    return found;
+  }
+
+  function vaultHasCrypto() {
+    return !!(window.crypto && crypto.getRandomValues && crypto.subtle && window.TextEncoder && window.TextDecoder);
+  }
+
+  function vaultBytesToHex(bytes) {
+    return Array.prototype.map.call(bytes, function (b) {
+      return (b < 16 ? "0" : "") + b.toString(16);
+    }).join("");
+  }
+
+  function vaultHexToBytes(hex) {
+    hex = String(hex || "");
+    if (hex.length < 2 || hex.length % 2) return null;
+    var out = new Uint8Array(hex.length / 2);
+    var i;
+    for (i = 0; i < out.length; i++) {
+      var n = parseInt(hex.substr(i * 2, 2), 16);
+      if (isNaN(n)) return null;
+      out[i] = n;
+    }
+    return out;
+  }
+
+  function vaultBytesToB64(bytes) {
+    var s = "";
+    var i;
+    for (i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s);
+  }
+
+  function vaultB64ToBytes(b64) {
+    try {
+      var s = atob(b64);
+      var out = new Uint8Array(s.length);
+      var i;
+      for (i = 0; i < s.length; i++) out[i] = s.charCodeAt(i);
+      return out;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function profileRandomBytes(n) {
+    var bytes = new Uint8Array(n);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(bytes);
+    else {
+      var i;
+      for (i = 0; i < n; i++) bytes[i] = Math.floor(Math.random() * 256);
+    }
+    return bytes;
+  }
+
+  function profileRandomSalt() {
+    return vaultBytesToHex(profileRandomBytes(16));
+  }
+
+  function profileMakeDek() {
+    return profileRandomBytes(32);
+  }
+
+  function profileHashLegacy(password, salt, done) {
+    var payload = String(salt) + "\n" + String(password);
+    if (vaultHasCrypto()) {
+      crypto.subtle.digest("SHA-256", new TextEncoder().encode(payload)).then(function (buf) {
+        done(vaultBytesToHex(new Uint8Array(buf)));
+      }).catch(function () { done(""); });
+      return;
+    }
+    done("");
+  }
+
+  function profileKdf(password, saltHex, iters, done) {
+    if (!vaultHasCrypto()) {
+      done(null);
+      return;
+    }
+    var salt = vaultHexToBytes(saltHex);
+    if (!salt) {
+      done(null);
+      return;
+    }
+    crypto.subtle.importKey("raw", new TextEncoder().encode(String(password)), "PBKDF2", false, ["deriveBits"]).then(function (key) {
+      return crypto.subtle.deriveBits(
+        { name: "PBKDF2", hash: "SHA-256", salt: salt, iterations: iters || KDF_ITERS },
+        key,
+        512
+      );
+    }).then(function (bits) {
+      var buf = new Uint8Array(bits);
+      done({
+        authHex: vaultBytesToHex(buf.subarray(0, 32)),
+        kek: new Uint8Array(buf.subarray(32, 64))
+      });
+    }).catch(function () { done(null); });
+  }
+
+  function profilePassOk(a, b) {
+    if (!a || !b || a.length !== b.length) return false;
+    var diff = 0;
+    var i;
+    for (i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+    return diff === 0;
+  }
+
+  function vaultImportAes(keyBytes, done) {
+    var copy = new Uint8Array(keyBytes);
+    crypto.subtle.importKey("raw", copy, { name: "AES-GCM" }, false, ["encrypt", "decrypt"]).then(done).catch(function () { done(null); });
+  }
+
+  function vaultEncryptBytes(keyBytes, plainBytes, done) {
+    if (!vaultHasCrypto() || !keyBytes) {
+      done(null);
+      return;
+    }
+    var iv = profileRandomBytes(12);
+    vaultImportAes(keyBytes, function (key) {
+      if (!key) {
+        done(null);
+        return;
+      }
+      crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, plainBytes).then(function (ct) {
+        var ctb = new Uint8Array(ct);
+        var packed = new Uint8Array(iv.length + ctb.length);
+        packed.set(iv, 0);
+        packed.set(ctb, iv.length);
+        done(VAULT_MARK + vaultBytesToB64(packed));
+      }).catch(function () { done(null); });
+    });
+  }
+
+  function vaultDecryptBytes(keyBytes, packed, done) {
+    if (!vaultHasCrypto() || !keyBytes || !packed || packed.indexOf(VAULT_MARK) !== 0) {
+      done(null);
+      return;
+    }
+    var raw = vaultB64ToBytes(packed.slice(VAULT_MARK.length));
+    if (!raw || raw.length < 29) {
+      done(null);
+      return;
+    }
+    var iv = raw.subarray(0, 12);
+    var ct = raw.subarray(12);
+    vaultImportAes(keyBytes, function (key) {
+      if (!key) {
+        done(null);
+        return;
+      }
+      crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, ct).then(function (pt) {
+        done(new Uint8Array(pt));
+      }).catch(function () { done(null); });
+    });
+  }
+
+  function vaultWriteString(key, text) {
+    var dek = profileSessionDek();
+    if (!dek || !vaultHasCrypto()) return;
+    vaultEncryptBytes(dek, new TextEncoder().encode(String(text)), function (packed) {
+      if (!packed) return;
+      try { localStorage.setItem(key, packed); } catch (e) { /* ignore */ }
+    });
+  }
+
+  function vaultWriteJson(key, obj) {
+    vaultWriteString(key, JSON.stringify(obj));
+  }
+
+  function vaultIsProfileKey(key, id) {
+    if (!id) return false;
+    return key === XP_KEY + ":" + id
+      || key.indexOf(QUIZ_PREFIX + id + "-") === 0
+      || key.indexOf(STUDY_MODE_PREFIX + id + "-") === 0
+      || key.indexOf(FLASH_PREFIX + id + "-") === 0;
+  }
+
+  function vaultSealExisting() {
+    var dek = profileSessionDek();
+    var id = profileId();
+    if (!dek || !id) return;
+    var keys = [];
+    var i;
+    for (i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (vaultIsProfileKey(key, id)) keys.push(key);
+    }
+    keys.forEach(function (key) {
+      var raw = localStorage.getItem(key);
+      if (!raw || raw.indexOf(VAULT_MARK) === 0) return;
+      vaultWriteString(key, raw);
+    });
+    if (id === "p1") {
+      var legacyXp = localStorage.getItem(XP_KEY);
+      if (legacyXp && legacyXp.indexOf(VAULT_MARK) !== 0 && !localStorage.getItem(XP_KEY + ":p1")) {
+        vaultWriteString(XP_KEY + ":p1", legacyXp);
+      }
+    }
+  }
+
+  function authLockState() {
+    try {
+      var raw = localStorage.getItem(AUTH_LOCK_KEY);
+      if (!raw) return {};
+      var parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function authSaveLock(state) {
+    try { localStorage.setItem(AUTH_LOCK_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
+  }
+
+  function authNow() { return Date.now(); }
+
+  function authLocked(id) {
+    var s = authLockState()[id];
+    return !!(s && s.until && s.until > authNow());
+  }
+
+  function authMarkFail(id) {
+    var all = authLockState();
+    var s = all[id] || { n: 0, until: 0 };
+    s.n = (s.n || 0) + 1;
+    if (s.n >= 5 && s.n % 5 === 0) {
+      var step = s.n / 5;
+      s.until = authNow() + Math.min(15 * 60 * 1000, 15000 * Math.pow(2, step - 1));
+    }
+    all[id] = s;
+    authSaveLock(all);
+  }
+
+  function authClearFails(id) {
+    var all = authLockState();
+    all[id] = { n: 0, until: 0 };
+    authSaveLock(all);
+  }
+
+  function authSetError(msg) {
+    var el = $("auth-error");
+    if (!el) return;
+    if (!msg) {
+      el.hidden = true;
+      el.textContent = "";
+      return;
+    }
+    el.hidden = false;
+    el.textContent = msg;
+  }
+
+  function settingsSetMsg(msg) {
+    var el = $("settings-account-msg");
+    if (!el) return;
+    if (!msg) {
+      el.hidden = true;
+      el.textContent = "";
+      return;
+    }
+    el.hidden = false;
+    el.textContent = msg;
+  }
+
+  function profileLoadStore() {
+    try {
+      var raw = localStorage.getItem(PROFILES_KEY);
+      if (!raw) return profileDefaultStore();
+      var parsed = JSON.parse(raw);
+      if (!parsed || !Array.isArray(parsed.profiles) || !parsed.profiles.length) return profileDefaultStore();
+      return parsed;
+    } catch (e) {
+      return profileDefaultStore();
+    }
+  }
+
+  function profileSaveStore(store) {
+    try { localStorage.setItem(PROFILES_KEY, JSON.stringify(store)); } catch (e) { /* ignore */ }
+  }
+
+  function profileEnsure() {
+    var store = profileLoadStore();
+    if (!store.profiles.some(function (p) { return p.id === store.activeId; })) {
+      store.activeId = store.profiles[0].id;
+      profileSaveStore(store);
+    }
+    return store;
+  }
+
+  function profileActive() {
+    if (!profileIsAuthed()) return { id: "", name: "Sign in", sound: true };
+    return profileFind(profileSessionId()) || { id: "", name: "Sign in", sound: true };
+  }
+
+  function profileId() {
+    return profileIsAuthed() ? profileSessionId() : "";
+  }
+
+  function profileIsPrimary() {
+    return profileId() === "p1";
+  }
+
+  function profileUnlock(id, dekBytes) {
+    var store = profileEnsure();
+    if (!store.profiles.some(function (p) { return p.id === id; })) return;
+    if (!dekBytes || dekBytes.length !== 32) return;
+    store.activeId = id;
+    profileSaveStore(store);
+    profileSetSession(id, dekBytes);
+    authClearFails(id);
+    authSetError("");
+    vaultWarm(function () {
+      vaultSealExisting();
+      studyAuthApplyUi();
+      studyRefreshHud();
+      studyLoadAndShow();
+      studyMarkFlag("accountReady");
+    });
+  }
+
+  function profileLogout() {
+    vaultMemClear();
+    profileClearSession();
+    profileCloseModal();
+    studyAuthApplyUi();
+    studyRefreshHud();
+  }
+
+  function profileRename(name) {
+    if (!profileIsAuthed()) return false;
+    name = (name || "").replace(/\s+/g, " ").trim();
+    if (!name) return false;
+    var id = profileId();
+    if (profileNameTaken(name, id)) return false;
+    var store = profileEnsure();
+    store.profiles.forEach(function (p) {
+      if (p.id === id) p.name = name.slice(0, 24);
+    });
+    profileSaveStore(store);
+    studyRefreshHud();
+    rankSchedulePublish();
+    return true;
+  }
+
+  function profileRenameAccount(id, name) {
+    name = (name || "").replace(/\s+/g, " ").trim();
+    if (!name) return "Write a new name.";
+    if (profileNameTaken(name, id)) return "That name is taken on this device.";
+    var store = profileEnsure();
+    var found = false;
+    store.profiles.forEach(function (p) {
+      if (p.id === id) {
+        p.name = name.slice(0, 24);
+        found = true;
+      }
+    });
+    if (!found) return "Choose an account.";
+    profileSaveStore(store);
+    return "";
+  }
+
+  function profileSetSound(on) {
+    if (!profileIsAuthed()) return;
+    var store = profileEnsure();
+    var id = profileId();
+    store.profiles.forEach(function (p) {
+      if (p.id === id) p.sound = !!on;
+    });
+    profileSaveStore(store);
+    studyRefreshHud();
+  }
+
+  function profileShareOn() {
+    var p = profileActive();
+    return !!(p && p.shareRank);
+  }
+
+  function profileEnsureShareId(p) {
+    if (p && p.shareId) return p.shareId;
+    var bytes = new Uint8Array(8);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(bytes);
+    else {
+      var i;
+      for (i = 0; i < 8; i++) bytes[i] = Math.floor(Math.random() * 256);
+    }
+    var id = Array.prototype.map.call(bytes, function (b) {
+      return (b < 16 ? "0" : "") + b.toString(16);
+    }).join("");
+    if (p) p.shareId = id;
+    return id;
+  }
+
+  function profileSetShare(on) {
+    if (!profileIsAuthed()) return;
+    var store = profileEnsure();
+    var id = profileId();
+    store.profiles.forEach(function (p) {
+      if (p.id === id) {
+        p.shareRank = !!on;
+        if (on) profileEnsureShareId(p);
+      }
+    });
+    profileSaveStore(store);
+    if (on) rankPublishMine();
+    else rankRemoveMine();
+    studyRefreshHud();
+    rankRender();
+  }
+
+  function rankCleanName(name) {
+    return String(name || "Student").replace(/[|\r\n\t]/g, " ").replace(/\s+/g, " ").trim().slice(0, 24) || "Student";
+  }
+
+  function rankLoadBoard() {
+    try {
+      var raw = localStorage.getItem(RANK_BOARD_KEY);
+      if (!raw) return { entries: {} };
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || !parsed.entries || typeof parsed.entries !== "object") {
+        return { entries: {} };
+      }
+      return parsed;
+    } catch (e) {
+      return { entries: {} };
+    }
+  }
+
+  function rankSaveBoard(board) {
+    try { localStorage.setItem(RANK_BOARD_KEY, JSON.stringify(board)); } catch (e) { /* ignore */ }
+  }
+
+  function rankSanitizeEntry(raw) {
+    if (!raw || typeof raw !== "object") return null;
+    var id = String(raw.id || "").replace(/[^a-zA-Z0-9]/g, "").slice(0, 24);
+    if (id.length < 8) return null;
+    var points = Number(raw.points);
+    var streak = Number(raw.streak);
+    var trophies = Number(raw.trophies);
+    var updated = Number(raw.updated);
+    if (!isFinite(points) || points < 0 || points > 999999) return null;
+    if (!isFinite(streak) || streak < 0 || streak > 9999) streak = 0;
+    if (!isFinite(trophies) || trophies < 0 || trophies > 999) trophies = 0;
+    if (!isFinite(updated) || updated < 1) updated = Date.now();
+    return {
+      id: id,
+      name: rankCleanName(raw.name),
+      points: Math.floor(points),
+      streak: Math.floor(streak),
+      trophies: Math.floor(trophies),
+      updated: Math.floor(updated)
+    };
+  }
+
+  function rankSortedEntries() {
+    var board = rankLoadBoard();
+    var list = [];
+    Object.keys(board.entries || {}).forEach(function (key) {
+      var entry = rankSanitizeEntry(board.entries[key]);
+      if (entry) list.push(entry);
+    });
+    list.sort(function (a, b) {
+      if (b.points !== a.points) return b.points - a.points;
+      if (b.streak !== a.streak) return b.streak - a.streak;
+      if (b.trophies !== a.trophies) return b.trophies - a.trophies;
+      return a.name.localeCompare(b.name);
+    });
+    return list;
+  }
+
+  function rankMyShareId() {
+    if (!profileIsAuthed()) return "";
+    var store = profileEnsure();
+    var id = profileId();
+    var found = "";
+    store.profiles.forEach(function (p) {
+      if (p.id === id) found = profileEnsureShareId(p);
+    });
+    profileSaveStore(store);
+    return found;
+  }
+
+  function rankMySnapshot() {
+    if (!profileIsAuthed() || !profileShareOn()) return null;
+    var xp = studyLoadXp();
+    return rankSanitizeEntry({
+      id: rankMyShareId(),
+      name: profileActive().name,
+      points: xp.points || 0,
+      streak: xp.streak || 0,
+      trophies: xp.badges ? Object.keys(xp.badges).length : 0,
+      updated: Date.now()
+    });
+  }
+
+  function rankPublishMine() {
+    var snap = rankMySnapshot();
+    if (!snap) return;
+    var board = rankLoadBoard();
+    if (!board.entries) board.entries = {};
+    board.entries[snap.id] = snap;
+    rankSaveBoard(board);
+  }
+
+  function rankRemoveMine() {
+    if (!profileIsAuthed()) return;
+    var store = profileLoadStore();
+    var me = profileId();
+    var shareId = "";
+    store.profiles.forEach(function (p) {
+      if (p.id === me && p.shareId) shareId = p.shareId;
+    });
+    if (!shareId) return;
+    var board = rankLoadBoard();
+    if (board.entries && board.entries[shareId]) {
+      delete board.entries[shareId];
+      rankSaveBoard(board);
+    }
+  }
+
+  var rankPublishTimer = 0;
+  function rankSchedulePublish() {
+    if (!profileIsAuthed() || !profileShareOn()) return;
+    window.clearTimeout(rankPublishTimer);
+    rankPublishTimer = window.setTimeout(function () {
+      rankPublishMine();
+      rankRender();
+      studyRefreshHud();
+    }, 400);
+  }
+
+  function rankMyPlace() {
+    if (!profileShareOn()) return 0;
+    var mine = rankMyShareId();
+    var list = rankSortedEntries();
+    var i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i].id === mine) return i + 1;
+    }
+    return list.length ? 0 : 1;
+  }
+
+  function rankCardText(entry) {
+    return "MSC1|" + entry.id + "|" + rankCleanName(entry.name) + "|" + entry.points + "|" + entry.streak + "|" + entry.trophies + "|" + entry.updated;
+  }
+
+  function rankParseCard(text) {
+    text = String(text || "").replace(/\s+/g, " ").trim();
+    if (text.indexOf("MSC1|") !== 0) return null;
+    var parts = text.split("|");
+    if (parts.length < 7) return null;
+    return rankSanitizeEntry({
+      id: parts[1],
+      name: parts[2],
+      points: parts[3],
+      streak: parts[4],
+      trophies: parts[5],
+      updated: parts[6]
+    });
+  }
+
+  function rankImportCard(text) {
+    if (!profileShareOn()) return "Tick Share first.";
+    var entry = rankParseCard(text);
+    if (!entry) return "That is not a valid score code.";
+    if (entry.id === rankMyShareId()) return "That is your own code.";
+    var board = rankLoadBoard();
+    if (!board.entries) board.entries = {};
+    var prev = board.entries[entry.id];
+    if (prev && Number(prev.updated) > entry.updated) return "A newer score for that person is already on the board.";
+    board.entries[entry.id] = entry;
+    rankSaveBoard(board);
+    rankRender();
+    studyRefreshHud();
+    return "";
+  }
+
+  function rankCopyMine(done) {
+    var snap = rankMySnapshot();
+    if (!snap) {
+      if (done) done(false);
+      return;
+    }
+    var text = rankCardText(snap);
+    var box = $("rank-import-code");
+    if (box) box.value = text;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        if (done) done(true);
+      }).catch(function () {
+        if (done) done(false);
+      });
+      return;
+    }
+    if (done) done(false);
+  }
+
+  function rankRender() {
+    var panel = $("rank-panel");
+    var list = $("rank-list");
+    var status = $("rank-status");
+    var box = $("settings-share");
+    if (box) box.checked = profileShareOn();
+    if (panel) panel.hidden = !profileShareOn();
+    if (!list || !status) return;
+    list.innerHTML = "";
+    if (!profileShareOn()) {
+      status.textContent = "Tick Share my score to join the ranking. Until then nobody can see your points.";
+      return;
+    }
+    rankPublishMine();
+    var rows = rankSortedEntries();
+    var mine = rankMyShareId();
+    if (!rows.length) {
+      status.textContent = "You are on the board. Ask a classmate to tick Share on this device, or paste their score code.";
+      return;
+    }
+    status.textContent = rows.length === 1
+      ? "1 person is sharing. Paste a classmate code if they study on another phone."
+      : rows.length + " people are sharing. Top three are 1st, 2nd and 3rd.";
+    rows.forEach(function (entry, idx) {
+      var li = document.createElement("li");
+      li.className = "rank-row";
+      if (idx < 3) li.className += " is-top" + (idx + 1);
+      if (entry.id === mine) li.className += " is-you";
+      var place = document.createElement("span");
+      place.className = "rank-place";
+      place.textContent = (idx + 1) + ".";
+      var mid = document.createElement("span");
+      var name = document.createElement("span");
+      name.className = "rank-name";
+      name.textContent = entry.name + (entry.id === mine ? " (you)" : "");
+      var meta = document.createElement("span");
+      meta.className = "rank-meta";
+      meta.textContent = "Streak " + entry.streak + " - Trophies " + entry.trophies;
+      mid.appendChild(name);
+      mid.appendChild(document.createElement("br"));
+      mid.appendChild(meta);
+      var pts = document.createElement("span");
+      pts.className = "rank-pts";
+      pts.textContent = entry.points + " pts";
+      li.appendChild(place);
+      li.appendChild(mid);
+      li.appendChild(pts);
+      list.appendChild(li);
+    });
+  }
+
+  var vaultMem = {};
+
+  function vaultMemClear() {
+    vaultMem = {};
+  }
+
+  function vaultMemGet(key) {
+    return Object.prototype.hasOwnProperty.call(vaultMem, key) ? vaultMem[key] : undefined;
+  }
+
+  function vaultMemSet(key, val) {
+    vaultMem[key] = val;
+  }
+
+  function vaultWrapDek(kek, dek, done) {
+    vaultEncryptBytes(kek, dek, done);
+  }
+
+  function vaultUnwrapDek(kek, packed, done) {
+    vaultDecryptBytes(kek, packed, function (bytes) {
+      done(bytes && bytes.length === 32 ? bytes : null);
+    });
+  }
+
+  function profileWritePass(id, password, done) {
+    if (!vaultHasCrypto()) {
+      done("This browser cannot protect passwords. Open the app over HTTPS.");
+      return;
+    }
+    var salt = profileRandomSalt();
+    profileKdf(password, salt, KDF_ITERS, function (parts) {
+      if (!parts) {
+        done("Could not stretch the password.");
+        return;
+      }
+      var dek = profileSessionDek() || profileMakeDek();
+      vaultWrapDek(parts.kek, dek, function (wrap) {
+        if (!wrap) {
+          done("Could not wrap the vault key.");
+          return;
+        }
+        var store = profileEnsure();
+        store.profiles.forEach(function (p) {
+          if (p.id === id) {
+            p.passSalt = salt;
+            p.passHash = parts.authHex;
+            p.passWrap = wrap;
+            p.kdf = KDF_NAME;
+            p.kdfIter = KDF_ITERS;
+          }
+        });
+        profileSaveStore(store);
+        profileSetSession(id, dek);
+        done("", dek);
+      });
+    });
+  }
+
+  function profileWriteReset(id, word, done) {
+    if (!vaultHasCrypto()) {
+      done("This browser cannot protect passwords. Open the app over HTTPS.");
+      return;
+    }
+    var dek = profileSessionDek();
+    if (!dek) {
+      done("Sign in first, then save a reset word.");
+      return;
+    }
+    var salt = profileRandomSalt();
+    profileKdf(word, salt, KDF_ITERS, function (parts) {
+      if (!parts) {
+        done("Could not stretch the reset word.");
+        return;
+      }
+      vaultWrapDek(parts.kek, dek, function (wrap) {
+        if (!wrap) {
+          done("Could not wrap the vault key.");
+          return;
+        }
+        var store = profileEnsure();
+        store.profiles.forEach(function (p) {
+          if (p.id === id) {
+            p.recSalt = salt;
+            p.recHash = parts.authHex;
+            p.recWrap = wrap;
+            p.recKdf = KDF_NAME;
+            p.recKdfIter = KDF_ITERS;
+          }
+        });
+        profileSaveStore(store);
+        done("");
+      });
+    });
+  }
+
+  function profileCheckSecret(p, value, kind, done) {
+    var salt = kind === "reset" ? p.recSalt : p.passSalt;
+    var expected = kind === "reset" ? p.recHash : p.passHash;
+    var kdf = kind === "reset" ? p.recKdf : p.kdf;
+    var iters = kind === "reset" ? p.recKdfIter : p.kdfIter;
+    var wrap = kind === "reset" ? p.recWrap : p.passWrap;
+    if (!value || !salt || !expected) {
+      done(false, null);
+      return;
+    }
+    if (kdf === KDF_NAME) {
+      profileKdf(value, salt, iters || KDF_ITERS, function (parts) {
+        if (!parts || !profilePassOk(parts.authHex, expected)) {
+          done(false, null);
+          return;
+        }
+        if (!wrap) {
+          done(true, null);
+          return;
+        }
+        vaultUnwrapDek(parts.kek, wrap, function (dek) {
+          done(!!dek, dek);
+        });
+      });
+      return;
+    }
+    profileHashLegacy(value, salt, function (hash) {
+      done(profilePassOk(hash, expected), null);
+    });
+  }
+
+  function profileFinishProve(p, dekOrNull, done) {
+    var dek = dekOrNull && dekOrNull.length === 32 ? dekOrNull : profileMakeDek();
+    done(true, "", dek);
+  }
+
+  function profileProveAccount(p, password, resetWord, done) {
+    function tryReset() {
+      if (!resetWord) {
+        done(false, "Write the current password or the reset word.");
+        return;
+      }
+      if (!profileHasReset(p)) {
+        done(false, "This account has no reset word yet. Use the current password, or create a new account.");
+        return;
+      }
+      profileCheckSecret(p, resetWord, "reset", function (ok, dek) {
+        if (!ok) done(false, "Wrong reset word.");
+        else profileFinishProve(p, dek, done);
+      });
+    }
+    if (password && profileHasPass(p)) {
+      profileCheckSecret(p, password, "pass", function (ok, dek) {
+        if (ok) profileFinishProve(p, dek, done);
+        else if (resetWord) tryReset();
+        else done(false, "Wrong password.");
+      });
+      return;
+    }
+    tryReset();
+  }
+
+  function vaultWarm(done) {
+    var dek = profileSessionDek();
+    var id = profileSessionId();
+    vaultMemClear();
+    if (!dek || !id) {
+      if (done) done();
+      return;
+    }
+    var keys = [];
+    var i;
+    for (i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (vaultIsProfileKey(key, id)) keys.push(key);
+    }
+    var left = keys.length;
+    if (!left) {
+      if (done) done();
+      return;
+    }
+    keys.forEach(function (key) {
+      var raw = localStorage.getItem(key);
+      if (!raw) {
+        left -= 1;
+        if (!left && done) done();
+        return;
+      }
+      if (raw.indexOf(VAULT_MARK) !== 0) {
+        vaultMemSet(key, raw);
+        left -= 1;
+        if (!left && done) done();
+        return;
+      }
+      vaultDecryptBytes(dek, raw, function (bytes) {
+        if (bytes) vaultMemSet(key, new TextDecoder().decode(bytes));
+        left -= 1;
+        if (!left && done) done();
+      });
+    });
+  }
+
+  function profileFillAccountSelect() {
+    var sel = $("auth-account");
+    if (!sel) return;
+    var prev = sel.value;
+    sel.innerHTML = "";
+    profileLoadStore().profiles.forEach(function (p) {
+      var opt = document.createElement("option");
+      opt.value = p.id;
+      opt.textContent = p.name + (profileHasPass(p) ? "" : " (set a password)");
+      sel.appendChild(opt);
+    });
+    if (prev && Array.prototype.some.call(sel.options, function (o) { return o.value === prev; })) {
+      sel.value = prev;
+    }
+    profileSyncAuthForm();
+  }
+
+  function profileSyncAuthForm() {
+    var sel = $("auth-account");
+    var p = sel ? profileFind(sel.value) : null;
+    var needSet = p && !profileHasPass(p);
+    var pass2 = $("auth-pass2");
+    var pass2Lab = $("auth-pass2-label");
+    var btn = $("auth-login");
+    var lab = $("auth-pass-label");
+    var reset = $("auth-reset");
+    var reset2 = $("auth-reset2");
+    var resetLab = $("auth-reset-label");
+    var reset2Lab = $("auth-reset2-label");
+    if (pass2) pass2.hidden = !needSet;
+    if (pass2Lab) pass2Lab.hidden = !needSet;
+    if (reset) reset.hidden = !needSet;
+    if (reset2) reset2.hidden = !needSet;
+    if (resetLab) resetLab.hidden = !needSet;
+    if (reset2Lab) reset2Lab.hidden = !needSet;
+    if (lab) lab.textContent = needSet ? "Choose a password (at least 8 characters)" : "Password";
+    if (btn) btn.textContent = needSet ? "Set password and sign in" : "Sign in";
+    var pass = $("auth-pass");
+    if (pass) pass.autocomplete = needSet ? "new-password" : "current-password";
+  }
+
+  function studyAuthApplyUi() {
+    var authed = profileIsAuthed();
+    var lock = $("study-auth");
+    if (lock) lock.hidden = authed;
+    ["study-hud", "study-hud-actions", "quiz-progress-wrap", "profile-settings-btn", "profile-trophies-btn", "profile-sound-btn", "profile-logout"].forEach(function (id) {
+      var el = $(id);
+      if (el) el.hidden = !authed;
+    });
+    var active = $("quiz-active");
+    var empty = $("quiz-empty");
+    if (!authed) {
+      if (active) active.classList.add("hidden");
+      if (empty) empty.classList.add("hidden");
+      if ($("quiz-find")) $("quiz-find").hidden = true;
+      if ($("profile-name-label")) $("profile-name-label").textContent = "Sign in";
+      if ($("profile-avatar")) $("profile-avatar").textContent = "?";
+      profileFillAccountSelect();
+    }
+  }
+
+  function studyXpKey() {
+    return XP_KEY + ":" + profileId();
+  }
+
+  function studyEnsureAudio() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    if (!studyAudioCtx) studyAudioCtx = new AC();
+    if (studyAudioCtx.state === "suspended") {
+      try { studyAudioCtx.resume(); } catch (e) { /* ignore */ }
+    }
+    return studyAudioCtx;
+  }
+
+  function studyBeep(freq, start, dur, gain) {
+    var ctx = studyEnsureAudio();
+    if (!ctx) return;
+    var osc = ctx.createOscillator();
+    var g = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, ctx.currentTime + start);
+    g.gain.exponentialRampToValueAtTime(gain, ctx.currentTime + start + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + start + dur);
+    osc.connect(g);
+    g.connect(ctx.destination);
+    osc.start(ctx.currentTime + start);
+    osc.stop(ctx.currentTime + start + dur + 0.02);
+  }
+
+  function studyReduceMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function studyFxPop(id) {
+    var el = $(id);
+    if (!el || studyReduceMotion()) return;
+    el.classList.remove("hud-pop");
+    void el.offsetWidth;
+    el.classList.add("hud-pop");
+  }
+
+  function studyFxBurst(x, y, count) {
+    if (studyReduceMotion()) return;
+    var layer = $("fx-layer");
+    if (!layer) return;
+    var colors = ["#071952", "#0B666A", "#35A29F", "#97FEED"];
+    var n = count || 10;
+    var i;
+    for (i = 0; i < n; i++) {
+      var bit = document.createElement("span");
+      bit.className = "fx-bit";
+      var angle = ((Math.PI * 2) * i) / n + Math.random() * 0.5;
+      var dist = 36 + Math.random() * 90;
+      bit.style.left = x + "px";
+      bit.style.top = y + "px";
+      bit.style.background = colors[i % 4];
+      bit.style.setProperty("--dx", (Math.cos(angle) * dist) + "px");
+      bit.style.setProperty("--dy", (Math.sin(angle) * dist) + "px");
+      layer.appendChild(bit);
+      window.setTimeout(function (node) {
+        return function () {
+          if (node.parentNode) node.parentNode.removeChild(node);
+        };
+      }(bit), 750);
+    }
+  }
+
+  function studyFxBurstAt(el, count) {
+    var x = window.innerWidth / 2;
+    var y = window.innerHeight * 0.38;
+    if (el && el.getBoundingClientRect) {
+      var r = el.getBoundingClientRect();
+      if (r.width || r.height) {
+        x = r.left + r.width / 2;
+        y = r.top + r.height / 2;
+      }
+    }
+    studyFxBurst(x, y, count);
+  }
+
+  function studyFxCard(grade) {
+    var card = $("quiz-card");
+    if (!card) return;
+    card.classList.remove("fx-again", "fx-good", "fx-easy", "fx-reveal");
+    void card.offsetWidth;
+    if (grade === "again") card.classList.add("fx-again");
+    else if (grade === "easy") card.classList.add("fx-easy");
+    else if (grade === "good" || grade === "hard") card.classList.add("fx-good");
+  }
+
+  function studyPlayPointsChime() {
+    if (profileActive().sound === false) return;
+    studyBeep(880, 0, 0.12, 0.08);
+    studyBeep(1174, 0.08, 0.16, 0.07);
+  }
+
+  function studyPlayTrophyFanfare() {
+    if (profileActive().sound === false) return;
+    studyBeep(784, 0, 0.12, 0.07);
+    studyBeep(988, 0.1, 0.12, 0.07);
+    studyBeep(1318, 0.2, 0.22, 0.08);
+  }
+
+  function studyShowTrophyToast(item, extra) {
+    var el = $("trophy-toast");
+    if (!el) return;
+    var kind = item && item.kind === "badge" ? "Badge" : "Trophy";
+    var more = extra > 0 ? " (+" + extra + " more)" : "";
+    el.textContent = kind + " unlocked: " + ((item && item.title) || "New") + more;
+    el.hidden = false;
+    setTimeout(function () { el.hidden = true; }, 3200);
+  }
+
+  function studyUnlockTrophies(xp) {
+    if (!xp.badges || typeof xp.badges !== "object") xp.badges = {};
+    var fresh = [];
+    TROPHIES.forEach(function (t) {
+      if (xp.badges[t.id]) return;
+      if (t.test(xp)) {
+        xp.badges[t.id] = Date.now();
+        fresh.push(t);
+      }
+    });
+    return fresh;
+  }
+
+  function studyTodayKey() {
+    try {
+      return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Oslo", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+    } catch (e) {
+      return new Date().toISOString().slice(0, 10);
+    }
+  }
+
+  function studyYesterdayKey(today) {
+    var parts = (today || studyTodayKey()).split("-");
+    var d = new Date(Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])));
+    d.setUTCDate(d.getUTCDate() - 1);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function studyDefaultXp() {
+    return {
+      points: 0,
+      streak: 0,
+      lastStudyDay: "",
+      todayPoints: 0,
+      todayReviews: 0,
+      todayAgain: 0,
+      todayEasy: 0,
+      maxTodayReviews: 0,
+      lifetimeReviews: 0,
+      againCount: 0,
+      hardCount: 0,
+      goodCount: 0,
+      easyCount: 0,
+      easyStreak: 0,
+      bestEasyStreak: 0,
+      goodStreak: 0,
+      bestGoodStreak: 0,
+      nightReviews: 0,
+      morningReviews: 0,
+      browseFlips: 0,
+      drills: 0,
+      accountReady: 0,
+      tutDone: 0,
+      pcTutDone: 0,
+      nistDone: 0,
+      killDone: 0,
+      courses: {},
+      badges: {}
+    };
+  }
+
+  function studyLoadXp() {
+    if (!profileIsAuthed()) return studyDefaultXp();
+    try {
+      var key = studyXpKey();
+      var raw = vaultMemGet(key);
+      if (raw === undefined) {
+        raw = localStorage.getItem(key);
+        if (!raw && profileIsPrimary()) raw = localStorage.getItem(XP_KEY);
+        if (raw && String(raw).indexOf(VAULT_MARK) === 0) raw = "";
+      }
+      if (!raw) return studyDefaultXp();
+      var parsed = typeof raw === "string" ? JSON.parse(raw) : raw;
+      if (!parsed || typeof parsed !== "object") return studyDefaultXp();
+      var base = studyDefaultXp();
+      Object.keys(base).forEach(function (k) {
+        if (k === "badges" || k === "courses") {
+          if (parsed[k] && typeof parsed[k] === "object" && !Array.isArray(parsed[k])) base[k] = parsed[k];
+          return;
+        }
+        if (typeof parsed[k] === "number" || typeof parsed[k] === "string") base[k] = parsed[k];
+      });
+      var before = Object.keys(base.badges).length;
+      studyUnlockTrophies(base);
+      if (Object.keys(base.badges).length !== before) studySaveXp(base);
+      return base;
+    } catch (e) {
+      return studyDefaultXp();
+    }
+  }
+
+  function studySaveXp(xp) {
+    if (!profileIsAuthed()) return;
+    var key = studyXpKey();
+    var text = JSON.stringify(xp);
+    vaultMemSet(key, text);
+    vaultWriteJson(key, xp);
+    rankSchedulePublish();
+  }
+
+  function studyApplyXp(grade) {
+    if (!profileIsAuthed()) return studyDefaultXp();
+    var xp = studyLoadXp();
+    var today = studyTodayKey();
+    if (xp.lastStudyDay !== today) {
+      if (xp.lastStudyDay && xp.lastStudyDay === studyYesterdayKey(today)) xp.streak = (xp.streak || 0) + 1;
+      else xp.streak = 1;
+      xp.todayPoints = 0;
+      xp.todayReviews = 0;
+      xp.todayAgain = 0;
+      xp.todayEasy = 0;
+      xp.lastStudyDay = today;
+    }
+    var add = XP_POINTS[grade];
+    if (typeof add !== "number") add = 0;
+    xp.points = (xp.points || 0) + add;
+    xp.todayPoints = (xp.todayPoints || 0) + add;
+    xp.todayReviews = (xp.todayReviews || 0) + 1;
+    xp.lifetimeReviews = (xp.lifetimeReviews || 0) + 1;
+    if (xp.todayReviews > (xp.maxTodayReviews || 0)) xp.maxTodayReviews = xp.todayReviews;
+    if (grade === "again") {
+      xp.againCount = (xp.againCount || 0) + 1;
+      xp.todayAgain = (xp.todayAgain || 0) + 1;
+      xp.easyStreak = 0;
+      xp.goodStreak = 0;
+    } else if (grade === "hard") {
+      xp.hardCount = (xp.hardCount || 0) + 1;
+      xp.easyStreak = 0;
+      xp.goodStreak = 0;
+    } else if (grade === "good") {
+      xp.goodCount = (xp.goodCount || 0) + 1;
+      xp.goodStreak = (xp.goodStreak || 0) + 1;
+      xp.easyStreak = 0;
+      if (xp.goodStreak > (xp.bestGoodStreak || 0)) xp.bestGoodStreak = xp.goodStreak;
+    } else if (grade === "easy") {
+      xp.easyCount = (xp.easyCount || 0) + 1;
+      xp.todayEasy = (xp.todayEasy || 0) + 1;
+      xp.easyStreak = (xp.easyStreak || 0) + 1;
+      xp.goodStreak = 0;
+      if (xp.easyStreak > (xp.bestEasyStreak || 0)) xp.bestEasyStreak = xp.easyStreak;
+    }
+    var hour = 12;
+    try {
+      hour = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Oslo", hour: "2-digit", hour12: false }).format(new Date()));
+    } catch (eH) {
+      hour = new Date().getHours();
+    }
+    if (hour >= 21 || hour < 5) xp.nightReviews = (xp.nightReviews || 0) + 1;
+    if (hour >= 5 && hour < 9) xp.morningReviews = (xp.morningReviews || 0) + 1;
+    if (!xp.courses || typeof xp.courses !== "object") xp.courses = {};
+    if (quizState.deckKey) xp.courses[quizState.deckKey] = 1;
+    var unlocked = studyUnlockTrophies(xp);
+    studySaveXp(xp);
+    if (add > 0) {
+      studyPlayPointsChime();
+      studyFxBurstAt($("quiz-card"), grade === "easy" ? 16 : 10);
+      studyFxPop("hud-points");
+    }
+    studyFxCard(grade);
+    if (unlocked.length) {
+      studyPlayTrophyFanfare();
+      studyShowTrophyToast(unlocked[0], unlocked.length - 1);
+      studyFxBurstAt($("trophy-toast"), 22);
+      studyFxPop("hud-trophies");
+    }
+    return xp;
+  }
+
+  function studyMarkFlag(key) {
+    if (!profileIsAuthed() || !key) return;
+    var xp = studyLoadXp();
+    if (xp[key]) return;
+    xp[key] = 1;
+    var unlocked = studyUnlockTrophies(xp);
+    studySaveXp(xp);
+    if (unlocked.length) {
+      studyPlayTrophyFanfare();
+      studyShowTrophyToast(unlocked[0], unlocked.length - 1);
+      studyFxBurstAt($("trophy-toast"), 22);
+      studyFxPop("hud-trophies");
+    }
+    studyRefreshHud();
+  }
+  window.studyMarkFlag = studyMarkFlag;
+
+  function quizCardIsWeak(s) {
+    if (!s) return false;
+    if (s.status === "relearning") return true;
+    if ((s.lapses || 0) >= 1) return true;
+    if (s.status === "learning" && ((s.learningStep || 0) > 0 || (s.repetitions || 0) > 0)) return true;
+    return false;
+  }
+
+  function studyCountDueAndWeak(deckKey) {
+    var deck = quizGetDeck(deckKey);
+    var sched = quizLoadSched(deckKey);
+    var due = 0;
+    var weak = 0;
+    var now = Date.now();
+    if (deck && Array.isArray(deck.cards)) {
+      deck.cards.forEach(function (c) {
+        if (!c || !c.id) return;
+        var s = quizEnsureCard(sched, c.id);
+        if (s.due <= now) due += 1;
+        if (quizCardIsWeak(s)) weak += 1;
+      });
+    }
+    return { due: due, weak: weak };
+  }
+
+  function studyRefreshHud() {
+    var xp = studyLoadXp();
+    var counts = studyCountDueAndWeak(quizState.deckKey);
+    var pts = $("hud-points");
+    var streak = $("hud-streak");
+    var due = $("hud-due");
+    var weak = $("hud-weak");
+    if (pts) pts.textContent = String(xp.points || 0);
+    if (streak) streak.textContent = String(xp.streak || 0);
+    var streakBox = $("hud-streak-box");
+    if (streakBox) streakBox.classList.toggle("is-hot", (xp.streak || 0) >= 2);
+    if (due) due.textContent = String(counts.due);
+    if (weak) weak.textContent = String(counts.weak);
+    var trophies = $("hud-trophies");
+    var badgeN = xp.badges ? Object.keys(xp.badges).length : 0;
+    if (trophies) trophies.textContent = String(badgeN);
+    var nameEl = $("profile-name-label");
+    var av = $("profile-avatar");
+    var p = profileActive();
+    if (nameEl) nameEl.textContent = p.name;
+    if (av) av.textContent = (p.name || "S").charAt(0).toUpperCase();
+    var soundBtn = $("profile-sound-btn");
+    if (soundBtn) {
+      var on = p.sound !== false;
+      soundBtn.textContent = on ? "Sound on" : "Sound off";
+      soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+    var drill = $("quiz-drill-weak");
+    if (drill) {
+      drill.disabled = counts.weak < 1;
+      drill.textContent = counts.weak < 1 ? "No weak cards yet" : "Drill " + counts.weak + " weak card" + (counts.weak === 1 ? "" : "s");
+    }
+    var rankHud = $("hud-rank");
+    if (rankHud) rankHud.textContent = profileShareOn() ? String(rankMyPlace() || "-") : "-";
+  }
 
   function expectedCount(deckKey) {
     var meta = window.QUIZ_DECKS_META && window.QUIZ_DECKS_META.expected;
@@ -3061,23 +5043,37 @@ function showCourse(courseKey) {
   }
 
   function studyModeKey(deckKey) {
-    return STUDY_MODE_PREFIX + deckKey;
+    return STUDY_MODE_PREFIX + profileId() + "-" + deckKey;
   }
 
   function flashStorageKey(deckKey) {
+    return FLASH_PREFIX + profileId() + "-" + deckKey;
+  }
+
+  function flashStorageKeyLegacy(deckKey) {
     return FLASH_PREFIX + deckKey;
   }
 
   function loadStudyMode(deckKey) {
     try {
-      var m = localStorage.getItem(studyModeKey(deckKey));
+      var key = studyModeKey(deckKey);
+      var m = vaultMemGet(key);
+      if (m === undefined) {
+        m = localStorage.getItem(key);
+        if (m && String(m).indexOf(VAULT_MARK) === 0) m = "";
+      }
+      if (m !== "flashcards" && m !== "quiz" && profileIsPrimary()) {
+        m = localStorage.getItem(STUDY_MODE_PREFIX + deckKey);
+      }
       if (m === "flashcards" || m === "quiz") return m;
     } catch (e) { /* ignore */ }
     return "quiz";
   }
 
   function saveStudyMode(deckKey, mode) {
-    try { localStorage.setItem(studyModeKey(deckKey), mode); } catch (e) { /* ignore */ }
+    var key = studyModeKey(deckKey);
+    vaultMemSet(key, mode);
+    vaultWriteString(key, mode);
   }
 
   function applyStudyModeUi(mode) {
@@ -3104,10 +5100,23 @@ function showCourse(courseKey) {
     var lede = $("quiz-lede");
     if (lede) {
       lede.textContent = isFlash
-        ? "Flip through all cards - click or Space to flip. No spaced repetition in this mode. Use Find to jump to a topic."
-        : "Anki-style SM-2 - progress is stored locally in the browser.";
+        ? "Browse the deck. Question first - tap the card or press Space to flip. Figures stay hidden until you flip. This mode does not score you."
+        : "Test yourself. Rate each card so the app remembers what to drill. Points and streak stay on this device.";
+    }
+    var banner = $("study-mode-banner");
+    if (banner) {
+      banner.textContent = isFlash
+        ? "Browse: look through cards. No points. Use Quiz when you want the app to remember misses."
+        : "Quiz: hide the answer, then rate the card. Again / Hard cards come back soon so you can drill them.";
+    }
+    var shorts = $("quiz-shortcuts");
+    if (shorts) {
+      shorts.innerHTML = isFlash
+        ? "<kbd>Space</kbd> flip | <kbd>/</kbd> find | arrows previous/next"
+        : "<kbd>Space</kbd> show answer | <kbd>1</kbd>-<kbd>4</kbd> rate (points + drill memory)";
     }
     syncQuizFindUi();
+    studyRefreshHud();
   }
 
   function setStudyMode(mode) {
@@ -3119,6 +5128,8 @@ function showCourse(courseKey) {
   }
 
   function studyLoadAndShow() {
+    studyAuthApplyUi();
+    if (!profileIsAuthed()) return;
     quizState.studyMode = loadStudyMode(quizState.deckKey);
     applyStudyModeUi(quizState.studyMode);
     if (quizState.studyMode === "flashcards") flashLoadAndShow();
@@ -3127,19 +5138,24 @@ function showCourse(courseKey) {
 
   function flashLoadState(deckKey) {
     try {
-      var raw = localStorage.getItem(flashStorageKey(deckKey));
-      if (raw) return JSON.parse(raw);
+      var key = flashStorageKey(deckKey);
+      var raw = vaultMemGet(key);
+      if (raw === undefined) {
+        raw = localStorage.getItem(key);
+        if (!raw && profileIsPrimary()) raw = localStorage.getItem(flashStorageKeyLegacy(deckKey));
+        if (raw && String(raw).indexOf(VAULT_MARK) === 0) raw = "";
+      }
+      if (raw) return typeof raw === "string" ? JSON.parse(raw) : raw;
     } catch (e) { /* ignore */ }
     return null;
   }
 
   function flashSaveState() {
-    try {
-      localStorage.setItem(flashStorageKey(quizState.deckKey), JSON.stringify({
-        order: flashState.order,
-        index: flashState.index
-      }));
-    } catch (e) { /* ignore */ }
+    if (!profileIsAuthed()) return;
+    var key = flashStorageKey(quizState.deckKey);
+    var obj = { order: flashState.order, index: flashState.index };
+    vaultMemSet(key, JSON.stringify(obj));
+    vaultWriteJson(key, obj);
   }
 
   function flashShuffle(arr) {
@@ -3263,6 +5279,19 @@ function showCourse(courseKey) {
       cardEl.setAttribute("aria-label", "Answer shown - Space or click to flip back");
       $("quiz-face-label").textContent = "Answer";
       $("quiz-a").classList.remove("hidden");
+      if (profileIsAuthed()) {
+        var xpB = studyLoadXp();
+        xpB.browseFlips = (xpB.browseFlips || 0) + 1;
+        var unlockedB = studyUnlockTrophies(xpB);
+        studySaveXp(xpB);
+        if (unlockedB.length) {
+          studyPlayTrophyFanfare();
+          studyShowTrophyToast(unlockedB[0], unlockedB.length - 1);
+          studyFxBurstAt($("trophy-toast"), 22);
+          studyFxPop("hud-trophies");
+        }
+        studyRefreshHud();
+      }
     } else {
       cardEl.classList.remove("flipped", "revealed");
       cardEl.setAttribute("aria-label", "Flashcard - press Space or click to flip");
@@ -3325,6 +5354,7 @@ function showCourse(courseKey) {
       return;
     }
     flashRenderCurrent();
+    studyRefreshHud();
   }
 
   var MINUTE = 60 * 1000;
@@ -3339,6 +5369,10 @@ function showCourse(courseKey) {
   var LEARNING_REQUEUE_MS = 15 * MINUTE;
 
   function quizStorageKey(deckKey) {
+    return QUIZ_PREFIX + profileId() + "-" + deckKey;
+  }
+
+  function quizStorageKeyLegacy(deckKey) {
     return QUIZ_PREFIX + deckKey;
   }
 
@@ -3410,8 +5444,15 @@ function showCourse(courseKey) {
   }
 
   function quizLoadSched(deckKey) {
+    if (!profileIsAuthed()) return {};
     try {
-      var raw = localStorage.getItem(quizStorageKey(deckKey));
+      var key = quizStorageKey(deckKey);
+      var raw = vaultMemGet(key);
+      if (raw === undefined) {
+        raw = localStorage.getItem(key);
+        if (!raw && profileIsPrimary()) raw = localStorage.getItem(quizStorageKeyLegacy(deckKey));
+        if (raw && String(raw).indexOf(VAULT_MARK) === 0) raw = "";
+      }
       if (!raw) {
         var v1raw = localStorage.getItem(quizStorageKeyV1(deckKey));
         if (!v1raw) return {};
@@ -3421,13 +5462,12 @@ function showCourse(courseKey) {
         Object.keys(v1parsed).forEach(function (id) {
           migrated[id] = quizMigrateFromV1(v1parsed[id]);
         });
-        try {
-          localStorage.setItem(quizStorageKey(deckKey), JSON.stringify(migrated));
-          localStorage.removeItem(quizStorageKeyV1(deckKey));
-        } catch (eMig) { /* ignore */ }
+        vaultMemSet(key, JSON.stringify(migrated));
+        vaultWriteJson(key, migrated);
+        try { localStorage.removeItem(quizStorageKeyV1(deckKey)); } catch (eMig) { /* ignore */ }
         return migrated;
       }
-      var parsed = JSON.parse(raw);
+      var parsed = typeof raw === "string" ? JSON.parse(raw) : raw;
       if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
       var out = {};
       Object.keys(parsed).forEach(function (id) {
@@ -3440,9 +5480,10 @@ function showCourse(courseKey) {
   }
 
   function quizSaveSched() {
-    try {
-      localStorage.setItem(quizStorageKey(quizState.deckKey), JSON.stringify(quizState.sched));
-    } catch (e) { /* ignore */ }
+    if (!profileIsAuthed()) return;
+    var key = quizStorageKey(quizState.deckKey);
+    vaultMemSet(key, JSON.stringify(quizState.sched));
+    vaultWriteJson(key, quizState.sched);
   }
 
   function quizBuildFellesjamDeck() {
@@ -3905,13 +5946,18 @@ function showCourse(courseKey) {
       if (actions) actions.classList.add("hidden");
       if (reloadActions) reloadActions.classList.remove("hidden");
     } else {
-      if (title) title.textContent = "Nothing due right now";
-      if (text) text.textContent = "All caught up for this course. Come back later, or review every card anyway.";
+      if (title) title.textContent = quizState.weakOnly ? "No weak cards to drill" : "Nothing due right now";
+      if (text) {
+        text.textContent = quizState.weakOnly
+          ? "You have not marked any cards as Again or Hard yet. Use Quiz on due cards first - misses show up here."
+          : "All caught up for this course. Come back later, or review every card anyway.";
+      }
       if (actions) actions.classList.remove("hidden");
       if (reloadActions) reloadActions.classList.add("hidden");
     }
     quizUpdateQueueLabel(dueCount);
     quizUpdateProgress();
+    studyRefreshHud();
   }
 
   function quizLoadAndShow() {
@@ -3964,7 +6010,7 @@ function showCourse(courseKey) {
     (deck.cards || []).forEach(function (c) { if (c && c.id) quizEnsureCard(quizState.sched, c.id); });
 
     $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Quiz");
-    $("quiz-lede").textContent = "Anki-style SM-2 - progress is stored locally in the browser.";
+    applyStudyModeUi(quizState.studyMode);
     quizUpdateMaterials(quizState.deckKey);
 
     var byId = {};
@@ -3987,6 +6033,13 @@ function showCourse(courseKey) {
         quizState.sessionStartCount = quizState.sessionQueue.length;
         quizState.sessionDone = 0;
         queue = quizState.sessionQueue.map(function (id) { return byId[id]; }).filter(Boolean);
+      } else if (quizState.weakOnly) {
+        queue = quizDueCards(deck, quizState.sched, true).filter(function (c) {
+          return quizCardIsWeak(quizState.sched[c.id]);
+        });
+        quizState.sessionQueue = queue.map(function (c) { return c.id; });
+        quizState.sessionStartCount = quizState.sessionQueue.length;
+        quizState.sessionDone = 0;
       } else {
         queue = quizDueCards(deck, quizState.sched, false);
         quizState.sessionQueue = queue.map(function (c) { return c.id; });
@@ -3997,10 +6050,12 @@ function showCourse(courseKey) {
 
     if (!queue) queue = [];
     quizUpdateQueueLabel(queue.length);
+    studyRefreshHud();
 
     if (!queue.length) {
       quizState.sessionQueue = null;
       quizState.forceAll = false;
+      quizState.weakOnly = false;
       quizShowEmpty(0);
       return;
     }
@@ -4010,7 +6065,7 @@ function showCourse(courseKey) {
   function quizReveal() {
     if (!quizState.card || quizState.revealed) return;
     quizState.revealed = true;
-    $("quiz-card").classList.add("revealed");
+    $("quiz-card").classList.add("revealed", "fx-reveal");
     $("quiz-card").setAttribute("aria-label", "Answer shown - rate with 1-4");
     $("quiz-face-label").textContent = "Answer";
     $("quiz-a").classList.remove("hidden");
@@ -4031,6 +6086,8 @@ function showCourse(courseKey) {
     if (!quizState.card) return;
     var id = quizState.card.id;
     quizGrade(id, grade);
+    studyApplyXp(grade);
+    studyRefreshHud();
     quizState.sessionDone += 1;
     if (quizState.sessionQueue && quizState.sessionQueue.length) {
       quizState.sessionQueue = quizState.sessionQueue.filter(function (cid) { return cid !== id; });
@@ -4046,9 +6103,11 @@ function showCourse(courseKey) {
       if (!quizState.sessionQueue.length) {
         quizState.sessionQueue = null;
         quizState.forceAll = false;
+        quizState.weakOnly = false;
       }
     }
-    quizLoadAndShow();
+    var fxWait = studyReduceMotion() ? 0 : (grade === "again" ? 280 : 180);
+    window.setTimeout(function () { quizLoadAndShow(); }, fxWait);
   }
 
   $("quiz-reveal").addEventListener("click", quizReveal);
@@ -4106,24 +6165,21 @@ function showCourse(courseKey) {
       flashLoadAndShow();
     });
   }
-  if ($("install-tip-dismiss")) {
-    $("install-tip-dismiss").addEventListener("click", function () {
-      try { localStorage.setItem(INSTALL_TIP_KEY, "1"); } catch (err) { /* ignore */ }
-      if ($("install-tip")) $("install-tip").hidden = true;
-    });
-  }
   $("quiz-grades").addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-grade]");
     if (!btn) return;
     quizAfterGrade(btn.getAttribute("data-grade"));
   });
   $("quiz-reset").addEventListener("click", function () {
-    if (!confirm("Reset spaced-repetition for this course only? Flashcard order is kept. This cannot be undone.")) return;
+    if (!confirm("Reset spaced-repetition for this course only? Flashcard order, points and streak are kept. This cannot be undone.")) return;
     try {
-      localStorage.removeItem(quizStorageKey(quizState.deckKey));
+      var resetKey = quizStorageKey(quizState.deckKey);
+      localStorage.removeItem(resetKey);
       localStorage.removeItem(quizStorageKeyV1(quizState.deckKey));
+      delete vaultMem[resetKey];
     } catch (e) { /* ignore */ }
     quizState.forceAll = false;
+    quizState.weakOnly = false;
     quizState.sessionQueue = null;
     quizState.sessionStartCount = 0;
     quizState.sessionDone = 0;
@@ -4131,11 +6187,600 @@ function showCourse(courseKey) {
   });
   $("quiz-study-all").addEventListener("click", function () {
     quizState.forceAll = true;
+    quizState.weakOnly = false;
     quizState.sessionQueue = null;
     quizState.sessionStartCount = 0;
     quizState.sessionDone = 0;
     quizLoadAndShow();
   });
+  if ($("quiz-drill-weak")) {
+    $("quiz-drill-weak").addEventListener("click", function () {
+      var xp = studyLoadXp();
+      xp.drills = (xp.drills || 0) + 1;
+      var unlocked = studyUnlockTrophies(xp);
+      studySaveXp(xp);
+      if (unlocked.length) {
+        studyPlayTrophyFanfare();
+        studyShowTrophyToast(unlocked[0], unlocked.length - 1);
+        studyFxBurstAt($("trophy-toast"), 22);
+        studyFxPop("hud-trophies");
+      }
+      quizState.forceAll = false;
+      quizState.weakOnly = true;
+      quizState.sessionQueue = null;
+      quizState.sessionStartCount = 0;
+      quizState.sessionDone = 0;
+      studyRefreshHud();
+      setStudyMode("quiz");
+    });
+  }
+
+  function profileRenderList() {
+    var list = $("profile-list");
+    if (!list) return;
+    list.innerHTML = "";
+    var me = profileId();
+    profileLoadStore().profiles.forEach(function (p) {
+      var li = document.createElement("li");
+      var label = document.createElement("span");
+      if (p.id === me) label.textContent = p.name + " (you)";
+      else label.textContent = p.name + " (locked)";
+      li.appendChild(label);
+      list.appendChild(li);
+    });
+  }
+
+  function profileRenderTrophies() {
+    var grid = $("trophy-grid");
+    if (!grid) return;
+    grid.innerHTML = "";
+    var xp = studyLoadXp();
+    var lastGroup = "";
+    TROPHIES.forEach(function (t) {
+      if (t.group && t.group !== lastGroup) {
+        lastGroup = t.group;
+        var head = document.createElement("div");
+        head.className = "trophy-group-title";
+        head.textContent = t.group;
+        grid.appendChild(head);
+      }
+      var on = !!(xp.badges && xp.badges[t.id]);
+      var card = document.createElement("div");
+      card.className = "trophy-card kind-" + (t.kind || "trophy") + (on ? " is-on" : " is-locked");
+      var icon = document.createElement("div");
+      icon.className = "trophy-icon";
+      icon.textContent = on ? t.icon : "..";
+      var title = document.createElement("div");
+      title.className = "trophy-title";
+      title.textContent = t.title;
+      var hint = document.createElement("p");
+      hint.className = "trophy-hint";
+      hint.textContent = on ? ("Unlocked " + (t.kind === "badge" ? "badge" : "trophy")) : t.hint;
+      card.appendChild(icon);
+      card.appendChild(title);
+      card.appendChild(hint);
+      grid.appendChild(card);
+    });
+  }
+
+  function profileRenderModal() {
+    profileRenderList();
+    profileRenderTrophies();
+    rankRender();
+    var rename = $("profile-rename");
+    if (rename) rename.value = profileActive().name || "";
+    var lede = $("settings-reset-lede");
+    if (lede) {
+      lede.textContent = profileHasReset(profileActive())
+        ? "Used on the sign-in screen if you forget your name or password. Do not use the same text as the password."
+        : "This account has no reset word yet. Set one so you can recover the name or password later.";
+    }
+  }
+
+  function profileOpenModal() {
+    if (!profileIsAuthed()) {
+      studyAuthApplyUi();
+      if ($("auth-pass")) $("auth-pass").focus();
+      return;
+    }
+    var modal = $("profile-modal");
+    if (!modal) return;
+    settingsSetMsg("");
+    profileRenderModal();
+    modal.hidden = false;
+  }
+
+  function profileCloseModal() {
+    var modal = $("profile-modal");
+    if (modal) modal.hidden = true;
+  }
+
+  if ($("profile-open")) $("profile-open").addEventListener("click", profileOpenModal);
+  if ($("profile-settings-btn")) $("profile-settings-btn").addEventListener("click", profileOpenModal);
+  if ($("profile-trophies-btn")) $("profile-trophies-btn").addEventListener("click", profileOpenModal);
+  if ($("hud-trophies-box")) $("hud-trophies-box").addEventListener("click", profileOpenModal);
+  if ($("hud-rank-box")) $("hud-rank-box").addEventListener("click", profileOpenModal);
+  if ($("settings-share")) {
+    $("settings-share").addEventListener("change", function () {
+      profileSetShare(!!$("settings-share").checked);
+    });
+  }
+  if ($("rank-import-btn")) {
+    $("rank-import-btn").addEventListener("click", function () {
+      var input = $("rank-import-code");
+      var msg = rankImportCard(input && input.value);
+      var status = $("rank-status");
+      if (msg && status) status.textContent = msg;
+      else if (input) input.value = "";
+    });
+  }
+  if ($("rank-import-code")) {
+    $("rank-import-code").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        var btn = $("rank-import-btn");
+        if (btn) btn.click();
+      }
+    });
+  }
+  if ($("rank-copy-btn")) {
+    $("rank-copy-btn").addEventListener("click", function () {
+      rankPublishMine();
+      rankCopyMine(function (ok) {
+        var status = $("rank-status");
+        if (status) status.textContent = ok
+          ? "Copied. Send the code to a classmate who also ticked Share, then they paste it."
+          : "Could not copy. Select and copy the code from the box after you paste it yourself.";
+      });
+    });
+  }
+  if ($("profile-close")) $("profile-close").addEventListener("click", profileCloseModal);
+  if ($("profile-modal")) {
+    $("profile-modal").addEventListener("click", function (e) {
+      if (e.target === $("profile-modal")) profileCloseModal();
+    });
+  }
+  if ($("profile-logout")) {
+    $("profile-logout").addEventListener("click", function () {
+      profileLogout();
+    });
+  }
+  if ($("auth-account")) {
+    $("auth-account").addEventListener("change", profileSyncAuthForm);
+  }
+  function authLoginClick() {
+    var sel = $("auth-account");
+    var id = sel && sel.value;
+    var p = profileFind(id);
+    var pass = (($("auth-pass") && $("auth-pass").value) || "");
+    var pass2 = (($("auth-pass2") && $("auth-pass2").value) || "");
+    authSetError("");
+    if (!vaultHasCrypto()) {
+      authSetError("This browser cannot protect passwords. Open the app over HTTPS.");
+      return;
+    }
+    if (!p) {
+      authSetError("Choose an account.");
+      return;
+    }
+    if (authLocked(id)) {
+      authSetError("Too many tries. Wait before the next attempt.");
+      return;
+    }
+    if (!profileHasPass(p)) {
+      var resetWord = (($("auth-reset") && $("auth-reset").value) || "");
+      var resetWord2 = (($("auth-reset2") && $("auth-reset2").value) || "");
+      if (pass.length < PASS_MIN_NEW) {
+        authSetError("Password must be at least 8 characters.");
+        return;
+      }
+      if (pass !== pass2) {
+        authSetError("Passwords do not match.");
+        return;
+      }
+      if (resetWord.length < PASS_MIN_NEW) {
+        authSetError("Reset word must be at least 8 characters.");
+        return;
+      }
+      if (resetWord !== resetWord2) {
+        authSetError("Reset words do not match.");
+        return;
+      }
+      if (resetWord === pass) {
+        authSetError("Use a reset word that is different from the password.");
+        return;
+      }
+      authSetError("Protecting the account...");
+      profileWritePass(id, pass, function (err, dek) {
+        if (err) {
+          authSetError(err);
+          return;
+        }
+        profileWriteReset(id, resetWord, function (rerr) {
+          if (rerr) {
+            authSetError(rerr);
+            return;
+          }
+          if ($("auth-pass")) $("auth-pass").value = "";
+          if ($("auth-pass2")) $("auth-pass2").value = "";
+          if ($("auth-reset")) $("auth-reset").value = "";
+          if ($("auth-reset2")) $("auth-reset2").value = "";
+          profileUnlock(id, dek);
+        });
+      });
+      return;
+    }
+    if (pass.length < 4) {
+      authSetError("Password must be at least 4 characters.");
+      return;
+    }
+    authSetError("Unlocking account...");
+    profileProveAccount(p, pass, "", function (ok, err, dek) {
+      if (!ok) {
+        authMarkFail(id);
+        authSetError(err || "Wrong password.");
+        return;
+      }
+      if ($("auth-pass")) $("auth-pass").value = "";
+      if (p.kdf !== KDF_NAME) {
+        profileWritePass(id, pass, function (werr, newDek) {
+          if (werr) {
+            authSetError(werr);
+            return;
+          }
+          profileUnlock(id, newDek || dek);
+        });
+        return;
+      }
+      profileUnlock(id, dek);
+    });
+  }
+  if ($("auth-login")) $("auth-login").addEventListener("click", authLoginClick);
+  if ($("auth-pass")) {
+    $("auth-pass").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if ($("auth-pass2") && !$("auth-pass2").hidden) $("auth-pass2").focus();
+        else authLoginClick();
+      }
+    });
+  }
+  if ($("auth-pass2")) {
+    $("auth-pass2").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        authLoginClick();
+      }
+    });
+  }
+  ["auth-reset", "auth-reset2"].forEach(function (id) {
+    if (!$(id)) return;
+    $(id).addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        authLoginClick();
+      }
+    });
+  });
+  function authCreateClick() {
+    var name = (($("auth-new-name") && $("auth-new-name").value) || "").replace(/\s+/g, " ").trim();
+    var pass = (($("auth-new-pass") && $("auth-new-pass").value) || "");
+    var pass2 = (($("auth-new-pass2") && $("auth-new-pass2").value) || "");
+    var resetWord = (($("auth-new-reset") && $("auth-new-reset").value) || "");
+    var resetWord2 = (($("auth-new-reset2") && $("auth-new-reset2").value) || "");
+    authSetError("");
+    if (!name) {
+      authSetError("Write your name.");
+      return;
+    }
+    if (!vaultHasCrypto()) {
+      authSetError("This browser cannot protect passwords. Open the app over HTTPS.");
+      return;
+    }
+    if (pass.length < PASS_MIN_NEW) {
+      authSetError("Password must be at least 8 characters.");
+      return;
+    }
+    if (pass !== pass2) {
+      authSetError("Passwords do not match.");
+      return;
+    }
+    if (resetWord.length < PASS_MIN_NEW) {
+      authSetError("Reset word must be at least 8 characters.");
+      return;
+    }
+    if (resetWord !== resetWord2) {
+      authSetError("Reset words do not match.");
+      return;
+    }
+    if (resetWord === pass) {
+      authSetError("Use a reset word that is different from the password.");
+      return;
+    }
+    var store = profileEnsure();
+    if (profileNameTaken(name, "")) {
+      authSetError("That name is taken on this device. Sign in instead.");
+      return;
+    }
+    var id = "p" + Date.now().toString(36);
+    store.profiles.push({ id: id, name: name.slice(0, 24), created: Date.now(), sound: true, shareRank: false });
+    store.activeId = id;
+    profileSaveStore(store);
+    authSetError("Protecting the account...");
+    profileWritePass(id, pass, function (err, dek) {
+      if (err) {
+        authSetError(err);
+        return;
+      }
+      profileWriteReset(id, resetWord, function (rerr) {
+        if (rerr) {
+          authSetError(rerr);
+          return;
+        }
+        ["auth-new-name", "auth-new-pass", "auth-new-pass2", "auth-new-reset", "auth-new-reset2"].forEach(function (fid) {
+          if ($(fid)) $(fid).value = "";
+        });
+        profileUnlock(id, dek);
+      });
+    });
+  }
+  function authClearFixFields() {
+    ["auth-fix-pass", "auth-fix-reset", "auth-fix-name", "auth-fix-new", "auth-fix-new2"].forEach(function (id) {
+      if ($(id)) $(id).value = "";
+    });
+  }
+
+  function authFixClick() {
+    var sel = $("auth-account");
+    var id = sel && sel.value;
+    var p = profileFind(id);
+    var curPass = (($("auth-fix-pass") && $("auth-fix-pass").value) || "");
+    var resetWord = (($("auth-fix-reset") && $("auth-fix-reset").value) || "");
+    var newName = (($("auth-fix-name") && $("auth-fix-name").value) || "").replace(/\s+/g, " ").trim();
+    var newPass = (($("auth-fix-new") && $("auth-fix-new").value) || "");
+    var newPass2 = (($("auth-fix-new2") && $("auth-fix-new2").value) || "");
+    authSetError("");
+    if (!p) {
+      authSetError("Choose an account.");
+      return;
+    }
+    if (authLocked(id)) {
+      authSetError("Too many tries. Wait before the next attempt.");
+      return;
+    }
+    if (!profileHasPass(p)) {
+      authSetError("This account still needs a first password. Use Sign in.");
+      return;
+    }
+    if (!curPass && !resetWord) {
+      authSetError("Write the current password or the reset word. If you remember neither, create a new account.");
+      return;
+    }
+    if (!newName && !newPass) {
+      authSetError("Write a new name, a new password, or both.");
+      return;
+    }
+    if (newPass) {
+      if (newPass.length < PASS_MIN_NEW) {
+        authSetError("New password must be at least 8 characters.");
+        return;
+      }
+      if (newPass !== newPass2) {
+        authSetError("New passwords do not match.");
+        return;
+      }
+    }
+    authSetError("Unlocking account...");
+    profileProveAccount(p, curPass, resetWord, function (ok, err, dek) {
+      if (!ok) {
+        authMarkFail(id);
+        authSetError(err || "Could not prove this account.");
+        return;
+      }
+      if (newName) {
+        var nameErr = profileRenameAccount(id, newName);
+        if (nameErr) {
+          authSetError(nameErr);
+          return;
+        }
+      }
+      function finish(useDek) {
+        authClearFails(id);
+        authClearFixFields();
+        if ($("auth-forgot")) $("auth-forgot").hidden = true;
+        profileUnlock(id, useDek);
+      }
+      profileSetSession(id, dek);
+      if (newPass) {
+        profileWritePass(id, newPass, function (werr, newDek) {
+          if (werr) {
+            authSetError(werr);
+            return;
+          }
+          finish(newDek || dek);
+        });
+      } else finish(dek);
+    });
+  }
+
+  if ($("auth-forgot-toggle")) {
+    $("auth-forgot-toggle").addEventListener("click", function () {
+      var box = $("auth-forgot");
+      if (!box) return;
+      box.hidden = !box.hidden;
+      authSetError("");
+    });
+  }
+  if ($("auth-fix-save")) $("auth-fix-save").addEventListener("click", authFixClick);
+  ["auth-fix-pass", "auth-fix-reset", "auth-fix-name", "auth-fix-new", "auth-fix-new2"].forEach(function (id) {
+    if (!$(id)) return;
+    $(id).addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        authFixClick();
+      }
+    });
+  });
+  if ($("auth-create")) $("auth-create").addEventListener("click", authCreateClick);
+  ["auth-new-name", "auth-new-pass", "auth-new-pass2", "auth-new-reset", "auth-new-reset2"].forEach(function (id) {
+    if (!$(id)) return;
+    $(id).addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        authCreateClick();
+      }
+    });
+  });
+  if ($("profile-rename-save")) {
+    $("profile-rename-save").addEventListener("click", function () {
+      var input = $("profile-rename");
+      settingsSetMsg("");
+      if (profileRename(input && input.value)) {
+        settingsSetMsg("Display name saved.");
+        profileRenderModal();
+      } else {
+        settingsSetMsg("Could not save that name. It may be empty or already taken.");
+      }
+    });
+  }
+  function settingsChangePassword() {
+    if (!profileIsAuthed()) return;
+    var p = profileActive();
+    var now = (($("settings-pass-now") && $("settings-pass-now").value) || "");
+    var next = (($("settings-pass-new") && $("settings-pass-new").value) || "");
+    var next2 = (($("settings-pass-new2") && $("settings-pass-new2").value) || "");
+    settingsSetMsg("");
+    if (!profileHasPass(p)) {
+      settingsSetMsg("This account has no password yet.");
+      return;
+    }
+    if (now.length < 4) {
+      settingsSetMsg("Write the current password.");
+      return;
+    }
+    if (next.length < PASS_MIN_NEW) {
+      settingsSetMsg("New password must be at least 8 characters.");
+      return;
+    }
+    if (next !== next2) {
+      settingsSetMsg("New passwords do not match.");
+      return;
+    }
+    settingsSetMsg("Updating password...");
+    profileCheckSecret(p, now, "pass", function (ok) {
+      if (!ok) {
+        settingsSetMsg("Wrong current password.");
+        return;
+      }
+      profileWritePass(profileId(), next, function (err) {
+        if (err) {
+          settingsSetMsg(err);
+          return;
+        }
+        if ($("settings-pass-now")) $("settings-pass-now").value = "";
+        if ($("settings-pass-new")) $("settings-pass-new").value = "";
+        if ($("settings-pass-new2")) $("settings-pass-new2").value = "";
+        settingsSetMsg("Password changed. Scores stay encrypted.");
+      });
+    });
+  }
+  function settingsChangeReset() {
+    if (!profileIsAuthed()) return;
+    var p = profileActive();
+    var now = (($("settings-reset-now") && $("settings-reset-now").value) || "");
+    var next = (($("settings-reset-new") && $("settings-reset-new").value) || "");
+    var next2 = (($("settings-reset-new2") && $("settings-reset-new2").value) || "");
+    settingsSetMsg("");
+    if (!profileHasPass(p)) {
+      settingsSetMsg("Sign in with a password first.");
+      return;
+    }
+    if (now.length < 4) {
+      settingsSetMsg("Write the current password.");
+      return;
+    }
+    if (next.length < PASS_MIN_NEW) {
+      settingsSetMsg("Reset word must be at least 8 characters.");
+      return;
+    }
+    if (next !== next2) {
+      settingsSetMsg("Reset words do not match.");
+      return;
+    }
+    settingsSetMsg("Updating reset word...");
+    profileCheckSecret(p, now, "pass", function (ok) {
+      if (!ok) {
+        settingsSetMsg("Wrong current password.");
+        return;
+      }
+      if (next === now) {
+        settingsSetMsg("Use a reset word that is different from the password.");
+        return;
+      }
+      profileWriteReset(profileId(), next, function (err) {
+        if (err) {
+          settingsSetMsg(err);
+          return;
+        }
+        if ($("settings-reset-now")) $("settings-reset-now").value = "";
+        if ($("settings-reset-new")) $("settings-reset-new").value = "";
+        if ($("settings-reset-new2")) $("settings-reset-new2").value = "";
+        settingsSetMsg("Reset word saved.");
+        profileRenderModal();
+      });
+    });
+  }
+  if ($("settings-pass-save")) $("settings-pass-save").addEventListener("click", settingsChangePassword);
+  if ($("settings-reset-save")) $("settings-reset-save").addEventListener("click", settingsChangeReset);
+  ["settings-pass-now", "settings-pass-new", "settings-pass-new2"].forEach(function (id) {
+    if (!$(id)) return;
+    $(id).addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        settingsChangePassword();
+      }
+    });
+  });
+  ["settings-reset-now", "settings-reset-new", "settings-reset-new2"].forEach(function (id) {
+    if (!$(id)) return;
+    $(id).addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        settingsChangeReset();
+      }
+    });
+  });
+  if ($("profile-rename")) {
+    $("profile-rename").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        var btn = $("profile-rename-save");
+        if (btn) btn.click();
+      }
+    });
+  }
+  if ($("profile-sound-btn")) {
+    $("profile-sound-btn").addEventListener("click", function () {
+      studyEnsureAudio();
+      profileSetSound(profileActive().sound === false);
+    });
+  }
+  document.addEventListener("click", function (e) {
+    if (studyReduceMotion()) return;
+    var host = e.target.closest("button, a.cta, .profile-chip, .track-btn");
+    if (!host || host.disabled) return;
+    var layer = $("fx-layer");
+    if (!layer) return;
+    var ripple = document.createElement("span");
+    ripple.className = "fx-ripple";
+    ripple.style.left = e.clientX + "px";
+    ripple.style.top = e.clientY + "px";
+    layer.appendChild(ripple);
+    window.setTimeout(function () {
+      if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
+    }, 520);
+  });
+
   if ($("quiz-reload-data")) {
     $("quiz-reload-data").addEventListener("click", function () {
       quizPurgeCachesAndReload();
@@ -4155,6 +6800,13 @@ function showCourse(courseKey) {
 
   document.addEventListener("keydown", function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+    var profileModal = $("profile-modal");
+    if (profileModal && !profileModal.hidden && e.key === "Escape") {
+      e.preventDefault();
+      profileCloseModal();
+      return;
+    }
 
     /* Course tab arrows when focus is on a course tab */
     if (e.target && e.target.closest && e.target.closest(".course-tabs")) {
@@ -4407,6 +7059,7 @@ function showCourse(courseKey) {
     $("tut-done").classList.remove("hidden");
     setProgress(100);
     clearSave();
+    studyMarkFlag("tutDone");
   }
 
   function checkAnswer() {
@@ -4630,6 +7283,7 @@ function showCourse(courseKey) {
   }
 
   quizValidateDecksDev();
+  studyAuthApplyUi();
   showCourse("terminal");
   showPanel("tutorial");
   showSetup();
