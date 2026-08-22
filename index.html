@@ -18,10 +18,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock41" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock41" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock41" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock41" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock42" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock42" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock42" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock42" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -102,6 +102,17 @@
       box-shadow: var(--focus);
     }
 
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
     .skip-link {
       position: absolute;
       left: 0.75rem;
@@ -1541,6 +1552,63 @@
       border-radius: 0 4px 4px 0;
     }
     .install-tip[hidden] { display: none !important; }
+    .install-tip-dismiss {
+      margin-left: 0.45rem;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--palette-turquoise);
+      background: transparent;
+      border: 0;
+      padding: 0.15rem 0.35rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .quiz-find {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0 0 0.85rem;
+    }
+    .quiz-find[hidden] { display: none !important; }
+    .quiz-find input {
+      flex: 1 1 12rem;
+      min-height: var(--touch);
+      padding: 0.45rem 0.7rem;
+      font: inherit;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .quiz-find input:focus-visible {
+      outline: none;
+      box-shadow: var(--focus);
+      border-color: var(--palette-turquoise);
+    }
+    .quiz-find-count {
+      font-size: 0.8rem;
+      color: var(--slate);
+      font-variant-numeric: tabular-nums;
+    }
+    .quiz-find-clear {
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      min-height: var(--touch);
+      padding: 0.35rem 0.7rem;
+      color: var(--ink);
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .quiz-tags span {
+      cursor: pointer;
+    }
 
     .sw-toast {
       position: fixed;
@@ -1645,7 +1713,7 @@
         <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-full">Computer basics</span><span class="tab-short">PC</span></button>
         <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-full">Fellesjam (mixed)</span><span class="tab-short">Mix</span></button>
       </div>
-      <p class="install-tip" id="install-tip">Tip: on phone, use Add to Home Screen for a full-screen shortcut.</p>
+      <p class="install-tip" id="install-tip">Tip: on phone, use Add to Home Screen for a full-screen shortcut. <button type="button" class="install-tip-dismiss" id="install-tip-dismiss" aria-label="Hide this tip">Hide</button></p>
 
       <!-- ========== TERMINAL (ACIT4050) ========== -->
       <div id="course-terminal" class="course-panel active">
@@ -2112,6 +2180,12 @@
             <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz (SRS)</button>
           </div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
+          <div class="quiz-find" id="quiz-find" hidden>
+            <label class="visually-hidden" for="quiz-search">Find cards</label>
+            <input type="search" id="quiz-search" placeholder="Find in this deck (question, answer, tag)" autocomplete="off" enterkeyhint="search" />
+            <button type="button" class="quiz-find-clear" id="quiz-search-clear" hidden>Clear</button>
+            <span class="quiz-find-count" id="quiz-search-count" aria-live="polite"></span>
+          </div>
 
           <div class="quiz-progress-wrap" id="quiz-progress-wrap">
             <div class="quiz-progress-meta">
@@ -2173,7 +2247,7 @@
 
           <div class="quiz-footer-meta">
             <p class="quiz-shortcuts" id="quiz-shortcuts">
-              <kbd>1</kbd>-<kbd>4</kbd> rate | <kbd>Space</kbd> answer | arrows on course tabs
+              <kbd>1</kbd>-<kbd>4</kbd> rate | <kbd>Space</kbd> flip | <kbd>/</kbd> find | arrows move
             </p>
             <button type="button" class="quiz-reset-quiet" id="quiz-reset">Reset progress (this course)</button>
           </div>
@@ -2237,8 +2311,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock41" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock41"></script>
+  <script src="quiz-decks.js?v=lock42" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock42"></script>
   <script>
   (function () {
   "use strict";
@@ -2248,7 +2322,9 @@
   var QUIZ_PREFIX_V1 = "acit-quiz-sr-v1-";
   var STUDY_MODE_PREFIX = "acit-study-mode-v1-";
   var FLASH_PREFIX = "acit-flash-v1-";
-  var QUIZ_EXPECTED = { acit4050: 89, acit4280: 173, acit4100: 114, "computer-basics": 28, "fellesjam-general": 26 };
+  var LAST_COURSE_KEY = "acit-last-course-v1";
+  var INSTALL_TIP_KEY = "acit-hide-install-tip-v1";
+  var QUIZ_EXPECTED = { acit4050: 117, acit4280: 200, acit4100: 131, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -2659,9 +2735,11 @@
 function syncInstallTip(courseKey) {
     var tip = $("install-tip");
     if (!tip) return;
+    var dismissed = false;
+    try { dismissed = localStorage.getItem(INSTALL_TIP_KEY) === "1"; } catch (e) { /* ignore */ }
     var standalone = window.matchMedia("(display-mode: standalone)").matches
       || window.navigator.standalone === true;
-    tip.hidden = standalone || courseKey !== "terminal";
+    tip.hidden = dismissed || standalone || courseKey !== "terminal";
   }
 
 function syncComputerDummies(courseKey) {
@@ -2700,6 +2778,7 @@ function showCourse(courseKey) {
       btn.setAttribute("aria-selected", on ? "true" : "false");
     });
     setCourseTabIndex(courseKey);
+    try { localStorage.setItem(LAST_COURSE_KEY, courseKey); } catch (e) { /* ignore */ }
     syncInstallTip(courseKey);
     syncComputerDummies(courseKey);
 
@@ -2921,8 +3000,44 @@ function showCourse(courseKey) {
   var flashState = {
     order: [],
     index: 0,
-    flipped: false
+    flipped: false,
+    query: ""
   };
+
+  function expectedCount(deckKey) {
+    var meta = window.QUIZ_DECKS_META && window.QUIZ_DECKS_META.expected;
+    if (meta && typeof meta[deckKey] === "number") return meta[deckKey];
+    return QUIZ_EXPECTED[deckKey];
+  }
+
+  function deckLooksStale(deck, deckKey) {
+    if (!deck || !Array.isArray(deck.cards)) return true;
+    var exp = expectedCount(deckKey);
+    if (!exp) return false;
+    return deck.cards.length < exp;
+  }
+
+  function cardMatchesQuery(card, q) {
+    if (!q) return true;
+    var hay = ((card.q || "") + " " + (card.a || "") + " " + ((card.tags || []).join(" "))).toLowerCase();
+    return hay.indexOf(q) !== -1;
+  }
+
+  function syncQuizFindUi() {
+    var wrap = $("quiz-find");
+    var input = $("quiz-search");
+    var clear = $("quiz-search-clear");
+    var count = $("quiz-search-count");
+    var show = quizState.studyMode === "flashcards" && quizPanelActive();
+    if (wrap) wrap.hidden = !show && quizState.studyMode !== "flashcards";
+    if (wrap) wrap.hidden = quizState.studyMode !== "flashcards";
+    if (input && input.value !== flashState.query) input.value = flashState.query;
+    if (clear) clear.hidden = !flashState.query;
+    if (count) {
+      if (!flashState.query) count.textContent = "";
+      else count.textContent = String(flashState.order.length) + " match" + (flashState.order.length === 1 ? "" : "es");
+    }
+  }
 
   function studyModeKey(deckKey) {
     return STUDY_MODE_PREFIX + deckKey;
@@ -2968,9 +3083,10 @@ function showCourse(courseKey) {
     var lede = $("quiz-lede");
     if (lede) {
       lede.textContent = isFlash
-        ? "Flip through all cards - click or Space to flip. No spaced repetition in this mode."
+        ? "Flip through all cards - click or Space to flip. No spaced repetition in this mode. Use Find to jump to a topic."
         : "Anki-style SM-2 - progress is stored locally in the browser.";
     }
+    syncQuizFindUi();
   }
 
   function setStudyMode(mode) {
@@ -3017,7 +3133,15 @@ function showCourse(courseKey) {
   }
 
   function flashBuildOrder(deck) {
-    var ids = (deck.cards || []).filter(function (c) { return c && c.id; }).map(function (c) { return c.id; });
+    var q = (flashState.query || "").trim().toLowerCase();
+    var ids = (deck.cards || []).filter(function (c) {
+      return c && c.id && cardMatchesQuery(c, q);
+    }).map(function (c) { return c.id; });
+    if (q) {
+      flashState.order = ids;
+      flashState.index = 0;
+      return;
+    }
     var saved = flashLoadState(quizState.deckKey);
     if (saved && Array.isArray(saved.order) && saved.order.length === ids.length) {
       var ok = true;
@@ -3101,7 +3225,12 @@ function showCourse(courseKey) {
       tags.appendChild(span);
     });
     flashUpdateProgress();
-    flashSaveState();
+    if (!flashState.query) flashSaveState();
+    syncQuizFindUi();
+    var cardBox = $("quiz-card");
+    if (cardBox && cardBox.scrollIntoView) {
+      try { cardBox.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) { /* ignore */ }
+    }
   }
 
   function flashFlip() {
@@ -3135,9 +3264,7 @@ function showCourse(courseKey) {
 
   function flashLoadAndShow() {
     var deck = quizGetDeck(quizState.deckKey);
-    var expected = QUIZ_EXPECTED[quizState.deckKey];
-    var countMismatch = deck && Array.isArray(deck.cards) && expected
-      && deck.cards.length !== expected;
+    var countMismatch = deckLooksStale(deck, quizState.deckKey);
     if (!deck || countMismatch) {
       quizUpdateMaterials(null);
       if (!quizDeckFallbackTried) {
@@ -3163,6 +3290,16 @@ function showCourse(courseKey) {
     quizUpdateMaterials(quizState.deckKey);
     flashBuildOrder(deck);
     if (!flashState.order.length) {
+      if (flashState.query) {
+        $("quiz-active").classList.add("hidden");
+        $("quiz-empty").classList.remove("hidden");
+        if ($("quiz-empty-title")) $("quiz-empty-title").textContent = "No matching cards";
+        if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Clear Find or try another word or tag.";
+        if ($("quiz-empty-actions")) $("quiz-empty-actions").classList.add("hidden");
+        if ($("quiz-reload-actions")) $("quiz-reload-actions").classList.add("hidden");
+        syncQuizFindUi();
+        return;
+      }
       quizShowEmpty(0, { missingDeck: true });
       return;
     }
@@ -3335,7 +3472,7 @@ function showCourse(courseKey) {
         return;
       }
       var meta = window.QUIZ_DECKS_META;
-      if (!meta || meta.version !== "lock41") {
+      if (!meta || !meta.version) {
         console.warn("[quiz] QUIZ_DECKS_META version unexpected:", meta && meta.version);
       }
       var bad = [];
@@ -3363,7 +3500,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock41-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock42-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -3762,8 +3899,7 @@ function showCourse(courseKey) {
       return;
     }
     var deck = quizGetDeck(quizState.deckKey);
-    var countMismatch = deck && Array.isArray(deck.cards) && QUIZ_EXPECTED[quizState.deckKey]
-      && deck.cards.length !== QUIZ_EXPECTED[quizState.deckKey];
+    var countMismatch = deckLooksStale(deck, quizState.deckKey);
     if (!deck || countMismatch) {
       if (countMismatch) {
         $("quiz-course-title").textContent = "Quiz";
@@ -3895,8 +4031,9 @@ function showCourse(courseKey) {
   }
 
   $("quiz-reveal").addEventListener("click", quizReveal);
-  $("quiz-card").addEventListener("click", function () {
+  $("quiz-card").addEventListener("click", function (e) {
     if (!quizState.card) return;
+    if (e.target && e.target.closest && e.target.closest("#quiz-tags span")) return;
     if (quizState.studyMode === "flashcards") flashFlip();
     else if (!quizState.revealed) quizReveal();
   });
@@ -3923,13 +4060,44 @@ function showCourse(courseKey) {
   if ($("flash-shuffle")) {
     $("flash-shuffle").addEventListener("click", function () { flashShuffleDeck(); });
   }
+  if ($("quiz-search")) {
+    $("quiz-search").addEventListener("input", function () {
+      flashState.query = ($("quiz-search").value || "").trim();
+      if (quizState.studyMode === "flashcards") flashLoadAndShow();
+      else syncQuizFindUi();
+    });
+  }
+  if ($("quiz-search-clear")) {
+    $("quiz-search-clear").addEventListener("click", function () {
+      flashState.query = "";
+      if ($("quiz-search")) $("quiz-search").value = "";
+      if (quizState.studyMode === "flashcards") flashLoadAndShow();
+      syncQuizFindUi();
+    });
+  }
+  if ($("quiz-tags")) {
+    $("quiz-tags").addEventListener("click", function (e) {
+      var span = e.target.closest("span");
+      if (!span || quizState.studyMode !== "flashcards") return;
+      e.stopPropagation();
+      flashState.query = (span.textContent || "").trim();
+      if ($("quiz-search")) $("quiz-search").value = flashState.query;
+      flashLoadAndShow();
+    });
+  }
+  if ($("install-tip-dismiss")) {
+    $("install-tip-dismiss").addEventListener("click", function () {
+      try { localStorage.setItem(INSTALL_TIP_KEY, "1"); } catch (err) { /* ignore */ }
+      if ($("install-tip")) $("install-tip").hidden = true;
+    });
+  }
   $("quiz-grades").addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-grade]");
     if (!btn) return;
     quizAfterGrade(btn.getAttribute("data-grade"));
   });
   $("quiz-reset").addEventListener("click", function () {
-    if (!confirm("Reset spaced-repetition for " + quizState.deckKey + "?")) return;
+    if (!confirm("Reset spaced-repetition for this course only? Flashcard order is kept. This cannot be undone.")) return;
     try {
       localStorage.removeItem(quizStorageKey(quizState.deckKey));
       localStorage.removeItem(quizStorageKeyV1(quizState.deckKey));
@@ -3982,6 +4150,16 @@ function showCourse(courseKey) {
         showCourse(tabs[next].getAttribute("data-course"));
         return;
       }
+    }
+
+    if (quizPanelActive() && quizState.studyMode === "flashcards" && e.key === "/" && !isTypingTarget(e.target)) {
+      e.preventDefault();
+      if ($("quiz-search")) $("quiz-search").focus();
+      return;
+    }
+    if (quizPanelActive() && isTypingTarget(e.target) && e.key === "Escape") {
+      e.target.blur();
+      return;
     }
 
     if (!quizPanelActive() || isTypingTarget(e.target)) return;
@@ -4435,7 +4613,13 @@ function showCourse(courseKey) {
   showPanel("tutorial");
   showSetup();
   quizEnsureDecksReady().then(function () {
-    if (courseFromHash()) applyHashRoute();
+    if (courseFromHash()) {
+      applyHashRoute();
+      return;
+    }
+    var last = null;
+    try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
+    if (last && COURSE_TO_HASH[last]) showCourse(last);
   });
   window.addEventListener("hashchange", function () {
     applyHashRoute();
