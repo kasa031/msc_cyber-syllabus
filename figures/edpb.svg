@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" width="400" height="150" role="img"><rect width="400" height="150" fill="#FFF1D1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" width="400" height="150" role="img"><rect width="400" height="150" fill="#97FEED"/>
 <text x="200" y="28" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Institutional shift</text>
-<rect x="40" y="55" width="140" height="60" rx="4" fill="#FFE8B8" stroke="#1A1410" stroke-width="2"/><text x="110" y="90" fill="#1A1410" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Art. 29 WP</text>
+<rect x="40" y="55" width="140" height="60" rx="4" fill="#35A29F" stroke="#1A1410" stroke-width="2"/><text x="110" y="90" fill="#1A1410" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Art. 29 WP</text>
 <line x1="180" y1="85" x2="220" y2="85" stroke="#1A1410" stroke-width="2"/>
-<text x="200" y="75" fill="#00B7CD" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">→</text>
-<rect x="220" y="55" width="140" height="60" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="290" y="90" fill="#FFFBF0" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">EDPB</text>
+<text x="200" y="75" fill="#35A29F" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">→</text>
+<rect x="220" y="55" width="140" height="60" rx="4" fill="#35A29F" stroke="#1A1410" stroke-width="2"/><text x="290" y="90" fill="#97FEED" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">EDPB</text>
 </svg>

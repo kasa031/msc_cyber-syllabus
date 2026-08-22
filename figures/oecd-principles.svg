@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 175" width="460" height="175" role="img"><rect width="460" height="175" fill="#FFF1D1"/><text x="230" y="22" fill="#1A1410" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">OECD privacy principles (core)</text>
-<rect x="15" y="40" width="100" height="45" rx="3" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-<text x="65" y="67" fill="#FFFBF0" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Collection lim.</text>
-<rect x="125" y="40" width="100" height="45" rx="3" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 175" width="460" height="175" role="img"><rect width="460" height="175" fill="#97FEED"/><text x="230" y="22" fill="#1A1410" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">OECD privacy principles (core)</text>
+<rect x="15" y="40" width="100" height="45" rx="3" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+<text x="65" y="67" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Collection lim.</text>
+<rect x="125" y="40" width="100" height="45" rx="3" fill="#0B666A" stroke="#1A1410" stroke-width="2"/>
 <text x="175" y="67" fill="#1A1410" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Quality</text>
-<rect x="235" y="40" width="100" height="45" rx="3" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
-<text x="285" y="67" fill="#FFFBF0" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Purpose</text>
-<rect x="345" y="40" width="100" height="45" rx="3" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-<text x="395" y="67" fill="#FFFBF0" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Use lim.</text>
-<rect x="15" y="100" width="100" height="45" rx="3" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<rect x="235" y="40" width="100" height="45" rx="3" fill="#071952" stroke="#1A1410" stroke-width="2"/>
+<text x="285" y="67" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Purpose</text>
+<rect x="345" y="40" width="100" height="45" rx="3" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+<text x="395" y="67" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Use lim.</text>
+<rect x="15" y="100" width="100" height="45" rx="3" fill="#0B666A" stroke="#1A1410" stroke-width="2"/>
 <text x="65" y="127" fill="#1A1410" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Security</text>
-<rect x="125" y="100" width="100" height="45" rx="3" fill="#DF301C" stroke="#1A1410" stroke-width="2"/>
-<text x="175" y="127" fill="#FFFBF0" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Openness</text>
-<rect x="235" y="100" width="100" height="45" rx="3" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-<text x="285" y="127" fill="#FFFBF0" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Access</text>
-<rect x="345" y="100" width="100" height="45" rx="3" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<rect x="125" y="100" width="100" height="45" rx="3" fill="#071952" stroke="#1A1410" stroke-width="2"/>
+<text x="175" y="127" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Openness</text>
+<rect x="235" y="100" width="100" height="45" rx="3" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+<text x="285" y="127" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Access</text>
+<rect x="345" y="100" width="100" height="45" rx="3" fill="#0B666A" stroke="#1A1410" stroke-width="2"/>
 <text x="395" y="127" fill="#1A1410" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Accountability</text></svg>

@@ -3,12 +3,12 @@
   "use strict";
 
   var NIST_SLOTS = [
-    { id: "govern", label: "GOVERN", color: "#F6E7A8" },
-    { id: "identify", label: "IDENTIFY", color: "#9EC9E8" },
-    { id: "protect", label: "PROTECT", color: "#C4B6E3" },
-    { id: "detect", label: "DETECT", color: "#E8B84A" },
-    { id: "respond", label: "RESPOND", color: "#E89B8C" },
-    { id: "recover", label: "RECOVER", color: "#9DCF9A" }
+    { id: "govern", label: "GOVERN", color: "#071952" },
+    { id: "identify", label: "IDENTIFY", color: "#0B666A" },
+    { id: "protect", label: "PROTECT", color: "#35A29F" },
+    { id: "detect", label: "DETECT", color: "#35A29F" },
+    { id: "respond", label: "RESPOND", color: "#0B666A" },
+    { id: "recover", label: "RECOVER", color: "#35A29F" }
   ];
 
   var KILL_SLOTS = [
@@ -21,7 +21,7 @@
     { id: "action", label: "Action" }
   ];
 
-  var KILL_BLUE = "#4A7FB5";
+  var KILL_BLUE = "#0B666A";
 
   function shuffle(arr) {
     var a = arr.slice();
@@ -364,7 +364,7 @@
     hub.setAttribute("cx", String(cx));
     hub.setAttribute("cy", String(cy));
     hub.setAttribute("r", String(rHub));
-    hub.setAttribute("fill", "#F4F6F8");
+    hub.setAttribute("fill", "#97FEED");
     hub.setAttribute("stroke", "#fff");
     hub.setAttribute("stroke-width", "2");
     svg.appendChild(hub);

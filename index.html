@@ -12,58 +12,62 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kasa031.github.io/msc_cyber-syllabus/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#DF301C" />
+  <meta name="theme-color" content="#071952" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="MSc Cyber Y1" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock42" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock42" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock42" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock42" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock43" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock43" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock43" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock43" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
   <style>
-    /* First-paint: cream canvas before fonts settle (avoids white FOUC flash) */
-    html { background: #FFF1D1; }
+    /* First-paint: mint canvas before fonts settle */
+    html { background: #97FEED; }
 
     :root {
-      /* Canonical palette - do not change without owner confirmation */
-      --palette-red: #DF301C;
-      --palette-orange: #FF9100;
-      --palette-cream: #FFF1D1;
-      --palette-turquoise: #00B7CD;
+      /* Canonical palette (Karina, Aug 2026) - navy, teal, sea, mint */
+      --palette-navy: #071952;
+      --palette-teal: #0B666A;
+      --palette-sea: #35A29F;
+      --palette-mint: #97FEED;
+      --palette-red: var(--palette-navy);
+      --palette-orange: var(--palette-teal);
+      --palette-cream: var(--palette-mint);
+      --palette-turquoise: var(--palette-sea);
 
-      --ink: #1A1410;
-      --ink-2: #241C16;
-      --ink-3: #2E241C;
-      --slate: #3D342C;
-      --mist: #8A7B6A;
-      --fog: #C9BBA8;
-      --paper: var(--palette-cream);
-      --paper-2: #FFE8B8;
-      --surface: #FFFBF0;
-      --line: #E5D4A8;
-      --line-soft: #F0E4C0;
-      --signal: var(--palette-turquoise);
-      --signal-bright: var(--palette-turquoise);
-      --signal-soft: #CCF4F8;
-      --signal-deep: var(--palette-turquoise);
-      --ochre: var(--palette-orange);
-      --ochre-soft: #FFE4B3;
-      --warn: var(--palette-red);
-      --warn-hot: #C42818;
-      --warn-soft: #FAD5CF;
-      --console: #1A1410;
-      --console-fg: #FFF1D1;
-      --console-dim: #C4B49A;
-      --prompt: var(--palette-turquoise);
+      --ink: #071952;
+      --ink-2: #071952;
+      --ink-3: #0B666A;
+      --slate: #0B666A;
+      --mist: #35A29F;
+      --fog: #35A29F;
+      --paper: var(--palette-mint);
+      --paper-2: #35A29F;
+      --surface: #97FEED;
+      --line: #35A29F;
+      --line-soft: #0B666A;
+      --signal: var(--palette-sea);
+      --signal-bright: var(--palette-sea);
+      --signal-soft: #35A29F;
+      --signal-deep: var(--palette-teal);
+      --ochre: var(--palette-teal);
+      --ochre-soft: #0B666A;
+      --warn: var(--palette-navy);
+      --warn-hot: #071952;
+      --warn-soft: #0B666A;
+      --console: #071952;
+      --console-fg: #97FEED;
+      --console-dim: #35A29F;
+      --prompt: var(--palette-sea);
       --max: 52rem;
       --page-gutter: 1.25rem;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --focus: 0 0 0 3px rgba(0, 183, 205, 0.45);
+      --focus: 0 0 0 3px rgba(53, 162, 159, 0.45);
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-right: env(safe-area-inset-right, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -84,7 +88,7 @@
       font-size: 1.0625rem;
       line-height: 1.55;
       color: var(--ink);
-      background: #FFF1D1;
+      background: #97FEED;
       background-attachment: fixed;
       min-height: 100vh;
       min-height: 100dvh;
@@ -119,8 +123,8 @@
       top: 0.75rem;
       z-index: 100;
       padding: 0.65rem 1rem;
-      background: #DF301C;
-      color: #FFF1D1;
+      background: #071952;
+      color: #97FEED;
       font-weight: 600;
       text-decoration: none;
       border-radius: 4px;
@@ -138,7 +142,7 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      background: #FFF1D1;
+      background: #97FEED;
       color: var(--ink);
       padding: calc(clamp(2.5rem, 8vw, 5.5rem) + var(--safe-top)) 0 clamp(3rem, 7vw, 4.5rem);
       min-height: min(72vh, 36rem);
@@ -305,7 +309,7 @@
       background: var(--palette-turquoise);
     }
     .mode-tabs button.active:hover {
-      color: #DF301C;
+      color: #071952;
       background: var(--palette-turquoise);
       transform: translateY(-1px);
     }
@@ -548,10 +552,10 @@
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.95rem;
       padding: 0.7rem 0.8rem;
-      border: 1.5px solid #4A3E32;
+      border: 1.5px solid #35A29F;
       border-radius: 3px;
-      background: #241C16;
-      color: #FFF1D1;
+      background: #071952;
+      color: #97FEED;
       caret-color: var(--prompt);
       outline: none;
       transition: border-color 0.15s, background 0.15s;
@@ -910,7 +914,7 @@
       gap: 0.35rem;
       margin: 0 0 0.85rem;
       padding: 0.35rem;
-      background: #FF9100;
+      background: #0B666A;
       border: none;
       border-radius: 4px;
     }
@@ -926,12 +930,12 @@
       border-radius: 3px;
       cursor: pointer;
       background: transparent;
-      color: #000;
+      color: #97FEED;
       transition: background 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
     }
     .course-tabs button:not(.active):hover {
-      background: #00B7CD;
-      color: #fff;
+      background: #35A29F;
+      color: #071952;
       transform: translateY(-1px);
     }
     .course-tabs button.active {
@@ -939,7 +943,7 @@
       color: #fff;
     }
     .course-tabs button.active:hover {
-      color: #DF301C;
+      color: #071952;
       background: var(--palette-turquoise);
       transform: translateY(-1px);
     }
@@ -1002,16 +1006,16 @@
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       font-size: 11px;
       font-weight: 700;
-      fill: rgba(26, 20, 16, 0.45);
+      fill: rgba(151, 254, 237, 0.55);
       pointer-events: none;
       letter-spacing: 0.02em;
     }
-    .nist-slot-text.is-set { fill: #1A1410; font-size: 12px; }
+    .nist-slot-text.is-set { fill: #97FEED; font-size: 12px; }
     .nist-hub-title {
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       font-size: 15px;
       font-weight: 700;
-      fill: #1A1410;
+      fill: #071952;
       pointer-events: none;
     }
     .nist-hub-sub {
@@ -1471,8 +1475,8 @@
       position: sticky;
       top: var(--safe-top);
       z-index: 20;
-      background: #FF9100;
-      box-shadow: 0 1px 0 rgba(26,20,16,0.1);
+      background: #0B666A;
+      box-shadow: 0 1px 0 rgba(7,25,82,0.18);
     }
     .course-tabs button .tab-short { display: none; }
     @media (max-width: 640px) {
@@ -1623,7 +1627,7 @@
       line-height: 1.35;
       text-align: center;
       color: var(--ink);
-      background: #FFF1D1;
+      background: #97FEED;
       border: 2px solid var(--palette-turquoise);
       border-radius: 4px;
       box-shadow: 0 4px 16px rgba(26, 20, 16, 0.12);
@@ -2311,8 +2315,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock42" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock42"></script>
+  <script src="quiz-decks.js?v=lock43" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock43"></script>
   <script>
   (function () {
   "use strict";
@@ -3500,7 +3504,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock42-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock43-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;

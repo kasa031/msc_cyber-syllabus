@@ -4,19 +4,19 @@
       <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.25"/>
     </filter>
   </defs>
-  <rect width="520" height="232" fill="#FFF1D1"/>
+  <rect width="520" height="232" fill="#97FEED"/>
   <rect x="12" y="12" width="496" height="208" rx="8" fill="#1e1e1e" filter="url(#sh)"/>
   <rect x="12" y="12" width="496" height="28" rx="8" fill="#2d2d2d"/>
   <rect x="12" y="32" width="496" height="8" fill="#2d2d2d"/>
-  <circle cx="28" cy="26" r="5" fill="#DF301C"/>
-  <circle cx="46" cy="26" r="5" fill="#FF9100"/>
-  <circle cx="64" cy="26" r="5" fill="#00B7CD"/>
+  <circle cx="28" cy="26" r="5" fill="#071952"/>
+  <circle cx="46" cy="26" r="5" fill="#0B666A"/>
+  <circle cx="64" cy="26" r="5" fill="#35A29F"/>
   <text x="260" y="30" fill="#c8c8c8" font-size="11" font-family="Consolas, 'Courier New', monospace" text-anchor="middle">Windows PowerShell</text>
-  <text x="28" y="52" fill="#FF9100" font-size="13" font-family="Consolas, 'Courier New', monospace">PS C:\Users\student\lab&gt; dir</text>
+  <text x="28" y="52" fill="#0B666A" font-size="13" font-family="Consolas, 'Courier New', monospace">PS C:\Users\student\lab&gt; dir</text>
   <text x="28" y="74" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace"></text>
   <text x="28" y="96" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace">Mode   LastWriteTime     Length Name</text>
   <text x="28" y="118" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace">----   -------------     ------ ----</text>
-  <text x="28" y="140" fill="#FFF1D1" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">-a---- 14.08.2026 10:01    120 notes.txt</text>
-  <text x="28" y="162" fill="#FFF1D1" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">d----- 14.08.2026 09:55          scripts</text>
-  <text x="28" y="184" fill="#FFF1D1" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">-a---- 14.08.2026 10:12   2048 report.md</text>
+  <text x="28" y="140" fill="#97FEED" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">-a---- 14.08.2026 10:01    120 notes.txt</text>
+  <text x="28" y="162" fill="#97FEED" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">d----- 14.08.2026 09:55          scripts</text>
+  <text x="28" y="184" fill="#97FEED" font-size="13" font-weight="700" font-family="Consolas, 'Courier New', monospace">-a---- 14.08.2026 10:12   2048 report.md</text>
 </svg>

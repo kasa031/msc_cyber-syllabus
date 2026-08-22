@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" width="420" height="240" role="img"><rect width="420" height="240" fill="#FFF1D1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" width="420" height="240" role="img"><rect width="420" height="240" fill="#97FEED"/>
 <text x="210" y="24" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">ePrivacy vs GDPR (overlap)</text>
-<circle cx="160" cy="130" r="85" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-<circle cx="260" cy="130" r="85" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
-<text x="120" y="125" fill="#FFFBF0" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">GDPR</text>
-<text x="120" y="145" fill="#FFF1D1" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">personal</text>
-<text x="120" y="160" fill="#FFF1D1" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">data</text>
+<circle cx="160" cy="130" r="85" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+<circle cx="260" cy="130" r="85" fill="#0B666A" stroke="#1A1410" stroke-width="2"/>
+<text x="120" y="125" fill="#97FEED" font-size="13" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">GDPR</text>
+<text x="120" y="145" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">personal</text>
+<text x="120" y="160" fill="#97FEED" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">data</text>
 <text x="300" y="125" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">ePrivacy</text>
 <text x="300" y="145" fill="#3D342C" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">comms /</text>
 <text x="300" y="160" fill="#3D342C" font-size="10" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">terminals</text>

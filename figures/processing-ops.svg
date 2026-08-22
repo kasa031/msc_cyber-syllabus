@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 150" width="440" height="150" role="img"><rect width="440" height="150" fill="#FFF1D1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 150" width="440" height="150" role="img"><rect width="440" height="150" fill="#97FEED"/>
 <text x="220" y="24" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Processing (Art. 4(2))</text>
-<rect x="15" y="50" width="70" height="45" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="50" y="78" fill="#FFFBF0" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">collect</text>
-<rect x="95" y="50" width="70" height="45" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/><text x="130" y="78" fill="#1A1410" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">store</text>
-<rect x="175" y="50" width="70" height="45" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/><text x="210" y="78" fill="#FFFBF0" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">use</text>
-<rect x="255" y="50" width="70" height="45" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="290" y="78" fill="#FFFBF0" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">share</text>
-<rect x="335" y="50" width="90" height="45" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/><text x="380" y="78" fill="#1A1410" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">erase…</text>
+<rect x="15" y="50" width="70" height="45" rx="4" fill="#35A29F" stroke="#1A1410" stroke-width="2"/><text x="50" y="78" fill="#97FEED" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">collect</text>
+<rect x="95" y="50" width="70" height="45" rx="4" fill="#0B666A" stroke="#1A1410" stroke-width="2"/><text x="130" y="78" fill="#1A1410" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">store</text>
+<rect x="175" y="50" width="70" height="45" rx="4" fill="#071952" stroke="#1A1410" stroke-width="2"/><text x="210" y="78" fill="#97FEED" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">use</text>
+<rect x="255" y="50" width="70" height="45" rx="4" fill="#35A29F" stroke="#1A1410" stroke-width="2"/><text x="290" y="78" fill="#97FEED" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">share</text>
+<rect x="335" y="50" width="90" height="45" rx="4" fill="#0B666A" stroke="#1A1410" stroke-width="2"/><text x="380" y="78" fill="#1A1410" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">erase…</text>
 <text x="220" y="125" fill="#3D342C" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Almost any operation on personal data</text>
 </svg>

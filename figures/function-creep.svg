@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 170" width="420" height="170" role="img"><rect width="420" height="170" fill="#FFF1D1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 170" width="420" height="170" role="img"><rect width="420" height="170" fill="#97FEED"/>
 <text x="210" y="26" fill="#1A1410" font-size="15" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Function creep</text>
-<rect x="30" y="55" width="140" height="60" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/><text x="100" y="90" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Stated purpose</text>
+<rect x="30" y="55" width="140" height="60" rx="4" fill="#35A29F" stroke="#1A1410" stroke-width="2"/><text x="100" y="90" fill="#97FEED" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Stated purpose</text>
 <line x1="170" y1="85" x2="220" y2="85" stroke="#1A1410" stroke-width="2"/>
-<text x="195" y="75" fill="#DF301C" font-size="18" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">→</text>
-<rect x="220" y="55" width="170" height="60" rx="4" fill="#DF301C" stroke="#1A1410" stroke-width="2"/><text x="305" y="90" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">New / extra uses</text>
+<text x="195" y="75" fill="#071952" font-size="18" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">→</text>
+<rect x="220" y="55" width="170" height="60" rx="4" fill="#071952" stroke="#1A1410" stroke-width="2"/><text x="305" y="90" fill="#97FEED" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">New / extra uses</text>
 <text x="210" y="145" fill="#3D342C" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Violates purpose limitation (Art. 5)</text>
 </svg>

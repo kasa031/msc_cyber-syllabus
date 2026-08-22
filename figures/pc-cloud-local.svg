@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200" role="img">
-  <rect width="360" height="200" fill="#FFF1D1"/>
+  <rect width="360" height="200" fill="#97FEED"/>
   <text x="180" y="26" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Local vs cloud</text>
-  <rect x="36" y="52" width="120" height="100" rx="6" fill="#FFFBF0" stroke="#1A1410" stroke-width="2"/>
-  <rect x="56" y="72" width="80" height="48" rx="4" fill="#FF9100"/>
+  <rect x="36" y="52" width="120" height="100" rx="6" fill="#97FEED" stroke="#1A1410" stroke-width="2"/>
+  <rect x="56" y="72" width="80" height="48" rx="4" fill="#0B666A"/>
   <text x="96" y="100" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">This PC</text>
   <text x="96" y="138" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">local disk</text>
   <path d="M168 100 H192" stroke="#1A1410" stroke-width="2"/>
   <polygon points="192,94 204,100 192,106" fill="#1A1410"/>
-  <ellipse cx="268" cy="88" rx="52" ry="28" fill="#00B7CD"/>
-  <ellipse cx="248" cy="100" rx="36" ry="22" fill="#00B7CD"/>
-  <ellipse cx="292" cy="100" rx="32" ry="20" fill="#00B7CD"/>
-  <text x="268" y="102" fill="#FFF1D1" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">cloud</text>
+  <ellipse cx="268" cy="88" rx="52" ry="28" fill="#35A29F"/>
+  <ellipse cx="248" cy="100" rx="36" ry="22" fill="#35A29F"/>
+  <ellipse cx="292" cy="100" rx="32" ry="20" fill="#35A29F"/>
+  <text x="268" y="102" fill="#97FEED" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">cloud</text>
   <text x="268" y="148" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">online sync</text>
   <text x="180" y="182" fill="#3D342C" font-size="11" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Both can hold the same files  know which copy you edit</text>
 </svg>

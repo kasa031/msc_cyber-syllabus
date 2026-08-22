@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 240" width="560" height="240" role="img" aria-label="APA citation anatomy">
-  <rect width="560" height="240" fill="#FFF1D1"/>
+  <rect width="560" height="240" fill="#97FEED"/>
   <text x="280" y="28" fill="#1A1410" font-size="16" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">APA reference anatomy (example)</text>
   <rect x="20" y="50" width="520" height="100" rx="6" fill="#1e1e1e"/>
-  <text x="40" y="85" fill="#00B7CD" font-size="13" font-family="Consolas, 'Courier New', monospace">Smith, J. A.</text>
-  <text x="155" y="85" fill="#FF9100" font-size="13" font-family="Consolas, 'Courier New', monospace">(2020).</text>
-  <text x="230" y="85" fill="#FFF1D1" font-size="13" font-family="Consolas, 'Courier New', monospace">Privacy by design.</text>
+  <text x="40" y="85" fill="#35A29F" font-size="13" font-family="Consolas, 'Courier New', monospace">Smith, J. A.</text>
+  <text x="155" y="85" fill="#0B666A" font-size="13" font-family="Consolas, 'Courier New', monospace">(2020).</text>
+  <text x="230" y="85" fill="#97FEED" font-size="13" font-family="Consolas, 'Courier New', monospace">Privacy by design.</text>
   <text x="40" y="115" fill="#d4d4d4" font-size="13" font-family="Consolas, 'Courier New', monospace">Journal of Cyber Studies, 12(3), 45-60.</text>
-  <text x="70" y="175" fill="#00B7CD" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Author</text>
-  <text x="200" y="175" fill="#FF9100" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Year</text>
+  <text x="70" y="175" fill="#35A29F" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Author</text>
+  <text x="200" y="175" fill="#0B666A" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Year</text>
   <text x="340" y="175" fill="#1A1410" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Title</text>
   <text x="280" y="210" fill="#3D342C" font-size="12" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">In-text: (Smith, 2020). Always credit the source.</text>
 </svg>

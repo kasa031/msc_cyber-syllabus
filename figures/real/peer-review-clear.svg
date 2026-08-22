@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 240" width="540" height="240" role="img" aria-label="Peer review flow">
-  <rect width="540" height="240" fill="#FFF1D1"/>
+  <rect width="540" height="240" fill="#97FEED"/>
   <text x="270" y="28" fill="#1A1410" font-size="16" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Peer review (quality check)</text>
-  <rect x="30" y="60" width="110" height="60" rx="6" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-  <text x="85" y="95" fill="#FFFBF0" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Author</text>
+  <rect x="30" y="60" width="110" height="60" rx="6" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+  <text x="85" y="95" fill="#97FEED" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Author</text>
   <path d="M145 90 H175" stroke="#1A1410" stroke-width="2"/>
-  <rect x="180" y="60" width="110" height="60" rx="6" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+  <rect x="180" y="60" width="110" height="60" rx="6" fill="#0B666A" stroke="#1A1410" stroke-width="2"/>
   <text x="235" y="95" fill="#1A1410" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Journal</text>
   <path d="M295 90 H325" stroke="#1A1410" stroke-width="2"/>
-  <rect x="330" y="60" width="110" height="60" rx="6" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-  <text x="385" y="88" fill="#FFFBF0" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Reviewers</text>
-  <text x="385" y="106" fill="#FFF1D1" font-size="10" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">experts</text>
+  <rect x="330" y="60" width="110" height="60" rx="6" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+  <text x="385" y="88" fill="#97FEED" font-size="12" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Reviewers</text>
+  <text x="385" y="106" fill="#97FEED" font-size="10" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">experts</text>
   <path d="M445 90 H470" stroke="#1A1410" stroke-width="2"/>
   <rect x="30" y="150" width="480" height="65" rx="6" fill="#ffffff" stroke="#1A1410" stroke-width="1.5"/>
   <text x="270" y="178" fill="#1A1410" font-size="13" font-weight="700" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Why it matters</text>

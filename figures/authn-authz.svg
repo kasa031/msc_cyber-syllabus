@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200" width="440" height="200" role="img"><rect width="440" height="200" fill="#FFF1D1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200" width="440" height="200" role="img"><rect width="440" height="200" fill="#97FEED"/>
 <text x="220" y="26" fill="#1A1410" font-size="14" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Authentication vs authorization</text>
-<rect x="30" y="55" width="170" height="100" rx="4" fill="#00B7CD" stroke="#1A1410" stroke-width="2"/>
-<text x="115" y="90" fill="#FFFBF0" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">AuthN</text>
-<text x="115" y="115" fill="#FFFBF0" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Who are you?</text>
-<text x="115" y="135" fill="#FFF1D1" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">identity / login</text>
-<rect x="240" y="55" width="170" height="100" rx="4" fill="#FF9100" stroke="#1A1410" stroke-width="2"/>
+<rect x="30" y="55" width="170" height="100" rx="4" fill="#35A29F" stroke="#1A1410" stroke-width="2"/>
+<text x="115" y="90" fill="#97FEED" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">AuthN</text>
+<text x="115" y="115" fill="#97FEED" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">Who are you?</text>
+<text x="115" y="135" fill="#97FEED" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">identity / login</text>
+<rect x="240" y="55" width="170" height="100" rx="4" fill="#0B666A" stroke="#1A1410" stroke-width="2"/>
 <text x="325" y="90" fill="#1A1410" font-size="16" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">AuthZ</text>
 <text x="325" y="115" fill="#1A1410" font-size="12" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">What may you do?</text>
 <text x="325" y="135" fill="#3D342C" font-size="11" font-weight="600" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">permissions / roles</text>

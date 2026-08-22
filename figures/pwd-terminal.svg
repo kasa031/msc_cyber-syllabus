@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" width="420" height="240" role="img" aria-label="Terminal showing pwd">
-  <rect width="420" height="240" fill="#FFF1D1"/>
+  <rect width="420" height="240" fill="#97FEED"/>
   <rect x="12" y="20" width="396" height="190" rx="8" fill="#1e1e1e"/>
   <rect x="12" y="20" width="396" height="28" rx="8" fill="#2d2d2d"/>
   <rect x="12" y="40" width="396" height="8" fill="#2d2d2d"/>
-  <circle cx="28" cy="34" r="5" fill="#DF301C"/>
-  <circle cx="46" cy="34" r="5" fill="#FF9100"/>
-  <circle cx="64" cy="34" r="5" fill="#00B7CD"/>
+  <circle cx="28" cy="34" r="5" fill="#071952"/>
+  <circle cx="46" cy="34" r="5" fill="#0B666A"/>
+  <circle cx="64" cy="34" r="5" fill="#35A29F"/>
   <text x="210" y="38" fill="#c8c8c8" font-size="11" font-family="Consolas, monospace" text-anchor="middle">student@lab: ~</text>
-  <text x="28" y="78" fill="#00B7CD" font-size="14" font-family="Consolas, monospace">student@lab:~$ pwd</text>
-  <text x="28" y="110" fill="#FFF1D1" font-size="15" font-weight="700" font-family="Consolas, monospace">/home/student</text>
+  <text x="28" y="78" fill="#35A29F" font-size="14" font-family="Consolas, monospace">student@lab:~$ pwd</text>
+  <text x="28" y="110" fill="#97FEED" font-size="15" font-weight="700" font-family="Consolas, monospace">/home/student</text>
   <text x="28" y="150" fill="#888" font-size="12" font-family="Consolas, monospace"># prints the folder you are in now</text>
-  <text x="28" y="180" fill="#00B7CD" font-size="14" font-family="Consolas, monospace">student@lab:~$ _</text>
+  <text x="28" y="180" fill="#35A29F" font-size="14" font-family="Consolas, monospace">student@lab:~$ _</text>
 </svg>

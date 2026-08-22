@@ -70,7 +70,7 @@
 - Vedlikehold: speil i `quiz-data/*.json`
 - Behold `id` ved oppdateringer (spaced repetition)
 - Ingen em dash / en dash i innhold (kun `-`)
-- Fargepalett i HTML: `#DF301C`, `#FF9100`, `#FFF1D1`, `#00B7CD`
+- Fargepalett i HTML: `#071952`, `#0B666A`, `#97FEED`, `#35A29F`
 - UI-språk: **engelsk** (eksisterende konvensjon)
 
 ---

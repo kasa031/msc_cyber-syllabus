@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Lock keyhole favicon">
   <!-- Transparent background (no cream square) -->
-  <path fill="none" stroke="#00B7CD" stroke-width="48" stroke-linecap="butt"
+  <path fill="none" stroke="#35A29F" stroke-width="48" stroke-linecap="butt"
         d="M176 220 V160 C176 116 212 80 256 80 C300 80 336 116 336 160 V220"/>
-  <rect x="128" y="200" width="256" height="232" rx="36" fill="#00B7CD"/>
-  <circle cx="256" cy="292" r="36" fill="#FF9100"/>
-  <path fill="#FF9100" d="M236 300 L276 300 L288 392 L224 392 Z"/>
+  <rect x="128" y="200" width="256" height="232" rx="36" fill="#35A29F"/>
+  <circle cx="256" cy="292" r="36" fill="#0B666A"/>
+  <path fill="#0B666A" d="M236 300 L276 300 L288 392 L224 392 Z"/>
 </svg>
