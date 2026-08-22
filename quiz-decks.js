@@ -3993,6 +3993,109 @@
           "pensum",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4280-exam-wiseflow-2026",
+        "q": "ACIT4280 exam format on Canvas (Aug 2026)?",
+        "a": "Sit-in digital exam on Wiseflow at Silurveien, 10 December 2026. Multiple-choice plus free-text. Only the exam sets the grade. Group work is obligatory pass/fail. No own materials. Answers may be Norwegian or English using course terms.",
+        "tags": [
+          "exam",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-campus-thu",
+        "q": "When and where is ACIT4280 taught Autumn 2026 (Canvas Course schedule)?",
+        "a": "On campus. Summary lectures Thursday every second week 08:30-10:15 (one Wednesday 30 Sep). Group presentations after, up to 12:15. Study Canvas materials in the two weeks before each lecture.",
+        "tags": [
+          "course",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-karlstad-mooc",
+        "q": "Where does ACIT4280 Canvas material come from?",
+        "a": "Karlstad University open Privacy by Design course (Fischer-Hubner, Martucci, Fritsch, Pulls et al. 2018 MOOC paper). Introduction plus six chapters to read BEFORE lectures.",
+        "tags": [
+          "course",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-ch1-los",
+        "q": "Chapter 1 learning outcomes (Canvas / Fischer-Hubner)?",
+        "a": "Account for basic legal privacy concepts, regulations, principles and major court decisions; analyse ICT privacy risks; map legal privacy principles to technical privacy concepts.",
+        "tags": [
+          "Ch1",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-ch1-lectures",
+        "q": "How is ACIT4280 Chapter 1 structured on Canvas?",
+        "a": "L1 concept of privacy; L2 OECD/basic principles; L3 privacy laws; L4 issues (mobile/smart meter/OSN/cloud); L5-8 GDPR (intro, lawfulness, DSR, rules); L9 ePrivacy; L10 map principles to PETs.",
+        "tags": [
+          "Ch1",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-ch1-guests",
+        "q": "Which guest experts appear in ACIT4280 Chapter 1 Canvas pages?",
+        "a": "Marit Hansen (ULD Schleswig-Holstein), Harald Zwingelberg (ULD lawyer), Conny Claesson (Karlstad DPO), Albin Zuccato (ATEA).",
+        "tags": [
+          "Ch1",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-oecd-mandatory-pages",
+        "q": "How much of the OECD Privacy Guidelines is mandatory in Ch1?",
+        "a": "Only chapter 1, pages 11-17, including the privacy guidelines. Plus the Blaze loyalty-card article.",
+        "tags": [
+          "Ch1",
+          "OECD",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-tls-0rtt",
+        "q": "What does the ACIT4280 TLS Canvas page warn about TLS 1.3 0-RTT?",
+        "a": "0-RTT speeds resumption but weakens replay protection for part of the data. Optional blog: Introducing Zero Round Trip Time Resumption.",
+        "tags": [
+          "Ch2",
+          "TLS",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-pet-los",
+        "q": "Chapter 2 PET learning outcomes (Martucci, Pulls, Fischer-Hubner)?",
+        "a": "Account for basic security and PETs; relate security/privacy goals to mechanisms; explain when and how to apply different PETs. Guest interview: Steven Murdoch.",
+        "tags": [
+          "Ch2",
+          "PET",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-group-size-canvas",
+        "q": "Official Canvas group size for ACIT4280 home assignments?",
+        "a": "Groups of three. Two weeks to work. 1A/1B follow lecture 1; 6A/6B follow lecture 6. Email lotharfr@oslomet.no with subject ACIT4280 group plus three preferred assignment numbers.",
+        "tags": [
+          "assignments",
+          "pensum",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -5648,6 +5751,26 @@
           "Toulmin",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4100-flipped-definition",
+        "q": "What does flipped classroom mean in ACIT4100 Canvas?",
+        "a": "The lecture is the homework. Class time is joint and individual work with the teacher. Get through digital material before the week. Teachers publish at least one week ahead.",
+        "tags": [
+          "mandatory",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-class-principles",
+        "q": "Name ACIT4100 in-class principles from the flipped-classroom page.",
+        "a": "Professional inclusive focus; breaks and meals outside the room; attendance not mandatory but arrive on time if you come; students prep digital material; staff publish a week early.",
+        "tags": [
+          "mandatory",
+          "pensum",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -6234,14 +6357,14 @@
 
   var EXPECTED = {
     acit4050: 117,
-    acit4280: 190,
-    acit4100: 129,
+    acit4280: 200,
+    acit4100: 131,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock40",
+    version: "lock41",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

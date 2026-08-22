@@ -1650,6 +1650,26 @@
         "Toulmin",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4100-flipped-definition",
+      "q": "What does flipped classroom mean in ACIT4100 Canvas?",
+      "a": "The lecture is the homework. Class time is joint and individual work with the teacher. Get through digital material before the week. Teachers publish at least one week ahead.",
+      "tags": [
+        "mandatory",
+        "pensum",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-class-principles",
+      "q": "Name ACIT4100 in-class principles from the flipped-classroom page.",
+      "a": "Professional inclusive focus; breaks and meals outside the room; attendance not mandatory but arrive on time if you come; students prep digital material; staff publish a week early.",
+      "tags": [
+        "mandatory",
+        "pensum",
+        "Canvas-crawl"
+      ]
     }
   ]
 }
