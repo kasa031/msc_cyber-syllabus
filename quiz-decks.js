@@ -1136,6 +1136,177 @@
           "pensum",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4050-canvas-syllabus-rule",
+        "q": "What counts as ACIT4050 syllabus according to Canvas Important information?",
+        "a": "The lectures cover the syllabus. Extra reading is posted in Canvas per topic and may change year to year. Exam questions are on lecture content.",
+        "tags": [
+          "syllabus",
+          "pensum",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-11-assignments",
+        "q": "How many ACIT4050 assignments exist vs how many must be approved?",
+        "a": "Eleven assignments are given; at least eight must be completed to qualify for the exam. One-week hard deadline after each lecture workshop.",
+        "tags": [
+          "syllabus",
+          "assignments",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-lecturers-f26",
+        "q": "Who teaches ACIT4050 Fall 2026 according to Canvas?",
+        "a": "Nurul Momen (nurul.momen@oslomet.no) and Olav Lysne (olavl@oslomet.no).",
+        "tags": [
+          "syllabus",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-exam-examples-exist",
+        "q": "Where does Canvas say example exam questions live for ACIT4050?",
+        "a": "In the modules (e.g. Lecture 2 page Examples of possible exam questions). Staff tell you to read them so you know the exam style. No aids on the 3-hour written exam.",
+        "tags": [
+          "exam",
+          "Lecture2",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4050-phishing-purpose",
+        "q": "What is the purpose of phishing attacks (4050 exam-style / Lecture 2)?",
+        "a": "Trick a person into revealing credentials or installing malware so the attacker can steal data, money, or a foothold in systems - social engineering, not a protocol break.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-phishing-vs-spear-whaling",
+        "q": "Phishing vs spear phishing vs whaling?",
+        "a": "Phishing: mass bait (email/SMS/web). Spear phishing: targeted at a chosen person/org with personal context. Whaling: spear phishing aimed at high-value targets (executives, finance leads).",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-phishing-after-click",
+        "q": "After a phishing message succeeds, how is information security compromised?",
+        "a": "Victim may enter credentials on a fake site, open a malicious attachment, or run an exploit kit. Stolen secrets or malware then give the attacker access to mail, accounts, or the target network.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-phishing-influence",
+        "q": "Which influence principles are often exploited in phishing messages?",
+        "a": "Cialdini-style levers: authority (fake boss/bank), urgency/scarcity (act now), social proof, liking/familiarity, reciprocity, and commitment/consistency (you already clicked once).",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-phishing-tech-causes",
+        "q": "What technological causes enable phishing in messaging?",
+        "a": "Anyone can send mail/SMS that looks official; sender identity is easy to spoof; HTML/images hide tracking pixels and fake login forms; users cannot reliably see the real URL or TLS identity.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-ai-phishing",
+        "q": "How does AI support phishing (4050 Lecture 2 readings)?",
+        "a": "Cheaper fluent text in many languages, personalised lures from public data, and deepfake voice (vishing) that can impersonate executives (Canvas links XOR Lab, Reuters, and a $240k voice-theft case).",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "AI",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-phishing-controls",
+        "q": "Name four organisational countermeasures against phishing.",
+        "a": "Examples: MFA; mail filtering/DMARC; disable automatic image load / pixel blocking; report-phish button; least privilege; simulated training (Gophish-style); do not reuse passwords on external sites.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-phishing-training-platform",
+        "q": "How is a phishing training platform used for awareness?",
+        "a": "Staff send simulated phish (e.g. Gophish), measure who clicks, then debrief. Goal is practice recognising lures, not punishing people. Listed with L03 / exploit-kit readings.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "lab",
+          "exam",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-tracking-pixel",
+        "q": "What is an e-mail tracking pixel (4050 Lecture 2 / The Verge)?",
+        "a": "A tiny (often 1x1 transparent) image hosted on a remote server. Opening the mail downloads it, so the sender sees that the message was opened and can infer time, IP, and sometimes location.",
+        "tags": [
+          "Lecture2",
+          "privacy",
+          "phishing",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-tracking-pixel-gmail",
+        "q": "How does Gmail reduce tracking-pixel location leaks?",
+        "a": "Images are fetched via Google proxy servers. Open-tracking can still see that mail was read, but the tracker usually gets Google's IP, not yours, and less cookie leakage.",
+        "tags": [
+          "Lecture2",
+          "privacy",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-apache-kit",
+        "q": "What is the [A]pache phishing kit (Check Point report on Canvas)?",
+        "a": "A paid Dark Web kit ($100-300) that lets low-skill criminals clone fake shops (e.g. Walmart), import products, collect card/CVV in an admin panel, then show a fake payment-failed page.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "pensum"
+        ]
+      },
+      {
+        "id": "4050-exploit-kit",
+        "q": "What is an exploit kit in the ACIT4050 L03 / Mokoena et al. context?",
+        "a": "Software that automates delivering browser/plugin exploits after a lure (often phishing). Victim visits a kit landing page; the kit tries known vulnerabilities and drops malware.",
+        "tags": [
+          "Lecture2",
+          "phishing",
+          "lab",
+          "pensum"
+        ]
       }
     ]
   },
@@ -5438,6 +5609,45 @@
           "Canvas-quiz",
           "Canvas-crawl"
         ]
+      },
+      {
+        "id": "4100-assign1-due-2026",
+        "q": "When is ACIT4100 Assignment 1 due on Canvas Fall 2026?",
+        "a": "Literature taxonomy spreadsheet: 25 September 2026 at 12:00 (API due_at 2026-09-25T10:00:00Z).",
+        "tags": [
+          "mandatory",
+          "assignment-1",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-assign2-due-2026",
+        "q": "When is ACIT4100 Assignment 2 due on Canvas Fall 2026?",
+        "a": "Presentation recording: 30 October 2026 at 13:00 local / API 2026-10-30T11:00:00Z.",
+        "tags": [
+          "mandatory",
+          "assignment-2",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-weeks-canvas",
+        "q": "Name the ACIT4100 Canvas week themes after welcome (Fall 2026 modules).",
+        "a": "W2 Rhetoric/Toulmin; W3 searching and sorting literature; W4 philosophy of science; W5 AI for text analysis; W6 Merton/trust in science; W7 genres + classic style; W9 public speaking; W10 role of the expert; W11 plagiarism.",
+        "tags": [
+          "syllabus",
+          "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4100-toulmin-five-parts",
+        "q": "How is the Toulmin model split in ACIT4100 Canvas videos?",
+        "a": "Five parts: (1) why debates matter, (2) the model, (3) arguing affirmative, (4) arguing negative, (5) debates as decision-making. Each has a self-test quiz.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "Canvas-crawl"
+        ]
       }
     ]
   },
@@ -6023,15 +6233,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 101,
+    acit4050: 117,
     acit4280: 190,
-    acit4100: 125,
+    acit4100: 129,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock39",
+    version: "lock40",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

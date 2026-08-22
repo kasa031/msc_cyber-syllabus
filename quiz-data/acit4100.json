@@ -1611,6 +1611,45 @@
         "Canvas-quiz",
         "Canvas-crawl"
       ]
+    },
+    {
+      "id": "4100-assign1-due-2026",
+      "q": "When is ACIT4100 Assignment 1 due on Canvas Fall 2026?",
+      "a": "Literature taxonomy spreadsheet: 25 September 2026 at 12:00 (API due_at 2026-09-25T10:00:00Z).",
+      "tags": [
+        "mandatory",
+        "assignment-1",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-assign2-due-2026",
+      "q": "When is ACIT4100 Assignment 2 due on Canvas Fall 2026?",
+      "a": "Presentation recording: 30 October 2026 at 13:00 local / API 2026-10-30T11:00:00Z.",
+      "tags": [
+        "mandatory",
+        "assignment-2",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-weeks-canvas",
+      "q": "Name the ACIT4100 Canvas week themes after welcome (Fall 2026 modules).",
+      "a": "W2 Rhetoric/Toulmin; W3 searching and sorting literature; W4 philosophy of science; W5 AI for text analysis; W6 Merton/trust in science; W7 genres + classic style; W9 public speaking; W10 role of the expert; W11 plagiarism.",
+      "tags": [
+        "syllabus",
+        "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4100-toulmin-five-parts",
+      "q": "How is the Toulmin model split in ACIT4100 Canvas videos?",
+      "a": "Five parts: (1) why debates matter, (2) the model, (3) arguing affirmative, (4) arguing negative, (5) debates as decision-making. Each has a self-test quiz.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "Canvas-crawl"
+      ]
     }
   ]
 }
