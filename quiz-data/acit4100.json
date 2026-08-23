@@ -1827,6 +1827,76 @@
         "Toulmin",
         "week2-part2"
       ]
+    },
+    {
+      "id": "4100-w2p2-spouse-warrant",
+      "q": "Week 2 Part 2: what changes when the smoking example is aimed at a spouse instead of a colleague?",
+      "a": "The implicit warrant changes with the audience. Colleague: you should take health advice from your friends seriously. Spouse: you should respect the concerns and advice from those who love you. Claim, grounds, explicit medical warrant, backing, qualifier and rebuttal stay the same idea.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-qualifier-extreme",
+      "q": "Week 2 Part 2: why use a qualifier instead of an unqualified claim?",
+      "a": "An unqualified claim would have to be defended for all extreme cases.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-qualifier-guarantee",
+      "q": "Week 2 Part 2: how can qualifiers adjust the guarantee of success?",
+      "a": "With wording such as most likely, greatest chance, or 90% of ...",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-qualifier-insurance",
+      "q": "Week 2 Part 2: how can qualifiers insure against insufficient grounds?",
+      "a": "With wording such as considering all other options, after careful deliberation, or given what we know right now.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-listening",
+      "q": "Week 2 Part 2: what does actual listening mean for debaters?",
+      "a": "They spend their time keeping track of the debate, instead of thinking about what they want to say next.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-categorize-hear",
+      "q": "Week 2 Part 2: how can the Toulmin model help you listen?",
+      "a": "As a structure by which to categorize what you hear (and do not hear).",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-flow",
+      "q": "Week 2 Part 2: what is flow in debate, and how are flows made?",
+      "a": "A technique that lets you quickly note what is being said in a system that makes line-by-line refutation possible. Flows are created with symbols that signify meta-information of the arguments.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
     }
   ]
 }
