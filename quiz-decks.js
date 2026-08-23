@@ -7190,6 +7190,126 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p4-churchill-who",
+        "q": "Week 2 Part 4: whose quote opens The critic, and from which year?",
+        "a": "Churchill, 1939.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-churchill-necessary",
+        "q": "Week 2 Part 4: what does the Churchill quote say about whether criticism is agreeable?",
+        "a": "Criticism may not be agreeable, but it is necessary.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-churchill-pain",
+        "q": "Week 2 Part 4: what function does criticism fulfill, according to the Churchill quote?",
+        "a": "The same function as pain in the human body; it calls attention to the development of an unhealthy state of things.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-churchill-heed",
+        "q": "Week 2 Part 4: what happens if criticism is heeded in time, and if it is suppressed?",
+        "a": "If it is heeded in time, danger may be averted; if it is suppressed, a fatal distemper may develop.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-negative-against",
+        "q": "Week 2 Part 4: what is arguing for the negative often?",
+        "a": "An argument against a proposal made by others.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-wrong-values",
+        "q": "Week 2 Part 4: what risk does the negative face when attacking from several perspectives?",
+        "a": "Being motivated by the wrong values, i.e. a personal victory instead of a good debate.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-three-components",
+        "q": "Week 2 Part 4: which three components make a good case for the negative?",
+        "a": "Direct disadvantages of the proposal. Counter proposals. Critique of assumptions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-inherency-name",
+        "q": "Week 2 Part 4: what is the first kind of direct disadvantage named?",
+        "a": "Inherency of the proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-inherency-means",
+        "q": "Week 2 Part 4: what does an attack on the inherency of a proposal mean?",
+        "a": "Pointing out obstacles, previous attempts or even better current efforts.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-inherency-lines",
+        "q": "Week 2 Part 4: which example lines illustrate an inherency attack?",
+        "a": "We're doing this already. There's already a better fix.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-inherency-attitudinal",
+        "q": "Week 2 Part 4: are inherency attacks limited to feasibility?",
+        "a": "No. They can be attitudinal. Example: Things are fine right now.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-inherency-grounds",
+        "q": "Week 2 Part 4: when attacking inherency, are you disagreeing with the problem or grounds?",
+        "a": "No. You point out other inherent factors that weaken the proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
       }
     ]
   },
@@ -7777,7 +7897,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 213,
+    acit4100: 225,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
