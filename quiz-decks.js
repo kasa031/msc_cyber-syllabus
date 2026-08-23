@@ -6880,6 +6880,86 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-intro-claim",
+        "q": "Week 2 Part 3: what is the introduction's claim in a scientific paper or thesis?",
+        "a": "Addressing the problem I'm describing is important and worth spending resources on.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-intro-indict",
+        "q": "Week 2 Part 3: where is indictment and harm heavy in the introduction?",
+        "a": "The starting point of the introduction, with a narrowing from domain down to the specific issue.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-intro-solvency",
+        "q": "Week 2 Part 3: where does the introduction usually demonstrate solvency?",
+        "a": "The proposed impact, usually right before the problem statement.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-intro-backing",
+        "q": "Week 2 Part 3: why is the introduction low on backing and warrant?",
+        "a": "That's for the background. Implicit warrant: the problem's nature warrants a scientific approach.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-intro-nuance",
+        "q": "Week 2 Part 3: where should the introduction show nuance?",
+        "a": "The operationalization after the problem statement.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-approach-claim",
+        "q": "Week 2 Part 3: what is the approach's claim in a scientific paper or thesis?",
+        "a": "My plan is feasible and presents an adequate scientific approach to answer the problem.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-approach-gwb",
+        "q": "Week 2 Part 3: what supplies grounds, warrant and backing in the approach?",
+        "a": "The research method and its tradition. The amount of work relative to the timeframe.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-approach-solvency",
+        "q": "Week 2 Part 3: how must the approach demonstrate solvency?",
+        "a": "The data gathered speaks to what we need to uncover. The experiments cover the relevant aspects of interest. The plan is detailed enough to demonstrate control.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   },
@@ -7467,7 +7547,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 182,
+    acit4100: 190,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
