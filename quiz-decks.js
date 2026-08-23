@@ -6960,6 +6960,56 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-pres-case",
+        "q": "Week 2 Part 3: what is the workshop case used to practise Toulmin for a presentation?",
+        "a": "Your faculty will hold a workshop for teachers on using flipped classroom teaching approaches. You are invited to give an introduction in order to motivate the attendees.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-claim",
+        "q": "Week 2 Part 3: what draft claim appears on the flipped-classroom presentation slide, and what is still open?",
+        "a": "\"We should adopt flipped classroom approaches to teaching...?\" The claim is still being formulated. The question marks are part of the point.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-indict-flex",
+        "q": "Week 2 Part 3: what student-side indictment is given in the flipped-classroom example?",
+        "a": "Students are digitized and require a high degree of flexibility.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-indict-engage",
+        "q": "Week 2 Part 3: what teacher-side indictment is given in the flipped-classroom example?",
+        "a": "We don't have sufficient opportunity to engage directly with students when we are most needed.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-indict-sq",
+        "q": "Week 2 Part 3: what label does the lecture give those two flipped-classroom lines?",
+        "a": "Indictment of the status quo!",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   },
@@ -7547,7 +7597,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 190,
+    acit4100: 195,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
