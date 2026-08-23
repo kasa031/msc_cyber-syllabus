@@ -7170,6 +7170,26 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-no-order",
+        "q": "Week 2 Part 3: what does the lecture notice about order and structure after the Toulmin pieces are in place?",
+        "a": "The Toulmin model does not prescribe an order or structure of the communication itself. Building a presentation from all pieces is now a matter of composition and rhetoric.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-against-teaser",
+        "q": "Week 2 Part 3: what topic does the last slide tease for next?",
+        "a": "Applying it: Arguing against affirmative. That is the Part 4 teaser only.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   },
@@ -7757,7 +7777,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 211,
+    acit4100: 213,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
