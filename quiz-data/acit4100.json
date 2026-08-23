@@ -2098,6 +2098,86 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-audience",
+        "q": "Week 2 Part 3: what should you ask about the audience?",
+        "a": "Who do you want to convince? What are their values? What is their situation or context?",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-prior-research",
+        "q": "Week 2 Part 3: what does prior research need to give you?",
+        "a": "Enough relevant data and grounds. It is also needed in anticipation of counter arguments. (Background chapter!)",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-nuance",
+        "q": "Week 2 Part 3: what does nuance mean here?",
+        "a": "Use of qualifiers. Correct agency.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-agency-def",
+        "q": "Week 2 Part 3: who are the agents in an argument?",
+        "a": "Those who should actually DO what you propose. They may not be the same as, or all of, your audience.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-wrong-agents",
+        "q": "Week 2 Part 3: what happens if a proposal has the wrong agents?",
+        "a": "It may reduce the solvency of the harm. Example: \"... and Mexico will pay for it!\"",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-enabled",
+        "q": "Week 2 Part 3: what problem can the agents themselves have?",
+        "a": "They may not feel enabled or empowered to enact on the proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-unclear-agency",
+        "q": "Week 2 Part 3: what can unclear agency lead to, and what helps?",
+        "a": "Distracting discussions and confusion, which nuance and qualifiers can help avoid.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-mexico-qualified",
+        "q": "Week 2 Part 3: how does the lecture qualify \"... and Mexico will pay for it!\"?",
+        "a": "\"... and Mexico will indirectly pay for it through a negotiation of our agreements which would indirectly create a financial surplus sufficient to cover the cost!\" That is the qualified / nuanced version of the same claim.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   }
