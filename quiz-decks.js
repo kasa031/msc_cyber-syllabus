@@ -6700,6 +6700,86 @@
           "week2-part2",
           "Canvas-quiz"
         ]
+      },
+      {
+        "id": "4100-w2p3-arena-quote",
+        "q": "Week 2 Part 3: what does the Roosevelt \"man in the arena\" quote say about who counts?",
+        "a": "It is not the critic who counts. Credit belongs to the man who is actually in the arena.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-affirmative-risk",
+        "q": "Week 2 Part 3: what does arguing for the affirmative mean here?",
+        "a": "The affirmative takes the risk of proposing change. Critics who only point out stumbles do not get the credit.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-affirmative-prop",
+        "q": "Week 2 Part 3: how does the affirmative argue for change?",
+        "a": "By offering a proposition.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-three-aspects",
+        "q": "Week 2 Part 3: which three aspects must the affirmative cover to be persuasive?",
+        "a": "Indict the status quo. Demonstrate solvency. Be an example of the proposition.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-indict",
+        "q": "Week 2 Part 3: what does it mean to indict the status quo?",
+        "a": "Say what is wrong and what harm it does.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-solvency",
+        "q": "Week 2 Part 3: what does it mean to demonstrate solvency?",
+        "a": "Show that your proposition actually addresses the problem and reduces harm.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-example-prop",
+        "q": "Week 2 Part 3: what does \"be an example of the proposition\" warn against?",
+        "a": "Don't replace evil with evil.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-three-factors",
+        "q": "Week 2 Part 3: building a good argument comes from understanding which three factors?",
+        "a": "The audience, prior research, and nuance.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   },
@@ -7287,7 +7367,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 153,
+    acit4100: 172,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
