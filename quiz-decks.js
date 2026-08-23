@@ -6579,6 +6579,127 @@
           "Toulmin",
           "week2-part2"
         ]
+      },
+      {
+        "id": "4100-w2p2-st-six-components",
+        "q": "Rhetoric Part 2 self-test (multi-select): which six components belong to the Toulmin model?",
+        "a": "Claim, Qualifiers, Backing, Rebuttals, Grounds, Warrant. Not: Argument, Status quo, Agency, Nuance, Proof.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-deliberative-blank",
+        "q": "Rhetoric Part 2 self-test (fill in the blank): \"[blank] rhetoric is forward looking and focuses on what to do next.\"",
+        "a": "Deliberative. Deliberative rhetoric looks to the future and what to do next. Not judicial or epideictic. Not \"general\".",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-all",
+        "q": "Rhetoric Part 2 self-test: match each smoking-style statement to a Toulmin part.",
+        "a": "1. You should stop smoking. = Claim. 2. You cannot disregard the advice of the medical community. = Warrant (explicit warrant). 3. Smoking is proven many times over to be really bad for you. = Grounds (evidence). 4. Look, I know it is hard, but you will benefit in the long run. = Rebuttal (addresses the difficulty). 5. At least commit to stopping by a certain date and start working towards it. = Qualifier. 6. After I stopped smoking, my stamina improved a lot. = Grounds (anecdote; grounds can be anecdotes). 7. At least promise me you'll think about it. = Qualifier (softens the claim).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-stop",
+        "q": "Rhetoric Part 2 self-test: \"You should stop smoking.\" Which Toulmin part?",
+        "a": "Claim. This is what you want the audience to accept.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-medical",
+        "q": "Rhetoric Part 2 self-test: \"You cannot disregard the advice of the medical community.\" Which Toulmin part?",
+        "a": "Warrant. On the slides this is the explicit warrant (why you should listen). Not Grounds.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-proven",
+        "q": "Rhetoric Part 2 self-test: \"Smoking is proven many times over to be really bad for you.\" Which Toulmin part?",
+        "a": "Grounds. This is evidence that supports the claim. Not a Qualifier.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-hard",
+        "q": "Rhetoric Part 2 self-test: \"Look, I know it is hard, but you will benefit in the long run.\" Which Toulmin part?",
+        "a": "Rebuttal. It addresses the expected difficulty (and still pushes the claim).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-date",
+        "q": "Rhetoric Part 2 self-test: \"At least commit to stopping by a certain date and start working towards it.\" Which Toulmin part?",
+        "a": "Qualifier. It narrows the claim (a date and a start), like the slide qualifier. Not a Warrant.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-stamina",
+        "q": "Rhetoric Part 2 self-test: \"After I stopped smoking, my stamina improved a lot.\" Which Toulmin part?",
+        "a": "Grounds. An anecdote can function as grounds. Not a Qualifier.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-match-think",
+        "q": "Rhetoric Part 2 self-test: \"At least promise me you'll think about it.\" Which Toulmin part?",
+        "a": "Qualifier. It softens the claim. Not a Rebuttal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p2-st-grounds-only-provable",
+        "q": "Rhetoric Part 2 self-test: true or false? \"Only provable evidence can function as grounds in the Toulmin model.\"",
+        "a": "False. Grounds can be evidence, data, statistics, anecdotes, or signs of expertise/authority. They are not limited to provable evidence.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2",
+          "Canvas-quiz"
+        ]
       }
     ]
   },
