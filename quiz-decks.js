@@ -7600,6 +7600,105 @@
           "Toulmin",
           "week2-part4"
         ]
+      },
+      {
+        "id": "4100-w2p4-st-match-all",
+        "q": "Rhetoric Part 4 self-test: match each negative line to Direct disadvantages, Counter proposals, or Critique of assumptions.",
+        "a": "1. It would be a better idea, to ... = Counter proposals. 2. The problem is not as big as you think. = Direct disadvantages (harms magnitude). 3. I don't think your example really applies to us. = Critique of assumptions (warrant or grounds do not apply). 4. I remember when we tried doing exactly that in my previous job. = Direct disadvantages (inherency / previous attempts). 5. Even if we would do it, it wouldn't change much. = Direct disadvantages (solvency). 6. If you really want them to succeed, then this would do the opposite. = Critique of assumptions (flip the warrant). 7. You call it a problem, but this is actually important for quality assurance. = Critique of assumptions (indictment flip).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-better-idea",
+        "q": "Rhetoric Part 4 self-test: \"It would be a better idea, to ...\" Which negative strategy?",
+        "a": "Counter proposals. You offer a different plan instead of only attacking theirs.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-problem-not-big",
+        "q": "Rhetoric Part 4 self-test: \"The problem is not as big as you think.\" Which negative strategy?",
+        "a": "Direct disadvantages. This tests harms magnitude (how bad is the status quo really?). Not Critique of assumptions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-example-applies",
+        "q": "Rhetoric Part 4 self-test: \"I don't think your example really applies to us.\" Which negative strategy?",
+        "a": "Critique of assumptions. The warrant or grounds (the example) do not apply here. Not Direct disadvantages.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-previous-job",
+        "q": "Rhetoric Part 4 self-test: \"I remember when we tried doing exactly that in my previous job.\" Which negative strategy?",
+        "a": "Direct disadvantages. This is inherency: previous attempts (or obstacles / current efforts) weaken the proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-wouldnt-change",
+        "q": "Rhetoric Part 4 self-test: \"Even if we would do it, it wouldn't change much.\" Which negative strategy?",
+        "a": "Direct disadvantages. This is solvency: the proposal will not solve the described problem. Not Critique of assumptions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-succeed-opposite",
+        "q": "Rhetoric Part 4 self-test: \"If you really want them to succeed, then this would do the opposite.\" Which negative strategy?",
+        "a": "Critique of assumptions. This flips the warrant (same value, opposite conclusion). Not Counter proposals.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-quality-assurance",
+        "q": "Rhetoric Part 4 self-test: \"You call it a problem, but this is actually important for quality assurance.\" Which negative strategy?",
+        "a": "Critique of assumptions. This flips the indictment of the status quo (the named harm is treated as a good).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w2p4-st-affirmative-hard",
+        "q": "Rhetoric Part 4 self-test: why SHOULD arguing for the affirmative be hard?",
+        "a": "Because all proposals bring change and change adds risk. It SHOULD be hard. Not because only 10% succeed, and not because there are always other proposals.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4",
+          "Canvas-quiz"
+        ]
       }
     ]
   },
@@ -8187,7 +8286,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 254,
+    acit4100: 263,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
