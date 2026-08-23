@@ -6362,6 +6362,153 @@
           "narrative",
           "class-notes"
         ]
+      },
+      {
+        "id": "4100-w2p2-good-signs",
+        "q": "Week 2 Part 2: what three signs mark a good argument?",
+        "a": "Persuasive (effective in getting support for a claim). Uses deliberative rhetoric (focus on the future and what to do next, not judicial or epideictic). Relevant (relates to the question that is debated).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-deliberative",
+        "q": "Week 2 Part 2: what is deliberative rhetoric in a good argument?",
+        "a": "Focusing on the future and what to do next. A good argument uses this, not judicial or epideictic rhetoric.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-toulmin-origin",
+        "q": "Week 2 Part 2: who developed the Toulmin model, and what was it based on?",
+        "a": "Stephen Toulmin, an English philosopher interested in what makes everyday arguments successful. The model was based on reviewing court cases. It is now widely used to construct and de-construct arguments (debate, research, essays, dinner tables, cocktail parties).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-prime-function",
+        "q": "Week 2 Part 2: what is the prime function of the Toulmin model?",
+        "a": "Not to describe the order of the argument, but that the right components are in place to make it persuasive.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/toulmin.svg",
+          "alt": "Toulmin model components",
+          "caption": "Right components, not a fixed order",
+          "shows": "The model checks that the pieces that make an argument persuasive are present."
+        }
+      },
+      {
+        "id": "4100-w2p2-smoke-map",
+        "q": "Week 2 Part 2 smoking example (Kyrre Begnum): what are the claim and the grounds?",
+        "a": "Claim: You should stop smoking. Grounds: Smoking leads to severe health risk for yourself. Smoking can affect the people around you.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-smoke-warrant",
+        "q": "Week 2 Part 2 smoking example: what are the explicit and implicit warrants?",
+        "a": "Explicit: You cannot disregard the advice of the medical community. Implicit: You should take health advice from your friends seriously.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-smoke-bqr",
+        "q": "Week 2 Part 2 smoking example: what backing, qualifier and rebuttal appear on the diagram?",
+        "a": "Backing: We know what happens to people who ignore unanimous advice from doctors. Qualifier: At least try to reduce it as much as possible and set a goal to stop before a date. Rebuttal: I know it is difficult, but there are other products that can help you control the nicotine addiction.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-claim-def",
+        "q": "Week 2 Part 2: what is a claim in the Toulmin model?",
+        "a": "What you want your audience to accept: opinion, action, vote, support and so on. It can be for or against a proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-hidden-claim",
+        "q": "Week 2 Part 2: when might you not see a claim even if the rest of the Toulmin model is there?",
+        "a": "Especially in scientific and technical presentations: the claim can be missing from view even though the other parts are present.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-grounds-def",
+        "q": "Week 2 Part 2: what can grounds be, and what should they do?",
+        "a": "Evidence, data, statistics, anecdotes. They should present the reasoning behind the claim. They may also contain evidence of expertise or authority.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-grounds-backbone",
+        "q": "Week 2 Part 2: why are grounds the backbone of the argument, and why might they still fail?",
+        "a": "Grounds will most likely be the backbone of the argument, but they may affect people differently based on factors like their own emotional investment.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-grounds-research",
+        "q": "Week 2 Part 2: what provides the core of your grounds in research?",
+        "a": "The results and their analysis.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-warrant-def",
+        "q": "Week 2 Part 2: what is a warrant, in simple terms?",
+        "a": "Why you should listen to me. The warrant can itself be a longer argument. Warrants can be data and evidence, or values.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
+      },
+      {
+        "id": "4100-w2p2-warrant-context",
+        "q": "Week 2 Part 2: what is fascinating about the warrant?",
+        "a": "It helps put the argument in a context. It can help explain why the same claim and grounds work differently in different settings.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part2"
+        ]
       }
     ]
   },
@@ -6949,7 +7096,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 132,
+    acit4100: 146,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
