@@ -2758,6 +2758,106 @@
           "Toulmin",
           "week2-part4"
         ]
+      },
+      {
+        "id": "4100-w2p4-counter-what",
+        "q": "Week 2 Part 4: what can a counter proposal offer?",
+        "a": "A variance of the proposal or a completely different proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-counter-scrutiny",
+        "q": "Week 2 Part 4: how much scrutiny does a counter proposal need, and what can it do if well prepared?",
+        "a": "It does not need the same scrutiny, but if well prepared it can be a devastating blow to the affirmative.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-counter-deliberative",
+        "q": "Week 2 Part 4: how should counter proposals be framed?",
+        "a": "They should always be deliberative, and not interrogative.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-counter-dont",
+        "q": "Week 2 Part 4: what interrogative line should you not use as a counter proposal?",
+        "a": "Why did you not consider shorting the stocks instead?",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-counter-instead",
+        "q": "Week 2 Part 4: how should the shorting-the-stocks counter proposal be phrased instead?",
+        "a": "I think shorting the stocks is a better choice, because ....",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-assume-wg",
+        "q": "Week 2 Part 4: where can assumptions be found, and what study example is given?",
+        "a": "In the warrants and grounds. Example: You assume a 50-year old study is relevant today.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-assume-indict",
+        "q": "Week 2 Part 4: where else do assumptions exist?",
+        "a": "In the indictment of the status quo.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-assume-unemp",
+        "q": "Week 2 Part 4: how does the slide attack the assumption that unemployment is bad?",
+        "a": "You say unemployment is bad, but unemployment in one sector is a necessary and natural re-adjustment of the markets.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-assume-flip",
+        "q": "Week 2 Part 4: what can you do with the warrant together with a counter proposal?",
+        "a": "Flip the warrant.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-assume-law",
+        "q": "Week 2 Part 4: how does the flipped-warrant example use law school against flipped classroom?",
+        "a": "If we really want students to succeed, then we should have stricter admission requirements and not pretend everyone can get what they want! Do you think they're debating flipped classroom in law school? They don't, because they only have students who really want to be there and accept that it is hard. In fact, they are proud of their achievement in the end for that reason!",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
       }
     ]
   }
