@@ -2321,8 +2321,68 @@
       },
       {
         "id": "4100-w2p3-pres-indict-sq",
-        "q": "Week 2 Part 3: what label does the lecture give those two flipped-classroom lines?",
+        "q": "Week 2 Part 3: what label does the lecture give those flipped-classroom indictment lines?",
         "a": "Indictment of the status quo!",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-indict-expect",
+        "q": "Week 2 Part 3: what third indictment line is added in the flipped-classroom example?",
+        "a": "Students expect us to deliver teaching that is most beneficial to them.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-harm-edu",
+        "q": "Week 2 Part 3: what student-education harm is named in the flipped-classroom example?",
+        "a": "Students are not getting the best education.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-harm-tax",
+        "q": "Week 2 Part 3: what financing harm is named in the flipped-classroom example?",
+        "a": "We are not fulfilling our obligation to produce the best outcomes from our tax-based financing.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-harm-work",
+        "q": "Week 2 Part 3: what teacher-work harm is named in the flipped-classroom example?",
+        "a": "We are unable to work in ways that are more motivating and rewarding.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-grounds-solvency",
+        "q": "Week 2 Part 3: what extra job do the flipped-classroom grounds have besides supporting the claim?",
+        "a": "They include solvency of the harms: they show how the proposal addresses those harms.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-grounds-list",
+        "q": "Week 2 Part 3: which five grounds are listed for the flipped-classroom presentation?",
+        "a": "Practical information: what it takes to transition from a traditional to a flipped classroom approach. Our values: making a positive impact on students is profound and meaningful. Anecdotal evidence: my own experience. Scientific evidence: published studies. New incentives: becoming a merited educator will lead to a pay raise and status.",
         "tags": [
           "rhetoric",
           "Toulmin",
