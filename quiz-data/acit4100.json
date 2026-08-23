@@ -2698,6 +2698,66 @@
           "Toulmin",
           "week2-part4"
         ]
+      },
+      {
+        "id": "4100-w2p4-harms-cavalier",
+        "q": "Week 2 Part 4: what risk comes with attacking the harms if it is not combined with other arguments?",
+        "a": "One can risk being too cavalier.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-solvency-name",
+        "q": "Week 2 Part 4: what is the third kind of direct disadvantage named?",
+        "a": "Solvency of the proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-solvency-means",
+        "q": "Week 2 Part 4: what does attacking the solvency of the proposal mean?",
+        "a": "Arguing that the proposal will not solve the described problem.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-solvency-lines",
+        "q": "Week 2 Part 4: which example lines illustrate a solvency attack?",
+        "a": "It won't play out as you say it will. This will do little to address the core issue. You're fighting the symptom, not the disease.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-solvency-feasibility",
+        "q": "Week 2 Part 4: is a solvency attack the same as attacking the feasibility of the proposition?",
+        "a": "No.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
+      },
+      {
+        "id": "4100-w2p4-solvency-strengthen",
+        "q": "Week 2 Part 4: how do solvency attacks affect other negative attacks?",
+        "a": "They strengthen all other negative attacks, i.e. the possible harm of the proposal outweigh the weak prospect of positives.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part4"
+        ]
       }
     ]
   }
