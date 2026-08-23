@@ -8109,6 +8109,56 @@
           "Toulmin",
           "week2-part5"
         ]
+      },
+      {
+        "id": "4100-w2p5-diss-darl-who",
+        "q": "Week 2 Part 5: who is attributed on the Don't dis dissenters quote slide?",
+        "a": "CD. Darlington.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-diss-darl-accident",
+        "q": "Week 2 Part 5: what does the CD. Darlington quote say about who first understood bacteria, isolated oxygen, and established infection, heredity and evolution?",
+        "a": "It is no accident that bacteria was first understood by a canal engineer, that oxygen was isolated by a Unitarian minister, that the theory of infection was established by a chemist, the theory of heredity of a monastic school teacher, and the theory of evolution by a man who was unfitted to be a university instructor in either botany or zoology.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-diss-darl-ministry",
+        "q": "Week 2 Part 5: what ministry does the CD. Darlington quote say we need?",
+        "a": "A ministry of Disturbance, a regulated source of annoyance; a destroyer of routine; an underminer of complacency.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-toulmin-condemn",
+        "q": "Week 2 Part 5: what does the Toulmin quote say about those who condemn dissenters as dissidents?",
+        "a": "Those who condemn dissenters as dissidents, in truth condemn themselves.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-toulmin-quote-who",
+        "q": "Week 2 Part 5: who said \"Those who condemn dissenters as dissidents, in truth condemn themselves.\"?",
+        "a": "Stephen Toulmin.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
       }
     ]
   },
