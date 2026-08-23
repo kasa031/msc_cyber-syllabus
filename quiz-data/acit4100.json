@@ -2178,6 +2178,26 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-agent-perspective",
+        "q": "Week 2 Part 3: when arguing from the agent's perspective, what must a persuasive argument highlight?",
+        "a": "How the controversy, harm and cost affects the agents themselves.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-opportunity-cost",
+        "q": "Week 2 Part 3: what often-overlooked factor belongs with the agent's perspective?",
+        "a": "The opportunity cost of a proposal: committing to an action may limit the ability to respond to future opportunities.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   }
