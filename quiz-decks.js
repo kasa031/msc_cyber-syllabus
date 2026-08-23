@@ -7969,6 +7969,96 @@
           "Toulmin",
           "week2-part5"
         ]
+      },
+      {
+        "id": "4100-w2p5-culture-title",
+        "q": "Week 2 Part 5: what kind of debate culture does the lecture say matters?",
+        "a": "A positive debate culture.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-culture-science",
+        "q": "Week 2 Part 5: do rhetoric and persuasion have a place in science and scientific environments?",
+        "a": "Yes, if you accept that scientists are humans.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-culture-org",
+        "q": "Week 2 Part 5: what decides whether persuasion is a tool for manipulation or for informed decisions?",
+        "a": "The culture of the organization.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-culture-protect",
+        "q": "Week 2 Part 5: what can debate's structure do for people and for a proposal?",
+        "a": "It can protect the individual and bring to light a more nuanced discussion about a proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-informal-title",
+        "q": "Week 2 Part 5: besides formal decision meetings, where else does the lecture place debate?",
+        "a": "In informal settings.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-informal-exciting",
+        "q": "Week 2 Part 5: what can debating an issue do socially?",
+        "a": "It is an exciting and entertaining activity, which also strengthens social interactions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-informal-aggress",
+        "q": "Week 2 Part 5: what can happen if you use all available debate tools in an informal setting?",
+        "a": "It may provoke a sense of aggressiveness.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-informal-discuss",
+        "q": "Week 2 Part 5: instead of trying to be affirmative or negative in an informal setting, what should you do?",
+        "a": "Try to move the debate into a discussion.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-informal-quote",
+        "q": "Week 2 Part 5: what example line moves an informal debate into a discussion?",
+        "a": "I see what you're saying, but what do you think about the argument, that ... (Slide spelling: your'e.)",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
       }
     ]
   },
