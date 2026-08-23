@@ -1466,6 +1466,36 @@
       min-height: 1.2em;
     }
     .study-auth-error[hidden] { display: none !important; }
+    #auth-create-signin[hidden],
+    #auth-recovery-step[hidden] { display: none !important; }
+    .auth-pass-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: stretch;
+    }
+    .auth-pass-row input {
+      flex: 1 1 10rem;
+      min-width: 0;
+    }
+    .auth-show-pass {
+      flex: 0 0 auto;
+      min-height: var(--touch);
+      padding: 0.4rem 0.85rem;
+    }
+    .auth-recovery-word {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      background: #FFF1D1;
+      color: #071952;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.7rem 0.85rem;
+      margin: 0 0 0.85rem;
+      word-break: break-all;
+    }
     #profile-new-name,
     #profile-rename,
     #auth-account,
@@ -1476,8 +1506,6 @@
     #auth-new-name,
     #auth-new-pass,
     #auth-new-pass2,
-    #auth-new-reset,
-    #auth-new-reset2,
     #auth-fix-pass,
     #auth-fix-reset,
     #auth-fix-name,
@@ -2220,19 +2248,19 @@
           <h2 class="account-home-title">Account</h2>
           <p class="account-home-lede">Sign in and Settings stay on this page. Data stays on this device. <a href="privacy-policy.html">Privacy policy</a>.</p>
           <div id="study-auth" class="study-auth">
+            <div id="auth-create-signin">
             <h3>Create your account</h3>
-            <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings.</p>
+            <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings. A recovery word is optional later.</p>
             <label for="auth-new-name">Name</label>
             <input id="auth-new-name" type="text" maxlength="24" autocomplete="nickname" placeholder="Your name" />
             <label for="auth-new-pass">Password (at least 8 characters)</label>
-            <input id="auth-new-pass" type="password" maxlength="64" autocomplete="new-password" />
+            <div class="auth-pass-row">
+              <input id="auth-new-pass" type="password" maxlength="64" autocomplete="new-password" />
+              <button type="button" class="btn ghost auth-show-pass" id="auth-new-pass-toggle" aria-pressed="false" aria-controls="auth-new-pass auth-new-pass2">Show</button>
+            </div>
             <label for="auth-new-pass2">Repeat password</label>
             <input id="auth-new-pass2" type="password" maxlength="64" autocomplete="new-password" />
-            <label for="auth-new-reset">Reset word (at least 8 characters)</label>
-            <input id="auth-new-reset" type="password" maxlength="64" autocomplete="off" />
-            <label for="auth-new-reset2">Repeat reset word</label>
-            <input id="auth-new-reset2" type="password" maxlength="64" autocomplete="off" />
-            <p>The reset word is for this page if you forget your name or password. Do not use the same text as the password.</p>
+            <p>Forgot the password later? Add a recovery word in Settings, or skip it after you create the account.</p>
             <p class="study-auth-error" id="auth-error" hidden></p>
             <div class="tut-actions" style="margin:0.7rem 0 1.15rem;">
               <button type="button" class="btn btn-primary" id="auth-create">Create account</button>
@@ -2242,7 +2270,10 @@
             <label for="auth-account">Account</label>
             <select id="auth-account"></select>
             <label for="auth-pass" id="auth-pass-label">Password</label>
-            <input id="auth-pass" type="password" maxlength="64" autocomplete="current-password" />
+            <div class="auth-pass-row">
+              <input id="auth-pass" type="password" maxlength="64" autocomplete="current-password" />
+              <button type="button" class="btn ghost auth-show-pass" id="auth-pass-toggle" aria-pressed="false" aria-controls="auth-pass auth-pass2">Show</button>
+            </div>
             <label for="auth-pass2" id="auth-pass2-label" hidden>Repeat password</label>
             <input id="auth-pass2" type="password" maxlength="64" autocomplete="new-password" hidden />
             <label for="auth-reset" id="auth-reset-label" hidden>Reset word (at least 8 characters)</label>
@@ -2255,10 +2286,10 @@
             </div>
             <div id="auth-forgot" hidden>
               <h3>Update this account</h3>
-              <p>Pick the account above. Prove it with the current password or the reset word. Then set a new name, a new password, or both.</p>
+              <p>Pick the account above. Prove it with the current password or the recovery word. Then set a new name, a new password, or both.</p>
               <label for="auth-fix-pass">Current password (if you remember it)</label>
               <input id="auth-fix-pass" type="password" maxlength="64" autocomplete="current-password" />
-              <label for="auth-fix-reset">Reset word (if you forgot the password)</label>
+              <label for="auth-fix-reset">Recovery word (if you forgot the password)</label>
               <input id="auth-fix-reset" type="password" maxlength="64" autocomplete="off" />
               <label for="auth-fix-name">New name (leave blank to keep the old one)</label>
               <input id="auth-fix-name" type="text" maxlength="24" autocomplete="nickname" placeholder="New name" />
@@ -2270,9 +2301,30 @@
                 <button type="button" class="btn btn-primary" id="auth-fix-save">Save and sign in</button>
               </div>
             </div>
+            </div>
+            <div id="auth-recovery-step" hidden>
+              <h3>Add a recovery word</h3>
+              <p>Recommended if you might forget your name or password. You can skip and add one later in Settings. Sign in still works with the password alone.</p>
+              <div id="auth-recovery-pick">
+                <div class="tut-actions" style="margin:0.7rem 0 0;">
+                  <button type="button" class="btn btn-primary" id="auth-recovery-generate">Generate recovery word</button>
+                  <button type="button" class="btn ghost" id="auth-recovery-skip">Skip for now</button>
+                </div>
+              </div>
+              <div id="auth-recovery-show" hidden>
+                <p>Save this word now. It is shown once. Do not use the same text as the password.</p>
+                <p class="auth-recovery-word" id="auth-recovery-word"></p>
+                <p class="study-auth-error" id="auth-recovery-msg" hidden></p>
+                <div class="tut-actions" style="margin:0.7rem 0 0;">
+                  <button type="button" class="btn" id="auth-recovery-copy">Copy</button>
+                  <button type="button" class="btn btn-primary" id="auth-recovery-saved">I saved this</button>
+                  <button type="button" class="btn ghost" id="auth-recovery-skip2">Skip for now</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="account-signed" class="account-signed" hidden>
-            <p>You are signed in as <strong id="account-signed-name"></strong>. Use <strong>Settings</strong> for password, reset word, Share and trophies.</p>
+            <p>You are signed in as <strong id="account-signed-name"></strong>. Use <strong>Settings</strong> for password, recovery word, Share and trophies.</p>
           </div>
         </div>
       </div>
@@ -2281,7 +2333,7 @@
   <div id="profile-modal" class="profile-modal" hidden>
     <div class="profile-modal-card" role="dialog" aria-labelledby="profile-modal-title">
       <h3 id="profile-modal-title">Settings</h3>
-      <p id="settings-locked-note" hidden>Use the Account box on this page first. Then Settings can change password, reset word, Share and trophies.</p>
+      <p id="settings-locked-note" hidden>Use the Account box on this page first. Then Settings can change password, recovery word, Share and trophies.</p>
       <div id="settings-body">
         <p>Only your signed-in scores are shown. Other names on this device stay locked. Sign out before a classmate uses this browser. <a href="privacy-policy.html">Privacy policy</a>.</p>
         <ul class="profile-list" id="profile-list"></ul>
@@ -2301,17 +2353,17 @@
         <div class="tut-actions" style="margin:0.35rem 0 1rem;">
           <button type="button" class="btn" id="settings-pass-save">Change password</button>
         </div>
-        <h3>Reset word</h3>
-        <p id="settings-reset-lede">Used on this page if you forget your name or password. Do not use the same text as the password.</p>
+        <h3 id="settings-reset-title">Recovery word</h3>
+        <p id="settings-reset-lede">Used on the sign-in screen if you forget your name or password. Do not use the same text as the password.</p>
         <label for="settings-reset-now">Current password</label>
         <input id="settings-reset-now" type="password" maxlength="64" autocomplete="current-password" />
-        <label for="settings-reset-new">New reset word (at least 8 characters)</label>
+        <label for="settings-reset-new">New recovery word (at least 8 characters)</label>
         <input id="settings-reset-new" type="password" maxlength="64" autocomplete="off" />
-        <label for="settings-reset-new2">Repeat reset word</label>
+        <label for="settings-reset-new2">Repeat recovery word</label>
         <input id="settings-reset-new2" type="password" maxlength="64" autocomplete="off" />
         <p class="study-auth-error" id="settings-account-msg" hidden></p>
         <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-          <button type="button" class="btn" id="settings-reset-save">Save reset word</button>
+          <button type="button" class="btn" id="settings-reset-save">Add a recovery word</button>
         </div>
         <h3>Sharing</h3>
         <p>Off by default. If you tick this, people who also share can see your name, points, streak and trophy count. Password and quiz cards stay private.</p>
@@ -4700,22 +4752,29 @@ function showCourse(courseKey) {
     var reset2Lab = $("auth-reset2-label");
     if (pass2) pass2.hidden = !needSet;
     if (pass2Lab) pass2Lab.hidden = !needSet;
-    if (reset) reset.hidden = !needSet;
-    if (reset2) reset2.hidden = !needSet;
-    if (resetLab) resetLab.hidden = !needSet;
-    if (reset2Lab) reset2Lab.hidden = !needSet;
+    if (reset) reset.hidden = true;
+    if (reset2) reset2.hidden = true;
+    if (resetLab) resetLab.hidden = true;
+    if (reset2Lab) reset2Lab.hidden = true;
     if (lab) lab.textContent = needSet ? "Choose a password (at least 8 characters)" : "Password";
     if (btn) btn.textContent = needSet ? "Set password and sign in" : "Sign in";
     var pass = $("auth-pass");
     if (pass) pass.autocomplete = needSet ? "new-password" : "current-password";
   }
 
+  var pendingRecoveryAfterCreate = false;
+
   function studyAuthApplyUi() {
     var authed = profileIsAuthed();
+    var showRecovery = authed && pendingRecoveryAfterCreate;
     var lock = $("study-auth");
-    if (lock) lock.hidden = authed;
+    if (lock) lock.hidden = authed && !showRecovery;
+    var createBox = $("auth-create-signin");
+    if (createBox) createBox.hidden = authed;
+    var recovery = $("auth-recovery-step");
+    if (recovery) recovery.hidden = !showRecovery;
     var signed = $("account-signed");
-    if (signed) signed.hidden = !authed;
+    if (signed) signed.hidden = !authed || showRecovery;
     if ($("account-signed-name")) {
       $("account-signed-name").textContent = authed ? (profileActive().name || "") : "";
     }
@@ -6365,8 +6424,12 @@ function showCourse(courseKey) {
     if (lede) {
       lede.textContent = profileHasReset(profileActive())
         ? "Used on the sign-in screen if you forget your name or password. Do not use the same text as the password."
-        : "This account has no reset word yet. Set one so you can recover the name or password later.";
+        : "This account has no recovery word yet. Add one so you can recover the name or password later. You can skip this and still sign in with the password.";
     }
+    var resetTitle = $("settings-reset-title");
+    if (resetTitle) resetTitle.textContent = profileHasReset(profileActive()) ? "Recovery word" : "Add a recovery word";
+    var resetBtn = $("settings-reset-save");
+    if (resetBtn) resetBtn.textContent = profileHasReset(profileActive()) ? "Save recovery word" : "Add a recovery word";
   }
 
   function accountGoHome() {
@@ -6491,8 +6554,6 @@ function showCourse(courseKey) {
       return;
     }
     if (!profileHasPass(p)) {
-      var resetWord = (($("auth-reset") && $("auth-reset").value) || "");
-      var resetWord2 = (($("auth-reset2") && $("auth-reset2").value) || "");
       if (pass.length < PASS_MIN_NEW) {
         authSetError("Password must be at least 8 characters.");
         return;
@@ -6501,35 +6562,16 @@ function showCourse(courseKey) {
         authSetError("Passwords do not match.");
         return;
       }
-      if (resetWord.length < PASS_MIN_NEW) {
-        authSetError("Reset word must be at least 8 characters.");
-        return;
-      }
-      if (resetWord !== resetWord2) {
-        authSetError("Reset words do not match.");
-        return;
-      }
-      if (resetWord === pass) {
-        authSetError("Use a reset word that is different from the password.");
-        return;
-      }
       authSetError("Protecting the account...");
       profileWritePass(id, pass, function (err, dek) {
         if (err) {
           authSetError(err);
           return;
         }
-        profileWriteReset(id, resetWord, function (rerr) {
-          if (rerr) {
-            authSetError(rerr);
-            return;
-          }
-          if ($("auth-pass")) $("auth-pass").value = "";
-          if ($("auth-pass2")) $("auth-pass2").value = "";
-          if ($("auth-reset")) $("auth-reset").value = "";
-          if ($("auth-reset2")) $("auth-reset2").value = "";
-          profileUnlock(id, dek);
-        });
+        if ($("auth-pass")) $("auth-pass").value = "";
+        if ($("auth-pass2")) $("auth-pass2").value = "";
+        pendingRecoveryAfterCreate = true;
+        profileUnlock(id, dek);
       });
       return;
     }
@@ -6589,8 +6631,6 @@ function showCourse(courseKey) {
     var name = (($("auth-new-name") && $("auth-new-name").value) || "").replace(/\s+/g, " ").trim();
     var pass = (($("auth-new-pass") && $("auth-new-pass").value) || "");
     var pass2 = (($("auth-new-pass2") && $("auth-new-pass2").value) || "");
-    var resetWord = (($("auth-new-reset") && $("auth-new-reset").value) || "");
-    var resetWord2 = (($("auth-new-reset2") && $("auth-new-reset2").value) || "");
     authSetError("");
     if (!name) {
       authSetError("Write your name.");
@@ -6608,18 +6648,6 @@ function showCourse(courseKey) {
       authSetError("Passwords do not match.");
       return;
     }
-    if (resetWord.length < PASS_MIN_NEW) {
-      authSetError("Reset word must be at least 8 characters.");
-      return;
-    }
-    if (resetWord !== resetWord2) {
-      authSetError("Reset words do not match.");
-      return;
-    }
-    if (resetWord === pass) {
-      authSetError("Use a reset word that is different from the password.");
-      return;
-    }
     var store = profileEnsure();
     if (profileNameTaken(name, "")) {
       authSetError("That name is taken on this device. Sign in instead.");
@@ -6635,16 +6663,11 @@ function showCourse(courseKey) {
         authSetError(err);
         return;
       }
-      profileWriteReset(id, resetWord, function (rerr) {
-        if (rerr) {
-          authSetError(rerr);
-          return;
-        }
-        ["auth-new-name", "auth-new-pass", "auth-new-pass2", "auth-new-reset", "auth-new-reset2"].forEach(function (fid) {
-          if ($(fid)) $(fid).value = "";
-        });
-        profileUnlock(id, dek);
+      ["auth-new-name", "auth-new-pass", "auth-new-pass2"].forEach(function (fid) {
+        if ($(fid)) $(fid).value = "";
       });
+      pendingRecoveryAfterCreate = true;
+      profileUnlock(id, dek);
     });
   }
   function authClearFixFields() {
@@ -6745,7 +6768,7 @@ function showCourse(courseKey) {
     });
   });
   if ($("auth-create")) $("auth-create").addEventListener("click", authCreateClick);
-  ["auth-new-name", "auth-new-pass", "auth-new-pass2", "auth-new-reset", "auth-new-reset2"].forEach(function (id) {
+  ["auth-new-name", "auth-new-pass", "auth-new-pass2"].forEach(function (id) {
     if (!$(id)) return;
     $(id).addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
@@ -6754,6 +6777,111 @@ function showCourse(courseKey) {
       }
     });
   });
+  function authBindShowPass(btnId, inputIds) {
+    var btn = $(btnId);
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var show = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", show ? "true" : "false");
+      btn.textContent = show ? "Hide" : "Show";
+      inputIds.forEach(function (id) {
+        if ($(id)) $(id).type = show ? "text" : "password";
+      });
+    });
+  }
+  authBindShowPass("auth-new-pass-toggle", ["auth-new-pass", "auth-new-pass2"]);
+  authBindShowPass("auth-pass-toggle", ["auth-pass", "auth-pass2"]);
+
+  var pendingRecoveryWord = "";
+
+  function authRecoveryMsg(text) {
+    var el = $("auth-recovery-msg");
+    if (!el) return;
+    if (!text) {
+      el.hidden = true;
+      el.textContent = "";
+      return;
+    }
+    el.hidden = false;
+    el.textContent = text;
+  }
+
+  function authMakeRecoveryWord() {
+    var alphabet = "abcdefghijkmnpqrstuvwxyz23456789";
+    var bytes = new Uint8Array(12);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(bytes);
+    else {
+      var i;
+      for (i = 0; i < 12; i++) bytes[i] = Math.floor(Math.random() * 256);
+    }
+    var out = "";
+    var j;
+    for (j = 0; j < 12; j++) {
+      out += alphabet[bytes[j] % alphabet.length];
+      if (j === 3 || j === 7) out += "-";
+    }
+    return out;
+  }
+
+  function authFinishRecoveryStep() {
+    pendingRecoveryAfterCreate = false;
+    pendingRecoveryWord = "";
+    if ($("auth-recovery-word")) $("auth-recovery-word").textContent = "";
+    if ($("auth-recovery-show")) $("auth-recovery-show").hidden = true;
+    if ($("auth-recovery-pick")) $("auth-recovery-pick").hidden = false;
+    authRecoveryMsg("");
+    studyAuthApplyUi();
+  }
+
+  function authShowGeneratedRecovery() {
+    pendingRecoveryWord = authMakeRecoveryWord();
+    if ($("auth-recovery-word")) $("auth-recovery-word").textContent = pendingRecoveryWord;
+    if ($("auth-recovery-pick")) $("auth-recovery-pick").hidden = true;
+    if ($("auth-recovery-show")) $("auth-recovery-show").hidden = false;
+    authRecoveryMsg("");
+  }
+
+  function authSaveGeneratedRecovery() {
+    var word = pendingRecoveryWord;
+    if (!word || word.length < PASS_MIN_NEW) {
+      authRecoveryMsg("Generate a recovery word first.");
+      return;
+    }
+    if (!profileIsAuthed()) {
+      authRecoveryMsg("Sign in first, then save a recovery word.");
+      return;
+    }
+    authRecoveryMsg("Saving recovery word...");
+    profileWriteReset(profileId(), word, function (err) {
+      if (err) {
+        authRecoveryMsg(err);
+        return;
+      }
+      authFinishRecoveryStep();
+    });
+  }
+
+  function authCopyRecoveryWord() {
+    var word = pendingRecoveryWord || (($("auth-recovery-word") && $("auth-recovery-word").textContent) || "");
+    if (!word) {
+      authRecoveryMsg("Generate a recovery word first.");
+      return;
+    }
+    function ok() { authRecoveryMsg("Copied. Store it somewhere you can find later."); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(word).then(ok).catch(function () {
+        authRecoveryMsg("Could not copy. Select the word and copy it yourself.");
+      });
+      return;
+    }
+    authRecoveryMsg("Could not copy. Select the word and copy it yourself.");
+  }
+
+  if ($("auth-recovery-generate")) $("auth-recovery-generate").addEventListener("click", authShowGeneratedRecovery);
+  if ($("auth-recovery-copy")) $("auth-recovery-copy").addEventListener("click", authCopyRecoveryWord);
+  if ($("auth-recovery-saved")) $("auth-recovery-saved").addEventListener("click", authSaveGeneratedRecovery);
+  if ($("auth-recovery-skip")) $("auth-recovery-skip").addEventListener("click", authFinishRecoveryStep);
+  if ($("auth-recovery-skip2")) $("auth-recovery-skip2").addEventListener("click", authFinishRecoveryStep);
   if ($("profile-rename-save")) {
     $("profile-rename-save").addEventListener("click", function () {
       var input = $("profile-rename");
@@ -6823,21 +6951,21 @@ function showCourse(courseKey) {
       return;
     }
     if (next.length < PASS_MIN_NEW) {
-      settingsSetMsg("Reset word must be at least 8 characters.");
+      settingsSetMsg("Recovery word must be at least 8 characters.");
       return;
     }
     if (next !== next2) {
-      settingsSetMsg("Reset words do not match.");
+      settingsSetMsg("Recovery words do not match.");
       return;
     }
-    settingsSetMsg("Updating reset word...");
+    settingsSetMsg("Updating recovery word...");
     profileCheckSecret(p, now, "pass", function (ok) {
       if (!ok) {
         settingsSetMsg("Wrong current password.");
         return;
       }
       if (next === now) {
-        settingsSetMsg("Use a reset word that is different from the password.");
+        settingsSetMsg("Use a recovery word that is different from the password.");
         return;
       }
       profileWriteReset(profileId(), next, function (err) {
@@ -6848,7 +6976,7 @@ function showCourse(courseKey) {
         if ($("settings-reset-now")) $("settings-reset-now").value = "";
         if ($("settings-reset-new")) $("settings-reset-new").value = "";
         if ($("settings-reset-new2")) $("settings-reset-new2").value = "";
-        settingsSetMsg("Reset word saved.");
+        settingsSetMsg("Recovery word saved.");
         profileRenderModal();
       });
     });
