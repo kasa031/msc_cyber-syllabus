@@ -2872,7 +2872,7 @@
       {
         "id": "4100-w2p4-close-hard",
         "q": "Week 2 Part 4: how hard SHOULD arguing for the affirmative be?",
-        "a": "It SHOULD be hard.",
+        "a": "It SHOULD be hard. Slide reason: change adds risk. NOTE: Canvas Q2 does NOT accept the change/risk option. See 4100-w2p4-st-affirmative-hard.",
         "tags": [
           "rhetoric",
           "Toulmin",
@@ -2882,7 +2882,7 @@
       {
         "id": "4100-w2p4-close-risk",
         "q": "Week 2 Part 4: why does every proposal add risk?",
-        "a": "Every proposal brings change and change adds risk.",
+        "a": "Slide wording: every proposal brings change and change adds risk. NOTE: Canvas Part 4 self-test Q2 does NOT accept that option. See 4100-w2p4-st-affirmative-hard.",
         "tags": [
           "rhetoric",
           "Toulmin",
@@ -3009,8 +3009,8 @@
       },
       {
         "id": "4100-w2p4-st-affirmative-hard",
-        "q": "Rhetoric Part 4 self-test: why SHOULD arguing for the affirmative be hard?",
-        "a": "Because all proposals bring change and change adds risk. It SHOULD be hard. Not because only 10% succeed, and not because there are always other proposals.",
+        "q": "Rhetoric Part 4 self-test Q2: One might feel disheartened to want to argue for any proposal, given the multitude of attacks that can be used against it. But it is important to remember, that arguing for the affirmative SHOULD be hard, because ...",
+        "a": "Canvas drill key (inferred after Canvas rejected change/risk; no green check seen): there are always other proposals you can choose instead. Slide wording is change/risk: all proposals bring change and change adds risk. Canvas marked that option INCORRECT. Among remaining visible options, other proposals is the next most lecture-aligned (debate can help determine the best proposals; point of stasis). Not the 10% option (not on the slides). Confirm if you see the official correct mark. Two options showed as No answer text provided.",
         "tags": [
           "rhetoric",
           "Toulmin",
