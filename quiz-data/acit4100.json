@@ -3017,6 +3017,166 @@
           "week2-part4",
           "Canvas-quiz"
         ]
+      },
+      {
+        "id": "4100-w2p5-goal",
+        "q": "Week 2 Part 5: what goal does the lecture ask you to refocus on?",
+        "a": "Making good decisions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-options",
+        "q": "Week 2 Part 5: what do leaders and managers have when they need to make informed decisions?",
+        "a": "Several options to make informed decisions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-input",
+        "q": "Week 2 Part 5: when leaders want input or advice, what do they typically do?",
+        "a": "Have informal conversations with trusted employees, or organize a meeting / workshop or hearing.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-assist",
+        "q": "Week 2 Part 5: what open question does the lecture ask after listing those decision options?",
+        "a": "How would what we have covered until now assist in reaching the goal of good decisions?",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-proscons-title",
+        "q": "Week 2 Part 5: what common decision method does the lecture say does not always work?",
+        "a": "Pros vs cons.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-proscons-setup",
+        "q": "Week 2 Part 5: how does a typical pros vs cons session work?",
+        "a": "The participants brainstorm pros and cons which are written on a whiteboard.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-proscons-verbal",
+        "q": "Week 2 Part 5: whose voices does a pros vs cons whiteboard favor?",
+        "a": "Strong and verbal personalities.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-proscons-nuance",
+        "q": "Week 2 Part 5: what does a pros vs cons list lack?",
+        "a": "It has no nuance.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-proscons-aggregate",
+        "q": "Week 2 Part 5: is a pros vs cons list always an aggregate?",
+        "a": "No. It is not always an aggregate.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-proscons-weight",
+        "q": "Week 2 Part 5: what is missing from each point on a pros vs cons whiteboard, and what does the method assume?",
+        "a": "No visible value or weight of each point made, and it assumes it is the number that counts.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-vote-title",
+        "q": "Week 2 Part 5: besides pros vs cons, which other common method does the lecture say does not always work?",
+        "a": "Voting.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-vote-setup",
+        "q": "Week 2 Part 5: how does a typical vote-on-actions session work?",
+        "a": "Employees are asked to propose actions, which are written on a board. Everyone votes on them.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-vote-airtime",
+        "q": "Week 2 Part 5: whom does impromptu voting favor?",
+        "a": "Those who can handle impromptu elections and get the most airtime for their proposal.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-vote-prepare",
+        "q": "Week 2 Part 5: why do old and faithful proposals take center stage when people vote?",
+        "a": "Voting gives little time to thoroughly prepare proposals, so the old and faithful proposals take center stage.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-vote-defend",
+        "q": "Week 2 Part 5: what extra risk comes with proposing an action in a vote?",
+        "a": "If you propose it, you have to defend it, adding risk to looking foolish.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-vote-best",
+        "q": "Week 2 Part 5: does the proposal with the most votes have to be the best one?",
+        "a": "No. Sometimes, the best proposal is not the one with the most votes.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
       }
     ]
   }
