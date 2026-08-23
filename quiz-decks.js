@@ -7120,6 +7120,56 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-pres-reb-skills",
+        "q": "Week 2 Part 3: how does the lecture rebut \"We don't have the skills\"?",
+        "a": "People who teach, usually know how to learn. It's not about what you know right now.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-reb-incentive",
+        "q": "Week 2 Part 3: how does the lecture rebut \"There's no real incentive\"?",
+        "a": "No longer true.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-reb-work",
+        "q": "Week 2 Part 3: how does the lecture rebut \"It's a lot of work\"?",
+        "a": "Yes, but only initially. You'll end up with more flexibility in the long run and can use that on other career aspects.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-claim-after",
+        "q": "Week 2 Part 3: what is the refined flipped-classroom claim after the Toulmin work?",
+        "a": "Moving towards a flipped classroom approach is a good way to teach in a meaningful and engaging way while advancing your career.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-claim-refine",
+        "q": "Week 2 Part 3: how does the refined flipped-classroom claim differ from \"We should adopt flipped classroom approaches to teaching...?\"",
+        "a": "It is qualified (moving towards), tied to values (meaningful and engaging), and tied to agency / career (advancing your career).",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   },
@@ -7707,7 +7757,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 206,
+    acit4100: 211,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
