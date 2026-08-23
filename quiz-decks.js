@@ -7070,6 +7070,56 @@
           "Toulmin",
           "week2-part3"
         ]
+      },
+      {
+        "id": "4100-w2p3-pres-warrant-ex",
+        "q": "Week 2 Part 3: what is the explicit warrant in the flipped-classroom example?",
+        "a": "The studies I have presented are similar to our teaching environment and their results are believable.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-warrant-im",
+        "q": "Week 2 Part 3: what is the implicit warrant in the flipped-classroom example?",
+        "a": "We should aspire to continuously adjust our practices to those which currently provide the best outcomes.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-backing",
+        "q": "Week 2 Part 3: what backing is given in the flipped-classroom example?",
+        "a": "A colleague of mine has done the same and it also provided good results there.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-qualifiers",
+        "q": "Week 2 Part 3: which three qualifiers appear in the flipped-classroom example?",
+        "a": "Only those who are motivated will prioritize this. Some want to work on a different aspect of their career. Some feel structurally bound by the system.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
+      },
+      {
+        "id": "4100-w2p3-pres-agents",
+        "q": "Week 2 Part 3: who are the agents in the flipped-classroom example?",
+        "a": "Teachers who are inspired by engaging teaching methods and want to advance their career.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part3"
+        ]
       }
     ]
   },
@@ -7657,7 +7707,7 @@
   var EXPECTED = {
     acit4050: 169,
     acit4280: 209,
-    acit4100: 201,
+    acit4100: 206,
     "computer-basics": 28,
     "fellesjam-general": 26
   };
