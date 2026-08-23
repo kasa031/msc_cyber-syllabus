@@ -7859,6 +7859,116 @@
           "Toulmin",
           "week2-part5"
         ]
+      },
+      {
+        "id": "4100-w2p5-free-title",
+        "q": "Week 2 Part 5: besides pros vs cons and voting, which meeting method does the lecture say does not always work?",
+        "a": "A free discussion.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-free-setup",
+        "q": "Week 2 Part 5: how does a typical free discussion start?",
+        "a": "The topic is introduced in a meeting and everyone is asked for their opinion.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-free-dominant",
+        "q": "Week 2 Part 5: whose voices prevail in a free discussion?",
+        "a": "Dominant personalities prevail.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-free-battle",
+        "q": "Week 2 Part 5: what happens in a free discussion when no one has adequate time to prepare?",
+        "a": "Old battle-lines are redrawn.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-free-foolish",
+        "q": "Week 2 Part 5: what extra risk comes with proposing something in a free discussion?",
+        "a": "If you propose it, you have to defend it, adding risk to looking foolish.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-lead-title",
+        "q": "Week 2 Part 5: what can leaders do instead of relying on weak meeting methods?",
+        "a": "Promote valuable input.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-lead-stasis",
+        "q": "Week 2 Part 5: what should leaders predefine before people give input?",
+        "a": "The propositions and point of stasis.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-lead-values",
+        "q": "Week 2 Part 5: what should leaders specify about the decision at the end?",
+        "a": "The values by which a decision will be made at the end.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-lead-time",
+        "q": "Week 2 Part 5: how much time should leaders give people before the debate?",
+        "a": "Enough time to prepare good arguments.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-lead-debaters",
+        "q": "Week 2 Part 5: whom should leaders assign for propositions?",
+        "a": "Designated debaters for propositions.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
+      },
+      {
+        "id": "4100-w2p5-lead-rdf",
+        "q": "Week 2 Part 5: what should leaders write after the decision, and why?",
+        "a": "RDF (Reason For Decision), so employees can understand the reasoning of the leader.",
+        "tags": [
+          "rhetoric",
+          "Toulmin",
+          "week2-part5"
+        ]
       }
     ]
   },
