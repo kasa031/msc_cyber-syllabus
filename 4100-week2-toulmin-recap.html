@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="referrer" content="no-referrer" />
-  <title>ACIT4100 Week 2 - Toulmin recap</title>
+  <title>ACIT4100 Week 2 - CON playbook</title>
   <meta name="theme-color" content="#DF301C" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <style>
@@ -26,7 +26,7 @@
       line-height: 1.45;
     }
     .wrap { max-width: 42rem; margin: 0 auto; padding: 1.1rem 1.1rem 2.6rem; }
-    h1 { font-size: 1.32rem; margin: 0 0 0.35rem; color: var(--red); }
+    h1 { font-size: 1.42rem; margin: 0 0 0.35rem; color: var(--red); }
     h2 {
       font-size: 1.02rem;
       margin: 0;
@@ -43,6 +43,17 @@
     p, li { font-size: 0.92rem; }
     .lede { margin: 0 0 0.45rem; }
     .meta { font-size: 0.8rem; color: var(--red); margin: 0 0 0.85rem; }
+    .role {
+      background: var(--red);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      text-align: center;
+      padding: 0.7rem 0.75rem;
+      margin: 0 0 0.7rem;
+      border-radius: 4px;
+    }
     .prop {
       background: #FFFFFF;
       border: 3px solid var(--red);
@@ -50,7 +61,7 @@
       padding: 0.65rem 0.75rem;
       margin: 0 0 0.75rem;
     }
-    .prop p { margin: 0.2rem 0 0; }
+    .prop p { margin: 0.2rem 0 0; font-size: 1.05rem; font-weight: 700; }
     .say {
       font-style: italic;
       background: var(--cream);
@@ -59,8 +70,12 @@
       margin: 0.28rem 0;
       font-size: 0.88rem;
     }
-    section.debate { border-color: var(--orange); }
-    section.debate h2 { background: var(--orange); }
+    section.con { border-color: var(--red); }
+    section.con h2 { background: var(--red); }
+    section.lines { border-color: var(--orange); }
+    section.lines h2 { background: var(--orange); }
+    section.quiet { border-color: var(--line); opacity: 0.92; }
+    section.quiet h2 { background: #8A6A4A; }
     .warn {
       background: var(--red);
       color: #FFFFFF;
@@ -96,8 +111,9 @@
       margin: 0;
       padding: 0.5rem 0.75rem 0.65rem 1.25rem;
     }
-    section h3, section .say { margin-left: 0.75rem; margin-right: 0.75rem; }
+    section h3, section .say, section p.note { margin-left: 0.75rem; margin-right: 0.75rem; }
     section .say:last-child { margin-bottom: 0.7rem; }
+    section p.note { font-size: 0.88rem; }
     li { margin: 0.18rem 0; }
     .ask {
       border: 3px solid var(--red);
@@ -134,170 +150,146 @@
     }
     section.pairs .obj { font-weight: 700; }
     section.pairs .reb { display: block; margin-top: 0.12rem; }
+    .num {
+      display: inline-block;
+      background: var(--teal);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 0.05rem 0.35rem;
+      border-radius: 3px;
+      margin-right: 0.25rem;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <p class="back"><a href="index.html#notes">Back to the study app</a> · <a href="class-notes.html#acit4100">Class notes</a></p>
-    <h1>ACIT4100 Week 2 - Debate sheet + Toulmin recap</h1>
-    <p class="lede">In-class sheet first. Recap of Parts 1-5 below. P32 N020.025, Mon 24 Aug.</p>
+    <div class="role">YOU ARE CON / OPPOSITION / NEGATIVE</div>
+    <h1>CON playbook - Technology is the source of good</h1>
+    <p class="lede">Part 4 routes only, plus the Part 2/3 words you need to attack their case. Read the orange lines aloud.</p>
     <p class="jump">
-      <a href="#words">Words</a> ·
-      <a href="#rebuttals">Rebuttals</a> ·
       <a href="#stasis">Stasis</a> ·
-      <a href="#affirmative">Proposition</a> ·
-      <a href="#negative">Opposition</a> ·
-      <a href="#judge">Judge</a> ·
-      <a href="#p1">P1</a> ·
-      <a href="#p2">P2</a> ·
-      <a href="#p3">P3</a> ·
-      <a href="#p4">P4</a> ·
-      <a href="#p5">P5</a>
+      <a href="#direct">Disadvantages</a> ·
+      <a href="#counter">Counter</a> ·
+      <a href="#critique">Critique</a> ·
+      <a href="#lines">Say this</a> ·
+      <a href="#rebut">They will say</a> ·
+      <a href="#words">Words</a> ·
+      <a href="#p4">P4 recap</a>
     </p>
 
-    <section id="words">
-      <h2>Words from yesterday</h2>
-      <dl class="gloss">
-        <dt>Point of stasis</dt>
-        <dd>The one shared question both sides must stay on. Without it, people talk past each other.</dd>
-        <dt>Status quo</dt>
-        <dd>The current state of affairs. The affirmative indicts it as harmful.</dd>
-        <dt>Affirmative / proposition</dt>
-        <dd>The side that argues for change by offering a proposition.</dd>
-        <dt>Negative / opposition</dt>
-        <dd>The side that argues against that proposal.</dd>
-        <dt>Claim</dt>
-        <dd>What you want the audience to accept (opinion, action, vote, support).</dd>
-        <dt>Grounds</dt>
-        <dd>Support for the claim: evidence, data, anecdotes, or authority. Not only &quot;provable&quot; proof.</dd>
-        <dt>Warrant (explicit / implicit)</dt>
-        <dd>Why the grounds support the claim (&quot;why listen&quot;). Explicit is stated; implicit changes with the audience.</dd>
-        <dt>Backing</dt>
-        <dd>Support for the warrant itself (why that warrant is reliable).</dd>
-        <dt>Qualifier</dt>
-        <dd>Limits the claim (most likely, 90%, given what we know) so you need not defend every extreme case.</dd>
-        <dt>Rebuttal</dt>
-        <dd>Answers an expected objection and still pushes the claim.</dd>
-        <dt>Indictment</dt>
-        <dd>Naming what is wrong with the status quo, and starting the case from that charge.</dd>
-        <dt>Harm</dt>
-        <dd>The damage the status quo (or a proposal) does. Magnitude can be tested.</dd>
-        <dt>Solvency (vs feasibility)</dt>
-        <dd>Does the proposal actually solve the named harm? Feasibility is only whether you can do it.</dd>
-        <dt>Agency</dt>
-        <dd>Who must actually do the proposed action. Not always the same as the audience.</dd>
-        <dt>Opportunity cost</dt>
-        <dd>Committing to this action limits the ability to take later options.</dd>
-        <dt>Inherency</dt>
-        <dd>Obstacles, previous attempts, or current efforts that weaken the need for the proposal.</dd>
-        <dt>Direct disadvantages</dt>
-        <dd>Negative route: inherency, attack the harms, attack solvency (not feasibility).</dd>
-        <dt>Counter proposal</dt>
-        <dd>A different (or varied) proposal. Must be deliberative, not a question.</dd>
-        <dt>Critique of assumptions</dt>
-        <dd>Attack warrants, grounds, or the indictment. You can also flip the warrant.</dd>
-        <dt>Deliberative rhetoric</dt>
-        <dd>Forward-looking rhetoric about what to do next (not judicial or epideictic).</dd>
-        <dt>Flow</dt>
-        <dd>Note-taking system that lets you track the debate and do line-by-line refutation.</dd>
-        <dt>RFD / RDF</dt>
-        <dd>Reason For Decision. The judge or leader writes why they decided.</dd>
-        <dt>Vantage point</dt>
-        <dd>Awareness of where you stand, and the ability to see from another position. One debate payoff.</dd>
-        <dt>Cultural reinforcement</dt>
-        <dd>Debate strengthens a shared culture of good argument. One of the three payoffs (with vantage point and communication skills).</dd>
-      </dl>
-    </section>
-
-    <section class="pairs" id="rebuttals">
-      <h2>Rebuttals (overview slides)</h2>
-      <h3>Part 3 slide 39 - flipped classroom</h3>
-      <ul>
-        <li>
-          <span class="obj">We don't have the skills.</span>
-          <span class="reb">People who teach usually know how to learn. It's not about what you know right now.</span>
-        </li>
-        <li>
-          <span class="obj">There's no real incentive.</span>
-          <span class="reb">No longer true.</span>
-        </li>
-        <li>
-          <span class="obj">It's a lot of work.</span>
-          <span class="reb">Yes, but only initially. You'll end up with more flexibility later and can use that on other career aspects.</span>
-        </li>
-      </ul>
-      <h3>Part 2 smoking example</h3>
-      <ul>
-        <li>
-          <span class="obj">It is difficult (to stop).</span>
-          <span class="reb">I know it is difficult, but other products can help you control the nicotine addiction.</span>
-        </li>
-      </ul>
-    </section>
-
     <div class="prop" id="motion">
-      <strong>Proposition</strong>
+      <strong>Proposition you reject</strong>
       <p>&quot;Technology is the source of good in the world.&quot;</p>
     </div>
 
-    <section class="debate" id="stasis">
-      <h2>Point of stasis (shared first)</h2>
-      <p class="warn">If the room has no shared stasis, people talk past each other. Do not start slides or speeches until this is agreed.</p>
+    <section class="con" id="stasis">
+      <h2>1. Force this point of stasis</h2>
+      <p class="warn">Do not let them debate &quot;is tech useful?&quot; Force: is technology THE SOURCE of good, or only a tool?</p>
       <ul>
-        <li>One question only: <strong>Should we accept that technology is the source of good in the world?</strong></li>
-        <li>Not: is tech useful, is tech evil, who likes gadgets, or who is a better speaker.</li>
-        <li>Disassociate the argument from the person. Best decision, not winning.</li>
+        <li>Attack the word <strong>source</strong>. A source is the origin. A tool is used by someone else.</li>
+        <li>Shared question: <strong>Is technology the source of good in the world, or is it a tool under human values and institutions?</strong></li>
+        <li>If they list vaccines and phones, say: those are grounds for usefulness, not for origin.</li>
+      </ul>
+      <p class="say">Before we start: our stasis is not whether technology can help. It is whether technology is the source of good. Source means origin. We reject that.</p>
+    </section>
+
+    <section class="con" id="direct">
+      <h2>2. Direct disadvantages (Part 4)</h2>
+      <h3>Inherency</h3>
+      <ul>
+        <li>We already have technology. The status quo is not a world without tech.</li>
+        <li>In many ways things are already fine, or already improving, without treating tech as the origin of good.</li>
+        <li>Better fixes already exist: policy, ethics, education, law, democratic control. Those obstacles and current efforts weaken the need for their proposition.</li>
+      </ul>
+      <h3>Attack harms</h3>
+      <ul>
+        <li>They will say a world without tech is doomed. That harm is overstated.</li>
+        <li>People had care, justice, art, and solidarity before this stack of devices. Magnitude fails.</li>
+        <li>The worst harms today often sit <em>inside</em> tech use: war, surveillance, addiction. That is not &quot;too little tech.&quot;</li>
+      </ul>
+      <h3>Attack solvency (not feasibility)</h3>
+      <ul>
+        <li>Solvency = does tech <em>create</em> good and solve the named harm? Feasibility = can we build it. Do not attack &quot;tech is infeasible.&quot;</li>
+        <li>Tech does not create good. It does not solve war, inequality, or meaning.</li>
+        <li>It treats symptoms, not the disease. A vaccine is a tool. The source of the good is the choice to care and to share it.</li>
       </ul>
     </section>
 
-    <section class="debate" id="affirmative">
-      <h2>Proposition (affirmative)</h2>
-      <ul>
-        <li><strong>Indict status quo:</strong> without treating tech as a source of good, we leave preventable harms in place (disease, isolation, unsafe water, slow knowledge).</li>
-        <li><strong>Solvency:</strong> tech must <em>solve that harm</em>, not just be feasible to build. Vaccines and diagnostics cut death. Networks move knowledge. That is solvency. &quot;We can ship more apps&quot; is only feasibility.</li>
-        <li><strong>Be an example:</strong> argue as if this room will act; show one clean case, not a catalogue.</li>
-        <li><strong>Qualifier:</strong> &quot;the source&quot; is extreme. Say <em>a primary source</em>, <em>often</em>, <em>most likely</em>. Leave a rebuttal: tech can harm if agency is missing.</li>
-        <li><strong>Agency:</strong> who must <em>do</em> it (designers, firms, states), not always this audience. Watch opportunity cost.</li>
-      </ul>
-      <h3>Say (affirmative)</h3>
-      <p class="say">Claim: we should treat technology as a primary source of good, because it uniquely scales solutions to shared harms.</p>
-      <p class="say">Grounds: vaccines, sanitation systems, and research networks reduced death and isolation at a scale no single person can match.</p>
-      <p class="say">Warrant: if a means systematically solves the harm we indict, it is a source of good, not only a gadget.</p>
-      <p class="say">Qualifier + agency: not every tool, and not by itself. People and institutions must deploy it; otherwise the status quo harm stays.</p>
+    <section class="con" id="counter">
+      <h2>3. Counter proposal (deliberative, not a question)</h2>
+      <p class="note">Say a sentence about what we should do. Do not ask &quot;but what about AI?&quot;</p>
+      <p class="say">I think human values, institutions, and democratic control are a better source of good, because they decide whether a tool heals, harms, or is withheld.</p>
+      <p class="say">We should treat technology as a means we constrain, not as the origin of good.</p>
     </section>
 
-    <section class="debate" id="negative">
-      <h2>Opposition (negative)</h2>
+    <section class="con" id="critique">
+      <h2>4. Critique of assumptions / flip the warrant</h2>
       <ul>
-        <li><strong>Direct disadvantages:</strong> inherency (the harm is already inside tech: bias, lock-in, weapons); attack harms (those deaths are not mainly from &quot;too little tech&quot;); attack solvency (tech does not solve the named harm, or it trades one harm for another). Feasibility is not the target.</li>
-        <li><strong>Counter proposals (deliberative, not questions):</strong> &quot;We should treat human judgement and institutions as the source of good, and technology as a tool.&quot; Not &quot;but what about AI risk?&quot;</li>
-        <li><strong>Critique / flip the warrant:</strong> the aff warrant is &quot;what enables good <em>is</em> the source.&quot; Flip: a tool is not a source; agents are. Smoking-style: same grounds, new implicit warrant.</li>
+        <li>They assume technology equals the origin of good. That warrant is false.</li>
+        <li><strong>Flip:</strong> if we want good, we must constrain tech (safety, privacy, war). Constraint is what makes outcomes good. That proves agents and values are the source.</li>
+        <li>&quot;Source of&quot; is an unqualified claim. No qualifier. Then extreme cases count: nuclear weapons, mass surveillance, addiction design.</li>
+        <li>Same grounds, new warrant (smoking-style): vaccines happened, therefore people and institutions directed a tool. Not: therefore tech is the source.</li>
       </ul>
-      <h3>Say (opposition)</h3>
-      <p class="say">The status quo harm is not lack of tech. It is unaccountable tech. So the indictment misfires.</p>
-      <p class="say">Even if vaccines work, that does not prove tech is <em>the</em> source of good. People, ethics, and law decided to use them. Solvency fails on the word &quot;source.&quot;</p>
-      <p class="say">Counter proposal: fund and constrain technology as a means. Locate the source of good in responsible agents, not in artefacts.</p>
     </section>
 
-    <section class="debate" id="judge">
-      <h2>Judge (what you can say)</h2>
-      <ul>
-        <li>Aim: the <strong>best decision</strong>, not who won the room.</li>
-        <li>Hold the stasis. If speakers leave it, pull them back.</li>
-        <li>Attack the argument, not the person. Both sides are critics.</li>
-        <li>Weight, do not count, the points. Flow / line-by-line if you can.</li>
-        <li>End with an <strong>RFD</strong> (Reason For Decision).</li>
-      </ul>
-      <h3>Say (judge)</h3>
-      <p class="say">Before we start: our stasis is whether technology is the source of good in the world. Stay on that.</p>
-      <p class="say">I am not scoring who sounded confident. I am deciding which claim is better warranted.</p>
-      <p class="say">Affirmative, I heard feasibility. I need solvency: does tech actually fix the harm you indicted?</p>
-      <p class="say">Opposition, a question is not a counter proposal. Tell me what we should do instead.</p>
-      <p class="say">I weigh the flipped warrant on &quot;source&quot; more than the list of gadgets. One strong clash beats five weak points.</p>
-      <p class="say">RFD: I decide for [side] because they kept stasis and showed [solvency / failed source-claim / better agency], not because they were louder.</p>
+    <section class="lines" id="lines">
+      <h2>5. Ready-to-say lines (read aloud)</h2>
+      <p class="say"><span class="num">1</span> We reject the claim that technology is the source of good. Source means origin. Technology is a tool.</p>
+      <p class="say"><span class="num">2</span> Keep stasis on the word source. Usefulness is not the same as origin.</p>
+      <p class="say"><span class="num">3</span> We already live with technology. The status quo is not a stone-age vacuum. Inherency is weak for their side.</p>
+      <p class="say"><span class="num">4</span> Better fixes already exist: policy, ethics, and education. We do not need to crown tech as the source of good.</p>
+      <p class="say"><span class="num">5</span> A world without tech is not doomed. Care, law, and solidarity existed before this stack of devices. Their harm is overstated.</p>
+      <p class="say"><span class="num">6</span> I am not saying technology is infeasible. I am saying it has no solvency on this claim. It does not create good.</p>
+      <p class="say"><span class="num">7</span> Technology does not solve war, inequality, or meaning. It is a symptom-fixer, not the disease and not the cure.</p>
+      <p class="say"><span class="num">8</span> I think human values, institutions, and democratic control are a better source of good, because they decide how any tool is used.</p>
+      <p class="say"><span class="num">9</span> Flip their warrant: if we want good, we must constrain technology for safety, privacy, and war. Constraint proves the source sits with us.</p>
+      <p class="say"><span class="num">10</span> Their claim has no qualifier. Then extreme cases count: nuclear weapons, surveillance, and addiction design.</p>
+      <p class="say"><span class="num">11</span> Vaccines and networks are grounds for a useful tool. They are not grounds that artefacts are the origin of good.</p>
+      <p class="say"><span class="num">12</span> Locate the source in responsible agents. Fund and constrain technology as a means, not as a moral origin.</p>
     </section>
 
-    <p class="meta">Night scores: P1 4/5, P2 4/4, P3 5/6, P4 1/2, P5 2/2. Recap of the five parts:</p>
+    <section class="pairs" id="rebut">
+      <h2>6. They will say / you answer</h2>
+      <ul>
+        <li>
+          <span class="obj">They: Vaccines, water systems, and the internet prove tech is the source of good.</span>
+          <span class="reb">You: Those are tools. People chose to fund, share, and regulate them. Solvency fails on the word source.</span>
+        </li>
+        <li>
+          <span class="obj">They: Without technology the world is doomed (disease, isolation, ignorance).</span>
+          <span class="reb">You: Harm overstated. We already have tech, and good existed before this stack. Magnitude fails.</span>
+        </li>
+        <li>
+          <span class="obj">They: Tech uniquely scales solutions, so it must be the source.</span>
+          <span class="reb">You: Scale is feasibility plus reach. Solvency is whether it creates good. It does not solve war, inequality, or meaning.</span>
+        </li>
+        <li>
+          <span class="obj">They: You are anti-technology / you want to ban tools.</span>
+          <span class="reb">You: No. Counter proposal: treat tech as a means. Human values and democratic control are the better source.</span>
+        </li>
+        <li>
+          <span class="obj">They: Bad uses are user error, not the technology.</span>
+          <span class="reb">You: Then you already concede agency. If users and states decide, they are the source, not the artefact.</span>
+        </li>
+        <li>
+          <span class="obj">They: We can qualify: a primary source, often, most of the time.</span>
+          <span class="reb">You: The motion is unqualified. If they add a qualifier they have left the proposition. Extreme cases still land: nukes, surveillance, addiction.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="quiet" id="aff-short">
+      <h2>They will run (short, for rebuttal only)</h2>
+      <ul>
+        <li>Indictment: without tech as a source of good, preventable harms stay (disease, isolation).</li>
+        <li>Solvency story: vaccines and networks solve those harms at scale.</li>
+        <li>You do not need a judge script. Hold stasis on <strong>source</strong>, then hit inherency, harms, solvency, and the counter proposal.</li>
+      </ul>
+    </section>
+
+    <p class="meta">Night scores: P1 4/5, P2 4/4, P3 5/6, P4 1/2, P5 2/2. Recap below if you need a term.</p>
     <div class="scores" aria-label="Self-test scores">
       <span>P1 4/5</span>
       <span>P2 4/4</span>
@@ -306,65 +298,62 @@
       <span>P5 2/2</span>
     </div>
 
-    <div class="ask">
-      <strong>Ask in class.</strong> What is the passing score for the Rhetoric self-tests (parts 1-5)? Canvas does not state a minimum, and they are not listed under Assignments.
-    </div>
-
-    <section id="p1">
-      <h2>Part 1 - Why debates are important</h2>
-      <ul>
-        <li>Prerequisites: a point of stasis; the argument is disassociated from the debater; the aim is the best decision, not winning.</li>
-        <li>Fill-in: a clearly defined <strong>stasis</strong> (not "argument").</li>
-        <li>Three payoffs: vantage point awareness, communication skills, cultural reinforcement.</li>
-        <li>Meeting problem: no point of stasis, so people talk past each other.</li>
-      </ul>
-    </section>
-
-    <section id="p2">
-      <h2>Part 2 - The model</h2>
-      <ul>
-        <li>A good argument is persuasive, <strong>deliberative</strong> rhetoric (future), and relevant.</li>
-        <li>Stephen Toulmin, from court cases: get the right <strong>components</strong>, not a fixed order.</li>
-        <li>Six parts: Claim, Grounds, Warrant, Backing, Qualifier, Rebuttal.</li>
-        <li>Claim = what you want believed. Grounds = support (anecdotes are OK; not only "provable" evidence). Warrant = "why listen".</li>
-        <li>Smoking examples: colleague vs spouse changes the <strong>implicit</strong> warrant.</li>
-        <li>Qualifiers for extreme cases: most likely, 90%, insurance-style phrases.</li>
-        <li>In debate: flow / line-by-line refutation.</li>
-        <li>Self-test traps: deliberative, not "general"; match the table; False that grounds must be only provable evidence.</li>
-      </ul>
-    </section>
-
-    <section id="p3">
-      <h2>Part 3 - Affirmative</h2>
-      <ul>
-        <li>Three aspects: indict the status quo; demonstrate solvency (solves the harm, <strong>not</strong> the same as feasible); be an example.</li>
-        <li>Know the audience; do prior research (background chapter); keep nuance (qualifiers + agency).</li>
-        <li>Agency = who must <strong>do</strong> it, not always the audience. Watch opportunity cost.</li>
-        <li>Papers: intro claim vs approach claim.</li>
-        <li>Flipped case: indictment, harms, grounds + solvency, warrant/backing, qualifiers, rebuttals, then a refined claim.</li>
-        <li>Toulmin does not prescribe delivery order.</li>
-      </ul>
+    <section id="words">
+      <h2>Words you need today</h2>
+      <dl class="gloss">
+        <dt>Point of stasis</dt>
+        <dd>The one shared question both sides must stay on. Yours: source, or tool?</dd>
+        <dt>Status quo</dt>
+        <dd>The current state of affairs. We already have tech.</dd>
+        <dt>Claim / grounds / warrant</dt>
+        <dd>Claim = what they want accepted. Grounds = support. Warrant = why those grounds prove the claim.</dd>
+        <dt>Qualifier</dt>
+        <dd>Limits a claim (often, most likely). Their motion has none, so extreme cases count.</dd>
+        <dt>Rebuttal</dt>
+        <dd>Answers an expected objection and still pushes your claim.</dd>
+        <dt>Harm</dt>
+        <dd>The damage they say the status quo does. Test the magnitude.</dd>
+        <dt>Solvency (vs feasibility)</dt>
+        <dd>Does the proposal actually solve the named harm? Feasibility is only whether you can do it. Attack solvency.</dd>
+        <dt>Inherency</dt>
+        <dd>Current efforts or facts that weaken the need for their proposition.</dd>
+        <dt>Direct disadvantages</dt>
+        <dd>Negative route: inherency, attack the harms, attack solvency (not feasibility).</dd>
+        <dt>Counter proposal</dt>
+        <dd>A different proposal. Must be deliberative, not a question.</dd>
+        <dt>Critique of assumptions</dt>
+        <dd>Attack warrants, grounds, or the indictment. You can flip the warrant.</dd>
+        <dt>Deliberative rhetoric</dt>
+        <dd>Forward-looking rhetoric about what to do next.</dd>
+      </dl>
     </section>
 
     <section id="p4">
-      <h2>Part 4 - Negative</h2>
+      <h2>Part 4 recap - Negative</h2>
       <ul>
         <li>Three routes: direct disadvantages, counter proposals, critique of assumptions.</li>
         <li>Also: inherency; attack harms; attack solvency (not feasibility).</li>
         <li>Counter proposals are deliberative, not interrogative.</li>
         <li>Flip the warrant.</li>
-        <li>The affirmative <strong>should</strong> be hard to beat.</li>
-        <li>Canvas rejected "change adds risk" as the Q2 key (score 1/2, no retake).</li>
+        <li>The affirmative should be hard to beat. Still beat the word source.</li>
+        <li>Canvas rejected &quot;change adds risk&quot; as the Q2 key (score 1/2, no retake).</li>
       </ul>
     </section>
 
-    <section id="p5">
-      <h2>Part 5 - Decisions</h2>
+    <section id="p2">
+      <h2>Part 2 - Model (short)</h2>
       <ul>
-        <li>Pros/cons lists, voting, and free discussion fail as decision tools.</li>
-        <li>Leaders: predefine the issue + stasis; surface values; set time; designate debaters; give an RFD/RDF (Reason For Decision).</li>
-        <li>Culture: scientists are humans. Informal settings: discuss, do not attack.</li>
-        <li>Do not dismiss dissenters. Toulmin: to condemn dissenters as dissidents is to condemn yourselves.</li>
+        <li>Six parts: Claim, Grounds, Warrant, Backing, Qualifier, Rebuttal.</li>
+        <li>Smoking examples: same grounds, different implicit warrant.</li>
+        <li>Qualifiers for extreme cases: most likely, 90%. They gave you none.</li>
+      </ul>
+    </section>
+
+    <section id="p3">
+      <h2>Part 3 - What they were taught</h2>
+      <ul>
+        <li>Indict the status quo; show solvency (not feasibility); be an example.</li>
+        <li>Agency = who must do it. If they admit agency, you win on source.</li>
       </ul>
     </section>
   </div>
