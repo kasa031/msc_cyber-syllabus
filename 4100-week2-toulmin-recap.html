@@ -35,9 +35,40 @@
       padding: 0.4rem 0.65rem;
       border-radius: 4px 4px 0 0;
     }
+    h3 {
+      font-size: 0.88rem;
+      margin: 0.55rem 0 0.15rem;
+      color: var(--red);
+    }
     p, li { font-size: 0.92rem; }
     .lede { margin: 0 0 0.45rem; }
     .meta { font-size: 0.8rem; color: var(--red); margin: 0 0 0.85rem; }
+    .prop {
+      background: #FFFFFF;
+      border: 3px solid var(--red);
+      border-radius: 4px;
+      padding: 0.65rem 0.75rem;
+      margin: 0 0 0.75rem;
+    }
+    .prop p { margin: 0.2rem 0 0; }
+    .say {
+      font-style: italic;
+      background: var(--cream);
+      border-left: 4px solid var(--orange);
+      padding: 0.28rem 0.5rem;
+      margin: 0.28rem 0;
+      font-size: 0.88rem;
+    }
+    section.debate { border-color: var(--orange); }
+    section.debate h2 { background: var(--orange); }
+    .warn {
+      background: var(--red);
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 0.45rem 0.65rem;
+      margin: 0;
+      font-size: 0.88rem;
+    }
     a { color: var(--red); font-weight: 600; }
     a:hover { color: var(--teal); }
     .scores {
@@ -65,6 +96,8 @@
       margin: 0;
       padding: 0.5rem 0.75rem 0.65rem 1.25rem;
     }
+    section h3, section .say { margin-left: 0.75rem; margin-right: 0.75rem; }
+    section .say:last-child { margin-bottom: 0.7rem; }
     li { margin: 0.18rem 0; }
     .ask {
       border: 3px solid var(--red);
@@ -82,9 +115,83 @@
 <body>
   <div class="wrap">
     <p class="back"><a href="index.html#notes">Back to the study app</a> · <a href="class-notes.html#acit4100">Class notes</a></p>
-    <h1>ACIT4100 Week 2 - Toulmin recap (23 Aug)</h1>
-    <p class="lede">Flipped classroom, videos + self-tests. Class today 08:30, P32 N020.025.</p>
-    <p class="meta">Scores from Sun 23 Aug into Mon 24 Aug ~00:08.</p>
+    <h1>ACIT4100 Week 2 - Debate sheet + Toulmin recap</h1>
+    <p class="lede">In-class sheet first. Recap of Parts 1-5 below. P32 N020.025, Mon 24 Aug.</p>
+    <p class="jump">
+      <a href="#stasis">Stasis</a> ·
+      <a href="#affirmative">Proposition</a> ·
+      <a href="#negative">Opposition</a> ·
+      <a href="#judge">Judge</a> ·
+      <a href="#p1">P1</a> ·
+      <a href="#p2">P2</a> ·
+      <a href="#p3">P3</a> ·
+      <a href="#p4">P4</a> ·
+      <a href="#p5">P5</a>
+    </p>
+
+    <div class="prop" id="motion">
+      <strong>Proposition</strong>
+      <p>&quot;Technology is the source of good in the world.&quot;</p>
+    </div>
+
+    <section class="debate" id="stasis">
+      <h2>Point of stasis (shared first)</h2>
+      <p class="warn">If the room has no shared stasis, people talk past each other. Do not start slides or speeches until this is agreed.</p>
+      <ul>
+        <li>One question only: <strong>Should we accept that technology is the source of good in the world?</strong></li>
+        <li>Not: is tech useful, is tech evil, who likes gadgets, or who is a better speaker.</li>
+        <li>Disassociate the argument from the person. Best decision, not winning.</li>
+      </ul>
+    </section>
+
+    <section class="debate" id="affirmative">
+      <h2>Proposition (affirmative)</h2>
+      <ul>
+        <li><strong>Indict status quo:</strong> without treating tech as a source of good, we leave preventable harms in place (disease, isolation, unsafe water, slow knowledge).</li>
+        <li><strong>Solvency:</strong> tech must <em>solve that harm</em>, not just be feasible to build. Vaccines and diagnostics cut death. Networks move knowledge. That is solvency. &quot;We can ship more apps&quot; is only feasibility.</li>
+        <li><strong>Be an example:</strong> argue as if this room will act; show one clean case, not a catalogue.</li>
+        <li><strong>Qualifier:</strong> &quot;the source&quot; is extreme. Say <em>a primary source</em>, <em>often</em>, <em>most likely</em>. Leave a rebuttal: tech can harm if agency is missing.</li>
+        <li><strong>Agency:</strong> who must <em>do</em> it (designers, firms, states), not always this audience. Watch opportunity cost.</li>
+      </ul>
+      <h3>Say (affirmative)</h3>
+      <p class="say">Claim: we should treat technology as a primary source of good, because it uniquely scales solutions to shared harms.</p>
+      <p class="say">Grounds: vaccines, sanitation systems, and research networks reduced death and isolation at a scale no single person can match.</p>
+      <p class="say">Warrant: if a means systematically solves the harm we indict, it is a source of good, not only a gadget.</p>
+      <p class="say">Qualifier + agency: not every tool, and not by itself. People and institutions must deploy it; otherwise the status quo harm stays.</p>
+    </section>
+
+    <section class="debate" id="negative">
+      <h2>Opposition (negative)</h2>
+      <ul>
+        <li><strong>Direct disadvantages:</strong> inherency (the harm is already inside tech: bias, lock-in, weapons); attack harms (those deaths are not mainly from &quot;too little tech&quot;); attack solvency (tech does not solve the named harm, or it trades one harm for another). Feasibility is not the target.</li>
+        <li><strong>Counter proposals (deliberative, not questions):</strong> &quot;We should treat human judgement and institutions as the source of good, and technology as a tool.&quot; Not &quot;but what about AI risk?&quot;</li>
+        <li><strong>Critique / flip the warrant:</strong> the aff warrant is &quot;what enables good <em>is</em> the source.&quot; Flip: a tool is not a source; agents are. Smoking-style: same grounds, new implicit warrant.</li>
+      </ul>
+      <h3>Say (opposition)</h3>
+      <p class="say">The status quo harm is not lack of tech. It is unaccountable tech. So the indictment misfires.</p>
+      <p class="say">Even if vaccines work, that does not prove tech is <em>the</em> source of good. People, ethics, and law decided to use them. Solvency fails on the word &quot;source.&quot;</p>
+      <p class="say">Counter proposal: fund and constrain technology as a means. Locate the source of good in responsible agents, not in artefacts.</p>
+    </section>
+
+    <section class="debate" id="judge">
+      <h2>Judge (what you can say)</h2>
+      <ul>
+        <li>Aim: the <strong>best decision</strong>, not who won the room.</li>
+        <li>Hold the stasis. If speakers leave it, pull them back.</li>
+        <li>Attack the argument, not the person. Both sides are critics.</li>
+        <li>Weight, do not count, the points. Flow / line-by-line if you can.</li>
+        <li>End with an <strong>RFD</strong> (Reason For Decision).</li>
+      </ul>
+      <h3>Say (judge)</h3>
+      <p class="say">Before we start: our stasis is whether technology is the source of good in the world. Stay on that.</p>
+      <p class="say">I am not scoring who sounded confident. I am deciding which claim is better warranted.</p>
+      <p class="say">Affirmative, I heard feasibility. I need solvency: does tech actually fix the harm you indicted?</p>
+      <p class="say">Opposition, a question is not a counter proposal. Tell me what we should do instead.</p>
+      <p class="say">I weigh the flipped warrant on &quot;source&quot; more than the list of gadgets. One strong clash beats five weak points.</p>
+      <p class="say">RFD: I decide for [side] because they kept stasis and showed [solvency / failed source-claim / better agency], not because they were louder.</p>
+    </section>
+
+    <p class="meta">Night scores: P1 4/5, P2 4/4, P3 5/6, P4 1/2, P5 2/2. Recap of the five parts:</p>
     <div class="scores" aria-label="Self-test scores">
       <span>P1 4/5</span>
       <span>P2 4/4</span>
@@ -92,13 +199,6 @@
       <span class="weak">P4 1/2</span>
       <span>P5 2/2</span>
     </div>
-    <p class="jump">
-      <a href="#p1">P1</a> ·
-      <a href="#p2">P2</a> ·
-      <a href="#p3">P3</a> ·
-      <a href="#p4">P4</a> ·
-      <a href="#p5">P5</a>
-    </p>
 
     <div class="ask">
       <strong>Ask in class.</strong> What is the passing score for the Rhetoric self-tests (parts 1-5)? Canvas does not state a minimum, and they are not listed under Assignments.
