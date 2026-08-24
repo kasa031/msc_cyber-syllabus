@@ -432,7 +432,6 @@
       chip.type = "button";
       chip.className = "fp-chip";
       chip.setAttribute("data-id", item.id);
-      chip.style.borderLeft = "5px solid " + (item.color || KILL_BLUE);
       chip.textContent = item.label;
       tray.appendChild(chip);
     });

@@ -52,12 +52,12 @@
     <p class="back"><a href="index.html">Back to the study app</a></p>
     <h1>Privacy policy</h1>
     <p class="lede">What this study app stores on your device, what it never stores, and what it never sends.</p>
-    <p class="meta">MSc Cybersecurity Practise Syllabus 1st Year. Last updated 23 August 2026.</p>
+    <p class="meta">MSc Cybersecurity Practise Syllabus 1st Year. Last updated 24 August 2026.</p>
 
     <section>
       <h2>1. What this app is</h2>
       <p>This is a student study tool (quiz, terminal tutorial, class notes). The public copy is static files on GitHub Pages. It is <strong>not</strong> an official OsloMet service and it has <strong>no cloud account</strong>.</p>
-      <p>The person who publishes the files can update the quiz text. They cannot see your name, password, points or cards unless you show them your phone or send a score code yourself.</p>
+      <p>The person who publishes the files can update the quiz text. They cannot see your display name, points or cards unless you show them your phone or send a score code yourself.</p>
     </section>
 
     <section>
@@ -67,7 +67,7 @@
         <li>No cookies for tracking, ads or analytics.</li>
         <li>No Google Analytics, Facebook pixels, or similar.</li>
         <li>No third-party score cloud (nothing is posted to jsonblob or other hosts).</li>
-        <li>Passwords and reset words are never stored in plain text.</li>
+        <li>No password, account or recovery word is required.</li>
         <li>Quiz answers you type are not uploaded.</li>
         <li>The app does not send your progress to another phone by itself.</li>
       </ul>
@@ -75,68 +75,58 @@
 
     <section>
       <h2>3. What stays on this device</h2>
-      <p>The browser stores data in <code>localStorage</code> and <code>sessionStorage</code> on <em>this</em> phone or PC only.</p>
-      <h3>Account (this browser)</h3>
+      <p>The browser stores data in <code>localStorage</code> on <em>this</em> phone or PC only.</p>
+      <h3>Local preferences</h3>
       <ul>
         <li>Display name you choose (max 24 characters).</li>
-        <li>Password check: salt + PBKDF2-SHA-256 (310000 iterations). The password itself is not saved.</li>
-        <li>Recovery word (optional): stored the same way (hashed), so you can recover the name or password on this device. You can skip it at signup and add it later in Settings.</li>
         <li>Share flag (off unless you tick it) and a random ranking id if you share.</li>
-        <li>Failed-sign-in lockout (count and wait time) so guessing is slowed down.</li>
       </ul>
-      <h3>Study progress (encrypted when you are signed in)</h3>
+      <h3>Study progress</h3>
       <ul>
         <li>Points, streak, trophies, due cards, drill lists.</li>
         <li>Spaced-repetition queues and flash-card position.</li>
       </ul>
-      <p>Those values are wrapped with AES-GCM (<code>ENC1.</code>). After you sign out, or close the tab, the key leaves <code>sessionStorage</code>. Other people on this browser see ciphertext, not your scores.</p>
-      <h3>Tutorial progress (this device, not in the vault)</h3>
+      <h3>Tutorial progress</h3>
       <ul>
         <li>Where you are in the ACIT4050 terminal tutorial.</li>
         <li>Where you are in the Computer basics tutorial.</li>
         <li>Last course tab you opened.</li>
       </ul>
-      <p>Those three items are ordinary browser storage. They are not your password and not a ranking score.</p>
+      <p>All progress is ordinary browser storage. Clearing site data removes it.</p>
     </section>
 
     <section>
-      <h2>4. Sign-in session</h2>
-      <p>While you are signed in, the tab keeps a short-lived session (including the vault key) in <code>sessionStorage</code>. Close the tab or press Sign out and the session is gone. Another classmate should not use the same tab while you are signed in.</p>
-    </section>
-
-    <section>
-      <h2>5. Sharing is off unless you tick it</h2>
-      <p>Default: nobody sees your points. If you tick <strong>Share my score on the class ranking</strong>, this browser can show your <strong>name, points, streak and trophy count</strong> to other accounts on the <em>same</em> device that also ticked Share.</p>
-      <p>You can also copy a score code that starts with <code>MSC1|</code>. That code holds only those four public fields plus a time stamp. Paste it only if you want that person to add you to their board. Password, reset word and quiz cards are never in the code.</p>
+      <h2>4. Sharing is off unless you tick it</h2>
+      <p>Default: nobody sees your points. If you tick <strong>Share my score on the class ranking</strong>, this browser can show your <strong>display name, points, streak and trophy count</strong> on this device.</p>
+      <p>You can also copy a score code that starts with <code>MSC1|</code>. That code holds only those four public fields plus a time stamp. Quiz cards are never in the code.</p>
       <p>Untick Share to leave the board on this device.</p>
     </section>
 
     <section>
-      <h2>6. Offline cache</h2>
+      <h2>5. Offline cache</h2>
       <p>On HTTPS the service worker may cache the app files (HTML, quiz decks, icons) so the syllabus works offline. That cache is the course content, not your private scores. It does not use tracking cookies.</p>
     </section>
 
     <section>
-      <h2>7. Honest limits</h2>
+      <h2>6. Honest limits</h2>
       <ul>
         <li>This is one browser, not a cloud login. A new phone starts empty unless you copy a score code (scores only) or use the same browser profile.</li>
-        <li>Anyone with this unlocked phone can open the site. Use a password and sign out.</li>
-        <li>While you are signed in, browser developer tools can see the session key. After sign-out the vault stays locked.</li>
+        <li>Anyone with access to this browser profile can open the local study progress.</li>
         <li>GitHub Pages can see that someone loaded the public files (normal web logs: IP, time, which file). That is GitHub, not a score database we run.</li>
       </ul>
     </section>
 
     <section>
-      <h2>8. How to delete your data</h2>
+      <h2>7. How to delete your data</h2>
       <ul>
-        <li>Sign out, then clear site data for this page in the browser (or delete the site under Settings / Storage).</li>
-        <li>That removes accounts, encrypted scores, tutorial progress and the ranking board on this device.</li>
+        <li>Clear site data for this page in the browser (or delete the site under Settings / Storage).</li>
+        <li>That removes local scores, tutorial progress and the ranking board on this device.</li>
         <li>If you already sent an <code>MSC1|</code> code to a classmate, ask them to ignore or remove that entry. We cannot delete it from their phone.</li>
       </ul>
     </section>
 
     <section>
-      <h2>9. Course content vs your data</h2>
+      <h2>8. Course content vs your data</h2>
       <p>Quiz cards, notes and tutorials are study material. They are not your personal file. Your personal file is the name you type and the scores on this device.</p>
     </section>
 

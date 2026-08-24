@@ -187,50 +187,7 @@
       justify-content: flex-end;
     }
     .hero-body {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(17rem, 24rem);
-      gap: 1.25rem 1.75rem;
-      align-items: start;
-    }
-    .account-home {
-      background: #FFFFFF;
-      border: 1px solid var(--line);
-      border-top: 4px solid #00B7CD;
-      border-radius: 4px;
-      padding: 0.95rem 1rem 1.05rem;
-    }
-    .account-home-title {
-      margin: 0 0 0.3rem;
-      color: #071952;
-      font-size: 1.15rem;
-    }
-    .account-home-lede {
-      margin: 0 0 0.75rem;
-      color: #071952;
-      font-size: 0.9rem;
-    }
-    .account-home .study-auth {
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      margin: 0;
-    }
-    .account-signed p {
-      margin: 0 0 0.65rem;
-      color: #071952;
-      font-size: 0.92rem;
-    }
-    .quiz-need-account {
-      margin: 0 0 1rem;
-      padding: 0.75rem 0.9rem;
-      background: #FFFFFF;
-      border: 1px solid var(--line);
-      border-left: 4px solid #FF9100;
-      color: #071952;
-    }
-    .quiz-need-account[hidden] { display: none !important; }
-    @media (max-width: 52rem) {
-      .hero-body { grid-template-columns: 1fr; }
+      display: block;
     }
     .brand {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
@@ -2229,14 +2186,9 @@
       <div class="hero-top">
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
         <div class="profile-bar" id="profile-bar">
-          <button type="button" class="profile-chip" id="profile-open" title="Sign in or open your account">
-            <span class="profile-avatar" id="profile-avatar" aria-hidden="true">?</span>
-            <span id="profile-name-label">Sign in</span>
-          </button>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings</button>
           <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
           <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
-          <button type="button" class="btn ghost" id="profile-logout" hidden>Sign out</button>
         </div>
       </div>
       <div class="hero-body">
@@ -2244,129 +2196,21 @@
           <h1>Type the commands. Learn them for good.</h1>
           <p class="hero-lede">Quiz, diagrams and a terminal tutorial for ACIT4050, 4280 and 4100 - works offline on phone and PC.</p>
         </div>
-        <div class="account-home" id="account-home">
-          <h2 class="account-home-title">Account</h2>
-          <p class="account-home-lede">Sign in and Settings stay on this page. Data stays on this device. <a href="privacy-policy.html">Privacy policy</a>.</p>
-          <div id="study-auth" class="study-auth">
-            <div id="auth-create-signin">
-            <h3>Create your account</h3>
-            <p>Use your own name and password. Passwords are stretched with PBKDF2 and never stored in plain text. Points and quiz memory are encrypted on this device. They stay private unless you later tick Share in Settings. A recovery word is optional later.</p>
-            <label for="auth-new-name">Name</label>
-            <input id="auth-new-name" type="text" maxlength="24" autocomplete="nickname" placeholder="Your name" />
-            <label for="auth-new-pass">Password (at least 8 characters)</label>
-            <div class="auth-pass-row">
-              <input id="auth-new-pass" type="password" maxlength="64" autocomplete="new-password" />
-              <button type="button" class="btn ghost auth-show-pass" id="auth-new-pass-toggle" aria-pressed="false" aria-controls="auth-new-pass auth-new-pass2">Show</button>
-            </div>
-            <label for="auth-new-pass2">Repeat password</label>
-            <input id="auth-new-pass2" type="password" maxlength="64" autocomplete="new-password" />
-            <p>Forgot the password later? Add a recovery word in Settings, or skip it after you create the account.</p>
-            <p class="study-auth-error" id="auth-error" hidden></p>
-            <div class="tut-actions" style="margin:0.7rem 0 1.15rem;">
-              <button type="button" class="btn btn-primary" id="auth-create">Create account</button>
-            </div>
-            <h3>Sign in</h3>
-            <p>Already have an account on this device? Other names stay locked. You cannot open their scores.</p>
-            <label for="auth-account">Account</label>
-            <select id="auth-account"></select>
-            <label for="auth-pass" id="auth-pass-label">Password</label>
-            <div class="auth-pass-row">
-              <input id="auth-pass" type="password" maxlength="64" autocomplete="current-password" />
-              <button type="button" class="btn ghost auth-show-pass" id="auth-pass-toggle" aria-pressed="false" aria-controls="auth-pass auth-pass2">Show</button>
-            </div>
-            <label for="auth-pass2" id="auth-pass2-label" hidden>Repeat password</label>
-            <input id="auth-pass2" type="password" maxlength="64" autocomplete="new-password" hidden />
-            <label for="auth-reset" id="auth-reset-label" hidden>Reset word (at least 8 characters)</label>
-            <input id="auth-reset" type="password" maxlength="64" autocomplete="off" hidden />
-            <label for="auth-reset2" id="auth-reset2-label" hidden>Repeat reset word</label>
-            <input id="auth-reset2" type="password" maxlength="64" autocomplete="off" hidden />
-            <div class="tut-actions" style="margin:0.7rem 0 0;">
-              <button type="button" class="btn btn-primary" id="auth-login">Sign in</button>
-              <button type="button" class="btn ghost" id="auth-forgot-toggle">Forgot name or password?</button>
-            </div>
-            <div id="auth-forgot" hidden>
-              <h3>Update this account</h3>
-              <p>Pick the account above. Prove it with the current password or the recovery word. Then set a new name, a new password, or both.</p>
-              <label for="auth-fix-pass">Current password (if you remember it)</label>
-              <input id="auth-fix-pass" type="password" maxlength="64" autocomplete="current-password" />
-              <label for="auth-fix-reset">Recovery word (if you forgot the password)</label>
-              <input id="auth-fix-reset" type="password" maxlength="64" autocomplete="off" />
-              <label for="auth-fix-name">New name (leave blank to keep the old one)</label>
-              <input id="auth-fix-name" type="text" maxlength="24" autocomplete="nickname" placeholder="New name" />
-              <label for="auth-fix-new">New password (leave blank to keep the old one)</label>
-              <input id="auth-fix-new" type="password" maxlength="64" autocomplete="new-password" />
-              <label for="auth-fix-new2">Repeat new password</label>
-              <input id="auth-fix-new2" type="password" maxlength="64" autocomplete="new-password" />
-              <div class="tut-actions" style="margin:0.7rem 0 0;">
-                <button type="button" class="btn btn-primary" id="auth-fix-save">Save and sign in</button>
-              </div>
-            </div>
-            </div>
-            <div id="auth-recovery-step" hidden>
-              <h3>Add a recovery word</h3>
-              <p>Recommended if you might forget your name or password. You can skip and add one later in Settings. Sign in still works with the password alone.</p>
-              <div id="auth-recovery-pick">
-                <div class="tut-actions" style="margin:0.7rem 0 0;">
-                  <button type="button" class="btn btn-primary" id="auth-recovery-generate">Generate recovery word</button>
-                  <button type="button" class="btn ghost" id="auth-recovery-skip">Skip for now</button>
-                </div>
-              </div>
-              <div id="auth-recovery-show" hidden>
-                <p>Save this word now. It is shown once. Do not use the same text as the password.</p>
-                <p class="auth-recovery-word" id="auth-recovery-word"></p>
-                <p class="study-auth-error" id="auth-recovery-msg" hidden></p>
-                <div class="tut-actions" style="margin:0.7rem 0 0;">
-                  <button type="button" class="btn" id="auth-recovery-copy">Copy</button>
-                  <button type="button" class="btn btn-primary" id="auth-recovery-saved">I saved this</button>
-                  <button type="button" class="btn ghost" id="auth-recovery-skip2">Skip for now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="account-signed" class="account-signed" hidden>
-            <p>You are signed in as <strong id="account-signed-name"></strong>. Use <strong>Settings</strong> for password, recovery word, Share and trophies.</p>
-          </div>
-        </div>
       </div>
     </div>
   </header>
   <div id="profile-modal" class="profile-modal" hidden>
     <div class="profile-modal-card" role="dialog" aria-labelledby="profile-modal-title">
       <h3 id="profile-modal-title">Settings</h3>
-      <p id="settings-locked-note" hidden>Use the Account box on this page first. Then Settings can change password, recovery word, Share and trophies.</p>
       <div id="settings-body">
-        <p>Only your signed-in scores are shown. Other names on this device stay locked. Sign out before a classmate uses this browser. <a href="privacy-policy.html">Privacy policy</a>.</p>
-        <ul class="profile-list" id="profile-list"></ul>
+        <p>Progress stays in this browser on this device. <a href="privacy-policy.html">Privacy policy</a>.</p>
         <label for="profile-rename">Your display name</label>
         <div class="tut-actions" style="margin:0.35rem 0 1rem;">
           <input id="profile-rename" type="text" maxlength="24" placeholder="Your name" autocomplete="nickname" />
           <button type="button" class="btn" id="profile-rename-save">Save name</button>
         </div>
-        <h3>Password</h3>
-        <p>Change the password while you are signed in.</p>
-        <label for="settings-pass-now">Current password</label>
-        <input id="settings-pass-now" type="password" maxlength="64" autocomplete="current-password" />
-        <label for="settings-pass-new">New password (at least 8 characters)</label>
-        <input id="settings-pass-new" type="password" maxlength="64" autocomplete="new-password" />
-        <label for="settings-pass-new2">Repeat new password</label>
-        <input id="settings-pass-new2" type="password" maxlength="64" autocomplete="new-password" />
-        <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-          <button type="button" class="btn" id="settings-pass-save">Change password</button>
-        </div>
-        <h3 id="settings-reset-title">Recovery word</h3>
-        <p id="settings-reset-lede">Used on the sign-in screen if you forget your name or password. Do not use the same text as the password.</p>
-        <label for="settings-reset-now">Current password</label>
-        <input id="settings-reset-now" type="password" maxlength="64" autocomplete="current-password" />
-        <label for="settings-reset-new">New recovery word (at least 8 characters)</label>
-        <input id="settings-reset-new" type="password" maxlength="64" autocomplete="off" />
-        <label for="settings-reset-new2">Repeat recovery word</label>
-        <input id="settings-reset-new2" type="password" maxlength="64" autocomplete="off" />
-        <p class="study-auth-error" id="settings-account-msg" hidden></p>
-        <div class="tut-actions" style="margin:0.35rem 0 1rem;">
-          <button type="button" class="btn" id="settings-reset-save">Add a recovery word</button>
-        </div>
         <h3>Sharing</h3>
-        <p>Off by default. If you tick this, people who also share can see your name, points, streak and trophy count. Password and quiz cards stay private.</p>
+        <p>Off by default. If you tick this, people who also share can see your display name, points, streak and trophy count. Quiz cards stay private.</p>
         <label class="settings-check" for="settings-share">
           <input id="settings-share" type="checkbox" />
           <span>Share my score on the class ranking</span>
@@ -2872,12 +2716,6 @@
             <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz</button>
           </div>
           <p class="study-mode-banner" id="study-mode-banner">Quiz: hide the answer, then rate the card. The app remembers what to drill.</p>
-          <div id="quiz-need-account" class="quiz-need-account">
-            <p><strong>Sign in on this page first.</strong> Use the Account box at the top, or press Sign in / Settings in the header. The quiz stays locked until you do.</p>
-            <div class="tut-actions" style="margin:0.55rem 0 0;">
-              <button type="button" class="btn btn-primary" id="quiz-go-account">Go to Account</button>
-            </div>
-          </div>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
             <div class="study-hud-item" id="hud-points-box"><span class="study-hud-k">Points</span><b id="hud-points">0</b></div>
             <div class="study-hud-item" id="hud-streak-box"><span class="study-hud-k">Streak</span><b id="hud-streak">0</b></div>
@@ -3033,13 +2871,13 @@
 
       <footer>
         <p class="footer-copy">&copy; Ms.Tery</p>
-        <p class="footer-privacy">Local sign-in on this device. No tracking cookies. Scores stay private unless you tick Share. <a href="privacy-policy.html">Privacy policy: what we store and what we do not</a>.</p>
+        <p class="footer-privacy">Progress stays on this device. No tracking cookies. Scores stay private unless you tick Share. <a href="privacy-policy.html">Privacy policy: what we store and what we do not</a>.</p>
       </footer>
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock92" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock92"></script>
+  <script src="quiz-decks.js?v=lock106" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock106"></script>
   <script>
   (function () {
   "use strict";
@@ -3791,7 +3629,6 @@ function showCourse(courseKey) {
     { id: "clean-ten", group: "Style", kind: "trophy", icon: "OK", title: "Clean sheet", hint: "Rate 10 cards in a day with no Again", test: function (xp) { return (xp.todayReviews || 0) >= 10 && (xp.todayAgain || 0) === 0; } },
     { id: "night-owl", group: "Style", kind: "badge", icon: "N", title: "Night owl", hint: "Rate 5 cards after 21:00", test: function (xp) { return (xp.nightReviews || 0) >= 5; } },
     { id: "early-bird", group: "Style", kind: "badge", icon: "B", title: "Early bird", hint: "Rate 5 cards before 09:00", test: function (xp) { return (xp.morningReviews || 0) >= 5; } },
-    { id: "account", group: "Explorer", kind: "badge", icon: "IN", title: "Signed in", hint: "Create or unlock your account", test: function (xp) { return (xp.accountReady || 0) >= 1; } },
     { id: "course-4050", group: "Explorer", kind: "badge", icon: "40", title: "4050 starter", hint: "Rate a card in ACIT4050", test: function (xp) { return !!(xp.courses && xp.courses.acit4050); } },
     { id: "course-4280", group: "Explorer", kind: "badge", icon: "42", title: "4280 starter", hint: "Rate a card in ACIT4280", test: function (xp) { return !!(xp.courses && xp.courses.acit4280); } },
     { id: "course-4100", group: "Explorer", kind: "badge", icon: "41", title: "4100 starter", hint: "Rate a card in ACIT4100", test: function (xp) { return !!(xp.courses && xp.courses.acit4100); } },
@@ -3811,7 +3648,7 @@ function showCourse(courseKey) {
   ];
 
   function profileDefaultStore() {
-    return { activeId: "p1", profiles: [{ id: "p1", name: "Student 1", created: Date.now(), sound: true, shareRank: false }] };
+    return { activeId: "p1", profiles: [{ id: "p1", name: "Local student", created: Date.now(), sound: true, shareRank: false }] };
   }
 
   function profileSessionRaw() {
@@ -3853,10 +3690,7 @@ function showCourse(courseKey) {
   }
 
   function profileIsAuthed() {
-    var id = profileSessionId();
-    if (!id || !profileSessionDek()) return false;
-    var store = profileLoadStore();
-    return store.profiles.some(function (p) { return p.id === id; });
+    return true;
   }
 
   function profileHasPass(p) {
@@ -4036,7 +3870,10 @@ function showCourse(courseKey) {
 
   function vaultWriteString(key, text) {
     var dek = profileSessionDek();
-    if (!dek || !vaultHasCrypto()) return;
+    if (!dek || !vaultHasCrypto()) {
+      try { localStorage.setItem(key, String(text)); } catch (e) { /* ignore */ }
+      return;
+    }
     vaultEncryptBytes(dek, new TextEncoder().encode(String(text)), function (packed) {
       if (!packed) return;
       try { localStorage.setItem(key, packed); } catch (e) { /* ignore */ }
@@ -4160,20 +3997,22 @@ function showCourse(courseKey) {
 
   function profileEnsure() {
     var store = profileLoadStore();
+    store.profiles.forEach(function (p) {
+      if (p.id === "p1" && p.name === "Student 1") p.name = "Local student";
+    });
     if (!store.profiles.some(function (p) { return p.id === store.activeId; })) {
       store.activeId = store.profiles[0].id;
-      profileSaveStore(store);
     }
+    profileSaveStore(store);
     return store;
   }
 
   function profileActive() {
-    if (!profileIsAuthed()) return { id: "", name: "Sign in", sound: true };
-    return profileFind(profileSessionId()) || { id: "", name: "Sign in", sound: true };
+    return profileFind("p1") || { id: "p1", name: "Local student", sound: true };
   }
 
   function profileId() {
-    return profileIsAuthed() ? profileSessionId() : "";
+    return "p1";
   }
 
   function profileIsPrimary() {
@@ -4766,37 +4605,12 @@ function showCourse(courseKey) {
   var pendingRecoveryAfterCreate = false;
 
   function studyAuthApplyUi() {
-    var authed = profileIsAuthed();
-    var showRecovery = authed && pendingRecoveryAfterCreate;
-    var lock = $("study-auth");
-    if (lock) lock.hidden = authed && !showRecovery;
-    var createBox = $("auth-create-signin");
-    if (createBox) createBox.hidden = authed;
-    var recovery = $("auth-recovery-step");
-    if (recovery) recovery.hidden = !showRecovery;
-    var signed = $("account-signed");
-    if (signed) signed.hidden = !authed || showRecovery;
-    if ($("account-signed-name")) {
-      $("account-signed-name").textContent = authed ? (profileActive().name || "") : "";
-    }
-    var quizNeed = $("quiz-need-account");
-    if (quizNeed) quizNeed.hidden = authed;
-    ["study-hud", "study-hud-actions", "quiz-progress-wrap", "profile-trophies-btn", "profile-sound-btn", "profile-logout"].forEach(function (id) {
+    ["study-hud", "study-hud-actions", "quiz-progress-wrap", "profile-trophies-btn", "profile-sound-btn"].forEach(function (id) {
       var el = $(id);
-      if (el) el.hidden = !authed;
+      if (el) el.hidden = false;
     });
     var settingsBtn = $("profile-settings-btn");
     if (settingsBtn) settingsBtn.hidden = false;
-    var active = $("quiz-active");
-    var empty = $("quiz-empty");
-    if (!authed) {
-      if (active) active.classList.add("hidden");
-      if (empty) empty.classList.add("hidden");
-      if ($("quiz-find")) $("quiz-find").hidden = true;
-      if ($("profile-name-label")) $("profile-name-label").textContent = "Sign in";
-      if ($("profile-avatar")) $("profile-avatar").textContent = "?";
-      profileFillAccountSelect();
-    }
   }
 
   function studyXpKey() {
@@ -6442,20 +6256,8 @@ function showCourse(courseKey) {
 
   function profileOpenModal() {
     studyAuthApplyUi();
-    if (!profileIsAuthed()) {
-      accountGoHome();
-      var modalLocked = $("profile-modal");
-      if (modalLocked) {
-        if ($("settings-locked-note")) $("settings-locked-note").hidden = false;
-        if ($("settings-body")) $("settings-body").hidden = true;
-        settingsSetMsg("");
-        modalLocked.hidden = false;
-      }
-      return;
-    }
     var modal = $("profile-modal");
     if (!modal) return;
-    if ($("settings-locked-note")) $("settings-locked-note").hidden = true;
     if ($("settings-body")) $("settings-body").hidden = false;
     settingsSetMsg("");
     profileRenderModal();
