@@ -150,6 +150,34 @@
     }
     section.pairs .obj { font-weight: 700; }
     section.pairs .reb { display: block; margin-top: 0.12rem; }
+    .define {
+      background: #FFFFFF;
+      border: 3px solid var(--teal);
+      border-radius: 4px;
+      padding: 0.65rem 0.75rem;
+      margin: 0 0 0.75rem;
+    }
+    .define p { margin: 0.25rem 0 0; }
+    .define .eq {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--red);
+    }
+    dl.toulmin {
+      margin: 0;
+      padding: 0.45rem 0.75rem 0.7rem;
+    }
+    dl.toulmin dt {
+      font-weight: 800;
+      font-size: 0.82rem;
+      color: var(--red);
+      margin: 0.42rem 0 0;
+    }
+    dl.toulmin dt:first-child { margin-top: 0.08rem; }
+    dl.toulmin dd {
+      margin: 0;
+      font-size: 0.88rem;
+    }
     .num {
       display: inline-block;
       background: var(--teal);
@@ -167,8 +195,10 @@
     <p class="back"><a href="index.html#notes">Back to the study app</a> · <a href="class-notes.html#acit4100">Class notes</a></p>
     <div class="role">YOU ARE CON / OPPOSITION / NEGATIVE</div>
     <h1>CON playbook - Technology is the source of good</h1>
-    <p class="lede">Part 4 routes only, plus the Part 2/3 words you need to attack their case. Read the orange lines aloud.</p>
+    <p class="lede">Part 4 routes only, plus the Part 2/3 words you need to attack their case. Read the orange lines aloud. Open with the definition, then the Toulmin map.</p>
     <p class="jump">
+      <a href="#define">Define tech</a> ·
+      <a href="#toulmin">Toulmin map</a> ·
       <a href="#stasis">Stasis</a> ·
       <a href="#direct">Disadvantages</a> ·
       <a href="#counter">Counter</a> ·
@@ -184,10 +214,38 @@
       <p>&quot;Technology is the source of good in the world.&quot;</p>
     </div>
 
+    <div class="define" id="define">
+      <strong>Define tech first (CON instruction)</strong>
+      <p class="eq">Technology is not a separate actor. Tech = human + tech.</p>
+      <p>Humans choose, build, and use it. Therefore technology cannot be <em>the source</em> of good by itself.</p>
+    </div>
+
+    <section class="con" id="toulmin">
+      <h2>CON Toulmin map (smoking-diagram structure)</h2>
+      <p class="note">Same six parts as the stop-smoking diagram. Same grounds can serve PRO if their warrant is &quot;useful tools originate good.&quot; Our warrant is different: a source must originate good without a human decision.</p>
+      <dl class="toulmin">
+        <dt>Claim</dt>
+        <dd>Technology is a tool used by humans, not the source of good in the world.</dd>
+        <dt>Grounds</dt>
+        <dd>Weapons and medicine are the same &quot;tech.&quot; Outcomes follow human choices. Institutions decide use.</dd>
+        <dt>Warrant (explicit)</dt>
+        <dd>A source of good must be able to originate good without a human decision.</dd>
+        <dt>Warrant (implicit)</dt>
+        <dd>If the definition includes the human, the human is the source.</dd>
+        <dt>Backing</dt>
+        <dd>We know tools do not have values. People and laws do.</dd>
+        <dt>Qualifier</dt>
+        <dd>We do not deny tech can help. We deny it is THE source.</dd>
+        <dt>Rebuttal</dt>
+        <dd>I know tech saves lives, but the nurse, doctor, and policy chose that use.</dd>
+      </dl>
+    </section>
+
     <section class="con" id="stasis">
       <h2>1. Force this point of stasis</h2>
-      <p class="warn">Do not let them debate &quot;is tech useful?&quot; Force: is technology THE SOURCE of good, or only a tool?</p>
+      <p class="warn">Do not let them debate &quot;is tech useful?&quot; Force: is technology THE SOURCE of good, or only a tool? Define tech as human + tech first.</p>
       <ul>
+        <li>Define: technology is not a separate actor. <strong>Tech = human + tech.</strong></li>
         <li>Attack the word <strong>source</strong>. A source is the origin. A tool is used by someone else.</li>
         <li>Shared question: <strong>Is technology the source of good in the world, or is it a tool under human values and institutions?</strong></li>
         <li>If they list vaccines and phones, say: those are grounds for usefulness, not for origin.</li>
@@ -227,7 +285,7 @@
     <section class="con" id="critique">
       <h2>4. Critique of assumptions / flip the warrant</h2>
       <ul>
-        <li>They assume technology equals the origin of good. That warrant is false.</li>
+        <li>They assume technology is a separate actor that equals the origin of good. That warrant is false. Tech = human + tech.</li>
         <li><strong>Flip:</strong> if we want good, we must constrain tech (safety, privacy, war). Constraint is what makes outcomes good. That proves agents and values are the source.</li>
         <li>&quot;Source of&quot; is an unqualified claim. No qualifier. Then extreme cases count: nuclear weapons, mass surveillance, addiction design.</li>
         <li>Same grounds, new warrant (smoking-style): vaccines happened, therefore people and institutions directed a tool. Not: therefore tech is the source.</li>
@@ -236,12 +294,12 @@
 
     <section class="lines" id="lines">
       <h2>5. Ready-to-say lines (read aloud)</h2>
-      <p class="say"><span class="num">1</span> We reject the claim that technology is the source of good. Source means origin. Technology is a tool.</p>
-      <p class="say"><span class="num">2</span> Keep stasis on the word source. Usefulness is not the same as origin.</p>
-      <p class="say"><span class="num">3</span> We already live with technology. The status quo is not a stone-age vacuum. Inherency is weak for their side.</p>
-      <p class="say"><span class="num">4</span> Better fixes already exist: policy, ethics, and education. We do not need to crown tech as the source of good.</p>
-      <p class="say"><span class="num">5</span> A world without tech is not doomed. Care, law, and solidarity existed before this stack of devices. Their harm is overstated.</p>
-      <p class="say"><span class="num">6</span> I am not saying technology is infeasible. I am saying it has no solvency on this claim. It does not create good.</p>
+      <p class="say"><span class="num">1</span> Technology is not a separate actor. Tech equals human plus tech. Humans choose, build, and use it.</p>
+      <p class="say"><span class="num">2</span> Therefore technology cannot be the source of good by itself. It is a tool used by humans, not the source of good in the world.</p>
+      <p class="say"><span class="num">3</span> Weapons and medicine are the same tech. Outcomes follow human choices. Institutions decide use.</p>
+      <p class="say"><span class="num">4</span> A source of good must be able to originate good without a human decision. If the definition includes the human, the human is the source.</p>
+      <p class="say"><span class="num">5</span> We know tools do not have values. People and laws do. We do not deny tech can help. We deny it is THE source.</p>
+      <p class="say"><span class="num">6</span> I know tech saves lives, but the nurse, doctor, and policy chose that use. Keep stasis on the word source.</p>
       <p class="say"><span class="num">7</span> Technology does not solve war, inequality, or meaning. It is a symptom-fixer, not the disease and not the cure.</p>
       <p class="say"><span class="num">8</span> I think human values, institutions, and democratic control are a better source of good, because they decide how any tool is used.</p>
       <p class="say"><span class="num">9</span> Flip their warrant: if we want good, we must constrain technology for safety, privacy, and war. Constraint proves the source sits with us.</p>
