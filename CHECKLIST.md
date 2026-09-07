@@ -33,7 +33,7 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 ## Offline test (DevTools)
 
 1. Open https://kasa031.github.io/msc_cyber-syllabus/ (or local `index.html` via `Open-Study-App.bat` for `file://`)
-2. **HTTPS/PWA:** wait for service worker install (Application > Service Workers > `msc-cyber-lock147`)
+2. **HTTPS/PWA:** wait for service worker install (Application > Service Workers > `msc-cyber-lock148`)
 3. Browse each course tab once while online (4050, 4280, 4100, PC, Fellesjam) so figures prefetch
 4. Application > Service Workers > check **Offline**, or Network > **Offline**
 5. Reload - all decks, flashcards, quiz SRS, and card figures should match online
@@ -50,9 +50,11 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 6. Never copy: Ukeplan, UKAS_LESNING, Emner/, Excel, personal paths.
 7. `git commit` + `git push` when Karina confirms. Live: Ctrl+F5.
 
-## Technical status (lock147)
+## Technical status (lock148)
 
 - Deck counts: ACIT4050=220, ACIT4280=218, ACIT4100=328, computer-basics=28, fellesjam-general=26 (Fellesjam pool ~798 unique)
+- Settings: **Weak tags** list (lapses per tag, tap to filter deck)
+- Filter chips: 4050 (+ Canvas quiz), 4280 (+ PIA, controls, TETs, 2A, Hoepman, module quiz)
 - Canonical entry: `index.html` (`TERMINAL_OVING_ACIT4050.html` redirects here)
 - Embed mode: `?embed=1#4050` (or `#acit4050`) for Ukeplan iframe - hides hero and course tabs
 - Filter chips: 4050 (L1-L5, phishing, network, exam), 4100 (week3/week4/Toulmin), 4280 (L1-L6)
@@ -67,3 +69,18 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 - SW precache: CRITICAL shell + quiz JSON; ASSETS = figures/fonts/icons scan (729 paths via `gen_sw_assets.mjs`)
 - SW runtime: network-first for HTML + quiz payloads (updates when online); cache-first for static assets; offline falls back to precache
 - Palette: `#5003C0` purple, `#AB03A9` magenta, `#FF467A` pink, `#FFD51E` yellow, `#FFF9E6` cream; active tabs magenta; primary CTA purple
+
+## Security headers (live audit 07.09.2026)
+
+GitHub Pages (`*.github.io`) serves the app with **HSTS** only. The repo `_headers` file (CSP, X-Frame-Options, etc.) applies on **Cloudflare Pages / Netlify**, not on github.io.
+
+| Header | Live github.io | Repo `_headers` (if migrated) |
+|--------|----------------|-------------------------------|
+| Strict-Transport-Security | Yes (GitHub) | - |
+| Content-Security-Policy | No | Yes (strict self + fonts) |
+| X-Frame-Options | No | DENY |
+| Referrer-Policy | No | no-referrer |
+| X-Content-Type-Options | No | nosniff |
+| Permissions-Policy | No | camera/mic denied |
+
+HTML pages still ship CSP `<meta>` on `index.html`, `class-notes.html`, and `4100-week2-toulmin-recap.html`.

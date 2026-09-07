@@ -2143,6 +2143,43 @@
       color: var(--ink);
       min-height: 1.2em;
     }
+    .settings-weak-tags-wrap {
+      margin: 1.25rem 0 0;
+    }
+    .settings-weak-tags-wrap h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+    .weak-tags-list {
+      list-style: none;
+      margin: 0.5rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .weak-tags-list li { margin: 0; }
+    .weak-tag-btn {
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border: 1.5px solid #FF467A;
+      border-radius: 999px;
+      background: #FFF9E6;
+      color: #5003C0;
+      cursor: pointer;
+    }
+    .weak-tag-btn:hover {
+      background: #FF467A;
+      color: #FFF9E6;
+    }
+    .weak-tags-empty {
+      font-size: 0.82rem;
+      color: var(--slate);
+      margin: 0.5rem 0 0;
+    }
+    .weak-tags-empty[hidden] { display: none !important; }
     .quiz-deck-stats {
       display: flex;
       flex-wrap: wrap;
@@ -2957,13 +2994,15 @@
       gap: 0.35rem;
       margin: 0.85rem 0 0;
     }
-    .quiz-tags span {
+    .quiz-tags .quiz-tag-chip {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.68rem;
-      padding: 0.15rem 0.4rem;
-      background: var(--signal-soft);
-      color: var(--signal);
-      border-radius: 2px;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      background: #FFF9E6;
+      color: #5003C0;
+      border: 1.5px solid #AB03A9;
+      border-radius: 999px;
     }
     .quiz-grades {
       display: grid;
@@ -3074,6 +3113,13 @@
         color: #5003C0;
         background: #FFF9E6;
       }
+      .quiz-tags .quiz-tag-chip,
+      .quiz-tag-filters .quiz-tag-chip {
+        border-width: 2px;
+        color: #5003C0;
+        font-weight: 700;
+      }
+      .quiz-q { color: #5003C0; }
     }
     .quiz-empty {
       text-align: center;
@@ -3430,7 +3476,8 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    .quiz-tags span {
+    .quiz-tags .quiz-tag-chip {
+      margin: 0.2rem 0.35rem 0 0;
       cursor: pointer;
     }
 
@@ -3691,6 +3738,12 @@
             <span>More</span>
           </div>
           <p class="heatmap-tip" id="heatmap-tip" aria-live="polite"></p>
+        </div>
+        <div class="settings-weak-tags-wrap" id="settings-weak-tags-wrap">
+          <h3>Weak tags</h3>
+          <p class="heatmap-lede">Tags with the most lapses. Tap to open that deck with the filter applied.</p>
+          <ul class="weak-tags-list" id="settings-weak-tags-list"></ul>
+          <p class="weak-tags-empty" id="settings-weak-tags-empty" hidden>No weak tags yet - rate some cards in Practice mode first.</p>
         </div>
         <div class="settings-trophies-section" id="settings-trophies-section">
           <h3>Trophies and badges</h3>
@@ -6747,6 +6800,81 @@ function showCourse(courseKey) {
     var today = studyTodayKey();
     xp.reviewLog[today] = (xp.reviewLog[today] || 0) + 1;
     studyPruneReviewLog(xp, 120);
+  }
+
+  var WEAK_TAG_DECK_LABEL = {
+    acit4050: "4050",
+    acit4280: "4280",
+    acit4100: "4100",
+    "computer-basics": "PC",
+    fellesjam: "Mixed"
+  };
+
+  function studyTagAgainStats(deckKey) {
+    var deck = quizGetDeck(deckKey);
+    if (!deck || !Array.isArray(deck.cards)) return [];
+    var sched = quizLoadSched(deckKey);
+    var byTag = Object.create(null);
+    deck.cards.forEach(function (c) {
+      if (!c || !c.id) return;
+      var s = quizEnsureCard(sched, c.id);
+      var score = s.lapses || 0;
+      if (score === 0 && !quizCardIsWeak(s)) return;
+      if (score === 0) score = 1;
+      (c.tags || []).forEach(function (t) {
+        if (!t) return;
+        byTag[t] = (byTag[t] || 0) + score;
+      });
+    });
+    return Object.keys(byTag).map(function (t) {
+      return { tag: t, lapses: byTag[t] };
+    });
+  }
+
+  function studyWeakTagsAll() {
+    var decks = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam"];
+    var out = [];
+    decks.forEach(function (dk) {
+      studyTagAgainStats(dk).forEach(function (row) {
+        out.push({ deckKey: dk, tag: row.tag, lapses: row.lapses });
+      });
+    });
+    out.sort(function (a, b) { return b.lapses - a.lapses; });
+    return out.slice(0, 10);
+  }
+
+  function studyRenderWeakTags() {
+    var list = $("settings-weak-tags-list");
+    var empty = $("settings-weak-tags-empty");
+    if (!list) return;
+    var rows = studyWeakTagsAll();
+    list.innerHTML = "";
+    if (empty) empty.hidden = rows.length > 0;
+    rows.forEach(function (row) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "weak-tag-btn";
+      var deckLabel = WEAK_TAG_DECK_LABEL[row.deckKey] || row.deckKey;
+      btn.textContent = deckLabel + " / " + row.tag + " (" + row.lapses + ")";
+      btn.setAttribute("aria-label", "Open " + deckLabel + " filtered by " + row.tag);
+      btn.setAttribute("data-deck", row.deckKey);
+      btn.setAttribute("data-tag", row.tag);
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+  }
+
+  function studyOpenWeakTag(deckKey, tag) {
+    var modal = $("profile-modal");
+    if (modal) modal.hidden = true;
+    showCourse(deckKey);
+    setStudyMode("quiz");
+    applyQuizTagFilter(tag);
+    var quizPanel = $("course-quiz");
+    if (quizPanel && quizPanel.scrollIntoView) {
+      try { quizPanel.scrollIntoView({ behavior: studyReduceMotion() ? "auto" : "smooth", block: "start" }); } catch (e) { /* ignore */ }
+    }
   }
 
   function studyRenderHeatmap(xp) {
@@ -9984,6 +10112,7 @@ function showCourse(courseKey) {
       { filter: "Lecture3", label: "L3" },
       { filter: "network", label: "network" },
       { filter: "networks-assign", label: "networks-assign" },
+      { filter: "Canvas-quiz", label: "Canvas quiz" },
       { filter: "Lecture4", label: "L4 IDS" },
       { filter: "Lecture5", label: "L5 firewalls" },
       { filter: "exam", label: "exam" },
@@ -10012,6 +10141,12 @@ function showCourse(courseKey) {
       { filter: "Lecture4", label: "L4" },
       { filter: "Lecture5", label: "L5" },
       { filter: "Lecture6", label: "L6" },
+      { filter: "PIA", label: "PIA" },
+      { filter: "controls", label: "controls" },
+      { filter: "TETs", label: "TETs" },
+      { filter: "2A", label: "2A TETs" },
+      { filter: "Hoepman", label: "Hoepman" },
+      { filter: "module-drill", label: "module quiz" },
       { filter: "", label: "All" }
     ]
   };
@@ -10215,6 +10350,7 @@ function showCourse(courseKey) {
     if (!grid) return;
     var xp = studyLoadXp();
     studyRenderHeatmap(xp);
+    studyRenderWeakTags();
     studyRenderStreakCalendar($("streak-calendar-30"), 30, xp);
     var streakSum = $("streak-cal-summary");
     if (streakSum) streakSum.textContent = String(xp.streak || 0);
@@ -10881,6 +11017,15 @@ function showCourse(courseKey) {
       if (el && el.scrollIntoView) {
         try { el.scrollIntoView({ behavior: studyReduceMotion() ? "auto" : "smooth", block: "start" }); } catch (e) { /* ignore */ }
       }
+    });
+  }
+  if ($("settings-weak-tags-list")) {
+    $("settings-weak-tags-list").addEventListener("click", function (e) {
+      var btn = e.target.closest(".weak-tag-btn");
+      if (!btn) return;
+      var deckKey = btn.getAttribute("data-deck");
+      var tag = btn.getAttribute("data-tag");
+      if (deckKey && tag) studyOpenWeakTag(deckKey, tag);
     });
   }
   document.addEventListener("click", function (e) {
