@@ -1,4 +1,4 @@
-/* NIST CSF 2.0 wheel + Lockheed Martin Kill Chain drag practice (pointer + tap). */
+/* NIST CSF 2.0 wheel + Lockheed Martin Kill Chain + MITRE ATT&CK drag practice (pointer + tap). */
 (function (global) {
   "use strict";
 
@@ -20,6 +20,18 @@
     { id: "install", label: "Install" },
     { id: "c2", label: "C2" },
     { id: "action", label: "Action" }
+  ];
+
+  /* Eight enterprise tactics in attack lifecycle order (study subset of MITRE ATT&CK). */
+  var MITRE_SLOTS = [
+    { id: "recon", label: "Reconnaissance" },
+    { id: "initial", label: "Initial access" },
+    { id: "execution", label: "Execution" },
+    { id: "persistence", label: "Persistence" },
+    { id: "privesc", label: "Priv esc" },
+    { id: "evasion", label: "Defense evasion" },
+    { id: "c2", label: "Command and control" },
+    { id: "impact", label: "Impact" }
   ];
 
   var KILL_COLORS = ["#5003C0", "#AB03A9", "#FF467A", "#FFD51E"];
@@ -442,6 +454,28 @@
     host.appendChild(row);
   }
 
+  function buildMitreChain(host) {
+    host.innerHTML = "";
+    var row = document.createElement("div");
+    row.className = "kill-row mitre-row";
+    row.setAttribute("role", "list");
+    MITRE_SLOTS.forEach(function (s, i) {
+      var slot = document.createElement("div");
+      slot.className = "fp-slot kill-chevron is-empty";
+      slot.setAttribute("data-slot", s.id);
+      slot.setAttribute("tabindex", "0");
+      slot.setAttribute("role", "button");
+      slot.setAttribute("aria-label", "MITRE ATT&CK slot " + (i + 1));
+      slot.style.setProperty("--kill-blue", KILL_COLORS[i % KILL_COLORS.length]);
+      var label = document.createElement("span");
+      label.className = "fp-slot-label";
+      label.textContent = (i + 1) + "";
+      slot.appendChild(label);
+      row.appendChild(slot);
+    });
+    host.appendChild(row);
+  }
+
   function fillTray(tray, items) {
     tray.innerHTML = "";
     shuffle(items).forEach(function (item) {
@@ -607,45 +641,134 @@
     setup();
   }
 
+  function initMitre(root) {
+    var board = root.querySelector("#mitre-board");
+    var tray = root.querySelector("#mitre-tray");
+    var status = root.querySelector("#mitre-status");
+    var resetBtn = root.querySelector("#mitre-reset");
+    if (!board || !tray) return;
+
+    function labelFor(id) {
+      for (var i = 0; i < MITRE_SLOTS.length; i++) {
+        if (MITRE_SLOTS[i].id === id) return MITRE_SLOTS[i].label;
+      }
+      return id;
+    }
+
+    var ctrl;
+    var nextBtn = root.querySelector("#mitre-next");
+
+    function setup() {
+      buildMitreChain(board);
+      fillTray(tray, MITRE_SLOTS);
+      root.classList.remove("fp-complete");
+      if (nextBtn) nextBtn.hidden = true;
+      if (status) {
+        fpFlowStatus(status, "idle", "Drag tactics left to right in attack order, or tap a chip then a chevron.");
+      }
+      ctrl = createDragController({
+        root: root,
+        tray: tray,
+        slotIds: MITRE_SLOTS.map(function (s) { return s.id; }),
+        getSlotEl: function (id) {
+          return root.querySelector('#mitre-board .fp-slot[data-slot="' + id + '"]');
+        },
+        labelFor: labelFor,
+        onCorrect: function (slotId, labelId, slotEl) {
+          var idx = 0;
+          for (var mi = 0; mi < MITRE_SLOTS.length; mi++) {
+            if (MITRE_SLOTS[mi].id === slotId) { idx = mi; break; }
+          }
+          var bg = KILL_COLORS[idx % KILL_COLORS.length];
+          slotEl.style.background = bg;
+          slotEl.style.color = bg === "#FFD51E" ? "#5003C0" : "#FFF9E6";
+          if (status) {
+            fpFlowStatus(status, "ok", labelFor(labelId) + " locked in.");
+          }
+        },
+        onWrong: function () {
+          if (status) {
+            fpFlowStatus(status, "soft", "Wrong tactic for that step - try again.");
+          }
+        },
+        onComplete: function () {
+          root.classList.add("fp-complete");
+          if (nextBtn) nextBtn.hidden = false;
+          if (status) {
+            fpFlowStatus(status, "ok", "Complete - MITRE ATT&CK tactics in lifecycle order.");
+          }
+          if (typeof window.studyMarkFlag === "function") window.studyMarkFlag("mitreDone");
+        }
+      });
+      ctrl.bind();
+    }
+
+    if (resetBtn) resetBtn.addEventListener("click", setup);
+    setup();
+  }
+
+  function normalizePracticeSection(which) {
+    if (which === "killchain" || which === "kill") return "kill";
+    if (which === "mitre" || which === "attack") return "mitre";
+    return "nist";
+  }
+
   function showPracticeSection(which) {
+    var section = normalizePracticeSection(which);
     var nist = document.getElementById("practice-nist");
     var kill = document.getElementById("practice-kill");
+    var mitre = document.getElementById("practice-mitre");
     var tabN = document.getElementById("tab-practice-nist");
     var tabK = document.getElementById("tab-practice-kill");
-    if (!nist || !kill) return;
-    var isNist = which !== "killchain" && which !== "kill";
-    nist.hidden = !isNist;
-    kill.hidden = isNist;
-    nist.classList.toggle("active", isNist);
-    kill.classList.toggle("active", !isNist);
+    var tabM = document.getElementById("tab-practice-mitre");
+    if (!nist || !kill || !mitre) return;
+    nist.hidden = section !== "nist";
+    kill.hidden = section !== "kill";
+    mitre.hidden = section !== "mitre";
+    nist.classList.toggle("active", section === "nist");
+    kill.classList.toggle("active", section === "kill");
+    mitre.classList.toggle("active", section === "mitre");
     if (tabN) {
-      tabN.classList.toggle("active", isNist);
-      tabN.setAttribute("aria-selected", isNist ? "true" : "false");
-      tabN.tabIndex = isNist ? 0 : -1;
+      tabN.classList.toggle("active", section === "nist");
+      tabN.setAttribute("aria-selected", section === "nist" ? "true" : "false");
+      tabN.tabIndex = section === "nist" ? 0 : -1;
     }
     if (tabK) {
-      tabK.classList.toggle("active", !isNist);
-      tabK.setAttribute("aria-selected", isNist ? "false" : "true");
-      tabK.tabIndex = isNist ? -1 : 0;
+      tabK.classList.toggle("active", section === "kill");
+      tabK.setAttribute("aria-selected", section === "kill" ? "true" : "false");
+      tabK.tabIndex = section === "kill" ? 0 : -1;
+    }
+    if (tabM) {
+      tabM.classList.toggle("active", section === "mitre");
+      tabM.setAttribute("aria-selected", section === "mitre" ? "true" : "false");
+      tabM.tabIndex = section === "mitre" ? 0 : -1;
     }
   }
 
   function init() {
     var nistRoot = document.getElementById("practice-nist");
     var killRoot = document.getElementById("practice-kill");
+    var mitreRoot = document.getElementById("practice-mitre");
     if (nistRoot) initNist(nistRoot);
     if (killRoot) initKill(killRoot);
+    if (mitreRoot) initMitre(mitreRoot);
     var tabN = document.getElementById("tab-practice-nist");
     var tabK = document.getElementById("tab-practice-kill");
+    var tabM = document.getElementById("tab-practice-mitre");
     if (tabN) tabN.addEventListener("click", function () { showPracticeSection("nist"); });
     if (tabK) tabK.addEventListener("click", function () { showPracticeSection("killchain"); });
+    if (tabM) tabM.addEventListener("click", function () { showPracticeSection("mitre"); });
     var nistNext = document.getElementById("nist-next");
     if (nistNext) {
       nistNext.addEventListener("click", function () { showPracticeSection("killchain"); });
     }
     var killNext = document.getElementById("kill-next");
     if (killNext) {
-      killNext.addEventListener("click", function () {
+      killNext.addEventListener("click", function () { showPracticeSection("mitre"); });
+    }
+    var mitreNext = document.getElementById("mitre-next");
+    if (mitreNext) {
+      mitreNext.addEventListener("click", function () {
         var mainTab = document.getElementById("tab-course-4050-main");
         var quizTab = document.getElementById("tab-section-quiz");
         if (mainTab) mainTab.click();

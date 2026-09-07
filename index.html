@@ -1489,6 +1489,12 @@
     .kill-chevron:nth-child(6) { background: var(--kill-3); }
     .kill-chevron:nth-child(7) { background: var(--kill-4); color: #5003C0; }
     .kill-chevron .fp-slot-label { pointer-events: none; line-height: 1.15; }
+    .mitre-row .kill-chevron {
+      flex: 1 0 3.6rem;
+      min-width: 3.6rem;
+      font-size: 0.72rem;
+      padding: 0.4rem 0.45rem 0.4rem 0.75rem;
+    }
     .fp-tray {
       display: flex;
       flex-wrap: wrap;
@@ -1561,7 +1567,8 @@
       animation: shake 0.4s var(--ease);
     }
     .practice-block.fp-complete .nist-wheel-svg,
-    .practice-block.fp-complete .kill-row {
+    .practice-block.fp-complete .kill-row,
+    .practice-block.fp-complete .mitre-row {
       animation: panelIn 0.45s var(--ease) both;
     }
     .practice-link-row {
@@ -4415,16 +4422,17 @@
           </div>
 
           <div class="practice-link-row" id="quiz-practice-link" hidden>
-            <p>ACIT4050 diagrams: drag NIST CSF functions and Kill Chain stages into place.</p>
+            <p>ACIT4050 diagrams: NIST CSF wheel, Kill Chain, and MITRE ATT&CK tactic order.</p>
             <div class="tut-actions">
               <button type="button" class="btn" id="btn-open-nist">NIST CSF wheel</button>
               <button type="button" class="btn ghost" id="btn-open-killchain">Kill Chain</button>
+              <button type="button" class="btn ghost" id="btn-open-mitre">MITRE ATT&CK</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ========== PRACTICE (NIST + Kill Chain) ========== -->
+      <!-- ========== PRACTICE (NIST + Kill Chain + MITRE) ========== -->
       <div id="course-practice" class="course-panel" hidden>
         <div class="practice-wrap">
           <h2 class="setup-title">Diagram practice</h2>
@@ -4432,6 +4440,7 @@
           <div class="mode-tabs" role="tablist" aria-label="Diagram exercises">
             <button type="button" role="tab" id="tab-practice-nist" class="active" aria-selected="true" aria-controls="practice-nist" tabindex="0">NIST CSF 2.0 wheel</button>
             <button type="button" role="tab" id="tab-practice-kill" aria-selected="false" aria-controls="practice-kill" tabindex="-1">Kill Chain</button>
+            <button type="button" role="tab" id="tab-practice-mitre" aria-selected="false" aria-controls="practice-mitre" tabindex="-1">MITRE ATT&CK</button>
           </div>
 
           <section id="practice-nist" class="practice-block panel active" role="tabpanel" aria-labelledby="tab-practice-nist">
@@ -4452,7 +4461,18 @@
             <div class="fp-tray" id="kill-tray" aria-label="Kill Chain stage labels"></div>
             <div class="fp-actions">
               <button type="button" class="btn ghost" id="kill-reset">Reset</button>
-              <button type="button" class="btn btn-primary" id="kill-next" hidden>Done - open 4050 flashcards</button>
+              <button type="button" class="btn btn-primary" id="kill-next" hidden>Next: MITRE ATT&CK</button>
+            </div>
+          </section>
+
+          <section id="practice-mitre" class="practice-block panel" role="tabpanel" aria-labelledby="tab-practice-mitre" hidden>
+            <p class="fp-hint">Place eight MITRE ATT&CK enterprise tactics left to right in attack lifecycle order (study subset).</p>
+            <div class="fp-board" id="mitre-board" aria-label="MITRE ATT&CK chevron slots"></div>
+            <p class="fp-status" id="mitre-status" aria-live="polite"></p>
+            <div class="fp-tray" id="mitre-tray" aria-label="MITRE ATT&CK tactic labels"></div>
+            <div class="fp-actions">
+              <button type="button" class="btn ghost" id="mitre-reset">Reset</button>
+              <button type="button" class="btn btn-primary" id="mitre-next" hidden>Done - open 4050 flashcards</button>
             </div>
           </section>
         </div>
@@ -4481,7 +4501,7 @@
   </main>
 
   <script src="quiz-decks.js?v=lock128" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock128"></script>
+  <script src="framework-practice.js?v=lock146"></script>
   <script>
   (function () {
   "use strict";
@@ -4997,7 +5017,7 @@
     },
     practice: {
       h1: "Learn the diagrams from the slides.",
-      lede: "Drag NIST CSF 2.0 functions and Lockheed Martin Kill Chain stages into place - ACIT4050 lecture material."
+      lede: "Drag NIST CSF 2.0 functions, Kill Chain stages, and MITRE ATT&CK tactics into place - ACIT4050 lecture material."
     },
     acit4050: {
       h1: "Study ACIT4050 security and networks.",
@@ -5118,6 +5138,8 @@ function showCourse(courseKey) {
     "nist-csf": "practice",
     killchain: "practice",
     "kill-chain": "practice",
+    mitre: "practice",
+    attack: "practice",
     "4280": "acit4280",
     "quiz-4280": "acit4280",
     acit4280: "acit4280",
@@ -5180,6 +5202,7 @@ function showCourse(courseKey) {
         showCourse("practice");
         if (globalThis.FrameworkPractice && FrameworkPractice.showSection) {
           if (h === "killchain" || h === "kill-chain") FrameworkPractice.showSection("killchain");
+          else if (h === "mitre" || h === "attack") FrameworkPractice.showSection("mitre");
           else FrameworkPractice.showSection("nist");
         }
       } else if (course === "computer-basics") {
@@ -5247,11 +5270,15 @@ function showCourse(courseKey) {
 
   function openPractice(section) {
     showCourse("practice");
+    var sec = section === "killchain" ? "killchain"
+      : section === "mitre" || section === "attack" ? "mitre"
+      : "nist";
     if (window.FrameworkPractice && FrameworkPractice.showSection) {
-      FrameworkPractice.showSection(section === "killchain" ? "killchain" : "nist");
+      FrameworkPractice.showSection(sec);
     }
+    var hash = sec === "killchain" ? "#killchain" : sec === "mitre" ? "#mitre" : "#nist";
     try {
-      history.replaceState(null, "", section === "killchain" ? "#killchain" : "#nist");
+      history.replaceState(null, "", hash);
     } catch (e) { /* ignore */ }
     var lab = $("lab");
     if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -5271,6 +5298,9 @@ function showCourse(courseKey) {
   if ($("btn-open-killchain")) {
     $("btn-open-killchain").addEventListener("click", function () { openPractice("killchain"); });
   }
+  if ($("btn-open-mitre")) {
+    $("btn-open-mitre").addEventListener("click", function () { openPractice("mitre"); });
+  }
   if ($("tab-practice-nist")) {
     $("tab-practice-nist").addEventListener("click", function () {
       try { history.replaceState(null, "", "#nist"); } catch (e) { /* ignore */ }
@@ -5279,6 +5309,11 @@ function showCourse(courseKey) {
   if ($("tab-practice-kill")) {
     $("tab-practice-kill").addEventListener("click", function () {
       try { history.replaceState(null, "", "#killchain"); } catch (e) { /* ignore */ }
+    });
+  }
+  if ($("tab-practice-mitre")) {
+    $("tab-practice-mitre").addEventListener("click", function () {
+      try { history.replaceState(null, "", "#mitre"); } catch (e) { /* ignore */ }
     });
   }
 
@@ -5404,7 +5439,8 @@ function showCourse(courseKey) {
     { id: "tut-pc", group: "Explorer", kind: "badge", icon: "TP", title: "PC graduate", hint: "Finish the Windows basics tutorial", test: function (xp) { return (xp.pcTutDone || 0) >= 1; } },
     { id: "nist", group: "Explorer", kind: "badge", icon: "NI", title: "NIST wheel", hint: "Complete the NIST CSF diagram", test: function (xp) { return (xp.nistDone || 0) >= 1; } },
     { id: "kill", group: "Explorer", kind: "badge", icon: "KC", title: "Kill Chain", hint: "Complete the Kill Chain diagram", test: function (xp) { return (xp.killDone || 0) >= 1; } },
-    { id: "frameworks", group: "Explorer", kind: "trophy", icon: "FW", title: "Framework pair", hint: "Complete both practice diagrams", test: function (xp) { return (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1; } },
+    { id: "mitre", group: "Explorer", kind: "badge", icon: "AT", title: "MITRE ATT&CK", hint: "Complete the MITRE ATT&CK tactic drill", test: function (xp) { return (xp.mitreDone || 0) >= 1; } },
+    { id: "frameworks", group: "Explorer", kind: "trophy", icon: "FW", title: "Framework trio", hint: "Complete all three practice diagrams", test: function (xp) { return (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1 && (xp.mitreDone || 0) >= 1; } },
     { id: "drill", group: "Retry", kind: "trophy", icon: "D", title: "Retry starter", hint: "Retry a missed card session", test: function (xp) { return (xp.drills || 0) >= 1; } },
     { id: "drill-5", group: "Retry", kind: "badge", icon: "D5", title: "Retry regular", hint: "Retry missed cards 5 times", test: function (xp) { return (xp.drills || 0) >= 5; } }
   ];
@@ -6653,6 +6689,7 @@ function showCourse(courseKey) {
       pcTutDone: 0,
       nistDone: 0,
       killDone: 0,
+      mitreDone: 0,
       courses: {},
       badges: {},
       reviewLog: {}
