@@ -1154,6 +1154,44 @@
     .study-hud-item.is-hot b {
       animation: fxPulse 1.4s var(--ease) infinite;
     }
+    #hud-streak-box .streak-calendar {
+      display: flex;
+      justify-content: center;
+      gap: 0.22rem;
+      margin-top: 0.35rem;
+    }
+    .streak-cal-day {
+      display: block;
+      width: 0.58rem;
+      height: 0.58rem;
+      border-radius: 2px;
+      background: var(--line-soft);
+      border: 1px solid var(--line);
+    }
+    .streak-cal-day.is-studied {
+      background: #AB03A9;
+      border-color: #AB03A9;
+    }
+    .streak-cal-day.is-today {
+      box-shadow: 0 0 0 2px #FFD51E;
+    }
+    .streak-calendar-wrap {
+      margin: 0 0 1rem;
+    }
+    .streak-calendar-wrap h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+    .streak-calendar-30 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem;
+      margin: 0.55rem 0 0;
+    }
+    .streak-calendar-30 .streak-cal-day {
+      width: 0.72rem;
+      height: 0.72rem;
+    }
     @keyframes fxToast {
       from { transform: translateX(-50%) translateY(-14px); opacity: 0; }
       to { transform: translateX(-50%) translateY(0); opacity: 1; }
@@ -2947,6 +2985,64 @@
       letter-spacing: 0.04em;
     }
     .embed .course-map { display: none !important; }
+    .unit-progress {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid #AB03A9;
+      border-radius: 0 4px 4px 0;
+    }
+    .unit-progress[hidden] { display: none !important; }
+    .unit-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      margin-bottom: 0.35rem;
+      color: var(--slate);
+    }
+    .unit-progress-meta b { color: var(--ink); }
+    .unit-progress-pct {
+      font-weight: 700;
+      color: #5003C0;
+    }
+    .unit-progress-bar {
+      height: 0.45rem;
+      background: var(--line-soft);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .unit-progress-bar span {
+      display: block;
+      height: 100%;
+      background: #AB03A9;
+      border-radius: 999px;
+      transition: width 0.35s var(--ease);
+    }
+    .unit-progress-sub {
+      margin: 0.35rem 0 0;
+      font-size: 0.78rem;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+    .quiz-deck-pct {
+      margin: -0.65rem 0 0.85rem;
+      font-size: 0.82rem;
+      color: var(--slate);
+    }
+    .quiz-deck-pct b { color: #5003C0; }
+    .quiz-deck-pct[hidden] { display: none !important; }
+    .embed .unit-progress { display: none !important; }
+    #quiz-active {
+      container-type: inline-size;
+      container-name: quiz-active;
+    }
+    @container quiz-active (max-width: 360px) {
+      .quiz-q { font-size: 1.05rem; }
+      .quiz-card { padding: 1rem 0.85rem; min-height: 9rem; }
+    }
     .quiz-card {
       cursor: pointer;
     }
@@ -3230,6 +3326,12 @@
           <p class="orient-checklist-meta"><b id="orient-checklist-count">0</b> / 5 setup steps done</p>
           <div class="orient-checklist-bar" id="orient-checklist-bar"><span id="orient-checklist-fill"></span></div>
           <ul class="orient-checklist-list" id="orient-checklist-list" aria-label="Orientation checklist"></ul>
+        </div>
+        <div class="streak-calendar-wrap">
+          <h3>Streak calendar</h3>
+          <p class="heatmap-lede">Last 30 days. Magenta = quiz day. Yellow ring = today.</p>
+          <p class="heatmap-summary">Current streak: <b id="streak-cal-summary">0</b> days</p>
+          <div class="streak-calendar-30" id="streak-calendar-30" role="img" aria-label="Streak calendar last 30 days"></div>
         </div>
         <div class="review-heatmap-wrap">
           <h3>Review activity</h3>
@@ -3739,6 +3841,7 @@
               <span class="deck-stat">Mature <b id="deck-stat-mature">0</b></span>
             </p>
           </div>
+          <p class="quiz-deck-pct" id="quiz-deck-pct" hidden aria-live="polite"></p>
           <p class="setup-lede" id="quiz-lede" style="margin-top:-0.5rem;">Anki-style SM-2 - progress is stored locally in the browser.</p>
           <div class="mode-tabs quiz-study-tabs" role="tablist" aria-label="Study mode">
             <button type="button" role="tab" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Browse</button>
@@ -3748,7 +3851,7 @@
           <p class="study-mode-banner" id="study-mode-banner">Quiz: hide the answer, then rate the card. The app remembers what to drill.</p>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
             <div class="study-hud-item" id="hud-points-box"><span class="study-hud-k">Points</span><b id="hud-points">0</b></div>
-            <div class="study-hud-item" id="hud-streak-box"><span class="study-hud-k">Streak</span><b id="hud-streak">0</b></div>
+            <div class="study-hud-item is-link" id="hud-streak-box" title="Open streak calendar in Settings"><span class="study-hud-k">Streak</span><b id="hud-streak">0</b><div class="streak-calendar" id="hud-streak-cal" aria-hidden="true"></div></div>
             <div class="study-hud-item"><span class="study-hud-k">Due now</span><b id="hud-due">0</b></div>
             <div class="study-hud-item"><span class="study-hud-k">To drill</span><b id="hud-weak">0</b></div>
             <div class="study-hud-item is-link" id="hud-trophies-box" title="Open trophies"><span class="study-hud-k">Trophies</span><b id="hud-trophies">0</b></div>
@@ -3760,6 +3863,14 @@
           <div id="trophy-toast" class="trophy-toast" hidden role="status" aria-live="polite"></div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
           <div id="course-map" class="course-map hidden" aria-label="Course map"></div>
+          <div id="unit-progress" class="unit-progress hidden" aria-label="Unit progress">
+            <div class="unit-progress-meta">
+              <span><b id="unit-progress-label">Unit</b></span>
+              <span class="unit-progress-pct" id="unit-progress-pct">0%</span>
+            </div>
+            <div class="unit-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="unit-progress-bar"><span id="unit-progress-fill"></span></div>
+            <p class="unit-progress-sub" id="unit-progress-sub">0 / 0 cards at Good+</p>
+          </div>
           <div id="quiz-home" class="quiz-home" hidden aria-label="Review home">
             <p class="quiz-home-kicker">Review due</p>
             <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
@@ -6448,6 +6559,130 @@ function showCourse(courseKey) {
     };
   }
 
+  function studyUnitGoodPlus(deckKey, tag) {
+    var deck = quizGetDeck(deckKey);
+    var sched = quizLoadSched(deckKey);
+    var total = 0;
+    var goodPlus = 0;
+    if (!deck || !Array.isArray(deck.cards)) return { total: 0, goodPlus: 0 };
+    deck.cards.forEach(function (c) {
+      if (!c || !c.id || !studyCardHasTag(c, tag)) return;
+      total += 1;
+      var s = quizEnsureCard(sched, c.id);
+      if (s.status === "review" || (s.repetitions || 0) >= 1) goodPlus += 1;
+    });
+    return { total: total, goodPlus: goodPlus };
+  }
+
+  function studyDeckReviewedPct(deckKey) {
+    var deck = quizGetDeck(deckKey);
+    var sched = quizLoadSched(deckKey);
+    var total = 0;
+    var attempted = 0;
+    if (!deck || !Array.isArray(deck.cards)) return 0;
+    deck.cards.forEach(function (c) {
+      if (!c || !c.id) return;
+      total += 1;
+      var s = quizEnsureCard(sched, c.id);
+      if (!studyCardIsNew(s)) attempted += 1;
+    });
+    return total ? Math.round((attempted / total) * 100) : 0;
+  }
+
+  function studyPickDisplayUnit(deckKey) {
+    var units = COURSE_MAP[deckKey] || [];
+    if (quizState.tagFilter) {
+      var i;
+      for (i = 0; i < units.length; i++) {
+        if (units[i].tag === quizState.tagFilter) {
+          return { tag: units[i].tag, label: units[i].label || units[i].short || units[i].tag };
+        }
+      }
+    }
+    var focus = studyPickNextFocus(deckKey);
+    if (focus && focus.tag) {
+      return { tag: focus.tag, label: focus.label || focus.tag };
+    }
+    for (i = 0; i < units.length; i++) {
+      if (units[i].soon) continue;
+      var m = studyUnitMastery(deckKey, units[i].tag);
+      if (m.total > 0 && m.level < 4) {
+        return { tag: units[i].tag, label: units[i].label || units[i].short || units[i].tag };
+      }
+    }
+    return null;
+  }
+
+  function studyDayStudied(log, key, xp) {
+    if ((log[key] || 0) > 0) return true;
+    if (xp && xp.lastStudyDay === key && (xp.todayReviews || 0) > 0) return true;
+    return false;
+  }
+
+  function studyRenderStreakCalendar(el, days, xp) {
+    if (!el) return;
+    xp = xp || studyLoadXp();
+    var log = xp.reviewLog || {};
+    var keys = studyHeatmapDays(days);
+    var today = studyTodayKey();
+    var html = "";
+    keys.forEach(function (key) {
+      var studied = studyDayStudied(log, key, xp);
+      var cls = "streak-cal-day" + (studied ? " is-studied" : "") + (key === today ? " is-today" : "");
+      html += '<i class="' + cls + '" title="' + escapeHtml(key) + (studied ? " - studied" : "") + '"></i>';
+    });
+    el.innerHTML = html;
+  }
+
+  function studyRenderUnitProgress(deckKey) {
+    var box = $("unit-progress");
+    if (!box || isEmbedMode() || !quizPanelActive()) {
+      if (box) box.hidden = true;
+      return;
+    }
+    var pick = studyPickDisplayUnit(deckKey);
+    if (!pick) {
+      box.hidden = true;
+      return;
+    }
+    var stats = studyUnitGoodPlus(deckKey, pick.tag);
+    if (stats.total < 1) {
+      box.hidden = true;
+      return;
+    }
+    var pct = Math.round((stats.goodPlus / stats.total) * 100);
+    var label = $("unit-progress-label");
+    var pctEl = $("unit-progress-pct");
+    var fill = $("unit-progress-fill");
+    var sub = $("unit-progress-sub");
+    var bar = $("unit-progress-bar");
+    if (label) label.textContent = pick.label;
+    if (pctEl) pctEl.textContent = pct + "%";
+    if (fill) fill.style.width = pct + "%";
+    if (bar) bar.setAttribute("aria-valuenow", String(pct));
+    if (sub) {
+      sub.textContent = stats.goodPlus + " / " + stats.total + " cards at Good+ (graduated to review)";
+    }
+    box.hidden = false;
+  }
+
+  function studyRenderDeckPct(deckKey) {
+    var el = $("quiz-deck-pct");
+    if (!el) return;
+    if (isEmbedMode() || !quizPanelActive()) {
+      el.hidden = true;
+      return;
+    }
+    var deck = quizGetDeck(deckKey);
+    if (!deck || !deck.cards || !deck.cards.length) {
+      el.hidden = true;
+      return;
+    }
+    var pct = studyDeckReviewedPct(deckKey);
+    el.innerHTML = "<b>" + escapeHtml(deck.course || deckKey) + "</b>: " + pct + "% reviewed at least once";
+    el.hidden = false;
+  }
+
   function studyMasteryDotsHtml(level) {
     var html = '<span class="mastery-dots" aria-hidden="true">';
     var i;
@@ -6464,6 +6699,7 @@ function showCourse(courseKey) {
     if ($("quiz-search")) $("quiz-search").value = "";
     syncQuizTagChips("");
     studyRenderCourseMap(quizState.deckKey);
+    studyRenderUnitProgress(quizState.deckKey);
   }
 
   function studyApplyUnitFilter(tag) {
@@ -6483,6 +6719,7 @@ function showCourse(courseKey) {
       else quizLoadAndShow();
     }
     studyRenderCourseMap(quizState.deckKey);
+    studyRenderUnitProgress(quizState.deckKey);
   }
 
   function studyRenderCourseMap(deckKey) {
@@ -7069,6 +7306,10 @@ function showCourse(courseKey) {
     if (rankHud) rankHud.textContent = profileShareOn() ? String(rankMyPlace() || "-") : "-";
     syncQuizDeckStats(quizState.deckKey);
     studyRenderCourseMap(quizState.deckKey);
+    studyRenderUnitProgress(quizState.deckKey);
+    studyRenderDeckPct(quizState.deckKey);
+    var xpHud = studyLoadXp();
+    studyRenderStreakCalendar($("hud-streak-cal"), 7, xpHud);
     if (quizShouldShowHome()) syncQuizHome();
   }
 
@@ -9138,6 +9379,9 @@ function showCourse(courseKey) {
     var xp = studyLoadXp();
     renderOrientChecklist();
     studyRenderHeatmap(xp);
+    studyRenderStreakCalendar($("streak-calendar-30"), 30, xp);
+    var streakSum = $("streak-cal-summary");
+    if (streakSum) streakSum.textContent = String(xp.streak || 0);
     grid.innerHTML = "";
     var lastGroup = "";
     TROPHIES.forEach(function (t) {
@@ -9227,6 +9471,7 @@ function showCourse(courseKey) {
   if ($("profile-trophies-btn")) $("profile-trophies-btn").addEventListener("click", profileOpenModal);
   if ($("hud-trophies-box")) $("hud-trophies-box").addEventListener("click", profileOpenModal);
   if ($("hud-rank-box")) $("hud-rank-box").addEventListener("click", profileOpenModal);
+  if ($("hud-streak-box")) $("hud-streak-box").addEventListener("click", profileOpenModal);
   if ($("settings-share")) {
     $("settings-share").addEventListener("change", function () {
       profileSetShare(!!$("settings-share").checked);
