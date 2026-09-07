@@ -3348,7 +3348,7 @@
     }
 
 
-    /* -- Computer for dummies (bottom + PC course) -- */
+    /* -- PC basics intro (inside PC tab) -- */
     .dummies-section {
       margin: 2.5rem 0 1.5rem;
       padding: 1.5rem 1.35rem 1.35rem;
@@ -4027,6 +4027,15 @@
             </div>
           </div>
         </section>
+
+        <section class="dummies-section" id="computer-dummies" aria-labelledby="dummies-title">
+          <h2 id="dummies-title">Windows basics</h2>
+          <p class="dummies-lede">Shortcuts, files, paths, and settings for everyday PC work - guided tutorial and flashcards on this tab.</p>
+          <div class="dummies-actions">
+            <button type="button" class="btn" id="btn-dummies-tutorial">Start tutorial</button>
+            <button type="button" class="btn ghost" id="btn-dummies-quiz">Open flashcards</button>
+          </div>
+        </section>
       </div>
 
       <!-- ========== QUIZ (shared panel, deck by course tab) ========== -->
@@ -4317,15 +4326,6 @@
           <iframe class="notes-frame" src="class-notes.html" title="Class notes with sources"></iframe>
         </div>
       </div>
-
-      <section class="dummies-section" id="computer-dummies" aria-labelledby="dummies-title">
-        <h2 id="dummies-title">Also try Windows basics</h2>
-        <p class="dummies-lede">Shortcuts, files, paths, and settings for everyday PC work - separate tab with its own tutorial and flashcards.</p>
-        <div class="dummies-actions">
-          <button type="button" class="btn" id="btn-dummies-tutorial">Open PC basics tab</button>
-          <button type="button" class="btn ghost" id="btn-dummies-quiz">PC flashcards</button>
-        </div>
-      </section>
 
       <footer>
         <p class="footer-copy">&copy; Ms.Tery</p>
@@ -4838,12 +4838,6 @@
     syncCourseNav(activeKey);
   }
 
-function syncComputerDummies(courseKey) {
-    var sec = $("computer-dummies");
-    if (!sec) return;
-    sec.hidden = courseKey !== "terminal";
-  }
-
   /** Hero copy per top-level view - plain language, pensum-aligned. */
   var HERO_COPY = {
     terminal: {
@@ -4922,7 +4916,6 @@ function showCourse(courseKey) {
     syncCourseNav(courseKey);
     setCourseTabIndex(courseKey);
     try { localStorage.setItem(LAST_COURSE_KEY, courseKey); } catch (e) { /* ignore */ }
-    syncComputerDummies(courseKey);
     syncHero(courseKey);
 
     var practiceLink = $("quiz-practice-link");
@@ -8112,9 +8105,8 @@ function showCourse(courseKey) {
       }
     }
     box.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    syncQuizSessionUi();
   }
-
-  function testStart() {
     var deck = quizGetDeck(quizState.deckKey);
     if (!deck) return;
     var questions = testBuildQuestions(deck);
@@ -10588,6 +10580,7 @@ function showCourse(courseKey) {
   }
 
   function openPcTutorialFromCta() {
+    showCourse("computer-basics");
     showPcMode("tutorial");
     var lab = $("lab");
     if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -10600,6 +10593,7 @@ function showCourse(courseKey) {
   }
 
   function openPcQuizFromCta() {
+    showCourse("computer-basics");
     showPcMode("quiz");
     var lab = $("lab");
     if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
