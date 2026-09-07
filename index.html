@@ -1822,6 +1822,123 @@
       justify-content: center;
     }
     .embed .quiz-home { display: none !important; }
+    .embed #tab-study-test { display: none !important; }
+    .test-mode .quiz-card {
+      border-top: 4px solid var(--palette-red);
+    }
+    .test-mode #quiz-reveal-row,
+    .test-mode #quiz-grades,
+    .test-mode #flash-nav-row { display: none !important; }
+    .test-written {
+      margin: 0.85rem 0 0;
+    }
+    .test-written label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin: 0 0 0.35rem;
+    }
+    .test-written-field {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .test-written-field input {
+      flex: 1 1 12rem;
+      min-height: var(--touch);
+      padding: 0.55rem 0.65rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .test-written-field input:focus {
+      outline: 2px solid var(--palette-turquoise);
+      outline-offset: 1px;
+    }
+    .test-mcq {
+      margin: 0.85rem 0 0;
+    }
+    .test-mcq-options {
+      display: grid;
+      gap: 0.45rem;
+    }
+    .test-mcq-options button {
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      min-height: var(--touch);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      color: var(--ink);
+      font-size: 0.92rem;
+      line-height: 1.35;
+      cursor: pointer;
+    }
+    .test-mcq-options button:hover:not(:disabled) {
+      border-color: var(--palette-turquoise);
+      background: rgba(0, 183, 205, 0.06);
+    }
+    .test-mcq-options button.is-picked.is-correct {
+      border-color: var(--palette-turquoise);
+      background: rgba(0, 183, 205, 0.12);
+    }
+    .test-mcq-options button.is-picked.is-wrong {
+      border-color: var(--palette-red);
+      background: rgba(223, 48, 28, 0.08);
+    }
+    .test-mcq-options button:disabled { cursor: default; opacity: 0.92; }
+    .test-feedback {
+      margin: 0.85rem 0 0;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--surface);
+    }
+    .test-feedback.is-correct { border-left: 4px solid var(--palette-turquoise); }
+    .test-feedback.is-wrong { border-left: 4px solid var(--palette-red); }
+    .test-feedback p {
+      margin: 0 0 0.65rem;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .test-results {
+      margin: 0 0 1rem;
+      padding: 1rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--palette-red);
+      border-radius: 4px;
+    }
+    .test-results[hidden] { display: none !important; }
+    .test-results h3 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+    .test-results-score {
+      margin: 0 0 0.25rem;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--palette-red);
+    }
+    .test-results-time {
+      margin: 0 0 0.75rem;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+    .test-results-misses {
+      margin: 0;
+      padding: 0 0 0 1.1rem;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .test-results-misses li { margin: 0 0 0.45rem; }
+    .test-timer {
+      font-size: 0.82rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+    .test-timer[hidden] { display: none !important; }
     .first-win-modal {
       position: fixed;
       inset: 0;
@@ -2958,6 +3075,7 @@
           <div class="mode-tabs quiz-study-tabs" role="tablist" aria-label="Study mode">
             <button type="button" role="tab" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Browse</button>
             <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Quiz</button>
+            <button type="button" role="tab" id="tab-study-test" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Test</button>
           </div>
           <p class="study-mode-banner" id="study-mode-banner">Quiz: hide the answer, then rate the card. The app remembers what to drill.</p>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
@@ -3003,6 +3121,14 @@
               </div>
             </div>
           </div>
+          <div id="test-home" class="quiz-home test-home" hidden aria-label="Test mode home">
+            <p class="quiz-home-kicker">Test mode</p>
+            <p class="quiz-home-due"><b id="test-home-count">10</b> mixed questions</p>
+            <p class="quiz-home-sub" id="test-home-sub">Written answers and multiple choice - like a mini Canvas quiz. Score at the end; no SRS points.</p>
+            <div class="tut-actions quiz-home-actions">
+              <button type="button" class="btn btn-primary" id="test-home-start">Start test</button>
+            </div>
+          </div>
           <div class="quiz-find" id="quiz-find" hidden>
             <label class="visually-hidden" for="quiz-search">Find cards</label>
             <input type="search" id="quiz-search" placeholder="Find in this deck (question, answer, tag)" autocomplete="off" enterkeyhint="search" />
@@ -3017,6 +3143,7 @@
               <span class="meta-stats">
                 <span class="stat">done <b id="quiz-done-count">0</b></span>
                 <span class="stat">total <b id="quiz-total-count">0</b></span>
+                <span class="test-timer" id="test-timer" hidden></span>
               </span>
             </div>
             <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quiz-bar" aria-label="Quiz progress">
@@ -3055,6 +3182,34 @@
               <button type="button" data-grade="hard" title="Hard - 5 points - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
               <button type="button" data-grade="good" title="Good - 10 points - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
               <button type="button" data-grade="easy" title="Easy - 15 points - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span><span class="grade-pts">+15</span></button>
+            </div>
+
+            <div class="test-written hidden" id="test-written-row" aria-label="Written answer">
+              <label for="test-written-input">Your answer</label>
+              <div class="test-written-field">
+                <input type="text" id="test-written-input" autocomplete="off" enterkeyhint="done" placeholder="Type short answer (NAT, port, acronym…)" />
+                <button type="button" class="btn btn-primary" id="test-written-check">Check</button>
+              </div>
+            </div>
+
+            <div class="test-mcq hidden" id="test-mcq-row" role="group" aria-label="Multiple choice">
+              <div class="test-mcq-options" id="test-mcq-options"></div>
+            </div>
+
+            <div class="test-feedback hidden" id="test-feedback" role="status" aria-live="polite">
+              <p id="test-feedback-text"></p>
+              <button type="button" class="btn btn-primary" id="test-next">Next question</button>
+            </div>
+          </div>
+
+          <div id="test-results" class="test-results hidden" role="status" aria-live="polite">
+            <h3 id="test-results-title">Test complete</h3>
+            <p class="test-results-score" id="test-results-score">0 / 10</p>
+            <p class="test-results-time" id="test-results-time"></p>
+            <ul class="test-results-misses" id="test-results-misses"></ul>
+            <div class="tut-actions" style="justify-content:center;margin-top:1rem;">
+              <button type="button" class="btn btn-primary" id="test-retake">Retake test</button>
+              <button type="button" class="btn ghost" id="test-back-quiz">Back to Quiz</button>
             </div>
           </div>
 
@@ -3894,6 +4049,17 @@ function showCourse(courseKey) {
     index: 0,
     flipped: false,
     query: ""
+  };
+
+  var TEST_SIZE = 10;
+  var testState = {
+    active: false,
+    questions: [],
+    index: 0,
+    results: [],
+    startedAt: 0,
+    timerId: null,
+    awaitingNext: false
   };
 
   var XP_POINTS = { again: 0, hard: 5, good: 10, easy: 15 };
@@ -5426,6 +5592,8 @@ function showCourse(courseKey) {
       }
     }
     home.hidden = false;
+    if ($("test-home")) $("test-home").hidden = true;
+    if ($("test-results")) $("test-results").hidden = true;
     $("quiz-active").classList.add("hidden");
     $("quiz-empty").classList.add("hidden");
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
@@ -5569,9 +5737,441 @@ function showCourse(courseKey) {
       if (m !== "flashcards" && m !== "quiz" && profileIsPrimary()) {
         m = localStorage.getItem(STUDY_MODE_PREFIX + deckKey);
       }
-      if (m === "flashcards" || m === "quiz") return m;
+      if (m === "flashcards" || m === "quiz" || m === "test") return m;
     } catch (e) { /* ignore */ }
     return "quiz";
+  }
+
+  function testStopTimer() {
+    if (testState.timerId) {
+      clearInterval(testState.timerId);
+      testState.timerId = null;
+    }
+  }
+
+  function testFormatElapsed(ms) {
+    var sec = Math.max(0, Math.floor(ms / 1000));
+    var m = Math.floor(sec / 60);
+    var s = sec % 60;
+    return String(m) + ":" + (s < 10 ? "0" : "") + String(s);
+  }
+
+  function testUpdateTimer() {
+    var el = $("test-timer");
+    if (!el || !testState.active) return;
+    el.hidden = false;
+    el.textContent = testFormatElapsed(Date.now() - testState.startedAt);
+  }
+
+  function testNormalizeAnswer(s) {
+    return String(s || "").toLowerCase()
+      .replace(/[^\w\s/.:-]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function testExtractKeys(s) {
+    var keys = [];
+    var raw = String(s || "");
+    var acr = raw.match(/\b[A-Z]{2,}\b/g);
+    if (acr) acr.forEach(function (x) { keys.push(x.toLowerCase()); });
+    var nums = raw.match(/\b\d{1,5}\b/g);
+    if (nums) keys = keys.concat(nums);
+    testNormalizeAnswer(raw).split(" ").forEach(function (w) {
+      if (w.length > 4 && keys.indexOf(w) < 0) keys.push(w);
+    });
+    return keys.slice(0, 8);
+  }
+
+  function testAnswerCorrect(expected, user) {
+    var ne = testNormalizeAnswer(expected);
+    var nu = testNormalizeAnswer(user);
+    if (!nu || nu.length < 2) return false;
+    if (ne === nu) return true;
+    if (ne.indexOf(nu) >= 0 && nu.length >= Math.min(10, Math.max(4, ne.length * 0.35))) return true;
+    if (nu.indexOf(ne) >= 0 && ne.length <= 100) return true;
+    var et = ne.split(" ").filter(function (w) { return w.length > 2; });
+    var ut = nu.split(" ").filter(function (w) { return w.length > 2; });
+    if (et.length && ut.length) {
+      var match = ut.filter(function (w) { return et.indexOf(w) >= 0; }).length;
+      if (match / et.length >= 0.55) return true;
+    }
+    var keys = testExtractKeys(expected);
+    if (keys.length >= 2) {
+      var km = keys.filter(function (k) { return nu.indexOf(k) >= 0; }).length;
+      if (km / keys.length >= 0.65) return true;
+    }
+    return false;
+  }
+
+  function testTruncateText(s, max) {
+    s = String(s || "").trim();
+    max = max || 120;
+    if (s.length <= max) return s;
+    return s.slice(0, max - 1).trim() + "…";
+  }
+
+  function testPickQuestionType(card) {
+    var a = String(card && card.a || "");
+    if (a.length <= 140) {
+      if (/\b(NAT|TCP|UDP|CIDR|IP|DNS|HTTP|HTTPS|VPN|LAN|WAN|MFA|DMARC|OSI|SMTP|FTP|TLS|SSL|IDS|IPS|SIEM)\b/i.test(a)) return "written";
+      if (/\b\d{1,5}\b/.test(a)) return "written";
+      if (a.split(/\s+/).length <= 18) return "written";
+    }
+    return "mcq";
+  }
+
+  function testBuildPool(deck) {
+    var pool = (deck.cards || []).filter(function (c) { return c && c.id && c.q && c.a; });
+    if (quizState.tagFilter) {
+      pool = pool.filter(function (c) { return studyCardHasTag(c, quizState.tagFilter); });
+    }
+    return pool;
+  }
+
+  function testBuildMcqChoices(card, pool) {
+    var correct = testTruncateText(card.a, 140);
+    var ne = testNormalizeAnswer(correct);
+    var distractors = [];
+    var shuffled = flashShuffle(pool.filter(function (c) { return c.id !== card.id; }));
+    shuffled.forEach(function (c) {
+      if (distractors.length >= 3) return;
+      var t = testTruncateText(c.a, 140);
+      var nt = testNormalizeAnswer(t);
+      if (!t || nt === ne) return;
+      if (distractors.some(function (d) { return testNormalizeAnswer(d) === nt; })) return;
+      distractors.push(t);
+    });
+    while (distractors.length < 3) {
+      distractors.push("Not listed in this deck");
+    }
+    var choices = flashShuffle([correct].concat(distractors));
+    var correctIdx = choices.indexOf(correct);
+    return { choices: choices, correctIdx: correctIdx };
+  }
+
+  function testBuildQuestions(deck) {
+    var pool = testBuildPool(deck);
+    if (pool.length < 3) return [];
+    var picked = flashShuffle(pool).slice(0, Math.min(TEST_SIZE, pool.length));
+    return picked.map(function (card) {
+      var type = testPickQuestionType(card);
+      var q = { card: card, type: type };
+      if (type === "mcq") {
+        var mcq = testBuildMcqChoices(card, pool);
+        q.choices = mcq.choices;
+        q.correctIdx = mcq.correctIdx;
+      }
+      return q;
+    });
+  }
+
+  function testShouldShowHome() {
+    return quizState.studyMode === "test" && !testState.active && !isEmbedMode();
+  }
+
+  function syncTestHome() {
+    var home = $("test-home");
+    if (!home) return;
+    if ($("quiz-home")) $("quiz-home").hidden = true;
+    if ($("test-results")) $("test-results").hidden = true;
+    if (!testShouldShowHome() || !quizPanelActive()) {
+      home.hidden = true;
+      return;
+    }
+    var deck = quizGetDeck(quizState.deckKey);
+    if (!deck || !Array.isArray(deck.cards) || !deck.cards.length || deckLooksStale(deck, quizState.deckKey)) {
+      home.hidden = true;
+      return;
+    }
+    var pool = testBuildPool(deck);
+    var n = Math.min(TEST_SIZE, pool.length);
+    var countEl = $("test-home-count");
+    var sub = $("test-home-sub");
+    if (countEl) countEl.textContent = String(n);
+    if (sub) {
+      sub.textContent = pool.length < 3
+        ? "Need at least 3 cards in this deck (or filter) for a test."
+        : "Written answers and multiple choice - like a mini Canvas quiz. Score at the end; no SRS points.";
+    }
+    var startBtn = $("test-home-start");
+    if (startBtn) startBtn.disabled = pool.length < 3;
+    home.hidden = false;
+    $("quiz-active").classList.add("hidden");
+    $("quiz-empty").classList.add("hidden");
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
+    testStopTimer();
+    if ($("test-timer")) $("test-timer").hidden = true;
+    syncQuizTagChips(quizState.tagFilter || "");
+  }
+
+  function testHideInputs() {
+    ["test-written-row", "test-mcq-row", "test-feedback"].forEach(function (id) {
+      var el = $(id);
+      if (el) el.classList.add("hidden");
+    });
+  }
+
+  function testRenderQuestionShell(card) {
+    $("quiz-active").classList.remove("hidden");
+    if ($("test-results")) $("test-results").hidden = true;
+    $("quiz-empty").classList.add("hidden");
+    $("quiz-card").classList.remove("revealed", "flipped");
+    $("quiz-face-label").textContent = "Question";
+    $("quiz-q").textContent = card.q;
+    quizRenderFigure(card);
+    $("quiz-a").classList.add("hidden");
+    $("quiz-reveal-row").classList.add("hidden");
+    $("quiz-grades").classList.add("hidden");
+    var tags = $("quiz-tags");
+    tags.innerHTML = "";
+    (card.tags || []).forEach(function (t) {
+      var span = document.createElement("span");
+      span.textContent = t;
+      tags.appendChild(span);
+    });
+  }
+
+  function testUpdateProgress() {
+    var total = testState.questions.length;
+    var done = testState.index;
+    var stepEl = $("quiz-step-label");
+    var doneEl = $("quiz-done-count");
+    var totalEl = $("quiz-total-count");
+    var fill = $("quiz-bar-fill");
+    var bar = $("quiz-bar");
+    if (doneEl) doneEl.textContent = String(done);
+    if (totalEl) totalEl.textContent = String(total);
+    if (stepEl) {
+      stepEl.textContent = total ? "Question " + (done + 1) + " of " + total : "Test";
+    }
+    var pct = total ? Math.min(100, (done / total) * 100) : 0;
+    if (fill) fill.style.width = pct + "%";
+    if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
+    var qEl = $("quiz-queue");
+    if (qEl) {
+      qEl.textContent = "";
+      var b = document.createElement("b");
+      b.textContent = String(Math.max(0, total - done));
+      qEl.appendChild(b);
+      qEl.appendChild(document.createTextNode(" questions left"));
+    }
+    testUpdateTimer();
+  }
+
+  function testRenderCurrent() {
+    if (!testState.active || !testState.questions.length) return;
+    var item = testState.questions[testState.index];
+    if (!item || !item.card) return;
+    testState.awaitingNext = false;
+    testHideInputs();
+    testRenderQuestionShell(item.card);
+    var fb = $("test-feedback");
+    if (fb) fb.classList.add("hidden");
+    if (item.type === "written") {
+      var row = $("test-written-row");
+      var input = $("test-written-input");
+      if (row) row.classList.remove("hidden");
+      if (input) {
+        input.value = "";
+        input.disabled = false;
+        window.setTimeout(function () { try { input.focus(); } catch (e) { /* ignore */ } }, 60);
+      }
+    } else {
+      var mcqRow = $("test-mcq-row");
+      var opts = $("test-mcq-options");
+      if (mcqRow) mcqRow.classList.remove("hidden");
+      if (opts) {
+        opts.innerHTML = "";
+        (item.choices || []).forEach(function (choice, idx) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = choice;
+          btn.setAttribute("data-idx", String(idx));
+          btn.addEventListener("click", function () { testSubmitMcq(idx); });
+          opts.appendChild(btn);
+        });
+      }
+    }
+    testUpdateProgress();
+  }
+
+  function testShowFeedback(correct, expected, userAnswer) {
+    testState.awaitingNext = true;
+    var fb = $("test-feedback");
+    var txt = $("test-feedback-text");
+    if ($("test-written-row")) $("test-written-row").classList.add("hidden");
+    if ($("test-mcq-row")) {
+      $("test-mcq-row").querySelectorAll("button").forEach(function (btn) { btn.disabled = true; });
+    }
+    if (fb) {
+      fb.classList.remove("hidden", "is-correct", "is-wrong");
+      fb.classList.add(correct ? "is-correct" : "is-wrong");
+    }
+    if (txt) {
+      if (correct) {
+        txt.textContent = "Correct!";
+      } else {
+        txt.textContent = "Not quite. Correct answer: " + expected + (userAnswer ? " (you wrote: " + userAnswer + ")" : "");
+      }
+    }
+    var nextBtn = $("test-next");
+    if (nextBtn) {
+      window.setTimeout(function () { try { nextBtn.focus(); } catch (e) { /* ignore */ } }, 80);
+    }
+  }
+
+  function testRecordResult(correct, userAnswer) {
+    var item = testState.questions[testState.index];
+    testState.results.push({
+      cardId: item.card.id,
+      q: item.card.q,
+      expected: item.card.a,
+      correct: correct,
+      userAnswer: userAnswer || "",
+      type: item.type
+    });
+  }
+
+  function testSubmitWritten() {
+    if (!testState.active || testState.awaitingNext) return;
+    var item = testState.questions[testState.index];
+    var input = $("test-written-input");
+    var user = input ? (input.value || "").trim() : "";
+    if (!user) {
+      if (input) input.focus();
+      return;
+    }
+    if (input) input.disabled = true;
+    var ok = testAnswerCorrect(item.card.a, user);
+    testRecordResult(ok, user);
+    testShowFeedback(ok, testTruncateText(item.card.a, 200), user);
+  }
+
+  function testSubmitMcq(idx) {
+    if (!testState.active || testState.awaitingNext) return;
+    var item = testState.questions[testState.index];
+    var ok = idx === item.correctIdx;
+    var opts = $("test-mcq-options");
+    if (opts) {
+      opts.querySelectorAll("button").forEach(function (btn, i) {
+        btn.classList.add("is-picked");
+        if (i === item.correctIdx) btn.classList.add("is-correct");
+        else if (i === idx && !ok) btn.classList.add("is-wrong");
+        btn.disabled = true;
+      });
+    }
+    testRecordResult(ok, item.choices[idx] || "");
+    testShowFeedback(ok, item.choices[item.correctIdx] || item.card.a, item.choices[idx] || "");
+  }
+
+  function testAdvance() {
+    if (!testState.active) return;
+    testState.index += 1;
+    if (testState.index >= testState.questions.length) {
+      testFinish();
+      return;
+    }
+    testRenderCurrent();
+  }
+
+  function testFinish() {
+    testState.active = false;
+    testStopTimer();
+    var correctN = testState.results.filter(function (r) { return r.correct; }).length;
+    var total = testState.results.length;
+    $("quiz-active").classList.add("hidden");
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
+    if ($("test-timer")) $("test-timer").hidden = true;
+    var box = $("test-results");
+    if (!box) return;
+    box.hidden = false;
+    var scoreEl = $("test-results-score");
+    var timeEl = $("test-results-time");
+    var titleEl = $("test-results-title");
+    if (scoreEl) scoreEl.textContent = String(correctN) + " / " + String(total);
+    if (timeEl) timeEl.textContent = "Time: " + testFormatElapsed(Date.now() - testState.startedAt);
+    if (titleEl) {
+      var pct = total ? (correctN / total) * 100 : 0;
+      titleEl.textContent = pct >= 80 ? "Strong score!" : (pct >= 60 ? "Test complete" : "Keep drilling");
+    }
+    var misses = $("test-results-misses");
+    if (misses) {
+      misses.innerHTML = "";
+      var wrong = testState.results.filter(function (r) { return !r.correct; });
+      if (!wrong.length) {
+        var li = document.createElement("li");
+        li.textContent = "All answers correct - nice work.";
+        misses.appendChild(li);
+      } else {
+        wrong.forEach(function (r) {
+          var li = document.createElement("li");
+          li.textContent = testTruncateText(r.q, 90) + " - " + testTruncateText(r.expected, 100);
+          misses.appendChild(li);
+        });
+      }
+    }
+    box.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+
+  function testStart() {
+    var deck = quizGetDeck(quizState.deckKey);
+    if (!deck) return;
+    var questions = testBuildQuestions(deck);
+    if (questions.length < 3) {
+      $("quiz-active").classList.add("hidden");
+      $("quiz-empty").classList.remove("hidden");
+      if ($("quiz-empty-title")) $("quiz-empty-title").textContent = "Not enough cards";
+      if ($("quiz-empty-text")) {
+        $("quiz-empty-text").textContent = quizState.tagFilter
+          ? "Pick another tag filter or use All - need at least 3 cards."
+          : "This deck needs at least 3 cards for a test.";
+      }
+      if ($("quiz-empty-actions")) $("quiz-empty-actions").classList.add("hidden");
+      return;
+    }
+    testState.active = true;
+    testState.questions = questions;
+    testState.index = 0;
+    testState.results = [];
+    testState.startedAt = Date.now();
+    testState.awaitingNext = false;
+    if ($("test-home")) $("test-home").hidden = true;
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = false;
+    testStopTimer();
+    testState.timerId = window.setInterval(testUpdateTimer, 1000);
+    testUpdateTimer();
+    testRenderCurrent();
+  }
+
+  function testLoadAndShow() {
+    var deck = quizGetDeck(quizState.deckKey);
+    var countMismatch = deckLooksStale(deck, quizState.deckKey);
+    if (!deck || countMismatch) {
+      if (!quizDeckFallbackTried) {
+        quizDeckFallbackTried = true;
+        quizShowEmpty(0, { loading: true });
+        quizFetchJsonFallback().then(function (ok) {
+          if (ok) testLoadAndShow();
+          else {
+            quizDeckFallbackTried = false;
+            quizShowEmpty(0, { missingDeck: true });
+          }
+        });
+        return;
+      }
+      quizShowEmpty(0, { missingDeck: true });
+      return;
+    }
+    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study");
+    applyStudyModeUi("test");
+    quizUpdateMaterials(quizState.deckKey);
+    if (testState.active) {
+      if ($("test-home")) $("test-home").hidden = true;
+      testRenderCurrent();
+      return;
+    }
+    syncTestHome();
   }
 
   function saveStudyMode(deckKey, mode) {
@@ -5583,56 +6183,90 @@ function showCourse(courseKey) {
   function applyStudyModeUi(mode) {
     var courseQuiz = $("course-quiz");
     var isFlash = mode === "flashcards";
+    var isTest = mode === "test";
+    var isQuiz = mode === "quiz";
     if (courseQuiz) {
       courseQuiz.classList.toggle("flash-mode", isFlash);
-      courseQuiz.classList.toggle("quiz-mode", !isFlash);
+      courseQuiz.classList.toggle("test-mode", isTest);
+      courseQuiz.classList.toggle("quiz-mode", isQuiz);
     }
     var tFlash = $("tab-study-flashcards");
     var tQuiz = $("tab-study-quiz");
+    var tTest = $("tab-study-test");
     if (tFlash) {
       tFlash.classList.toggle("active", isFlash);
       tFlash.setAttribute("aria-selected", isFlash ? "true" : "false");
       tFlash.tabIndex = isFlash ? 0 : -1;
     }
     if (tQuiz) {
-      tQuiz.classList.toggle("active", !isFlash);
-      tQuiz.setAttribute("aria-selected", isFlash ? "false" : "true");
-      tQuiz.tabIndex = isFlash ? -1 : 0;
+      tQuiz.classList.toggle("active", isQuiz);
+      tQuiz.setAttribute("aria-selected", isQuiz ? "true" : "false");
+      tQuiz.tabIndex = isQuiz ? 0 : -1;
+    }
+    if (tTest) {
+      tTest.classList.toggle("active", isTest);
+      tTest.setAttribute("aria-selected", isTest ? "true" : "false");
+      tTest.tabIndex = isTest ? 0 : -1;
     }
     var flashNav = $("flash-nav-row");
     if (flashNav) flashNav.classList.toggle("hidden", !isFlash);
     var lede = $("quiz-lede");
     if (lede) {
-      lede.textContent = isFlash
-        ? "Browse the deck. Question first - tap the card or press Space to flip. Figures stay hidden until you flip. This mode does not score you."
-        : "Test yourself. Rate each card so the app remembers what to drill. Points and streak stay on this device.";
+      if (isFlash) {
+        lede.textContent = "Browse the deck. Question first - tap the card or press Space to flip. Figures stay hidden until you flip. This mode does not score you.";
+      } else if (isTest) {
+        lede.textContent = "Exam-style test: type short answers or pick multiple choice. Timer runs; score at the end. Does not change SRS schedule.";
+      } else {
+        lede.textContent = "Test yourself. Rate each card so the app remembers what to drill. Points and streak stay on this device.";
+      }
     }
     var banner = $("study-mode-banner");
     if (banner) {
-      banner.textContent = isFlash
-        ? "Browse: look through cards. No points. Use Quiz when you want the app to remember misses."
-        : "Quiz: hide the answer, then rate the card. Again / Hard cards come back soon so you can drill them.";
+      if (isFlash) {
+        banner.textContent = "Browse: look through cards. No points. Use Quiz when you want the app to remember misses.";
+      } else if (isTest) {
+        banner.textContent = "Test: mixed written + multiple choice from this deck. Use tag chips to narrow (e.g. Lecture3 for 4050 networks).";
+      } else {
+        banner.textContent = "Quiz: hide the answer, then rate the card. Again / Hard cards come back soon so you can drill them.";
+      }
     }
     var shorts = $("quiz-shortcuts");
     if (shorts) {
-      shorts.innerHTML = isFlash
-        ? "<kbd>Space</kbd> flip | <kbd>/</kbd> find | arrows previous/next"
-        : "<kbd>Space</kbd> show answer | <kbd>1</kbd>-<kbd>4</kbd> rate (points + drill memory)";
+      if (isFlash) {
+        shorts.innerHTML = "<kbd>Space</kbd> flip | <kbd>/</kbd> find | arrows previous/next";
+      } else if (isTest) {
+        shorts.innerHTML = "Type answer + Check, or tap MCQ | Enter checks written answer";
+      } else {
+        shorts.innerHTML = "<kbd>Space</kbd> show answer | <kbd>1</kbd>-<kbd>4</kbd> rate (points + drill memory)";
+      }
     }
+    if ($("test-home") && !isTest) $("test-home").hidden = true;
+    if ($("test-results") && !isTest) $("test-results").hidden = true;
     syncQuizFindUi();
     studyRefreshHud();
   }
 
   function setStudyMode(mode) {
-    if (mode !== "flashcards" && mode !== "quiz") mode = "quiz";
+    if (mode !== "flashcards" && mode !== "quiz" && mode !== "test") mode = "quiz";
+    testStopTimer();
+    if (mode !== "test") {
+      testState.active = false;
+      testState.questions = [];
+      testState.index = 0;
+      testState.results = [];
+    }
     quizState.studyMode = mode;
     saveStudyMode(quizState.deckKey, mode);
     if (mode === "quiz") {
       quizState.inSession = isEmbedMode();
       quizState.sessionLimit = null;
       quizState.tagFilter = null;
+    } else if (mode === "test") {
+      quizState.inSession = false;
+      quizState.sessionLimit = null;
     } else {
       quizState.inSession = true;
+      quizState.tagFilter = null;
     }
     applyStudyModeUi(mode);
     studyLoadAndShow();
@@ -5644,6 +6278,7 @@ function showCourse(courseKey) {
     quizState.studyMode = loadStudyMode(quizState.deckKey);
     applyStudyModeUi(quizState.studyMode);
     if (quizState.studyMode === "flashcards") flashLoadAndShow();
+    else if (quizState.studyMode === "test") testLoadAndShow();
     else quizLoadAndShow();
   }
 
@@ -6489,6 +7124,10 @@ function showCourse(courseKey) {
       flashLoadAndShow();
       return;
     }
+    if (quizState.studyMode === "test") {
+      testLoadAndShow();
+      return;
+    }
     var deck = quizGetDeck(quizState.deckKey);
     var countMismatch = deckLooksStale(deck, quizState.deckKey);
     if (!deck || countMismatch) {
@@ -6758,6 +7397,35 @@ function showCourse(courseKey) {
   if ($("tab-study-quiz")) {
     $("tab-study-quiz").addEventListener("click", function () { setStudyMode("quiz"); });
   }
+  if ($("tab-study-test")) {
+    $("tab-study-test").addEventListener("click", function () { setStudyMode("test"); });
+  }
+  if ($("test-home-start")) {
+    $("test-home-start").addEventListener("click", testStart);
+  }
+  if ($("test-written-check")) {
+    $("test-written-check").addEventListener("click", testSubmitWritten);
+  }
+  if ($("test-written-input")) {
+    $("test-written-input").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        testSubmitWritten();
+      }
+    });
+  }
+  if ($("test-next")) {
+    $("test-next").addEventListener("click", testAdvance);
+  }
+  if ($("test-retake")) {
+    $("test-retake").addEventListener("click", function () {
+      if ($("test-results")) $("test-results").hidden = true;
+      testStart();
+    });
+  }
+  if ($("test-back-quiz")) {
+    $("test-back-quiz").addEventListener("click", function () { setStudyMode("quiz"); });
+  }
   if ($("flash-prev")) {
     $("flash-prev").addEventListener("click", function () { flashGo(-1); });
   }
@@ -6836,6 +7504,12 @@ function showCourse(courseKey) {
     });
   }
   function applyQuizTagFilter(tag) {
+    if (quizState.studyMode === "test") {
+      quizState.tagFilter = tag || null;
+      syncQuizTagChips(tag || "");
+      syncTestHome();
+      return;
+    }
     flashState.query = tag || "";
     if ($("quiz-search")) $("quiz-search").value = flashState.query;
     syncQuizTagChips(tag || "");
@@ -6856,6 +7530,12 @@ function showCourse(courseKey) {
       if (!span) return;
       e.stopPropagation();
       var tag = (span.textContent || "").trim();
+      if (quizState.studyMode === "test") {
+        quizState.tagFilter = tag;
+        syncQuizTagChips(tag);
+        syncTestHome();
+        return;
+      }
       flashState.query = tag;
       if ($("quiz-search")) $("quiz-search").value = tag;
       if (quizState.studyMode !== "flashcards") setStudyMode("flashcards");
@@ -7622,6 +8302,23 @@ function showCourse(courseKey) {
     }
 
     if (!quizPanelActive() || isTypingTarget(e.target)) return;
+
+    if (quizState.studyMode === "test" && testState.active) {
+      if (e.key === "Enter" && !testState.awaitingNext) {
+        var item = testState.questions[testState.index];
+        if (item && item.type === "written") {
+          e.preventDefault();
+          testSubmitWritten();
+          return;
+        }
+      }
+      if (testState.awaitingNext && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        testAdvance();
+        return;
+      }
+      return;
+    }
 
     if (quizState.studyMode === "flashcards" && quizState.card) {
       if (e.key === "ArrowLeft") {
