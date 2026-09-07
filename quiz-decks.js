@@ -10,7 +10,7 @@
   global.QUIZ_DECKS = {
   "acit4050": {
     "course": "ACIT4050",
-    "title": "Terminal, lab & networks",
+    "title": "Security, terminal and networks",
     "cards": [
       {
         "id": "4050-pwd",
@@ -2208,7 +2208,7 @@
   },
   "acit4280": {
     "course": "ACIT4280",
-    "title": "Privacy / GDPR (L1-L6)",
+    "title": "GDPR and privacy engineering (L1-L6)",
     "cards": [
       {
         "id": "4280-gdpr-structure",
@@ -5084,7 +5084,7 @@
   },
   "acit4100": {
     "course": "ACIT4100",
-    "title": "Understanding & Communicating Research",
+    "title": "Research methods and writing",
     "cards": [
       {
         "id": "4100-zotero",
@@ -8766,7 +8766,7 @@
   },
   "computer-basics": {
     "course": "Computer basics",
-    "title": "Computer for dummies",
+    "title": "Windows basics and shortcuts",
     "cards": [
       {
         "id": "cb-file-folder",
@@ -9064,7 +9064,7 @@
   },
   "fellesjam-general": {
     "course": "Fellesjam",
-    "title": "General cyber foundations",
+    "title": "Mixed review (all courses)",
     "cards": [
       {
         "id": "fj-curl",
