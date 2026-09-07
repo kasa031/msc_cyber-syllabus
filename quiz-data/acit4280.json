@@ -2496,6 +2496,38 @@
       ]
     },
     {
+      "id": "4280-2a-off-facebook",
+      "q": "Assignment 2A: what TET feature is Off-Facebook Activity?",
+      "a": "Partial recipient/transparency tool - shows some third-party apps/sites that sent Facebook data, similar in role to Google's ad/partner lists, but not a full trusted audit of all processing.",
+      "tags": [
+        "assignment-2A",
+        "2A",
+        "TETs",
+        "Facebook"
+      ]
+    },
+    {
+      "id": "4280-2a-art15-access",
+      "q": "Assignment 2A: how does GDPR Art. 15 access relate to Google/Facebook exports?",
+      "a": "Exports implement access/portability rights, but a zip alone is weak as a TET unless it explains purposes, recipients, retention and consequences in usable form (Murmann ex post critique).",
+      "tags": [
+        "assignment-2A",
+        "2A",
+        "TETs",
+        "GDPR"
+      ]
+    },
+    {
+      "id": "4280-2a-due-date",
+      "q": "When is ACIT4280 Assignment 2A due (Sep 2026 plan)?",
+      "a": "17 September 2026 (group presentation/hand-in slot - confirm live Canvas date). Builds on Lecture 6 TETs after 1A Webbkoll.",
+      "tags": [
+        "assignment-2A",
+        "2A",
+        "TETs"
+      ]
+    },
+    {
       "id": "4280-canvas-module-quizzes",
       "q": "Which classic Canvas module quizzes appear in ACIT4280 Chapter 1 (Aug 2026 crawl)?",
       "a": "Concept of Privacy, Basic Privacy Principles, Privacy Laws, Mobile Computing and Smart Metering, Social Networks/Big Data/Cloud, Introduction to GDPR, Lawfulness and Consent, Data Subject Rights, Responsibilities and Rules, ePrivacy Regulation.",

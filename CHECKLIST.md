@@ -39,12 +39,21 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 6. Fellesjam pool = merged cards from all five source decks (~779 unique cards)
 7. **file://:** no service worker; all content loads from disk (`quiz-decks.js`, `figures/pensum/` must exist beside `index.html`)
 
-## Technical status (lock111)
+## Publish sync (OneDrive Guider -> GitHub)
 
-- Deck counts: ACIT4050=207, ACIT4280=215, ACIT4100=328, computer-basics=28, fellesjam-general=26 (Fellesjam pool ~798 unique)
+1. Edit canonical files in `OsloMet_Hosten2026/Guider/` only.
+2. Quiz JSON changed? Run `python Guider/_tools/expand_quiz_decks.py` or rebuild `quiz-decks.js`.
+3. Bump `sw.js` cache name (`msc-cyber-lockNNN`).
+4. Copy **app files only** to `C:\Users\Karina\Dev\acit-study-quiz\` (index, sw, quiz-decks.js, quiz-data, class-notes, framework-practice, icons, figures, fonts, privacy-policy, manifest).
+5. Never copy: Ukeplan, UKAS_LESNING, Emner/, Excel, personal paths.
+6. `git commit` + `git push` when Karina confirms. Live: Ctrl+F5.
+
+## Technical status (lock145)
+
+- Deck counts: ACIT4050=220, ACIT4280=218, ACIT4100=328, computer-basics=28, fellesjam-general=26 (Fellesjam pool ~798 unique)
 - Canonical entry: `index.html` (`TERMINAL_OVING_ACIT4050.html` redirects here)
 - Embed mode: `?embed=1#4050` (or `#acit4050`) for Ukeplan iframe - hides hero and course tabs
-- Filter chips: 4050 (Lecture3/network), 4100 (week3/week4/Toulmin), 4280 (L1-L6)
+- Filter chips: 4050 (L1-L5, phishing, network, exam), 4100 (week3/week4/Toulmin), 4280 (L1-L6)
 - Profiles: local `acit-profiles-v1` (rename, add classmate, switch). Progress keys are namespaced per profile; `p1` still reads legacy keys
 - Sound: Web Audio chime on points, fanfare on new trophy; mute per profile
 - Trophies: 14 badges (points, streak, daily/lifetime reviews, Again, weak-card drill)

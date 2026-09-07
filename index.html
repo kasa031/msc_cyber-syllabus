@@ -4535,7 +4535,7 @@
       });
     }
   }
-  var QUIZ_EXPECTED = { acit4050: 207, acit4280: 215, acit4100: 328, "computer-basics": 28, "fellesjam-general": 26 };
+  var QUIZ_EXPECTED = { acit4050: 220, acit4280: 218, acit4100: 328, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -7144,6 +7144,7 @@ function showCourse(courseKey) {
       { tag: "Lecture2", short: "L2", label: "Lecture 2 - phishing and malware" },
       { tag: "Lecture3", short: "L3", label: "Lecture 3 - networks and TCP/IP" },
       { tag: "Lecture4", short: "L4", label: "Lecture 4 - IDS", soon: true },
+      { tag: "Lecture5", short: "L5", label: "Lecture 5 - firewalls", soon: true },
       { tag: "exam", short: "Exam", label: "Exam-style questions" }
     ],
     acit4100: [
@@ -9943,6 +9944,8 @@ function showCourse(courseKey) {
       { filter: "Lecture3", label: "L3" },
       { filter: "network", label: "network" },
       { filter: "networks-assign", label: "networks-assign" },
+      { filter: "Lecture4", label: "L4 IDS" },
+      { filter: "Lecture5", label: "L5 firewalls" },
       { filter: "exam", label: "exam" },
       { filter: "", label: "All" }
     ],

@@ -2213,6 +2213,127 @@
           "exam",
           "networks-assign"
         ]
+      },
+      {
+        "id": "4050-l5-firewall-role",
+        "q": "What is the primary role of a network firewall (Lecture 5 prep)?",
+        "a": "Enforce a security policy on traffic crossing a trust boundary - typically allow/deny based on rules (addresses, ports, protocols, direction). It filters; it does not by itself discover attacks like an IDS.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-packet-vs-stateful",
+        "q": "Packet-filtering firewall vs stateful firewall?",
+        "a": "Packet filter: decides per packet on headers (IP/port/protocol) with no connection memory. Stateful: tracks connection state (e.g. TCP handshake) and allows return traffic for established sessions.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-application-firewall",
+        "q": "What does an application-layer firewall (proxy/WAF-style) add?",
+        "a": "Inspects application content or acts as a proxy (HTTP, DNS, mail) rather than only L3/L4 headers - can block malicious payloads or enforce app-specific policy.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-default-deny",
+        "q": "Why is default-deny recommended on firewalls?",
+        "a": "Block everything not explicitly allowed - reduces exposure from forgotten rules and new services. Default-allow is easier but risky.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-dmz",
+        "q": "What is a DMZ in firewall architecture?",
+        "a": "A semi-trusted network segment (often for public servers) between the Internet and the internal LAN - separate rules for inbound to DMZ and from DMZ to inside.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-firewall-vs-ids",
+        "q": "Firewall vs IDS - complementary roles?",
+        "a": "Firewall: policy enforcement (block/allow traffic). IDS: detect suspicious activity and alert (often passive monitor or inline with alert). IDS finds; firewall gates.",
+        "tags": [
+          "Lecture4",
+          "Lecture5",
+          "firewall",
+          "IDS"
+        ]
+      },
+      {
+        "id": "4050-l5-egress-filter",
+        "q": "What is egress filtering on a firewall?",
+        "a": "Controlling outbound traffic from internal hosts (not just inbound) - limits malware C2, data exfiltration, and abuse of compromised machines.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-host-firewall",
+        "q": "Host-based firewall vs network firewall?",
+        "a": "Host firewall runs on the endpoint (Windows Firewall, iptables on a server) - protects that host even off the corporate LAN. Network firewall sits at a perimeter or segment boundary.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-acl",
+        "q": "What is an ACL on a firewall or router?",
+        "a": "Access Control List - ordered rules matching traffic (source/dest IP, port, protocol, action permit/deny). First match wins; order matters.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l5-vpn-firewall",
+        "q": "How do VPNs relate to firewalls (4050 L3/L5)?",
+        "a": "Different jobs: VPN provides encrypted tunnel/virtual network membership; firewall filters what traffic is allowed on interfaces or zones. Often used together - VPN gets you on a network, firewall rules still apply.",
+        "tags": [
+          "Lecture3",
+          "Lecture5",
+          "firewall",
+          "VPN"
+        ]
+      },
+      {
+        "id": "4050-l5-waf",
+        "q": "What is a Web Application Firewall (WAF)?",
+        "a": "Application-layer control focused on HTTP(S) - blocks common web attacks (SQLi, XSS, bad bots) in front of a web server. Specialized form of application firewall.",
+        "tags": [
+          "Lecture5",
+          "firewall"
+        ]
+      },
+      {
+        "id": "4050-l4-ids-hids-nids",
+        "q": "HIDS vs NIDS (IDS preview before L4 slides)?",
+        "a": "HIDS: agent on a host watching local logs/processes/files. NIDS: sensor on a network segment (span/tap/inline) watching packet flows. Both aim to detect intrusions; placement differs.",
+        "tags": [
+          "Lecture4",
+          "IDS"
+        ]
+      },
+      {
+        "id": "4050-l4-ids-signature-anomaly",
+        "q": "Signature-based vs anomaly-based IDS?",
+        "a": "Signature: match known attack patterns (low false positives on known threats, misses zero-days). Anomaly: model normal behaviour, alert on deviation (may catch novel attacks, more false positives).",
+        "tags": [
+          "Lecture4",
+          "IDS"
+        ]
       }
     ]
   },
@@ -4711,6 +4832,38 @@
           "assignment-2A",
           "Facebook",
           "Google"
+        ]
+      },
+      {
+        "id": "4280-2a-off-facebook",
+        "q": "Assignment 2A: what TET feature is Off-Facebook Activity?",
+        "a": "Partial recipient/transparency tool - shows some third-party apps/sites that sent Facebook data, similar in role to Google's ad/partner lists, but not a full trusted audit of all processing.",
+        "tags": [
+          "assignment-2A",
+          "2A",
+          "TETs",
+          "Facebook"
+        ]
+      },
+      {
+        "id": "4280-2a-art15-access",
+        "q": "Assignment 2A: how does GDPR Art. 15 access relate to Google/Facebook exports?",
+        "a": "Exports implement access/portability rights, but a zip alone is weak as a TET unless it explains purposes, recipients, retention and consequences in usable form (Murmann ex post critique).",
+        "tags": [
+          "assignment-2A",
+          "2A",
+          "TETs",
+          "GDPR"
+        ]
+      },
+      {
+        "id": "4280-2a-due-date",
+        "q": "When is ACIT4280 Assignment 2A due (Sep 2026 plan)?",
+        "a": "17 September 2026 (group presentation/hand-in slot - confirm live Canvas date). Builds on Lecture 6 TETs after 1A Webbkoll.",
+        "tags": [
+          "assignment-2A",
+          "2A",
+          "TETs"
         ]
       },
       {
