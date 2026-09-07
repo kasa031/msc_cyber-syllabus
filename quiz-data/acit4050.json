@@ -2083,6 +2083,116 @@
         "Lecture3",
         "network"
       ]
+    },
+    {
+      "id": "4050-l3-assign-q1",
+      "q": "Networks assignment Q1: Which are features of TCP? (Select all that apply)",
+      "a": "Select: Ensures packets arrive (ACK/retransmit); Guarantees in-order delivery. Do NOT select: Is used only by routers; Has no flow control.",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q2",
+      "q": "Networks assignment Q2: Which correctly match an Internet protocol stack layer with its function?",
+      "a": "Select: Physical moves bits across a medium; Transport ensures reliable delivery between processes; Network handles routing; Application defines HTTP/SMTP. Do NOT select: Link handles end-to-end delivery across the Internet (that is hop-to-hop on one link).",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q3",
+      "q": "Networks assignment Q3: Which are true about IP addressing and subnets?",
+      "a": "Select: CIDR allows arbitrary subnet prefix length; An IP address identifies an interface; Subnet masks separate network from host part; Devices in the same subnet reach each other without a router. Do NOT select: Classful addressing completely solves waste; Class C has more than one million hosts.",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q4",
+      "q": "Networks assignment Q4: Which statements about ICMP are correct?",
+      "a": "Select: ICMP messages are carried inside IP datagrams; Ping uses Echo Request and Echo Reply; ICMP is used for error reporting at the network layer. Do NOT select: ICMP guarantees in-order delivery; ICMP replaces TCP; Traceroute mainly uses Echo Reply (it uses TTL + Time Exceeded).",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q5",
+      "q": "Networks assignment Q5: Which are true regarding IPv6 compared to IPv4?",
+      "a": "Select: IPv6 headers are fixed at 40 bytes; IPv6 uses 128-bit addresses; IPv6 removes the header checksum to speed forwarding. Do NOT select: IPv4 has larger address space; IPv6 quickly replaced IPv4.",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q6",
+      "q": "Networks assignment Q6: Which correctly describe the TCP three-way handshake?",
+      "a": "Select: Client initiates with SYN + initial sequence number; Server responds with SYN+ACK; Client completes with ACK; Process establishes sequence numbers for reliable delivery. Do NOT select: Handshake ensures encryption; Requires ICMP; SYN/ACK flags detect out-of-order packets (sequence numbers do).",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q7",
+      "q": "Networks assignment Q7: Which describe NAT correctly?",
+      "a": "Select all four: NAT keeps a translation table; NAT hides internal addresses (some security); NAT lets many private hosts share one public IP; NAT modifies source IP and ports on outgoing traffic. Do NOT select: NAT eliminates port numbers; NAT requires globally unique private IPs.",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q8",
+      "q": "Networks assignment Q8: Which are correct about port numbers?",
+      "a": "Select: NAT uses port numbers to differentiate connections when sharing one public IP; Knowing port usage matters for attackers; A port identifies the destination process on a machine. Do NOT select: Mail client and web browser share the same fixed port; A port identifies a router interface; IPv6 removes ports.",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q9",
+      "q": "Networks assignment Q9: Which statements about TCP headers are correct?",
+      "a": "Select: Source and destination port numbers; Window size for flow control; Acknowledgement number helps detect loss; Sequence number tracks order. Do NOT select: TCP header contains destination IP; SYN/ACK flags detect out-of-order delivery.",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
+    },
+    {
+      "id": "4050-l3-assign-q10",
+      "q": "Networks assignment Q10: Which are layers of the Internet protocol stack?",
+      "a": "Select: Transport, Application, Link (and also Network and Physical exist but were not in the option list). Do NOT select: Port, Virtual, Session (OSI session layer is not a separate TCP/IP layer).",
+      "tags": [
+        "Lecture3",
+        "network",
+        "exam",
+        "networks-assign"
+      ]
     }
   ]
 }
