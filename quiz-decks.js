@@ -10,7 +10,7 @@
   global.QUIZ_DECKS = {
   "acit4050": {
     "course": "ACIT4050",
-    "title": "Terminal & lab",
+    "title": "Terminal, lab & networks",
     "cards": [
       {
         "id": "4050-pwd",
@@ -1800,6 +1800,298 @@
           "Lecture1",
           "trust",
           "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-stack-five",
+        "q": "Name the five layers of the Internet (TCP/IP) protocol stack (bottom to top).",
+        "a": "Physical, Link, Network, Transport, Application.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/osi-layers.svg",
+          "alt": "Protocol stack layers",
+          "caption": "Internet protocol stack",
+          "shows": "Physical bits, Link hop-to-hop, Network routing, Transport process-to-process, Application services."
+        }
+      },
+      {
+        "id": "4050-l3-physical-layer",
+        "q": "What is the function of the Physical layer?",
+        "a": "Moving bits across a physical medium (cables, radio, fibre).",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-link-layer",
+        "q": "What does the Link layer do? (Not end-to-end across the Internet.)",
+        "a": "Transfers data between neighbouring nodes on the same link (hop-to-hop). Examples: Ethernet, WiFi, PPP.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-network-layer",
+        "q": "What does the Network layer do?",
+        "a": "Routes packets from source to destination across the Internet. Protocols: IP and routing protocols. Every router examines IP headers.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-transport-layer",
+        "q": "What does the Transport layer do?",
+        "a": "Process-to-process data transfer between end hosts. TCP gives reliable, in-order delivery and flow control. UDP gives no delivery guarantees.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-ip-no-guarantees",
+        "q": "What does IP NOT guarantee? (Lecture 3 Networks)",
+        "a": "Delivery to destination, exactly one copy, in-order arrival, or that traffic will not congest the network.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-tcp-guarantees",
+        "q": "Which service guarantees does TCP restore that IP/UDP lack?",
+        "a": "Reliable delivery, exactly one copy, in-order delivery, and congestion control (flow control via window).",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-tcp-features-quiz",
+        "q": "Which are features of TCP? (Networks assignment style)",
+        "a": "Ensures packets arrive (via ACK/retransmit); guarantees in-order delivery. NOT: used only by routers; has no flow control.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-encapsulation",
+        "q": "Describe encapsulation on the sending host (Lecture 3).",
+        "a": "Application data -> Transport segment (TCP/UDP header) -> IP packet -> Link frame -> Physical bits. Routers decapsulate to IP and re-encapsulate on the outbound link.",
+        "tags": [
+          "Lecture3",
+          "network"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/network-packet.svg",
+          "alt": "Packet encapsulation",
+          "caption": "Headers wrap payload at each layer",
+          "shows": "Message, segment, datagram, frame."
+        }
+      },
+      {
+        "id": "4050-l3-ip-interface",
+        "q": "What does an IP address identify?",
+        "a": "An interface on a host or router (not the whole machine). A host with WiFi and Ethernet has separate IP addresses per interface.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-subnet-definition",
+        "q": "What is a subnet?",
+        "a": "Interfaces whose IP addresses share the same network (subnet) portion. Devices in one subnet can reach each other without an intervening router.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-subnet-mask",
+        "q": "What is a subnet mask used for?",
+        "a": "Separates the network (prefix) part of an IP address from the host part.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-cidr",
+        "q": "What is CIDR?",
+        "a": "Classless Inter-Domain Routing: subnet prefix of arbitrary length, written a.b.c.d/x where x is bits in the network portion (e.g. 200.23.16.0/23).",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-classful-waste",
+        "q": "Why did classful addressing waste IP addresses?",
+        "a": "Fixed /8, /16, /24 sizes forced ISPs to assign whole classes (e.g. Class B for 800 hosts wastes tens of thousands). CIDR fixes this.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-class-c-hosts",
+        "q": "How many usable host addresses does a Class C network have?",
+        "a": "About 254 usable hosts (/24, minus network and broadcast). Not millions - Class A has the huge host space.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-port-process",
+        "q": "What does a port number identify on a host?",
+        "a": "The destination (or source) process/application within the machine (e.g. web server port 80). Not a router interface.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-nat-share",
+        "q": "What problem does NAT solve for home networks?",
+        "a": "Many private hosts share one public IP on the Internet. Outgoing packets get source IP/port rewritten; the NAT table maps return traffic back.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-nat-security",
+        "q": "How can NAT provide some security?",
+        "a": "Internal addresses are hidden from the outside world; inbound packets need a matching NAT table entry unless port forwarding is configured.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-nat-ports",
+        "q": "Why does NAT still need port numbers?",
+        "a": "When many internal hosts share one public IP, NAT uses (IP, port) tuples in its translation table to distinguish connections (PAT).",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-icmp-role",
+        "q": "What is ICMP used for?",
+        "a": "Network-layer error reporting and diagnostics (unreachable host/network/port, TTL expired). Carried inside IP datagrams. Ping uses Echo Request/Reply (type 8/0).",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-traceroute",
+        "q": "How does traceroute use ICMP (Lecture 3)?",
+        "a": "Sends packets with increasing TTL. Each router returns ICMP Time Exceeded (type 11). Final destination may return port unreachable. Uses TTL probing, not Echo Reply as the main mechanism.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-ipv6-motivation",
+        "q": "Why was IPv6 introduced?",
+        "a": "IPv4 32-bit space was exhausted; IPv6 uses 128-bit addresses. Fixed 40-byte header (no header checksum) speeds router forwarding.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-ipv6-features",
+        "q": "Which statements about IPv6 vs IPv4 are true?",
+        "a": "True: 128-bit addresses; fixed 40-byte header; header checksum removed for faster forwarding. False: IPv4 larger space; IPv6 already replaced all IPv4.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-tcp-handshake",
+        "q": "Steps of the TCP three-way handshake?",
+        "a": "1) Client -> SYN (initial seq). 2) Server -> SYN+ACK. 3) Client -> ACK. Establishes sequence numbers; does NOT encrypt data.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-tcp-window",
+        "q": "What is the TCP window size field for?",
+        "a": "Flow control: limits how much unacknowledged data the sender may have in flight so the receiver is not overwhelmed.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-tcp-header-not-ip",
+        "q": "Does the TCP header contain the destination IP address?",
+        "a": "No. IP addresses are in the IP header. TCP header has ports, sequence/ack numbers, window, flags (SYN/ACK), etc.",
+        "tags": [
+          "Lecture3",
+          "network",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l3-networks-assign",
+        "q": "ACIT4050 Assignment: Networks (Fall 2026) - rules and Karina status?",
+        "a": "New Quizzes, 100 pts, pass at 60+, 5 attempts (highest counts). Due 08.09.2026 23:59. Karina submitted 07.09.2026 ca. 13:44 (attempt 1). Slides: Networks26.pdf (Lecture 3).",
+        "tags": [
+          "Lecture3",
+          "network",
+          "canvas"
+        ]
+      },
+      {
+        "id": "4050-l3-overlay-arch",
+        "q": "What is the overlay architecture of the Internet (Lecture 3)?",
+        "a": "Logical end-to-end paths (e.g. TCP between hosts) run over an IP network that sees individual hops/links. Transport is end-to-end between processes; IP handles routing hop by hop.",
+        "tags": [
+          "Lecture3",
+          "network"
         ]
       }
     ]
@@ -8744,15 +9036,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 169,
+    acit4050: 197,
     acit4280: 209,
-    acit4100: 263,
-    "computer-basics": 28,
-    "fellesjam-general": 26
+    acit4100: 309,
+    computer-basics: 28,
+    fellesjam-general: 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock54",
+    version: "lock107",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
