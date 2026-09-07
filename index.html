@@ -5574,6 +5574,7 @@ function showCourse(courseKey) {
     else rankRemoveMine();
     studyRefreshHud();
     rankRender();
+    refreshSettingsProgressUi();
   }
 
   function rankCleanName(name) {
@@ -6067,6 +6068,15 @@ function showCourse(courseKey) {
     var p = profileActive();
     var soundCb = $("settings-sound");
     if (soundCb) soundCb.checked = p.sound !== false;
+    var shareCb = $("settings-share");
+    if (shareCb) shareCb.checked = profileShareOn();
+  }
+
+  /** Refresh checklist, heatmap and trophies when Settings is open. */
+  function refreshSettingsProgressUi() {
+    var modal = $("profile-modal");
+    if (!modal || modal.hidden) return;
+    profileRenderTrophies();
   }
 
   function profileOpenModalScrollTo(sectionId) {
@@ -6544,19 +6554,22 @@ function showCourse(courseKey) {
   function studyMarkFlag(key) {
     if (!profileIsAuthed() || !key) return;
     var xp = studyLoadXp();
-    if (xp[key]) return;
-    xp[key] = 1;
-    var unlocked = studyUnlockTrophies(xp);
-    studySaveXp(xp);
-    if (unlocked.length) {
-      studyPlayTrophyFanfare();
-      studyShowTrophyToast(unlocked[0], unlocked.length - 1);
-      studyFxBurstAt($("trophy-toast"), 22);
-      studyFxPop("hud-trophies");
+    var wasNew = !xp[key];
+    if (wasNew) {
+      xp[key] = 1;
+      var unlocked = studyUnlockTrophies(xp);
+      studySaveXp(xp);
+      if (unlocked.length) {
+        studyPlayTrophyFanfare();
+        studyShowTrophyToast(unlocked[0], unlocked.length - 1);
+        studyFxBurstAt($("trophy-toast"), 22);
+        studyFxPop("hud-trophies");
+      }
     }
     studyRefreshHud();
-    renderOrientChecklist();
+    refreshSettingsProgressUi();
   }
+  window.studyMarkFlag = studyMarkFlag;
 
   function quizCardIsWeak(s) {
     if (!s) return false;
@@ -7484,6 +7497,7 @@ function showCourse(courseKey) {
     var xpHud = studyLoadXp();
     studyRenderStreakCalendar($("hud-streak-cal"), 7, xpHud);
     if (quizShouldShowHome()) syncQuizHome();
+    refreshSettingsProgressUi();
   }
 
   function expectedCount(deckKey) {
@@ -10040,11 +10054,10 @@ function showCourse(courseKey) {
         studyMarkFlag("profileNamed");
         settingsSetMsg("Display name saved.");
         profileRenderModal();
-        renderOrientChecklist();
       } else if (profileHasDisplayName()) {
         studyMarkFlag("profileNamed");
         settingsSetMsg("Display name already saved.");
-        renderOrientChecklist();
+        refreshSettingsProgressUi();
       } else {
         settingsSetMsg("Could not save that name. It may be empty or already taken.");
       }
@@ -10790,6 +10803,7 @@ function showCourse(courseKey) {
   <script>
   window.addEventListener("appinstalled", function () {
     try { localStorage.setItem(PWA_INSTALLED_KEY, "1"); } catch (e) { /* ignore */ }
+    refreshSettingsProgressUi();
     renderOrientChecklist();
   });
   if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
