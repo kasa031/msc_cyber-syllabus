@@ -2,15 +2,14 @@
 (function (global) {
   "use strict";
 
-  /* Original NIST CSF wheel colors so the diagram matches the official figure.
-     `text` keeps the label readable on light segments. */
+  /* Karina palette - flat solids only */
   var NIST_SLOTS = [
-    { id: "govern", label: "GOVERN", color: "#6E7176", text: "#FFFFFF" },
-    { id: "identify", label: "IDENTIFY", color: "#4A90CE", text: "#FFFFFF" },
-    { id: "protect", label: "PROTECT", color: "#7E4E9C", text: "#FFFFFF" },
-    { id: "detect", label: "DETECT", color: "#E9B23C", text: "#1B1B1B" },
-    { id: "respond", label: "RESPOND", color: "#C0453D", text: "#FFFFFF" },
-    { id: "recover", label: "RECOVER", color: "#5FA85F", text: "#FFFFFF" }
+    { id: "govern", label: "GOVERN", color: "#5003C0", text: "#FFF9E6" },
+    { id: "identify", label: "IDENTIFY", color: "#AB03A9", text: "#FFF9E6" },
+    { id: "protect", label: "PROTECT", color: "#FF467A", text: "#FFF9E6" },
+    { id: "detect", label: "DETECT", color: "#FFD51E", text: "#5003C0" },
+    { id: "respond", label: "RESPOND", color: "#5003C0", text: "#FFF9E6" },
+    { id: "recover", label: "RECOVER", color: "#AB03A9", text: "#FFF9E6" }
   ];
 
   var KILL_SLOTS = [
@@ -23,8 +22,8 @@
     { id: "action", label: "Action" }
   ];
 
-  /* Lockheed Martin publishes the kill chain as medium-blue chevrons. */
-  var KILL_BLUE = "#2E6FA8";
+  var KILL_COLORS = ["#5003C0", "#AB03A9", "#FF467A", "#FFD51E"];
+  var KILL_BLUE = KILL_COLORS[0];
 
   function shuffle(arr) {
     var a = arr.slice();
@@ -388,7 +387,7 @@
     hub.setAttribute("cx", String(cx));
     hub.setAttribute("cy", String(cy));
     hub.setAttribute("r", String(rHub));
-    hub.setAttribute("fill", "#FFFFFF");
+    hub.setAttribute("fill", "#FFF9E6");
     hub.setAttribute("stroke", "#fff");
     hub.setAttribute("stroke-width", "2");
     svg.appendChild(hub);
@@ -433,7 +432,7 @@
       slot.setAttribute("tabindex", "0");
       slot.setAttribute("role", "button");
       slot.setAttribute("aria-label", "Kill Chain slot " + (i + 1));
-      slot.style.setProperty("--kill-blue", KILL_BLUE);
+      slot.style.setProperty("--kill-blue", KILL_COLORS[i % KILL_COLORS.length]);
       var label = document.createElement("span");
       label.className = "fp-slot-label";
       label.textContent = (i + 1) + "";
@@ -576,8 +575,13 @@
         },
         labelFor: labelFor,
         onCorrect: function (slotId, labelId, slotEl) {
-          slotEl.style.background = KILL_BLUE;
-          slotEl.style.color = "#fff";
+          var idx = 0;
+          for (var ki = 0; ki < KILL_SLOTS.length; ki++) {
+            if (KILL_SLOTS[ki].id === slotId) { idx = ki; break; }
+          }
+          var bg = KILL_COLORS[idx % KILL_COLORS.length];
+          slotEl.style.background = bg;
+          slotEl.style.color = bg === "#FFD51E" ? "#5003C0" : "#FFF9E6";
           if (status) {
             fpFlowStatus(status, "ok", labelFor(labelId) + " locked in.");
           }
