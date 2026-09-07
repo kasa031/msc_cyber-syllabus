@@ -646,7 +646,9 @@
     var killNext = document.getElementById("kill-next");
     if (killNext) {
       killNext.addEventListener("click", function () {
-        var quizTab = document.getElementById("tab-course-acit4050");
+        var mainTab = document.getElementById("tab-course-4050-main");
+        var quizTab = document.getElementById("tab-section-quiz");
+        if (mainTab) mainTab.click();
         if (quizTab) quizTab.click();
       });
     }

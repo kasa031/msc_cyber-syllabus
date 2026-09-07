@@ -5458,11 +5458,13 @@ function showCourse(courseKey) {
   }
 
   function profileActive() {
-    return profileFind("p1") || { id: "p1", name: "Local student", sound: true };
+    var id = profileId();
+    return profileFind(id) || profileFind("p1") || { id: "p1", name: "Local student", sound: true };
   }
 
   function profileId() {
-    return "p1";
+    var store = profileEnsure();
+    return store.activeId || "p1";
   }
 
   function profileIsPrimary() {
@@ -6072,11 +6074,13 @@ function showCourse(courseKey) {
     if (shareCb) shareCb.checked = profileShareOn();
   }
 
-  /** Refresh checklist, heatmap and trophies when Settings is open. */
+  /** Refresh checklist always; trophies/heatmap only when Settings is open. */
   function refreshSettingsProgressUi() {
+    renderOrientChecklist();
+    syncOrientNudge();
     var modal = $("profile-modal");
     if (!modal || modal.hidden) return;
-    profileRenderTrophies();
+    profileRenderTrophyGrid();
   }
 
   function profileOpenModalScrollTo(sectionId) {
@@ -6451,6 +6455,7 @@ function showCourse(courseKey) {
           return;
         }
         if (typeof parsed[k] === "number" || typeof parsed[k] === "string") base[k] = parsed[k];
+        else if (typeof parsed[k] === "boolean") base[k] = parsed[k] ? 1 : 0;
       });
       Object.keys(parsed).forEach(function (k) {
         if (k === "badges" || k === "courses" || k === "reviewLog") return;
@@ -7119,7 +7124,6 @@ function showCourse(courseKey) {
     try { localStorage.setItem(FIRST_WIN_KEY, "1"); } catch (e) { /* ignore */ }
     onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
     firstWinState.flipsNeeded = 0;
-    studyMarkFlag("firstWin");
     renderOrientChecklist();
     syncOrientNudge();
     syncSettingsSetupDot();
@@ -7163,9 +7167,15 @@ function showCourse(courseKey) {
     syncSettingsSetupDot();
   }
 
-  function onboardSaveFocus(showCourseAfter) {
+  function settingsSaveStudyFocus() {
     onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
-    firstWinDone();
+    if (firstWinState.persona === "exam") studySetDailyGoal(20);
+    else if (firstWinState.persona === "browse") studySetDailyGoal(5);
+    else studySetDailyGoal(10);
+  }
+
+  function onboardSaveFocus(showCourseAfter) {
+    settingsSaveStudyFocus();
     if (showCourseAfter) {
       showCourse(firstWinState.course || "acit4050");
       profileCloseModal();
@@ -7212,7 +7222,7 @@ function showCourse(courseKey) {
       {
         id: "quiz",
         label: "Rate at least one flashcard in Practice mode",
-        done: (xp.lifetimeReviews || 0) >= 1 || !!(xp.firstWin),
+        done: (xp.lifetimeReviews || 0) >= 1,
         go: function () {
           var c = onboardLoad().weekCourse || firstWinState.course || "acit4050";
           showCourse(c);
@@ -7497,6 +7507,7 @@ function showCourse(courseKey) {
     var xpHud = studyLoadXp();
     studyRenderStreakCalendar($("hud-streak-cal"), 7, xpHud);
     if (quizShouldShowHome()) syncQuizHome();
+    else syncOrientNudge();
     refreshSettingsProgressUi();
   }
 
@@ -9234,7 +9245,9 @@ function showCourse(courseKey) {
   });
   if ($("settings-save-focus")) {
     $("settings-save-focus").addEventListener("click", function () {
-      firstWinDone();
+      settingsSaveStudyFocus();
+      settingsSetMsg("Study focus saved.");
+      renderOrientChecklist();
     });
   }
   if ($("settings-first-browse")) {
@@ -9546,11 +9559,10 @@ function showCourse(courseKey) {
     });
   }
 
-  function profileRenderTrophies() {
+  function profileRenderTrophyGrid() {
     var grid = $("trophy-grid");
     if (!grid) return;
     var xp = studyLoadXp();
-    renderOrientChecklist();
     studyRenderHeatmap(xp);
     studyRenderStreakCalendar($("streak-calendar-30"), 30, xp);
     var streakSum = $("streak-cal-summary");
@@ -9582,6 +9594,11 @@ function showCourse(courseKey) {
       card.appendChild(hint);
       grid.appendChild(card);
     });
+  }
+
+  function profileRenderTrophies() {
+    renderOrientChecklist();
+    profileRenderTrophyGrid();
   }
 
   function profileRenderModal() {
@@ -10784,6 +10801,7 @@ function showCourse(courseKey) {
     showSetup();
   quizEnsureDecksReady().then(function () {
     renderSettingsStudySetup();
+    renderOrientChecklist();
     window.setTimeout(weeklyRecapMaybeShow, 800);
     if (courseFromHash()) {
         applyHashRoute();
