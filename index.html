@@ -2266,7 +2266,6 @@
       font-weight: 600;
     }
     .test-timer[hidden] { display: none !important; }
-    .first-win-modal,
     .session-recap-modal,
     .weekly-recap-modal {
       position: fixed;
@@ -2278,7 +2277,6 @@
       padding: 1rem;
       background: rgba(26, 20, 16, 0.55);
     }
-    .first-win-modal[hidden],
     .session-recap-modal[hidden],
     .weekly-recap-modal[hidden] { display: none !important; }
     .session-recap-stats {
@@ -2351,30 +2349,79 @@
       font-size: 0.92rem;
       line-height: 1.45;
     }
-    .first-win-pick {
+    .first-win-pick,
+    .study-setup-pick {
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
       margin: 0 0 0.85rem;
     }
-    .first-win-pick button {
+    .first-win-pick button,
+    .study-setup-pick button {
       flex: 1 1 5.5rem;
       min-height: var(--touch);
       background: #FFFFFF;
       color: var(--ink);
       border: 1px solid var(--line);
     }
-    .first-win-pick button:hover {
+    .first-win-pick button:hover,
+    .study-setup-pick button:hover {
       background: var(--paper-2);
       color: var(--ink);
     }
-    .first-win-pick button.active {
+    .first-win-pick button.active,
+    .study-setup-pick button.active {
       border-color: var(--palette-turquoise);
       background: var(--palette-turquoise);
       color: #FFFFFF;
       box-shadow: none;
     }
-    .first-win-step[hidden] { display: none !important; }
+    .settings-study-setup {
+      margin: 0 0 1rem;
+      padding: 0.85rem 0.9rem;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-left: 4px solid #5003C0;
+      border-radius: 0 4px 4px 0;
+    }
+    .settings-study-setup h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+    }
+    .settings-study-setup-lede {
+      margin: 0 0 0.75rem;
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+    .settings-study-setup-kicker {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+    .settings-study-setup-hint {
+      margin: 0 0 0.65rem;
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+    .settings-study-setup-actions {
+      margin: 0;
+      flex-wrap: wrap;
+    }
+    .settings-setup-dot {
+      display: inline-block;
+      width: 0.45rem;
+      height: 0.45rem;
+      margin-left: 0.35rem;
+      border-radius: 999px;
+      background: #FFD51E;
+      vertical-align: middle;
+    }
+    .settings-setup-dot[hidden] { display: none !important; }
     .orient-checklist {
       margin: 0 0 1rem;
       padding: 0.75rem 0.85rem;
@@ -3212,44 +3259,6 @@
   <div id="fx-layer" aria-hidden="true"></div>
   <a class="skip-link" href="#lab">Skip to content</a>
   <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
-  <div id="first-win-modal" class="first-win-modal" hidden role="dialog" aria-labelledby="first-win-title" aria-modal="true">
-    <div class="first-win-card">
-      <div id="first-win-step-persona" class="first-win-step">
-        <h3 id="first-win-title">What is your focus this week?</h3>
-        <p>Part 1: logistics only - one tap sets daily goal and a sensible default. Part 2 next: pick course and flip 3 cards.</p>
-        <div class="first-win-pick" role="group" aria-label="Study focus">
-          <button type="button" class="btn" data-first-persona="exam">Exams soon</button>
-          <button type="button" class="btn" data-first-persona="steady">Steady semester</button>
-          <button type="button" class="btn" data-first-persona="browse">Just browsing</button>
-        </div>
-        <div class="tut-actions">
-          <button type="button" class="btn btn-primary" id="first-win-persona-next">Next</button>
-          <button type="button" class="btn ghost" id="first-win-skip">Skip intro</button>
-        </div>
-      </div>
-      <div id="first-win-step-1" class="first-win-step" hidden>
-        <h3>Pick this week's course</h3>
-        <p>Part 2: <strong>Browse</strong> flips cards, <strong>Quiz</strong> runs spaced repetition, <strong>Test</strong> simulates exam questions.</p>
-        <div class="first-win-pick" role="group" aria-label="Pick a course">
-          <button type="button" class="btn" data-first-course="acit4050">ACIT4050</button>
-          <button type="button" class="btn" data-first-course="acit4100">ACIT4100</button>
-          <button type="button" class="btn" data-first-course="acit4280">ACIT4280</button>
-        </div>
-        <div class="tut-actions">
-          <button type="button" class="btn btn-primary" id="first-win-next">Next</button>
-          <button type="button" class="btn ghost" id="first-win-skip-2">Skip intro</button>
-        </div>
-      </div>
-      <div id="first-win-step-2" class="first-win-step" hidden>
-        <h3>Your first win</h3>
-        <p>Flip <strong>3 cards</strong> in Browse (no pressure). Then tap <strong>Continue due</strong> when you want the app to remember what to drill.</p>
-        <div class="tut-actions">
-          <button type="button" class="btn btn-primary" id="first-win-browse">Flip 3 cards now</button>
-          <button type="button" class="btn ghost" id="first-win-quiz">Go to Quiz home</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <div id="session-recap-modal" class="session-recap-modal" hidden role="dialog" aria-labelledby="session-recap-title" aria-modal="true">
     <div class="first-win-card">
       <h3 id="session-recap-title">Session complete</h3>
@@ -3280,7 +3289,7 @@
       <div class="hero-top">
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
-          <button type="button" class="btn ghost" id="profile-settings-btn">Settings</button>
+          <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
           <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
           <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
         </div>
@@ -3298,6 +3307,28 @@
       <h3 id="profile-modal-title">Settings</h3>
       <div id="settings-body">
         <p>Progress stays in this browser on this device. <a href="privacy-policy.html">Privacy policy</a>.</p>
+        <div class="settings-study-setup" id="settings-study-setup">
+          <h3 id="settings-study-setup-title">Study focus this week</h3>
+          <p class="settings-study-setup-lede">Set persona and course here - no popup. This sets your daily goal and a sensible default course.</p>
+          <p class="settings-study-setup-kicker">Focus</p>
+          <div class="study-setup-pick" role="group" aria-label="Study focus">
+            <button type="button" class="btn" data-first-persona="exam">Exams soon</button>
+            <button type="button" class="btn" data-first-persona="steady">Steady semester</button>
+            <button type="button" class="btn" data-first-persona="browse">Just browsing</button>
+          </div>
+          <p class="settings-study-setup-kicker">Course</p>
+          <div class="study-setup-pick" role="group" aria-label="Pick a course">
+            <button type="button" class="btn" data-first-course="acit4050">ACIT4050</button>
+            <button type="button" class="btn" data-first-course="acit4100">ACIT4100</button>
+            <button type="button" class="btn" data-first-course="acit4280">ACIT4280</button>
+          </div>
+          <p class="settings-study-setup-hint"><strong>Browse</strong> flips cards, <strong>Quiz</strong> runs spaced repetition, <strong>Test</strong> simulates exam questions.</p>
+          <div class="tut-actions settings-study-setup-actions">
+            <button type="button" class="btn btn-primary" id="settings-save-focus">Save focus</button>
+            <button type="button" class="btn" id="settings-first-browse">Flip 3 cards</button>
+            <button type="button" class="btn ghost" id="settings-first-quiz">Open Quiz home</button>
+          </div>
+        </div>
         <label for="profile-rename">Your display name</label>
         <div class="tut-actions" style="margin:0.35rem 0 1rem;">
           <input id="profile-rename" type="text" maxlength="24" placeholder="Your name" autocomplete="nickname" />
@@ -6954,18 +6985,57 @@ function showCourse(courseKey) {
     try { localStorage.setItem(FIRST_WIN_KEY, "1"); } catch (e) { /* ignore */ }
     onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
     firstWinState.flipsNeeded = 0;
-    var modal = $("first-win-modal");
-    if (modal) modal.hidden = true;
     studyMarkFlag("firstWin");
     renderOrientChecklist();
     syncOrientNudge();
+    syncSettingsSetupDot();
     var toast = $("trophy-toast");
     if (toast) {
       toast.hidden = false;
-      toast.textContent = "First win complete - open Settings for the setup checklist.";
+      toast.textContent = "Study focus saved - see the checklist below in Settings.";
       window.setTimeout(function () { if (toast) toast.hidden = true; }, 3600);
     }
     window.setTimeout(weeklyRecapMaybeShow, 500);
+  }
+
+  function onboardSyncStateFromStorage() {
+    var o = onboardLoad();
+    if (o.persona) firstWinState.persona = o.persona;
+    if (o.weekCourse) firstWinState.course = o.weekCourse;
+  }
+
+  function syncStudySetupUi() {
+    document.querySelectorAll("[data-first-persona]").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-first-persona") === firstWinState.persona);
+    });
+    document.querySelectorAll("[data-first-course]").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-first-course") === firstWinState.course);
+    });
+  }
+
+  function syncSettingsSetupDot() {
+    var dot = $("settings-setup-dot");
+    if (!dot || isEmbedMode()) return;
+    var show = false;
+    try { show = !localStorage.getItem(FIRST_WIN_KEY); } catch (e) { show = false; }
+    dot.hidden = !show;
+  }
+
+  function renderSettingsStudySetup() {
+    onboardSyncStateFromStorage();
+    if (!firstWinState.persona) firstWinState.persona = "steady";
+    if (!firstWinState.course) firstWinState.course = "acit4050";
+    syncStudySetupUi();
+    syncSettingsSetupDot();
+  }
+
+  function onboardSaveFocus(showCourseAfter) {
+    onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
+    firstWinDone();
+    if (showCourseAfter) {
+      showCourse(firstWinState.course || "acit4050");
+      profileCloseModal();
+    }
   }
 
   function onboardLoad() {
@@ -7094,33 +7164,28 @@ function showCourse(courseKey) {
 
   function applyOnboardPersona(persona) {
     firstWinState.persona = persona || "steady";
-    document.querySelectorAll("[data-first-persona]").forEach(function (btn) {
-      btn.classList.toggle("active", btn.getAttribute("data-first-persona") === firstWinState.persona);
-    });
+    syncStudySetupUi();
     if (persona === "exam") {
       studySetDailyGoal(20);
-      firstWinPickCourse("acit4050");
+      firstWinPickCourse("acit4050", true);
     } else if (persona === "browse") {
       studySetDailyGoal(5);
-      firstWinPickCourse("acit4100");
+      firstWinPickCourse("acit4100", true);
     } else {
       studySetDailyGoal(10);
-      firstWinPickCourse("acit4050");
+      firstWinPickCourse("acit4050", true);
     }
+    onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
   }
 
-  function firstWinMaybeShow() {
-    if (isEmbedMode()) return;
-    try {
-      if (localStorage.getItem(FIRST_WIN_KEY)) return;
-    } catch (e) { return; }
-    var modal = $("first-win-modal");
-    if (!modal) return;
-    modal.hidden = false;
-    if ($("first-win-step-persona")) $("first-win-step-persona").hidden = false;
-    if ($("first-win-step-1")) $("first-win-step-1").hidden = true;
-    if ($("first-win-step-2")) $("first-win-step-2").hidden = true;
-    applyOnboardPersona(firstWinState.persona || "steady");
+  function firstWinPickCourse(key, skipSave) {
+    firstWinState.course = key;
+    syncStudySetupUi();
+    if (!skipSave) onboardSave({ weekCourse: key, persona: firstWinState.persona });
+  }
+
+  function firstWinPickPersona(persona) {
+    applyOnboardPersona(persona);
   }
 
   function studyIsoWeekKey(d) {
@@ -7250,24 +7315,11 @@ function showCourse(courseKey) {
     try {
       if (localStorage.getItem(WEEKLY_RECAP_KEY) === wk) return;
     } catch (e) { return; }
-    var firstWin = $("first-win-modal");
-    if (firstWin && !firstWin.hidden) return;
     var sessionRecap = $("session-recap-modal");
     if (sessionRecap && !sessionRecap.hidden) return;
     renderWeeklyRecapModal();
     var modal = $("weekly-recap-modal");
     if (modal) modal.hidden = false;
-  }
-
-  function firstWinPickCourse(key) {
-    firstWinState.course = key;
-    document.querySelectorAll(".first-win-pick [data-first-course]").forEach(function (btn) {
-      btn.classList.toggle("active", btn.getAttribute("data-first-course") === key);
-    });
-  }
-
-  function firstWinPickPersona(persona) {
-    applyOnboardPersona(persona);
   }
 
   function studyRefreshHud() {
@@ -9032,7 +9084,7 @@ function showCourse(courseKey) {
       quizBeginSession(null, tag || null);
     });
   }
-  document.querySelectorAll(".first-win-pick [data-first-course]").forEach(function (btn) {
+  document.querySelectorAll(".study-setup-pick [data-first-course], [data-first-course]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       firstWinPickCourse(btn.getAttribute("data-first-course"));
     });
@@ -9042,41 +9094,25 @@ function showCourse(courseKey) {
       firstWinPickPersona(btn.getAttribute("data-first-persona"));
     });
   });
-  if ($("first-win-persona-next")) {
-    $("first-win-persona-next").addEventListener("click", function () {
-      if ($("first-win-step-persona")) $("first-win-step-persona").hidden = true;
-      if ($("first-win-step-1")) $("first-win-step-1").hidden = false;
-    });
-  }
-  if ($("first-win-next")) {
-    $("first-win-next").addEventListener("click", function () {
-      showCourse(firstWinState.course || "acit4050");
-      if ($("first-win-step-1")) $("first-win-step-1").hidden = true;
-      if ($("first-win-step-2")) $("first-win-step-2").hidden = false;
-    });
-  }
-  if ($("first-win-skip")) {
-    $("first-win-skip").addEventListener("click", firstWinDone);
-  }
-  if ($("first-win-skip-2")) {
-    $("first-win-skip-2").addEventListener("click", firstWinDone);
-  }
-  if ($("first-win-browse")) {
-    $("first-win-browse").addEventListener("click", function () {
-      showCourse(firstWinState.course || "acit4050");
-      firstWinState.flipsNeeded = 3;
-      setStudyMode("flashcards");
-      if ($("first-win-modal")) $("first-win-modal").hidden = true;
-    });
-  }
-  if ($("first-win-quiz")) {
-    $("first-win-quiz").addEventListener("click", function () {
-      showCourse(firstWinState.course || "acit4050");
-      setStudyMode("quiz");
+  if ($("settings-save-focus")) {
+    $("settings-save-focus").addEventListener("click", function () {
+      onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
       firstWinDone();
     });
   }
-
+  if ($("settings-first-browse")) {
+    $("settings-first-browse").addEventListener("click", function () {
+      onboardSaveFocus(true);
+      firstWinState.flipsNeeded = 3;
+      setStudyMode("flashcards");
+    });
+  }
+  if ($("settings-first-quiz")) {
+    $("settings-first-quiz").addEventListener("click", function () {
+      onboardSaveFocus(true);
+      setStudyMode("quiz");
+    });
+  }
   if ($("orient-nudge-open")) {
     $("orient-nudge-open").addEventListener("click", function () { profileOpenModal(); });
   }
@@ -9414,6 +9450,7 @@ function showCourse(courseKey) {
   function profileRenderModal() {
     profileRenderList();
     profileRenderTrophies();
+    renderSettingsStudySetup();
     rankRender();
     var rename = $("profile-rename");
     if (rename) rename.value = profileActive().name || "";
@@ -10593,7 +10630,7 @@ function showCourse(courseKey) {
     showPanel("tutorial");
     showSetup();
   quizEnsureDecksReady().then(function () {
-    firstWinMaybeShow();
+    renderSettingsStudySetup();
     window.setTimeout(weeklyRecapMaybeShow, 800);
     if (courseFromHash()) {
         applyHashRoute();
