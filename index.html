@@ -2773,6 +2773,15 @@
     .orient-nudge[hidden] { display: none !important; }
     .orient-nudge p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.55rem; }
     .orient-nudge .btn { padding: 0.25rem 0.55rem; min-height: auto; font-size: 0.78rem; }
+    .notif-optin-nudge {
+      background: #FFF9E6;
+      border: 2px solid #5003C0;
+    }
+    .settings-notif-hint {
+      margin: 0.35rem 0 0.75rem;
+      font-size: 0.82rem;
+      color: var(--slate);
+    }
     .test-mode .quiz-figure-mount:not(.hidden) {
       margin-top: 0.75rem;
     }
@@ -3610,6 +3619,11 @@
             <input id="settings-sound" type="checkbox" checked />
             <span>Play sound effects</span>
           </label>
+          <label class="settings-check" for="settings-notif-due">
+            <input id="settings-notif-due" type="checkbox" />
+            <span>Remind me when cards are due</span>
+          </label>
+          <p class="settings-notif-hint" id="settings-notif-status">Off by default. Needs browser permission. One gentle ping per day when cards are waiting.</p>
           <div class="tut-actions settings-pref-actions">
             <button type="button" class="btn ghost" id="settings-jump-trophies">See your trophies</button>
           </div>
@@ -4214,6 +4228,11 @@
             <p class="quiz-home-sub" id="quiz-home-sub">Pick a session below. Your progress stays on this device.</p>
             <div id="orient-nudge" class="orient-nudge" hidden>
               <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
+            </div>
+            <div id="notif-optin-nudge" class="orient-nudge notif-optin-nudge" hidden>
+              <p><span>Nice streak! Want a gentle reminder when cards are waiting?</span>
+                <button type="button" class="btn" id="notif-optin-enable">Turn on reminders</button>
+                <button type="button" class="btn ghost" id="notif-optin-dismiss">Not now</button></p>
             </div>
             <div id="quiz-next-skill" class="quiz-next-skill" hidden>
               <p class="quiz-next-skill-kicker">Suggested focus</p>
@@ -5271,6 +5290,9 @@ function showCourse(courseKey) {
   var PWA_INSTALLED_KEY = "acit-pwa-installed";
   var DAILY_GOAL_KEY = "acit-daily-goal-v1";
   var WEEKLY_RECAP_KEY = "acit-weekly-recap-v1";
+  var NOTIF_NUDGE_DISMISS_KEY = "acit-notif-nudge-dismiss-v1";
+  var NOTIF_LAST_DAY_KEY = "acit-notif-last-day-v1";
+  var NOTIF_DUE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics"];
   var firstWinState = { course: "acit4050", persona: "steady", flipsNeeded: 0 };
 
   /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
@@ -5815,6 +5837,77 @@ function showCourse(courseKey) {
     studyRefreshHud();
   }
 
+  function profileNotifDueOn() {
+    var p = profileActive();
+    return !!(p && p.notifDue);
+  }
+
+  function studyUpdateNotifStatus(msg) {
+    var el = $("settings-notif-status");
+    if (el) el.textContent = msg || studyNotifStatusDefault();
+  }
+
+  function studyNotifStatusDefault() {
+    if (!("Notification" in window)) return "Notifications not supported in this browser.";
+    if (Notification.permission === "denied") return "Browser blocked notifications. Allow them in site settings to use reminders.";
+    if (profileNotifDueOn()) {
+      var due = studyCountDueAllDecks();
+      return due > 0
+        ? "Reminders on. " + due + " card" + (due === 1 ? "" : "s") + " waiting across your courses."
+        : "Reminders on. Nothing waiting right now - we ping when cards are due.";
+    }
+    return "Off by default. Needs browser permission. One gentle ping per day when cards are waiting.";
+  }
+
+  function studyRequestNotifPermission() {
+    if (!("Notification" in window)) return Promise.resolve(false);
+    if (Notification.permission === "granted") return Promise.resolve(true);
+    if (Notification.permission === "denied") return Promise.resolve(false);
+    try {
+      return Notification.requestPermission().then(function (p) { return p === "granted"; });
+    } catch (e) {
+      return Promise.resolve(false);
+    }
+  }
+
+  function studyRegisterPeriodicNotif() {
+    if (!("serviceWorker" in navigator)) return Promise.resolve();
+    return navigator.serviceWorker.ready.then(function (reg) {
+      if (!reg.periodicSync || !reg.periodicSync.register) return;
+      return reg.periodicSync.register("due-cards-check", { minInterval: 12 * 60 * 60 * 1000 }).catch(function () { /* ignore */ });
+    }).catch(function () { /* ignore */ });
+  }
+
+  function profileSetNotifDue(on, skipRefresh) {
+    if (!profileIsAuthed()) return Promise.resolve(false);
+    var store = profileEnsure();
+    var id = profileId();
+    var apply = function (enabled) {
+      store.profiles.forEach(function (p) {
+        if (p.id === id) p.notifDue = !!enabled;
+      });
+      profileSaveStore(store);
+      if (!skipRefresh) {
+        studyRefreshHud();
+        syncNotifOptInNudge();
+      }
+      studyUpdateNotifStatus();
+      studySyncDueNotification({ enabled: !!enabled });
+      if (enabled) studyRegisterPeriodicNotif();
+      return !!enabled;
+    };
+    if (!on) return Promise.resolve(apply(false));
+    return studyRequestNotifPermission().then(function (granted) {
+      if (!granted) {
+        studyUpdateNotifStatus(Notification.permission === "denied"
+          ? "Browser blocked notifications. Allow them in site settings."
+          : "Permission needed to send reminders.");
+        return false;
+      }
+      return apply(true);
+    });
+  }
+
   function profileShareOn() {
     var p = profileActive();
     return !!(p && p.shareRank);
@@ -6344,6 +6437,9 @@ function showCourse(courseKey) {
     var p = profileActive();
     var soundCb = $("settings-sound");
     if (soundCb) soundCb.checked = p.sound !== false;
+    var notifCb = $("settings-notif-due");
+    if (notifCb) notifCb.checked = profileNotifDueOn();
+    studyUpdateNotifStatus();
     var shareCb = $("settings-share");
     if (shareCb) shareCb.checked = profileShareOn();
   }
@@ -6944,6 +7040,45 @@ function showCourse(courseKey) {
       });
     }
     return { due: due, weak: weak };
+  }
+
+  function studyCountDueAllDecks() {
+    var total = 0;
+    NOTIF_DUE_DECKS.forEach(function (key) {
+      total += studyCountDueAndWeak(key).due;
+    });
+    return total;
+  }
+
+  function studySyncDueNotification(opts) {
+    opts = opts || {};
+    if (location.protocol !== "http:" && location.protocol !== "https:") return;
+    var enabled = typeof opts.enabled === "boolean" ? opts.enabled : profileNotifDueOn();
+    var due = studyCountDueAllDecks();
+    var dayKey = studyTodayKey();
+    var msg = {
+      type: "NOTIF_DUE_SYNC",
+      due: due,
+      enabled: enabled,
+      dayKey: dayKey,
+      requestShow: !!opts.requestShow
+    };
+    if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+      try { navigator.serviceWorker.controller.postMessage(msg); } catch (e) { /* ignore */ }
+    }
+  }
+
+  function studyMaybeDueNotification() {
+    if (!profileNotifDueOn()) return;
+    if (!("Notification" in window) || Notification.permission !== "granted") return;
+    var dayKey = studyTodayKey();
+    try {
+      if (localStorage.getItem(NOTIF_LAST_DAY_KEY) === dayKey) return;
+    } catch (e) { return; }
+    var due = studyCountDueAllDecks();
+    if (due < 1) return;
+    studySyncDueNotification({ requestShow: true });
+    try { localStorage.setItem(NOTIF_LAST_DAY_KEY, dayKey); } catch (e) { /* ignore */ }
   }
 
   function studyFocusList(deckKey) {
@@ -7665,11 +7800,41 @@ function showCourse(courseKey) {
     var left = steps.length - doneN;
     if (left <= 0) {
       nudge.hidden = true;
+      syncNotifOptInNudge();
       return;
     }
     nudge.hidden = !quizShouldShowHome();
     var countEl = $("orient-nudge-count");
     if (countEl) countEl.textContent = String(left);
+    syncNotifOptInNudge();
+  }
+
+  function syncNotifOptInNudge() {
+    var nudge = $("notif-optin-nudge");
+    if (!nudge) return;
+    if (isEmbedMode() || !quizShouldShowHome()) {
+      nudge.hidden = true;
+      return;
+    }
+    if (profileNotifDueOn()) {
+      nudge.hidden = true;
+      return;
+    }
+    try {
+      if (localStorage.getItem(NOTIF_NUDGE_DISMISS_KEY)) {
+        nudge.hidden = true;
+        return;
+      }
+      if (localStorage.getItem(FIRST_WIN_KEY) !== "1") {
+        nudge.hidden = true;
+        return;
+      }
+    } catch (e) {
+      nudge.hidden = true;
+      return;
+    }
+    var xp = studyLoadXp();
+    nudge.hidden = (xp.streak || 0) <= 2;
   }
 
   function applyOnboardPersona(persona) {
@@ -7869,6 +8034,7 @@ function showCourse(courseKey) {
     studyRenderStreakCalendar($("hud-streak-cal"), 7, xpHud);
     if (quizShouldShowHome()) syncQuizHome();
     else syncOrientNudge();
+    studySyncDueNotification();
     refreshSettingsProgressUi();
   }
 
@@ -9952,6 +10118,7 @@ function showCourse(courseKey) {
       }
       quizState.forceAll = false;
       quizState.weakOnly = true;
+      quizState.leechOnly = false;
       quizState.sessionQueue = null;
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
@@ -10618,6 +10785,28 @@ function showCourse(courseKey) {
       profileSetSound(this.checked);
     });
   }
+  if ($("settings-notif-due")) {
+    $("settings-notif-due").addEventListener("change", function () {
+      var cb = this;
+      profileSetNotifDue(cb.checked).then(function (ok) {
+        if (cb.checked && !ok) cb.checked = false;
+      });
+    });
+  }
+  if ($("notif-optin-enable")) {
+    $("notif-optin-enable").addEventListener("click", function () {
+      profileSetNotifDue(true).then(function (ok) {
+        if (ok) syncNotifOptInNudge();
+        else profileOpenModal();
+      });
+    });
+  }
+  if ($("notif-optin-dismiss")) {
+    $("notif-optin-dismiss").addEventListener("click", function () {
+      try { localStorage.setItem(NOTIF_NUDGE_DISMISS_KEY, "1"); } catch (e) { /* ignore */ }
+      syncNotifOptInNudge();
+    });
+  }
   if ($("settings-jump-trophies")) {
     $("settings-jump-trophies").addEventListener("click", function () {
       var el = $("settings-trophies-section");
@@ -11250,6 +11439,14 @@ function showCourse(courseKey) {
             }
           });
         });
+        if (navigator.serviceWorker.controller) {
+          window.setTimeout(studyMaybeDueNotification, 1200);
+        } else {
+          navigator.serviceWorker.addEventListener("controllerchange", function () {
+            window.setTimeout(studyMaybeDueNotification, 800);
+          }, { once: true });
+        }
+        if (profileNotifDueOn()) studyRegisterPeriodicNotif();
       }).catch(function () { /* ignore offline/file:// */ });
     });
   }

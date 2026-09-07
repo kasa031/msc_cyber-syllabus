@@ -5,7 +5,7 @@
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  * file:// opens index.html directly (no SW); HTTPS/PWA uses this cache after one online visit.
  */
-const CACHE = "msc-cyber-lock141";
+const CACHE = "msc-cyber-lock142";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
@@ -800,6 +800,44 @@ self.addEventListener("activate", (event) => {
   );
 });
 
+let notifDueState = { due: 0, enabled: false, lastShownDay: "" };
+
+async function showDueNotification(due, dayKey) {
+  if (!due || due < 1 || !dayKey) return;
+  if (notifDueState.lastShownDay === dayKey) return;
+  try {
+    await self.registration.showNotification("Cards ready to review", {
+      body: due + " card" + (due === 1 ? "" : "s") + " waiting in your study app.",
+      icon: "./icons/icon-192.png",
+      badge: "./icons/icon-192.png",
+      tag: "due-cards-" + dayKey,
+      renotify: false,
+      data: { url: "./index.html" }
+    });
+    notifDueState.lastShownDay = dayKey;
+  } catch (e) { /* ignore */ }
+}
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const target = (event.notification && event.notification.data && event.notification.data.url) || "./index.html";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
+      for (const client of list) {
+        if ("focus" in client) return client.focus();
+      }
+      if (self.clients.openWindow) return self.clients.openWindow(target);
+    })
+  );
+});
+
+self.addEventListener("periodicsync", (event) => {
+  if (event.tag !== "due-cards-check") return;
+  if (!notifDueState.enabled || notifDueState.due < 1) return;
+  const dayKey = new Date().toISOString().slice(0, 10);
+  event.waitUntil(showDueNotification(notifDueState.due, dayKey));
+});
+
 self.addEventListener("message", (event) => {
   const data = event.data;
   if (!data) return;
@@ -812,6 +850,14 @@ self.addEventListener("message", (event) => {
       caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k))))
         .then(() => self.clients.claim())
     );
+    return;
+  }
+  if (data.type === "NOTIF_DUE_SYNC") {
+    notifDueState.due = Number(data.due) || 0;
+    notifDueState.enabled = !!data.enabled;
+    if (data.requestShow && data.enabled && notifDueState.due > 0) {
+      event.waitUntil(showDueNotification(notifDueState.due, data.dayKey || ""));
+    }
   }
 });
 
