@@ -2422,6 +2422,24 @@
       vertical-align: middle;
     }
     .settings-setup-dot[hidden] { display: none !important; }
+    .settings-preferences {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-left: 4px solid #FFD51E;
+      border-radius: 0 4px 4px 0;
+    }
+    .settings-preferences h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1rem;
+    }
+    .settings-pref-actions {
+      margin: 0.55rem 0 0;
+    }
+    .settings-trophies-section {
+      scroll-margin-top: 1rem;
+    }
     .orient-checklist {
       margin: 0 0 1rem;
       padding: 0.75rem 0.85rem;
@@ -3290,8 +3308,6 @@
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
-          <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
-          <button type="button" class="btn ghost" id="profile-sound-btn" aria-pressed="true" hidden>Sound on</button>
         </div>
       </div>
       <div class="hero-body">
@@ -3333,6 +3349,16 @@
         <div class="tut-actions" style="margin:0.35rem 0 1rem;">
           <input id="profile-rename" type="text" maxlength="24" placeholder="Your name" autocomplete="nickname" />
           <button type="button" class="btn" id="profile-rename-save">Save name</button>
+        </div>
+        <div class="settings-preferences" id="settings-preferences">
+          <h3>Preferences</h3>
+          <label class="settings-check" for="settings-sound">
+            <input id="settings-sound" type="checkbox" checked />
+            <span>Play sound effects</span>
+          </label>
+          <div class="tut-actions settings-pref-actions">
+            <button type="button" class="btn ghost" id="settings-jump-trophies">See your trophies</button>
+          </div>
         </div>
         <h3>Sharing</h3>
         <p>Off by default. If you tick this, people who also share can see your display name, points, streak and trophy count. Quiz cards stay private.</p>
@@ -3380,9 +3406,11 @@
           </div>
           <p class="heatmap-tip" id="heatmap-tip" aria-live="polite"></p>
         </div>
-        <h3>Trophies and badges</h3>
-        <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
-        <div class="trophy-grid" id="trophy-grid"></div>
+        <div class="settings-trophies-section" id="settings-trophies-section">
+          <h3>Trophies and badges</h3>
+          <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
+          <div class="trophy-grid" id="trophy-grid"></div>
+        </div>
       </div>
       <div class="tut-actions">
         <button type="button" class="btn btn-primary" id="profile-close">Close</button>
@@ -5961,12 +5989,28 @@ function showCourse(courseKey) {
   var pendingRecoveryAfterCreate = false;
 
   function studyAuthApplyUi() {
-    ["study-hud", "study-hud-actions", "quiz-progress-wrap", "profile-trophies-btn", "profile-sound-btn"].forEach(function (id) {
+    ["study-hud", "study-hud-actions", "quiz-progress-wrap"].forEach(function (id) {
       var el = $(id);
       if (el) el.hidden = false;
     });
     var settingsBtn = $("profile-settings-btn");
     if (settingsBtn) settingsBtn.hidden = false;
+  }
+
+  function syncSettingsPreferencesUi() {
+    var p = profileActive();
+    var soundCb = $("settings-sound");
+    if (soundCb) soundCb.checked = p.sound !== false;
+  }
+
+  function profileOpenModalScrollTo(sectionId) {
+    profileOpenModal();
+    window.setTimeout(function () {
+      var el = $(sectionId);
+      if (el && el.scrollIntoView) {
+        try { el.scrollIntoView({ behavior: studyReduceMotion() ? "auto" : "smooth", block: "start" }); } catch (e) { /* ignore */ }
+      }
+    }, 100);
   }
 
   function studyXpKey() {
@@ -7343,12 +7387,7 @@ function showCourse(courseKey) {
     var p = profileActive();
     if (nameEl) nameEl.textContent = p.name;
     if (av) av.textContent = (p.name || "S").charAt(0).toUpperCase();
-    var soundBtn = $("profile-sound-btn");
-    if (soundBtn) {
-      var on = p.sound !== false;
-      soundBtn.textContent = on ? "Sound on" : "Sound off";
-      soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
-    }
+    syncSettingsPreferencesUi();
     var drill = $("quiz-drill-weak");
     if (drill) {
       drill.disabled = counts.weak < 1;
@@ -9096,7 +9135,6 @@ function showCourse(courseKey) {
   });
   if ($("settings-save-focus")) {
     $("settings-save-focus").addEventListener("click", function () {
-      onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
       firstWinDone();
     });
   }
@@ -9505,8 +9543,11 @@ function showCourse(courseKey) {
       accountGoHome();
     });
   }
-  if ($("profile-trophies-btn")) $("profile-trophies-btn").addEventListener("click", profileOpenModal);
-  if ($("hud-trophies-box")) $("hud-trophies-box").addEventListener("click", profileOpenModal);
+  if ($("hud-trophies-box")) {
+    $("hud-trophies-box").addEventListener("click", function () {
+      profileOpenModalScrollTo("settings-trophies-section");
+    });
+  }
   if ($("hud-rank-box")) $("hud-rank-box").addEventListener("click", profileOpenModal);
   if ($("hud-streak-box")) $("hud-streak-box").addEventListener("click", profileOpenModal);
   if ($("settings-share")) {
@@ -10034,10 +10075,18 @@ function showCourse(courseKey) {
       }
     });
   }
-  if ($("profile-sound-btn")) {
-    $("profile-sound-btn").addEventListener("click", function () {
+  if ($("settings-sound")) {
+    $("settings-sound").addEventListener("change", function () {
       studyEnsureAudio();
-      profileSetSound(profileActive().sound === false);
+      profileSetSound(this.checked);
+    });
+  }
+  if ($("settings-jump-trophies")) {
+    $("settings-jump-trophies").addEventListener("click", function () {
+      var el = $("settings-trophies-section");
+      if (el && el.scrollIntoView) {
+        try { el.scrollIntoView({ behavior: studyReduceMotion() ? "auto" : "smooth", block: "start" }); } catch (e) { /* ignore */ }
+      }
     });
   }
   document.addEventListener("click", function (e) {
