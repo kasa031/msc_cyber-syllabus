@@ -2044,6 +2044,25 @@
       margin: 0 0 0.85rem;
     }
     .flash-mode #study-hud-actions { display: none !important; }
+    /* Flip cards: card first - hide stats wall when a card is showing */
+    .flash-mode .quiz-wrap.quiz-in-session .quiz-meta,
+    .flash-mode .quiz-wrap.quiz-in-session .quiz-deck-pct,
+    .flash-mode .quiz-wrap.quiz-in-session #quiz-lede,
+    .flash-mode .quiz-wrap.quiz-in-session .study-mode-banner,
+    .flash-mode .quiz-wrap.quiz-in-session #study-hud,
+    .flash-mode .quiz-wrap.quiz-in-session #course-map,
+    .flash-mode .quiz-wrap.quiz-in-session #unit-progress,
+    .flash-mode .quiz-wrap.quiz-in-session #quiz-materials {
+      display: none !important;
+    }
+    .flash-mode .quiz-wrap.quiz-in-session .quiz-study-tabs {
+      margin-bottom: 0.35rem;
+    }
+    .flash-mode .quiz-wrap.quiz-in-session #quiz-progress-wrap {
+      margin-bottom: 0.5rem;
+    }
+    html.flash-cards-focus .hero-body { display: none; }
+    html.flash-cards-focus .hero { padding-bottom: 0.35rem; }
     .quiz-home {
       margin: 0 0 1rem;
       padding: 1rem 1.1rem 1.05rem;
@@ -4893,6 +4912,7 @@ function showCourse(courseKey) {
         }
       } else {
         showCourse(course);
+        setStudyMode("flashcards");
       }
     } finally {
       syncingHash = false;
@@ -4930,7 +4950,9 @@ function showCourse(courseKey) {
   if ($("course-section-tabs")) {
     $("course-section-tabs").querySelectorAll("button").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        showCourse(btn.getAttribute("data-course"));
+        var key = btn.getAttribute("data-course");
+        showCourse(key);
+        if (btn.id === "tab-section-quiz") setStudyMode("flashcards");
       });
     });
   }
@@ -7014,6 +7036,7 @@ function showCourse(courseKey) {
       (flashNav && !flashNav.classList.contains("hidden"))
     );
     dock.classList.toggle("is-visible", dockLive);
+    document.documentElement.classList.toggle("flash-cards-focus", quizState.studyMode === "flashcards" && inSession);
   }
 
   function syncQuizHome() {
@@ -8341,6 +8364,7 @@ function showCourse(courseKey) {
       return;
     }
     flashRenderCurrent();
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = false;
     studyRefreshHud();
   }
 
