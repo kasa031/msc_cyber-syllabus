@@ -3324,7 +3324,7 @@
       <ul class="session-recap-stats" id="session-recap-stats"></ul>
       <p class="session-recap-goal" id="session-recap-goal" hidden></p>
       <div class="tut-actions">
-        <button type="button" class="btn btn-primary" id="session-recap-done">Back to practice home</button>
+        <button type="button" class="btn btn-primary" id="session-recap-done">Back to start screen</button>
         <button type="button" class="btn ghost" id="session-recap-weak" hidden>Retry missed cards</button>
         <button type="button" class="btn ghost" id="session-recap-continue" hidden>Review due cards</button>
       </div>
@@ -3378,11 +3378,11 @@
             <button type="button" class="btn" data-first-course="acit4100">ACIT4100</button>
             <button type="button" class="btn" data-first-course="acit4280">ACIT4280</button>
           </div>
-          <p class="settings-study-setup-hint"><strong>Flip cards</strong> shows Q and A with no schedule. <strong>Practice</strong> hides the answer and brings missed cards back. <strong>Exam prep</strong> runs timed Canvas-style questions.</p>
+          <p class="settings-study-setup-hint"><strong>Flip cards</strong> = see Q and A, no schedule. <strong>Practice</strong> = hide answer, tap 1-4, missed cards return. <strong>Exam prep</strong> = timed Canvas-style questions.</p>
           <div class="tut-actions settings-study-setup-actions">
             <button type="button" class="btn btn-primary" id="settings-save-focus">Save focus</button>
             <button type="button" class="btn" id="settings-first-browse">Flip 3 cards</button>
-            <button type="button" class="btn ghost" id="settings-first-quiz">Open practice home</button>
+            <button type="button" class="btn ghost" id="settings-first-quiz">Start Practice mode</button>
           </div>
         </div>
         <label for="profile-rename">Your display name</label>
@@ -3932,12 +3932,12 @@
         <div class="quiz-wrap">
           <div class="quiz-meta">
             <h2 class="setup-title" id="quiz-course-title">Flashcards</h2>
-            <p class="quiz-queue" id="quiz-queue"><b>0</b> cards in queue</p>
+            <p class="quiz-queue" id="quiz-queue"><b>0</b> left in this session</p>
             <p class="quiz-deck-stats" id="quiz-deck-stats" hidden aria-live="polite">
-              <span class="deck-stat">New <b id="deck-stat-new">0</b></span>
+              <span class="deck-stat">Unseen <b id="deck-stat-new">0</b></span>
               <span class="deck-stat">Learning <b id="deck-stat-learning">0</b></span>
-              <span class="deck-stat">Review <b id="deck-stat-review">0</b></span>
-              <span class="deck-stat">Mature <b id="deck-stat-mature">0</b></span>
+              <span class="deck-stat">Reviewing <b id="deck-stat-review">0</b></span>
+              <span class="deck-stat">Known well <b id="deck-stat-mature">0</b></span>
             </p>
           </div>
           <p class="quiz-deck-pct" id="quiz-deck-pct" hidden aria-live="polite"></p>
@@ -3947,11 +3947,11 @@
             <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Practice</button>
             <button type="button" role="tab" id="tab-study-test" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Exam prep</button>
           </div>
-          <p class="study-mode-banner" id="study-mode-banner">Practice: reveal the answer, then rate the card. Missed cards come back until you know them.</p>
+          <p class="study-mode-banner" id="study-mode-banner">Practice: show the answer, then tap 1-4. Forgot and Tricky cards come back until you know them.</p>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
             <div class="study-hud-item" id="hud-points-box"><span class="study-hud-k">Points</span><b id="hud-points">0</b></div>
             <div class="study-hud-item is-link" id="hud-streak-box" title="Open streak calendar in Settings"><span class="study-hud-k">Streak</span><b id="hud-streak">0</b><div class="streak-calendar" id="hud-streak-cal" aria-hidden="true"></div></div>
-            <div class="study-hud-item"><span class="study-hud-k">Due now</span><b id="hud-due">0</b></div>
+            <div class="study-hud-item"><span class="study-hud-k">Ready now</span><b id="hud-due">0</b></div>
             <div class="study-hud-item"><span class="study-hud-k">Needs work</span><b id="hud-weak">0</b></div>
             <div class="study-hud-item is-link" id="hud-trophies-box" title="Open trophies"><span class="study-hud-k">Trophies</span><b id="hud-trophies">0</b></div>
             <div class="study-hud-item is-link" id="hud-rank-box" title="Open ranking"><span class="study-hud-k">Rank</span><b id="hud-rank">-</b></div>
@@ -3968,12 +3968,12 @@
               <span class="unit-progress-pct" id="unit-progress-pct">0%</span>
             </div>
             <div class="unit-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="unit-progress-bar"><span id="unit-progress-fill"></span></div>
-            <p class="unit-progress-sub" id="unit-progress-sub">0 / 0 cards at Good+</p>
+            <p class="unit-progress-sub" id="unit-progress-sub">0 / 0 cards rated OK or Easy</p>
           </div>
-          <div id="quiz-home" class="quiz-home" hidden aria-label="Practice home">
-            <p class="quiz-home-kicker">Cards due today</p>
-            <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
-            <p class="quiz-home-sub" id="quiz-home-sub">Start a short session. Your schedule stays on this device.</p>
+          <div id="quiz-home" class="quiz-home" hidden aria-label="Practice start screen">
+            <p class="quiz-home-kicker">Ready to review today</p>
+            <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards waiting</p>
+            <p class="quiz-home-sub" id="quiz-home-sub">Pick a session below. Your progress stays on this device.</p>
             <div id="orient-nudge" class="orient-nudge" hidden>
               <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
             </div>
@@ -4006,7 +4006,7 @@
           <div id="test-home" class="quiz-home test-home" hidden aria-label="Exam prep home">
             <p class="quiz-home-kicker">Exam prep</p>
             <p class="quiz-home-due"><b id="test-home-count">10</b> mixed questions</p>
-            <p class="quiz-home-sub" id="test-home-sub">Written answers and multiple choice like Canvas. Score at the end - does not change your practice schedule.</p>
+            <p class="quiz-home-sub" id="test-home-sub">Written answers and multiple choice like Canvas. Score at the end - does not change your Practice schedule.</p>
             <div class="tut-actions quiz-home-actions">
               <button type="button" class="btn btn-primary" id="test-home-start">Start test</button>
             </div>
@@ -4063,10 +4063,10 @@
               </div>
 
               <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
-                <button type="button" data-grade="again" title="Again - 0 points - keyboard 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span><span class="grade-pts">0 pts</span></button>
-                <button type="button" data-grade="hard" title="Hard - 5 points - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
-                <button type="button" data-grade="good" title="Good - 10 points - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
-                <button type="button" data-grade="easy" title="Easy - 15 points - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span><span class="grade-pts">+15</span></button>
+                <button type="button" data-grade="again" title="Forgot - card comes back in about 1 minute - key 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Forgot <kbd>1</kbd></span><span class="grade-pts">0 pts</span></button>
+                <button type="button" data-grade="hard" title="Tricky - card comes back in about 6 minutes - key 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Tricky <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
+                <button type="button" data-grade="good" title="OK - longer break before this card returns - key 3"><span class="grade-ivl" data-ivl="good">10m</span><span>OK <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
+                <button type="button" data-grade="easy" title="Easy - longest break - key 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span><span class="grade-pts">+15</span></button>
               </div>
             </div>
 
@@ -4098,17 +4098,17 @@
             <ul class="test-results-misses" id="test-results-misses"></ul>
             <div class="tut-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn btn-primary" id="test-retake">Retake test</button>
-              <button type="button" class="btn ghost" id="test-back-quiz">Back to practice</button>
+              <button type="button" class="btn ghost" id="test-back-quiz">Back to Practice</button>
             </div>
           </div>
 
           <div id="quiz-empty" class="quiz-empty hidden" role="status" aria-live="polite">
-            <h3 id="quiz-empty-title">Nothing due right now</h3>
+            <h3 id="quiz-empty-title">Nothing waiting right now</h3>
             <p id="quiz-empty-text">All caught up for this course. Come back later, or review every card anyway.</p>
             <div class="tut-actions" id="quiz-empty-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn btn-primary" id="quiz-empty-browse">Flip cards</button>
               <button type="button" class="btn ghost" id="quiz-empty-weak" hidden>Retry missed cards</button>
-              <button type="button" class="btn ghost" id="quiz-study-all">Study all cards anyway</button>
+              <button type="button" class="btn ghost" id="quiz-study-all">Review whole deck anyway</button>
             </div>
             <div class="tut-actions hidden" id="quiz-reload-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn" id="quiz-reload-data">Reload quiz data</button>
@@ -4117,7 +4117,7 @@
 
           <div class="quiz-footer-meta">
             <p class="quiz-shortcuts" id="quiz-shortcuts">
-              <kbd>1</kbd>-<kbd>4</kbd> rate | <kbd>Space</kbd> flip | <kbd>/</kbd> find | arrows move
+              <kbd>1</kbd>-<kbd>4</kbd> Forgot/Tricky/OK/Easy | <kbd>Space</kbd> flip | <kbd>/</kbd> find | arrows move
             </p>
             <button type="button" class="quiz-reset-quiet" id="quiz-reset">Reset progress (this course)</button>
           </div>
@@ -4735,7 +4735,7 @@ function syncComputerDummies(courseKey) {
     },
     "computer-basics": {
       h1: "Get comfortable with Windows.",
-      lede: "Shortcuts, files, paths, and settings - then flashcards if you want to drill PC basics."
+      lede: "Shortcuts, files, paths, and settings - then flashcards if you want to study PC basics."
     },
     fellesjam: {
       h1: "Mixed review across courses.",
@@ -5094,15 +5094,15 @@ function showCourse(courseKey) {
     { id: "life-200", group: "Volume", kind: "trophy", icon: "200x", title: "Two hundred", hint: "Rate 200 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 200; } },
     { id: "life-500", group: "Volume", kind: "trophy", icon: "500x", title: "Five hundred", hint: "Rate 500 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 500; } },
     { id: "life-1000", group: "Volume", kind: "trophy", icon: "1kx", title: "Thousand cards", hint: "Rate 1000 cards in total", test: function (xp) { return (xp.lifetimeReviews || 0) >= 1000; } },
-    { id: "honest", group: "Style", kind: "badge", icon: "A", title: "Honest miss", hint: "Press Again once", test: function (xp) { return (xp.againCount || 0) >= 1; } },
-    { id: "bounce", group: "Style", kind: "badge", icon: "A+", title: "Bounce back", hint: "Press Again 10 times", test: function (xp) { return (xp.againCount || 0) >= 10; } },
-    { id: "hard-10", group: "Style", kind: "badge", icon: "H", title: "Grit", hint: "Rate Hard 10 times", test: function (xp) { return (xp.hardCount || 0) >= 10; } },
-    { id: "good-25", group: "Style", kind: "badge", icon: "G", title: "Steady", hint: "Rate Good 25 times", test: function (xp) { return (xp.goodCount || 0) >= 25; } },
+    { id: "honest", group: "Style", kind: "badge", icon: "A", title: "Honest miss", hint: "Tap Forgot once", test: function (xp) { return (xp.againCount || 0) >= 1; } },
+    { id: "bounce", group: "Style", kind: "badge", icon: "A+", title: "Bounce back", hint: "Tap Forgot 10 times", test: function (xp) { return (xp.againCount || 0) >= 10; } },
+    { id: "hard-10", group: "Style", kind: "badge", icon: "H", title: "Grit", hint: "Tap Tricky 10 times", test: function (xp) { return (xp.hardCount || 0) >= 10; } },
+    { id: "good-25", group: "Style", kind: "badge", icon: "G", title: "Steady", hint: "Tap OK 25 times", test: function (xp) { return (xp.goodCount || 0) >= 25; } },
     { id: "easy-10", group: "Style", kind: "badge", icon: "E", title: "Quick recall", hint: "Rate Easy 10 times", test: function (xp) { return (xp.easyCount || 0) >= 10; } },
     { id: "easy-streak-5", group: "Style", kind: "badge", icon: "E5", title: "Hot streak", hint: "Easy on 5 cards in a row", test: function (xp) { return (xp.bestEasyStreak || 0) >= 5; } },
     { id: "easy-streak-10", group: "Style", kind: "trophy", icon: "E10", title: "On fire", hint: "Easy on 10 cards in a row", test: function (xp) { return (xp.bestEasyStreak || 0) >= 10; } },
-    { id: "good-streak-5", group: "Style", kind: "badge", icon: "G5", title: "In the zone", hint: "Good on 5 cards in a row", test: function (xp) { return (xp.bestGoodStreak || 0) >= 5; } },
-    { id: "clean-ten", group: "Style", kind: "trophy", icon: "OK", title: "Clean sheet", hint: "Rate 10 cards in a day with no Again", test: function (xp) { return (xp.todayReviews || 0) >= 10 && (xp.todayAgain || 0) === 0; } },
+    { id: "good-streak-5", group: "Style", kind: "badge", icon: "G5", title: "In the zone", hint: "Tap OK on 5 cards in a row", test: function (xp) { return (xp.bestGoodStreak || 0) >= 5; } },
+    { id: "clean-ten", group: "Style", kind: "trophy", icon: "OK", title: "Clean sheet", hint: "Rate 10 cards in a day with no Forgot", test: function (xp) { return (xp.todayReviews || 0) >= 10 && (xp.todayAgain || 0) === 0; } },
     { id: "night-owl", group: "Style", kind: "badge", icon: "N", title: "Night owl", hint: "Rate 5 cards after 21:00", test: function (xp) { return (xp.nightReviews || 0) >= 5; } },
     { id: "early-bird", group: "Style", kind: "badge", icon: "B", title: "Early bird", hint: "Rate 5 cards before 09:00", test: function (xp) { return (xp.morningReviews || 0) >= 5; } },
     { id: "course-4050", group: "Explorer", kind: "badge", icon: "40", title: "4050 starter", hint: "Rate a card in ACIT4050", test: function (xp) { return !!(xp.courses && xp.courses.acit4050); } },
@@ -5112,8 +5112,8 @@ function showCourse(courseKey) {
     { id: "course-mix", group: "Explorer", kind: "badge", icon: "MX", title: "Mixed starter", hint: "Rate a card in Mixed", test: function (xp) { return !!(xp.courses && xp.courses.fellesjam); } },
     { id: "explorer-3", group: "Explorer", kind: "trophy", icon: "3C", title: "Course hopper", hint: "Rate cards in 3 different decks", test: function (xp) { return studyCourseCount(xp) >= 3; } },
     { id: "explorer-all", group: "Explorer", kind: "trophy", icon: "5C", title: "Full tour", hint: "Rate cards in all 5 decks", test: function (xp) { return studyCourseCount(xp) >= 5; } },
-    { id: "browse-1", group: "Explorer", kind: "badge", icon: "BR", title: "Browser", hint: "Flip a card in Browse", test: function (xp) { return (xp.browseFlips || 0) >= 1; } },
-    { id: "browse-25", group: "Explorer", kind: "badge", icon: "BR+", title: "Deck walker", hint: "Flip 25 cards in Browse", test: function (xp) { return (xp.browseFlips || 0) >= 25; } },
+    { id: "browse-1", group: "Explorer", kind: "badge", icon: "BR", title: "Flipper", hint: "Flip one card in Flip cards mode", test: function (xp) { return (xp.browseFlips || 0) >= 1; } },
+    { id: "browse-25", group: "Explorer", kind: "badge", icon: "BR+", title: "Deck walker", hint: "Flip 25 cards in Flip cards mode", test: function (xp) { return (xp.browseFlips || 0) >= 25; } },
     { id: "tut-term", group: "Explorer", kind: "trophy", icon: "TT", title: "Terminal graduate", hint: "Finish the ACIT4050 terminal tutorial", test: function (xp) { return (xp.tutDone || 0) >= 1; } },
     { id: "tut-pc", group: "Explorer", kind: "badge", icon: "TP", title: "PC graduate", hint: "Finish the Windows basics tutorial", test: function (xp) { return (xp.pcTutDone || 0) >= 1; } },
     { id: "nist", group: "Explorer", kind: "badge", icon: "NI", title: "NIST wheel", hint: "Complete the NIST CSF diagram", test: function (xp) { return (xp.nistDone || 0) >= 1; } },
@@ -6857,7 +6857,7 @@ function showCourse(courseKey) {
     if (fill) fill.style.width = pct + "%";
     if (bar) bar.setAttribute("aria-valuenow", String(pct));
     if (sub) {
-      sub.textContent = stats.goodPlus + " / " + stats.total + " cards at Good+ (graduated to review)";
+      sub.textContent = stats.goodPlus + " / " + stats.total + " cards rated OK or Easy";
     }
     box.hidden = false;
   }
@@ -6941,7 +6941,7 @@ function showCourse(courseKey) {
       var cls = "course-map-unit" + (isActive ? " is-active" : "") + (isSoon ? " is-soon" : "");
       var meta = isSoon
         ? '<span class="course-map-unit-soon">Soon</span>'
-        : '<span class="course-map-unit-meta">' + m.attempted + "/" + m.total + " drilled" + (m.due ? ", " + m.due + " due" : "") + "</span>";
+        : '<span class="course-map-unit-meta">' + m.attempted + "/" + m.total + " studied" + (m.due ? ", " + m.due + " ready" : "") + "</span>";
       track += '<button type="button" class="' + cls + '" role="listitem" data-map-tag="' + escapeHtml(u.tag) + '" title="' + escapeHtml(u.label + " - " + m.label) + '"' + (isSoon ? " disabled" : "") + ">";
       track += '<span class="course-map-unit-label">' + escapeHtml(u.short || u.tag) + "</span>";
       track += studyMasteryDotsHtml(isSoon ? 0 : m.level);
@@ -7077,11 +7077,11 @@ function showCourse(courseKey) {
       if (counts.due > 0) {
         sub.textContent = (counts.weak > 0
           ? counts.weak + " missed card" + (counts.weak === 1 ? "" : "s") + " need extra practice."
-          : "Rate cards honestly - Again and Hard come back soon.") + filterNote;
+          : "Tap 1-4 honestly - Forgot and Tricky come back soon.") + filterNote;
       } else if (today >= goal) {
-        sub.textContent = "Daily goal reached. Browse or study all cards if you want more." + filterNote;
+        sub.textContent = "Daily goal reached. Flip cards or review the whole deck if you want more." + filterNote;
       } else {
-        sub.textContent = "Nothing due right now. Browse the deck or study all cards anyway." + filterNote;
+        sub.textContent = "Nothing waiting right now. Flip cards or review the whole deck anyway." + filterNote;
       }
     }
     if (startBtn) {
@@ -7089,7 +7089,7 @@ function showCourse(courseKey) {
         startBtn.textContent = "Review due cards (" + counts.due + ")";
         startBtn.disabled = false;
       } else {
-        startBtn.textContent = "Study all cards anyway";
+        startBtn.textContent = "Review whole deck anyway";
         startBtn.disabled = false;
       }
     }
@@ -7115,11 +7115,11 @@ function showCourse(courseKey) {
     var focus = studyPickNextFocus(quizState.deckKey);
     if (nextBox && nextText && nextGo) {
       if (focus && focus.stats.total > 0) {
-        var dueLine = focus.stats.due > 0 ? focus.stats.due + " due" : "none due";
+        var dueLine = focus.stats.due > 0 ? focus.stats.due + " ready" : "none ready";
         var missedLine = focus.stats.weak > 0 ? ", " + focus.stats.weak + " missed" : "";
         var when = focus.days === 0 ? "today" : (focus.days === 1 ? "tomorrow" : (focus.days < 0 ? "past due" : "in " + focus.days + " days"));
         nextText.innerHTML = "<strong>" + escapeHtml(focus.label) + "</strong> (" + escapeHtml(focus.tag) + "): " + dueLine + missedLine + ". Class/deadline " + escapeHtml(when) + ".";
-        nextGo.textContent = "Study " + focus.tag + (focus.stats.due > 0 ? " (" + focus.stats.due + " due)" : "");
+        nextGo.textContent = "Study " + focus.tag + (focus.stats.due > 0 ? " (" + focus.stats.due + " ready)" : "");
         nextGo.setAttribute("data-focus-tag", focus.tag);
         nextBox.hidden = false;
       } else {
@@ -7248,7 +7248,7 @@ function showCourse(courseKey) {
       },
       {
         id: "quiz",
-        label: "Rate at least one flashcard in Practice mode",
+        label: "Rate one card in Practice (tap 1-4 after the answer)",
         done: (xp.lifetimeReviews || 0) >= 1,
         go: function () {
           var c = onboardLoad().weekCourse || firstWinState.course || "acit4050";
@@ -7424,7 +7424,7 @@ function showCourse(courseKey) {
     if (statsEl) {
       statsEl.innerHTML =
         "<li><b>" + recap.reviews + "</b> rated</li>" +
-        "<li>Again <b>" + (recap.again || 0) + "</b> | Hard <b>" + (recap.hard || 0) + "</b> | Good <b>" + (recap.good || 0) + "</b> | Easy <b>" + (recap.easy || 0) + "</b></li>" +
+        "<li>Forgot <b>" + (recap.again || 0) + "</b> | Tricky <b>" + (recap.hard || 0) + "</b> | OK <b>" + (recap.good || 0) + "</b> | Easy <b>" + (recap.easy || 0) + "</b></li>" +
         "<li>Points this session: <b>+" + (recap.points || 0) + "</b></li>";
     }
     var xp = studyLoadXp();
@@ -7459,7 +7459,7 @@ function showCourse(courseKey) {
       grid.innerHTML =
         '<div class="weekly-recap-stat"><span>7-day reviews</span><b>' + weekReviews + "</b></div>" +
         '<div class="weekly-recap-stat"><span>Streak</span><b>' + (xp.streak || 0) + "</b></div>" +
-        '<div class="weekly-recap-stat"><span>Due now</span><b>' + counts.due + "</b></div>" +
+        '<div class="weekly-recap-stat"><span>Ready now</span><b>' + counts.due + "</b></div>" +
         '<div class="weekly-recap-stat"><span>Today</span><b>' + (xp.todayReviews || 0) + " / " + goal + "</b></div>";
     }
     var focusEl = $("weekly-recap-focus");
@@ -7468,13 +7468,13 @@ function showCourse(courseKey) {
       if (weakTag) {
         focusEl.textContent = "Most missed cards: " + weakTag.label + " (" + studyCountTagStats(quizState.deckKey, weakTag.tag).weak + " to retry).";
       } else if (counts.due > 0) {
-        focusEl.textContent = counts.due + " cards are due now. A short session keeps the streak alive.";
+        focusEl.textContent = counts.due + " cards are ready now. A short session keeps the streak alive.";
       } else {
-        focusEl.textContent = "You are caught up on due cards. Browse or try Test mode before the week starts.";
+        focusEl.textContent = "You are caught up for now. Flip cards or try Exam prep before the week starts.";
       }
     }
     var startBtn = $("weekly-recap-start");
-    if (startBtn) startBtn.textContent = counts.due > 0 ? "Review due cards (" + counts.due + ")" : "Open practice home";
+    if (startBtn) startBtn.textContent = counts.due > 0 ? "Review due cards (" + counts.due + ")" : "Open Practice start";
   }
 
   function weeklyRecapDismiss() {
@@ -7955,7 +7955,7 @@ function showCourse(courseKey) {
     if (timeEl) timeEl.textContent = "Time: " + testFormatElapsed(Date.now() - testState.startedAt);
     if (titleEl) {
       var pct = total ? (correctN / total) * 100 : 0;
-      titleEl.textContent = pct >= 80 ? "Strong score!" : (pct >= 60 ? "Test complete" : "Keep drilling");
+      titleEl.textContent = pct >= 80 ? "Strong score!" : (pct >= 60 ? "Test complete" : "Keep practicing");
     }
     var misses = $("test-results-misses");
     if (misses) {
@@ -8079,17 +8079,17 @@ function showCourse(courseKey) {
       } else if (isTest) {
         lede.textContent = "Exam prep: type short answers or pick multiple choice. Timer runs; score at the end. Does not change your practice schedule.";
       } else {
-        lede.textContent = "Practice mode: reveal the answer, then rate each card. Points and streak stay on this device.";
+        lede.textContent = "Practice mode: show the answer, then tap 1-4. Points and streak stay on this device.";
       }
     }
     var banner = $("study-mode-banner");
     if (banner) {
       if (isFlash) {
-        banner.textContent = "Flip cards: look through the deck. No schedule. Switch to Practice when you want missed cards to come back.";
+        banner.textContent = "Flip cards: question first, tap to see the answer. No schedule. Switch to Practice when you want Forgot/Tricky cards to return.";
       } else if (isTest) {
         banner.textContent = "Exam prep: mixed written + multiple choice from this deck. Use tag chips to narrow (e.g. Lecture3 for 4050 networks).";
       } else {
-        banner.textContent = "Practice: reveal the answer, then rate the card. Again / Hard cards come back soon.";
+        banner.textContent = "Practice: show the answer, then tap 1-4. Forgot and Tricky cards come back soon.";
       }
     }
     var shorts = $("quiz-shortcuts");
@@ -8099,7 +8099,7 @@ function showCourse(courseKey) {
       } else if (isTest) {
         shorts.innerHTML = "Type answer + Check, or tap MCQ | Enter checks written answer";
       } else {
-        shorts.innerHTML = "<kbd>Space</kbd> show answer | <kbd>1</kbd>-<kbd>4</kbd> rate (points + drill memory)";
+        shorts.innerHTML = "<kbd>Space</kbd> show answer | <kbd>1</kbd>-<kbd>4</kbd> Forgot/Tricky/OK/Easy";
       }
     }
     if ($("test-home") && !isTest) $("test-home").hidden = true;
@@ -8807,7 +8807,7 @@ function showCourse(courseKey) {
     var b = document.createElement("b");
     b.textContent = String(count);
     el.appendChild(b);
-    el.appendChild(document.createTextNode(" cards in queue"));
+    el.appendChild(document.createTextNode(" left in this session"));
   }
 
   function quizUpdateProgress() {
@@ -8982,14 +8982,14 @@ function showCourse(courseKey) {
       var xp = studyLoadXp();
       var caughtUp = !quizState.weakOnly;
       if (title) {
-        title.textContent = quizState.weakOnly ? "No missed cards yet" : (caughtUp ? "Congratulations!" : "Nothing due right now");
+        title.textContent = quizState.weakOnly ? "No missed cards yet" : (caughtUp ? "Congratulations!" : "Nothing waiting right now");
       }
       if (text) {
         if (quizState.weakOnly) {
-          text.textContent = "You have not marked any cards as Again or Hard yet. Use Quiz on due cards first - misses show up here.";
+          text.textContent = "You have not tapped Forgot or Tricky yet. Review due cards in Practice first - misses show up here.";
         } else if (caughtUp) {
           var streakNote = (xp.streak || 0) > 1 ? " Streak: " + xp.streak + " days." : "";
-          text.textContent = "All due cards rated for this course." + streakNote + " Cards you marked Again or Hard come back soon. Browse or switch course until then.";
+          text.textContent = "All waiting cards rated for this course." + streakNote + " Forgot and Tricky cards come back soon. Flip cards or switch course until then.";
         } else {
           text.textContent = "All caught up for this course. Come back later, or review every card anyway.";
         }
@@ -9125,7 +9125,7 @@ function showCourse(courseKey) {
         var missedTag = quizState.tagFilter;
         quizState.tagFilter = null;
         if ($("quiz-empty-title")) $("quiz-empty-title").textContent = "No due cards for " + missedTag;
-        if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Try Browse with that filter, or review due cards for the full deck.";
+        if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Try Flip cards with that filter, or review due cards for the full deck.";
         quizShowEmpty(0);
         return;
       }
@@ -9145,11 +9145,11 @@ function showCourse(courseKey) {
     if (!quizState.card || quizState.revealed) return;
     quizState.revealed = true;
     $("quiz-card").classList.add("revealed", "fx-reveal");
-    $("quiz-card").setAttribute("aria-label", "Answer shown - rate with 1-4");
+    $("quiz-card").setAttribute("aria-label", "Answer shown - tap 1-4 to rate");
     $("quiz-face-label").textContent = "Answer";
     $("quiz-a").classList.remove("hidden");
     $("quiz-reveal-row").classList.add("hidden");
-    SolvableFlow.reveal($("quiz-solvable-banner"), "Misses are normal - tap Again and this card comes back soon.");
+    SolvableFlow.reveal($("quiz-solvable-banner"), "Misses are normal - tap Forgot and this card comes back soon.");
     quizUpdateGradePreviews();
     $("quiz-grades").classList.remove("hidden");
     try {
