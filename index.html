@@ -3391,7 +3391,6 @@
     html.embed .skip-link,
     html.embed .hero,
     html.embed .course-nav,
-    html.embed #computer-dummies,
     html.embed #course-terminal,
     html.embed #course-pc,
     html.embed #course-practice,
@@ -3572,102 +3571,14 @@
           <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-code">Mixed</span><span class="tab-name">All courses</span></button>
         </div>
         <div id="course-section-tabs" class="course-section-tabs" role="tablist" aria-label="ACIT4050 study areas">
-          <button type="button" role="tab" id="tab-section-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0">Terminal practice</button>
+          <button type="button" role="tab" id="tab-section-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0">Lab exercises</button>
           <button type="button" role="tab" id="tab-section-quiz" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1">Flashcards</button>
           <button type="button" role="tab" id="tab-section-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1">Diagrams</button>
         </div>
       </div>
-      <!-- ========== TERMINAL (ACIT4050) ========== -->
+      <!-- ========== LAB EXERCISES (ACIT4050) ========== -->
       <div id="course-terminal" class="course-panel active">
-      <div class="mode-tabs" role="tablist" aria-label="Terminal view">
-        <button type="button" role="tab" id="tab-tutorial" class="active" aria-selected="true" aria-controls="panel-tutorial" tabindex="0">Guided tutorial</button>
-        <button type="button" role="tab" id="tab-ovelser" aria-selected="false" aria-controls="panel-ovelser" tabindex="-1">Lab exercises</button>
-      </div>
-
-      <!-- ========== TUTORIAL ========== -->
-      <section id="panel-tutorial" class="panel active" role="tabpanel" aria-labelledby="tab-tutorial">
-        <div class="lab">
-          <div id="tut-setup">
-            <h2 class="setup-title">Choose a track</h2>
-            <p class="setup-lede">Type the command in the console. Mistakes are fine - hint after two tries, answer after three.</p>
-            <p class="track-label">Environment</p>
-            <div class="track-pick">
-              <button type="button" class="track-btn" data-track="ps">
-                <strong>Windows PowerShell</strong>
-                <span>Practice on your PC now - no VM needed.</span>
-                <span class="mono-hint">PS C:\&gt;</span>
-              </button>
-              <button type="button" class="track-btn" data-track="arch">
-                <strong>Arch / Linux</strong>
-                <span>When the cyberlab VM is running (bash).</span>
-                <span class="mono-hint">user@arch:~$</span>
-              </button>
-            </div>
-            <p id="resume-note" class="resume-note hidden"></p>
-            <div class="tut-actions">
-              <button type="button" class="btn ghost hidden" id="btn-resume">Continue where you left off</button>
-              <button type="button" class="btn ghost hidden" id="btn-reset">Start over</button>
-            </div>
-          </div>
-
-          <div id="tut-play" class="hidden">
-            <div class="tut-progress-wrap">
-              <div class="tut-progress-meta">
-                <span><strong id="tut-step-label">Step 1</strong></span>
-                <div class="meta-stats">
-                  <span class="stat" id="tut-track-label">PowerShell</span>
-                  <span class="stat" title="Correct answers in a row">streak <b id="tut-streak">0</b></span>
-                  <span class="stat" title="Review steps">rep <b id="tut-reps">0</b></span>
-                </div>
-              </div>
-              <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="tut-bar" aria-label="Progress">
-                <span id="tut-bar-fill"></span>
-              </div>
-              <div class="lesson-path" id="tut-lesson-path" aria-label="Command path"></div>
-            </div>
-
-            <div class="step-stage" id="step-stage">
-              <div class="tut-tag" id="tut-tag">New command</div>
-              <p class="tut-prompt" id="tut-prompt">...</p>
-              <p class="tut-why" id="tut-why"></p>
-
-              <div class="console">
-                <div class="console-chrome">
-                  <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-                  <span class="console-title" id="console-title">terminal - ACIT4050</span>
-                </div>
-                <div class="console-body">
-                  <div class="cmd-row">
-                    <span class="prompt-char" id="prompt-char" aria-hidden="true">></span>
-                    <input id="cmd-input" type="text" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type a command..." aria-label="Command" />
-                    <button type="button" class="btn console-check" id="btn-check">Check</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tut-feedback" id="tut-feedback" aria-live="polite"></div>
-            </div>
-
-            <div class="tut-actions">
-              <button type="button" class="btn ghost" id="btn-skip">Show answer</button>
-              <button type="button" class="btn ghost" id="btn-change-track">Switch track</button>
-            </div>
-          </div>
-
-          <div id="tut-done" class="tut-done hidden">
-            <h2>Tutorial complete</h2>
-            <p>You finished the tutorial. Common commands were repeated on purpose to strengthen learning.</p>
-            <p>Next: <strong>Exercises with answers</strong>, or practice the commands in your own terminal.</p>
-            <div class="tut-actions">
-              <button type="button" class="btn" id="btn-restart">Run the tutorial again</button>
-              <button type="button" class="btn ghost" id="btn-to-ovelser">Go to exercises</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== EXERCISES ========== -->
-      <section id="panel-ovelser" class="panel" role="tabpanel" aria-labelledby="tab-ovelser" hidden>
+      <section id="panel-ovelser" class="panel active" role="tabpanel" aria-labelledby="tab-section-terminal">
         <div class="ov-wrap">
           <nav class="toc" aria-label="Contents">
             <strong>Contents</strong>
@@ -3954,9 +3865,10 @@
 
       <!-- ========== COMPUTER BASICS (PC literacy) ========== -->
       <div id="course-pc" class="course-panel" hidden>
-        <p class="sub-tabs-note">Windows literacy for lab work - not course theory.</p>
+        <p class="sub-tabs-note">Windows literacy and terminal commands for lab work - not course theory.</p>
         <div class="mode-tabs" role="tablist" aria-label="PC basics view">
-          <button type="button" role="tab" id="tab-pc-tutorial" class="active" aria-selected="true" aria-controls="panel-pc-tutorial" tabindex="0">Guided tutorial</button>
+          <button type="button" role="tab" id="tab-pc-tutorial" class="active" aria-selected="true" aria-controls="panel-pc-tutorial" tabindex="0">Windows basics</button>
+          <button type="button" role="tab" id="tab-pc-terminal" aria-selected="false" aria-controls="panel-tutorial" tabindex="-1">Terminal commands</button>
           <button type="button" role="tab" id="tab-pc-quiz" aria-selected="false" aria-controls="course-quiz" tabindex="-1">Flashcards</button>
         </div>
 
@@ -4028,12 +3940,84 @@
           </div>
         </section>
 
-        <section class="dummies-section" id="computer-dummies" aria-labelledby="dummies-title">
-          <h2 id="dummies-title">Windows basics</h2>
-          <p class="dummies-lede">Shortcuts, files, paths, and settings for everyday PC work - guided tutorial and flashcards on this tab.</p>
-          <div class="dummies-actions">
-            <button type="button" class="btn" id="btn-dummies-tutorial">Start tutorial</button>
-            <button type="button" class="btn ghost" id="btn-dummies-quiz">Open flashcards</button>
+        <section id="panel-tutorial" class="panel" role="tabpanel" aria-labelledby="tab-pc-terminal" hidden>
+          <div class="lab">
+            <div id="tut-setup">
+              <h2 class="setup-title">Choose a track</h2>
+              <p class="setup-lede">Type the command in the console. Mistakes are fine - hint after two tries, answer after three.</p>
+              <p class="track-label">Environment</p>
+              <div class="track-pick">
+                <button type="button" class="track-btn" data-track="ps">
+                  <strong>Windows PowerShell</strong>
+                  <span>Practice on your PC now - no VM needed.</span>
+                  <span class="mono-hint">PS C:\&gt;</span>
+                </button>
+                <button type="button" class="track-btn" data-track="arch">
+                  <strong>Arch / Linux</strong>
+                  <span>When the cyberlab VM is running (bash).</span>
+                  <span class="mono-hint">user@arch:~$</span>
+                </button>
+              </div>
+              <p id="resume-note" class="resume-note hidden"></p>
+              <div class="tut-actions">
+                <button type="button" class="btn ghost hidden" id="btn-resume">Continue where you left off</button>
+                <button type="button" class="btn ghost hidden" id="btn-reset">Start over</button>
+              </div>
+            </div>
+
+            <div id="tut-play" class="hidden">
+              <div class="tut-progress-wrap">
+                <div class="tut-progress-meta">
+                  <span><strong id="tut-step-label">Step 1</strong></span>
+                  <div class="meta-stats">
+                    <span class="stat" id="tut-track-label">PowerShell</span>
+                    <span class="stat" title="Correct answers in a row">streak <b id="tut-streak">0</b></span>
+                    <span class="stat" title="Review steps">rep <b id="tut-reps">0</b></span>
+                  </div>
+                </div>
+                <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="tut-bar" aria-label="Progress">
+                  <span id="tut-bar-fill"></span>
+                </div>
+                <div class="lesson-path" id="tut-lesson-path" aria-label="Command path"></div>
+              </div>
+
+              <div class="step-stage" id="step-stage">
+                <div class="tut-tag" id="tut-tag">New command</div>
+                <p class="tut-prompt" id="tut-prompt">...</p>
+                <p class="tut-why" id="tut-why"></p>
+
+                <div class="console">
+                  <div class="console-chrome">
+                    <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                    <span class="console-title" id="console-title">terminal practice</span>
+                  </div>
+                  <div class="console-body">
+                    <div class="cmd-row">
+                      <span class="prompt-char" id="prompt-char" aria-hidden="true">></span>
+                      <input id="cmd-input" type="text" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type a command..." aria-label="Command" />
+                      <button type="button" class="btn console-check" id="btn-check">Check</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tut-feedback" id="tut-feedback" aria-live="polite"></div>
+              </div>
+
+              <div class="tut-actions">
+                <button type="button" class="btn ghost" id="btn-skip">Show answer</button>
+                <button type="button" class="btn ghost" id="btn-change-track">Switch track</button>
+              </div>
+            </div>
+
+            <div id="tut-done" class="tut-done hidden">
+              <h2>Tutorial complete</h2>
+              <p>You finished the tutorial. Common commands were repeated on purpose to strengthen learning.</p>
+              <p>Next: <strong>Lab exercises on ACIT4050</strong>, or practice the commands in your own terminal.</p>
+              <div class="tut-actions">
+                <button type="button" class="btn" id="btn-restart">Run the tutorial again</button>
+                <button type="button" class="btn ghost" id="btn-to-ovelser">Go to lab exercises</button>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -4841,8 +4825,8 @@
   /** Hero copy per top-level view - plain language, pensum-aligned. */
   var HERO_COPY = {
     terminal: {
-      h1: "Practice terminal commands step by step.",
-      lede: "Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers."
+      h1: "ACIT4050 lab exercises with answers.",
+      lede: "Step-by-step terminal tasks for PowerShell and Arch - paired with the guided tutorial on the PC tab."
     },
     practice: {
       h1: "Learn the diagrams from the slides.",
@@ -4866,7 +4850,7 @@
     },
     "computer-basics": {
       h1: "Get comfortable with Windows.",
-      lede: "Shortcuts, files, paths, and settings - then flashcards if you want to study PC basics."
+      lede: "Windows basics, PowerShell and Arch terminal commands, then flashcards - all on this tab."
     },
     fellesjam: {
       h1: "Mixed review across courses.",
@@ -4922,24 +4906,7 @@ function showCourse(courseKey) {
     if (practiceLink) practiceLink.hidden = courseKey !== "acit4050";
 
     if (isPc) {
-      var tTut = $("tab-pc-tutorial");
-      var tQuiz = $("tab-pc-quiz");
-      var panelTut = $("panel-pc-tutorial");
-      if (panelTut) {
-        panelTut.classList.add("active");
-        panelTut.hidden = false;
-      }
-      if (tTut) {
-        tTut.classList.add("active");
-        tTut.setAttribute("aria-selected", "true");
-        tTut.tabIndex = 0;
-      }
-      if (tQuiz) {
-        tQuiz.classList.remove("active");
-        tQuiz.setAttribute("aria-selected", "false");
-        tQuiz.tabIndex = -1;
-      }
-      pcShowSetup();
+      showPcMode("tutorial");
       syncCourseHash(courseKey);
       return;
     }
@@ -4995,7 +4962,7 @@ function showCourse(courseKey) {
     quiz: "acit4050"
   };
   var COURSE_TO_HASH = {
-    terminal: "terminal",
+    terminal: "lab",
     acit4050: "4050",
     practice: "practice",
     acit4280: "4280",
@@ -5025,22 +4992,27 @@ function showCourse(courseKey) {
 
   function applyHashRoute() {
     var h = (location.hash || "").replace(/^#/, "").toLowerCase();
-    var course = courseFromHash();
-    if (!course) return;
+    if (!h) return;
     syncingHash = true;
     try {
-      if (course === "terminal") {
+      if (h === "lab") {
         showCourse("terminal");
-        showPanel("tutorial");
-        showSetup();
-      } else if (course === "computer-basics") {
-        showCourse("computer-basics");
-      } else if (course === "practice") {
+        return;
+      }
+      if (h === "terminal") {
+        openTerminalTutorial();
+        return;
+      }
+      var course = HASH_TO_COURSE[h];
+      if (!course) return;
+      if (course === "practice") {
         showCourse("practice");
         if (globalThis.FrameworkPractice && FrameworkPractice.showSection) {
           if (h === "killchain" || h === "kill-chain") FrameworkPractice.showSection("killchain");
           else FrameworkPractice.showSection("nist");
         }
+      } else if (course === "computer-basics") {
+        showCourse("computer-basics");
       } else {
         showCourse(course);
         setStudyMode("flashcards");
@@ -5051,23 +5023,30 @@ function showCourse(courseKey) {
   }
 
 
-  function showPanel(which) {
+  function openTerminalTutorial() {
+    showCourse("computer-basics");
+    showPcMode("terminal");
+  }
+
+  function showLabExercises() {
     showCourse("terminal");
-    var tut = $("panel-tutorial");
-    var ov = $("panel-ovelser");
-    var tTut = $("tab-tutorial");
-    var tOv = $("tab-ovelser");
-    var isTut = which === "tutorial";
-    tut.classList.toggle("active", isTut);
-    ov.classList.toggle("active", !isTut);
-    tut.hidden = !isTut;
-    ov.hidden = isTut;
-    tTut.classList.toggle("active", isTut);
-    tOv.classList.toggle("active", !isTut);
-    tTut.setAttribute("aria-selected", isTut ? "true" : "false");
-    tOv.setAttribute("aria-selected", isTut ? "false" : "true");
-    tTut.tabIndex = isTut ? 0 : -1;
-    tOv.tabIndex = isTut ? -1 : 0;
+  }
+
+  function showPanel(which) {
+    if (which === "tutorial") {
+      openTerminalTutorial();
+      return;
+    }
+    if (which === "ovelser") showLabExercises();
+  }
+
+  function syncPcModeHash(fragment) {
+    if (syncingHash) return;
+    syncingHash = true;
+    try {
+      history.replaceState(null, "", "#" + fragment);
+    } catch (e) { /* ignore */ }
+    syncingHash = false;
   }
 
   document.querySelectorAll(".course-tabs button").forEach(function (btn) {
@@ -5091,9 +5070,9 @@ function showCourse(courseKey) {
     });
   }
 
-  $("tab-tutorial").addEventListener("click", function () { showPanel("tutorial"); });
-  $("tab-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
-  $("btn-to-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
+  if ($("btn-to-ovelser")) {
+    $("btn-to-ovelser").addEventListener("click", function () { showLabExercises(); });
+  }
 
   function openPractice(section) {
     showCourse("practice");
@@ -7389,9 +7368,9 @@ function showCourse(courseKey) {
       },
       {
         id: "terminal",
-        label: "Try the ACIT4050 terminal practice",
+        label: "Try the terminal command tutorial (PC tab)",
         done: !!(xp.tutDone || xp.terminalStarted),
-        go: function () { showCourse("terminal"); showPanel("tutorial"); showSetup(); }
+        go: function () { openTerminalTutorial(); }
       },
       {
         id: "install",
@@ -10510,39 +10489,46 @@ function showCourse(courseKey) {
 
 
   function showPcMode(which) {
-    var isQuiz = which === "quiz";
+    var mode = which === "quiz" ? "quiz" : (which === "terminal" ? "terminal" : "tutorial");
     var term = $("course-terminal");
     var pc = $("course-pc");
     var quiz = $("course-quiz");
-    var panelTut = $("panel-pc-tutorial");
+    var panelBasics = $("panel-pc-tutorial");
+    var panelTerminal = $("panel-tutorial");
+    var tBasics = $("tab-pc-tutorial");
+    var tTerminal = $("tab-pc-terminal");
+    var tQuiz = $("tab-pc-quiz");
     if (term) {
       term.classList.remove("active");
       term.hidden = true;
     }
     syncCourseNav("computer-basics");
-
-    var tTut = $("tab-pc-tutorial");
-    var tQuiz = $("tab-pc-quiz");
-
-    /* Keep course-pc visible so Tutorial | Quiz mode tabs stay on screen */
     if (pc) {
       pc.classList.add("active");
       pc.hidden = false;
     }
-
-    if (isQuiz) {
-      if (panelTut) {
-        panelTut.classList.remove("active");
-        panelTut.hidden = true;
-      }
+    [tBasics, tTerminal, tQuiz].forEach(function (t) {
+      if (!t) return;
+      t.classList.remove("active");
+      t.setAttribute("aria-selected", "false");
+      t.tabIndex = -1;
+    });
+    if (panelBasics) {
+      panelBasics.classList.remove("active");
+      panelBasics.hidden = true;
+    }
+    if (panelTerminal) {
+      panelTerminal.classList.remove("active");
+      panelTerminal.hidden = true;
+    }
+    if (quiz) {
+      quiz.classList.remove("active");
+      quiz.hidden = true;
+    }
+    if (mode === "quiz") {
       if (quiz) {
         quiz.classList.add("active");
         quiz.hidden = false;
-      }
-      if (tTut) {
-        tTut.classList.remove("active");
-        tTut.setAttribute("aria-selected", "false");
-        tTut.tabIndex = -1;
       }
       if (tQuiz) {
         tQuiz.classList.add("active");
@@ -10555,28 +10541,32 @@ function showCourse(courseKey) {
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
       studyLoadAndShow();
+      syncPcModeHash("pc");
+    } else if (mode === "terminal") {
+      if (panelTerminal) {
+        panelTerminal.classList.add("active");
+        panelTerminal.hidden = false;
+      }
+      if (tTerminal) {
+        tTerminal.classList.add("active");
+        tTerminal.setAttribute("aria-selected", "true");
+        tTerminal.tabIndex = 0;
+      }
+      showSetup();
+      syncPcModeHash("terminal");
     } else {
-      if (quiz) {
-        quiz.classList.remove("active");
-        quiz.hidden = true;
+      if (panelBasics) {
+        panelBasics.classList.add("active");
+        panelBasics.hidden = false;
       }
-      if (panelTut) {
-        panelTut.classList.add("active");
-        panelTut.hidden = false;
-      }
-      if (tTut) {
-        tTut.classList.add("active");
-        tTut.setAttribute("aria-selected", "true");
-        tTut.tabIndex = 0;
-      }
-      if (tQuiz) {
-        tQuiz.classList.remove("active");
-        tQuiz.setAttribute("aria-selected", "false");
-        tQuiz.tabIndex = -1;
+      if (tBasics) {
+        tBasics.classList.add("active");
+        tBasics.setAttribute("aria-selected", "true");
+        tBasics.tabIndex = 0;
       }
       pcShowSetup();
+      syncPcModeHash("pc");
     }
-    syncCourseHash("computer-basics");
   }
 
   function openPcTutorialFromCta() {
@@ -10859,22 +10849,6 @@ function showCourse(courseKey) {
 
   $("btn-skip").addEventListener("click", revealAnswerStay);
 
-  /* keyboard tabs (tutorial / exercises) */
-  $("tab-tutorial").addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-      e.preventDefault();
-      $("tab-ovelser").focus();
-      showPanel("ovelser");
-    }
-  });
-  $("tab-ovelser").addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-      e.preventDefault();
-      $("tab-tutorial").focus();
-      showPanel("tutorial");
-    }
-  });
-
   /* init */
 
   /* -- Wire PC tutorial controls -- */
@@ -10925,14 +10899,11 @@ function showCourse(courseKey) {
   if ($("tab-pc-tutorial")) {
     $("tab-pc-tutorial").addEventListener("click", function () { showPcMode("tutorial"); });
   }
+  if ($("tab-pc-terminal")) {
+    $("tab-pc-terminal").addEventListener("click", function () { showPcMode("terminal"); showSetup(); });
+  }
   if ($("tab-pc-quiz")) {
     $("tab-pc-quiz").addEventListener("click", function () { showPcMode("quiz"); });
-  }
-  if ($("btn-dummies-tutorial")) {
-    $("btn-dummies-tutorial").addEventListener("click", openPcTutorialFromCta);
-  }
-  if ($("btn-dummies-quiz")) {
-    $("btn-dummies-quiz").addEventListener("click", openPcQuizFromCta);
   }
 
   function isEmbedMode() {
@@ -10957,9 +10928,7 @@ function showCourse(courseKey) {
       if (courseFromHash()) applyHashRoute();
     });
   } else {
-    showCourse("terminal");
-    showPanel("tutorial");
-    showSetup();
+    showCourse(last4050Section());
   quizEnsureDecksReady().then(function () {
     renderSettingsStudySetup();
     renderOrientChecklist();
