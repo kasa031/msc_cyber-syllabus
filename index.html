@@ -12,63 +12,58 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kasa031.github.io/msc_cyber-syllabus/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#071952" />
+  <meta name="theme-color" content="#DF301C" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="MSc Cyber Y1" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock54" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock54" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock54" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock54" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock109" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock109" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock109" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock109" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
   <style>
     /* First-paint: white canvas before fonts settle */
-    html { background: #FFFFFF; }
+    html { background: #FFF1D1; }
 
     :root {
-      /* Canonical palette (Karina, Aug 2026) - navy, teal, sea, mint */
-      --palette-navy: #071952;
-      --palette-teal: #0B666A;
-      --palette-sea: #35A29F;
-      --palette-mint: #97FEED;
-      --palette-red: var(--palette-navy);
-      --palette-orange: var(--palette-teal);
-      --palette-cream: var(--palette-mint);
-      --palette-turquoise: var(--palette-sea);
+      /* Canonical palette (Karina) - flat solids */
+      --palette-red: #DF301C;
+      --palette-orange: #FF9100;
+      --palette-cream: #FFF1D1;
+      --palette-turquoise: #00B7CD;
 
-      --ink: #071952;
-      --ink-2: #071952;
-      --ink-3: #0B666A;
-      --slate: #0B666A;
-      --mist: #0B666A;
-      --fog: #EDF6F5;
-      /* Reading surfaces stay white; palette colors are accents only */
+      --ink: #1A1410;
+      --ink-2: #241C16;
+      --ink-3: #2E241C;
+      --slate: #3D342C;
+      --mist: #8A7B6A;
+      --fog: #C9BBA8;
       --paper: #FFFFFF;
-      --paper-2: #F5FAFA;
-      --surface: #FFFFFF;
-      --line: #D5E6E5;
-      --line-soft: #E6F1F0;
-      --signal: var(--palette-teal);
-      --signal-bright: var(--palette-sea);
-      --signal-soft: #E4F5F2;
-      --signal-deep: var(--palette-navy);
-      --ochre: var(--palette-teal);
-      --ochre-soft: #E9F3F2;
-      --warn: var(--palette-navy);
-      --warn-hot: #071952;
-      --warn-soft: #0B666A;
-      --console: #071952;
-      --console-fg: #97FEED;
-      --console-dim: #35A29F;
-      --prompt: var(--palette-sea);
+      --paper-2: #FFF8E8;
+      --surface: #FFFBF0;
+      --line: #E5D4A8;
+      --line-soft: #F0E4C0;
+      --signal: var(--palette-turquoise);
+      --signal-bright: var(--palette-turquoise);
+      --signal-soft: #CCF4F8;
+      --signal-deep: var(--palette-turquoise);
+      --ochre: var(--palette-orange);
+      --ochre-soft: #FFE4B3;
+      --warn: var(--palette-red);
+      --warn-hot: #C42818;
+      --warn-soft: #FAD5CF;
+      --console: #1A1410;
+      --console-fg: #FFF1D1;
+      --console-dim: #C4B49A;
+      --prompt: var(--palette-turquoise);
       --max: 52rem;
       --page-gutter: 1.25rem;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --focus: 0 0 0 3px rgba(53, 162, 159, 0.45);
+      --focus: 0 0 0 3px rgba(0, 183, 205, 0.45);
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-right: env(safe-area-inset-right, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -124,8 +119,8 @@
       top: 0.75rem;
       z-index: 100;
       padding: 0.65rem 1rem;
-      background: #071952;
-      color: #97FEED;
+      background: var(--palette-red);
+      color: #FFFFFF;
       font-weight: 600;
       text-decoration: none;
       border-radius: 4px;
@@ -329,7 +324,7 @@
       background: var(--palette-turquoise);
     }
     .mode-tabs button.active:hover {
-      color: #071952;
+      color: #1A1410;
       background: var(--palette-turquoise);
       transform: translateY(-1px);
     }
@@ -572,10 +567,10 @@
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.95rem;
       padding: 0.7rem 0.8rem;
-      border: 1.5px solid #35A29F;
+      border: 1.5px solid #00B7CD;
       border-radius: 3px;
-      background: #071952;
-      color: #97FEED;
+      background: #1A1410;
+      color: #FFF1D1;
       caret-color: var(--prompt);
       outline: none;
       transition: border-color 0.15s, background 0.15s;
@@ -756,10 +751,10 @@
     p { margin: 0.6rem 0; }
     a { color: var(--signal); }
     a:hover { color: var(--signal-bright); }
-    .maal { color: #071952; margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
-    .maal strong { color: #071952; font-weight: 600; }
-    .ov-wrap .steps li { color: #071952; }
-    .ov-wrap h3 { color: #071952; }
+    .maal { color: #1A1410; margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
+    .maal strong { color: #1A1410; font-weight: 600; }
+    .ov-wrap .steps li { color: #1A1410; }
+    .ov-wrap h3 { color: #1A1410; }
 
     .steps { list-style: none; padding-left: 0; margin: 0.45rem 0 1rem; }
     .steps li {
@@ -970,7 +965,7 @@
       height: 10px;
       margin: -5px 0 0 -5px;
       border-radius: 50%;
-      background: #97FEED;
+      background: #FFF1D1;
       pointer-events: none;
       animation: fxRipple 0.5s ease-out forwards;
     }
@@ -979,13 +974,13 @@
     }
     @keyframes hudPop {
       0% { transform: scale(1); }
-      40% { transform: scale(1.22); color: #35A29F; }
+      40% { transform: scale(1.22); color: #00B7CD; }
       100% { transform: scale(1); }
     }
     .hud-pop { animation: hudPop 0.38s var(--ease); }
-    .study-hud-item.is-hot b { color: #35A29F; }
+    .study-hud-item.is-hot b { color: #00B7CD; }
     .study-hud-item.is-hot {
-      border-color: #35A29F;
+      border-color: #00B7CD;
     }
     @keyframes fxPulse {
       0%, 100% { transform: scale(1); }
@@ -1010,16 +1005,16 @@
       animation: fxModal 0.28s var(--ease);
     }
     @keyframes fxReveal {
-      0% { border-color: #97FEED; }
+      0% { border-color: #FFF1D1; }
       100% { border-color: var(--signal); }
     }
     .quiz-card.fx-reveal { animation: fxReveal 0.45s var(--ease); }
-    .quiz-card.fx-good { border-color: #35A29F; }
-    .quiz-card.fx-easy { border-color: #97FEED; }
+    .quiz-card.fx-good { border-color: #00B7CD; }
+    .quiz-card.fx-easy { border-color: #FFF1D1; }
     .quiz-card.fx-again { animation: shake 0.4s; }
     .quiz-grades button:active { transform: scale(0.96); }
     .trophy-card.is-fresh {
-      border-color: #35A29F;
+      border-color: #00B7CD;
       animation: hudPop 0.5s var(--ease);
     }
     @media (prefers-reduced-motion: reduce) {
@@ -1035,6 +1030,30 @@
       .study-hud-item.is-hot b { animation: none !important; }
     }
 
+
+    .quiz-tag-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.5rem 0 0.65rem;
+    }
+    .quiz-tag-chip {
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border: 1.5px solid var(--palette-turquoise);
+      border-radius: 999px;
+      background: #FFFFFF;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .quiz-tag-chip:hover,
+    .quiz-tag-chip.is-active {
+      background: var(--palette-turquoise);
+      color: #FFFFFF;
+    }
+
     /* -- Course tabs -- */
     .course-tabs {
       display: flex;
@@ -1042,7 +1061,7 @@
       gap: 0.35rem;
       margin: 0 0 0.85rem;
       padding: 0.35rem;
-      background: #0B666A;
+      background: var(--palette-orange);
       border: none;
       border-radius: 4px;
     }
@@ -1059,12 +1078,12 @@
       border-radius: 3px;
       cursor: pointer;
       background: transparent;
-      color: #97FEED;
+      color: #FFF1D1;
       transition: background 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
     }
     .course-tabs button:not(.active):hover {
-      background: #35A29F;
-      color: #071952;
+      background: #00B7CD;
+      color: #1A1410;
       transform: translateY(-1px);
     }
     .course-tabs button.active {
@@ -1072,7 +1091,7 @@
       color: #fff;
     }
     .course-tabs button.active:hover {
-      color: #071952;
+      color: #1A1410;
       background: var(--palette-turquoise);
       transform: translateY(-1px);
     }
@@ -1144,7 +1163,7 @@
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       font-size: 15px;
       font-weight: 700;
-      fill: #071952;
+      fill: #1A1410;
       pointer-events: none;
     }
     .nist-hub-sub {
@@ -1339,13 +1358,13 @@
       margin: 0 0 0.75rem;
       padding: 0.65rem 0.85rem;
       background: var(--ochre-soft);
-      border-left: 3px solid #35A29F;
+      border-left: 3px solid #00B7CD;
       border-radius: 0 4px 4px 0;
       color: var(--ink);
       font-size: 0.92rem;
     }
     .flash-mode .study-mode-banner {
-      border-left-color: #0B666A;
+      border-left-color: #FF9100;
     }
     .study-hud {
       display: grid;
@@ -1377,12 +1396,12 @@
       font-size: 0.65rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0B666A;
+      color: #FF9100;
       margin-bottom: 0.15rem;
     }
     .study-hud-item b {
       font-size: 1.2rem;
-      color: #071952;
+      color: #1A1410;
       font-weight: 700;
     }
     .profile-bar {
@@ -1395,30 +1414,30 @@
     .study-auth {
       background: #FFFFFF;
       border: 1px solid var(--line);
-      border-top: 4px solid #071952;
+      border-top: 4px solid #1A1410;
       border-radius: 4px;
       padding: 1.1rem 1.15rem 1.25rem;
       margin: 0 0 1rem;
     }
     .study-auth h3 {
       margin: 0 0 0.4rem;
-      color: #071952;
+      color: #1A1410;
       font-size: 1.15rem;
     }
     .study-auth p {
       margin: 0 0 0.85rem;
-      color: #071952;
+      color: #1A1410;
       font-size: 0.92rem;
     }
     .study-auth label {
       display: block;
       font-size: 0.82rem;
       font-weight: 600;
-      color: #0B666A;
+      color: #FF9100;
       margin: 0.55rem 0 0.25rem;
     }
     .study-auth-error {
-      color: #071952;
+      color: #1A1410;
       font-weight: 700;
       min-height: 1.2em;
     }
@@ -1446,7 +1465,7 @@
       letter-spacing: 0.04em;
       font-weight: 700;
       background: #FFF1D1;
-      color: #071952;
+      color: #1A1410;
       border: 1px solid var(--line);
       border-radius: 4px;
       padding: 0.7rem 0.85rem;
@@ -1479,7 +1498,7 @@
       border: 1px solid var(--line);
       border-radius: 4px;
       font: inherit;
-      color: #071952;
+      color: #1A1410;
       background: #FFFFFF;
       flex: 1 1 10rem;
     }
@@ -1492,7 +1511,7 @@
       border: 1px solid var(--line);
       border-radius: 4px;
       background: #FFFFFF;
-      color: #071952;
+      color: #1A1410;
       font: inherit;
       font-weight: 600;
       cursor: pointer;
@@ -1501,8 +1520,8 @@
       width: 1.85rem;
       height: 1.85rem;
       border-radius: 4px;
-      background: #071952;
-      color: #97FEED;
+      background: #1A1410;
+      color: #FFF1D1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1536,7 +1555,7 @@
       gap: 0.55rem;
       margin: 0.35rem 0 0.45rem;
       font-weight: 600;
-      color: #071952;
+      color: #1A1410;
       cursor: pointer;
     }
     .settings-check input {
@@ -1544,7 +1563,7 @@
       height: 1.15rem;
       margin-top: 0.2rem;
       flex: 0 0 auto;
-      accent-color: #35A29F;
+      accent-color: #00B7CD;
     }
     .rank-list {
       list-style: none;
@@ -1560,29 +1579,29 @@
       border-bottom: 1px solid var(--line-soft);
     }
     .rank-row.is-you {
-      border: 1.5px solid #35A29F;
+      border: 1.5px solid #00B7CD;
       border-radius: 4px;
       margin: 0.15rem 0;
     }
     .rank-place {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-weight: 700;
-      color: #071952;
+      color: #1A1410;
     }
-    .rank-row.is-top1 .rank-place { color: #071952; }
-    .rank-row.is-top2 .rank-place { color: #0B666A; }
-    .rank-row.is-top3 .rank-place { color: #35A29F; }
-    .rank-name { font-weight: 600; color: #071952; }
-    .rank-meta { font-size: 0.78rem; color: #0B666A; }
+    .rank-row.is-top1 .rank-place { color: #1A1410; }
+    .rank-row.is-top2 .rank-place { color: #FF9100; }
+    .rank-row.is-top3 .rank-place { color: #00B7CD; }
+    .rank-name { font-weight: 600; color: #1A1410; }
+    .rank-meta { font-size: 0.78rem; color: #FF9100; }
     .rank-pts {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-weight: 700;
-      color: #071952;
+      color: #1A1410;
       white-space: nowrap;
     }
     .rank-empty {
       margin: 0 0 0.85rem;
-      color: #071952;
+      color: #1A1410;
       font-size: 0.92rem;
     }
     #rank-import-code {
@@ -1591,18 +1610,18 @@
       border: 1px solid var(--line);
       border-radius: 4px;
       font: inherit;
-      color: #071952;
+      color: #1A1410;
       background: #FFFFFF;
       flex: 1 1 10rem;
     }
     .profile-modal-card h3 {
       margin: 0 0 0.45rem;
-      color: #071952;
+      color: #1A1410;
       font-size: 1.15rem;
     }
     .profile-modal-card p {
       margin: 0 0 0.85rem;
-      color: #071952;
+      color: #1A1410;
       font-size: 0.92rem;
     }
     .profile-list {
@@ -1636,10 +1655,10 @@
     }
     .trophy-card.is-locked { opacity: 0.45; }
     .trophy-card.is-on {
-      border-color: #35A29F;
+      border-color: #00B7CD;
     }
     .trophy-card.kind-badge.is-on {
-      border-color: #071952;
+      border-color: #1A1410;
     }
     .trophy-group-title {
       grid-column: 1 / -1;
@@ -1648,11 +1667,11 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0B666A;
+      color: #FF9100;
     }
     .trophy-icon { font-size: 1.25rem; line-height: 1; }
-    .trophy-title { font-weight: 700; color: #071952; margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
-    .trophy-hint { font-size: 0.75rem; color: #0B666A; margin: 0; }
+    .trophy-title { font-weight: 700; color: #1A1410; margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
+    .trophy-hint { font-size: 0.75rem; color: #FF9100; margin: 0; }
     .trophy-toast {
       position: fixed;
       left: 50%;
@@ -1660,10 +1679,10 @@
       transform: translateX(-50%);
       z-index: 95;
       background: #FFFFFF;
-      border: 2px solid #35A29F;
+      border: 2px solid #00B7CD;
       border-radius: 4px;
       padding: 0.7rem 1rem;
-      color: #071952;
+      color: #1A1410;
       font-weight: 700;
       text-align: center;
       max-width: min(22rem, calc(100vw - 2rem));
@@ -1679,10 +1698,10 @@
     }
     .flash-mode .quiz-card {
       border-style: dashed;
-      border-color: #0B666A;
+      border-color: #FF9100;
     }
     .quiz-mode .quiz-card {
-      border-top: 4px solid #071952;
+      border-top: 4px solid #1A1410;
     }
     #flash-nav-row {
       justify-content: center;
@@ -1967,7 +1986,7 @@
       position: sticky;
       top: var(--safe-top);
       z-index: 20;
-      background: #0B666A;
+      background: #FF9100;
       box-shadow: 0 1px 0 rgba(7,25,82,0.18);
     }
     .course-tabs button .tab-code {
@@ -2735,6 +2754,13 @@
             <button type="button" class="quiz-find-clear" id="quiz-search-clear" hidden>Clear</button>
             <span class="quiz-find-count" id="quiz-search-count" aria-live="polite"></span>
           </div>
+          <div class="quiz-tag-filters" id="quiz-tag-filters" hidden aria-label="Quick filters">
+            <button type="button" class="quiz-tag-chip" data-filter="Lecture3">Lecture3</button>
+            <button type="button" class="quiz-tag-chip" data-filter="network">network</button>
+            <button type="button" class="quiz-tag-chip" data-filter="networks-assign">networks-assign</button>
+            <button type="button" class="quiz-tag-chip" data-filter="exam">exam</button>
+            <button type="button" class="quiz-tag-chip" data-filter="">All</button>
+          </div>
 
           <div class="quiz-progress-wrap" id="quiz-progress-wrap" hidden>
             <div class="quiz-progress-meta">
@@ -2750,7 +2776,7 @@
           </div>
 
           <div id="quiz-active">
-            <div class="quiz-card" id="quiz-card" tabindex="0" role="button" aria-label="Quiz card - press to show answer">
+            <div class="quiz-card" id="quiz-card" tabindex="0" role="group" aria-label="Quiz card">
               <p class="quiz-label" id="quiz-face-label">Question</p>
               <p class="quiz-q" id="quiz-q">...</p>
               <figure class="quiz-figure hidden" id="quiz-figure" aria-label="Figure">
@@ -2876,8 +2902,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock108" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock108"></script>
+  <script src="quiz-decks.js?v=lock109" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock109"></script>
   <script>
   (function () {
   "use strict";
@@ -4659,7 +4685,7 @@ function showCourse(courseKey) {
     if (studyReduceMotion()) return;
     var layer = $("fx-layer");
     if (!layer) return;
-    var colors = ["#071952", "#0B666A", "#35A29F", "#97FEED"];
+    var colors = ["#DF301C", "#FF9100", "#00B7CD", "#FFF1D1"];
     var n = count || 10;
     var i;
     for (i = 0; i < n; i++) {
@@ -5304,6 +5330,7 @@ function showCourse(courseKey) {
     }
     $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study");
     quizUpdateMaterials(quizState.deckKey);
+    syncQuizTagChips(flashState.query || "");
     flashBuildOrder(deck);
     if (!flashState.order.length) {
       if (flashState.query) {
@@ -5528,7 +5555,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock54-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock109-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -5789,17 +5816,18 @@ function showCourse(courseKey) {
       box.innerHTML = "Syllabus: ACIT4280 Lectures 1-6 (GDPR, PETs, PbD, PIA/risk, management, privacy engineering/patterns) + Ch.1. Quiz in English.";
     } else if (deckKey === "acit4050") {
       box.classList.remove("hidden");
-      box.innerHTML = "Tip: Use the Terminal tab to practise commands, then quiz here (CIA, networking, PowerShell/bash essentials + course plan).";
+      box.innerHTML = "207 cards. Lecture 3 Networks: tap <strong>Lecture3</strong> or <strong>networks-assign</strong> below, or search <em>network</em>. Terminal tab for lab commands.";
     } else if (deckKey === "acit4100") {
       box.classList.remove("hidden");
       box.innerHTML = "Syllabus: ACIT4100 syllabus, essay requirements, APA/plagiarism. Quiz covers research communication - not your personal essay topic.";
     } else if (deckKey === "fellesjam") {
       box.classList.remove("hidden");
-      box.innerHTML = "Mixed deck: ACIT4050 + ACIT4280 + ACIT4100 + PC basics + general foundations (DNS, curl, TLS, CLI). Progress is stored under the Mixed deck.";
+      box.innerHTML = "Mixed deck: merged unique cards from all courses + PC basics (~779 cards). Progress is stored under the Mixed deck.";
     } else {
       box.classList.add("hidden");
       box.textContent = "";
     }
+    if (typeof syncQuizTagChips === "function") syncQuizTagChips(flashState.query || "");
   }
 
   function quizRenderFigure(card) {
@@ -6121,13 +6149,42 @@ function showCourse(courseKey) {
       syncQuizFindUi();
     });
   }
+
+  function syncQuizTagChips(activeTag) {
+    var wrap = $("quiz-tag-filters");
+    if (!wrap) return;
+    var show = quizState.deckKey === "acit4050" && quizPanelActive();
+    wrap.hidden = !show;
+    wrap.querySelectorAll(".quiz-tag-chip").forEach(function (btn) {
+      var f = btn.getAttribute("data-filter") || "";
+      btn.classList.toggle("is-active", f === (activeTag || ""));
+    });
+  }
+  function applyQuizTagFilter(tag) {
+    flashState.query = tag || "";
+    if ($("quiz-search")) $("quiz-search").value = flashState.query;
+    syncQuizTagChips(tag || "");
+    if (quizState.studyMode !== "flashcards") setStudyMode("flashcards");
+    flashLoadAndShow();
+  }
+  if ($("quiz-tag-filters")) {
+    $("quiz-tag-filters").addEventListener("click", function (e) {
+      var btn = e.target.closest(".quiz-tag-chip");
+      if (!btn) return;
+      applyQuizTagFilter(btn.getAttribute("data-filter") || "");
+    });
+  }
+
   if ($("quiz-tags")) {
     $("quiz-tags").addEventListener("click", function (e) {
       var span = e.target.closest("span");
-      if (!span || quizState.studyMode !== "flashcards") return;
+      if (!span) return;
       e.stopPropagation();
-      flashState.query = (span.textContent || "").trim();
-      if ($("quiz-search")) $("quiz-search").value = flashState.query;
+      var tag = (span.textContent || "").trim();
+      flashState.query = tag;
+      if ($("quiz-search")) $("quiz-search").value = tag;
+      if (quizState.studyMode !== "flashcards") setStudyMode("flashcards");
+      syncQuizTagChips(tag);
       flashLoadAndShow();
     });
   }
@@ -7369,14 +7426,14 @@ function showCourse(courseKey) {
       navigator.serviceWorker.addEventListener("controllerchange", function () {
         if (refreshing) return;
         refreshing = true;
-        showSwToast("Update applied - refreshing...");
-        location.reload();
+        showSwToast("Update ready - refresh when you are between cards.");
+        if (window.confirm("New version downloaded. Refresh now?")) location.reload();
       });
       navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).then(function (reg) {
         try { reg.update(); } catch (e) { /* ignore */ }
         function promptWaiting(worker) {
           if (!worker) return;
-          showSwToast("Update ready - refreshing...");
+          showSwToast("Update ready - you will be asked before refresh.");
           worker.postMessage({ type: "SKIP_WAITING" });
         }
         if (reg.waiting) promptWaiting(reg.waiting);

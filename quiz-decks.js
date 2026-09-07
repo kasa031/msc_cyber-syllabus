@@ -9154,7 +9154,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock108",
+    version: "lock109",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

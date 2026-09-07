@@ -5,17 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="referrer" content="no-referrer" />
   <title>Class notes | ACIT4280, ACIT4100 and ACIT4050</title>
-  <meta name="theme-color" content="#071952" />
+  <meta name="theme-color" content="#1A1410" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <style>
     html { background: #FFFFFF; }
     :root {
-      --navy: #071952;
-      --teal: #0B666A;
-      --sea: #35A29F;
-      --mint: #97FEED;
-      --line: #D5E6E5;
-      --fog: #F5FAFA;
+      /* Canonical palette (Karina) - flat solids */
+      --palette-red: #DF301C;
+      --palette-orange: #FF9100;
+      --palette-cream: #FFF1D1;
+      --palette-turquoise: #00B7CD;
+
+      --ink: #1A1410;
+      --ink-2: #241C16;
+      --ink-3: #2E241C;
+      --slate: #3D342C;
+      --mist: #8A7B6A;
+      --fog: #C9BBA8;
+      --paper: #FFFFFF;
+      --paper-2: #FFF8E8;
+      --surface: #FFFBF0;
+      --line: #E5D4A8;
+      --line-soft: #F0E4C0;
+      --signal: var(--palette-turquoise);
+      --signal-bright: var(--palette-turquoise);
+      --signal-soft: #CCF4F8;
+      --signal-deep: var(--palette-turquoise);
+      --ochre: var(--palette-orange);
+      --ochre-soft: #FFE4B3;
+      --warn: var(--palette-red);
+      --warn-hot: #C42818;
+      --warn-soft: #FAD5CF;
+      --console: #1A1410;
+      --console-fg: #FFF1D1;
+      --console-dim: #C4B49A;
+      --prompt: var(--palette-turquoise);
+      --max: 52rem;
+      --page-gutter: 1.25rem;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --focus: 0 0 0 3px rgba(0, 183, 205, 0.45);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --touch: 2.75rem;
     }
     * { box-sizing: border-box; }
     body {
@@ -830,7 +863,7 @@
       <h2>Lecture 3 - Networks (01 Sep 2026)</h2>
       <p>Slides: <code>Networks26.pdf</code> (local under <code>Emner/ACIT4050/Lecture_03/</code>). Topics: Internet protocol stack, encapsulation, IP addressing, subnets, CIDR, ports, NAT, ICMP, IPv6, TCP three-way handshake.</p>
       <p><strong>Assignment: Networks</strong> (New Quizzes, 100 pts, pass 60+) submitted Mon 07.09.2026 ca. 13:44 (attempt 1). Due Tue 08.09.2026 23:59.</p>
-      <p class="src">38 quiz cards tagged <code>Lecture3</code> / <code>network</code> (10 mirror the Canvas Networks assignment Q1-Q10). Cache lock108.</p>
+      <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture3</code> or <code>networks-assign</code>. 38 quiz cards tagged <code>Lecture3</code> / <code>network</code> (10 mirror the Canvas Networks assignment Q1-Q10). Cache lock108.</p>
     </section>
 
     <section id="p4050-info">
