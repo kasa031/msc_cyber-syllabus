@@ -3601,6 +3601,12 @@
             <button type="button" class="btn" data-first-course="acit4100">ACIT4100</button>
             <button type="button" class="btn" data-first-course="acit4280">ACIT4280</button>
           </div>
+          <p class="settings-study-setup-kicker">Daily pace</p>
+          <div class="study-setup-pick" role="group" aria-label="Daily card goal">
+            <button type="button" class="btn" data-daily-goal="5">Casual (5)</button>
+            <button type="button" class="btn" data-daily-goal="10">Regular (10)</button>
+            <button type="button" class="btn" data-daily-goal="20">Intense (20)</button>
+          </div>
           <p class="settings-study-setup-hint"><strong>Flip cards</strong> = see Q and A, no schedule. <strong>Practice</strong> = hide answer, tap 1-4, missed cards return. <strong>Exam prep</strong> = timed Canvas-style questions.</p>
           <div class="tut-actions settings-study-setup-actions">
             <button type="button" class="btn btn-primary" id="settings-save-focus">Save focus</button>
@@ -4524,7 +4530,7 @@
       });
     }
   }
-  var QUIZ_EXPECTED = { acit4050: 207, acit4280: 209, acit4100: 328, "computer-basics": 28, "fellesjam-general": 26 };
+  var QUIZ_EXPECTED = { acit4050: 207, acit4280: 215, acit4100: 328, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -7641,6 +7647,10 @@ function showCourse(courseKey) {
     document.querySelectorAll("[data-first-course]").forEach(function (btn) {
       btn.classList.toggle("active", btn.getAttribute("data-first-course") === firstWinState.course);
     });
+    var goal = studyDailyGoal();
+    document.querySelectorAll("[data-daily-goal]").forEach(function (btn) {
+      btn.classList.toggle("active", Number(btn.getAttribute("data-daily-goal")) === goal);
+    });
   }
 
   function syncSettingsSetupDot() {
@@ -7665,9 +7675,6 @@ function showCourse(courseKey) {
     if (prev !== firstWinState.course) {
       onboardSave({ appliedFocusFor: "" });
     }
-    if (firstWinState.persona === "exam") studySetDailyGoal(20);
-    else if (firstWinState.persona === "browse") studySetDailyGoal(5);
-    else studySetDailyGoal(10);
   }
 
   function onboardSaveFocus(showCourseAfter) {
@@ -9801,6 +9808,14 @@ function showCourse(courseKey) {
   document.querySelectorAll("[data-first-persona]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       firstWinPickPersona(btn.getAttribute("data-first-persona"));
+    });
+  });
+  document.querySelectorAll("[data-daily-goal]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      studySetDailyGoal(btn.getAttribute("data-daily-goal"));
+      syncStudySetupUi();
+      if (quizShouldShowHome()) syncQuizHome();
+      studyRefreshHud();
     });
   });
   if ($("settings-save-focus")) {

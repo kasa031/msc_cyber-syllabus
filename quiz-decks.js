@@ -1,8 +1,18 @@
 /**
  * Quiz decks for the study app (file://-friendly).
- * Figure fields: type, src|svg, alt, caption?, shows?, attribution?
- * Prefer figures/real/ terminal mockups and Wikimedia Commons (attributed).
- * Sync quiz-data/*.json when editing. No GitHub push.
+ *
+ * Why no API in v1: one device, offline, privacy - localStorage holds
+ * spaced-repetition state. Fetching local JSON often fails under file://
+ * (browser CORS). Decks are inlined here and loaded via <script>.
+ *
+ * JSON under quiz-data/ uses the same schema for maintenance / later sync.
+ * Update both the JSON files and this file (or ask the agent to sync them).
+ *
+ * Cards may include optional figure: { type:"img", src, alt, caption? }
+ * or { type:"svg", svg, alt?, caption? }. Figures live under figures/.
+ *
+ * Updated from autumn 2026 materials + visual figures for conceptual cards.
+ * No GitHub push.
  */
 (function (global) {
   "use strict";
@@ -10,7 +20,7 @@
   global.QUIZ_DECKS = {
   "acit4050": {
     "course": "ACIT4050",
-    "title": "Security, terminal and networks",
+    "title": "Terminal, lab & networks",
     "cards": [
       {
         "id": "4050-pwd",
@@ -2208,7 +2218,7 @@
   },
   "acit4280": {
     "course": "ACIT4280",
-    "title": "GDPR and privacy engineering (L1-L6)",
+    "title": "Privacy / GDPR (L1-L6)",
     "cards": [
       {
         "id": "4280-gdpr-structure",
@@ -4789,18 +4799,19 @@
       },
       {
         "id": "4280-quiz-sw-arch",
-        "q": "ACIT4280 Software Architecture Concepts quiz (Canvas): what does it cover?",
-        "a": "Module 1: software architecture concepts, types of requirements, and quality attributes. All answers must be correct; unlimited attempts.",
+        "q": "Software Architecture Concepts quiz: how does Lecture 6 define software architecture (IEEE 1471-style)?",
+        "a": "Fundamental organisation of a system: components, relationships to each other and the environment, and principles guiding design and evolution.",
         "tags": [
           "Ch2",
+          "architecture",
           "Canvas-quiz",
           "Canvas-crawl"
         ]
       },
       {
         "id": "4280-quiz-design-strategies",
-        "q": "ACIT4280 Privacy design strategies quiz: your task in each question?",
-        "a": "Name the privacy design strategies applied when an architect changes a system to improve privacy protection (module 3 scenarios).",
+        "q": "Privacy design strategies quiz: name all eight Hoepman-style strategies you may need to match to scenarios.",
+        "a": "Minimise; Hide; Separate; Aggregate (abstract); Inform; Control; Enforce; Demonstrate.",
         "tags": [
           "Ch3",
           "Hoepman",
@@ -4810,8 +4821,8 @@
       },
       {
         "id": "4280-quiz-dark-side",
-        "q": "ACIT4280 The Dark Side quiz covers which module topic?",
-        "a": "Privacy dark patterns (module 5). One question; must answer correctly; unlimited attempts.",
+        "q": "The Dark Side quiz: name three privacy dark patterns from the Lecture 6 survey excerpt.",
+        "a": "Any three of: Privacy Zuckering; Bad Defaults; Forced Registration; Hidden Legalese; Immortal Accounts; Address Book Leeching; Shadow User Profiles.",
         "tags": [
           "Ch5",
           "dark-patterns",
@@ -4821,8 +4832,8 @@
       },
       {
         "id": "4280-quiz-pia-risk",
-        "q": "ACIT4280 PIA and risk assessment quiz (Canvas classic): scope?",
-        "a": "Six questions on PIA and privacy risk assessment knowledge. Unlimited attempts; revert and change selections anytime.",
+        "q": "PIA and risk assessment quiz: what is a PIA according to Lecture 4?",
+        "a": "A systematic process for identifying and evaluating privacy risks/impacts of a project - anticipatory, done in advance or in parallel with the initiative, not only a one-off report.",
         "tags": [
           "Ch4",
           "PIA",
@@ -4832,13 +4843,79 @@
       },
       {
         "id": "4280-quiz-privacy-controls",
-        "q": "ACIT4280 Privacy controls quiz: what is assessed?",
-        "a": "Four questions on understanding privacy controls; you may submit new answers per question with unlimited attempts.",
+        "q": "Privacy controls quiz: what is risk treatment via controls (Lecture 5)?",
+        "a": "Select and implement technical and/or administrative controls (from catalogues such as ISO 27001 annex / NIST SP 800-53) to reduce or remove risks in infrastructure, procedures and resources.",
         "tags": [
           "Ch5",
           "controls",
           "Canvas-quiz",
           "Canvas-crawl"
+        ]
+      },
+      {
+        "id": "4280-drill-iso25010",
+        "q": "Module quiz drill: list ISO 25010 top-level quality attributes from Lecture 6 (incl. security).",
+        "a": "Functional suitability; performance efficiency; compatibility; usability; reliability; security; maintainability; portability.",
+        "tags": [
+          "Ch2",
+          "quality",
+          "Canvas-quiz",
+          "module-drill"
+        ]
+      },
+      {
+        "id": "4280-drill-pia-mandatory",
+        "q": "Module quiz drill: are PIAs always mandatory under GDPR (Lecture 4)?",
+        "a": "No. PIAs are not generally mandatory; DPIAs are required only in particular high-risk cases (GDPR Art. 35). Mandatory-everything causes PIA fatigue.",
+        "tags": [
+          "Ch4",
+          "PIA",
+          "Canvas-quiz",
+          "module-drill"
+        ]
+      },
+      {
+        "id": "4280-drill-hide-strategy",
+        "q": "Module quiz drill: what does the Hide privacy design strategy aim for?",
+        "a": "Conceal or obscure personal data and processing - limit observability of data, actors and actions (part of the eight Hoepman strategies).",
+        "tags": [
+          "Ch3",
+          "Hoepman",
+          "Canvas-quiz",
+          "module-drill"
+        ]
+      },
+      {
+        "id": "4280-drill-control-admin",
+        "q": "Module quiz drill: what does Lecture 5 emphasise about many privacy controls?",
+        "a": "Many privacy controls are administrative (not only technical). Privacy/security management is a complex multi-role process.",
+        "tags": [
+          "Ch5",
+          "controls",
+          "Canvas-quiz",
+          "module-drill"
+        ]
+      },
+      {
+        "id": "4280-drill-pia-outcomes",
+        "q": "Module quiz drill: what outcomes are expected from a PIA (Lecture 4)?",
+        "a": "Identify privacy impacts; assess from all stakeholders' perspectives; show how negative impacts can be avoided or lessened; clarify residual/accepted impacts where unavoidable.",
+        "tags": [
+          "Ch4",
+          "PIA",
+          "Canvas-quiz",
+          "module-drill"
+        ]
+      },
+      {
+        "id": "4280-drill-risk-formula",
+        "q": "Module quiz drill: how does qualitative risk assessment combine impact and likelihood (Lecture 4)?",
+        "a": "Risk(A) ~ impact(T(A)) x likelihood(T(A)) for threat T on asset A; classify levels (typically low/moderate/high).",
+        "tags": [
+          "Ch4",
+          "risk",
+          "Canvas-quiz",
+          "module-drill"
         ]
       },
       {
@@ -5084,7 +5161,7 @@
   },
   "acit4100": {
     "course": "ACIT4100",
-    "title": "Research methods and writing",
+    "title": "Understanding & Communicating Research",
     "cards": [
       {
         "id": "4100-zotero",
@@ -8766,7 +8843,7 @@
   },
   "computer-basics": {
     "course": "Computer basics",
-    "title": "Windows basics and shortcuts",
+    "title": "Computer for dummies",
     "cards": [
       {
         "id": "cb-file-folder",
@@ -9061,314 +9138,6 @@
         ]
       }
     ]
-  },
-  "fellesjam-general": {
-    "course": "Fellesjam",
-    "title": "Mixed review (all courses)",
-    "cards": [
-      {
-        "id": "fj-curl",
-        "q": "What is curl used for on the command line?",
-        "a": "curl transfers data to or from a server using URLs. Common uses: fetch a page (curl https://example.com) or inspect HTTP headers only with curl -I (HEAD request, no body).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "cli",
-          "http"
-        ]
-      },
-      {
-        "id": "fj-dig",
-        "q": "What does dig do?",
-        "a": "dig (domain information groper) performs DNS lookups from the CLI - shows how a name resolves (A, MX, NS, etc.) and which DNS server answered.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns",
-          "cli"
-        ]
-      },
-      {
-        "id": "fj-dns-analogy",
-        "q": "What is DNS, in plain terms?",
-        "a": "DNS (Domain Name System) maps human-readable domain names to IP addresses and other records - like a phone book for the internet.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns"
-        ]
-      },
-      {
-        "id": "fj-fqdn",
-        "q": "What is an FQDN?",
-        "a": "FQDN = Fully Qualified Domain Name - the complete hostname including all domain labels, e.g. www.example.com. (not a relative name like www only).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns"
-        ]
-      },
-      {
-        "id": "fj-bind-dig",
-        "q": "How do bind, bind9-tools, and dig relate on Ubuntu?",
-        "a": "BIND is one of the most widely used DNS server implementations. On Ubuntu, bind9-tools installs dig (and related utilities). bind9 is the server package.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns",
-          "linux"
-        ]
-      },
-      {
-        "id": "fj-dns-a-record",
-        "q": "What is a DNS A record?",
-        "a": "An A record maps a hostname to an IPv4 address (e.g. www.example.com -> 93.184.216.34).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns"
-        ]
-      },
-      {
-        "id": "fj-dns-mx-record",
-        "q": "What is a DNS MX record?",
-        "a": "MX (Mail eXchange) records point a domain to mail servers that receive email for that domain, with priority values when several exist.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns"
-        ]
-      },
-      {
-        "id": "fj-zonefile",
-        "q": "What is a DNS zone file?",
-        "a": "A zone file is the text configuration for a DNS zone - it lists records (SOA, NS, A, MX, CNAME, etc.) served for a domain on an authoritative server.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns"
-        ]
-      },
-      {
-        "id": "fj-apt",
-        "q": "What is apt on Debian/Ubuntu?",
-        "a": "apt (Advanced Package Tool) installs, updates, and removes software packages from configured repositories (e.g. sudo apt update && sudo apt install bind9-tools).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "linux",
-          "cli"
-        ]
-      },
-      {
-        "id": "fj-ipv4-ipv6",
-        "q": "IPv4 vs IPv6 - what is the main difference?",
-        "a": "IPv4 uses 32-bit addresses (e.g. 192.0.2.1). IPv6 uses 128-bit addresses (e.g. 2001:db8::1) for a much larger address space. DNS A = IPv4; AAAA = IPv6.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "network"
-        ]
-      },
-      {
-        "id": "fj-cdn",
-        "q": "What is a CDN (Content Delivery Network)?",
-        "a": "A CDN caches and serves static content from edge servers close to users - faster loads and less load on the origin. KeyCDN is one commercial CDN provider (example name in course materials).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "network",
-          "web"
-        ]
-      },
-      {
-        "id": "fj-tcp-port",
-        "q": "What is a TCP port?",
-        "a": "A 16-bit number (0-65535) that identifies a service on a host within one IP address. TCP (and UDP) use ports so many services can share one IP (e.g. 443 HTTPS, 53 DNS).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "network"
-        ]
-      },
-      {
-        "id": "fj-whois",
-        "q": "What is whois used for?",
-        "a": "whois queries registration databases for domain and IP allocation info - registrant contacts (often redacted), name servers, dates, etc.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns",
-          "cli"
-        ]
-      },
-      {
-        "id": "fj-bash",
-        "q": "What is the bash shell?",
-        "a": "bash (Bourne Again SHell) is a common Unix/Linux command-line shell and scripting language - default on many distros; runs commands, scripts, pipes, and redirects.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "linux",
-          "cli"
-        ]
-      },
-      {
-        "id": "fj-man",
-        "q": "What does man do?",
-        "a": "man opens the manual page for a command (e.g. man dig, man curl). Use / to search inside the page; q to quit.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "linux",
-          "cli"
-        ]
-      },
-      {
-        "id": "fj-pgp",
-        "q": "What is PGP used for?",
-        "a": "PGP (Pretty Good Privacy) and OpenPGP-style tools provide encryption and digital signatures for email and files - confidentiality, integrity, and sender authentication via key pairs.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "crypto"
-        ]
-      },
-      {
-        "id": "fj-linux-vs-ubuntu",
-        "q": "Linux vs Ubuntu - what is the difference?",
-        "a": "Linux is the kernel (core of the OS). Ubuntu is a Linux distribution (kernel + GNU tools + desktop/package management + vendor support). Many distros exist (Debian, Arch, Kali, etc.).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "linux"
-        ]
-      },
-      {
-        "id": "fj-encrypt-cipher-auth-hash",
-        "q": "Encryption vs cipher vs authentication vs hashing - how do they differ?",
-        "a": "Encryption: reversible hiding of data with a key. Cipher: the algorithm/mode that performs encryption. Authentication: proving identity (who you are). Hashing: one-way fingerprint of data (integrity, passwords) - not meant to be decrypted.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "crypto"
-        ]
-      },
-      {
-        "id": "fj-openssl",
-        "q": "What is OpenSSL?",
-        "a": "OpenSSL is a widely used open-source toolkit for TLS/SSL and general cryptography - certificates, key generation, and the libssl/libcrypto libraries behind many servers and clients.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "crypto",
-          "tls"
-        ]
-      },
-      {
-        "id": "fj-tls",
-        "q": "What does TLS do on the web?",
-        "a": "TLS (Transport Layer Security) encrypts and authenticates traffic between client and server (e.g. HTTPS on port 443) - confidentiality and integrity in transit.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "crypto",
-          "tls"
-        ]
-      },
-      {
-        "id": "fj-tls12-tls13",
-        "q": "TLS 1.2 vs TLS 1.3 - what should you remember?",
-        "a": "Both are modern TLS versions. TLS 1.3 is newer: fewer weak cipher options, faster handshakes, and 1.3-only features. Servers and clients negotiate the highest version both support; disable legacy SSL/TLS 1.0/1.1.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "crypto",
-          "tls"
-        ]
-      },
-      {
-        "id": "fj-ssl-vs-tls",
-        "q": "SSL vs TLS - which name is correct today?",
-        "a": "SSL (Secure Sockets Layer) is the old protocol (SSLv3 and earlier are obsolete/insecure). TLS replaced SSL; people still say \"SSL\" but mean TLS. Use TLS 1.2+ or TLS 1.3 in practice.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "crypto",
-          "tls"
-        ]
-      },
-      {
-        "id": "fj-win-snap",
-        "q": "How do you snap two windows side by side on Windows?",
-        "a": "Select a window title bar and drag to the left or right edge until a outline appears, then pick the other window for the other half. Shortcut: Win+Left / Win+Right arrow keys.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "windows"
-        ]
-      },
-      {
-        "id": "fj-own-dns-free",
-        "q": "What does \"set up your own DNS server (free tier)\" usually mean in labs?",
-        "a": "Run an authoritative or recursive DNS instance you control - often in a VM or a provider free tier - configure a zone file (SOA, NS, A, MX), then test with dig @your-server. Exact steps depend on course lab (needs Canvas crawl for official procedure).",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns",
-          "needs-canvas"
-        ]
-      },
-      {
-        "id": "fj-nslookup",
-        "q": "What does nslookup do, and how does it differ from dig?",
-        "a": "nslookup queries DNS interactively or for one name (built into Windows and Linux). dig is more script-friendly and verbose. Both resolve names to records; dig is common on Linux lab VMs.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "dns",
-          "cli"
-        ]
-      },
-      {
-        "id": "fj-mastodon-server",
-        "q": "What is a Mastodon server (\"Mastodontserver\" in Norwegian notes)?",
-        "a": "A Mastodon server (instance) runs fediverse software so users can post, follow, and federate with other instances via ActivityPub. In cyber labs it may mean self-hosting or connecting to an instance - not a separate protocol from Mastodon itself.",
-        "tags": [
-          "fellesjam",
-          "general",
-          "fediverse",
-          "web"
-        ]
-      }
-    ]
   }
 };
-
-  var EXPECTED = {
-    acit4050: 207,
-    acit4280: 209,
-    acit4100: 328,
-    computer-basics: 28,
-    fellesjam-general: 26
-  };
-
-  global.QUIZ_DECKS_META = {
-    version: "lock111",
-    expected: EXPECTED,
-    loadedAt: Date.now()
-  };
-  global.__QUIZ_DECKS_LOAD_OK = true;
-
-  try {
-    var mismatch = [];
-    Object.keys(EXPECTED).forEach(function (key) {
-      var deck = global.QUIZ_DECKS[key];
-      var n = deck && Array.isArray(deck.cards) ? deck.cards.length : -1;
-      if (n !== EXPECTED[key]) mismatch.push(key + "=" + n);
-    });
-    if (mismatch.length && typeof console !== "undefined" && console.warn) {
-      console.warn("[quiz-decks] count mismatch:", mismatch.join(", "));
-    }
-  } catch (e) {}
 })(typeof window !== "undefined" ? window : globalThis);

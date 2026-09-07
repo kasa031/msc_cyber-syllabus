@@ -2581,18 +2581,19 @@
     },
     {
       "id": "4280-quiz-sw-arch",
-      "q": "ACIT4280 Software Architecture Concepts quiz (Canvas): what does it cover?",
-      "a": "Module 1: software architecture concepts, types of requirements, and quality attributes. All answers must be correct; unlimited attempts.",
+      "q": "Software Architecture Concepts quiz: how does Lecture 6 define software architecture (IEEE 1471-style)?",
+      "a": "Fundamental organisation of a system: components, relationships to each other and the environment, and principles guiding design and evolution.",
       "tags": [
         "Ch2",
+        "architecture",
         "Canvas-quiz",
         "Canvas-crawl"
       ]
     },
     {
       "id": "4280-quiz-design-strategies",
-      "q": "ACIT4280 Privacy design strategies quiz: your task in each question?",
-      "a": "Name the privacy design strategies applied when an architect changes a system to improve privacy protection (module 3 scenarios).",
+      "q": "Privacy design strategies quiz: name all eight Hoepman-style strategies you may need to match to scenarios.",
+      "a": "Minimise; Hide; Separate; Aggregate (abstract); Inform; Control; Enforce; Demonstrate.",
       "tags": [
         "Ch3",
         "Hoepman",
@@ -2602,8 +2603,8 @@
     },
     {
       "id": "4280-quiz-dark-side",
-      "q": "ACIT4280 The Dark Side quiz covers which module topic?",
-      "a": "Privacy dark patterns (module 5). One question; must answer correctly; unlimited attempts.",
+      "q": "The Dark Side quiz: name three privacy dark patterns from the Lecture 6 survey excerpt.",
+      "a": "Any three of: Privacy Zuckering; Bad Defaults; Forced Registration; Hidden Legalese; Immortal Accounts; Address Book Leeching; Shadow User Profiles.",
       "tags": [
         "Ch5",
         "dark-patterns",
@@ -2613,8 +2614,8 @@
     },
     {
       "id": "4280-quiz-pia-risk",
-      "q": "ACIT4280 PIA and risk assessment quiz (Canvas classic): scope?",
-      "a": "Six questions on PIA and privacy risk assessment knowledge. Unlimited attempts; revert and change selections anytime.",
+      "q": "PIA and risk assessment quiz: what is a PIA according to Lecture 4?",
+      "a": "A systematic process for identifying and evaluating privacy risks/impacts of a project - anticipatory, done in advance or in parallel with the initiative, not only a one-off report.",
       "tags": [
         "Ch4",
         "PIA",
@@ -2624,13 +2625,79 @@
     },
     {
       "id": "4280-quiz-privacy-controls",
-      "q": "ACIT4280 Privacy controls quiz: what is assessed?",
-      "a": "Four questions on understanding privacy controls; you may submit new answers per question with unlimited attempts.",
+      "q": "Privacy controls quiz: what is risk treatment via controls (Lecture 5)?",
+      "a": "Select and implement technical and/or administrative controls (from catalogues such as ISO 27001 annex / NIST SP 800-53) to reduce or remove risks in infrastructure, procedures and resources.",
       "tags": [
         "Ch5",
         "controls",
         "Canvas-quiz",
         "Canvas-crawl"
+      ]
+    },
+    {
+      "id": "4280-drill-iso25010",
+      "q": "Module quiz drill: list ISO 25010 top-level quality attributes from Lecture 6 (incl. security).",
+      "a": "Functional suitability; performance efficiency; compatibility; usability; reliability; security; maintainability; portability.",
+      "tags": [
+        "Ch2",
+        "quality",
+        "Canvas-quiz",
+        "module-drill"
+      ]
+    },
+    {
+      "id": "4280-drill-pia-mandatory",
+      "q": "Module quiz drill: are PIAs always mandatory under GDPR (Lecture 4)?",
+      "a": "No. PIAs are not generally mandatory; DPIAs are required only in particular high-risk cases (GDPR Art. 35). Mandatory-everything causes PIA fatigue.",
+      "tags": [
+        "Ch4",
+        "PIA",
+        "Canvas-quiz",
+        "module-drill"
+      ]
+    },
+    {
+      "id": "4280-drill-hide-strategy",
+      "q": "Module quiz drill: what does the Hide privacy design strategy aim for?",
+      "a": "Conceal or obscure personal data and processing - limit observability of data, actors and actions (part of the eight Hoepman strategies).",
+      "tags": [
+        "Ch3",
+        "Hoepman",
+        "Canvas-quiz",
+        "module-drill"
+      ]
+    },
+    {
+      "id": "4280-drill-control-admin",
+      "q": "Module quiz drill: what does Lecture 5 emphasise about many privacy controls?",
+      "a": "Many privacy controls are administrative (not only technical). Privacy/security management is a complex multi-role process.",
+      "tags": [
+        "Ch5",
+        "controls",
+        "Canvas-quiz",
+        "module-drill"
+      ]
+    },
+    {
+      "id": "4280-drill-pia-outcomes",
+      "q": "Module quiz drill: what outcomes are expected from a PIA (Lecture 4)?",
+      "a": "Identify privacy impacts; assess from all stakeholders' perspectives; show how negative impacts can be avoided or lessened; clarify residual/accepted impacts where unavoidable.",
+      "tags": [
+        "Ch4",
+        "PIA",
+        "Canvas-quiz",
+        "module-drill"
+      ]
+    },
+    {
+      "id": "4280-drill-risk-formula",
+      "q": "Module quiz drill: how does qualitative risk assessment combine impact and likelihood (Lecture 4)?",
+      "a": "Risk(A) ~ impact(T(A)) x likelihood(T(A)) for threat T on asset A; classify levels (typically low/moderate/high).",
+      "tags": [
+        "Ch4",
+        "risk",
+        "Canvas-quiz",
+        "module-drill"
       ]
     },
     {

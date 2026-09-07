@@ -41,7 +41,7 @@ Live: https://kasa031.github.io/msc_cyber-syllabus/
 
 ## Technical status (lock111)
 
-- Deck counts: ACIT4050=207, ACIT4280=209, ACIT4100=328, computer-basics=28, fellesjam-general=26 (Fellesjam pool ~798 unique)
+- Deck counts: ACIT4050=207, ACIT4280=215, ACIT4100=328, computer-basics=28, fellesjam-general=26 (Fellesjam pool ~798 unique)
 - Canonical entry: `index.html` (`TERMINAL_OVING_ACIT4050.html` redirects here)
 - Embed mode: `?embed=1#4050` (or `#acit4050`) for Ukeplan iframe - hides hero and course tabs
 - Filter chips: 4050 (Lecture3/network), 4100 (week3/week4/Toulmin), 4280 (L1-L6)
