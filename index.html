@@ -31,17 +31,26 @@
   <link rel="stylesheet" href="fonts/fonts.css" />
 
   <style>
-    /* First-paint: white canvas before fonts settle */
+    /* Design system: tokens + layers (Every Layout, Material, Apple HIG, GOV.UK patterns) */
+    @layer reset, tokens, base, components, utilities;
+
+    @layer reset {
+      *, *::before, *::after { box-sizing: border-box; }
+    }
+
+    /* First-paint: light canvas before fonts settle */
     html { background: #FFF9E6; }
 
+    @layer tokens {
     :root {
-      /* Canonical palette (Karina) - flat solids */
+      /* Palette (Karina) - flat solids */
       --palette-red: #5003C0;
       --palette-orange: #FFD51E;
       --palette-cream: #FFF9E6;
       --palette-turquoise: #AB03A9;
       --palette-pink: #FF467A;
 
+      /* Semantic colors */
       --ink: #1A1410;
       --ink-2: #241C16;
       --ink-3: #2E241C;
@@ -66,31 +75,76 @@
       --console-fg: #FFF9E6;
       --console-dim: #C4B49A;
       --prompt: var(--palette-turquoise);
+
+      /* 8px spacing scale */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+
+      /* Typography scale */
+      --text-xs: 0.78rem;
+      --text-sm: 0.88rem;
+      --text-base: 1.0625rem;
+      --text-lg: 1.25rem;
+      --text-xl: 1.65rem;
+      --text-2xl: clamp(2rem, 5.6vw, 3.25rem);
+      --leading-tight: 1.25;
+      --leading-normal: 1.55;
+      --leading-relaxed: 1.65;
+      --measure: 36rem;
+      --measure-narrow: 28rem;
+
+      /* Layout */
       --max: 52rem;
       --page-gutter: 1.25rem;
+      --radius-sm: 3px;
+      --radius-md: 4px;
+      --radius-lg: 8px;
+      --radius-pill: 999px;
+      --shadow-sm: 0 1px 0 rgba(80, 3, 192, 0.08);
+      --shadow-md: 0 4px 16px rgba(26, 20, 16, 0.12);
+      --shadow-lg: 0 12px 40px rgba(26, 20, 16, 0.18);
+
+      /* Motion + focus */
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --focus: 0 0 0 3px rgba(171, 3, 169, 0.45);
+
+      /* Safe areas + touch (Apple HIG 44px) */
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-right: env(safe-area-inset-right, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
       --safe-left: env(safe-area-inset-left, 0px);
       --touch: 2.75rem;
+
+      /* Z-index scale */
+      --z-sticky: 20;
+      --z-toast: 90;
+      --z-modal: 130;
+      --z-fx: 140;
+    }
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    @layer base {
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--safe-top) + var(--space-10));
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
+      color-scheme: light;
     }
     body {
       margin: 0;
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       overflow-x: hidden;
-      font-size: 1.0625rem;
-      line-height: 1.55;
+      font-size: var(--text-base);
+      line-height: var(--leading-normal);
       color: var(--ink);
-      background: #FFFFFF;
+      background: var(--paper);
       background-attachment: fixed;
       min-height: 100vh;
       min-height: 100dvh;
@@ -98,6 +152,7 @@
       padding-left: var(--safe-left);
       padding-right: var(--safe-right);
       padding-bottom: var(--safe-bottom);
+      text-rendering: optimizeLegibility;
     }
     :focus-visible { outline: none; box-shadow: var(--focus); }
     button:focus-visible,
@@ -107,6 +162,33 @@
       outline: none;
       box-shadow: var(--focus);
     }
+    }
+
+    @layer utilities {
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--stack-gap, var(--space-4));
+    }
+    .stack-sm { --stack-gap: var(--space-2); }
+    .stack-lg { --stack-gap: var(--space-6); }
+    .cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--cluster-gap, var(--space-2));
+    }
+    .text-measure {
+      max-width: var(--measure);
+      text-wrap: pretty;
+    }
+    .text-measure-narrow {
+      max-width: var(--measure-narrow);
+      text-wrap: pretty;
+    }
+    }
+
+    @layer components {
 
     .visually-hidden {
       position: absolute;
@@ -2286,6 +2368,53 @@
     .quiz-mode .quiz-card {
       border-top: 4px solid #1A1410;
     }
+    #quiz-action-dock {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    #quiz-action-dock:not(.is-visible) {
+      display: none;
+    }
+    #quiz-action-dock #quiz-reveal-row,
+    #quiz-action-dock #flash-nav-row {
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .quiz-wrap.quiz-in-session #quiz-active {
+        padding-bottom: 0.35rem;
+      }
+      .quiz-wrap.quiz-in-session #quiz-action-dock.is-visible {
+        position: sticky;
+        bottom: 0;
+        z-index: var(--z-sticky);
+        margin-left: -0.15rem;
+        margin-right: -0.15rem;
+        margin-bottom: calc(-1 * var(--space-4));
+        padding: var(--space-3) var(--space-2) calc(var(--space-3) + var(--safe-bottom));
+        background: var(--paper);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -6px 20px rgba(26, 20, 16, 0.1);
+      }
+      .quiz-wrap.quiz-in-session #quiz-action-dock.is-visible #quiz-reveal-row .btn-primary {
+        width: 100%;
+        justify-content: center;
+        min-height: var(--touch);
+      }
+      .quiz-wrap.quiz-in-session #quiz-action-dock.is-visible .quiz-grades {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-2);
+        margin-top: 0;
+      }
+      .quiz-wrap.quiz-in-session #quiz-action-dock.is-visible #flash-nav-row {
+        justify-content: space-between;
+      }
+      .quiz-wrap.quiz-in-session #quiz-action-dock.is-visible #flash-nav-row .btn {
+        flex: 1 1 auto;
+        min-height: var(--touch);
+      }
+    }
     #flash-nav-row {
       justify-content: center;
       align-items: center;
@@ -2819,8 +2948,7 @@
       .mode-tabs,
       .quiz-footer-meta,
       .quiz-shortcuts,
-      .quiz-grades,
-      #quiz-reveal-row,
+      #quiz-action-dock,
       .tut-actions,
       #fx-layer,
       .profile-bar { display: none !important; }
@@ -2897,6 +3025,8 @@
     }
     html.embed #course-quiz.course-panel {
       display: block !important;
+    }
+
     }
 
   </style>
@@ -3604,22 +3734,24 @@
 
             <div class="tut-feedback hidden" id="quiz-solvable-banner" aria-live="polite"></div>
 
-            <div class="tut-actions" id="quiz-reveal-row">
-              <button type="button" class="btn btn-primary" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
-            </div>
+            <div id="quiz-action-dock" class="quiz-action-dock" aria-label="Card actions">
+              <div class="tut-actions" id="quiz-reveal-row">
+                <button type="button" class="btn btn-primary" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
+              </div>
 
-            <div class="tut-actions hidden" id="flash-nav-row" aria-label="Flashcard navigation">
-              <button type="button" class="btn ghost" id="flash-prev">Previous</button>
-              <span class="flash-index" id="flash-index-label" aria-live="polite">1 / 1</span>
-              <button type="button" class="btn ghost" id="flash-shuffle">Shuffle</button>
-              <button type="button" class="btn" id="flash-next">Next</button>
-            </div>
+              <div class="tut-actions hidden" id="flash-nav-row" aria-label="Flashcard navigation">
+                <button type="button" class="btn ghost" id="flash-prev">Previous</button>
+                <span class="flash-index" id="flash-index-label" aria-live="polite">1 / 1</span>
+                <button type="button" class="btn ghost" id="flash-shuffle">Shuffle</button>
+                <button type="button" class="btn" id="flash-next">Next</button>
+              </div>
 
-            <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
-              <button type="button" data-grade="again" title="Again - 0 points - keyboard 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span><span class="grade-pts">0 pts</span></button>
-              <button type="button" data-grade="hard" title="Hard - 5 points - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
-              <button type="button" data-grade="good" title="Good - 10 points - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
-              <button type="button" data-grade="easy" title="Easy - 15 points - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span><span class="grade-pts">+15</span></button>
+              <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
+                <button type="button" data-grade="again" title="Again - 0 points - keyboard 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Again <kbd>1</kbd></span><span class="grade-pts">0 pts</span></button>
+                <button type="button" data-grade="hard" title="Hard - 5 points - keyboard 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Hard <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
+                <button type="button" data-grade="good" title="Good - 10 points - keyboard 3"><span class="grade-ivl" data-ivl="good">10m</span><span>Good <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
+                <button type="button" data-grade="easy" title="Easy - 15 points - keyboard 4"><span class="grade-ivl" data-ivl="easy">4d</span><span>Easy <kbd>4</kbd></span><span class="grade-pts">+15</span></button>
+              </div>
             </div>
 
             <div class="test-written hidden" id="test-written-row" aria-label="Written answer">
@@ -6342,6 +6474,28 @@ function showCourse(courseKey) {
     return quizState.studyMode === "quiz" && !quizState.inSession && !isEmbedMode();
   }
 
+  function syncQuizSessionUi() {
+    var wrap = document.querySelector(".quiz-wrap");
+    if (!wrap) return;
+    var activeEl = $("quiz-active");
+    var activeVisible = activeEl && !activeEl.classList.contains("hidden");
+    var inSession = false;
+    if (quizState.studyMode === "flashcards" && activeVisible) inSession = true;
+    else if (quizState.studyMode === "quiz" && quizState.inSession && activeVisible) inSession = true;
+    wrap.classList.toggle("quiz-in-session", inSession);
+    var dock = $("quiz-action-dock");
+    if (!dock) return;
+    var reveal = $("quiz-reveal-row");
+    var grades = $("quiz-grades");
+    var flashNav = $("flash-nav-row");
+    var dockLive = inSession && (
+      (reveal && !reveal.classList.contains("hidden")) ||
+      (grades && !grades.classList.contains("hidden")) ||
+      (flashNav && !flashNav.classList.contains("hidden"))
+    );
+    dock.classList.toggle("is-visible", dockLive);
+  }
+
   function syncQuizHome() {
     var home = $("quiz-home");
     if (!home) return;
@@ -6432,6 +6586,7 @@ function showCourse(courseKey) {
     $("quiz-empty").classList.add("hidden");
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
     syncOrientNudge();
+    syncQuizSessionUi();
   }
 
   function quizBeginSession(limit, tagFilter) {
@@ -6917,6 +7072,7 @@ function showCourse(courseKey) {
       span.textContent = t;
       tags.appendChild(span);
     });
+    syncQuizSessionUi();
   }
 
   function testUpdateProgress() {
@@ -7233,6 +7389,7 @@ function showCourse(courseKey) {
     if ($("test-results") && !isTest) $("test-results").hidden = true;
     syncQuizFindUi();
     studyRefreshHud();
+    syncQuizSessionUi();
   }
 
   function setStudyMode(mode) {
@@ -7401,6 +7558,7 @@ function showCourse(courseKey) {
     if (cardBox && cardBox.scrollIntoView) {
       try { cardBox.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) { /* ignore */ }
     }
+    syncQuizSessionUi();
   }
 
   function flashFlip() {
@@ -7486,6 +7644,7 @@ function showCourse(courseKey) {
         if ($("quiz-empty-actions")) $("quiz-empty-actions").classList.add("hidden");
         if ($("quiz-reload-actions")) $("quiz-reload-actions").classList.add("hidden");
         syncQuizFindUi();
+        syncQuizSessionUi();
         return;
       }
       quizShowEmpty(0, { missingDeck: true });
@@ -8067,6 +8226,7 @@ function showCourse(courseKey) {
       tags.appendChild(span);
     });
     quizUpdateProgress();
+    syncQuizSessionUi();
   }
 
   function quizShowEmpty(dueCount, opts) {
@@ -8106,6 +8266,7 @@ function showCourse(courseKey) {
     quizUpdateQueueLabel(dueCount);
     quizUpdateProgress();
     studyRefreshHud();
+    syncQuizSessionUi();
   }
 
   function quizLoadAndShow() {
@@ -8263,6 +8424,7 @@ function showCourse(courseKey) {
     if (firstGrade) {
       try { firstGrade.focus(); } catch (e2) { /* ignore */ }
     }
+    syncQuizSessionUi();
   }
 
   function quizAfterGrade(grade) {
