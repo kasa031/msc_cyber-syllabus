@@ -2433,6 +2433,107 @@
       border-radius: 0 4px 4px 0;
     }
     .quiz-materials.hidden { display: none; }
+    .course-map {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--palette-turquoise);
+      border-radius: 0 4px 4px 0;
+    }
+    .course-map[hidden] { display: none !important; }
+    .course-map-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.35rem 0.65rem;
+      margin: 0 0 0.55rem;
+    }
+    .course-map-title {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--palette-turquoise);
+    }
+    .course-map-legend {
+      font-size: 0.68rem;
+      color: var(--slate);
+    }
+    .course-map-track {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .course-map-unit {
+      flex: 1 1 4.75rem;
+      min-width: 4.75rem;
+      max-width: 7.5rem;
+      padding: 0.45rem 0.4rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #FFFFFF;
+      text-align: center;
+      cursor: pointer;
+      font: inherit;
+      color: var(--ink);
+    }
+    .course-map-unit:hover:not(:disabled) {
+      border-color: var(--palette-turquoise);
+      background: rgba(0, 183, 205, 0.05);
+    }
+    .course-map-unit.is-active {
+      border-color: var(--palette-turquoise);
+      box-shadow: inset 0 0 0 1px var(--palette-turquoise);
+    }
+    .course-map-unit.is-soon {
+      opacity: 0.72;
+      cursor: default;
+    }
+    .course-map-unit:disabled {
+      cursor: default;
+    }
+    .course-map-unit-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 0.3rem;
+    }
+    .mastery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+      margin: 0 0 0.25rem;
+    }
+    .mastery-dot {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: var(--line-soft);
+      border: 1px solid var(--line);
+    }
+    .mastery-dot.is-on.level-1 { background: #FF9100; border-color: #FF9100; }
+    .mastery-dot.is-on.level-2 { background: #FFF1D1; border-color: #FF9100; }
+    .mastery-dot.is-on.level-3 { background: #00B7CD; border-color: #00B7CD; }
+    .mastery-dot.is-on.level-4 { background: #DF301C; border-color: #DF301C; }
+    .course-map-unit-meta {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--slate);
+      line-height: 1.25;
+    }
+    .course-map-unit-soon {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--palette-orange);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .embed .course-map { display: none !important; }
     .quiz-card {
       cursor: pointer;
     }
@@ -3197,6 +3298,7 @@
           </div>
           <div id="trophy-toast" class="trophy-toast" hidden role="status" aria-live="polite"></div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
+          <div id="course-map" class="course-map hidden" aria-label="Course map"></div>
           <div id="quiz-home" class="quiz-home" hidden aria-label="Review home">
             <p class="quiz-home-kicker">Review due</p>
             <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
@@ -5553,6 +5655,11 @@ function showCourse(courseKey) {
       var before = Object.keys(base.badges).length;
       studyUnlockTrophies(base);
       if (Object.keys(base.badges).length !== before) studySaveXp(base);
+      var today = studyTodayKey();
+      if (base.lastStudyDay === today && (base.todayReviews || 0) > 0) {
+        if (!base.reviewLog || typeof base.reviewLog !== "object") base.reviewLog = {};
+        if (!base.reviewLog[today]) base.reviewLog[today] = base.todayReviews;
+      }
       return base;
     } catch (e) {
       return studyDefaultXp();
@@ -5662,7 +5769,7 @@ function showCourse(courseKey) {
     return false;
   }
 
-  function studyCountDueAndWeak(deckKey) {
+  function studyCountDueAndWeak(deckKey, tagFilter) {
     var deck = quizGetDeck(deckKey);
     var sched = quizLoadSched(deckKey);
     var due = 0;
@@ -5671,6 +5778,7 @@ function showCourse(courseKey) {
     if (deck && Array.isArray(deck.cards)) {
       deck.cards.forEach(function (c) {
         if (!c || !c.id) return;
+        if (tagFilter && !studyCardHasTag(c, tagFilter)) return;
         var s = quizEnsureCard(sched, c.id);
         if (s.due <= now) due += 1;
         if (quizCardIsWeak(s)) weak += 1;
@@ -5717,6 +5825,164 @@ function showCourse(courseKey) {
       if (quizCardIsWeak(s)) weak += 1;
     });
     return { due: due, weak: weak, total: total };
+  }
+
+  /** Course map units per deck - tag must match quiz JSON tags. */
+  var COURSE_MAP = {
+    acit4050: [
+      { tag: "Lecture1", short: "L1", label: "Lecture 1 security basics" },
+      { tag: "Lecture2", short: "L2", label: "Lecture 2 phishing" },
+      { tag: "Lecture3", short: "L3", label: "Lecture 3 networks" },
+      { tag: "Lecture4", short: "L4", label: "Lecture 4 IDS", soon: true },
+      { tag: "exam", short: "Exam", label: "Exam style questions" }
+    ],
+    acit4100: [
+      { tag: "Toulmin", short: "W2", label: "Week 2 Toulmin rhetoric" },
+      { tag: "week3", short: "W3", label: "Week 3 literature search" },
+      { tag: "week4", short: "W4", label: "Week 4 philosophy of science" },
+      { tag: "essay", short: "Essay", label: "Essay and writing" },
+      { tag: "exam", short: "Exam", label: "Exam and assessment" }
+    ],
+    acit4280: [
+      { tag: "Lecture1", short: "L1", label: "Lecture 1 intro GDPR" },
+      { tag: "Lecture2", short: "L2", label: "Lecture 2 PETs" },
+      { tag: "Lecture3", short: "L3", label: "Lecture 3 PbD" },
+      { tag: "Lecture4", short: "L4", label: "Lecture 4 risk and fairness" },
+      { tag: "Lecture5", short: "L5", label: "Lecture 5 privacy management" },
+      { tag: "Lecture6", short: "L6", label: "Lecture 6 engineering patterns" }
+    ]
+  };
+
+  function studyCardIsNew(s) {
+    return s.status === "learning" && (s.repetitions || 0) === 0 && (s.lapses || 0) === 0 && (s.learningStep || 0) === 0;
+  }
+
+  function studyUnitMastery(deckKey, tag) {
+    var deck = quizGetDeck(deckKey);
+    var sched = quizLoadSched(deckKey);
+    var total = 0;
+    var attempted = 0;
+    var review = 0;
+    var mature = 0;
+    var weak = 0;
+    if (!deck || !Array.isArray(deck.cards)) {
+      return { level: 0, label: "Not started", total: 0, attempted: 0, due: 0, weak: 0, review: 0 };
+    }
+    var now = Date.now();
+    deck.cards.forEach(function (c) {
+      if (!c || !c.id || !studyCardHasTag(c, tag)) return;
+      total += 1;
+      var s = quizEnsureCard(sched, c.id);
+      if (!studyCardIsNew(s)) attempted += 1;
+      if (s.status === "review") {
+        review += 1;
+        if ((s.interval || 0) >= 21) mature += 1;
+      }
+      if (s.due <= now) { /* counted in due below */ }
+      if (quizCardIsWeak(s)) weak += 1;
+    });
+    var dueStats = studyCountTagStats(deckKey, tag);
+    if (total === 0) {
+      return { level: 0, label: "Soon", total: 0, attempted: 0, due: 0, weak: 0, review: 0 };
+    }
+    var level = 0;
+    var label = "Not started";
+    if (attempted > 0) {
+      level = 1;
+      label = "Attempted";
+    }
+    if (attempted / total >= 0.45) {
+      level = 2;
+      label = "Familiar";
+    }
+    if (review / total >= 0.45 && weak / total < 0.3) {
+      level = 3;
+      label = "Proficient";
+    }
+    if (mature / total >= 0.55 || (review / total >= 0.8 && weak === 0)) {
+      level = 4;
+      label = "Mastered";
+    }
+    return {
+      level: level,
+      label: label,
+      total: total,
+      attempted: attempted,
+      review: review,
+      due: dueStats.due,
+      weak: weak
+    };
+  }
+
+  function studyMasteryDotsHtml(level) {
+    var html = '<span class="mastery-dots" aria-hidden="true">';
+    var i;
+    for (i = 1; i <= 4; i++) {
+      html += '<i class="mastery-dot' + (i <= level ? " is-on level-" + i : "") + '"></i>';
+    }
+    html += "</span>";
+    return html;
+  }
+
+  function studyApplyUnitFilter(tag) {
+    tag = tag || "";
+    quizState.tagFilter = tag || null;
+    flashState.query = tag;
+    if ($("quiz-search")) $("quiz-search").value = tag;
+    syncQuizTagChips(tag);
+    if (quizState.studyMode === "test") {
+      syncTestHome();
+    } else if (quizState.studyMode === "flashcards") {
+      flashLoadAndShow();
+    } else {
+      quizState.sessionQueue = null;
+      quizState.inSession = false;
+      if (quizShouldShowHome()) syncQuizHome();
+      else quizLoadAndShow();
+    }
+    studyRenderCourseMap(quizState.deckKey);
+  }
+
+  function studyRenderCourseMap(deckKey) {
+    var box = $("course-map");
+    if (!box || isEmbedMode()) {
+      if (box) box.hidden = true;
+      return;
+    }
+    var units = COURSE_MAP[deckKey];
+    if (!units || !units.length || !quizPanelActive()) {
+      box.hidden = true;
+      box.innerHTML = "";
+      return;
+    }
+    var activeTag = quizState.tagFilter || "";
+    var head = '<div class="course-map-head"><p class="course-map-title">Course map</p>';
+    head += '<span class="course-map-legend">Dots: Attempted / Familiar / Proficient / Mastered</span></div>';
+    var track = '<div class="course-map-track" role="list">';
+    units.forEach(function (u) {
+      var m = studyUnitMastery(deckKey, u.tag);
+      var isSoon = !!(u.soon && m.total === 0);
+      var isActive = activeTag === u.tag;
+      var cls = "course-map-unit" + (isActive ? " is-active" : "") + (isSoon ? " is-soon" : "");
+      var meta = isSoon
+        ? '<span class="course-map-unit-soon">Soon</span>'
+        : '<span class="course-map-unit-meta">' + m.attempted + "/" + m.total + " drilled" + (m.due ? ", " + m.due + " due" : "") + "</span>";
+      track += '<button type="button" class="' + cls + '" role="listitem" data-map-tag="' + escapeHtml(u.tag) + '" title="' + escapeHtml(u.label + " - " + m.label) + '"' + (isSoon ? " disabled" : "") + ">";
+      track += '<span class="course-map-unit-label">' + escapeHtml(u.short || u.tag) + "</span>";
+      track += studyMasteryDotsHtml(isSoon ? 0 : m.level);
+      track += meta;
+      track += "</button>";
+    });
+    track += "</div>";
+    box.innerHTML = head + track;
+    box.hidden = false;
+    box.querySelectorAll(".course-map-unit[data-map-tag]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var t = btn.getAttribute("data-map-tag") || "";
+        if (!t || btn.disabled) return;
+        studyApplyUnitFilter(t);
+      });
+    });
   }
 
   function studyPickNextFocus(deckKey) {
@@ -5795,7 +6061,7 @@ function showCourse(courseKey) {
       quizState.sched = quizLoadSched(quizState.deckKey);
       (deck.cards || []).forEach(function (c) { if (c && c.id) quizEnsureCard(quizState.sched, c.id); });
     }
-    var counts = studyCountDueAndWeak(quizState.deckKey);
+    var counts = studyCountDueAndWeak(quizState.deckKey, quizState.tagFilter);
     var xp = studyLoadXp();
     var goal = studyDailyGoal();
     var today = xp.todayReviews || 0;
@@ -5809,14 +6075,15 @@ function showCourse(courseKey) {
     var goalFill = $("quiz-home-goal-fill");
     if (dueN) dueN.textContent = String(counts.due);
     if (sub) {
+      var filterNote = quizState.tagFilter ? " Filter: " + quizState.tagFilter + "." : "";
       if (counts.due > 0) {
-        sub.textContent = counts.weak > 0
+        sub.textContent = (counts.weak > 0
           ? counts.weak + " weak card" + (counts.weak === 1 ? "" : "s") + " need extra drill."
-          : "Rate cards honestly - Again and Hard come back soon.";
+          : "Rate cards honestly - Again and Hard come back soon.") + filterNote;
       } else if (today >= goal) {
-        sub.textContent = "Daily goal reached. Browse or study all cards if you want more.";
+        sub.textContent = "Daily goal reached. Browse or study all cards if you want more." + filterNote;
       } else {
-        sub.textContent = "Nothing due right now. Browse the deck or study all cards anyway.";
+        sub.textContent = "Nothing due right now. Browse the deck or study all cards anyway." + filterNote;
       }
     }
     if (startBtn) {
@@ -5947,6 +6214,7 @@ function showCourse(courseKey) {
     var rankHud = $("hud-rank");
     if (rankHud) rankHud.textContent = profileShareOn() ? String(rankMyPlace() || "-") : "-";
     syncQuizDeckStats(quizState.deckKey);
+    studyRenderCourseMap(quizState.deckKey);
     if (quizShouldShowHome()) syncQuizHome();
   }
 
@@ -7263,7 +7531,8 @@ function showCourse(courseKey) {
         box.innerHTML += " This week: <strong>" + escapeHtml(focus.label) + "</strong> (<code>" + escapeHtml(focus.tag) + "</code>).";
       }
     }
-    if (typeof syncQuizTagChips === "function") syncQuizTagChips(flashState.query || "");
+    if (typeof syncQuizTagChips === "function") syncQuizTagChips(flashState.query || quizState.tagFilter || "");
+    studyRenderCourseMap(deckKey);
   }
 
   function quizRenderFigure(card) {
@@ -7777,17 +8046,25 @@ function showCourse(courseKey) {
     });
   }
   function applyQuizTagFilter(tag) {
+    tag = tag == null ? "" : String(tag);
+    quizState.tagFilter = tag || null;
+    flashState.query = tag;
+    if ($("quiz-search")) $("quiz-search").value = tag;
+    syncQuizTagChips(tag);
+    studyRenderCourseMap(quizState.deckKey);
     if (quizState.studyMode === "test") {
-      quizState.tagFilter = tag || null;
-      syncQuizTagChips(tag || "");
       syncTestHome();
       return;
     }
-    flashState.query = tag || "";
-    if ($("quiz-search")) $("quiz-search").value = flashState.query;
-    syncQuizTagChips(tag || "");
+    if (quizState.studyMode === "quiz") {
+      quizState.sessionQueue = null;
+      quizState.inSession = false;
+      if (quizShouldShowHome()) syncQuizHome();
+      else quizLoadAndShow();
+      return;
+    }
     if (quizState.studyMode !== "flashcards") setStudyMode("flashcards");
-    flashLoadAndShow();
+    else flashLoadAndShow();
   }
   if ($("quiz-tag-filters")) {
     $("quiz-tag-filters").addEventListener("click", function (e) {
@@ -7803,16 +8080,8 @@ function showCourse(courseKey) {
       if (!span) return;
       e.stopPropagation();
       var tag = (span.textContent || "").trim();
-      if (quizState.studyMode === "test") {
-        quizState.tagFilter = tag;
-        syncQuizTagChips(tag);
-        syncTestHome();
-        return;
-      }
-      flashState.query = tag;
-      if ($("quiz-search")) $("quiz-search").value = tag;
+      applyQuizTagFilter(tag);
       if (quizState.studyMode !== "flashcards") setStudyMode("flashcards");
-      syncQuizTagChips(tag);
       flashLoadAndShow();
     });
   }
