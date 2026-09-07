@@ -3325,8 +3325,8 @@
       <p class="session-recap-goal" id="session-recap-goal" hidden></p>
       <div class="tut-actions">
         <button type="button" class="btn btn-primary" id="session-recap-done">Back to practice home</button>
-        <button type="button" class="btn ghost" id="session-recap-weak" hidden>Drill weak cards</button>
-        <button type="button" class="btn ghost" id="session-recap-continue" hidden>Continue due cards</button>
+        <button type="button" class="btn ghost" id="session-recap-weak" hidden>Retry missed cards</button>
+        <button type="button" class="btn ghost" id="session-recap-continue" hidden>Review due cards</button>
       </div>
     </div>
   </div>
@@ -3337,7 +3337,7 @@
       <div class="weekly-recap-grid" id="weekly-recap-grid"></div>
       <p id="weekly-recap-focus" class="quiz-home-sub" style="margin-bottom:0.75rem;"></p>
       <div class="tut-actions">
-        <button type="button" class="btn btn-primary" id="weekly-recap-start">Continue due cards</button>
+        <button type="button" class="btn btn-primary" id="weekly-recap-start">Review due cards</button>
         <button type="button" class="btn ghost" id="weekly-recap-dismiss">Close</button>
       </div>
     </div>
@@ -3917,7 +3917,7 @@
             <div id="pc-tut-done" class="tut-done hidden">
               <h2>PC tutorial complete</h2>
               <p>You covered File Explorer, paths, Settings, Task Manager, downloads, extensions, and everyday shortcuts.</p>
-              <p>Next: try <strong>Practice</strong> flashcards to drill what you learned.</p>
+              <p>Next: try <strong>Practice</strong> flashcards to review what you learned.</p>
               <div class="tut-actions">
                 <button type="button" class="btn" id="btn-pc-restart">Run the tutorial again</button>
                 <button type="button" class="btn ghost" id="btn-pc-to-quiz">Open quiz</button>
@@ -3952,12 +3952,12 @@
             <div class="study-hud-item" id="hud-points-box"><span class="study-hud-k">Points</span><b id="hud-points">0</b></div>
             <div class="study-hud-item is-link" id="hud-streak-box" title="Open streak calendar in Settings"><span class="study-hud-k">Streak</span><b id="hud-streak">0</b><div class="streak-calendar" id="hud-streak-cal" aria-hidden="true"></div></div>
             <div class="study-hud-item"><span class="study-hud-k">Due now</span><b id="hud-due">0</b></div>
-            <div class="study-hud-item"><span class="study-hud-k">To drill</span><b id="hud-weak">0</b></div>
+            <div class="study-hud-item"><span class="study-hud-k">Needs work</span><b id="hud-weak">0</b></div>
             <div class="study-hud-item is-link" id="hud-trophies-box" title="Open trophies"><span class="study-hud-k">Trophies</span><b id="hud-trophies">0</b></div>
             <div class="study-hud-item is-link" id="hud-rank-box" title="Open ranking"><span class="study-hud-k">Rank</span><b id="hud-rank">-</b></div>
           </div>
           <div class="tut-actions study-hud-actions" id="study-hud-actions" hidden>
-            <button type="button" class="btn btn-primary" id="quiz-drill-weak">Drill weak cards</button>
+            <button type="button" class="btn btn-primary" id="quiz-drill-weak">Retry missed cards</button>
           </div>
           <div id="trophy-toast" class="trophy-toast" hidden role="status" aria-live="polite"></div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
@@ -3979,8 +3979,8 @@
             </div>
             <div id="quiz-next-skill" class="quiz-next-skill" hidden>
               <p class="quiz-next-skill-kicker">Suggested focus</p>
-              <p class="quiz-next-skill-text" id="quiz-next-skill-text">Drill cards for this week.</p>
-              <button type="button" class="btn" id="quiz-next-skill-go">Practice focus tag</button>
+              <p class="quiz-next-skill-text" id="quiz-next-skill-text">Cards to focus on this week.</p>
+              <button type="button" class="btn" id="quiz-next-skill-go">Study this topic</button>
             </div>
             <div class="quiz-home-goal">
               <div class="quiz-home-goal-meta">
@@ -3995,11 +3995,11 @@
               </div>
             </div>
             <div class="tut-actions quiz-home-actions">
-              <button type="button" class="btn btn-primary" id="quiz-home-start">Continue due cards</button>
+              <button type="button" class="btn btn-primary" id="quiz-home-start">Review due cards</button>
               <div class="btn-row">
                 <button type="button" class="btn" id="quiz-home-quick">Quick 5 cards</button>
                 <button type="button" class="btn ghost" id="quiz-home-browse">Flip cards</button>
-                <button type="button" class="btn ghost" id="quiz-home-weak" hidden>Drill weak</button>
+                <button type="button" class="btn ghost" id="quiz-home-weak" hidden>Retry missed</button>
               </div>
             </div>
           </div>
@@ -4107,7 +4107,7 @@
             <p id="quiz-empty-text">All caught up for this course. Come back later, or review every card anyway.</p>
             <div class="tut-actions" id="quiz-empty-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn btn-primary" id="quiz-empty-browse">Flip cards</button>
-              <button type="button" class="btn ghost" id="quiz-empty-weak" hidden>Drill weak cards</button>
+              <button type="button" class="btn ghost" id="quiz-empty-weak" hidden>Retry missed cards</button>
               <button type="button" class="btn ghost" id="quiz-study-all">Study all cards anyway</button>
             </div>
             <div class="tut-actions hidden" id="quiz-reload-actions" style="justify-content:center;margin-top:1rem;">
@@ -4718,7 +4718,7 @@ function syncComputerDummies(courseKey) {
       lede: "Drag NIST CSF 2.0 functions and Lockheed Martin Kill Chain stages into place - ACIT4050 lecture material."
     },
     acit4050: {
-      h1: "Drill ACIT4050 security and networks.",
+      h1: "Study ACIT4050 security and networks.",
       lede: "Flashcards from lectures 1-3 plus exam prep. Use the course map or filter by lecture tag."
     },
     acit4280: {
@@ -5119,8 +5119,8 @@ function showCourse(courseKey) {
     { id: "nist", group: "Explorer", kind: "badge", icon: "NI", title: "NIST wheel", hint: "Complete the NIST CSF diagram", test: function (xp) { return (xp.nistDone || 0) >= 1; } },
     { id: "kill", group: "Explorer", kind: "badge", icon: "KC", title: "Kill Chain", hint: "Complete the Kill Chain diagram", test: function (xp) { return (xp.killDone || 0) >= 1; } },
     { id: "frameworks", group: "Explorer", kind: "trophy", icon: "FW", title: "Framework pair", hint: "Complete both practice diagrams", test: function (xp) { return (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1; } },
-    { id: "drill", group: "Drill", kind: "trophy", icon: "D", title: "Drill sergeant", hint: "Start a weak-card drill", test: function (xp) { return (xp.drills || 0) >= 1; } },
-    { id: "drill-5", group: "Drill", kind: "badge", icon: "D5", title: "Drill habit", hint: "Start 5 weak-card drills", test: function (xp) { return (xp.drills || 0) >= 5; } }
+    { id: "drill", group: "Retry", kind: "trophy", icon: "D", title: "Retry starter", hint: "Retry a missed card session", test: function (xp) { return (xp.drills || 0) >= 1; } },
+    { id: "drill-5", group: "Retry", kind: "badge", icon: "D5", title: "Retry regular", hint: "Retry missed cards 5 times", test: function (xp) { return (xp.drills || 0) >= 5; } }
   ];
 
   function profileDefaultStore() {
@@ -7076,7 +7076,7 @@ function showCourse(courseKey) {
       var filterNote = quizState.tagFilter ? " Filter: " + quizState.tagFilter + "." : "";
       if (counts.due > 0) {
         sub.textContent = (counts.weak > 0
-          ? counts.weak + " weak card" + (counts.weak === 1 ? "" : "s") + " need extra drill."
+          ? counts.weak + " missed card" + (counts.weak === 1 ? "" : "s") + " need extra practice."
           : "Rate cards honestly - Again and Hard come back soon.") + filterNote;
       } else if (today >= goal) {
         sub.textContent = "Daily goal reached. Browse or study all cards if you want more." + filterNote;
@@ -7086,7 +7086,7 @@ function showCourse(courseKey) {
     }
     if (startBtn) {
       if (counts.due > 0) {
-        startBtn.textContent = "Continue due (" + counts.due + " card" + (counts.due === 1 ? "" : "s") + ")";
+        startBtn.textContent = "Review due cards (" + counts.due + ")";
         startBtn.disabled = false;
       } else {
         startBtn.textContent = "Study all cards anyway";
@@ -7100,7 +7100,7 @@ function showCourse(courseKey) {
     }
     if (weakBtn) {
       weakBtn.hidden = counts.weak < 1;
-      weakBtn.textContent = "Drill " + counts.weak + " weak";
+      weakBtn.textContent = "Retry missed (" + counts.weak + ")";
     }
     if (goalLabel) goalLabel.textContent = today + " / " + goal + " today";
     var pct = goal ? Math.min(100, (today / goal) * 100) : 0;
@@ -7116,10 +7116,10 @@ function showCourse(courseKey) {
     if (nextBox && nextText && nextGo) {
       if (focus && focus.stats.total > 0) {
         var dueLine = focus.stats.due > 0 ? focus.stats.due + " due" : "none due";
-        var weakLine = focus.stats.weak > 0 ? ", " + focus.stats.weak + " weak" : "";
+        var missedLine = focus.stats.weak > 0 ? ", " + focus.stats.weak + " missed" : "";
         var when = focus.days === 0 ? "today" : (focus.days === 1 ? "tomorrow" : (focus.days < 0 ? "past due" : "in " + focus.days + " days"));
-        nextText.innerHTML = "<strong>" + escapeHtml(focus.label) + "</strong> (" + escapeHtml(focus.tag) + "): " + dueLine + weakLine + ". Class/deadline " + escapeHtml(when) + ".";
-        nextGo.textContent = "Drill " + focus.tag + (focus.stats.due > 0 ? " (" + focus.stats.due + " due)" : "");
+        nextText.innerHTML = "<strong>" + escapeHtml(focus.label) + "</strong> (" + escapeHtml(focus.tag) + "): " + dueLine + missedLine + ". Class/deadline " + escapeHtml(when) + ".";
+        nextGo.textContent = "Study " + focus.tag + (focus.stats.due > 0 ? " (" + focus.stats.due + " due)" : "");
         nextGo.setAttribute("data-focus-tag", focus.tag);
         nextBox.hidden = false;
       } else {
@@ -7466,7 +7466,7 @@ function showCourse(courseKey) {
     var weakTag = studyWeakestMapTag(quizState.deckKey);
     if (focusEl) {
       if (weakTag) {
-        focusEl.textContent = "Most weak cards: " + weakTag.label + " (" + studyCountTagStats(quizState.deckKey, weakTag.tag).weak + " to drill).";
+        focusEl.textContent = "Most missed cards: " + weakTag.label + " (" + studyCountTagStats(quizState.deckKey, weakTag.tag).weak + " to retry).";
       } else if (counts.due > 0) {
         focusEl.textContent = counts.due + " cards are due now. A short session keeps the streak alive.";
       } else {
@@ -7474,7 +7474,7 @@ function showCourse(courseKey) {
       }
     }
     var startBtn = $("weekly-recap-start");
-    if (startBtn) startBtn.textContent = counts.due > 0 ? "Continue due (" + counts.due + ")" : "Open practice home";
+    if (startBtn) startBtn.textContent = counts.due > 0 ? "Review due cards (" + counts.due + ")" : "Open practice home";
   }
 
   function weeklyRecapDismiss() {
@@ -7523,7 +7523,7 @@ function showCourse(courseKey) {
     var drill = $("quiz-drill-weak");
     if (drill) {
       drill.disabled = counts.weak < 1;
-      drill.textContent = counts.weak < 1 ? "No weak cards yet" : "Drill " + counts.weak + " weak card" + (counts.weak === 1 ? "" : "s");
+      drill.textContent = counts.weak < 1 ? "No missed cards yet" : "Retry " + counts.weak + " missed card" + (counts.weak === 1 ? "" : "s");
     }
     var rankHud = $("hud-rank");
     if (rankHud) rankHud.textContent = profileShareOn() ? String(rankMyPlace() || "-") : "-";
@@ -8982,7 +8982,7 @@ function showCourse(courseKey) {
       var xp = studyLoadXp();
       var caughtUp = !quizState.weakOnly;
       if (title) {
-        title.textContent = quizState.weakOnly ? "No weak cards to drill" : (caughtUp ? "Congratulations!" : "Nothing due right now");
+        title.textContent = quizState.weakOnly ? "No missed cards yet" : (caughtUp ? "Congratulations!" : "Nothing due right now");
       }
       if (text) {
         if (quizState.weakOnly) {
@@ -9125,7 +9125,7 @@ function showCourse(courseKey) {
         var missedTag = quizState.tagFilter;
         quizState.tagFilter = null;
         if ($("quiz-empty-title")) $("quiz-empty-title").textContent = "No due cards for " + missedTag;
-        if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Try Browse with that filter, or Continue due for the full deck.";
+        if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Try Browse with that filter, or review due cards for the full deck.";
         quizShowEmpty(0);
         return;
       }
