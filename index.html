@@ -490,6 +490,10 @@
       background: var(--signal-soft);
       transform: translateY(-1px);
     }
+    .track-btn:active {
+      transform: scale(0.98);
+      box-shadow: inset 0 2px 0 rgba(80, 3, 192, 0.12);
+    }
     .track-btn strong {
       display: block;
       font-size: 1.02rem;
@@ -1278,7 +1282,13 @@
       z-index: 20;
       background: var(--palette-cream);
       padding-bottom: 0.35rem;
-      box-shadow: 0 1px 0 rgba(80, 3, 192, 0.08);
+    }
+    .course-nav-frame {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--palette-orange);
+      box-shadow: 0 2px 0 rgba(80, 3, 192, 0.06);
     }
     /* -- Course tabs -- */
     .course-tabs {
@@ -1289,17 +1299,18 @@
       padding: 0.35rem;
       background: var(--palette-orange);
       border: none;
-      border-radius: 4px;
+      border-radius: 0;
     }
     .course-section-tabs {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin: 0.45rem 0 0;
+      margin: 0;
       padding: 0.35rem;
       background: #FFF9E6;
-      border: 1px solid var(--line);
-      border-radius: 4px;
+      border: none;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
     }
     .course-section-tabs[hidden] { display: none !important; }
     .course-section-tabs button {
@@ -1599,31 +1610,108 @@
     .quiz-queue b { color: var(--signal); font-weight: 600; }
     .quiz-card {
       position: relative;
-      min-height: 11rem;
-      background: var(--paper-2);
+      min-height: 12rem;
+      background: transparent;
+      border: none;
+      border-radius: 4px;
+      padding: 0;
+      margin: 0 0 1rem;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .quiz-card-scene {
+      perspective: 1200px;
+      min-height: 12rem;
+    }
+    .quiz-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 12rem;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.34, 1.1, 0.48, 1);
+    }
+    .quiz-card.is-flipped .quiz-card-inner {
+      transform: rotateY(180deg);
+    }
+    .quiz-card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       border: 1.5px solid var(--line);
       border-radius: 4px;
       padding: 1.35rem 1.2rem;
-      margin: 0 0 1rem;
-      transition: border-color 0.2s, background 0.2s;
+      background: var(--paper-2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: border-color 0.25s var(--ease), background 0.25s var(--ease), box-shadow 0.25s var(--ease);
     }
-    .quiz-card.revealed {
-      border-color: var(--signal);
-      background: var(--surface);
-    }
-    .flash-mode .quiz-card {
-      cursor: pointer;
-      transform-style: preserve-3d;
-      transition: transform 0.45s var(--ease), border-color 0.2s, background 0.2s;
-    }
-    .flash-mode .quiz-card.flipped {
+    .quiz-card-back {
       transform: rotateY(180deg);
+    }
+    .quiz-card:active:not(.is-flipped) .quiz-card-front {
+      transform: scale(0.985);
+    }
+    .quiz-card.revealed .quiz-card-back,
+    .quiz-card.is-flipped .quiz-card-back {
       border-color: var(--signal);
       background: var(--surface);
+      box-shadow: 0 4px 0 #AB03A9;
+    }
+    .quiz-flip-hint {
+      margin: 0.85rem 0 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #AB03A9;
+      text-align: center;
+      opacity: 0.85;
+      transition: opacity 0.2s var(--ease);
+    }
+    .quiz-card.is-flipped .quiz-flip-hint,
+    .quiz-card.revealed .quiz-flip-hint {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .flash-mode .quiz-card-front {
+      border-style: dashed;
+      border-color: #FFD51E;
+    }
+    .flash-mode .quiz-card.is-flipped .quiz-card-front {
+      border-color: var(--line);
+    }
+    .quiz-mode .quiz-card-front {
+      border-top-width: 4px;
+      border-top-color: #5003C0;
+    }
+    .test-mode .quiz-card {
+      cursor: default;
+    }
+    .test-mode .quiz-card-scene {
+      perspective: none;
+    }
+    .test-mode .quiz-card-inner {
+      transform: none !important;
+      min-height: 0;
+    }
+    .test-mode .quiz-card-face {
+      position: relative;
+      backface-visibility: visible;
+      transform: none !important;
+    }
+    .test-mode .quiz-card-back {
+      display: none;
+    }
+    .test-mode .quiz-flip-hint {
+      display: none;
     }
     @media (prefers-reduced-motion: reduce) {
-      .flash-mode .quiz-card { transition: border-color 0.2s, background 0.2s; transform: none !important; }
-      .flash-mode .quiz-card.flipped { transform: none; }
+      .quiz-card-inner { transition: opacity 0.2s; transform: none !important; }
+      .quiz-card:not(.is-flipped) .quiz-card-back { opacity: 0; pointer-events: none; }
+      .quiz-card.is-flipped .quiz-card-front { opacity: 0; pointer-events: none; }
+      .quiz-card.is-flipped .quiz-card-back { opacity: 1; position: relative; transform: none; }
+      .quiz-card:not(.is-flipped) .quiz-card-front { opacity: 1; position: relative; }
+      .quiz-card-face { position: relative; transform: none !important; backface-visibility: visible; }
     }
     .quiz-study-tabs { margin: 0.75rem 0 0.65rem; }
     .study-mode-picker {
@@ -1661,6 +1749,10 @@
     .study-mode-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 0 #AB03A9;
+    }
+    .study-mode-card:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 0 #AB03A9;
     }
     .study-mode-card.active {
       border-color: #AB03A9;
@@ -2656,15 +2748,11 @@
     .orient-nudge[hidden] { display: none !important; }
     .orient-nudge p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.55rem; }
     .orient-nudge .btn { padding: 0.25rem 0.55rem; min-height: auto; font-size: 0.78rem; }
-    .quiz-card:not(.revealed):not(.flipped) #quiz-figure {
-      display: none !important;
+    .test-mode .quiz-figure-mount:not(.hidden) {
+      margin-top: 0.75rem;
     }
-    .flash-mode .quiz-card {
-      border-style: dashed;
-      border-color: #FFD51E;
-    }
-    .quiz-mode .quiz-card {
-      border-top: 4px solid #5003C0;
+    .test-mode .quiz-figure-mount .quiz-figure {
+      margin: 0;
     }
     #quiz-action-dock {
       display: flex;
@@ -3562,6 +3650,7 @@
   <main class="shell" id="main">
     <div class="shell-lift" id="lab">
       <div class="course-nav course-tabs-sticky">
+        <div class="course-nav-frame">
         <div class="course-tabs" role="tablist" aria-label="Courses">
           <button type="button" role="tab" id="tab-course-4050-main" class="active" aria-selected="true" data-course="4050-main" tabindex="0"><span class="tab-code">ACIT4050</span><span class="tab-name">Network security</span></button>
           <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-code">ACIT4280</span><span class="tab-name">Privacy by design</span></button>
@@ -3574,6 +3663,7 @@
           <button type="button" role="tab" id="tab-section-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0">Lab exercises</button>
           <button type="button" role="tab" id="tab-section-quiz" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1">Flashcards</button>
           <button type="button" role="tab" id="tab-section-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1">Diagrams</button>
+        </div>
         </div>
       </div>
       <!-- ========== LAB EXERCISES (ACIT4050) ========== -->
@@ -4164,18 +4254,29 @@
           </div>
 
           <div id="quiz-active">
-            <div class="quiz-card" id="quiz-card" tabindex="0" role="group" aria-label="Quiz card">
-              <p class="quiz-label" id="quiz-face-label">Question</p>
-              <p class="quiz-q" id="quiz-q">...</p>
-              <figure class="quiz-figure hidden" id="quiz-figure" aria-label="Figure">
-                <p class="quiz-figure-label">Figure</p>
-                <div class="quiz-figure-media" id="quiz-figure-media"></div>
-                <figcaption class="quiz-figure-caption hidden" id="quiz-figure-caption"></figcaption>
-                <p class="quiz-figure-shows hidden" id="quiz-figure-shows"></p>
-                <p class="quiz-figure-attr hidden" id="quiz-figure-attr"></p>
-              </figure>
-              <div class="quiz-a hidden" id="quiz-a"></div>
-              <div class="quiz-tags" id="quiz-tags"></div>
+            <div class="quiz-card" id="quiz-card" tabindex="0" role="button" aria-label="Study card - tap or press Space to flip">
+              <div class="quiz-card-scene" id="quiz-card-scene">
+                <div class="quiz-card-inner" id="quiz-card-inner">
+                  <div class="quiz-card-face quiz-card-front">
+                    <p class="quiz-label" id="quiz-face-label">Question</p>
+                    <p class="quiz-q" id="quiz-q">...</p>
+                    <div id="quiz-figure-mount" class="quiz-figure-mount hidden" aria-hidden="true"></div>
+                    <p class="quiz-flip-hint" id="quiz-flip-hint">Tap or press Space to flip</p>
+                  </div>
+                  <div class="quiz-card-face quiz-card-back">
+                    <p class="quiz-label" id="quiz-back-label">Answer</p>
+                    <div class="quiz-a" id="quiz-a"></div>
+                    <figure class="quiz-figure hidden" id="quiz-figure" aria-label="Figure">
+                      <p class="quiz-figure-label">Figure</p>
+                      <div class="quiz-figure-media" id="quiz-figure-media"></div>
+                      <figcaption class="quiz-figure-caption hidden" id="quiz-figure-caption"></figcaption>
+                      <p class="quiz-figure-shows hidden" id="quiz-figure-shows"></p>
+                      <p class="quiz-figure-attr hidden" id="quiz-figure-attr"></p>
+                    </figure>
+                    <div class="quiz-tags" id="quiz-tags"></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="tut-feedback hidden" id="quiz-solvable-banner" aria-live="polite"></div>
@@ -7885,11 +7986,12 @@ function showCourse(courseKey) {
     $("quiz-active").classList.remove("hidden");
     if ($("test-results")) $("test-results").hidden = true;
     $("quiz-empty").classList.add("hidden");
-    $("quiz-card").classList.remove("revealed", "flipped");
+    $("quiz-card").classList.remove("revealed", "flipped", "is-flipped");
     $("quiz-face-label").textContent = "Question";
+    $("quiz-back-label").textContent = "Answer";
     $("quiz-q").textContent = card.q;
     quizRenderFigure(card);
-    $("quiz-a").classList.add("hidden");
+    $("quiz-a").textContent = "";
     $("quiz-reveal-row").classList.add("hidden");
     $("quiz-grades").classList.add("hidden");
     var tags = $("quiz-tags");
@@ -8348,6 +8450,31 @@ function showCourse(courseKey) {
     }
   }
 
+  function quizCardSetFlipped(on) {
+    var cardEl = $("quiz-card");
+    if (!cardEl) return;
+    var hint = $("quiz-flip-hint");
+    cardEl.classList.toggle("is-flipped", !!on);
+    cardEl.classList.toggle("flipped", !!on);
+    cardEl.classList.toggle("revealed", !!on);
+    if (hint) {
+      hint.textContent = on ? "Tap to flip back" : "Tap or press Space to flip";
+    }
+    if (on) {
+      cardEl.setAttribute("aria-label", quizState.studyMode === "flashcards"
+        ? "Answer shown - tap or Space to flip back"
+        : "Answer shown - tap 1-4 to rate");
+    } else {
+      cardEl.setAttribute("aria-label", "Study card - tap or press Space to flip");
+    }
+  }
+
+  function quizCardResetFlip() {
+    quizCardSetFlipped(false);
+    var cardEl = $("quiz-card");
+    if (cardEl) cardEl.classList.remove("fx-reveal");
+  }
+
   function flashRenderCurrent() {
     var deck = quizGetDeck(quizState.deckKey);
     if (!deck || !flashState.order.length) return;
@@ -8360,15 +8487,13 @@ function showCourse(courseKey) {
     quizState.revealed = false;
     $("quiz-active").classList.remove("hidden");
     $("quiz-empty").classList.add("hidden");
-    var cardEl = $("quiz-card");
-    cardEl.classList.remove("revealed", "flipped");
-    cardEl.setAttribute("aria-label", "Flashcard - press Space or click to flip");
+    quizCardResetFlip();
     $("quiz-face-label").textContent = "Question";
+    $("quiz-back-label").textContent = "Answer";
     $("quiz-q").textContent = card.q;
     quizRenderFigure(card);
     var aEl = $("quiz-a");
     aEl.textContent = card.a;
-    aEl.classList.add("hidden");
     $("quiz-reveal-row").classList.add("hidden");
     $("quiz-grades").classList.add("hidden");
     var tags = $("quiz-tags");
@@ -8391,12 +8516,8 @@ function showCourse(courseKey) {
   function flashFlip() {
     if (!quizState.card) return;
     flashState.flipped = !flashState.flipped;
-    var cardEl = $("quiz-card");
+    quizCardSetFlipped(flashState.flipped);
     if (flashState.flipped) {
-      cardEl.classList.add("flipped", "revealed");
-      cardEl.setAttribute("aria-label", "Answer shown - Space or click to flip back");
-      $("quiz-face-label").textContent = "Answer";
-      $("quiz-a").classList.remove("hidden");
       if (profileIsAuthed()) {
         var xpB = studyLoadXp();
         xpB.browseFlips = (xpB.browseFlips || 0) + 1;
@@ -8414,11 +8535,6 @@ function showCourse(courseKey) {
         firstWinState.flipsNeeded -= 1;
         if (firstWinState.flipsNeeded <= 0) firstWinDone();
       }
-    } else {
-      cardEl.classList.remove("flipped", "revealed");
-      cardEl.setAttribute("aria-label", "Flashcard - press Space or click to flip");
-      $("quiz-face-label").textContent = "Question";
-      $("quiz-a").classList.add("hidden");
     }
   }
 
@@ -9030,6 +9146,22 @@ function showCourse(courseKey) {
       attr.textContent = fig.attribution;
       attr.classList.remove("hidden");
     }
+    quizSyncFigureMount();
+  }
+
+  function quizSyncFigureMount() {
+    var mount = $("quiz-figure-mount");
+    var wrap = $("quiz-figure");
+    if (!mount || !wrap) return;
+    mount.innerHTML = "";
+    if (quizState.studyMode === "test" && !wrap.classList.contains("hidden")) {
+      mount.appendChild(wrap.cloneNode(true));
+      mount.classList.remove("hidden");
+      mount.setAttribute("aria-hidden", "false");
+    } else {
+      mount.classList.add("hidden");
+      mount.setAttribute("aria-hidden", "true");
+    }
   }
 
   function quizRenderCard(card) {
@@ -9037,14 +9169,13 @@ function showCourse(courseKey) {
     quizState.revealed = false;
     $("quiz-active").classList.remove("hidden");
     $("quiz-empty").classList.add("hidden");
-    $("quiz-card").classList.remove("revealed");
-    $("quiz-card").setAttribute("aria-label", "Quiz card - press Space or Enter to show answer");
+    quizCardResetFlip();
     $("quiz-face-label").textContent = "Question";
+    $("quiz-back-label").textContent = "Answer";
     $("quiz-q").textContent = card.q;
     quizRenderFigure(card);
     var aEl = $("quiz-a");
     aEl.textContent = card.a;
-    aEl.classList.add("hidden");
     $("quiz-reveal-row").classList.remove("hidden");
     $("quiz-grades").classList.add("hidden");
     SolvableFlow.clear($("quiz-solvable-banner"));
@@ -9254,10 +9385,8 @@ function showCourse(courseKey) {
   function quizReveal() {
     if (!quizState.card || quizState.revealed) return;
     quizState.revealed = true;
-    $("quiz-card").classList.add("revealed", "fx-reveal");
-    $("quiz-card").setAttribute("aria-label", "Answer shown - tap 1-4 to rate");
-    $("quiz-face-label").textContent = "Answer";
-    $("quiz-a").classList.remove("hidden");
+    $("quiz-card").classList.add("fx-reveal");
+    quizCardSetFlipped(true);
     $("quiz-reveal-row").classList.add("hidden");
     SolvableFlow.reveal($("quiz-solvable-banner"), "Misses are normal - tap Forgot and this card comes back soon.");
     quizUpdateGradePreviews();
