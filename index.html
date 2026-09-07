@@ -23,10 +23,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock112" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock112" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock112" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock112" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock113" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock113" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock113" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock113" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1793,6 +1793,34 @@
       gap: 0.5rem;
       justify-content: center;
     }
+    .quiz-next-skill {
+      margin: 0 0 0.85rem;
+      padding: 0.75rem 0.85rem;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--palette-orange);
+      border-radius: 4px;
+    }
+    .quiz-next-skill[hidden] { display: none !important; }
+    .quiz-next-skill-kicker {
+      margin: 0 0 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--palette-orange);
+    }
+    .quiz-next-skill-text {
+      margin: 0 0 0.55rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .quiz-next-skill-text b { color: var(--palette-red); }
+    .quiz-next-skill .btn {
+      width: 100%;
+      justify-content: center;
+    }
     .embed .quiz-home { display: none !important; }
     .first-win-modal {
       position: fixed;
@@ -2949,6 +2977,11 @@
             <p class="quiz-home-kicker">Review due</p>
             <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
             <p class="quiz-home-sub" id="quiz-home-sub">Start a short session. Progress stays on this device.</p>
+            <div id="quiz-next-skill" class="quiz-next-skill" hidden>
+              <p class="quiz-next-skill-kicker">Next best to practice</p>
+              <p class="quiz-next-skill-text" id="quiz-next-skill-text">Drill cards for this week.</p>
+              <button type="button" class="btn" id="quiz-next-skill-go">Drill focus tag</button>
+            </div>
             <div class="quiz-home-goal">
               <div class="quiz-home-goal-meta">
                 <span>Daily goal</span>
@@ -3118,8 +3151,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock112" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock112"></script>
+  <script src="quiz-decks.js?v=lock113" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock113"></script>
   <script>
   (function () {
   "use strict";
@@ -3633,6 +3666,7 @@ function showCourse(courseKey) {
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
       quizState.sessionLimit = null;
+      quizState.tagFilter = null;
       quizState.inSession = isEmbedMode();
       studyLoadAndShow();
     }
@@ -3825,6 +3859,7 @@ function showCourse(courseKey) {
     sessionDone: 0,
     sessionLimit: null,
     inSession: false,
+    tagFilter: null,
     weakOnly: false,
     sched: {}
   };
@@ -3832,6 +3867,27 @@ function showCourse(courseKey) {
   var FIRST_WIN_KEY = "acit-first-win-v1";
   var DAILY_GOAL_KEY = "acit-daily-goal-v1";
   var firstWinState = { course: "acit4050", flipsNeeded: 0 };
+
+  /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
+  var STUDY_FOCUS = {
+    acit4050: [
+      { tag: "Lecture4", label: "Lecture 4 IDS", due: "2026-09-09" },
+      { tag: "Lecture3", label: "Lecture 3 Networks", due: "2026-09-08" },
+      { tag: "networks-assign", label: "Networks assignment", due: "2026-09-08", done: true },
+      { tag: "network", label: "Network concepts", due: "2026-09-09" }
+    ],
+    acit4100: [
+      { tag: "week4", label: "Week 4 philosophy of science", due: "2026-09-08" },
+      { tag: "week3", label: "Week 3 literature search", due: "2026-09-08" },
+      { tag: "assign1", label: "Assignment 1 taxonomy", due: "2026-09-25" },
+      { tag: "Toulmin", label: "Toulmin rhetoric", due: "2026-09-15" }
+    ],
+    acit4280: [
+      { tag: "Lecture5", label: "Lecture 5 Privacy Management", due: "2026-09-11" },
+      { tag: "Lecture4", label: "Lecture 4 risk and fairness", due: "2026-09-11" },
+      { tag: "2A", label: "Assignment 2A TETs case", due: "2026-09-17" }
+    ]
+  };
 
   var flashState = {
     order: [],
@@ -5187,6 +5243,87 @@ function showCourse(courseKey) {
     return { due: due, weak: weak };
   }
 
+  function studyFocusList(deckKey) {
+    return STUDY_FOCUS[deckKey] || [];
+  }
+
+  function studyCardHasTag(card, tag) {
+    if (!tag || !card) return false;
+    return (card.tags || []).indexOf(tag) !== -1;
+  }
+
+  function studyDaysUntil(isoDate) {
+    if (!isoDate) return 99;
+    try {
+      var parts = String(isoDate).split("-");
+      var target = Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      var tp = studyTodayKey().split("-");
+      var now = Date.UTC(Number(tp[0]), Number(tp[1]) - 1, Number(tp[2]));
+      return Math.round((target - now) / DAY);
+    } catch (e) {
+      return 99;
+    }
+  }
+
+  function studyCountTagStats(deckKey, tag) {
+    var deck = quizGetDeck(deckKey);
+    var sched = quizLoadSched(deckKey);
+    var now = Date.now();
+    var due = 0;
+    var weak = 0;
+    var total = 0;
+    if (!deck || !Array.isArray(deck.cards)) return { due: 0, weak: 0, total: 0 };
+    deck.cards.forEach(function (c) {
+      if (!c || !c.id || !studyCardHasTag(c, tag)) return;
+      total += 1;
+      var s = quizEnsureCard(sched, c.id);
+      if (s.due <= now) due += 1;
+      if (quizCardIsWeak(s)) weak += 1;
+    });
+    return { due: due, weak: weak, total: total };
+  }
+
+  function studyPickNextFocus(deckKey) {
+    var list = studyFocusList(deckKey);
+    var best = null;
+    var bestScore = Infinity;
+    list.forEach(function (f) {
+      if (f.done) return;
+      var stats = studyCountTagStats(deckKey, f.tag);
+      if (stats.total < 1) return;
+      var days = studyDaysUntil(f.due);
+      var need = stats.due + stats.weak;
+      if (need < 1 && days > 10) return;
+      var score = (days < 0 ? 0 : days) * 8 - need * 3 - (stats.weak * 2);
+      if (score < bestScore) {
+        bestScore = score;
+        best = {
+          tag: f.tag,
+          label: f.label,
+          due: f.due,
+          days: days,
+          stats: stats
+        };
+      }
+    });
+    return best;
+  }
+
+  function studyCardQueuePriority(card, sched, deckKey) {
+    var pri = 500;
+    studyFocusList(deckKey).forEach(function (f) {
+      if (f.done || !studyCardHasTag(card, f.tag)) return;
+      var days = studyDaysUntil(f.due);
+      if (days <= 0) pri = Math.min(pri, 0);
+      else if (days <= 2) pri = Math.min(pri, 1);
+      else if (days <= 7) pri = Math.min(pri, 2);
+      else if (days <= 14) pri = Math.min(pri, 3);
+    });
+    if (quizState.tagFilter && studyCardHasTag(card, quizState.tagFilter)) pri = -1;
+    var due = sched[card.id] ? sched[card.id].due : 0;
+    return pri * 1e15 + due;
+  }
+
   function studyDailyGoal() {
     try {
       var n = parseInt(localStorage.getItem(DAILY_GOAL_KEY), 10);
@@ -5271,15 +5408,33 @@ function showCourse(courseKey) {
     document.querySelectorAll(".quiz-home-goals button").forEach(function (btn) {
       btn.classList.toggle("is-active", Number(btn.getAttribute("data-goal")) === goal);
     });
+    var nextBox = $("quiz-next-skill");
+    var nextText = $("quiz-next-skill-text");
+    var nextGo = $("quiz-next-skill-go");
+    var focus = studyPickNextFocus(quizState.deckKey);
+    if (nextBox && nextText && nextGo) {
+      if (focus && focus.stats.total > 0) {
+        var dueLine = focus.stats.due > 0 ? focus.stats.due + " due" : "none due";
+        var weakLine = focus.stats.weak > 0 ? ", " + focus.stats.weak + " weak" : "";
+        var when = focus.days === 0 ? "today" : (focus.days === 1 ? "tomorrow" : (focus.days < 0 ? "past due" : "in " + focus.days + " days"));
+        nextText.innerHTML = "<strong>" + escapeHtml(focus.label) + "</strong> (" + escapeHtml(focus.tag) + "): " + dueLine + weakLine + ". Class/deadline " + escapeHtml(when) + ".";
+        nextGo.textContent = "Drill " + focus.tag + (focus.stats.due > 0 ? " (" + focus.stats.due + " due)" : "");
+        nextGo.setAttribute("data-focus-tag", focus.tag);
+        nextBox.hidden = false;
+      } else {
+        nextBox.hidden = true;
+      }
+    }
     home.hidden = false;
     $("quiz-active").classList.add("hidden");
     $("quiz-empty").classList.add("hidden");
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
   }
 
-  function quizBeginSession(limit) {
+  function quizBeginSession(limit, tagFilter) {
     quizState.inSession = true;
     quizState.sessionLimit = typeof limit === "number" && limit > 0 ? limit : null;
+    quizState.tagFilter = tagFilter || null;
     quizState.forceAll = false;
     if ($("quiz-home")) $("quiz-home").hidden = true;
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = false;
@@ -5475,6 +5630,7 @@ function showCourse(courseKey) {
     if (mode === "quiz") {
       quizState.inSession = isEmbedMode();
       quizState.sessionLimit = null;
+      quizState.tagFilter = null;
     } else {
       quizState.inSession = true;
     }
@@ -5922,7 +6078,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock112-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock113-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -5971,16 +6127,17 @@ function showCourse(courseKey) {
     return sched[cardId];
   }
 
-  function quizDueCards(deck, sched, forceAll) {
+  function quizDueCards(deck, sched, forceAll, deckKey) {
     var now = Date.now();
     var due = [];
+    deckKey = deckKey || quizState.deckKey;
     (deck.cards || []).forEach(function (c) {
       if (!c || !c.id) return;
       var s = quizEnsureCard(sched, c.id);
       if (forceAll || s.due <= now) due.push(c);
     });
     due.sort(function (a, b) {
-      return (sched[a.id].due || 0) - (sched[b.id].due || 0);
+      return studyCardQueuePriority(a, sched, deckKey) - studyCardQueuePriority(b, sched, deckKey);
     });
     return due;
   }
@@ -6193,6 +6350,12 @@ function showCourse(courseKey) {
     } else {
       box.classList.add("hidden");
       box.textContent = "";
+    }
+    if (deckKey && box && !box.classList.contains("hidden")) {
+      var focus = studyPickNextFocus(deckKey);
+      if (focus) {
+        box.innerHTML += " This week: <strong>" + escapeHtml(focus.label) + "</strong> (<code>" + escapeHtml(focus.tag) + "</code>).";
+      }
     }
     if (typeof syncQuizTagChips === "function") syncQuizTagChips(flashState.query || "");
   }
@@ -6415,6 +6578,12 @@ function showCourse(courseKey) {
     }
 
     if (!queue) queue = [];
+    if (quizState.tagFilter) {
+      queue = queue.filter(function (c) { return studyCardHasTag(c, quizState.tagFilter); });
+      quizState.sessionQueue = queue.map(function (c) { return c.id; });
+      quizState.sessionStartCount = quizState.sessionQueue.length;
+      quizState.sessionDone = 0;
+    }
     if (quizState.sessionLimit && queue.length > quizState.sessionLimit) {
       queue = queue.slice(0, quizState.sessionLimit);
     }
@@ -6427,6 +6596,14 @@ function showCourse(courseKey) {
       quizState.weakOnly = false;
       quizState.inSession = false;
       quizState.sessionLimit = null;
+      if (quizState.tagFilter) {
+        var missedTag = quizState.tagFilter;
+        quizState.tagFilter = null;
+        if ($("quiz-empty-title")) $("quiz-empty-title").textContent = "No due cards for " + missedTag;
+        if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Try Browse with that filter, or Continue due for the full deck.";
+        quizShowEmpty(0);
+        return;
+      }
       if (quizShouldShowHome()) {
         syncQuizHome();
         return;
@@ -6483,6 +6660,7 @@ function showCourse(courseKey) {
         quizState.weakOnly = false;
         quizState.inSession = false;
         quizState.sessionLimit = null;
+        quizState.tagFilter = null;
       }
     }
     var fxWait = studyReduceMotion() ? 0 : (grade === "again" ? 280 : 180);
@@ -6520,6 +6698,14 @@ function showCourse(courseKey) {
       studySetDailyGoal(btn.getAttribute("data-goal"));
     });
   });
+  if ($("quiz-next-skill-go")) {
+    $("quiz-next-skill-go").addEventListener("click", function () {
+      var tag = this.getAttribute("data-focus-tag") || "";
+      quizState.weakOnly = false;
+      quizState.forceAll = false;
+      quizBeginSession(null, tag || null);
+    });
+  }
   document.querySelectorAll(".first-win-pick button").forEach(function (btn) {
     btn.addEventListener("click", function () {
       firstWinPickCourse(btn.getAttribute("data-first-course"));
