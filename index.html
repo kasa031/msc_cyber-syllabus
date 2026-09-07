@@ -10794,33 +10794,19 @@ function showCourse(courseKey) {
   });
   if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
     window.addEventListener("load", function () {
-      var refreshing = false;
-      function showSwToast(msg) {
-        var el = document.getElementById("sw-toast");
-        if (!el) return;
-        el.hidden = false;
-        el.textContent = msg;
-      }
-      navigator.serviceWorker.addEventListener("controllerchange", function () {
-        if (refreshing) return;
-        refreshing = true;
-        showSwToast("Update ready - refresh when you are between cards.");
-        if (window.confirm("New version downloaded. Refresh now?")) location.reload();
-      });
       navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).then(function (reg) {
         try { reg.update(); } catch (e) { /* ignore */ }
-        function promptWaiting(worker) {
+        function activateWaiting(worker) {
           if (!worker) return;
-          showSwToast("Update ready - you will be asked before refresh.");
           worker.postMessage({ type: "SKIP_WAITING" });
         }
-        if (reg.waiting) promptWaiting(reg.waiting);
+        if (reg.waiting) activateWaiting(reg.waiting);
         reg.addEventListener("updatefound", function () {
           var nw = reg.installing;
           if (!nw) return;
           nw.addEventListener("statechange", function () {
             if (nw.state === "installed" && navigator.serviceWorker.controller) {
-              promptWaiting(nw);
+              activateWaiting(nw);
             }
           });
         });
