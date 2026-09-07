@@ -1612,7 +1612,7 @@
     .profile-modal {
       position: fixed;
       inset: 0;
-      z-index: 80;
+      z-index: 130;
       background: rgba(7, 25, 82, 0.45);
       display: flex;
       align-items: flex-start;
@@ -2141,11 +2141,19 @@
     .first-win-pick button {
       flex: 1 1 5.5rem;
       min-height: var(--touch);
+      background: #FFFFFF;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .first-win-pick button:hover {
+      background: var(--paper-2);
+      color: var(--ink);
     }
     .first-win-pick button.active {
       border-color: var(--palette-turquoise);
-      box-shadow: inset 0 0 0 1px var(--palette-turquoise);
-      background: rgba(0, 183, 205, 0.08);
+      background: var(--palette-turquoise);
+      color: #FFFFFF;
+      box-shadow: none;
     }
     .first-win-step[hidden] { display: none !important; }
     .orient-checklist {
@@ -3480,7 +3488,7 @@
             <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
             <p class="quiz-home-sub" id="quiz-home-sub">Start a short session. Progress stays on this device.</p>
             <div id="orient-nudge" class="orient-nudge" hidden>
-              <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span><button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
+              <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
             </div>
             <div id="quiz-next-skill" class="quiz-next-skill" hidden>
               <p class="quiz-next-skill-kicker">Next best to practice</p>
@@ -6536,10 +6544,10 @@ function showCourse(courseKey) {
       firstWinPickCourse("acit4050");
     } else if (persona === "browse") {
       studySetDailyGoal(5);
-      if (!firstWinState.course) firstWinPickCourse("acit4100");
+      firstWinPickCourse("acit4100");
     } else {
       studySetDailyGoal(10);
-      if (!firstWinState.course) firstWinPickCourse("acit4050");
+      firstWinPickCourse("acit4050");
     }
   }
 
