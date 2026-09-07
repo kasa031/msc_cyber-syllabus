@@ -7380,12 +7380,14 @@ function showCourse(courseKey) {
   $("quiz-card").addEventListener("click", function (e) {
     if (!quizState.card) return;
     if (e.target && e.target.closest && e.target.closest("#quiz-tags span")) return;
+    if (quizState.studyMode === "test") return;
     if (quizState.studyMode === "flashcards") flashFlip();
     else if (!quizState.revealed) quizReveal();
   });
   $("quiz-card").addEventListener("keydown", function (e) {
     if (e.key === "Enter" || e.key === " ") {
       if (!quizState.card) return;
+      if (quizState.studyMode === "test") return;
       e.preventDefault();
       if (quizState.studyMode === "flashcards") flashFlip();
       else if (!quizState.revealed) quizReveal();
