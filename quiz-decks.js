@@ -8561,6 +8561,206 @@
           "Toulmin",
           "week2-part5"
         ]
+      },
+      {
+        "id": "4100-w3-module",
+        "q": "What is Week 3 in ACIT4100 about?",
+        "a": "Searching for and sorting literature: where to find papers, how research articles are structured (IMRaD), how to read review articles, and building your taxonomy spreadsheet for Assignment 1.",
+        "tags": [
+          "week3",
+          "literature"
+        ]
+      },
+      {
+        "id": "4100-w3-find-papers",
+        "q": "Where should you look for scientific papers on your ACIT topic?",
+        "a": "Discipline databases and indexes (e.g. ACM Digital Library, IEEE Xplore, DBLP), Google Scholar, and OsloMet library search - then filter for peer-reviewed research articles relevant to your essay field.",
+        "tags": [
+          "week3",
+          "literature"
+        ]
+      },
+      {
+        "id": "4100-w3-review-vs-research",
+        "q": "Week 3: what is the difference between a review article and a research paper?",
+        "a": "A research paper usually reports original work (methods + results). A review article surveys and synthesises existing research on a topic - useful early in your literature search to map the field.",
+        "tags": [
+          "week3",
+          "literature"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/imrad.svg",
+          "alt": "Research article structure",
+          "caption": "Research vs review purpose",
+          "shows": "Review surveys others' work; research reports new work."
+        }
+      },
+      {
+        "id": "4100-w3-read-review",
+        "q": "How should you approach reading a review article (Week 3)?",
+        "a": "Use it to map themes, methods and gaps in the field before diving into primary papers. Note how the author categorises literature - that informs your own taxonomy columns.",
+        "tags": [
+          "week3",
+          "literature"
+        ]
+      },
+      {
+        "id": "4100-w3-imrad-intro",
+        "q": "In IMRaD, what does the Introduction section typically do?",
+        "a": "Frames the problem, states research questions/hypotheses, and positions the work against prior literature - tells the reader why the study matters.",
+        "tags": [
+          "week3",
+          "literature",
+          "genre"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/imrad.svg",
+          "alt": "IMRaD Introduction",
+          "caption": "Introduction sets context",
+          "shows": "Broad framing before Methods/Results."
+        }
+      },
+      {
+        "id": "4100-w3-imrad-methods",
+        "q": "In IMRaD, what belongs in the Methods section?",
+        "a": "How the study was conducted: design, participants/data sources, instruments, procedures - enough detail for another researcher to assess or replicate.",
+        "tags": [
+          "week3",
+          "literature",
+          "methods"
+        ]
+      },
+      {
+        "id": "4100-w3-imrad-results",
+        "q": "In IMRaD, what belongs in the Results section?",
+        "a": "Findings presented objectively (tables, figures, statistics) without extended interpretation - the data answer the research question.",
+        "tags": [
+          "week3",
+          "literature",
+          "methods"
+        ]
+      },
+      {
+        "id": "4100-w3-imrad-discussion",
+        "q": "In IMRaD, what belongs in the Discussion section?",
+        "a": "Interpretation of results, limitations, implications, and how findings relate to prior work - where authors argue what it means.",
+        "tags": [
+          "week3",
+          "literature",
+          "genre"
+        ]
+      },
+      {
+        "id": "4100-w3-taxonomy-activity",
+        "q": "What in-class Week 3 activity supports Assignment 1?",
+        "a": "Create your own taxonomy for your literature survey - categorise papers with metadata columns (author, year, method, theme, etc.) in the spreadsheet Canvas requires.",
+        "tags": [
+          "week3",
+          "literature",
+          "assign1"
+        ]
+      },
+      {
+        "id": "4100-w3-ref-tools",
+        "q": "Why does Week 3 point you to reference-management tutorials?",
+        "a": "Tools like Zotero store PDFs and metadata, export APA7 references, and keep your taxonomy spreadsheet aligned with sources you will cite in the essay.",
+        "tags": [
+          "week3",
+          "literature",
+          "tools"
+        ],
+        "figure": {
+          "type": "img",
+          "src": "figures/zotero.svg",
+          "alt": "Reference management",
+          "caption": "Reference managers feed the taxonomy",
+          "shows": "Collect -> organise -> cite in APA7."
+        }
+      },
+      {
+        "id": "4100-w3-structure-quiz",
+        "q": "What Canvas self-test belongs to Week 3 preparation?",
+        "a": "Self-test quiz - Structure of a paper (after the Structure of a research paper video and Structure of a paper.pdf on Canvas).",
+        "tags": [
+          "week3",
+          "literature"
+        ]
+      },
+      {
+        "id": "4100-w4-module",
+        "q": "What is Week 4 in ACIT4100 about?",
+        "a": "Philosophy of science - what makes something scientific: falsification, paradigms, and how your research field embeds (explicitly or implicitly) a philosophy-of-science tradition.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w4-popper",
+        "q": "What is Popper's falsificationism (Week 4)?",
+        "a": "A scientific claim should be testable and refutable - theories gain credibility when they survive attempts to falsify them, not when we only seek confirming examples.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w4-popper-cyber",
+        "q": "Give a falsification-style question for a cybersecurity research claim.",
+        "a": "Example: 'Training reduces phishing clicks' is scientific only if you can define measurable failure (e.g. click rate after training) and specify what outcome would refute the claim.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w4-kuhn",
+        "q": "What does Kuhn's notion of paradigms mean for reading a research field?",
+        "a": "Fields operate within shared assumptions, methods and exemplars (normal science) until anomalies push paradigm shifts - your essay can describe which tradition your literature assumes.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w4-tradition-essay",
+        "q": "What does the 2026 essay require about philosophy of science?",
+        "a": "Describe the tradition within philosophy of science in your research field - whether authors state it explicitly or it is implicit in how they argue, publish and choose methods.",
+        "tags": [
+          "week4",
+          "philosophy",
+          "essay",
+          "2026"
+        ]
+      },
+      {
+        "id": "4100-w4-explicit-implicit",
+        "q": "Can a research field have an implicit philosophy of science?",
+        "a": "Yes - many papers never cite Popper or Kuhn but still assume empiricism, reproducibility, or design-science norms. Your survey should name that tradition for your ACIT topic.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w4-scientific-criteria",
+        "q": "Week 4 framing: what helps decide if a claim is scientific?",
+        "a": "Testability, evidence tied to methods, openness to refutation, and alignment with how the field peer-reviews work - contrast with untestable or purely anecdotal claims.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w4-maxwell-podcast",
+        "q": "What supplementary Week 4 material is on Canvas?",
+        "a": "Podcast from the Popperian podcast (interview with Nicholas Maxwell) - optional depth on philosophy of science beyond the two lecture videos.",
+        "tags": [
+          "week4",
+          "philosophy"
+        ]
       }
     ]
   },
@@ -9148,13 +9348,13 @@
   var EXPECTED = {
     acit4050: 207,
     acit4280: 209,
-    acit4100: 309,
+    acit4100: 328,
     computer-basics: 28,
     fellesjam-general: 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock109",
+    version: "lock111",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

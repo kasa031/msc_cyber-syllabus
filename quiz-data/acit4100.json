@@ -1672,7 +1672,7 @@
       ]
     },
     {
-        "id": "4100-good-text",
+      "id": "4100-good-text",
       "q": "What eight craft points did the ACIT4100 first lecture list under Text is good?",
       "a": "Curiosity, metaphor, humour, foreshadowing, visualization, tell a story, conclusion, give the reader a break. Craft only: they do not replace sources or a research claim.",
       "tags": [
@@ -1889,1594 +1889,1794 @@
       ]
     },
     {
-        "id": "4100-w2p2-flow",
-        "q": "Week 2 Part 2: what is flow in debate, and how are flows made?",
-        "a": "A technique that lets you quickly note what is being said in a system that makes line-by-line refutation possible. Flows are created with symbols that signify meta-information of the arguments.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-six-components",
-        "q": "Rhetoric Part 2 self-test (multi-select): which six components belong to the Toulmin model?",
-        "a": "Claim, Qualifiers, Backing, Rebuttals, Grounds, Warrant. Not: Argument, Status quo, Agency, Nuance, Proof.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-deliberative-blank",
-        "q": "Rhetoric Part 2 self-test (fill in the blank): \"[blank] rhetoric is forward looking and focuses on what to do next.\"",
-        "a": "Deliberative. Deliberative rhetoric looks to the future and what to do next. Not judicial or epideictic. Not \"general\".",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-all",
-        "q": "Rhetoric Part 2 self-test: match each smoking-style statement to a Toulmin part.",
-        "a": "1. You should stop smoking. = Claim. 2. You cannot disregard the advice of the medical community. = Warrant (explicit warrant). 3. Smoking is proven many times over to be really bad for you. = Grounds (evidence). 4. Look, I know it is hard, but you will benefit in the long run. = Rebuttal (addresses the difficulty). 5. At least commit to stopping by a certain date and start working towards it. = Qualifier. 6. After I stopped smoking, my stamina improved a lot. = Grounds (anecdote; grounds can be anecdotes). 7. At least promise me you'll think about it. = Qualifier (softens the claim).",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-stop",
-        "q": "Rhetoric Part 2 self-test: \"You should stop smoking.\" Which Toulmin part?",
-        "a": "Claim. This is what you want the audience to accept.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-medical",
-        "q": "Rhetoric Part 2 self-test: \"You cannot disregard the advice of the medical community.\" Which Toulmin part?",
-        "a": "Warrant. On the slides this is the explicit warrant (why you should listen). Not Grounds.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-proven",
-        "q": "Rhetoric Part 2 self-test: \"Smoking is proven many times over to be really bad for you.\" Which Toulmin part?",
-        "a": "Grounds. This is evidence that supports the claim. Not a Qualifier.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-hard",
-        "q": "Rhetoric Part 2 self-test: \"Look, I know it is hard, but you will benefit in the long run.\" Which Toulmin part?",
-        "a": "Rebuttal. It addresses the expected difficulty (and still pushes the claim).",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-date",
-        "q": "Rhetoric Part 2 self-test: \"At least commit to stopping by a certain date and start working towards it.\" Which Toulmin part?",
-        "a": "Qualifier. It narrows the claim (a date and a start), like the slide qualifier. Not a Warrant.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-stamina",
-        "q": "Rhetoric Part 2 self-test: \"After I stopped smoking, my stamina improved a lot.\" Which Toulmin part?",
-        "a": "Grounds. An anecdote can function as grounds. Not a Qualifier.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-match-think",
-        "q": "Rhetoric Part 2 self-test: \"At least promise me you'll think about it.\" Which Toulmin part?",
-        "a": "Qualifier. It softens the claim. Not a Rebuttal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p2-st-grounds-only-provable",
-        "q": "Rhetoric Part 2 self-test: true or false? \"Only provable evidence can function as grounds in the Toulmin model.\"",
-        "a": "False. Grounds can be evidence, data, statistics, anecdotes, or signs of expertise/authority. They are not limited to provable evidence.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part2",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p3-arena-quote",
-        "q": "Week 2 Part 3: what does the Roosevelt \"man in the arena\" quote say about who counts?",
-        "a": "It is not the critic who counts. Credit belongs to the man who is actually in the arena.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-affirmative-risk",
-        "q": "Week 2 Part 3: what does arguing for the affirmative mean here?",
-        "a": "The affirmative takes the risk of proposing change. Critics who only point out stumbles do not get the credit.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-affirmative-prop",
-        "q": "Week 2 Part 3: how does the affirmative argue for change?",
-        "a": "By offering a proposition.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-three-aspects",
-        "q": "Week 2 Part 3: which three aspects must the affirmative cover to be persuasive?",
-        "a": "Indict the status quo. Demonstrate solvency. Be an example of the proposition.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-indict",
-        "q": "Week 2 Part 3: what does it mean to indict the status quo?",
-        "a": "Say what is wrong and what harm it does.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-solvency",
-        "q": "Week 2 Part 3: what does it mean to demonstrate solvency?",
-        "a": "Show that your proposition actually addresses the problem and reduces harm.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-example-prop",
-        "q": "Week 2 Part 3: what does \"be an example of the proposition\" warn against?",
-        "a": "Don't replace evil with evil.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-three-factors",
-        "q": "Week 2 Part 3: building a good argument comes from understanding which three factors?",
-        "a": "The audience, prior research, and nuance.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-audience",
-        "q": "Week 2 Part 3: what should you ask about the audience?",
-        "a": "Who do you want to convince? What are their values? What is their situation or context?",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-prior-research",
-        "q": "Week 2 Part 3: what does prior research need to give you?",
-        "a": "Enough relevant data and grounds. It is also needed in anticipation of counter arguments. (Background chapter!)",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-nuance",
-        "q": "Week 2 Part 3: what does nuance mean here?",
-        "a": "Use of qualifiers. Correct agency.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-agency-def",
-        "q": "Week 2 Part 3: who are the agents in an argument?",
-        "a": "Those who should actually DO what you propose. They may not be the same as, or all of, your audience.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-wrong-agents",
-        "q": "Week 2 Part 3: what happens if a proposal has the wrong agents?",
-        "a": "It may reduce the solvency of the harm. Example: \"... and Mexico will pay for it!\"",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-enabled",
-        "q": "Week 2 Part 3: what problem can the agents themselves have?",
-        "a": "They may not feel enabled or empowered to enact on the proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-unclear-agency",
-        "q": "Week 2 Part 3: what can unclear agency lead to, and what helps?",
-        "a": "Distracting discussions and confusion, which nuance and qualifiers can help avoid.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-mexico-qualified",
-        "q": "Week 2 Part 3: how does the lecture qualify \"... and Mexico will pay for it!\"?",
-        "a": "\"... and Mexico will indirectly pay for it through a negotiation of our agreements which would indirectly create a financial surplus sufficient to cover the cost!\" That is the qualified / nuanced version of the same claim.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-agent-perspective",
-        "q": "Week 2 Part 3: when arguing from the agent's perspective, what must a persuasive argument highlight?",
-        "a": "How the controversy, harm and cost affects the agents themselves.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-opportunity-cost",
-        "q": "Week 2 Part 3: what often-overlooked factor belongs with the agent's perspective?",
-        "a": "The opportunity cost of a proposal: committing to an action may limit the ability to respond to future opportunities.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-intro-claim",
-        "q": "Week 2 Part 3: what is the introduction's claim in a scientific paper or thesis?",
-        "a": "Addressing the problem I'm describing is important and worth spending resources on.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-intro-indict",
-        "q": "Week 2 Part 3: where is indictment and harm heavy in the introduction?",
-        "a": "The starting point of the introduction, with a narrowing from domain down to the specific issue.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-intro-solvency",
-        "q": "Week 2 Part 3: where does the introduction usually demonstrate solvency?",
-        "a": "The proposed impact, usually right before the problem statement.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-intro-backing",
-        "q": "Week 2 Part 3: why is the introduction low on backing and warrant?",
-        "a": "That's for the background. Implicit warrant: the problem's nature warrants a scientific approach.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-intro-nuance",
-        "q": "Week 2 Part 3: where should the introduction show nuance?",
-        "a": "The operationalization after the problem statement.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-approach-claim",
-        "q": "Week 2 Part 3: what is the approach's claim in a scientific paper or thesis?",
-        "a": "My plan is feasible and presents an adequate scientific approach to answer the problem.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-approach-gwb",
-        "q": "Week 2 Part 3: what supplies grounds, warrant and backing in the approach?",
-        "a": "The research method and its tradition. The amount of work relative to the timeframe.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-approach-solvency",
-        "q": "Week 2 Part 3: how must the approach demonstrate solvency?",
-        "a": "The data gathered speaks to what we need to uncover. The experiments cover the relevant aspects of interest. The plan is detailed enough to demonstrate control.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-case",
-        "q": "Week 2 Part 3: what is the workshop case used to practise Toulmin for a presentation?",
-        "a": "Your faculty will hold a workshop for teachers on using flipped classroom teaching approaches. You are invited to give an introduction in order to motivate the attendees.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-claim",
-        "q": "Week 2 Part 3: what draft claim appears on the flipped-classroom presentation slide, and what is still open?",
-        "a": "\"We should adopt flipped classroom approaches to teaching...?\" The claim is still being formulated. The question marks are part of the point.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-indict-flex",
-        "q": "Week 2 Part 3: what student-side indictment is given in the flipped-classroom example?",
-        "a": "Students are digitized and require a high degree of flexibility.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-indict-engage",
-        "q": "Week 2 Part 3: what teacher-side indictment is given in the flipped-classroom example?",
-        "a": "We don't have sufficient opportunity to engage directly with students when we are most needed.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-indict-sq",
-        "q": "Week 2 Part 3: what label does the lecture give those flipped-classroom indictment lines?",
-        "a": "Indictment of the status quo!",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-indict-expect",
-        "q": "Week 2 Part 3: what third indictment line is added in the flipped-classroom example?",
-        "a": "Students expect us to deliver teaching that is most beneficial to them.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-harm-edu",
-        "q": "Week 2 Part 3: what student-education harm is named in the flipped-classroom example?",
-        "a": "Students are not getting the best education.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-harm-tax",
-        "q": "Week 2 Part 3: what financing harm is named in the flipped-classroom example?",
-        "a": "We are not fulfilling our obligation to produce the best outcomes from our tax-based financing.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-harm-work",
-        "q": "Week 2 Part 3: what teacher-work harm is named in the flipped-classroom example?",
-        "a": "We are unable to work in ways that are more motivating and rewarding.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-grounds-solvency",
-        "q": "Week 2 Part 3: what extra job do the flipped-classroom grounds have besides supporting the claim?",
-        "a": "They include solvency of the harms: they show how the proposal addresses those harms.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-grounds-list",
-        "q": "Week 2 Part 3: which five grounds are listed for the flipped-classroom presentation?",
-        "a": "Practical information: what it takes to transition from a traditional to a flipped classroom approach. Our values: making a positive impact on students is profound and meaningful. Anecdotal evidence: my own experience. Scientific evidence: published studies. New incentives: becoming a merited educator will lead to a pay raise and status.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-warrant-ex",
-        "q": "Week 2 Part 3: what is the explicit warrant in the flipped-classroom example?",
-        "a": "The studies I have presented are similar to our teaching environment and their results are believable.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-warrant-im",
-        "q": "Week 2 Part 3: what is the implicit warrant in the flipped-classroom example?",
-        "a": "We should aspire to continuously adjust our practices to those which currently provide the best outcomes.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-backing",
-        "q": "Week 2 Part 3: what backing is given in the flipped-classroom example?",
-        "a": "A colleague of mine has done the same and it also provided good results there.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-qualifiers",
-        "q": "Week 2 Part 3: which three qualifiers appear in the flipped-classroom example?",
-        "a": "Only those who are motivated will prioritize this. Some want to work on a different aspect of their career. Some feel structurally bound by the system.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-agents",
-        "q": "Week 2 Part 3: who are the agents in the flipped-classroom example?",
-        "a": "Teachers who are inspired by engaging teaching methods and want to advance their career.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-reb-skills",
-        "q": "Week 2 Part 3: how does the lecture rebut \"We don't have the skills\"?",
-        "a": "People who teach, usually know how to learn. It's not about what you know right now.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-reb-incentive",
-        "q": "Week 2 Part 3: how does the lecture rebut \"There's no real incentive\"?",
-        "a": "No longer true.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-reb-work",
-        "q": "Week 2 Part 3: how does the lecture rebut \"It's a lot of work\"?",
-        "a": "Yes, but only initially. You'll end up with more flexibility in the long run and can use that on other career aspects.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-claim-after",
-        "q": "Week 2 Part 3: what is the refined flipped-classroom claim after the Toulmin work?",
-        "a": "Moving towards a flipped classroom approach is a good way to teach in a meaningful and engaging way while advancing your career.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-pres-claim-refine",
-        "q": "Week 2 Part 3: how does the refined flipped-classroom claim differ from \"We should adopt flipped classroom approaches to teaching...?\"",
-        "a": "It is qualified (moving towards), tied to values (meaningful and engaging), and tied to agency / career (advancing your career).",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-no-order",
-        "q": "Week 2 Part 3: what does the lecture notice about order and structure after the Toulmin pieces are in place?",
-        "a": "The Toulmin model does not prescribe an order or structure of the communication itself. Building a presentation from all pieces is now a matter of composition and rhetoric.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p3-against-teaser",
-        "q": "Week 2 Part 3: what topic does the last slide tease for next?",
-        "a": "Applying it: Arguing against affirmative. That is the Part 4 teaser only.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part3"
-        ]
-      },
-      {
-        "id": "4100-w2p4-churchill-who",
-        "q": "Week 2 Part 4: whose quote opens The critic, and from which year?",
-        "a": "Churchill, 1939.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-churchill-necessary",
-        "q": "Week 2 Part 4: what does the Churchill quote say about whether criticism is agreeable?",
-        "a": "Criticism may not be agreeable, but it is necessary.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-churchill-pain",
-        "q": "Week 2 Part 4: what function does criticism fulfill, according to the Churchill quote?",
-        "a": "The same function as pain in the human body; it calls attention to the development of an unhealthy state of things.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-churchill-heed",
-        "q": "Week 2 Part 4: what happens if criticism is heeded in time, and if it is suppressed?",
-        "a": "If it is heeded in time, danger may be averted; if it is suppressed, a fatal distemper may develop.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-negative-against",
-        "q": "Week 2 Part 4: what is arguing for the negative often?",
-        "a": "An argument against a proposal made by others.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-wrong-values",
-        "q": "Week 2 Part 4: what risk does the negative face when attacking from several perspectives?",
-        "a": "Being motivated by the wrong values, i.e. a personal victory instead of a good debate.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-three-components",
-        "q": "Week 2 Part 4: which three components make a good case for the negative?",
-        "a": "Direct disadvantages of the proposal. Counter proposals. Critique of assumptions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-inherency-name",
-        "q": "Week 2 Part 4: what is the first kind of direct disadvantage named?",
-        "a": "Inherency of the proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-inherency-means",
-        "q": "Week 2 Part 4: what does an attack on the inherency of a proposal mean?",
-        "a": "Pointing out obstacles, previous attempts or even better current efforts.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-inherency-lines",
-        "q": "Week 2 Part 4: which example lines illustrate an inherency attack?",
-        "a": "We're doing this already. There's already a better fix.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-inherency-attitudinal",
-        "q": "Week 2 Part 4: are inherency attacks limited to feasibility?",
-        "a": "No. They can be attitudinal. Example: Things are fine right now.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-inherency-grounds",
-        "q": "Week 2 Part 4: when attacking inherency, are you disagreeing with the problem or grounds?",
-        "a": "No. You point out other inherent factors that weaken the proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-inherency-research",
-        "q": "Week 2 Part 4: what does uncovering inherency issues require?",
-        "a": "Research into the proposal and the problem within the status quo.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-name",
-        "q": "Week 2 Part 4: what is the second kind of direct disadvantage named?",
-        "a": "Attacking the harms.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-core",
-        "q": "Week 2 Part 4: what is the core of most affirmative proposals?",
-        "a": "That the status quo is doing a harm.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-magnitude",
-        "q": "Week 2 Part 4: what can underlining the magnitude of the harm do?",
-        "a": "It can be a powerful tool, but it may also be tested by the negative.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-test",
-        "q": "Week 2 Part 4: how may the negative test the magnitude of the harm?",
-        "a": "Are we really sure all the worst case harm is realistic? It won't be as bad.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-positive",
-        "q": "Week 2 Part 4: what can happen to the proposed harm in some cases?",
-        "a": "It can become a positive in the end.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-jobs",
-        "q": "Week 2 Part 4: how does the slide turn job loss into a possible positive?",
-        "a": "Yes, people loose their jobs, but if we offer them a new career, they would be able to earn more and pay more tax. (Slide spelling: loose. Meaning: lose jobs.)",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-harms-cavalier",
-        "q": "Week 2 Part 4: what risk comes with attacking the harms if it is not combined with other arguments?",
-        "a": "One can risk being too cavalier.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-solvency-name",
-        "q": "Week 2 Part 4: what is the third kind of direct disadvantage named?",
-        "a": "Solvency of the proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-solvency-means",
-        "q": "Week 2 Part 4: what does attacking the solvency of the proposal mean?",
-        "a": "Arguing that the proposal will not solve the described problem.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-solvency-lines",
-        "q": "Week 2 Part 4: which example lines illustrate a solvency attack?",
-        "a": "It won't play out as you say it will. This will do little to address the core issue. You're fighting the symptom, not the disease.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-solvency-feasibility",
-        "q": "Week 2 Part 4: is a solvency attack the same as attacking the feasibility of the proposition?",
-        "a": "No.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-solvency-strengthen",
-        "q": "Week 2 Part 4: how do solvency attacks affect other negative attacks?",
-        "a": "They strengthen all other negative attacks, i.e. the possible harm of the proposal outweigh the weak prospect of positives.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-counter-what",
-        "q": "Week 2 Part 4: what can a counter proposal offer?",
-        "a": "A variance of the proposal or a completely different proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-counter-scrutiny",
-        "q": "Week 2 Part 4: how much scrutiny does a counter proposal need, and what can it do if well prepared?",
-        "a": "It does not need the same scrutiny, but if well prepared it can be a devastating blow to the affirmative.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-counter-deliberative",
-        "q": "Week 2 Part 4: how should counter proposals be framed?",
-        "a": "They should always be deliberative, and not interrogative.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-counter-dont",
-        "q": "Week 2 Part 4: what interrogative line should you not use as a counter proposal?",
-        "a": "Why did you not consider shorting the stocks instead?",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-counter-instead",
-        "q": "Week 2 Part 4: how should the shorting-the-stocks counter proposal be phrased instead?",
-        "a": "I think shorting the stocks is a better choice, because ....",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-assume-wg",
-        "q": "Week 2 Part 4: where can assumptions be found, and what study example is given?",
-        "a": "In the warrants and grounds. Example: You assume a 50-year old study is relevant today.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-assume-indict",
-        "q": "Week 2 Part 4: where else do assumptions exist?",
-        "a": "In the indictment of the status quo.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-assume-unemp",
-        "q": "Week 2 Part 4: how does the slide attack the assumption that unemployment is bad?",
-        "a": "You say unemployment is bad, but unemployment in one sector is a necessary and natural re-adjustment of the markets.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-assume-flip",
-        "q": "Week 2 Part 4: what can you do with the warrant together with a counter proposal?",
-        "a": "Flip the warrant.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-assume-law",
-        "q": "Week 2 Part 4: how does the flipped-warrant example use law school against flipped classroom?",
-        "a": "If we really want students to succeed, then we should have stricter admission requirements and not pretend everyone can get what they want! Do you think they're debating flipped classroom in law school? They don't, because they only have students who really want to be there and accept that it is hard. In fact, they are proud of their achievement in the end for that reason!",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-close-why",
-        "q": "Week 2 Part 4: what closing question does the lecture raise after the negative attacks?",
-        "a": "Wow, sounds like arguing for any proposal is almost impossible. Why bother?",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-close-hard",
-        "q": "Week 2 Part 4: how hard SHOULD arguing for the affirmative be?",
-        "a": "It SHOULD be hard. Slide reason: change adds risk. NOTE: Canvas Q2 does NOT accept the change/risk option. See 4100-w2p4-st-affirmative-hard.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-close-risk",
-        "q": "Week 2 Part 4: why does every proposal add risk?",
-        "a": "Slide wording: every proposal brings change and change adds risk. NOTE: Canvas Part 4 self-test Q2 does NOT accept that option. See 4100-w2p4-st-affirmative-hard.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-close-not-against",
-        "q": "Week 2 Part 4: should arguing against a proposal be confused with being against change?",
-        "a": "No.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-close-stasis",
-        "q": "Week 2 Part 4: if change may be inevitable, what can debate help determine, and why does that make a point of stasis important?",
-        "a": "Debate could help determine the best proposals. This is why a point of stasis is so important.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-p5-teaser",
-        "q": "Week 2 Part 4: what topic does the last slide tease for next?",
-        "a": "Applying it: Making decisions based on debate. That is the Part 5 teaser only.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-match-all",
-        "q": "Rhetoric Part 4 self-test: match each negative line to Direct disadvantages, Counter proposals, or Critique of assumptions.",
-        "a": "1. It would be a better idea, to ... = Counter proposals. 2. The problem is not as big as you think. = Direct disadvantages (harms magnitude). 3. I don't think your example really applies to us. = Critique of assumptions (warrant or grounds do not apply). 4. I remember when we tried doing exactly that in my previous job. = Direct disadvantages (inherency / previous attempts). 5. Even if we would do it, it wouldn't change much. = Direct disadvantages (solvency). 6. If you really want them to succeed, then this would do the opposite. = Critique of assumptions (flip the warrant). 7. You call it a problem, but this is actually important for quality assurance. = Critique of assumptions (indictment flip).",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-better-idea",
-        "q": "Rhetoric Part 4 self-test: \"It would be a better idea, to ...\" Which negative strategy?",
-        "a": "Counter proposals. You offer a different plan instead of only attacking theirs.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-problem-not-big",
-        "q": "Rhetoric Part 4 self-test: \"The problem is not as big as you think.\" Which negative strategy?",
-        "a": "Direct disadvantages. This tests harms magnitude (how bad is the status quo really?). Not Critique of assumptions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-example-applies",
-        "q": "Rhetoric Part 4 self-test: \"I don't think your example really applies to us.\" Which negative strategy?",
-        "a": "Critique of assumptions. The warrant or grounds (the example) do not apply here. Not Direct disadvantages.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-previous-job",
-        "q": "Rhetoric Part 4 self-test: \"I remember when we tried doing exactly that in my previous job.\" Which negative strategy?",
-        "a": "Direct disadvantages. This is inherency: previous attempts (or obstacles / current efforts) weaken the proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-wouldnt-change",
-        "q": "Rhetoric Part 4 self-test: \"Even if we would do it, it wouldn't change much.\" Which negative strategy?",
-        "a": "Direct disadvantages. This is solvency: the proposal will not solve the described problem. Not Critique of assumptions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-succeed-opposite",
-        "q": "Rhetoric Part 4 self-test: \"If you really want them to succeed, then this would do the opposite.\" Which negative strategy?",
-        "a": "Critique of assumptions. This flips the warrant (same value, opposite conclusion). Not Counter proposals.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-quality-assurance",
-        "q": "Rhetoric Part 4 self-test: \"You call it a problem, but this is actually important for quality assurance.\" Which negative strategy?",
-        "a": "Critique of assumptions. This flips the indictment of the status quo (the named harm is treated as a good).",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p4-st-affirmative-hard",
-        "q": "Rhetoric Part 4 self-test Q2: One might feel disheartened to want to argue for any proposal, given the multitude of attacks that can be used against it. But it is important to remember, that arguing for the affirmative SHOULD be hard, because ...",
-        "a": "Canvas drill key (inferred after Canvas rejected change/risk; no green check seen): there are always other proposals you can choose instead. Slide wording is change/risk: all proposals bring change and change adds risk. Canvas marked that option INCORRECT. Among remaining visible options, other proposals is the next most lecture-aligned (debate can help determine the best proposals; point of stasis). Not the 10% option (not on the slides). Confirm if you see the official correct mark. Two options showed as No answer text provided.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part4",
-          "Canvas-quiz"
-        ]
-      },
-      {
-        "id": "4100-w2p5-goal",
-        "q": "Week 2 Part 5: what goal does the lecture ask you to refocus on?",
-        "a": "Making good decisions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-options",
-        "q": "Week 2 Part 5: what do leaders and managers have when they need to make informed decisions?",
-        "a": "Several options to make informed decisions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-input",
-        "q": "Week 2 Part 5: when leaders want input or advice, what do they typically do?",
-        "a": "Have informal conversations with trusted employees, or organize a meeting / workshop or hearing.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-assist",
-        "q": "Week 2 Part 5: what open question does the lecture ask after listing those decision options?",
-        "a": "How would what we have covered until now assist in reaching the goal of good decisions?",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-proscons-title",
-        "q": "Week 2 Part 5: what common decision method does the lecture say does not always work?",
-        "a": "Pros vs cons.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-proscons-setup",
-        "q": "Week 2 Part 5: how does a typical pros vs cons session work?",
-        "a": "The participants brainstorm pros and cons which are written on a whiteboard.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-proscons-verbal",
-        "q": "Week 2 Part 5: whose voices does a pros vs cons whiteboard favor?",
-        "a": "Strong and verbal personalities.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-proscons-nuance",
-        "q": "Week 2 Part 5: what does a pros vs cons list lack?",
-        "a": "It has no nuance.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-proscons-aggregate",
-        "q": "Week 2 Part 5: is a pros vs cons list always an aggregate?",
-        "a": "No. It is not always an aggregate.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-proscons-weight",
-        "q": "Week 2 Part 5: what is missing from each point on a pros vs cons whiteboard, and what does the method assume?",
-        "a": "No visible value or weight of each point made, and it assumes it is the number that counts.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-vote-title",
-        "q": "Week 2 Part 5: besides pros vs cons, which other common method does the lecture say does not always work?",
-        "a": "Voting.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-vote-setup",
-        "q": "Week 2 Part 5: how does a typical vote-on-actions session work?",
-        "a": "Employees are asked to propose actions, which are written on a board. Everyone votes on them.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-vote-airtime",
-        "q": "Week 2 Part 5: whom does impromptu voting favor?",
-        "a": "Those who can handle impromptu elections and get the most airtime for their proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-vote-prepare",
-        "q": "Week 2 Part 5: why do old and faithful proposals take center stage when people vote?",
-        "a": "Voting gives little time to thoroughly prepare proposals, so the old and faithful proposals take center stage.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-vote-defend",
-        "q": "Week 2 Part 5: what extra risk comes with proposing an action in a vote?",
-        "a": "If you propose it, you have to defend it, adding risk to looking foolish.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-vote-best",
-        "q": "Week 2 Part 5: does the proposal with the most votes have to be the best one?",
-        "a": "No. Sometimes, the best proposal is not the one with the most votes.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-free-title",
-        "q": "Week 2 Part 5: besides pros vs cons and voting, which meeting method does the lecture say does not always work?",
-        "a": "A free discussion.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-free-setup",
-        "q": "Week 2 Part 5: how does a typical free discussion start?",
-        "a": "The topic is introduced in a meeting and everyone is asked for their opinion.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-free-dominant",
-        "q": "Week 2 Part 5: whose voices prevail in a free discussion?",
-        "a": "Dominant personalities prevail.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-free-battle",
-        "q": "Week 2 Part 5: what happens in a free discussion when no one has adequate time to prepare?",
-        "a": "Old battle-lines are redrawn.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-free-foolish",
-        "q": "Week 2 Part 5: what extra risk comes with proposing something in a free discussion?",
-        "a": "If you propose it, you have to defend it, adding risk to looking foolish.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-lead-title",
-        "q": "Week 2 Part 5: what can leaders do instead of relying on weak meeting methods?",
-        "a": "Promote valuable input.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-lead-stasis",
-        "q": "Week 2 Part 5: what should leaders predefine before people give input?",
-        "a": "The propositions and point of stasis.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-lead-values",
-        "q": "Week 2 Part 5: what should leaders specify about the decision at the end?",
-        "a": "The values by which a decision will be made at the end.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-lead-time",
-        "q": "Week 2 Part 5: how much time should leaders give people before the debate?",
-        "a": "Enough time to prepare good arguments.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-lead-debaters",
-        "q": "Week 2 Part 5: whom should leaders assign for propositions?",
-        "a": "Designated debaters for propositions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-lead-rdf",
-        "q": "Week 2 Part 5: what should leaders write after the decision, and why?",
-        "a": "RDF (Reason For Decision), so employees can understand the reasoning of the leader.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-culture-title",
-        "q": "Week 2 Part 5: what kind of debate culture does the lecture say matters?",
-        "a": "A positive debate culture.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-culture-science",
-        "q": "Week 2 Part 5: do rhetoric and persuasion have a place in science and scientific environments?",
-        "a": "Yes, if you accept that scientists are humans.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-culture-org",
-        "q": "Week 2 Part 5: what decides whether persuasion is a tool for manipulation or for informed decisions?",
-        "a": "The culture of the organization.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-culture-protect",
-        "q": "Week 2 Part 5: what can debate's structure do for people and for a proposal?",
-        "a": "It can protect the individual and bring to light a more nuanced discussion about a proposal.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-informal-title",
-        "q": "Week 2 Part 5: besides formal decision meetings, where else does the lecture place debate?",
-        "a": "In informal settings.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-informal-exciting",
-        "q": "Week 2 Part 5: what can debating an issue do socially?",
-        "a": "It is an exciting and entertaining activity, which also strengthens social interactions.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-informal-aggress",
-        "q": "Week 2 Part 5: what can happen if you use all available debate tools in an informal setting?",
-        "a": "It may provoke a sense of aggressiveness.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-informal-discuss",
-        "q": "Week 2 Part 5: instead of trying to be affirmative or negative in an informal setting, what should you do?",
-        "a": "Try to move the debate into a discussion.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-informal-quote",
-        "q": "Week 2 Part 5: what example line moves an informal debate into a discussion?",
-        "a": "I see what you're saying, but what do you think about the argument, that ... (Slide spelling: your'e.)",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-title",
-        "q": "Week 2 Part 5: what does the lecture warn you not to do to people who disagree?",
-        "a": "Don't dis dissenters.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-popular",
-        "q": "Week 2 Part 5: is being a critic always popular?",
-        "a": "No. Being a critic is not always popular.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-polarized",
-        "q": "Week 2 Part 5: what is happening to society and viewpoints?",
-        "a": "They are increasingly polarized.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-hostile",
-        "q": "Week 2 Part 5: what do we lose if we view every opposition as hostile?",
-        "a": "The opportunity to uncover the strengths and weakness of our ideas and to test them against our values. (Slide spelling: loose.)",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-both",
-        "q": "Week 2 Part 5: who counts as critics, and what do they need?",
-        "a": "Both the affirmative and the negative are critics in their own right and both need protection.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-darl-who",
-        "q": "Week 2 Part 5: who is attributed on the Don't dis dissenters quote slide?",
-        "a": "CD. Darlington.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-darl-accident",
-        "q": "Week 2 Part 5: what does the CD. Darlington quote say about who first understood bacteria, isolated oxygen, and established infection, heredity and evolution?",
-        "a": "It is no accident that bacteria was first understood by a canal engineer, that oxygen was isolated by a Unitarian minister, that the theory of infection was established by a chemist, the theory of heredity of a monastic school teacher, and the theory of evolution by a man who was unfitted to be a university instructor in either botany or zoology.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-diss-darl-ministry",
-        "q": "Week 2 Part 5: what ministry does the CD. Darlington quote say we need?",
-        "a": "A ministry of Disturbance, a regulated source of annoyance; a destroyer of routine; an underminer of complacency.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-toulmin-condemn",
-        "q": "Week 2 Part 5: what does the Toulmin quote say about those who condemn dissenters as dissidents?",
-        "a": "Those who condemn dissenters as dissidents, in truth condemn themselves.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
-      },
-      {
-        "id": "4100-w2p5-toulmin-quote-who",
-        "q": "Week 2 Part 5: who said \"Those who condemn dissenters as dissidents, in truth condemn themselves.\"?",
-        "a": "Stephen Toulmin.",
-        "tags": [
-          "rhetoric",
-          "Toulmin",
-          "week2-part5"
-        ]
+      "id": "4100-w2p2-flow",
+      "q": "Week 2 Part 2: what is flow in debate, and how are flows made?",
+      "a": "A technique that lets you quickly note what is being said in a system that makes line-by-line refutation possible. Flows are created with symbols that signify meta-information of the arguments.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-six-components",
+      "q": "Rhetoric Part 2 self-test (multi-select): which six components belong to the Toulmin model?",
+      "a": "Claim, Qualifiers, Backing, Rebuttals, Grounds, Warrant. Not: Argument, Status quo, Agency, Nuance, Proof.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-deliberative-blank",
+      "q": "Rhetoric Part 2 self-test (fill in the blank): \"[blank] rhetoric is forward looking and focuses on what to do next.\"",
+      "a": "Deliberative. Deliberative rhetoric looks to the future and what to do next. Not judicial or epideictic. Not \"general\".",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-all",
+      "q": "Rhetoric Part 2 self-test: match each smoking-style statement to a Toulmin part.",
+      "a": "1. You should stop smoking. = Claim. 2. You cannot disregard the advice of the medical community. = Warrant (explicit warrant). 3. Smoking is proven many times over to be really bad for you. = Grounds (evidence). 4. Look, I know it is hard, but you will benefit in the long run. = Rebuttal (addresses the difficulty). 5. At least commit to stopping by a certain date and start working towards it. = Qualifier. 6. After I stopped smoking, my stamina improved a lot. = Grounds (anecdote; grounds can be anecdotes). 7. At least promise me you'll think about it. = Qualifier (softens the claim).",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-stop",
+      "q": "Rhetoric Part 2 self-test: \"You should stop smoking.\" Which Toulmin part?",
+      "a": "Claim. This is what you want the audience to accept.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-medical",
+      "q": "Rhetoric Part 2 self-test: \"You cannot disregard the advice of the medical community.\" Which Toulmin part?",
+      "a": "Warrant. On the slides this is the explicit warrant (why you should listen). Not Grounds.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-proven",
+      "q": "Rhetoric Part 2 self-test: \"Smoking is proven many times over to be really bad for you.\" Which Toulmin part?",
+      "a": "Grounds. This is evidence that supports the claim. Not a Qualifier.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-hard",
+      "q": "Rhetoric Part 2 self-test: \"Look, I know it is hard, but you will benefit in the long run.\" Which Toulmin part?",
+      "a": "Rebuttal. It addresses the expected difficulty (and still pushes the claim).",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-date",
+      "q": "Rhetoric Part 2 self-test: \"At least commit to stopping by a certain date and start working towards it.\" Which Toulmin part?",
+      "a": "Qualifier. It narrows the claim (a date and a start), like the slide qualifier. Not a Warrant.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-stamina",
+      "q": "Rhetoric Part 2 self-test: \"After I stopped smoking, my stamina improved a lot.\" Which Toulmin part?",
+      "a": "Grounds. An anecdote can function as grounds. Not a Qualifier.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-match-think",
+      "q": "Rhetoric Part 2 self-test: \"At least promise me you'll think about it.\" Which Toulmin part?",
+      "a": "Qualifier. It softens the claim. Not a Rebuttal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p2-st-grounds-only-provable",
+      "q": "Rhetoric Part 2 self-test: true or false? \"Only provable evidence can function as grounds in the Toulmin model.\"",
+      "a": "False. Grounds can be evidence, data, statistics, anecdotes, or signs of expertise/authority. They are not limited to provable evidence.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part2",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p3-arena-quote",
+      "q": "Week 2 Part 3: what does the Roosevelt \"man in the arena\" quote say about who counts?",
+      "a": "It is not the critic who counts. Credit belongs to the man who is actually in the arena.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-affirmative-risk",
+      "q": "Week 2 Part 3: what does arguing for the affirmative mean here?",
+      "a": "The affirmative takes the risk of proposing change. Critics who only point out stumbles do not get the credit.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-affirmative-prop",
+      "q": "Week 2 Part 3: how does the affirmative argue for change?",
+      "a": "By offering a proposition.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-three-aspects",
+      "q": "Week 2 Part 3: which three aspects must the affirmative cover to be persuasive?",
+      "a": "Indict the status quo. Demonstrate solvency. Be an example of the proposition.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-indict",
+      "q": "Week 2 Part 3: what does it mean to indict the status quo?",
+      "a": "Say what is wrong and what harm it does.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-solvency",
+      "q": "Week 2 Part 3: what does it mean to demonstrate solvency?",
+      "a": "Show that your proposition actually addresses the problem and reduces harm.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-example-prop",
+      "q": "Week 2 Part 3: what does \"be an example of the proposition\" warn against?",
+      "a": "Don't replace evil with evil.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-three-factors",
+      "q": "Week 2 Part 3: building a good argument comes from understanding which three factors?",
+      "a": "The audience, prior research, and nuance.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-audience",
+      "q": "Week 2 Part 3: what should you ask about the audience?",
+      "a": "Who do you want to convince? What are their values? What is their situation or context?",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-prior-research",
+      "q": "Week 2 Part 3: what does prior research need to give you?",
+      "a": "Enough relevant data and grounds. It is also needed in anticipation of counter arguments. (Background chapter!)",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-nuance",
+      "q": "Week 2 Part 3: what does nuance mean here?",
+      "a": "Use of qualifiers. Correct agency.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-agency-def",
+      "q": "Week 2 Part 3: who are the agents in an argument?",
+      "a": "Those who should actually DO what you propose. They may not be the same as, or all of, your audience.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-wrong-agents",
+      "q": "Week 2 Part 3: what happens if a proposal has the wrong agents?",
+      "a": "It may reduce the solvency of the harm. Example: \"... and Mexico will pay for it!\"",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-enabled",
+      "q": "Week 2 Part 3: what problem can the agents themselves have?",
+      "a": "They may not feel enabled or empowered to enact on the proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-unclear-agency",
+      "q": "Week 2 Part 3: what can unclear agency lead to, and what helps?",
+      "a": "Distracting discussions and confusion, which nuance and qualifiers can help avoid.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-mexico-qualified",
+      "q": "Week 2 Part 3: how does the lecture qualify \"... and Mexico will pay for it!\"?",
+      "a": "\"... and Mexico will indirectly pay for it through a negotiation of our agreements which would indirectly create a financial surplus sufficient to cover the cost!\" That is the qualified / nuanced version of the same claim.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-agent-perspective",
+      "q": "Week 2 Part 3: when arguing from the agent's perspective, what must a persuasive argument highlight?",
+      "a": "How the controversy, harm and cost affects the agents themselves.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-opportunity-cost",
+      "q": "Week 2 Part 3: what often-overlooked factor belongs with the agent's perspective?",
+      "a": "The opportunity cost of a proposal: committing to an action may limit the ability to respond to future opportunities.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-intro-claim",
+      "q": "Week 2 Part 3: what is the introduction's claim in a scientific paper or thesis?",
+      "a": "Addressing the problem I'm describing is important and worth spending resources on.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-intro-indict",
+      "q": "Week 2 Part 3: where is indictment and harm heavy in the introduction?",
+      "a": "The starting point of the introduction, with a narrowing from domain down to the specific issue.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-intro-solvency",
+      "q": "Week 2 Part 3: where does the introduction usually demonstrate solvency?",
+      "a": "The proposed impact, usually right before the problem statement.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-intro-backing",
+      "q": "Week 2 Part 3: why is the introduction low on backing and warrant?",
+      "a": "That's for the background. Implicit warrant: the problem's nature warrants a scientific approach.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-intro-nuance",
+      "q": "Week 2 Part 3: where should the introduction show nuance?",
+      "a": "The operationalization after the problem statement.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-approach-claim",
+      "q": "Week 2 Part 3: what is the approach's claim in a scientific paper or thesis?",
+      "a": "My plan is feasible and presents an adequate scientific approach to answer the problem.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-approach-gwb",
+      "q": "Week 2 Part 3: what supplies grounds, warrant and backing in the approach?",
+      "a": "The research method and its tradition. The amount of work relative to the timeframe.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-approach-solvency",
+      "q": "Week 2 Part 3: how must the approach demonstrate solvency?",
+      "a": "The data gathered speaks to what we need to uncover. The experiments cover the relevant aspects of interest. The plan is detailed enough to demonstrate control.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-case",
+      "q": "Week 2 Part 3: what is the workshop case used to practise Toulmin for a presentation?",
+      "a": "Your faculty will hold a workshop for teachers on using flipped classroom teaching approaches. You are invited to give an introduction in order to motivate the attendees.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-claim",
+      "q": "Week 2 Part 3: what draft claim appears on the flipped-classroom presentation slide, and what is still open?",
+      "a": "\"We should adopt flipped classroom approaches to teaching...?\" The claim is still being formulated. The question marks are part of the point.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-indict-flex",
+      "q": "Week 2 Part 3: what student-side indictment is given in the flipped-classroom example?",
+      "a": "Students are digitized and require a high degree of flexibility.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-indict-engage",
+      "q": "Week 2 Part 3: what teacher-side indictment is given in the flipped-classroom example?",
+      "a": "We don't have sufficient opportunity to engage directly with students when we are most needed.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-indict-sq",
+      "q": "Week 2 Part 3: what label does the lecture give those flipped-classroom indictment lines?",
+      "a": "Indictment of the status quo!",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-indict-expect",
+      "q": "Week 2 Part 3: what third indictment line is added in the flipped-classroom example?",
+      "a": "Students expect us to deliver teaching that is most beneficial to them.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-harm-edu",
+      "q": "Week 2 Part 3: what student-education harm is named in the flipped-classroom example?",
+      "a": "Students are not getting the best education.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-harm-tax",
+      "q": "Week 2 Part 3: what financing harm is named in the flipped-classroom example?",
+      "a": "We are not fulfilling our obligation to produce the best outcomes from our tax-based financing.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-harm-work",
+      "q": "Week 2 Part 3: what teacher-work harm is named in the flipped-classroom example?",
+      "a": "We are unable to work in ways that are more motivating and rewarding.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-grounds-solvency",
+      "q": "Week 2 Part 3: what extra job do the flipped-classroom grounds have besides supporting the claim?",
+      "a": "They include solvency of the harms: they show how the proposal addresses those harms.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-grounds-list",
+      "q": "Week 2 Part 3: which five grounds are listed for the flipped-classroom presentation?",
+      "a": "Practical information: what it takes to transition from a traditional to a flipped classroom approach. Our values: making a positive impact on students is profound and meaningful. Anecdotal evidence: my own experience. Scientific evidence: published studies. New incentives: becoming a merited educator will lead to a pay raise and status.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-warrant-ex",
+      "q": "Week 2 Part 3: what is the explicit warrant in the flipped-classroom example?",
+      "a": "The studies I have presented are similar to our teaching environment and their results are believable.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-warrant-im",
+      "q": "Week 2 Part 3: what is the implicit warrant in the flipped-classroom example?",
+      "a": "We should aspire to continuously adjust our practices to those which currently provide the best outcomes.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-backing",
+      "q": "Week 2 Part 3: what backing is given in the flipped-classroom example?",
+      "a": "A colleague of mine has done the same and it also provided good results there.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-qualifiers",
+      "q": "Week 2 Part 3: which three qualifiers appear in the flipped-classroom example?",
+      "a": "Only those who are motivated will prioritize this. Some want to work on a different aspect of their career. Some feel structurally bound by the system.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-agents",
+      "q": "Week 2 Part 3: who are the agents in the flipped-classroom example?",
+      "a": "Teachers who are inspired by engaging teaching methods and want to advance their career.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-reb-skills",
+      "q": "Week 2 Part 3: how does the lecture rebut \"We don't have the skills\"?",
+      "a": "People who teach, usually know how to learn. It's not about what you know right now.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-reb-incentive",
+      "q": "Week 2 Part 3: how does the lecture rebut \"There's no real incentive\"?",
+      "a": "No longer true.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-reb-work",
+      "q": "Week 2 Part 3: how does the lecture rebut \"It's a lot of work\"?",
+      "a": "Yes, but only initially. You'll end up with more flexibility in the long run and can use that on other career aspects.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-claim-after",
+      "q": "Week 2 Part 3: what is the refined flipped-classroom claim after the Toulmin work?",
+      "a": "Moving towards a flipped classroom approach is a good way to teach in a meaningful and engaging way while advancing your career.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-pres-claim-refine",
+      "q": "Week 2 Part 3: how does the refined flipped-classroom claim differ from \"We should adopt flipped classroom approaches to teaching...?\"",
+      "a": "It is qualified (moving towards), tied to values (meaningful and engaging), and tied to agency / career (advancing your career).",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-no-order",
+      "q": "Week 2 Part 3: what does the lecture notice about order and structure after the Toulmin pieces are in place?",
+      "a": "The Toulmin model does not prescribe an order or structure of the communication itself. Building a presentation from all pieces is now a matter of composition and rhetoric.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p3-against-teaser",
+      "q": "Week 2 Part 3: what topic does the last slide tease for next?",
+      "a": "Applying it: Arguing against affirmative. That is the Part 4 teaser only.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part3"
+      ]
+    },
+    {
+      "id": "4100-w2p4-churchill-who",
+      "q": "Week 2 Part 4: whose quote opens The critic, and from which year?",
+      "a": "Churchill, 1939.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-churchill-necessary",
+      "q": "Week 2 Part 4: what does the Churchill quote say about whether criticism is agreeable?",
+      "a": "Criticism may not be agreeable, but it is necessary.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-churchill-pain",
+      "q": "Week 2 Part 4: what function does criticism fulfill, according to the Churchill quote?",
+      "a": "The same function as pain in the human body; it calls attention to the development of an unhealthy state of things.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-churchill-heed",
+      "q": "Week 2 Part 4: what happens if criticism is heeded in time, and if it is suppressed?",
+      "a": "If it is heeded in time, danger may be averted; if it is suppressed, a fatal distemper may develop.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-negative-against",
+      "q": "Week 2 Part 4: what is arguing for the negative often?",
+      "a": "An argument against a proposal made by others.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-wrong-values",
+      "q": "Week 2 Part 4: what risk does the negative face when attacking from several perspectives?",
+      "a": "Being motivated by the wrong values, i.e. a personal victory instead of a good debate.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-three-components",
+      "q": "Week 2 Part 4: which three components make a good case for the negative?",
+      "a": "Direct disadvantages of the proposal. Counter proposals. Critique of assumptions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-inherency-name",
+      "q": "Week 2 Part 4: what is the first kind of direct disadvantage named?",
+      "a": "Inherency of the proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-inherency-means",
+      "q": "Week 2 Part 4: what does an attack on the inherency of a proposal mean?",
+      "a": "Pointing out obstacles, previous attempts or even better current efforts.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-inherency-lines",
+      "q": "Week 2 Part 4: which example lines illustrate an inherency attack?",
+      "a": "We're doing this already. There's already a better fix.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-inherency-attitudinal",
+      "q": "Week 2 Part 4: are inherency attacks limited to feasibility?",
+      "a": "No. They can be attitudinal. Example: Things are fine right now.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-inherency-grounds",
+      "q": "Week 2 Part 4: when attacking inherency, are you disagreeing with the problem or grounds?",
+      "a": "No. You point out other inherent factors that weaken the proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-inherency-research",
+      "q": "Week 2 Part 4: what does uncovering inherency issues require?",
+      "a": "Research into the proposal and the problem within the status quo.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-name",
+      "q": "Week 2 Part 4: what is the second kind of direct disadvantage named?",
+      "a": "Attacking the harms.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-core",
+      "q": "Week 2 Part 4: what is the core of most affirmative proposals?",
+      "a": "That the status quo is doing a harm.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-magnitude",
+      "q": "Week 2 Part 4: what can underlining the magnitude of the harm do?",
+      "a": "It can be a powerful tool, but it may also be tested by the negative.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-test",
+      "q": "Week 2 Part 4: how may the negative test the magnitude of the harm?",
+      "a": "Are we really sure all the worst case harm is realistic? It won't be as bad.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-positive",
+      "q": "Week 2 Part 4: what can happen to the proposed harm in some cases?",
+      "a": "It can become a positive in the end.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-jobs",
+      "q": "Week 2 Part 4: how does the slide turn job loss into a possible positive?",
+      "a": "Yes, people loose their jobs, but if we offer them a new career, they would be able to earn more and pay more tax. (Slide spelling: loose. Meaning: lose jobs.)",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-harms-cavalier",
+      "q": "Week 2 Part 4: what risk comes with attacking the harms if it is not combined with other arguments?",
+      "a": "One can risk being too cavalier.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-solvency-name",
+      "q": "Week 2 Part 4: what is the third kind of direct disadvantage named?",
+      "a": "Solvency of the proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-solvency-means",
+      "q": "Week 2 Part 4: what does attacking the solvency of the proposal mean?",
+      "a": "Arguing that the proposal will not solve the described problem.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-solvency-lines",
+      "q": "Week 2 Part 4: which example lines illustrate a solvency attack?",
+      "a": "It won't play out as you say it will. This will do little to address the core issue. You're fighting the symptom, not the disease.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-solvency-feasibility",
+      "q": "Week 2 Part 4: is a solvency attack the same as attacking the feasibility of the proposition?",
+      "a": "No.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-solvency-strengthen",
+      "q": "Week 2 Part 4: how do solvency attacks affect other negative attacks?",
+      "a": "They strengthen all other negative attacks, i.e. the possible harm of the proposal outweigh the weak prospect of positives.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-counter-what",
+      "q": "Week 2 Part 4: what can a counter proposal offer?",
+      "a": "A variance of the proposal or a completely different proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-counter-scrutiny",
+      "q": "Week 2 Part 4: how much scrutiny does a counter proposal need, and what can it do if well prepared?",
+      "a": "It does not need the same scrutiny, but if well prepared it can be a devastating blow to the affirmative.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-counter-deliberative",
+      "q": "Week 2 Part 4: how should counter proposals be framed?",
+      "a": "They should always be deliberative, and not interrogative.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-counter-dont",
+      "q": "Week 2 Part 4: what interrogative line should you not use as a counter proposal?",
+      "a": "Why did you not consider shorting the stocks instead?",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-counter-instead",
+      "q": "Week 2 Part 4: how should the shorting-the-stocks counter proposal be phrased instead?",
+      "a": "I think shorting the stocks is a better choice, because ....",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-assume-wg",
+      "q": "Week 2 Part 4: where can assumptions be found, and what study example is given?",
+      "a": "In the warrants and grounds. Example: You assume a 50-year old study is relevant today.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-assume-indict",
+      "q": "Week 2 Part 4: where else do assumptions exist?",
+      "a": "In the indictment of the status quo.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-assume-unemp",
+      "q": "Week 2 Part 4: how does the slide attack the assumption that unemployment is bad?",
+      "a": "You say unemployment is bad, but unemployment in one sector is a necessary and natural re-adjustment of the markets.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-assume-flip",
+      "q": "Week 2 Part 4: what can you do with the warrant together with a counter proposal?",
+      "a": "Flip the warrant.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-assume-law",
+      "q": "Week 2 Part 4: how does the flipped-warrant example use law school against flipped classroom?",
+      "a": "If we really want students to succeed, then we should have stricter admission requirements and not pretend everyone can get what they want! Do you think they're debating flipped classroom in law school? They don't, because they only have students who really want to be there and accept that it is hard. In fact, they are proud of their achievement in the end for that reason!",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-close-why",
+      "q": "Week 2 Part 4: what closing question does the lecture raise after the negative attacks?",
+      "a": "Wow, sounds like arguing for any proposal is almost impossible. Why bother?",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-close-hard",
+      "q": "Week 2 Part 4: how hard SHOULD arguing for the affirmative be?",
+      "a": "It SHOULD be hard. Slide reason: change adds risk. NOTE: Canvas Q2 does NOT accept the change/risk option. See 4100-w2p4-st-affirmative-hard.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-close-risk",
+      "q": "Week 2 Part 4: why does every proposal add risk?",
+      "a": "Slide wording: every proposal brings change and change adds risk. NOTE: Canvas Part 4 self-test Q2 does NOT accept that option. See 4100-w2p4-st-affirmative-hard.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-close-not-against",
+      "q": "Week 2 Part 4: should arguing against a proposal be confused with being against change?",
+      "a": "No.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-close-stasis",
+      "q": "Week 2 Part 4: if change may be inevitable, what can debate help determine, and why does that make a point of stasis important?",
+      "a": "Debate could help determine the best proposals. This is why a point of stasis is so important.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-p5-teaser",
+      "q": "Week 2 Part 4: what topic does the last slide tease for next?",
+      "a": "Applying it: Making decisions based on debate. That is the Part 5 teaser only.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-match-all",
+      "q": "Rhetoric Part 4 self-test: match each negative line to Direct disadvantages, Counter proposals, or Critique of assumptions.",
+      "a": "1. It would be a better idea, to ... = Counter proposals. 2. The problem is not as big as you think. = Direct disadvantages (harms magnitude). 3. I don't think your example really applies to us. = Critique of assumptions (warrant or grounds do not apply). 4. I remember when we tried doing exactly that in my previous job. = Direct disadvantages (inherency / previous attempts). 5. Even if we would do it, it wouldn't change much. = Direct disadvantages (solvency). 6. If you really want them to succeed, then this would do the opposite. = Critique of assumptions (flip the warrant). 7. You call it a problem, but this is actually important for quality assurance. = Critique of assumptions (indictment flip).",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-better-idea",
+      "q": "Rhetoric Part 4 self-test: \"It would be a better idea, to ...\" Which negative strategy?",
+      "a": "Counter proposals. You offer a different plan instead of only attacking theirs.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-problem-not-big",
+      "q": "Rhetoric Part 4 self-test: \"The problem is not as big as you think.\" Which negative strategy?",
+      "a": "Direct disadvantages. This tests harms magnitude (how bad is the status quo really?). Not Critique of assumptions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-example-applies",
+      "q": "Rhetoric Part 4 self-test: \"I don't think your example really applies to us.\" Which negative strategy?",
+      "a": "Critique of assumptions. The warrant or grounds (the example) do not apply here. Not Direct disadvantages.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-previous-job",
+      "q": "Rhetoric Part 4 self-test: \"I remember when we tried doing exactly that in my previous job.\" Which negative strategy?",
+      "a": "Direct disadvantages. This is inherency: previous attempts (or obstacles / current efforts) weaken the proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-wouldnt-change",
+      "q": "Rhetoric Part 4 self-test: \"Even if we would do it, it wouldn't change much.\" Which negative strategy?",
+      "a": "Direct disadvantages. This is solvency: the proposal will not solve the described problem. Not Critique of assumptions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-succeed-opposite",
+      "q": "Rhetoric Part 4 self-test: \"If you really want them to succeed, then this would do the opposite.\" Which negative strategy?",
+      "a": "Critique of assumptions. This flips the warrant (same value, opposite conclusion). Not Counter proposals.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-quality-assurance",
+      "q": "Rhetoric Part 4 self-test: \"You call it a problem, but this is actually important for quality assurance.\" Which negative strategy?",
+      "a": "Critique of assumptions. This flips the indictment of the status quo (the named harm is treated as a good).",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p4-st-affirmative-hard",
+      "q": "Rhetoric Part 4 self-test Q2: One might feel disheartened to want to argue for any proposal, given the multitude of attacks that can be used against it. But it is important to remember, that arguing for the affirmative SHOULD be hard, because ...",
+      "a": "Canvas drill key (inferred after Canvas rejected change/risk; no green check seen): there are always other proposals you can choose instead. Slide wording is change/risk: all proposals bring change and change adds risk. Canvas marked that option INCORRECT. Among remaining visible options, other proposals is the next most lecture-aligned (debate can help determine the best proposals; point of stasis). Not the 10% option (not on the slides). Confirm if you see the official correct mark. Two options showed as No answer text provided.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part4",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4100-w2p5-goal",
+      "q": "Week 2 Part 5: what goal does the lecture ask you to refocus on?",
+      "a": "Making good decisions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-options",
+      "q": "Week 2 Part 5: what do leaders and managers have when they need to make informed decisions?",
+      "a": "Several options to make informed decisions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-input",
+      "q": "Week 2 Part 5: when leaders want input or advice, what do they typically do?",
+      "a": "Have informal conversations with trusted employees, or organize a meeting / workshop or hearing.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-assist",
+      "q": "Week 2 Part 5: what open question does the lecture ask after listing those decision options?",
+      "a": "How would what we have covered until now assist in reaching the goal of good decisions?",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-proscons-title",
+      "q": "Week 2 Part 5: what common decision method does the lecture say does not always work?",
+      "a": "Pros vs cons.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-proscons-setup",
+      "q": "Week 2 Part 5: how does a typical pros vs cons session work?",
+      "a": "The participants brainstorm pros and cons which are written on a whiteboard.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-proscons-verbal",
+      "q": "Week 2 Part 5: whose voices does a pros vs cons whiteboard favor?",
+      "a": "Strong and verbal personalities.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-proscons-nuance",
+      "q": "Week 2 Part 5: what does a pros vs cons list lack?",
+      "a": "It has no nuance.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-proscons-aggregate",
+      "q": "Week 2 Part 5: is a pros vs cons list always an aggregate?",
+      "a": "No. It is not always an aggregate.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-proscons-weight",
+      "q": "Week 2 Part 5: what is missing from each point on a pros vs cons whiteboard, and what does the method assume?",
+      "a": "No visible value or weight of each point made, and it assumes it is the number that counts.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-vote-title",
+      "q": "Week 2 Part 5: besides pros vs cons, which other common method does the lecture say does not always work?",
+      "a": "Voting.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-vote-setup",
+      "q": "Week 2 Part 5: how does a typical vote-on-actions session work?",
+      "a": "Employees are asked to propose actions, which are written on a board. Everyone votes on them.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-vote-airtime",
+      "q": "Week 2 Part 5: whom does impromptu voting favor?",
+      "a": "Those who can handle impromptu elections and get the most airtime for their proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-vote-prepare",
+      "q": "Week 2 Part 5: why do old and faithful proposals take center stage when people vote?",
+      "a": "Voting gives little time to thoroughly prepare proposals, so the old and faithful proposals take center stage.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-vote-defend",
+      "q": "Week 2 Part 5: what extra risk comes with proposing an action in a vote?",
+      "a": "If you propose it, you have to defend it, adding risk to looking foolish.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-vote-best",
+      "q": "Week 2 Part 5: does the proposal with the most votes have to be the best one?",
+      "a": "No. Sometimes, the best proposal is not the one with the most votes.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-free-title",
+      "q": "Week 2 Part 5: besides pros vs cons and voting, which meeting method does the lecture say does not always work?",
+      "a": "A free discussion.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-free-setup",
+      "q": "Week 2 Part 5: how does a typical free discussion start?",
+      "a": "The topic is introduced in a meeting and everyone is asked for their opinion.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-free-dominant",
+      "q": "Week 2 Part 5: whose voices prevail in a free discussion?",
+      "a": "Dominant personalities prevail.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-free-battle",
+      "q": "Week 2 Part 5: what happens in a free discussion when no one has adequate time to prepare?",
+      "a": "Old battle-lines are redrawn.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-free-foolish",
+      "q": "Week 2 Part 5: what extra risk comes with proposing something in a free discussion?",
+      "a": "If you propose it, you have to defend it, adding risk to looking foolish.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-lead-title",
+      "q": "Week 2 Part 5: what can leaders do instead of relying on weak meeting methods?",
+      "a": "Promote valuable input.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-lead-stasis",
+      "q": "Week 2 Part 5: what should leaders predefine before people give input?",
+      "a": "The propositions and point of stasis.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-lead-values",
+      "q": "Week 2 Part 5: what should leaders specify about the decision at the end?",
+      "a": "The values by which a decision will be made at the end.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-lead-time",
+      "q": "Week 2 Part 5: how much time should leaders give people before the debate?",
+      "a": "Enough time to prepare good arguments.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-lead-debaters",
+      "q": "Week 2 Part 5: whom should leaders assign for propositions?",
+      "a": "Designated debaters for propositions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-lead-rdf",
+      "q": "Week 2 Part 5: what should leaders write after the decision, and why?",
+      "a": "RDF (Reason For Decision), so employees can understand the reasoning of the leader.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-culture-title",
+      "q": "Week 2 Part 5: what kind of debate culture does the lecture say matters?",
+      "a": "A positive debate culture.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-culture-science",
+      "q": "Week 2 Part 5: do rhetoric and persuasion have a place in science and scientific environments?",
+      "a": "Yes, if you accept that scientists are humans.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-culture-org",
+      "q": "Week 2 Part 5: what decides whether persuasion is a tool for manipulation or for informed decisions?",
+      "a": "The culture of the organization.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-culture-protect",
+      "q": "Week 2 Part 5: what can debate's structure do for people and for a proposal?",
+      "a": "It can protect the individual and bring to light a more nuanced discussion about a proposal.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-informal-title",
+      "q": "Week 2 Part 5: besides formal decision meetings, where else does the lecture place debate?",
+      "a": "In informal settings.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-informal-exciting",
+      "q": "Week 2 Part 5: what can debating an issue do socially?",
+      "a": "It is an exciting and entertaining activity, which also strengthens social interactions.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-informal-aggress",
+      "q": "Week 2 Part 5: what can happen if you use all available debate tools in an informal setting?",
+      "a": "It may provoke a sense of aggressiveness.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-informal-discuss",
+      "q": "Week 2 Part 5: instead of trying to be affirmative or negative in an informal setting, what should you do?",
+      "a": "Try to move the debate into a discussion.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-informal-quote",
+      "q": "Week 2 Part 5: what example line moves an informal debate into a discussion?",
+      "a": "I see what you're saying, but what do you think about the argument, that ... (Slide spelling: your'e.)",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-title",
+      "q": "Week 2 Part 5: what does the lecture warn you not to do to people who disagree?",
+      "a": "Don't dis dissenters.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-popular",
+      "q": "Week 2 Part 5: is being a critic always popular?",
+      "a": "No. Being a critic is not always popular.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-polarized",
+      "q": "Week 2 Part 5: what is happening to society and viewpoints?",
+      "a": "They are increasingly polarized.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-hostile",
+      "q": "Week 2 Part 5: what do we lose if we view every opposition as hostile?",
+      "a": "The opportunity to uncover the strengths and weakness of our ideas and to test them against our values. (Slide spelling: loose.)",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-both",
+      "q": "Week 2 Part 5: who counts as critics, and what do they need?",
+      "a": "Both the affirmative and the negative are critics in their own right and both need protection.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-darl-who",
+      "q": "Week 2 Part 5: who is attributed on the Don't dis dissenters quote slide?",
+      "a": "CD. Darlington.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-darl-accident",
+      "q": "Week 2 Part 5: what does the CD. Darlington quote say about who first understood bacteria, isolated oxygen, and established infection, heredity and evolution?",
+      "a": "It is no accident that bacteria was first understood by a canal engineer, that oxygen was isolated by a Unitarian minister, that the theory of infection was established by a chemist, the theory of heredity of a monastic school teacher, and the theory of evolution by a man who was unfitted to be a university instructor in either botany or zoology.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-diss-darl-ministry",
+      "q": "Week 2 Part 5: what ministry does the CD. Darlington quote say we need?",
+      "a": "A ministry of Disturbance, a regulated source of annoyance; a destroyer of routine; an underminer of complacency.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-toulmin-condemn",
+      "q": "Week 2 Part 5: what does the Toulmin quote say about those who condemn dissenters as dissidents?",
+      "a": "Those who condemn dissenters as dissidents, in truth condemn themselves.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w2p5-toulmin-quote-who",
+      "q": "Week 2 Part 5: who said \"Those who condemn dissenters as dissidents, in truth condemn themselves.\"?",
+      "a": "Stephen Toulmin.",
+      "tags": [
+        "rhetoric",
+        "Toulmin",
+        "week2-part5"
+      ]
+    },
+    {
+      "id": "4100-w3-module",
+      "q": "What is Week 3 in ACIT4100 about?",
+      "a": "Searching for and sorting literature: where to find papers, how research articles are structured (IMRaD), how to read review articles, and building your taxonomy spreadsheet for Assignment 1.",
+      "tags": [
+        "week3",
+        "literature"
+      ]
+    },
+    {
+      "id": "4100-w3-find-papers",
+      "q": "Where should you look for scientific papers on your ACIT topic?",
+      "a": "Discipline databases and indexes (e.g. ACM Digital Library, IEEE Xplore, DBLP), Google Scholar, and OsloMet library search - then filter for peer-reviewed research articles relevant to your essay field.",
+      "tags": [
+        "week3",
+        "literature"
+      ]
+    },
+    {
+      "id": "4100-w3-review-vs-research",
+      "q": "Week 3: what is the difference between a review article and a research paper?",
+      "a": "A research paper usually reports original work (methods + results). A review article surveys and synthesises existing research on a topic - useful early in your literature search to map the field.",
+      "tags": [
+        "week3",
+        "literature"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/imrad.svg",
+        "alt": "Research article structure",
+        "caption": "Research vs review purpose",
+        "shows": "Review surveys others' work; research reports new work."
       }
-    ]
-  }
+    },
+    {
+      "id": "4100-w3-read-review",
+      "q": "How should you approach reading a review article (Week 3)?",
+      "a": "Use it to map themes, methods and gaps in the field before diving into primary papers. Note how the author categorises literature - that informs your own taxonomy columns.",
+      "tags": [
+        "week3",
+        "literature"
+      ]
+    },
+    {
+      "id": "4100-w3-imrad-intro",
+      "q": "In IMRaD, what does the Introduction section typically do?",
+      "a": "Frames the problem, states research questions/hypotheses, and positions the work against prior literature - tells the reader why the study matters.",
+      "tags": [
+        "week3",
+        "literature",
+        "genre"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/imrad.svg",
+        "alt": "IMRaD Introduction",
+        "caption": "Introduction sets context",
+        "shows": "Broad framing before Methods/Results."
+      }
+    },
+    {
+      "id": "4100-w3-imrad-methods",
+      "q": "In IMRaD, what belongs in the Methods section?",
+      "a": "How the study was conducted: design, participants/data sources, instruments, procedures - enough detail for another researcher to assess or replicate.",
+      "tags": [
+        "week3",
+        "literature",
+        "methods"
+      ]
+    },
+    {
+      "id": "4100-w3-imrad-results",
+      "q": "In IMRaD, what belongs in the Results section?",
+      "a": "Findings presented objectively (tables, figures, statistics) without extended interpretation - the data answer the research question.",
+      "tags": [
+        "week3",
+        "literature",
+        "methods"
+      ]
+    },
+    {
+      "id": "4100-w3-imrad-discussion",
+      "q": "In IMRaD, what belongs in the Discussion section?",
+      "a": "Interpretation of results, limitations, implications, and how findings relate to prior work - where authors argue what it means.",
+      "tags": [
+        "week3",
+        "literature",
+        "genre"
+      ]
+    },
+    {
+      "id": "4100-w3-taxonomy-activity",
+      "q": "What in-class Week 3 activity supports Assignment 1?",
+      "a": "Create your own taxonomy for your literature survey - categorise papers with metadata columns (author, year, method, theme, etc.) in the spreadsheet Canvas requires.",
+      "tags": [
+        "week3",
+        "literature",
+        "assign1"
+      ]
+    },
+    {
+      "id": "4100-w3-ref-tools",
+      "q": "Why does Week 3 point you to reference-management tutorials?",
+      "a": "Tools like Zotero store PDFs and metadata, export APA7 references, and keep your taxonomy spreadsheet aligned with sources you will cite in the essay.",
+      "tags": [
+        "week3",
+        "literature",
+        "tools"
+      ],
+      "figure": {
+        "type": "img",
+        "src": "figures/zotero.svg",
+        "alt": "Reference management",
+        "caption": "Reference managers feed the taxonomy",
+        "shows": "Collect -> organise -> cite in APA7."
+      }
+    },
+    {
+      "id": "4100-w3-structure-quiz",
+      "q": "What Canvas self-test belongs to Week 3 preparation?",
+      "a": "Self-test quiz - Structure of a paper (after the Structure of a research paper video and Structure of a paper.pdf on Canvas).",
+      "tags": [
+        "week3",
+        "literature"
+      ]
+    },
+    {
+      "id": "4100-w4-module",
+      "q": "What is Week 4 in ACIT4100 about?",
+      "a": "Philosophy of science - what makes something scientific: falsification, paradigms, and how your research field embeds (explicitly or implicitly) a philosophy-of-science tradition.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "4100-w4-popper",
+      "q": "What is Popper's falsificationism (Week 4)?",
+      "a": "A scientific claim should be testable and refutable - theories gain credibility when they survive attempts to falsify them, not when we only seek confirming examples.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "4100-w4-popper-cyber",
+      "q": "Give a falsification-style question for a cybersecurity research claim.",
+      "a": "Example: 'Training reduces phishing clicks' is scientific only if you can define measurable failure (e.g. click rate after training) and specify what outcome would refute the claim.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "4100-w4-kuhn",
+      "q": "What does Kuhn's notion of paradigms mean for reading a research field?",
+      "a": "Fields operate within shared assumptions, methods and exemplars (normal science) until anomalies push paradigm shifts - your essay can describe which tradition your literature assumes.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "4100-w4-tradition-essay",
+      "q": "What does the 2026 essay require about philosophy of science?",
+      "a": "Describe the tradition within philosophy of science in your research field - whether authors state it explicitly or it is implicit in how they argue, publish and choose methods.",
+      "tags": [
+        "week4",
+        "philosophy",
+        "essay",
+        "2026"
+      ]
+    },
+    {
+      "id": "4100-w4-explicit-implicit",
+      "q": "Can a research field have an implicit philosophy of science?",
+      "a": "Yes - many papers never cite Popper or Kuhn but still assume empiricism, reproducibility, or design-science norms. Your survey should name that tradition for your ACIT topic.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "4100-w4-scientific-criteria",
+      "q": "Week 4 framing: what helps decide if a claim is scientific?",
+      "a": "Testability, evidence tied to methods, openness to refutation, and alignment with how the field peer-reviews work - contrast with untestable or purely anecdotal claims.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    },
+    {
+      "id": "4100-w4-maxwell-podcast",
+      "q": "What supplementary Week 4 material is on Canvas?",
+      "a": "Podcast from the Popperian podcast (interview with Nicholas Maxwell) - optional depth on philosophy of science beyond the two lecture videos.",
+      "tags": [
+        "week4",
+        "philosophy"
+      ]
+    }
+  ]
+}

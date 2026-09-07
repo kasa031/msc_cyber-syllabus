@@ -23,10 +23,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock110" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock110" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock110" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock110" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock111" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock111" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock111" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock111" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -2787,13 +2787,7 @@
             <button type="button" class="quiz-find-clear" id="quiz-search-clear" hidden>Clear</button>
             <span class="quiz-find-count" id="quiz-search-count" aria-live="polite"></span>
           </div>
-          <div class="quiz-tag-filters" id="quiz-tag-filters" hidden aria-label="Quick filters">
-            <button type="button" class="quiz-tag-chip" data-filter="Lecture3">Lecture3</button>
-            <button type="button" class="quiz-tag-chip" data-filter="network">network</button>
-            <button type="button" class="quiz-tag-chip" data-filter="networks-assign">networks-assign</button>
-            <button type="button" class="quiz-tag-chip" data-filter="exam">exam</button>
-            <button type="button" class="quiz-tag-chip" data-filter="">All</button>
-          </div>
+          <div class="quiz-tag-filters" id="quiz-tag-filters" hidden aria-label="Quick filters"></div>
 
           <div class="quiz-progress-wrap" id="quiz-progress-wrap" hidden>
             <div class="quiz-progress-meta">
@@ -2935,8 +2929,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock110" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock110"></script>
+  <script src="quiz-decks.js?v=lock111" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock111"></script>
   <script>
   (function () {
   "use strict";
@@ -2956,7 +2950,7 @@
   var PASS_MIN_NEW = 8;
   var RANK_BOARD_KEY = "acit-rank-board-v1";
   var LAST_COURSE_KEY = "acit-last-course-v1";
-  var QUIZ_EXPECTED = { acit4050: 207, acit4280: 209, acit4100: 309, "computer-basics": 28, "fellesjam-general": 26 };
+  var QUIZ_EXPECTED = { acit4050: 207, acit4280: 209, acit4100: 328, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -5588,7 +5582,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock110-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock111-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -5852,10 +5846,10 @@ function showCourse(courseKey) {
       box.innerHTML = "207 cards. Lecture 3 Networks: tap <strong>Lecture3</strong> or <strong>networks-assign</strong> below, or search <em>network</em>. Terminal tab for lab commands.";
     } else if (deckKey === "acit4100") {
       box.classList.remove("hidden");
-      box.innerHTML = "Syllabus: ACIT4100 syllabus, essay requirements, APA/plagiarism. Quiz covers research communication - not your personal essay topic.";
+      box.innerHTML = "328 cards. Week 3 literature: tap <strong>week3</strong>. Week 4 philosophy: tap <strong>week4</strong>. Toulmin rhetoric: <strong>Toulmin</strong> or <strong>week2-part2</strong>.";
     } else if (deckKey === "fellesjam") {
       box.classList.remove("hidden");
-      box.innerHTML = "Mixed deck: merged unique cards from all courses + PC basics (~779 cards). Progress is stored under the Mixed deck.";
+      box.innerHTML = "Mixed deck: merged unique cards from all courses + PC basics (~798 cards). Progress is stored under the Mixed deck.";
     } else {
       box.classList.add("hidden");
       box.textContent = "";
@@ -6183,11 +6177,53 @@ function showCourse(courseKey) {
     });
   }
 
-  function syncQuizTagChips(activeTag) {
+  var DECK_TAG_CHIPS = {
+    acit4050: [
+      { filter: "Lecture3", label: "Lecture3" },
+      { filter: "network", label: "network" },
+      { filter: "networks-assign", label: "networks-assign" },
+      { filter: "exam", label: "exam" },
+      { filter: "", label: "All" }
+    ],
+    acit4100: [
+      { filter: "week3", label: "week3" },
+      { filter: "week4", label: "week4" },
+      { filter: "Toulmin", label: "Toulmin" },
+      { filter: "literature", label: "literature" },
+      { filter: "philosophy", label: "philosophy" },
+      { filter: "", label: "All" }
+    ],
+    acit4280: [
+      { filter: "Lecture1", label: "L1" },
+      { filter: "Lecture2", label: "L2" },
+      { filter: "Lecture3", label: "L3" },
+      { filter: "Lecture4", label: "L4" },
+      { filter: "Lecture5", label: "L5" },
+      { filter: "Lecture6", label: "L6" },
+      { filter: "", label: "All" }
+    ]
+  };
+
+  function renderQuizTagChips(deckKey) {
     var wrap = $("quiz-tag-filters");
     if (!wrap) return;
-    var show = quizState.deckKey === "acit4050" && quizPanelActive();
-    wrap.hidden = !show;
+    var chips = DECK_TAG_CHIPS[deckKey];
+    if (!chips || !chips.length || !quizPanelActive()) {
+      wrap.hidden = true;
+      wrap.innerHTML = "";
+      return;
+    }
+    wrap.innerHTML = chips.map(function (c) {
+      var f = c.filter == null ? "" : String(c.filter);
+      return '<button type="button" class="quiz-tag-chip" data-filter="' + escapeHtml(f) + '">' + escapeHtml(c.label || f || "All") + "</button>";
+    }).join("");
+    wrap.hidden = false;
+  }
+
+  function syncQuizTagChips(activeTag) {
+    renderQuizTagChips(quizState.deckKey);
+    var wrap = $("quiz-tag-filters");
+    if (!wrap || wrap.hidden) return;
     wrap.querySelectorAll(".quiz-tag-chip").forEach(function (btn) {
       var f = btn.getAttribute("data-filter") || "";
       btn.classList.toggle("is-active", f === (activeTag || ""));
