@@ -23,10 +23,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock128" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock128" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock128" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock128" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock149" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock149" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock149" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock149" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -2379,6 +2379,28 @@
       color: var(--ink);
       background: var(--signal-soft);
     }
+    .quiz-home-custom {
+      margin: 0.65rem 0 0.85rem;
+    }
+    .quiz-home-custom-label {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .quiz-home-custom-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .quiz-custom-btn {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.65rem;
+    }
+    .quiz-custom-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
     .quiz-home-actions {
       display: flex;
       flex-direction: column;
@@ -3746,9 +3768,9 @@
           <p class="weak-tags-empty" id="settings-weak-tags-empty" hidden>No weak tags yet - rate some cards in Practice mode first.</p>
         </div>
         <div class="settings-trophies-section" id="settings-trophies-section">
-          <h3>Trophies and badges</h3>
-          <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
-          <div class="trophy-grid" id="trophy-grid"></div>
+        <h3>Trophies and badges</h3>
+        <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
+        <div class="trophy-grid" id="trophy-grid"></div>
         </div>
       </div>
       <div class="tut-actions">
@@ -3768,14 +3790,14 @@
           <button type="button" role="tab" id="tab-course-notes" aria-selected="false" aria-controls="course-notes" data-course="notes" tabindex="-1"><span class="tab-code">Notes</span><span class="tab-name">Lecture summaries</span></button>
           <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-code">PC</span><span class="tab-name">Windows basics</span></button>
           <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-code">Mixed</span><span class="tab-name">All courses</span></button>
-        </div>
+      </div>
         <div id="course-section-tabs" class="course-section-tabs" role="tablist" aria-label="ACIT4050 study areas">
           <button type="button" role="tab" id="tab-section-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0">Lab exercises</button>
           <button type="button" role="tab" id="tab-section-quiz" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1">Flashcards</button>
           <button type="button" role="tab" id="tab-section-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1">Diagrams</button>
-        </div>
-        </div>
       </div>
+      </div>
+            </div>
       <!-- ========== LAB EXERCISES (ACIT4050) ========== -->
       <div id="course-terminal" class="course-panel active">
       <section id="panel-ovelser" class="panel active" role="tabpanel" aria-labelledby="tab-section-terminal">
@@ -4261,7 +4283,7 @@
                   <span class="study-mode-card-desc">Timed Canvas-style test. Score at the end.</span>
                 </span>
               </button>
-            </div>
+          </div>
           </div>
           <p class="study-mode-banner" id="study-mode-banner">Practice: show the answer, then tap 1-4. Forgot and Tricky cards come back until you know them.</p>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
@@ -4326,6 +4348,14 @@
                 <button type="button" data-goal="20">20 / day</button>
               </div>
             </div>
+            <div class="quiz-home-custom" id="quiz-home-custom">
+              <p class="quiz-home-custom-label">Custom study</p>
+              <div class="quiz-home-custom-btns" role="group" aria-label="Custom study shortcuts">
+                <button type="button" class="btn ghost quiz-custom-btn" id="quiz-custom-due">Due only</button>
+                <button type="button" class="btn ghost quiz-custom-btn" id="quiz-custom-new">New only</button>
+                <button type="button" class="btn ghost quiz-custom-btn" id="quiz-custom-tag" hidden>Tagged filter</button>
+              </div>
+            </div>
             <div class="tut-actions quiz-home-actions">
               <button type="button" class="btn btn-primary" id="quiz-home-start">Review due cards</button>
               <div class="btn-row">
@@ -4377,22 +4407,22 @@
               <div class="quiz-card-scene" id="quiz-card-scene">
                 <div class="quiz-card-inner" id="quiz-card-inner">
                   <div class="quiz-card-face quiz-card-front">
-                    <p class="quiz-label" id="quiz-face-label">Question</p>
-                    <p class="quiz-q" id="quiz-q">...</p>
+              <p class="quiz-label" id="quiz-face-label">Question</p>
+              <p class="quiz-q" id="quiz-q">...</p>
                     <div id="quiz-figure-mount" class="quiz-figure-mount hidden" aria-hidden="true"></div>
                     <p class="quiz-flip-hint" id="quiz-flip-hint">Tap or press Space to flip</p>
                   </div>
                   <div class="quiz-card-face quiz-card-back">
                     <p class="quiz-label" id="quiz-back-label">Answer</p>
                     <div class="quiz-a" id="quiz-a"></div>
-                    <figure class="quiz-figure hidden" id="quiz-figure" aria-label="Figure">
-                      <p class="quiz-figure-label">Figure</p>
-                      <div class="quiz-figure-media" id="quiz-figure-media"></div>
-                      <figcaption class="quiz-figure-caption hidden" id="quiz-figure-caption"></figcaption>
-                      <p class="quiz-figure-shows hidden" id="quiz-figure-shows"></p>
-                      <p class="quiz-figure-attr hidden" id="quiz-figure-attr"></p>
-                    </figure>
-                    <div class="quiz-tags" id="quiz-tags"></div>
+              <figure class="quiz-figure hidden" id="quiz-figure" aria-label="Figure">
+                <p class="quiz-figure-label">Figure</p>
+                <div class="quiz-figure-media" id="quiz-figure-media"></div>
+                <figcaption class="quiz-figure-caption hidden" id="quiz-figure-caption"></figcaption>
+                <p class="quiz-figure-shows hidden" id="quiz-figure-shows"></p>
+                <p class="quiz-figure-attr hidden" id="quiz-figure-attr"></p>
+              </figure>
+              <div class="quiz-tags" id="quiz-tags"></div>
                   </div>
                 </div>
               </div>
@@ -4403,18 +4433,18 @@
             <div class="tut-feedback hidden" id="quiz-solvable-banner" aria-live="polite"></div>
 
             <div id="quiz-action-dock" class="quiz-action-dock" aria-label="Card actions">
-              <div class="tut-actions" id="quiz-reveal-row">
-                <button type="button" class="btn btn-primary" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
-              </div>
+            <div class="tut-actions" id="quiz-reveal-row">
+              <button type="button" class="btn btn-primary" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
+            </div>
 
-              <div class="tut-actions hidden" id="flash-nav-row" aria-label="Flashcard navigation">
-                <button type="button" class="btn ghost" id="flash-prev">Previous</button>
-                <span class="flash-index" id="flash-index-label" aria-live="polite">1 / 1</span>
-                <button type="button" class="btn ghost" id="flash-shuffle">Shuffle</button>
-                <button type="button" class="btn" id="flash-next">Next</button>
-              </div>
+            <div class="tut-actions hidden" id="flash-nav-row" aria-label="Flashcard navigation">
+              <button type="button" class="btn ghost" id="flash-prev">Previous</button>
+              <span class="flash-index" id="flash-index-label" aria-live="polite">1 / 1</span>
+              <button type="button" class="btn ghost" id="flash-shuffle">Shuffle</button>
+              <button type="button" class="btn" id="flash-next">Next</button>
+            </div>
 
-              <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
+            <div class="quiz-grades hidden" id="quiz-grades" role="group" aria-label="Rating">
                 <button type="button" data-grade="again" title="Forgot - card comes back in about 1 minute - key 1"><span class="grade-ivl" data-ivl="again">1m</span><span>Forgot <kbd>1</kbd></span><span class="grade-pts">0 pts</span></button>
                 <button type="button" data-grade="hard" title="Tricky - card comes back in about 6 minutes - key 2"><span class="grade-ivl" data-ivl="hard">6m</span><span>Tricky <kbd>2</kbd></span><span class="grade-pts">+5</span></button>
                 <button type="button" data-grade="good" title="OK - longer break before this card returns - key 3"><span class="grade-ivl" data-ivl="good">10m</span><span>OK <kbd>3</kbd></span><span class="grade-pts">+10</span></button>
@@ -5166,6 +5196,7 @@ function showCourse(courseKey) {
       quizState.forceAll = false;
       quizState.weakOnly = false;
       quizState.leechOnly = false;
+      quizState.customStudyMode = null;
       quizState.sessionQueue = null;
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
@@ -5312,12 +5343,12 @@ function showCourse(courseKey) {
 
   if ($("course-section-tabs")) {
     $("course-section-tabs").querySelectorAll("button").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var key = btn.getAttribute("data-course");
-        showCourse(key);
+    btn.addEventListener("click", function () {
+      var key = btn.getAttribute("data-course");
+      showCourse(key);
         if (btn.id === "tab-section-quiz") setStudyMode("flashcards");
-      });
     });
+  });
   }
 
   if ($("btn-to-ovelser")) {
@@ -5388,6 +5419,7 @@ function showCourse(courseKey) {
     tagFilter: null,
     weakOnly: false,
     leechOnly: false,
+    customStudyMode: null,
     sched: {},
     sessionStats: null
   };
@@ -7115,14 +7147,14 @@ function showCourse(courseKey) {
     var xp = studyLoadXp();
     var wasNew = !xp[key];
     if (wasNew) {
-      xp[key] = 1;
-      var unlocked = studyUnlockTrophies(xp);
-      studySaveXp(xp);
-      if (unlocked.length) {
-        studyPlayTrophyFanfare();
-        studyShowTrophyToast(unlocked[0], unlocked.length - 1);
-        studyFxBurstAt($("trophy-toast"), 22);
-        studyFxPop("hud-trophies");
+    xp[key] = 1;
+    var unlocked = studyUnlockTrophies(xp);
+    studySaveXp(xp);
+    if (unlocked.length) {
+      studyPlayTrophyFanfare();
+      studyShowTrophyToast(unlocked[0], unlocked.length - 1);
+      studyFxBurstAt($("trophy-toast"), 22);
+      studyFxPop("hud-trophies");
       }
     }
     studyRefreshHud();
@@ -7224,6 +7256,20 @@ function showCourse(courseKey) {
       });
     }
     return { due: due, weak: weak };
+  }
+
+  function studyCountNew(deckKey, tagFilter) {
+    var deck = quizGetDeck(deckKey);
+    var sched = quizLoadSched(deckKey);
+    var n = 0;
+    if (deck && Array.isArray(deck.cards)) {
+      deck.cards.forEach(function (c) {
+        if (!c || !c.id) return;
+        if (tagFilter && !studyCardHasTag(c, tagFilter)) return;
+        if (studyCardIsNew(quizEnsureCard(sched, c.id))) n += 1;
+      });
+    }
+    return n;
   }
 
   function studyCountDueAllDecks() {
@@ -7741,6 +7787,27 @@ function showCourse(courseKey) {
       weakBtn.hidden = counts.weak < 1;
       weakBtn.textContent = "Retry missed (" + counts.weak + ")";
     }
+    var customDueBtn = $("quiz-custom-due");
+    var customNewBtn = $("quiz-custom-new");
+    var customTagBtn = $("quiz-custom-tag");
+    var newCount = studyCountNew(quizState.deckKey, quizState.tagFilter);
+    if (customDueBtn) {
+      customDueBtn.textContent = "Due only (" + counts.due + ")";
+      customDueBtn.disabled = counts.due < 1;
+    }
+    if (customNewBtn) {
+      customNewBtn.textContent = "New only (" + newCount + ")";
+      customNewBtn.disabled = newCount < 1;
+    }
+    if (customTagBtn) {
+      if (quizState.tagFilter) {
+        customTagBtn.hidden = false;
+        customTagBtn.textContent = "Tagged " + quizState.tagFilter + " (" + counts.due + " due)";
+        customTagBtn.disabled = counts.due < 1;
+      } else {
+        customTagBtn.hidden = true;
+      }
+    }
     if (goalLabel) goalLabel.textContent = today + " / " + goal + " today";
     var pct = goal ? Math.min(100, (today / goal) * 100) : 0;
     if (goalFill) goalFill.style.width = pct + "%";
@@ -7784,6 +7851,14 @@ function showCourse(courseKey) {
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
     syncOrientNudge();
     syncQuizSessionUi();
+  }
+
+  function quizBeginCustomStudy(mode) {
+    quizState.weakOnly = false;
+    quizState.leechOnly = false;
+    quizState.forceAll = false;
+    quizState.customStudyMode = mode || null;
+    quizBeginSession();
   }
 
   function quizBeginSession(limit, tagFilter) {
@@ -9338,6 +9413,19 @@ function showCourse(courseKey) {
     return due;
   }
 
+  function quizNewCards(deck, sched, deckKey) {
+    var fresh = [];
+    deckKey = deckKey || quizState.deckKey;
+    (deck.cards || []).forEach(function (c) {
+      if (!c || !c.id) return;
+      if (studyCardIsNew(quizEnsureCard(sched, c.id))) fresh.push(c);
+    });
+    fresh.sort(function (a, b) {
+      return studyCardQueuePriority(a, sched, deckKey) - studyCardQueuePriority(b, sched, deckKey);
+    });
+    return fresh;
+  }
+
   function quizCloneSched(s) {
     return {
       due: s.due,
@@ -9807,6 +9895,16 @@ function showCourse(courseKey) {
         quizState.sessionQueue = queue.map(function (c) { return c.id; });
         quizState.sessionStartCount = quizState.sessionQueue.length;
         quizState.sessionDone = 0;
+      } else if (quizState.customStudyMode === "newOnly") {
+        queue = quizNewCards(deck, quizState.sched, quizState.deckKey);
+        quizState.sessionQueue = queue.map(function (c) { return c.id; });
+        quizState.sessionStartCount = quizState.sessionQueue.length;
+        quizState.sessionDone = 0;
+      } else if (quizState.customStudyMode === "dueOnly" || quizState.customStudyMode === "tagFilter") {
+        queue = quizDueCards(deck, quizState.sched, false, quizState.deckKey);
+        quizState.sessionQueue = queue.map(function (c) { return c.id; });
+        quizState.sessionStartCount = quizState.sessionQueue.length;
+        quizState.sessionDone = 0;
       } else {
         queue = quizDueCards(deck, quizState.sched, false);
         quizState.sessionQueue = queue.map(function (c) { return c.id; });
@@ -9833,6 +9931,7 @@ function showCourse(courseKey) {
       quizState.forceAll = false;
       quizState.weakOnly = false;
       quizState.leechOnly = false;
+      quizState.customStudyMode = null;
       quizState.inSession = false;
       quizState.sessionLimit = null;
       if (quizState.tagFilter) {
@@ -9840,9 +9939,9 @@ function showCourse(courseKey) {
         quizState.tagFilter = null;
         if ($("quiz-empty-title")) $("quiz-empty-title").textContent = "No due cards for " + missedTag;
         if ($("quiz-empty-text")) $("quiz-empty-text").textContent = "Try Flip cards with that filter, or review due cards for the full deck.";
-        quizShowEmpty(0);
-        return;
-      }
+      quizShowEmpty(0);
+      return;
+    }
       if (quizShouldShowHome()) {
         syncQuizHome();
         return;
@@ -9945,6 +10044,7 @@ function showCourse(courseKey) {
       var counts = studyCountDueAndWeak(quizState.deckKey);
       quizState.forceAll = counts.due < 1;
       quizState.weakOnly = false;
+      quizState.customStudyMode = null;
       quizBeginSession();
     });
   }
@@ -9953,6 +10053,7 @@ function showCourse(courseKey) {
       var counts = studyCountDueAndWeak(quizState.deckKey);
       quizState.forceAll = false;
       quizState.weakOnly = false;
+      quizState.customStudyMode = null;
       quizBeginSession(Math.min(5, counts.due || 5));
     });
   }
@@ -9963,7 +10064,23 @@ function showCourse(courseKey) {
     $("quiz-home-weak").addEventListener("click", function () {
       quizState.weakOnly = true;
       quizState.forceAll = false;
+      quizState.customStudyMode = null;
       quizBeginSession();
+    });
+  }
+  if ($("quiz-custom-due")) {
+    $("quiz-custom-due").addEventListener("click", function () {
+      quizBeginCustomStudy("dueOnly");
+    });
+  }
+  if ($("quiz-custom-new")) {
+    $("quiz-custom-new").addEventListener("click", function () {
+      quizBeginCustomStudy("newOnly");
+    });
+  }
+  if ($("quiz-custom-tag")) {
+    $("quiz-custom-tag").addEventListener("click", function () {
+      quizBeginCustomStudy("tagFilter");
     });
   }
   document.querySelectorAll(".quiz-home-goals button").forEach(function (btn) {
@@ -9976,6 +10093,7 @@ function showCourse(courseKey) {
       var tag = this.getAttribute("data-focus-tag") || "";
       quizState.weakOnly = false;
       quizState.forceAll = false;
+      quizState.customStudyMode = null;
       quizBeginSession(null, tag || null);
     });
   }
@@ -10221,6 +10339,7 @@ function showCourse(courseKey) {
       quizState.leechOnly = true;
       quizState.weakOnly = false;
       quizState.forceAll = false;
+      quizState.customStudyMode = null;
       quizState.inSession = true;
       quizState.sessionQueue = null;
       quizBeginSession(null, quizState.tagFilter);
@@ -10242,6 +10361,7 @@ function showCourse(courseKey) {
     quizState.forceAll = false;
     quizState.weakOnly = false;
     quizState.leechOnly = false;
+    quizState.customStudyMode = null;
     quizState.sessionQueue = null;
     quizState.sessionStartCount = 0;
     quizState.sessionDone = 0;
@@ -10250,6 +10370,7 @@ function showCourse(courseKey) {
   $("quiz-study-all").addEventListener("click", function () {
     quizState.forceAll = true;
     quizState.weakOnly = false;
+    quizState.customStudyMode = null;
     quizBeginSession();
   });
   if ($("quiz-empty-browse")) {
@@ -11604,7 +11725,7 @@ function showCourse(courseKey) {
   if (isEmbedMode()) {
     var embedCourse = courseFromHash() || "acit4050";
     showCourse(embedCourse);
-    quizEnsureDecksReady().then(function () {
+  quizEnsureDecksReady().then(function () {
       if (courseFromHash()) applyHashRoute();
     });
   } else {
@@ -11614,13 +11735,13 @@ function showCourse(courseKey) {
     renderOrientChecklist();
     window.setTimeout(weeklyRecapMaybeShow, 800);
     if (courseFromHash()) {
-        applyHashRoute();
-        return;
-      }
-      var last = null;
-      try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
-      if (last && COURSE_TO_HASH[last]) showCourse(last);
-    });
+      applyHashRoute();
+      return;
+    }
+    var last = null;
+    try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
+    if (last && COURSE_TO_HASH[last]) showCourse(last);
+  });
   }
   window.addEventListener("hashchange", function () {
     applyHashRoute();
@@ -11672,7 +11793,7 @@ function showCourse(courseKey) {
   }
 
   function queueSwUpdate(worker) {
-    if (!worker) return;
+          if (!worker) return;
     swWaitingWorker = worker;
     showSwUpdateToast(
       studyInActiveSession()
