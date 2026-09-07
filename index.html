@@ -2142,7 +2142,86 @@
       flex: 1 1 5.5rem;
       min-height: var(--touch);
     }
+    .first-win-pick button.active {
+      border-color: var(--palette-turquoise);
+      box-shadow: inset 0 0 0 1px var(--palette-turquoise);
+      background: rgba(0, 183, 205, 0.08);
+    }
     .first-win-step[hidden] { display: none !important; }
+    .orient-checklist {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.85rem;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--palette-orange);
+      border-radius: 0 4px 4px 0;
+    }
+    .orient-checklist-meta {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      color: var(--slate);
+    }
+    .orient-checklist-meta b { color: var(--palette-red); }
+    .orient-checklist-bar {
+      height: 0.4rem;
+      background: var(--line-soft);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 0 0.65rem;
+    }
+    .orient-checklist-bar span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--palette-turquoise);
+      transition: width 0.25s var(--ease);
+    }
+    .orient-checklist-bar.is-done span { background: var(--palette-orange); }
+    .orient-checklist-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .orient-checklist-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      margin: 0 0 0.45rem;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+    .orient-checklist-list li.is-done { color: var(--slate); }
+    .orient-checklist-list li.is-done .orient-check { color: var(--palette-turquoise); }
+    .orient-check {
+      flex: 0 0 auto;
+      font-weight: 800;
+      color: var(--line);
+      width: 1.1rem;
+    }
+    .orient-checklist-list button.linkish {
+      margin-left: auto;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--palette-turquoise);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      white-space: nowrap;
+    }
+    .orient-nudge {
+      margin: 0 0 0.75rem;
+      padding: 0.55rem 0.7rem;
+      background: #FFF1D1;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--palette-orange);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+    }
+    .orient-nudge[hidden] { display: none !important; }
+    .orient-nudge p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.55rem; }
+    .orient-nudge .btn { padding: 0.25rem 0.55rem; min-height: auto; font-size: 0.78rem; }
     .quiz-card:not(.revealed):not(.flipped) #quiz-figure {
       display: none !important;
     }
@@ -2781,9 +2860,22 @@
   <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
   <div id="first-win-modal" class="first-win-modal" hidden role="dialog" aria-labelledby="first-win-title" aria-modal="true">
     <div class="first-win-card">
-      <div id="first-win-step-1" class="first-win-step">
-        <h3 id="first-win-title">Welcome to your study app</h3>
-        <p>Three modes: <strong>Browse</strong> to flip cards, <strong>Quiz</strong> for spaced repetition, <strong>Terminal</strong> for lab commands. Pick a course to start.</p>
+      <div id="first-win-step-persona" class="first-win-step">
+        <h3 id="first-win-title">What is your focus this week?</h3>
+        <p>Part 1: logistics only - one tap sets daily goal and a sensible default. Part 2 next: pick course and flip 3 cards.</p>
+        <div class="first-win-pick" role="group" aria-label="Study focus">
+          <button type="button" class="btn" data-first-persona="exam">Exams soon</button>
+          <button type="button" class="btn" data-first-persona="steady">Steady semester</button>
+          <button type="button" class="btn" data-first-persona="browse">Just browsing</button>
+        </div>
+        <div class="tut-actions">
+          <button type="button" class="btn btn-primary" id="first-win-persona-next">Next</button>
+          <button type="button" class="btn ghost" id="first-win-skip">Skip intro</button>
+        </div>
+      </div>
+      <div id="first-win-step-1" class="first-win-step" hidden>
+        <h3>Pick this week's course</h3>
+        <p>Part 2: <strong>Browse</strong> flips cards, <strong>Quiz</strong> runs spaced repetition, <strong>Test</strong> simulates exam questions.</p>
         <div class="first-win-pick" role="group" aria-label="Pick a course">
           <button type="button" class="btn" data-first-course="acit4050">ACIT4050</button>
           <button type="button" class="btn" data-first-course="acit4100">ACIT4100</button>
@@ -2791,7 +2883,7 @@
         </div>
         <div class="tut-actions">
           <button type="button" class="btn btn-primary" id="first-win-next">Next</button>
-          <button type="button" class="btn ghost" id="first-win-skip">Skip intro</button>
+          <button type="button" class="btn ghost" id="first-win-skip-2">Skip intro</button>
         </div>
       </div>
       <div id="first-win-step-2" class="first-win-step" hidden>
@@ -2849,6 +2941,12 @@
             <button type="button" class="btn" id="rank-import-btn">Add</button>
             <button type="button" class="btn ghost" id="rank-copy-btn">Copy my code</button>
           </div>
+        </div>
+        <div class="orient-checklist" id="orient-checklist">
+          <h3>Getting started</h3>
+          <p class="orient-checklist-meta"><b id="orient-checklist-count">0</b> / 5 setup steps done</p>
+          <div class="orient-checklist-bar" id="orient-checklist-bar"><span id="orient-checklist-fill"></span></div>
+          <ul class="orient-checklist-list" id="orient-checklist-list" aria-label="Orientation checklist"></ul>
         </div>
         <div class="review-heatmap-wrap">
           <h3>Review activity</h3>
@@ -3381,6 +3479,9 @@
             <p class="quiz-home-kicker">Review due</p>
             <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
             <p class="quiz-home-sub" id="quiz-home-sub">Start a short session. Progress stays on this device.</p>
+            <div id="orient-nudge" class="orient-nudge" hidden>
+              <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span><button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
+            </div>
             <div id="quiz-next-skill" class="quiz-next-skill" hidden>
               <p class="quiz-next-skill-kicker">Next best to practice</p>
               <p class="quiz-next-skill-text" id="quiz-next-skill-text">Drill cards for this week.</p>
@@ -4142,7 +4243,9 @@ function showCourse(courseKey) {
     }
 
     if (isPractice || isNotes) {
+      if (isNotes) studyMarkFlag("notesOpened");
       syncCourseHash(courseKey);
+      renderOrientChecklist();
       return;
     }
 
@@ -4353,8 +4456,10 @@ function showCourse(courseKey) {
   };
 
   var FIRST_WIN_KEY = "acit-first-win-v1";
+  var ONBOARD_KEY = "acit-onboard-v1";
+  var PWA_INSTALLED_KEY = "acit-pwa-installed";
   var DAILY_GOAL_KEY = "acit-daily-goal-v1";
-  var firstWinState = { course: "acit4050", flipsNeeded: 0 };
+  var firstWinState = { course: "acit4050", persona: "steady", flipsNeeded: 0 };
 
   /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
   var STUDY_FOCUS = {
@@ -5883,8 +5988,8 @@ function showCourse(courseKey) {
       studyFxPop("hud-trophies");
     }
     studyRefreshHud();
+    renderOrientChecklist();
   }
-  window.studyMarkFlag = studyMarkFlag;
 
   function quizCardIsWeak(s) {
     if (!s) return false;
@@ -6267,6 +6372,7 @@ function showCourse(courseKey) {
     $("quiz-active").classList.add("hidden");
     $("quiz-empty").classList.add("hidden");
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
+    syncOrientNudge();
   }
 
   function quizBeginSession(limit, tagFilter) {
@@ -6281,15 +6387,159 @@ function showCourse(courseKey) {
 
   function firstWinDone() {
     try { localStorage.setItem(FIRST_WIN_KEY, "1"); } catch (e) { /* ignore */ }
+    onboardSave({ persona: firstWinState.persona, weekCourse: firstWinState.course });
     firstWinState.flipsNeeded = 0;
     var modal = $("first-win-modal");
     if (modal) modal.hidden = true;
     studyMarkFlag("firstWin");
+    renderOrientChecklist();
+    syncOrientNudge();
     var toast = $("trophy-toast");
     if (toast) {
       toast.hidden = false;
-      toast.textContent = "First win complete - nice start!";
-      window.setTimeout(function () { if (toast) toast.hidden = true; }, 3200);
+      toast.textContent = "First win complete - open Settings for the setup checklist.";
+      window.setTimeout(function () { if (toast) toast.hidden = true; }, 3600);
+    }
+  }
+
+  function onboardLoad() {
+    try {
+      var raw = localStorage.getItem(ONBOARD_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+    return {};
+  }
+
+  function onboardSave(patch) {
+    var obj = onboardLoad();
+    Object.keys(patch || {}).forEach(function (k) { obj[k] = patch[k]; });
+    try { localStorage.setItem(ONBOARD_KEY, JSON.stringify(obj)); } catch (e) { /* ignore */ }
+  }
+
+  function onboardIsInstalled() {
+    try {
+      if (localStorage.getItem(PWA_INSTALLED_KEY) === "1") return true;
+    } catch (e) { /* ignore */ }
+    if (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) return true;
+    if (window.navigator && window.navigator.standalone === true) return true;
+    return false;
+  }
+
+  function orientChecklistSteps() {
+    var xp = studyLoadXp();
+    return [
+      {
+        id: "profile",
+        label: "Save your display name in Settings",
+        done: !!(xp.profileNamed || (profileActive().name && profileActive().name !== "Local student")),
+        go: function () { profileOpenModal(); if ($("profile-rename")) $("profile-rename").focus(); }
+      },
+      {
+        id: "quiz",
+        label: "Rate at least one quiz card (SRS)",
+        done: (xp.lifetimeReviews || 0) >= 1 || !!(xp.firstWin),
+        go: function () {
+          var c = onboardLoad().weekCourse || firstWinState.course || "acit4050";
+          showCourse(c);
+          setStudyMode("quiz");
+        }
+      },
+      {
+        id: "terminal",
+        label: "Try the ACIT4050 terminal tutorial",
+        done: !!(xp.tutDone || xp.terminalStarted),
+        go: function () { showCourse("terminal"); showPanel("tutorial"); showSetup(); }
+      },
+      {
+        id: "install",
+        label: "Install app for offline use (Add to Home Screen)",
+        done: onboardIsInstalled(),
+        go: function () {
+          var t = $("sw-toast");
+          if (t) {
+            t.hidden = false;
+            t.textContent = "Use browser menu: Install app or Add to Home Screen. Then study offline.";
+            window.setTimeout(function () { if (t) t.hidden = true; }, 5000);
+          }
+        }
+      },
+      {
+        id: "notes",
+        label: "Open class notes once",
+        done: !!(xp.notesOpened),
+        go: function () { showCourse("notes"); }
+      }
+    ];
+  }
+
+  function renderOrientChecklist() {
+    var list = $("orient-checklist-list");
+    if (!list) return;
+    var steps = orientChecklistSteps();
+    var doneN = steps.filter(function (s) { return s.done; }).length;
+    var countEl = $("orient-checklist-count");
+    var fill = $("orient-checklist-fill");
+    var bar = $("orient-checklist-bar");
+    if (countEl) countEl.textContent = String(doneN);
+    if (fill) fill.style.width = String((doneN / steps.length) * 100) + "%";
+    if (bar) bar.classList.toggle("is-done", doneN >= steps.length);
+    list.innerHTML = "";
+    steps.forEach(function (step) {
+      var li = document.createElement("li");
+      li.className = step.done ? "is-done" : "";
+      var mark = document.createElement("span");
+      mark.className = "orient-check";
+      mark.textContent = step.done ? "OK" : "..";
+      var text = document.createElement("span");
+      text.textContent = step.label;
+      li.appendChild(mark);
+      li.appendChild(text);
+      if (!step.done && step.go) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "linkish";
+        btn.textContent = "Go";
+        btn.addEventListener("click", step.go);
+        li.appendChild(btn);
+      }
+      list.appendChild(li);
+    });
+    syncOrientNudge();
+  }
+
+  function syncOrientNudge() {
+    var nudge = $("orient-nudge");
+    if (!nudge) return;
+    if (isEmbedMode()) {
+      nudge.hidden = true;
+      return;
+    }
+    var steps = orientChecklistSteps();
+    var doneN = steps.filter(function (s) { return s.done; }).length;
+    var left = steps.length - doneN;
+    if (left <= 0) {
+      nudge.hidden = true;
+      return;
+    }
+    nudge.hidden = !quizShouldShowHome();
+    var countEl = $("orient-nudge-count");
+    if (countEl) countEl.textContent = String(left);
+  }
+
+  function applyOnboardPersona(persona) {
+    firstWinState.persona = persona || "steady";
+    document.querySelectorAll("[data-first-persona]").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-first-persona") === firstWinState.persona);
+    });
+    if (persona === "exam") {
+      studySetDailyGoal(20);
+      firstWinPickCourse("acit4050");
+    } else if (persona === "browse") {
+      studySetDailyGoal(5);
+      if (!firstWinState.course) firstWinPickCourse("acit4100");
+    } else {
+      studySetDailyGoal(10);
+      if (!firstWinState.course) firstWinPickCourse("acit4050");
     }
   }
 
@@ -6301,15 +6551,21 @@ function showCourse(courseKey) {
     var modal = $("first-win-modal");
     if (!modal) return;
     modal.hidden = false;
-    if ($("first-win-step-1")) $("first-win-step-1").hidden = false;
+    if ($("first-win-step-persona")) $("first-win-step-persona").hidden = false;
+    if ($("first-win-step-1")) $("first-win-step-1").hidden = true;
     if ($("first-win-step-2")) $("first-win-step-2").hidden = true;
+    applyOnboardPersona(firstWinState.persona || "steady");
   }
 
   function firstWinPickCourse(key) {
     firstWinState.course = key;
-    document.querySelectorAll(".first-win-pick button").forEach(function (btn) {
+    document.querySelectorAll(".first-win-pick [data-first-course]").forEach(function (btn) {
       btn.classList.toggle("active", btn.getAttribute("data-first-course") === key);
     });
+  }
+
+  function firstWinPickPersona(persona) {
+    applyOnboardPersona(persona);
   }
 
   function studyRefreshHud() {
@@ -8019,11 +8275,22 @@ function showCourse(courseKey) {
       quizBeginSession(null, tag || null);
     });
   }
-  document.querySelectorAll(".first-win-pick button").forEach(function (btn) {
+  document.querySelectorAll(".first-win-pick [data-first-course]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       firstWinPickCourse(btn.getAttribute("data-first-course"));
     });
   });
+  document.querySelectorAll("[data-first-persona]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      firstWinPickPersona(btn.getAttribute("data-first-persona"));
+    });
+  });
+  if ($("first-win-persona-next")) {
+    $("first-win-persona-next").addEventListener("click", function () {
+      if ($("first-win-step-persona")) $("first-win-step-persona").hidden = true;
+      if ($("first-win-step-1")) $("first-win-step-1").hidden = false;
+    });
+  }
   if ($("first-win-next")) {
     $("first-win-next").addEventListener("click", function () {
       showCourse(firstWinState.course || "acit4050");
@@ -8033,6 +8300,9 @@ function showCourse(courseKey) {
   }
   if ($("first-win-skip")) {
     $("first-win-skip").addEventListener("click", firstWinDone);
+  }
+  if ($("first-win-skip-2")) {
+    $("first-win-skip-2").addEventListener("click", firstWinDone);
   }
   if ($("first-win-browse")) {
     $("first-win-browse").addEventListener("click", function () {
@@ -8048,6 +8318,10 @@ function showCourse(courseKey) {
       setStudyMode("quiz");
       firstWinDone();
     });
+  }
+
+  if ($("orient-nudge-open")) {
+    $("orient-nudge-open").addEventListener("click", function () { profileOpenModal(); });
   }
 
   $("quiz-reveal").addEventListener("click", quizReveal);
@@ -8294,6 +8568,7 @@ function showCourse(courseKey) {
     var grid = $("trophy-grid");
     if (!grid) return;
     var xp = studyLoadXp();
+    renderOrientChecklist();
     studyRenderHeatmap(xp);
     grid.innerHTML = "";
     var lastGroup = "";
@@ -8785,6 +9060,7 @@ function showCourse(courseKey) {
       var input = $("profile-rename");
       settingsSetMsg("");
       if (profileRename(input && input.value)) {
+        studyMarkFlag("profileNamed");
         settingsSetMsg("Display name saved.");
         profileRenderModal();
       } else {
@@ -9155,6 +9431,7 @@ function showCourse(courseKey) {
   }
 
   function startTrack(track, index, restoreMeta) {
+    studyMarkFlag("terminalStarted");
     state.track = track;
     state.index = index || 0;
     state.fails = 0;
@@ -9507,6 +9784,10 @@ function showCourse(courseKey) {
   </script>
 
   <script>
+  window.addEventListener("appinstalled", function () {
+    try { localStorage.setItem(PWA_INSTALLED_KEY, "1"); } catch (e) { /* ignore */ }
+    renderOrientChecklist();
+  });
   if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
     window.addEventListener("load", function () {
       var refreshing = false;
