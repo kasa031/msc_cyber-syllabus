@@ -1136,16 +1136,61 @@
       color: #FFFFFF;
     }
 
+    .course-nav {
+      margin: 0 0 0.85rem;
+    }
+    .course-nav.course-tabs-sticky {
+      position: sticky;
+      top: var(--safe-top);
+      z-index: 20;
+      background: var(--palette-cream);
+      padding-bottom: 0.35rem;
+      box-shadow: 0 1px 0 rgba(80, 3, 192, 0.08);
+    }
     /* -- Course tabs -- */
     .course-tabs {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin: 0 0 0.85rem;
+      margin: 0;
       padding: 0.35rem;
       background: var(--palette-orange);
       border: none;
       border-radius: 4px;
+    }
+    .course-section-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.45rem 0 0;
+      padding: 0.35rem;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+    .course-section-tabs[hidden] { display: none !important; }
+    .course-section-tabs button {
+      flex: 1 1 6.5rem;
+      min-width: 0;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 0.55rem 0.65rem;
+      min-height: var(--touch);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      cursor: pointer;
+      background: #FFFFFF;
+      color: var(--ink);
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+    .course-section-tabs button:hover {
+      background: var(--paper-2);
+    }
+    .course-section-tabs button.active {
+      background: var(--palette-turquoise);
+      border-color: var(--palette-turquoise);
+      color: #FFFFFF;
     }
     .course-tabs button {
       flex: 1 1 8rem;
@@ -2520,13 +2565,6 @@
       color: var(--slate);
       margin: 0 0 0.75rem;
     }
-    .course-tabs-sticky {
-      position: sticky;
-      top: var(--safe-top);
-      z-index: 20;
-      background: #FFD51E;
-      box-shadow: 0 1px 0 rgba(7,25,82,0.18);
-    }
     .course-tabs button .tab-code {
       display: block;
       font-size: 0.8rem;
@@ -2840,7 +2878,7 @@
     }
     html.embed .skip-link,
     html.embed .hero,
-    html.embed .course-tabs,
+    html.embed .course-nav,
     html.embed #computer-dummies,
     html.embed #course-terminal,
     html.embed #course-pc,
@@ -2908,7 +2946,7 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="hero-top">
-        <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year <span class="brand-courses"> | <button type="button" class="brand-course" data-course="acit4050" aria-label="Open ACIT4050 Applied Computer and Network Security">ACIT4050</button> / <button type="button" class="brand-course" data-course="acit4280" aria-label="Open ACIT4280 Privacy by Design">4280</button> / <button type="button" class="brand-course" data-course="acit4100" aria-label="Open ACIT4100 Understanding and Communicating Research">4100</button></span></p>
+        <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings</button>
           <button type="button" class="btn ghost" id="profile-trophies-btn" hidden>Trophies</button>
@@ -2985,21 +3023,23 @@
 
   <main class="shell" id="main">
     <div class="shell-lift" id="lab">
-      <div class="course-tabs course-tabs-sticky" role="tablist" aria-label="Courses">
-        <button type="button" role="tab" id="tab-course-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0"><span class="tab-code">ACIT4050</span><span class="tab-name">Terminal tutorial</span></button>
-        <button type="button" role="tab" id="tab-course-acit4050" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1"><span class="tab-code">ACIT4050</span><span class="tab-name">Applied Computer and Network Security</span></button>
-        <button type="button" role="tab" id="tab-course-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1"><span class="tab-code">ACIT4050</span><span class="tab-name">Framework diagrams</span></button>
-        <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-code">ACIT4280</span><span class="tab-name">Privacy by Design</span></button>
-        <button type="button" role="tab" id="tab-course-notes" aria-selected="false" aria-controls="course-notes" data-course="notes" tabindex="-1"><span class="tab-code">Notes</span><span class="tab-name">Class notes and sources</span></button>
-        <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-code">ACIT4100</span><span class="tab-name">Understanding and Communicating Research</span></button>
-        <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-code">PC</span><span class="tab-name">Computer basics</span></button>
-        <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-code">Mixed</span><span class="tab-name">All courses combined</span></button>
+      <div class="course-nav course-tabs-sticky">
+        <div class="course-tabs" role="tablist" aria-label="Courses">
+          <button type="button" role="tab" id="tab-course-4050-main" class="active" aria-selected="true" data-course="4050-main" tabindex="0"><span class="tab-code">ACIT4050</span><span class="tab-name">Applied Computer and Network Security</span></button>
+          <button type="button" role="tab" id="tab-course-acit4280" aria-selected="false" aria-controls="course-quiz" data-course="acit4280" tabindex="-1"><span class="tab-code">ACIT4280</span><span class="tab-name">Privacy by Design</span></button>
+          <button type="button" role="tab" id="tab-course-acit4100" aria-selected="false" aria-controls="course-quiz" data-course="acit4100" tabindex="-1"><span class="tab-code">ACIT4100</span><span class="tab-name">Research and communication</span></button>
+          <button type="button" role="tab" id="tab-course-notes" aria-selected="false" aria-controls="course-notes" data-course="notes" tabindex="-1"><span class="tab-code">Notes</span><span class="tab-name">Class notes</span></button>
+          <button type="button" role="tab" id="tab-course-computer-basics" aria-selected="false" aria-controls="course-pc" data-course="computer-basics" tabindex="-1"><span class="tab-code">PC</span><span class="tab-name">Computer basics</span></button>
+          <button type="button" role="tab" id="tab-course-fellesjam" aria-selected="false" aria-controls="course-quiz" data-course="fellesjam" tabindex="-1"><span class="tab-code">Mixed</span><span class="tab-name">All courses</span></button>
+        </div>
+        <div id="course-section-tabs" class="course-section-tabs" role="tablist" aria-label="ACIT4050 sections">
+          <button type="button" role="tab" id="tab-section-terminal" class="active" aria-selected="true" aria-controls="course-terminal" data-course="terminal" tabindex="0">Terminal tutorial</button>
+          <button type="button" role="tab" id="tab-section-quiz" aria-selected="false" aria-controls="course-quiz" data-course="acit4050" tabindex="-1">Quiz and SRS</button>
+          <button type="button" role="tab" id="tab-section-practice" aria-selected="false" aria-controls="course-practice" data-course="practice" tabindex="-1">Framework diagrams</button>
+        </div>
       </div>
       <!-- ========== TERMINAL (ACIT4050) ========== -->
       <div id="course-terminal" class="course-panel active">
-      <div class="course-cta-row">
-        <a class="cta" href="#panel-tutorial" id="cta-start">Start ACIT4050 tutorial <span class="cta-arrow" aria-hidden="true">-></span></a>
-      </div>
       <div class="mode-tabs" role="tablist" aria-label="View">
         <button type="button" role="tab" id="tab-tutorial" class="active" aria-selected="true" aria-controls="panel-tutorial" tabindex="0">Interactive tutorial</button>
         <button type="button" role="tab" id="tab-ovelser" aria-selected="false" aria-controls="panel-ovelser" tabindex="-1">Exercises with answers</button>
@@ -3728,6 +3768,40 @@
   var PASS_MIN_NEW = 8;
   var RANK_BOARD_KEY = "acit-rank-board-v1";
   var LAST_COURSE_KEY = "acit-last-course-v1";
+  var COURSE_4050_SECTIONS = { terminal: true, acit4050: true, practice: true };
+
+  function courseMainTabKey(courseKey) {
+    if (COURSE_4050_SECTIONS[courseKey]) return "4050-main";
+    return courseKey;
+  }
+
+  function last4050Section() {
+    var last = null;
+    try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
+    if (last === "terminal" || last === "acit4050" || last === "practice") return last;
+    return "terminal";
+  }
+
+  function syncCourseNav(courseKey) {
+    var mainKey = courseMainTabKey(courseKey);
+    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
+      var on = btn.getAttribute("data-course") === mainKey;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+      btn.tabIndex = on ? 0 : -1;
+    });
+    var sectionBar = $("course-section-tabs");
+    if (sectionBar) {
+      var in4050 = !!COURSE_4050_SECTIONS[courseKey];
+      sectionBar.hidden = !in4050;
+      sectionBar.querySelectorAll("button").forEach(function (btn) {
+        var on = in4050 && btn.getAttribute("data-course") === courseKey;
+        btn.classList.toggle("active", on);
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+        btn.tabIndex = on ? 0 : -1;
+      });
+    }
+  }
   var QUIZ_EXPECTED = { acit4050: 207, acit4280: 209, acit4100: 328, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
@@ -4174,10 +4248,7 @@
   window.SolvableFlow = SolvableFlow;
 
   function setCourseTabIndex(activeKey) {
-    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
-      var on = btn.getAttribute("data-course") === activeKey;
-      btn.tabIndex = on ? 0 : -1;
-    });
+    syncCourseNav(activeKey);
   }
 
 function syncComputerDummies(courseKey) {
@@ -4216,11 +4287,7 @@ function showCourse(courseKey) {
     quiz.classList.toggle("active", isQuiz);
     quiz.hidden = !isQuiz;
 
-    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
-      var on = btn.getAttribute("data-course") === courseKey;
-      btn.classList.toggle("active", on);
-      btn.setAttribute("aria-selected", on ? "true" : "false");
-    });
+    syncCourseNav(courseKey);
     setCourseTabIndex(courseKey);
     try { localStorage.setItem(LAST_COURSE_KEY, courseKey); } catch (e) { /* ignore */ }
     syncComputerDummies(courseKey);
@@ -4375,21 +4442,19 @@ function showCourse(courseKey) {
 
   document.querySelectorAll(".course-tabs button").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      showCourse(btn.getAttribute("data-course"));
+      var key = btn.getAttribute("data-course");
+      if (key === "4050-main") showCourse(last4050Section());
+      else showCourse(key);
     });
   });
 
-  document.querySelectorAll(".brand-course").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var key = btn.getAttribute("data-course");
-      if (!key) return;
-      showCourse(key);
-      var lab = $("lab");
-      if (lab) lab.scrollIntoView({ behavior: "smooth", block: "start" });
-      var tab = document.querySelector('.course-tabs button[data-course="' + key + '"]');
-      if (tab) tab.focus();
+  if ($("course-section-tabs")) {
+    $("course-section-tabs").querySelectorAll("button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        showCourse(btn.getAttribute("data-course"));
+      });
     });
-  });
+  }
 
   $("tab-tutorial").addEventListener("click", function () { showPanel("tutorial"); });
   $("tab-ovelser").addEventListener("click", function () { showPanel("ovelser"); });
@@ -4429,21 +4494,6 @@ function showCourse(courseKey) {
   if ($("tab-practice-kill")) {
     $("tab-practice-kill").addEventListener("click", function () {
       try { history.replaceState(null, "", "#killchain"); } catch (e) { /* ignore */ }
-    });
-  }
-
-  if ($("cta-start")) {
-    $("cta-start").addEventListener("click", function (e) {
-      e.preventDefault();
-      showPanel("tutorial");
-      var setup = $("tut-setup");
-      if (setup) setup.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (setup && !setup.classList.contains("hidden")) {
-        var btn = document.querySelector(".track-btn");
-        if (btn) btn.focus();
-      } else if ($("tut-play") && !$("tut-play").classList.contains("hidden") && $("cmd-input")) {
-        $("cmd-input").focus();
-      }
     });
   }
 
@@ -9254,7 +9304,25 @@ function showCourse(courseKey) {
         if (e.key === "Home") next = 0;
         if (e.key === "End") next = tabs.length - 1;
         tabs[next].focus();
-        showCourse(tabs[next].getAttribute("data-course"));
+        var mainKey = tabs[next].getAttribute("data-course");
+        if (mainKey === "4050-main") showCourse(last4050Section());
+        else showCourse(mainKey);
+        return;
+      }
+    }
+
+    if (e.target && e.target.closest && e.target.closest(".course-section-tabs")) {
+      var secTabs = Array.prototype.slice.call(document.querySelectorAll(".course-section-tabs button"));
+      var sIdx = secTabs.indexOf(e.target.closest("button"));
+      if (sIdx >= 0 && (e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "Home" || e.key === "End")) {
+        e.preventDefault();
+        var sNext = sIdx;
+        if (e.key === "ArrowRight") sNext = (sIdx + 1) % secTabs.length;
+        if (e.key === "ArrowLeft") sNext = (sIdx - 1 + secTabs.length) % secTabs.length;
+        if (e.key === "Home") sNext = 0;
+        if (e.key === "End") sNext = secTabs.length - 1;
+        secTabs[sNext].focus();
+        showCourse(secTabs[sNext].getAttribute("data-course"));
         return;
       }
     }
@@ -9331,12 +9399,7 @@ function showCourse(courseKey) {
       term.classList.remove("active");
       term.hidden = true;
     }
-    document.querySelectorAll(".course-tabs button").forEach(function (btn) {
-      var on = btn.getAttribute("data-course") === "computer-basics";
-      btn.classList.toggle("active", on);
-      btn.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    setCourseTabIndex("computer-basics");
+    syncCourseNav("computer-basics");
 
     var tTut = $("tab-pc-tutorial");
     var tQuiz = $("tab-pc-quiz");
