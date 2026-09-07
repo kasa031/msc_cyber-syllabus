@@ -3446,6 +3446,11 @@
       box-shadow: 0 4px 16px rgba(80, 3, 192, 0.12);
     }
     .sw-toast[hidden] { display: none !important; }
+    .sw-toast.is-action {
+      cursor: pointer;
+      border-color: var(--palette-purple);
+    }
+    .sw-toast.is-action:hover { background: #fff; }
 
     @media print {
       .hero::after,
@@ -4563,7 +4568,9 @@
     { id: "ps-clear-rep", prompt: "Review: Clear the screen.", why: "cls / clear.", accept: ["clear", "cls", "clear-host"], hint: "cls", answer: "cls", tag: "Review", rep: true },
     { id: "ps-help", prompt: "Show help for Get-ChildItem.", why: "Get-Help is your friend.", accept: ["get-help get-childitem", "help get-childitem", "get-help get-childitem -full"], hint: "Get-Help Get-ChildItem", answer: "Get-Help Get-ChildItem", tag: "New" },
     { id: "ps-cd-up-rep", prompt: "Review: Go up one level.", why: "cd .. is used all the time.", accept: ["cd .."], hint: "cd ..", answer: "cd ..", tag: "Review", rep: true },
-    { id: "ps-ipconfig", prompt: "Show network info (IP etc.).", why: "ipconfig on Windows.", accept: ["ipconfig", "ipconfig /all"], hint: "ipconfig", answer: "ipconfig", tag: "New" }
+    { id: "ps-ipconfig", prompt: "Show network info (IP etc.).", why: "ipconfig on Windows - matches 4050 Networks lecture.", accept: ["ipconfig", "ipconfig /all"], hint: "ipconfig", answer: "ipconfig", tag: "New" },
+    { id: "ps-ping", prompt: "Ping 1.1.1.1 (Cloudflare DNS).", why: "ping checks reachability - same idea as lab exercise 8.", accept: ["ping 1.1.1.1", "ping -n 4 1.1.1.1"], hint: "ping 1.1.1.1", answer: "ping 1.1.1.1", tag: "New" },
+    { id: "ps-nslookup", prompt: "Look up example.com in DNS.", why: "nslookup resolves names before dig on Kali.", accept: ["nslookup example.com", "resolve-dnsname example.com"], hint: "nslookup example.com", answer: "nslookup example.com", tag: "New" }
   ];
 
   /* -- Steps: Arch -- */
@@ -4587,7 +4594,10 @@
     { id: "a-ls-l", prompt: "Show detailed permissions for note.txt.", why: "ls -l shows -rw------- etc.", accept: ["ls -l note.txt", "ls -l ./note.txt"], hint: "ls -l note.txt", answer: "ls -l note.txt", tag: "New" },
     { id: "a-pwd-rep2", prompt: "Review: Where are you?", why: "pwd one last time.", accept: ["pwd"], hint: "pwd", answer: "pwd", tag: "Review", rep: true },
     { id: "a-clear-rep", prompt: "Review: Clear the screen.", why: "clear.", accept: ["clear"], hint: "clear", answer: "clear", tag: "Review", rep: true },
-    { id: "a-man", prompt: "Open the manual for ls.", why: "man is Linux help. (Quit with q in a real terminal.)", accept: ["man ls"], hint: "man ls", answer: "man ls", tag: "New" }
+    { id: "a-man", prompt: "Open the manual for ls.", why: "man is Linux help. (Quit with q in a real terminal.)", accept: ["man ls"], hint: "man ls", answer: "man ls", tag: "New" },
+    { id: "a-ip", prompt: "Show IP addresses on this machine.", why: "ip addr on Linux/Kali - matches Networks lab.", accept: ["ip a", "ip addr", "ip address"], hint: "ip a", answer: "ip a", tag: "New" },
+    { id: "a-ping", prompt: "Send 4 pings to 1.1.1.1.", why: "ping -c 4 stops after four replies.", accept: ["ping -c 4 1.1.1.1", "ping -4 -c 4 1.1.1.1"], hint: "ping -c 4 1.1.1.1", answer: "ping -c 4 1.1.1.1", tag: "New" },
+    { id: "a-dig", prompt: "Look up example.com with dig (short answer).", why: "dig is the DNS tool on Kali lab VMs.", accept: ["dig example.com +short", "dig +short example.com", "dig example.com"], hint: "dig example.com +short", answer: "dig example.com +short", tag: "New" }
   ];
 
   /* -- State -- */
@@ -11436,21 +11446,65 @@ function showCourse(courseKey) {
     refreshSettingsProgressUi();
     renderOrientChecklist();
   });
+
+  var swWaitingWorker = null;
+
+  function studyInActiveSession() {
+    if (quizState.inSession || testState.active) return true;
+    if (state.track && state.index > 0 && state.index < (state.track === "ps" ? STEPS_PS.length : STEPS_ARCH.length)) return true;
+    if (pcState.index > 0 && pcState.index < STEPS_PC.length) return true;
+    return false;
+  }
+
+  function showSwUpdateToast(message, clickable) {
+    var t = $("sw-toast");
+    if (!t) return;
+    t.hidden = false;
+    t.textContent = message;
+    t.classList.toggle("is-action", !!clickable);
+    if (clickable) {
+      t.setAttribute("role", "button");
+      t.tabIndex = 0;
+      t.onclick = function () {
+        t.onclick = null;
+        t.classList.remove("is-action");
+        t.hidden = true;
+        if (swWaitingWorker) {
+          try { swWaitingWorker.postMessage({ type: "SKIP_WAITING" }); } catch (e) { /* ignore */ }
+          swWaitingWorker = null;
+        }
+        location.reload();
+      };
+    } else {
+      t.setAttribute("role", "status");
+      t.removeAttribute("tabindex");
+      t.onclick = null;
+      t.classList.remove("is-action");
+    }
+  }
+
+  function queueSwUpdate(worker) {
+    if (!worker) return;
+    swWaitingWorker = worker;
+    showSwUpdateToast(
+      studyInActiveSession()
+        ? "Update ready - tap when between cards."
+        : "Update ready - tap to refresh.",
+      true
+    );
+  }
+
   if ("serviceWorker" in navigator && (location.protocol === "http:" || location.protocol === "https:")) {
     window.addEventListener("load", function () {
       navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).then(function (reg) {
         try { reg.update(); } catch (e) { /* ignore */ }
-        function activateWaiting(worker) {
-          if (!worker) return;
-          worker.postMessage({ type: "SKIP_WAITING" });
-        }
-        if (reg.waiting) activateWaiting(reg.waiting);
+        if (reg.waiting) queueSwUpdate(reg.waiting);
         reg.addEventListener("updatefound", function () {
           var nw = reg.installing;
           if (!nw) return;
           nw.addEventListener("statechange", function () {
             if (nw.state === "installed" && navigator.serviceWorker.controller) {
-              activateWaiting(nw);
+              queueSwUpdate(nw);
             }
           });
         });
