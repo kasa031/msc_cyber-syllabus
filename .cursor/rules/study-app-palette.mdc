@@ -1,16 +1,17 @@
 ---
 description: Study app color palette (Karina)
-globs: "**/*.{html,css,js,svg}"
+globs: "Guider/**/*.{html,css,js,svg}"
 alwaysApply: true
 ---
 
 # Study app palette
 
-For `acit-study-quiz` / msc_cyber-syllabus, use ONLY this palette until Karina changes it:
+For the study app / msc_cyber-syllabus, use ONLY this palette until Karina changes it:
 
-- `#DF301C` red
-- `#FF9100` orange
-- `#FFF1D1` cream
-- `#00B7CD` turquoise
+- `#5003C0` purple (primary CTA, Start tutorial)
+- `#AB03A9` magenta (active tabs, signal)
+- `#FF467A` pink (highlights, wrong/miss feedback)
+- `#FFD51E` yellow (warm accent, course tab bar)
+- `#FFF9E6` light surface (soft backgrounds - light tint of yellow)
 
-Flat solid colors, no gradients. Active tabs = turquoise `#00B7CD`. Start tutorial / primary CTA = red `#DF301C`. Do not substitute `#66B7CD` or other teal variants.
+Flat solid colors, no gradients. Active tabs = magenta `#AB03A9`. Start tutorial / primary CTA = purple `#5003C0`.

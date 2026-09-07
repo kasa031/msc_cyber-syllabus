@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kasa031.github.io/msc_cyber-syllabus/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#DF301C" />
+  <meta name="theme-color" content="#5003C0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="MSc Cyber Y1" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -32,14 +32,15 @@
 
   <style>
     /* First-paint: white canvas before fonts settle */
-    html { background: #FFF1D1; }
+    html { background: #FFF9E6; }
 
     :root {
       /* Canonical palette (Karina) - flat solids */
-      --palette-red: #DF301C;
-      --palette-orange: #FF9100;
-      --palette-cream: #FFF1D1;
-      --palette-turquoise: #00B7CD;
+      --palette-red: #5003C0;
+      --palette-orange: #FFD51E;
+      --palette-cream: #FFF9E6;
+      --palette-turquoise: #AB03A9;
+      --palette-pink: #FF467A;
 
       --ink: #1A1410;
       --ink-2: #241C16;
@@ -48,27 +49,27 @@
       --mist: #8A7B6A;
       --fog: #C9BBA8;
       --paper: #FFFFFF;
-      --paper-2: #FFF8E8;
-      --surface: #FFFBF0;
-      --line: #E5D4A8;
-      --line-soft: #F0E4C0;
+      --paper-2: #FFFBF5;
+      --surface: #FFFCFA;
+      --line: #E8DFF5;
+      --line-soft: #F3EDFA;
       --signal: var(--palette-turquoise);
       --signal-bright: var(--palette-turquoise);
-      --signal-soft: #CCF4F8;
+      --signal-soft: #F5DEF4;
       --signal-deep: var(--palette-turquoise);
       --ochre: var(--palette-orange);
-      --ochre-soft: #FFE4B3;
+      --ochre-soft: #FFF4B8;
       --warn: var(--palette-red);
-      --warn-hot: #C42818;
-      --warn-soft: #FAD5CF;
+      --warn-hot: #3D0299;
+      --warn-soft: #EDE4FA;
       --console: #1A1410;
-      --console-fg: #FFF1D1;
+      --console-fg: #FFF9E6;
       --console-dim: #C4B49A;
       --prompt: var(--palette-turquoise);
       --max: 52rem;
       --page-gutter: 1.25rem;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --focus: 0 0 0 3px rgba(0, 183, 205, 0.45);
+      --focus: 0 0 0 3px rgba(171, 3, 169, 0.45);
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-right: env(safe-area-inset-right, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -572,10 +573,10 @@
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.95rem;
       padding: 0.7rem 0.8rem;
-      border: 1.5px solid #00B7CD;
+      border: 1.5px solid #AB03A9;
       border-radius: 3px;
       background: #1A1410;
-      color: #FFF1D1;
+      color: #FFF9E6;
       caret-color: var(--prompt);
       outline: none;
       transition: border-color 0.15s, background 0.15s;
@@ -583,7 +584,7 @@
     #cmd-input::placeholder { color: var(--console-dim); opacity: 1; }
     #cmd-input:focus {
       border-color: var(--palette-turquoise);
-      box-shadow: 0 0 0 2px rgba(0, 183, 205, 0.35);
+      box-shadow: 0 0 0 2px rgba(171, 3, 169, 0.35);
     }
     #cmd-input.wrong {
       border-color: var(--warn);
@@ -678,17 +679,17 @@
       color: var(--ink);
     }
     .solvable-banner.is-miss,
-    .tut-feedback.is-miss { background: rgba(255, 145, 0, 0.1); border-left: 4px solid #FF9100; }
+    .tut-feedback.is-miss { background: rgba(255, 213, 30, 0.1); border-left: 4px solid #FFD51E; }
     .solvable-banner.is-hint,
-    .tut-feedback.is-hint { background: #FFF1D1; border-left: 4px solid #FF9100; }
+    .tut-feedback.is-hint { background: #FFF9E6; border-left: 4px solid #FFD51E; }
     .solvable-banner.is-reveal,
-    .tut-feedback.is-reveal { background: rgba(0, 183, 205, 0.1); border-left: 4px solid #00B7CD; }
+    .tut-feedback.is-reveal { background: rgba(171, 3, 169, 0.1); border-left: 4px solid #AB03A9; }
     .solvable-banner.is-correct,
     .tut-feedback.is-correct,
-    .fp-status.is-correct { background: rgba(0, 183, 205, 0.12); border-left: 4px solid #00B7CD; }
+    .fp-status.is-correct { background: rgba(171, 3, 169, 0.12); border-left: 4px solid #AB03A9; }
     .solvable-banner.is-wrong,
     .tut-feedback.is-wrong,
-    .test-feedback.is-wrong { background: rgba(223, 48, 28, 0.07); border-left: 4px solid #DF301C; }
+    .test-feedback.is-wrong { background: rgba(255, 70, 122, 0.08); border-left: 4px solid #FF467A; }
     .solvable-banner-kicker {
       margin: 0 0 0.25rem;
       font-size: 0.68rem;
@@ -697,10 +698,10 @@
       text-transform: uppercase;
     }
     .solvable-banner.is-miss .solvable-banner-kicker,
-    .solvable-banner.is-hint .solvable-banner-kicker { color: #FF9100; }
+    .solvable-banner.is-hint .solvable-banner-kicker { color: #FFD51E; }
     .solvable-banner.is-reveal .solvable-banner-kicker,
-    .solvable-banner.is-correct .solvable-banner-kicker { color: #00B7CD; }
-    .solvable-banner.is-wrong .solvable-banner-kicker { color: #DF301C; }
+    .solvable-banner.is-correct .solvable-banner-kicker { color: #AB03A9; }
+    .solvable-banner.is-wrong .solvable-banner-kicker { color: #FF467A; }
     .solvable-banner-body { margin: 0; }
     .solvable-continue-row {
       margin: 0.65rem 0 0;
@@ -729,13 +730,13 @@
       white-space: nowrap;
     }
     .lesson-path-node.is-done {
-      background: #FFF1D1;
-      border-color: #FF9100;
+      background: #FFF9E6;
+      border-color: #FFD51E;
       color: var(--ink);
     }
     .lesson-path-node.is-current {
-      background: #00B7CD;
-      border-color: #00B7CD;
+      background: #AB03A9;
+      border-color: #AB03A9;
       color: #FFFFFF;
     }
     .lesson-path-node.is-upcoming { opacity: 0.5; }
@@ -1046,7 +1047,7 @@
       height: 10px;
       margin: -5px 0 0 -5px;
       border-radius: 50%;
-      background: #FFF1D1;
+      background: #FFF9E6;
       pointer-events: none;
       animation: fxRipple 0.5s ease-out forwards;
     }
@@ -1055,13 +1056,13 @@
     }
     @keyframes hudPop {
       0% { transform: scale(1); }
-      40% { transform: scale(1.22); color: #00B7CD; }
+      40% { transform: scale(1.22); color: #AB03A9; }
       100% { transform: scale(1); }
     }
     .hud-pop { animation: hudPop 0.38s var(--ease); }
-    .study-hud-item.is-hot b { color: #00B7CD; }
+    .study-hud-item.is-hot b { color: #AB03A9; }
     .study-hud-item.is-hot {
-      border-color: #00B7CD;
+      border-color: #AB03A9;
     }
     @keyframes fxPulse {
       0%, 100% { transform: scale(1); }
@@ -1086,16 +1087,16 @@
       animation: fxModal 0.28s var(--ease);
     }
     @keyframes fxReveal {
-      0% { border-color: #FFF1D1; }
+      0% { border-color: #FFF9E6; }
       100% { border-color: var(--signal); }
     }
     .quiz-card.fx-reveal { animation: fxReveal 0.45s var(--ease); }
-    .quiz-card.fx-good { border-color: #00B7CD; }
-    .quiz-card.fx-easy { border-color: #FFF1D1; }
+    .quiz-card.fx-good { border-color: #AB03A9; }
+    .quiz-card.fx-easy { border-color: #FFF9E6; }
     .quiz-card.fx-again { animation: shake 0.4s; }
     .quiz-grades button:active { transform: scale(0.96); }
     .trophy-card.is-fresh {
-      border-color: #00B7CD;
+      border-color: #AB03A9;
       animation: hudPop 0.5s var(--ease);
     }
     @media (prefers-reduced-motion: reduce) {
@@ -1159,11 +1160,11 @@
       border-radius: 3px;
       cursor: pointer;
       background: transparent;
-      color: #FFF1D1;
+      color: var(--ink);
       transition: background 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
     }
     .course-tabs button:not(.active):hover {
-      background: #00B7CD;
+      background: #AB03A9;
       color: #1A1410;
       transform: translateY(-1px);
     }
@@ -1439,13 +1440,13 @@
       margin: 0 0 0.75rem;
       padding: 0.65rem 0.85rem;
       background: var(--ochre-soft);
-      border-left: 3px solid #00B7CD;
+      border-left: 3px solid #AB03A9;
       border-radius: 0 4px 4px 0;
       color: var(--ink);
       font-size: 0.92rem;
     }
     .flash-mode .study-mode-banner {
-      border-left-color: #FF9100;
+      border-left-color: #FFD51E;
     }
     .study-hud {
       display: grid;
@@ -1477,7 +1478,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #FF9100;
+      color: #FFD51E;
       margin-bottom: 0.15rem;
     }
     .study-hud-item b {
@@ -1514,7 +1515,7 @@
       display: block;
       font-size: 0.82rem;
       font-weight: 600;
-      color: #FF9100;
+      color: #FFD51E;
       margin: 0.55rem 0 0.25rem;
     }
     .study-auth-error {
@@ -1545,7 +1546,7 @@
       font-size: 1.05rem;
       letter-spacing: 0.04em;
       font-weight: 700;
-      background: #FFF1D1;
+      background: #FFF9E6;
       color: #1A1410;
       border: 1px solid var(--line);
       border-radius: 4px;
@@ -1602,7 +1603,7 @@
       height: 1.85rem;
       border-radius: 4px;
       background: #1A1410;
-      color: #FFF1D1;
+      color: #FFF9E6;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1644,7 +1645,7 @@
       height: 1.15rem;
       margin-top: 0.2rem;
       flex: 0 0 auto;
-      accent-color: #00B7CD;
+      accent-color: #AB03A9;
     }
     .rank-list {
       list-style: none;
@@ -1660,7 +1661,7 @@
       border-bottom: 1px solid var(--line-soft);
     }
     .rank-row.is-you {
-      border: 1.5px solid #00B7CD;
+      border: 1.5px solid #AB03A9;
       border-radius: 4px;
       margin: 0.15rem 0;
     }
@@ -1670,10 +1671,10 @@
       color: #1A1410;
     }
     .rank-row.is-top1 .rank-place { color: #1A1410; }
-    .rank-row.is-top2 .rank-place { color: #FF9100; }
-    .rank-row.is-top3 .rank-place { color: #00B7CD; }
+    .rank-row.is-top2 .rank-place { color: #FFD51E; }
+    .rank-row.is-top3 .rank-place { color: #AB03A9; }
     .rank-name { font-weight: 600; color: #1A1410; }
-    .rank-meta { font-size: 0.78rem; color: #FF9100; }
+    .rank-meta { font-size: 0.78rem; color: #FFD51E; }
     .rank-pts {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-weight: 700;
@@ -1726,11 +1727,11 @@
       visibility: hidden;
       pointer-events: none;
     }
-    .heatmap-cell.level-0 { background: #FFF1D1; border: 1px solid var(--line-soft); }
-    .heatmap-cell.level-1 { background: rgba(0, 183, 205, 0.28); }
-    .heatmap-cell.level-2 { background: rgba(0, 183, 205, 0.48); }
-    .heatmap-cell.level-3 { background: rgba(0, 183, 205, 0.72); }
-    .heatmap-cell.level-4 { background: #00B7CD; }
+    .heatmap-cell.level-0 { background: #FFF9E6; border: 1px solid var(--line-soft); }
+    .heatmap-cell.level-1 { background: rgba(171, 3, 169, 0.28); }
+    .heatmap-cell.level-2 { background: rgba(171, 3, 169, 0.48); }
+    .heatmap-cell.level-3 { background: rgba(171, 3, 169, 0.72); }
+    .heatmap-cell.level-4 { background: #AB03A9; }
     .heatmap-cell:focus-visible {
       outline: 2px solid var(--palette-orange);
       outline-offset: 1px;
@@ -1820,7 +1821,7 @@
     }
     .trophy-card.is-locked { opacity: 0.45; }
     .trophy-card.is-on {
-      border-color: #00B7CD;
+      border-color: #AB03A9;
     }
     .trophy-card.kind-badge.is-on {
       border-color: #1A1410;
@@ -1832,11 +1833,11 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #FF9100;
+      color: #FFD51E;
     }
     .trophy-icon { font-size: 1.25rem; line-height: 1; }
     .trophy-title { font-weight: 700; color: #1A1410; margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
-    .trophy-hint { font-size: 0.75rem; color: #FF9100; margin: 0; }
+    .trophy-hint { font-size: 0.75rem; color: #FFD51E; margin: 0; }
     .trophy-toast {
       position: fixed;
       left: 50%;
@@ -1844,7 +1845,7 @@
       transform: translateX(-50%);
       z-index: 95;
       background: #FFFFFF;
-      border: 2px solid #00B7CD;
+      border: 2px solid #AB03A9;
       border-radius: 4px;
       padding: 0.7rem 1rem;
       color: #1A1410;
@@ -2040,15 +2041,15 @@
     }
     .test-mcq-options button:hover:not(:disabled) {
       border-color: var(--palette-turquoise);
-      background: rgba(0, 183, 205, 0.06);
+      background: rgba(171, 3, 169, 0.06);
     }
     .test-mcq-options button.is-picked.is-correct {
       border-color: var(--palette-turquoise);
-      background: rgba(0, 183, 205, 0.12);
+      background: rgba(171, 3, 169, 0.12);
     }
     .test-mcq-options button.is-picked.is-wrong {
       border-color: var(--palette-red);
-      background: rgba(223, 48, 28, 0.08);
+      background: rgba(255, 70, 122, 0.08);
     }
     .test-mcq-options button:disabled { cursor: default; opacity: 0.92; }
     .test-feedback {
@@ -2221,7 +2222,7 @@
     .orient-nudge {
       margin: 0 0 0.75rem;
       padding: 0.55rem 0.7rem;
-      background: #FFF1D1;
+      background: #FFF9E6;
       border: 1px solid var(--line);
       border-left: 3px solid var(--palette-orange);
       border-radius: 0 4px 4px 0;
@@ -2235,7 +2236,7 @@
     }
     .flash-mode .quiz-card {
       border-style: dashed;
-      border-color: #FF9100;
+      border-color: #FFD51E;
     }
     .quiz-mode .quiz-card {
       border-top: 4px solid #1A1410;
@@ -2523,7 +2524,7 @@
       position: sticky;
       top: var(--safe-top);
       z-index: 20;
-      background: #FF9100;
+      background: #FFD51E;
       box-shadow: 0 1px 0 rgba(7,25,82,0.18);
     }
     .course-tabs button .tab-code {
@@ -2646,7 +2647,7 @@
     }
     .course-map-unit:hover:not(:disabled) {
       border-color: var(--palette-turquoise);
-      background: rgba(0, 183, 205, 0.05);
+      background: rgba(171, 3, 169, 0.05);
     }
     .course-map-unit.is-active {
       border-color: var(--palette-turquoise);
@@ -2679,10 +2680,10 @@
       background: var(--line-soft);
       border: 1px solid var(--line);
     }
-    .mastery-dot.is-on.level-1 { background: #FF9100; border-color: #FF9100; }
-    .mastery-dot.is-on.level-2 { background: #FFF1D1; border-color: #FF9100; }
-    .mastery-dot.is-on.level-3 { background: #00B7CD; border-color: #00B7CD; }
-    .mastery-dot.is-on.level-4 { background: #DF301C; border-color: #DF301C; }
+    .mastery-dot.is-on.level-1 { background: #FFD51E; border-color: #FFD51E; }
+    .mastery-dot.is-on.level-2 { background: #FF467A; border-color: #FF467A; }
+    .mastery-dot.is-on.level-3 { background: #AB03A9; border-color: #AB03A9; }
+    .mastery-dot.is-on.level-4 { background: #5003C0; border-color: #5003C0; }
     .course-map-unit-meta {
       display: block;
       font-size: 0.65rem;
@@ -5577,7 +5578,7 @@ function showCourse(courseKey) {
     if (studyReduceMotion()) return;
     var layer = $("fx-layer");
     if (!layer) return;
-    var colors = ["#DF301C", "#FF9100", "#00B7CD", "#FFF1D1"];
+    var colors = ["#5003C0", "#FFD51E", "#AB03A9", "#FF467A"];
     var n = count || 10;
     var i;
     for (i = 0; i < n; i++) {

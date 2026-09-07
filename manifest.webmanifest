@@ -7,8 +7,8 @@
   "scope": "/msc_cyber-syllabus/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#FFF1D1",
-  "theme_color": "#DF301C",
+  "background_color": "#FFF9E6",
+  "theme_color": "#5003C0",
   "lang": "en",
   "icons": [
     {
