@@ -1609,6 +1609,90 @@
       color: #1A1410;
       font-size: 0.92rem;
     }
+    .review-heatmap-wrap {
+      margin: 0 0 1rem;
+    }
+    .review-heatmap-wrap h3 {
+      margin: 0 0 0.25rem;
+    }
+    .heatmap-lede {
+      margin: 0 0 0.55rem;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+    .heatmap-summary {
+      margin: 0 0 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--palette-turquoise);
+    }
+    .heatmap-grid {
+      display: flex;
+      gap: 3px;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+    .heatmap-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .heatmap-cell {
+      width: 0.85rem;
+      height: 0.85rem;
+      border: none;
+      border-radius: 2px;
+      padding: 0;
+      background: var(--line-soft);
+      cursor: pointer;
+    }
+    .heatmap-cell.is-empty {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .heatmap-cell.level-0 { background: #FFF1D1; border: 1px solid var(--line-soft); }
+    .heatmap-cell.level-1 { background: rgba(0, 183, 205, 0.28); }
+    .heatmap-cell.level-2 { background: rgba(0, 183, 205, 0.48); }
+    .heatmap-cell.level-3 { background: rgba(0, 183, 205, 0.72); }
+    .heatmap-cell.level-4 { background: #00B7CD; }
+    .heatmap-cell:focus-visible {
+      outline: 2px solid var(--palette-orange);
+      outline-offset: 1px;
+    }
+    .heatmap-legend {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0.35rem 0 0;
+      font-size: 0.72rem;
+      color: var(--slate);
+    }
+    .heatmap-legend i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 2px;
+      font-style: normal;
+    }
+    .heatmap-tip {
+      margin: 0.35rem 0 0;
+      font-size: 0.82rem;
+      color: var(--ink);
+      min-height: 1.2em;
+    }
+    .quiz-deck-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.85rem;
+      margin: 0.15rem 0 0.65rem;
+      font-size: 0.78rem;
+      color: var(--slate);
+    }
+    .quiz-deck-stats[hidden] { display: none !important; }
+    .quiz-deck-stats .deck-stat b {
+      color: var(--ink);
+      font-weight: 800;
+    }
     #rank-import-code {
       min-height: var(--touch);
       padding: 0.4rem 0.65rem;
@@ -2588,6 +2672,22 @@
             <button type="button" class="btn ghost" id="rank-copy-btn">Copy my code</button>
           </div>
         </div>
+        <div class="review-heatmap-wrap">
+          <h3>Review activity</h3>
+          <p class="heatmap-lede">Last 90 days of quiz ratings (SRS). Tap a square for that day.</p>
+          <p class="heatmap-summary" id="heatmap-summary"></p>
+          <div class="heatmap-grid" id="review-heatmap-grid" role="img" aria-label="Review heatmap last 90 days"></div>
+          <div class="heatmap-legend">
+            <span>Less</span>
+            <i class="heatmap-cell level-0" aria-hidden="true"></i>
+            <i class="heatmap-cell level-1" aria-hidden="true"></i>
+            <i class="heatmap-cell level-2" aria-hidden="true"></i>
+            <i class="heatmap-cell level-3" aria-hidden="true"></i>
+            <i class="heatmap-cell level-4" aria-hidden="true"></i>
+            <span>More</span>
+          </div>
+          <p class="heatmap-tip" id="heatmap-tip" aria-live="polite"></p>
+        </div>
         <h3>Trophies and badges</h3>
         <p>Trophies are big milestones. Badges are smaller habits and extras.</p>
         <div class="trophy-grid" id="trophy-grid"></div>
@@ -3070,6 +3170,12 @@
           <div class="quiz-meta">
             <h2 class="setup-title" id="quiz-course-title">Quiz</h2>
             <p class="quiz-queue" id="quiz-queue"><b>0</b> cards in queue</p>
+            <p class="quiz-deck-stats" id="quiz-deck-stats" hidden aria-live="polite">
+              <span class="deck-stat">New <b id="deck-stat-new">0</b></span>
+              <span class="deck-stat">Learning <b id="deck-stat-learning">0</b></span>
+              <span class="deck-stat">Review <b id="deck-stat-review">0</b></span>
+              <span class="deck-stat">Mature <b id="deck-stat-mature">0</b></span>
+            </p>
           </div>
           <p class="setup-lede" id="quiz-lede" style="margin-top:-0.5rem;">Anki-style SM-2 - progress is stored locally in the browser.</p>
           <div class="mode-tabs quiz-study-tabs" role="tablist" aria-label="Study mode">
@@ -5256,8 +5362,165 @@ function showCourse(courseKey) {
       nistDone: 0,
       killDone: 0,
       courses: {},
-      badges: {}
+      badges: {},
+      reviewLog: {}
     };
+  }
+
+  function studyPruneReviewLog(xp, keepDays) {
+    if (!xp.reviewLog || typeof xp.reviewLog !== "object") {
+      xp.reviewLog = {};
+      return;
+    }
+    keepDays = keepDays || 120;
+    var keys = studyHeatmapDays(keepDays);
+    var minKey = keys[0];
+    Object.keys(xp.reviewLog).forEach(function (k) {
+      if (k < minKey) delete xp.reviewLog[k];
+    });
+  }
+
+  function studyHeatmapDays(count) {
+    count = count || 90;
+    var today = studyTodayKey();
+    var parts = today.split("-");
+    var d = new Date(Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])));
+    var out = [];
+    for (var i = count - 1; i >= 0; i--) {
+      var cur = new Date(d);
+      cur.setUTCDate(cur.getUTCDate() - i);
+      out.push(cur.toISOString().slice(0, 10));
+    }
+    return out;
+  }
+
+  function studyDayOfWeek(key) {
+    var parts = (key || "").split("-");
+    if (parts.length !== 3) return 0;
+    var d = new Date(Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])));
+    return d.getUTCDay();
+  }
+
+  function studyHeatmapLevel(n) {
+    n = Number(n) || 0;
+    if (n <= 0) return 0;
+    if (n <= 2) return 1;
+    if (n <= 5) return 2;
+    if (n <= 10) return 3;
+    return 4;
+  }
+
+  function studyBumpReviewLog(xp) {
+    if (!xp.reviewLog || typeof xp.reviewLog !== "object") xp.reviewLog = {};
+    var today = studyTodayKey();
+    xp.reviewLog[today] = (xp.reviewLog[today] || 0) + 1;
+    studyPruneReviewLog(xp, 120);
+  }
+
+  function studyRenderHeatmap(xp) {
+    var grid = $("review-heatmap-grid");
+    var tip = $("heatmap-tip");
+    var sumEl = $("heatmap-summary");
+    if (!grid) return;
+    grid.innerHTML = "";
+    var log = (xp && xp.reviewLog) || {};
+    var days = studyHeatmapDays(90);
+    var pad = studyDayOfWeek(days[0]);
+    var cells = [];
+    var p;
+    for (p = 0; p < pad; p++) cells.push(null);
+    days.forEach(function (k) { cells.push(k); });
+    var cols = Math.ceil(cells.length / 7);
+    for (p = 0; p < cols; p++) {
+      var col = document.createElement("div");
+      col.className = "heatmap-col";
+      var r;
+      for (r = 0; r < 7; r++) {
+        var idx = p * 7 + r;
+        var cell = document.createElement("button");
+        cell.type = "button";
+        cell.className = "heatmap-cell level-0";
+        if (idx >= cells.length || !cells[idx]) {
+          cell.classList.add("is-empty");
+          cell.disabled = true;
+        } else {
+          (function (key) {
+            var n = log[key] || 0;
+            cell.className = "heatmap-cell level-" + studyHeatmapLevel(n);
+            cell.title = key + ": " + n + " review" + (n === 1 ? "" : "s");
+            cell.setAttribute("aria-label", key + ", " + n + " reviews");
+            cell.addEventListener("click", function () {
+              if (tip) {
+                tip.textContent = n
+                  ? key + ": " + n + " card rating" + (n === 1 ? "" : "s")
+                  : key + ": no reviews";
+              }
+            });
+          })(cells[idx]);
+        }
+        col.appendChild(cell);
+      }
+      grid.appendChild(col);
+    }
+    if (sumEl) {
+      var total90 = days.reduce(function (s, k) { return s + (log[k] || 0); }, 0);
+      sumEl.textContent = String(total90) + " review" + (total90 === 1 ? "" : "s") + " in the last 90 days";
+    }
+    if (tip && !tip.textContent) tip.textContent = "Tap a day to see how many cards you rated.";
+  }
+
+  function quizCountDeckStats(deckKey) {
+    var deck = quizGetDeck(deckKey);
+    var out = { new: 0, learning: 0, review: 0, mature: 0, total: 0 };
+    if (!deck || !Array.isArray(deck.cards)) return out;
+    var sched = quizLoadSched(deckKey);
+    deck.cards.forEach(function (c) {
+      if (!c || !c.id) return;
+      out.total += 1;
+      var s = quizEnsureCard(sched, c.id);
+      var isNew = s.status === "learning" && (s.repetitions || 0) === 0 && (s.lapses || 0) === 0 && (s.learningStep || 0) === 0;
+      if (isNew) {
+        out.new += 1;
+        return;
+      }
+      if (s.status === "learning" || s.status === "relearning") {
+        out.learning += 1;
+        return;
+      }
+      if (s.status === "review") {
+        if ((s.interval || 0) >= 21) out.mature += 1;
+        else out.review += 1;
+      }
+    });
+    return out;
+  }
+
+  function syncQuizDeckStats(deckKey) {
+    var box = $("quiz-deck-stats");
+    if (!box || !quizPanelActive()) {
+      if (box) box.hidden = true;
+      return;
+    }
+    deckKey = deckKey || quizState.deckKey;
+    if (deckKey === "terminal" || deckKey === "practice" || deckKey === "notes") {
+      box.hidden = true;
+      return;
+    }
+    var deck = quizGetDeck(deckKey);
+    if (!deck || deckLooksStale(deck, deckKey)) {
+      box.hidden = true;
+      return;
+    }
+    var stats = quizCountDeckStats(deckKey);
+    var set = function (id, n) {
+      var el = $(id);
+      if (el) el.textContent = String(n);
+    };
+    set("deck-stat-new", stats.new);
+    set("deck-stat-learning", stats.learning);
+    set("deck-stat-review", stats.review);
+    set("deck-stat-mature", stats.mature);
+    box.hidden = false;
   }
 
   function studyLoadXp() {
@@ -5277,6 +5540,12 @@ function showCourse(courseKey) {
       Object.keys(base).forEach(function (k) {
         if (k === "badges" || k === "courses") {
           if (parsed[k] && typeof parsed[k] === "object" && !Array.isArray(parsed[k])) base[k] = parsed[k];
+          return;
+        }
+        if (k === "reviewLog") {
+          if (parsed.reviewLog && typeof parsed.reviewLog === "object" && !Array.isArray(parsed.reviewLog)) {
+            base.reviewLog = parsed.reviewLog;
+          }
           return;
         }
         if (typeof parsed[k] === "number" || typeof parsed[k] === "string") base[k] = parsed[k];
@@ -5318,6 +5587,7 @@ function showCourse(courseKey) {
     xp.todayPoints = (xp.todayPoints || 0) + add;
     xp.todayReviews = (xp.todayReviews || 0) + 1;
     xp.lifetimeReviews = (xp.lifetimeReviews || 0) + 1;
+    studyBumpReviewLog(xp);
     if (xp.todayReviews > (xp.maxTodayReviews || 0)) xp.maxTodayReviews = xp.todayReviews;
     if (grade === "again") {
       xp.againCount = (xp.againCount || 0) + 1;
@@ -5676,6 +5946,7 @@ function showCourse(courseKey) {
     }
     var rankHud = $("hud-rank");
     if (rankHud) rankHud.textContent = profileShareOn() ? String(rankMyPlace() || "-") : "-";
+    syncQuizDeckStats(quizState.deckKey);
     if (quizShouldShowHome()) syncQuizHome();
   }
 
@@ -7613,8 +7884,9 @@ function showCourse(courseKey) {
   function profileRenderTrophies() {
     var grid = $("trophy-grid");
     if (!grid) return;
-    grid.innerHTML = "";
     var xp = studyLoadXp();
+    studyRenderHeatmap(xp);
+    grid.innerHTML = "";
     var lastGroup = "";
     TROPHIES.forEach(function (t) {
       if (t.group && t.group !== lastGroup) {
