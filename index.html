@@ -2503,7 +2503,7 @@
       line-height: 1.35;
     }
     .orient-checklist-list li.is-done { color: var(--slate); }
-    .orient-checklist-list li.is-done .orient-check { color: var(--palette-turquoise); }
+    .orient-checklist-list li.is-done .orient-check { color: #FFD51E; }
     .orient-check {
       flex: 0 0 auto;
       font-weight: 800;
@@ -6245,6 +6245,10 @@ function showCourse(courseKey) {
       browseFlips: 0,
       drills: 0,
       accountReady: 0,
+      profileNamed: 0,
+      firstWin: 0,
+      terminalStarted: 0,
+      notesOpened: 0,
       tutDone: 0,
       pcTutDone: 0,
       nistDone: 0,
@@ -6437,6 +6441,13 @@ function showCourse(courseKey) {
           return;
         }
         if (typeof parsed[k] === "number" || typeof parsed[k] === "string") base[k] = parsed[k];
+      });
+      Object.keys(parsed).forEach(function (k) {
+        if (k === "badges" || k === "courses" || k === "reviewLog") return;
+        if (Object.prototype.hasOwnProperty.call(base, k)) return;
+        var v = parsed[k];
+        if (typeof v === "number" || typeof v === "boolean") base[k] = v ? 1 : 0;
+        else if (typeof v === "string") base[k] = v;
       });
       var before = Object.keys(base.badges).length;
       studyUnlockTrophies(base);
@@ -7171,13 +7182,18 @@ function showCourse(courseKey) {
     return false;
   }
 
+  function profileHasDisplayName() {
+    var n = String((profileActive().name || "")).replace(/\s+/g, " ").trim();
+    return n.length > 0 && n.toLowerCase() !== "local student";
+  }
+
   function orientChecklistSteps() {
     var xp = studyLoadXp();
     return [
       {
         id: "profile",
         label: "Save your display name in Settings",
-        done: !!(xp.profileNamed || (profileActive().name && profileActive().name !== "Local student")),
+        done: !!(xp.profileNamed || profileHasDisplayName()),
         go: function () { profileOpenModal(); if ($("profile-rename")) $("profile-rename").focus(); }
       },
       {
@@ -7957,7 +7973,7 @@ function showCourse(courseKey) {
       quizShowEmpty(0, { missingDeck: true });
       return;
     }
-    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study");
+    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study deck");
     applyStudyModeUi("test");
     quizUpdateMaterials(quizState.deckKey);
     if (testState.active) {
@@ -8280,7 +8296,7 @@ function showCourse(courseKey) {
       quizShowEmpty(0, { missingDeck: true });
       return;
     }
-    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study");
+    $("quiz-course-title").textContent = deck.course + " - " + (deck.title || "Study deck");
     quizUpdateMaterials(quizState.deckKey);
     syncQuizTagChips(flashState.query || "");
     flashBuildOrder(deck);
@@ -10024,6 +10040,11 @@ function showCourse(courseKey) {
         studyMarkFlag("profileNamed");
         settingsSetMsg("Display name saved.");
         profileRenderModal();
+        renderOrientChecklist();
+      } else if (profileHasDisplayName()) {
+        studyMarkFlag("profileNamed");
+        settingsSetMsg("Display name already saved.");
+        renderOrientChecklist();
       } else {
         settingsSetMsg("Could not save that name. It may be empty or already taken.");
       }
