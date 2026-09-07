@@ -5,7 +5,7 @@
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  * file:// opens index.html directly (no SW); HTTPS/PWA uses this cache after one online visit.
  */
-const CACHE = "msc-cyber-lock136";
+const CACHE = "msc-cyber-lock137";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
@@ -27,6 +27,9 @@ const CRITICAL = [
 ];
 const ASSETS = [
   "./",
+  "./figures/mode-exam-prep.svg",
+  "./figures/mode-flip-cards.svg",
+  "./figures/mode-practice.svg",
   "./figures/ai-declare.svg",
   "./figures/anonymity-trilemma.svg",
   "./figures/apa-anatomy.svg",

@@ -1585,7 +1585,11 @@
       flex-wrap: wrap;
       margin: 0 0 1.15rem;
     }
-    .quiz-meta .setup-title { margin: 0; }
+    .quiz-meta .setup-title {
+      font-size: clamp(1.35rem, 3.5vw, 1.95rem);
+      font-weight: 800;
+      line-height: 1.15;
+    }
     .quiz-queue {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.78rem;
@@ -1622,6 +1626,103 @@
       .flash-mode .quiz-card.flipped { transform: none; }
     }
     .quiz-study-tabs { margin: 0.75rem 0 0.65rem; }
+    .study-mode-picker {
+      margin: 0.5rem 0 1rem;
+    }
+    .study-mode-picker-title {
+      margin: 0 0 0.85rem;
+      font-size: clamp(1.45rem, 4.2vw, 2.15rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #5003C0;
+    }
+    .study-mode-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+    @media (min-width: 640px) {
+      .study-mode-cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .study-mode-card {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: left;
+      font: inherit;
+      padding: 0;
+      border: 2px solid #5003C0;
+      border-radius: 6px;
+      background: #FFF9E6;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+    .study-mode-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 0 #AB03A9;
+    }
+    .study-mode-card.active {
+      border-color: #AB03A9;
+      box-shadow: 0 0 0 2px #FFD51E;
+    }
+    .study-mode-card:focus-visible {
+      outline: 3px solid #5003C0;
+      outline-offset: 2px;
+    }
+    .study-mode-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 320 / 200;
+      object-fit: cover;
+      border-bottom: 2px solid #AB03A9;
+      background: #FFF9E6;
+    }
+    .study-mode-card-body {
+      padding: 0.65rem 0.75rem 0.75rem;
+    }
+    .study-mode-card-title {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #5003C0;
+      margin: 0 0 0.25rem;
+    }
+    .study-mode-card-desc {
+      display: block;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: #AB03A9;
+    }
+    .quiz-wrap.quiz-in-session .study-mode-picker,
+    .quiz-wrap.test-in-session .study-mode-picker {
+      display: none !important;
+    }
+    .quiz-home-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1rem;
+      margin: 0 0 0.65rem;
+    }
+    .quiz-home-visual {
+      flex: 0 0 auto;
+      width: min(100%, 9.5rem);
+      border: 2px solid #5003C0;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #FFF9E6;
+    }
+    .quiz-home-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .quiz-home-head-copy {
+      flex: 1 1 12rem;
+      min-width: 0;
+    }
     .study-mode-banner {
       margin: 0 0 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -2050,6 +2151,7 @@
     .flash-mode .quiz-wrap.quiz-in-session .quiz-deck-pct,
     .flash-mode .quiz-wrap.quiz-in-session #quiz-lede,
     .flash-mode .quiz-wrap.quiz-in-session .study-mode-banner,
+    .flash-mode .quiz-wrap.quiz-in-session .study-mode-picker,
     .flash-mode .quiz-wrap.quiz-in-session #study-hud,
     .flash-mode .quiz-wrap.quiz-in-session #course-map,
     .flash-mode .quiz-wrap.quiz-in-session #unit-progress,
@@ -2082,10 +2184,10 @@
       color: var(--palette-turquoise);
     }
     .quiz-home-due {
-      margin: 0 0 0.45rem;
-      font-size: 1.65rem;
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.85rem, 5vw, 2.65rem);
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.1;
       color: var(--ink);
     }
     .quiz-home-due b { color: var(--palette-red); }
@@ -3942,10 +4044,31 @@
           </div>
           <p class="quiz-deck-pct" id="quiz-deck-pct" hidden aria-live="polite"></p>
           <p class="setup-lede" id="quiz-lede" style="margin-top:-0.5rem;">Rate each card and the app brings back what you miss until you know it. Progress stays on this device.</p>
-          <div class="mode-tabs quiz-study-tabs" role="tablist" aria-label="Study mode">
-            <button type="button" role="tab" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Flip cards</button>
-            <button type="button" role="tab" id="tab-study-quiz" class="active" aria-selected="true" aria-controls="quiz-active" tabindex="0">Practice</button>
-            <button type="button" role="tab" id="tab-study-test" aria-selected="false" aria-controls="quiz-active" tabindex="-1">Exam prep</button>
+          <div class="study-mode-picker" id="study-mode-picker" aria-label="Choose study mode">
+            <h2 class="study-mode-picker-title">How do you want to study?</h2>
+            <div class="study-mode-cards" role="tablist" aria-label="Study mode">
+              <button type="button" role="tab" class="study-mode-card" id="tab-study-flashcards" aria-selected="false" aria-controls="quiz-active" tabindex="-1">
+                <img src="figures/mode-flip-cards.svg" width="320" height="200" alt="" decoding="async" />
+                <span class="study-mode-card-body">
+                  <span class="study-mode-card-title">Flip cards</span>
+                  <span class="study-mode-card-desc">See question and answer. No schedule or points.</span>
+                </span>
+              </button>
+              <button type="button" role="tab" class="study-mode-card active" id="tab-study-quiz" aria-selected="true" aria-controls="quiz-active" tabindex="0">
+                <img src="figures/mode-practice.svg" width="320" height="200" alt="" decoding="async" />
+                <span class="study-mode-card-body">
+                  <span class="study-mode-card-title">Practice</span>
+                  <span class="study-mode-card-desc">Hide the answer, tap 1-4. Missed cards come back.</span>
+                </span>
+              </button>
+              <button type="button" role="tab" class="study-mode-card" id="tab-study-test" aria-selected="false" aria-controls="quiz-active" tabindex="-1">
+                <img src="figures/mode-exam-prep.svg" width="320" height="200" alt="" decoding="async" />
+                <span class="study-mode-card-body">
+                  <span class="study-mode-card-title">Exam prep</span>
+                  <span class="study-mode-card-desc">Timed Canvas-style test. Score at the end.</span>
+                </span>
+              </button>
+            </div>
           </div>
           <p class="study-mode-banner" id="study-mode-banner">Practice: show the answer, then tap 1-4. Forgot and Tricky cards come back until you know them.</p>
           <div class="study-hud" id="study-hud" aria-label="Study progress" hidden>
@@ -3971,8 +4094,15 @@
             <p class="unit-progress-sub" id="unit-progress-sub">0 / 0 cards rated OK or Easy</p>
           </div>
           <div id="quiz-home" class="quiz-home" hidden aria-label="Practice start screen">
-            <p class="quiz-home-kicker">Ready to review today</p>
-            <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards waiting</p>
+            <div class="quiz-home-head">
+              <div class="quiz-home-visual" id="quiz-home-visual" aria-hidden="true">
+                <img src="figures/mode-practice.svg" width="320" height="200" alt="" decoding="async" />
+              </div>
+              <div class="quiz-home-head-copy">
+                <p class="quiz-home-kicker">Ready to review today</p>
+                <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards waiting</p>
+              </div>
+            </div>
             <p class="quiz-home-sub" id="quiz-home-sub">Pick a session below. Your progress stays on this device.</p>
             <div id="orient-nudge" class="orient-nudge" hidden>
               <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
@@ -4004,8 +4134,15 @@
             </div>
           </div>
           <div id="test-home" class="quiz-home test-home" hidden aria-label="Exam prep home">
-            <p class="quiz-home-kicker">Exam prep</p>
-            <p class="quiz-home-due"><b id="test-home-count">10</b> mixed questions</p>
+            <div class="quiz-home-head">
+              <div class="quiz-home-visual" aria-hidden="true">
+                <img src="figures/mode-exam-prep.svg" width="320" height="200" alt="" decoding="async" />
+              </div>
+              <div class="quiz-home-head-copy">
+                <p class="quiz-home-kicker">Exam prep</p>
+                <p class="quiz-home-due"><b id="test-home-count">10</b> mixed questions</p>
+              </div>
+            </div>
             <p class="quiz-home-sub" id="test-home-sub">Written answers and multiple choice like Canvas. Score at the end - does not change your Practice schedule.</p>
             <div class="tut-actions quiz-home-actions">
               <button type="button" class="btn btn-primary" id="test-home-start">Start test</button>
@@ -7029,6 +7166,7 @@ function showCourse(courseKey) {
     if (quizState.studyMode === "flashcards" && activeVisible) inSession = true;
     else if (quizState.studyMode === "quiz" && quizState.inSession && activeVisible) inSession = true;
     wrap.classList.toggle("quiz-in-session", inSession);
+    wrap.classList.toggle("test-in-session", !!(testState.active && quizState.studyMode === "test"));
     var dock = $("quiz-action-dock");
     if (!dock) return;
     var reveal = $("quiz-reveal-row");
@@ -8004,6 +8142,7 @@ function showCourse(courseKey) {
     testState.timerId = window.setInterval(testUpdateTimer, 1000);
     testUpdateTimer();
     testRenderCurrent();
+    syncQuizSessionUi();
   }
 
   function testLoadAndShow() {
