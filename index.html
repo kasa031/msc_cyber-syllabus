@@ -63,8 +63,9 @@
       --paper: #FFF9E6;
       --paper-2: #FFF9E6;
       --surface: #FFF9E6;
-      --line: #FFD51E;
+      --line: #AB03A9;
       --line-soft: #FFF9E6;
+      --line-accent: #FFD51E;
       --signal: #AB03A9;
       --signal-bright: #AB03A9;
       --signal-soft: #FFF9E6;
@@ -792,7 +793,7 @@
       text-transform: uppercase;
     }
     .solvable-banner.is-miss .solvable-banner-kicker,
-    .solvable-banner.is-hint .solvable-banner-kicker { color: #FFD51E; }
+    .solvable-banner.is-hint .solvable-banner-kicker { color: #5003C0; }
     .solvable-banner.is-reveal .solvable-banner-kicker,
     .solvable-banner.is-correct .solvable-banner-kicker { color: #AB03A9; }
     .solvable-banner.is-wrong .solvable-banner-kicker { color: #FF467A; }
@@ -1154,9 +1155,9 @@
       100% { transform: scale(1); }
     }
     .hud-pop { animation: hudPop 0.38s var(--ease); }
-    .study-hud-item.is-hot b { color: #AB03A9; }
+    .study-hud-item.is-hot b { color: #FF467A; }
     .study-hud-item.is-hot {
-      border-color: #AB03A9;
+      border-color: #FF467A;
     }
     @keyframes fxPulse {
       0%, 100% { transform: scale(1); }
@@ -1185,7 +1186,7 @@
       border-color: #AB03A9;
     }
     .streak-cal-day.is-today {
-      box-shadow: 0 0 0 2px #FFD51E;
+      box-shadow: 0 0 0 2px #5003C0;
     }
     .streak-calendar-wrap {
       margin: 0 0 1rem;
@@ -1631,7 +1632,7 @@
       font-size: 0.92rem;
     }
     .flash-mode .study-mode-banner {
-      border-left-color: #FFD51E;
+      border-left-color: #5003C0;
     }
     .study-hud {
       display: grid;
@@ -1649,7 +1650,7 @@
     }
     .study-hud-item {
       background: #FFF9E6;
-      border: 1px solid var(--line);
+      border: 1px solid #5003C0;
       border-radius: 4px;
       padding: 0.55rem 0.65rem;
       text-align: center;
@@ -1663,7 +1664,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #FFD51E;
+      color: #AB03A9;
       margin-bottom: 0.15rem;
     }
     .study-hud-item b {
@@ -1700,7 +1701,7 @@
       display: block;
       font-size: 0.82rem;
       font-weight: 600;
-      color: #FFD51E;
+      color: #AB03A9;
       margin: 0.55rem 0 0.25rem;
     }
     .study-auth-error {
@@ -1856,10 +1857,10 @@
       color: #5003C0;
     }
     .rank-row.is-top1 .rank-place { color: #5003C0; }
-    .rank-row.is-top2 .rank-place { color: #FFD51E; }
+    .rank-row.is-top2 .rank-place { color: #FF467A; }
     .rank-row.is-top3 .rank-place { color: #AB03A9; }
     .rank-name { font-weight: 600; color: #5003C0; }
-    .rank-meta { font-size: 0.78rem; color: #FFD51E; }
+    .rank-meta { font-size: 0.78rem; color: #AB03A9; }
     .rank-pts {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-weight: 700;
@@ -1912,13 +1913,13 @@
       visibility: hidden;
       pointer-events: none;
     }
-    .heatmap-cell.level-0 { background: #FFF9E6; border: 1px solid var(--line-soft); }
+    .heatmap-cell.level-0 { background: #FFF9E6; border: 1px solid #AB03A9; }
     .heatmap-cell.level-1 { background: rgba(171, 3, 169, 0.28); }
     .heatmap-cell.level-2 { background: rgba(171, 3, 169, 0.48); }
     .heatmap-cell.level-3 { background: rgba(171, 3, 169, 0.72); }
     .heatmap-cell.level-4 { background: #AB03A9; }
     .heatmap-cell:focus-visible {
-      outline: 2px solid var(--palette-orange);
+      outline: 2px solid #5003C0;
       outline-offset: 1px;
     }
     .heatmap-legend {
@@ -2018,11 +2019,11 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #FFD51E;
+      color: #5003C0;
     }
     .trophy-icon { font-size: 1.25rem; line-height: 1; }
     .trophy-title { font-weight: 700; color: #5003C0; margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
-    .trophy-hint { font-size: 0.75rem; color: #FFD51E; margin: 0; }
+    .trophy-hint { font-size: 0.75rem; color: #AB03A9; margin: 0; }
     .trophy-toast {
       position: fixed;
       left: 50%;
@@ -2522,7 +2523,7 @@
       line-height: 1.35;
     }
     .orient-checklist-list li.is-done { color: var(--slate); }
-    .orient-checklist-list li.is-done .orient-check { color: #FFD51E; }
+    .orient-checklist-list li.is-done .orient-check { color: #AB03A9; }
     .orient-check {
       flex: 0 0 auto;
       font-weight: 800;
@@ -4943,7 +4944,10 @@ function showCourse(courseKey) {
     btn.addEventListener("click", function () {
       var key = btn.getAttribute("data-course");
       if (key === "4050-main") showCourse(last4050Section());
-      else showCourse(key);
+      else {
+        showCourse(key);
+        if (key === "acit4280" || key === "acit4100" || key === "fellesjam") setStudyMode("flashcards");
+      }
     });
   });
 
