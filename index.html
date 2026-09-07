@@ -664,6 +664,82 @@
       padding: 0.1em 0.35em;
       border-radius: 2px;
     }
+    /* Unified Brilliant-style solvable flow (terminal, PC, quiz, test, practice) */
+    .solvable-banner,
+    .tut-feedback.solvable-banner,
+    .test-feedback.solvable-banner,
+    .fp-status.solvable-banner {
+      min-height: 0;
+      margin: 0.55rem 0 0;
+      padding: 0.7rem 0.85rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .solvable-banner.is-miss,
+    .tut-feedback.is-miss { background: rgba(255, 145, 0, 0.1); border-left: 4px solid #FF9100; }
+    .solvable-banner.is-hint,
+    .tut-feedback.is-hint { background: #FFF1D1; border-left: 4px solid #FF9100; }
+    .solvable-banner.is-reveal,
+    .tut-feedback.is-reveal { background: rgba(0, 183, 205, 0.1); border-left: 4px solid #00B7CD; }
+    .solvable-banner.is-correct,
+    .tut-feedback.is-correct,
+    .fp-status.is-correct { background: rgba(0, 183, 205, 0.12); border-left: 4px solid #00B7CD; }
+    .solvable-banner.is-wrong,
+    .tut-feedback.is-wrong,
+    .test-feedback.is-wrong { background: rgba(223, 48, 28, 0.07); border-left: 4px solid #DF301C; }
+    .solvable-banner-kicker {
+      margin: 0 0 0.25rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .solvable-banner.is-miss .solvable-banner-kicker,
+    .solvable-banner.is-hint .solvable-banner-kicker { color: #FF9100; }
+    .solvable-banner.is-reveal .solvable-banner-kicker,
+    .solvable-banner.is-correct .solvable-banner-kicker { color: #00B7CD; }
+    .solvable-banner.is-wrong .solvable-banner-kicker { color: #DF301C; }
+    .solvable-banner-body { margin: 0; }
+    .solvable-continue-row {
+      margin: 0.65rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .lesson-path {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem;
+      margin: 0.45rem 0 0.75rem;
+    }
+    .lesson-path-node {
+      font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 0.18rem 0.32rem;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      color: var(--slate);
+      background: #FFFFFF;
+      max-width: 3.4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .lesson-path-node.is-done {
+      background: #FFF1D1;
+      border-color: #FF9100;
+      color: var(--ink);
+    }
+    .lesson-path-node.is-current {
+      background: #00B7CD;
+      border-color: #00B7CD;
+      color: #FFFFFF;
+    }
+    .lesson-path-node.is-upcoming { opacity: 0.5; }
+    .test-feedback .solvable-continue-row .btn { width: 100%; justify-content: center; }
 
     .tut-actions {
       display: flex;
@@ -1912,6 +1988,7 @@
     }
     .test-mode #quiz-reveal-row,
     .test-mode #quiz-grades,
+    .flash-mode #quiz-solvable-banner { display: none !important; }
     .test-mode #flash-nav-row { display: none !important; }
     .test-written {
       margin: 0.85rem 0 0;
@@ -2860,6 +2937,7 @@
               <div class="tut-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="tut-bar" aria-label="Progress">
                 <span id="tut-bar-fill"></span>
               </div>
+              <div class="lesson-path" id="tut-lesson-path" aria-label="Command path"></div>
             </div>
 
             <div class="step-stage" id="step-stage">
@@ -3374,6 +3452,8 @@
               <div class="quiz-tags" id="quiz-tags"></div>
             </div>
 
+            <div class="tut-feedback hidden" id="quiz-solvable-banner" aria-live="polite"></div>
+
             <div class="tut-actions" id="quiz-reveal-row">
               <button type="button" class="btn btn-primary" id="quiz-reveal">Show answer <span style="opacity:.7;font-weight:500;font-size:.85em">(Space)</span></button>
             </div>
@@ -3405,8 +3485,11 @@
             </div>
 
             <div class="test-feedback hidden" id="test-feedback" role="status" aria-live="polite">
-              <p id="test-feedback-text"></p>
-              <button type="button" class="btn btn-primary" id="test-next">Next question</button>
+              <p class="solvable-banner-kicker" id="test-feedback-kicker"></p>
+              <p class="solvable-banner-body" id="test-feedback-text"></p>
+              <div class="solvable-continue-row">
+                <button type="button" class="btn btn-primary" id="test-next">Continue</button>
+              </div>
             </div>
           </div>
 
@@ -3830,7 +3913,7 @@
     $("pc-tut-prompt").textContent = step.prompt;
     $("pc-tut-why").textContent = step.why || "";
     $("pc-tut-feedback").textContent = "";
-    $("pc-tut-feedback").className = "tut-feedback";
+    SolvableFlow.clear($("pc-tut-feedback"));
     pcUpdateMeta();
     pcAnimateStep();
     pcResetRevealBtn();
@@ -3857,9 +3940,7 @@
     var input = $("pc-cmd-input");
     var given = pcNormalize(input.value);
     if (!given) {
-      var fbEmpty = $("pc-tut-feedback");
-      fbEmpty.className = "tut-feedback soft";
-      fbEmpty.textContent = "Type a short answer first.";
+      SolvableFlow.miss($("pc-tut-feedback"), "Type a short answer first.");
       input.focus();
       return;
     }
@@ -3870,8 +3951,7 @@
       pcUpdateMeta();
       input.classList.remove("wrong");
       input.classList.add("ok");
-      fb.className = "tut-feedback ok";
-      fb.textContent = "Correct - " + step.answer;
+      SolvableFlow.correct(fb, step.answer);
       pcState.index += 1;
       pcSave();
       setTimeout(function () { pcRenderStep(); }, 550);
@@ -3881,13 +3961,12 @@
     pcUpdateMeta();
     pcState.fails += 1;
     input.classList.add("wrong");
-    fb.className = "tut-feedback bad";
     if (pcState.fails === 1) {
-      fb.textContent = "Not quite - try again.";
+      SolvableFlow.miss(fb);
     } else if (pcState.fails === 2) {
-      fb.textContent = "Hint: " + step.hint;
+      SolvableFlow.hint(fb, step.hint);
     } else {
-      pcRevealAnswerStay("Answer: " + step.answer);
+      pcRevealAnswerStay();
     }
   }
 
@@ -3905,9 +3984,7 @@
     input.classList.add("ok");
     input.disabled = true;
     $("btn-pc-check").disabled = true;
-    var fb = $("pc-tut-feedback");
-    fb.className = "tut-feedback reveal-box";
-    fb.textContent = feedbackText || ("Answer: " + step.answer);
+    SolvableFlow.reveal($("pc-tut-feedback"), escapeHtml(feedbackText || step.answer));
     var btn = $("btn-pc-skip");
     if (btn) {
       btn.textContent = "Continue";
@@ -3937,6 +4014,54 @@
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#39;");
   }
+
+  /** Unified miss -> hint -> reveal -> continue flow (Brilliant-style). */
+  var SolvableFlow = {
+    kicker: {
+      miss: "Try again",
+      hint: "Hint",
+      reveal: "Answer",
+      correct: "Correct",
+      wrong: "Not quite"
+    },
+    clear: function (el) {
+      if (!el) return;
+      el.className = el.id === "test-feedback" ? "test-feedback hidden" : "tut-feedback";
+      el.textContent = "";
+      el.innerHTML = "";
+      if (el.id === "test-feedback") el.hidden = true;
+      if (el.id === "quiz-solvable-banner") el.hidden = true;
+    },
+    show: function (el, kind, bodyHtml, kickerText) {
+      if (!el) return;
+      var k = kickerText || SolvableFlow.kicker[kind] || "";
+      var base = "tut-feedback solvable-banner is-" + kind;
+      if (el.id === "test-feedback") base = "test-feedback solvable-banner is-" + kind;
+      if (el.id && el.id.indexOf("fp-") === 0 || (el.classList && el.classList.contains("fp-status"))) {
+        base = "fp-status solvable-banner is-" + kind;
+      }
+      el.className = base;
+      el.hidden = false;
+      el.innerHTML = (k ? '<p class="solvable-banner-kicker">' + escapeHtml(k) + "</p>" : "") +
+        '<p class="solvable-banner-body">' + bodyHtml + "</p>";
+    },
+    miss: function (el, text) {
+      SolvableFlow.show(el, "miss", escapeHtml(text || "Not quite - try again."));
+    },
+    hint: function (el, text) {
+      SolvableFlow.show(el, "hint", escapeHtml(String(text || "")));
+    },
+    reveal: function (el, bodyHtml) {
+      SolvableFlow.show(el, "reveal", bodyHtml);
+    },
+    correct: function (el, text) {
+      SolvableFlow.show(el, "correct", escapeHtml(text || "Correct."));
+    },
+    wrong: function (el, bodyHtml) {
+      SolvableFlow.show(el, "wrong", bodyHtml);
+    }
+  };
+  window.SolvableFlow = SolvableFlow;
 
   function setCourseTabIndex(activeKey) {
     document.querySelectorAll(".course-tabs button").forEach(function (btn) {
@@ -5924,6 +6049,14 @@ function showCourse(courseKey) {
     return html;
   }
 
+  function studyClearUnitFilter() {
+    quizState.tagFilter = null;
+    flashState.query = "";
+    if ($("quiz-search")) $("quiz-search").value = "";
+    syncQuizTagChips("");
+    studyRenderCourseMap(quizState.deckKey);
+  }
+
   function studyApplyUnitFilter(tag) {
     tag = tag || "";
     quizState.tagFilter = tag || null;
@@ -6538,20 +6671,22 @@ function showCourse(courseKey) {
   function testShowFeedback(correct, expected, userAnswer) {
     testState.awaitingNext = true;
     var fb = $("test-feedback");
+    var kicker = $("test-feedback-kicker");
     var txt = $("test-feedback-text");
     if ($("test-written-row")) $("test-written-row").classList.add("hidden");
     if ($("test-mcq-row")) {
       $("test-mcq-row").querySelectorAll("button").forEach(function (btn) { btn.disabled = true; });
     }
     if (fb) {
-      fb.classList.remove("hidden", "is-correct", "is-wrong");
-      fb.classList.add(correct ? "is-correct" : "is-wrong");
+      fb.className = "test-feedback solvable-banner is-" + (correct ? "correct" : "wrong");
+      fb.hidden = false;
     }
+    if (kicker) kicker.textContent = correct ? SolvableFlow.kicker.correct : SolvableFlow.kicker.wrong;
     if (txt) {
       if (correct) {
-        txt.textContent = "Correct!";
+        txt.textContent = "Nice recall - continue to the next question.";
       } else {
-        txt.textContent = "Not quite. Correct answer: " + expected + (userAnswer ? " (you wrote: " + userAnswer + ")" : "");
+        txt.textContent = "Correct answer: " + expected + (userAnswer ? " (you wrote: " + userAnswer + ")" : "");
       }
     }
     var nextBtn = $("test-next");
@@ -6799,13 +6934,11 @@ function showCourse(courseKey) {
     if (mode === "quiz") {
       quizState.inSession = isEmbedMode();
       quizState.sessionLimit = null;
-      quizState.tagFilter = null;
     } else if (mode === "test") {
       quizState.inSession = false;
       quizState.sessionLimit = null;
     } else {
       quizState.inSession = true;
-      quizState.tagFilter = null;
     }
     applyStudyModeUi(mode);
     studyLoadAndShow();
@@ -7609,6 +7742,7 @@ function showCourse(courseKey) {
     aEl.classList.add("hidden");
     $("quiz-reveal-row").classList.remove("hidden");
     $("quiz-grades").classList.add("hidden");
+    SolvableFlow.clear($("quiz-solvable-banner"));
 
     var tags = $("quiz-tags");
     tags.innerHTML = "";
@@ -7803,6 +7937,7 @@ function showCourse(courseKey) {
     $("quiz-face-label").textContent = "Answer";
     $("quiz-a").classList.remove("hidden");
     $("quiz-reveal-row").classList.add("hidden");
+    SolvableFlow.reveal($("quiz-solvable-banner"), "Rate honestly with 1-4. Again if you missed it.");
     quizUpdateGradePreviews();
     $("quiz-grades").classList.remove("hidden");
     try {
@@ -7839,7 +7974,6 @@ function showCourse(courseKey) {
         quizState.weakOnly = false;
         quizState.inSession = false;
         quizState.sessionLimit = null;
-        quizState.tagFilter = null;
       }
     }
     var fxWait = studyReduceMotion() ? 0 : (grade === "again" ? 280 : 180);
@@ -7934,10 +8068,16 @@ function showCourse(courseKey) {
     }
   });
   if ($("tab-study-flashcards")) {
-    $("tab-study-flashcards").addEventListener("click", function () { setStudyMode("flashcards"); });
+    $("tab-study-flashcards").addEventListener("click", function () {
+      studyClearUnitFilter();
+      setStudyMode("flashcards");
+    });
   }
   if ($("tab-study-quiz")) {
-    $("tab-study-quiz").addEventListener("click", function () { setStudyMode("quiz"); });
+    $("tab-study-quiz").addEventListener("click", function () {
+      studyClearUnitFilter();
+      setStudyMode("quiz");
+    });
   }
   if ($("tab-study-test")) {
     $("tab-study-test").addEventListener("click", function () { setStudyMode("test"); });
@@ -9043,6 +9183,30 @@ function showCourse(courseKey) {
     if (bar) bar.setAttribute("aria-valuenow", String(Math.round(pct)));
   }
 
+  function tutStepShortLabel(step) {
+    var raw = (step && step.answer) ? String(step.answer).split(/\s/)[0] : "";
+    if (!raw && step && step.id) raw = String(step.id).replace(/^(ps|arch)-/, "");
+    if (raw.length > 9) raw = raw.slice(0, 8) + "...";
+    return raw || "?";
+  }
+
+  function renderTutLessonPath() {
+    var path = $("tut-lesson-path");
+    if (!path) return;
+    var list = stepsFor(state.track);
+    path.innerHTML = "";
+    list.forEach(function (step, i) {
+      var node = document.createElement("span");
+      node.className = "lesson-path-node";
+      if (i < state.index) node.classList.add("is-done");
+      else if (i === state.index) node.classList.add("is-current");
+      else node.classList.add("is-upcoming");
+      node.textContent = tutStepShortLabel(step);
+      node.title = (step && step.prompt) ? step.prompt : "";
+      path.appendChild(node);
+    });
+  }
+
   function resetRevealBtn() {
     var btn = $("btn-skip");
     if (!btn) return;
@@ -9066,9 +9230,9 @@ function showCourse(courseKey) {
     $("tut-tag").classList.toggle("rep", !!step.rep);
     $("tut-prompt").textContent = step.prompt;
     $("tut-why").textContent = step.why || "";
-    $("tut-feedback").textContent = "";
-    $("tut-feedback").className = "tut-feedback";
+    SolvableFlow.clear($("tut-feedback"));
     updateMeta();
+    renderTutLessonPath();
     animateStep();
     resetRevealBtn();
 
@@ -9097,9 +9261,7 @@ function showCourse(courseKey) {
     var input = $("cmd-input");
     var given = normalize(input.value);
     if (!given) {
-      var fbEmpty = $("tut-feedback");
-      fbEmpty.className = "tut-feedback soft";
-      fbEmpty.textContent = "Type a command first.";
+      SolvableFlow.miss($("tut-feedback"), "Type a command first.");
       input.focus();
       return;
     }
@@ -9109,8 +9271,7 @@ function showCourse(courseKey) {
     if (ok) {
       input.classList.remove("wrong");
       input.classList.add("ok");
-      fb.className = "tut-feedback ok";
-      fb.textContent = "Correct.";
+      SolvableFlow.correct(fb);
       input.disabled = true;
       $("btn-check").disabled = true;
       state.streak += 1;
@@ -9134,18 +9295,15 @@ function showCourse(courseKey) {
 
     if (state.fails >= 3) {
       state.revealed = true;
-      fb.className = "tut-feedback reveal-box";
-      fb.innerHTML = "The answer is <code>" + escapeHtml(step.answer) + "</code> - type it in to continue.";
+      SolvableFlow.reveal(fb, "The answer is <code>" + escapeHtml(step.answer) + "</code> - tap Continue when ready.");
       state.revealed = false;
       return;
     }
     if (state.fails === 2) {
-      fb.className = "tut-feedback hint-box";
-      fb.textContent = "Hint: " + step.hint;
+      SolvableFlow.hint(fb, step.hint);
       return;
     }
-    fb.className = "tut-feedback soft";
-    fb.textContent = "Not quite - try again.";
+    SolvableFlow.miss(fb);
   }
 
   /** Reveal answer and stay until user taps Continue (no auto-advance). */
@@ -9159,9 +9317,7 @@ function showCourse(courseKey) {
       renderStep();
       return;
     }
-    var fb = $("tut-feedback");
-    fb.className = "tut-feedback reveal-box";
-    fb.innerHTML = "Answer: <code>" + escapeHtml(step.answer) + "</code>";
+    SolvableFlow.reveal($("tut-feedback"), "Answer: <code>" + escapeHtml(step.answer) + "</code>");
     var input = $("cmd-input");
     input.value = step.answer;
     input.classList.remove("wrong");

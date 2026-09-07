@@ -37,6 +37,24 @@
     return a;
   }
 
+  function fpFlowStatus(el, kind, text) {
+    if (!el) return;
+    var SF = global.SolvableFlow;
+    if (kind === "idle") {
+      el.className = "fp-status";
+      el.textContent = text || "";
+      return;
+    }
+    if (SF) {
+      if (kind === "ok") SF.correct(el, text);
+      else if (kind === "soft") SF.miss(el, text);
+      else SF.show(el, kind, String(text || ""));
+      return;
+    }
+    el.className = "fp-status" + (kind === "ok" ? " ok" : kind === "soft" ? " soft" : "");
+    el.textContent = text || "";
+  }
+
   function polar(cx, cy, r, deg) {
     var rad = (deg * Math.PI) / 180;
     return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
@@ -487,8 +505,7 @@
       root.classList.remove("fp-complete");
       if (nextBtn) nextBtn.hidden = true;
       if (status) {
-        status.textContent = "Drag a function onto the wheel, or tap a chip then a slot.";
-        status.className = "fp-status";
+        fpFlowStatus(status, "idle", "Drag a function onto the wheel, or tap a chip then a slot.");
       }
       ctrl = createDragController({
         root: root,
@@ -501,22 +518,19 @@
         onCorrect: function (slotId, labelId, slotEl) {
           paintSlot(slotEl, labelId);
           if (status) {
-            status.textContent = labelFor(labelId) + " placed.";
-            status.className = "fp-status ok";
+            fpFlowStatus(status, "ok", labelFor(labelId) + " placed.");
           }
         },
         onWrong: function () {
           if (status) {
-            status.textContent = "Not that slot - try again.";
-            status.className = "fp-status soft";
+            fpFlowStatus(status, "soft", "Not that slot - try again.");
           }
         },
         onComplete: function () {
           root.classList.add("fp-complete");
           if (nextBtn) nextBtn.hidden = false;
           if (status) {
-            status.textContent = "Complete - NIST CSF 2.0 wheel matches the slide. Next: Kill Chain.";
-            status.className = "fp-status ok";
+            fpFlowStatus(status, "ok", "Complete - NIST CSF 2.0 wheel matches the slide. Next: Kill Chain.");
           }
           if (typeof window.studyMarkFlag === "function") window.studyMarkFlag("nistDone");
         }
@@ -551,8 +565,7 @@
       root.classList.remove("fp-complete");
       if (nextBtn) nextBtn.hidden = true;
       if (status) {
-        status.textContent = "Drag stages left to right, or tap a chip then a chevron.";
-        status.className = "fp-status";
+        fpFlowStatus(status, "idle", "Drag stages left to right, or tap a chip then a chevron.");
       }
       ctrl = createDragController({
         root: root,
@@ -566,22 +579,19 @@
           slotEl.style.background = KILL_BLUE;
           slotEl.style.color = "#fff";
           if (status) {
-            status.textContent = labelFor(labelId) + " locked in.";
-            status.className = "fp-status ok";
+            fpFlowStatus(status, "ok", labelFor(labelId) + " locked in.");
           }
         },
         onWrong: function () {
           if (status) {
-            status.textContent = "Wrong stage for that step - try again.";
-            status.className = "fp-status soft";
+            fpFlowStatus(status, "soft", "Wrong stage for that step - try again.");
           }
         },
         onComplete: function () {
           root.classList.add("fp-complete");
           if (nextBtn) nextBtn.hidden = false;
           if (status) {
-            status.textContent = "Complete - Lockheed Martin Kill Chain in order.";
-            status.className = "fp-status ok";
+            fpFlowStatus(status, "ok", "Complete - Lockheed Martin Kill Chain in order.");
           }
           if (typeof window.studyMarkFlag === "function") window.studyMarkFlag("killDone");
         }
