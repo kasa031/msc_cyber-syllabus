@@ -23,10 +23,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock111" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock111" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock111" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock111" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock112" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock112" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock112" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock112" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -1698,6 +1698,145 @@
       margin: 0 0 0.85rem;
     }
     .flash-mode #study-hud-actions { display: none !important; }
+    .quiz-home {
+      margin: 0 0 1rem;
+      padding: 1rem 1.1rem 1.05rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--palette-turquoise);
+      border-radius: 4px;
+    }
+    .quiz-home[hidden] { display: none !important; }
+    .quiz-home-kicker {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--palette-turquoise);
+    }
+    .quiz-home-due {
+      margin: 0 0 0.45rem;
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .quiz-home-due b { color: var(--palette-red); }
+    .quiz-home-sub {
+      margin: 0 0 0.85rem;
+      font-size: 0.92rem;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+    .quiz-home-goal {
+      margin: 0 0 0.85rem;
+    }
+    .quiz-home-goal-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--slate);
+      margin: 0 0 0.35rem;
+    }
+    .quiz-home-goal-bar {
+      height: 0.45rem;
+      background: var(--line-soft);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .quiz-home-goal-bar span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: var(--palette-turquoise);
+      transition: width 0.25s var(--ease);
+    }
+    .quiz-home-goal-bar.is-done span { background: var(--palette-orange); }
+    .quiz-home-goals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+    .quiz-home-goals button {
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      color: var(--slate);
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .quiz-home-goals button.is-active {
+      border-color: var(--palette-turquoise);
+      color: var(--ink);
+      background: var(--signal-soft);
+    }
+    .quiz-home-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 0;
+    }
+    .quiz-home-actions .btn-primary {
+      width: 100%;
+      justify-content: center;
+      font-size: 1rem;
+      padding: 0.85rem 1rem;
+    }
+    .quiz-home-actions .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .embed .quiz-home { display: none !important; }
+    .first-win-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(26, 20, 16, 0.55);
+    }
+    .first-win-modal[hidden] { display: none !important; }
+    .first-win-card {
+      width: min(26rem, 100%);
+      max-height: min(90vh, 36rem);
+      overflow: auto;
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--palette-red);
+      border-radius: 4px;
+      padding: 1.15rem 1.2rem 1.2rem;
+      box-shadow: 0 12px 40px rgba(26, 20, 16, 0.18);
+    }
+    .first-win-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.25rem;
+    }
+    .first-win-card p {
+      margin: 0 0 0.75rem;
+      color: var(--slate);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .first-win-pick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0 0 0.85rem;
+    }
+    .first-win-pick button {
+      flex: 1 1 5.5rem;
+      min-height: var(--touch);
+    }
+    .first-win-step[hidden] { display: none !important; }
     .quiz-card:not(.revealed):not(.flipped) #quiz-figure {
       display: none !important;
     }
@@ -2233,6 +2372,31 @@
   <div id="fx-layer" aria-hidden="true"></div>
   <a class="skip-link" href="#lab">Skip to content</a>
   <div id="sw-toast" class="sw-toast" hidden role="status" aria-live="polite"></div>
+  <div id="first-win-modal" class="first-win-modal" hidden role="dialog" aria-labelledby="first-win-title" aria-modal="true">
+    <div class="first-win-card">
+      <div id="first-win-step-1" class="first-win-step">
+        <h3 id="first-win-title">Welcome to your study app</h3>
+        <p>Three modes: <strong>Browse</strong> to flip cards, <strong>Quiz</strong> for spaced repetition, <strong>Terminal</strong> for lab commands. Pick a course to start.</p>
+        <div class="first-win-pick" role="group" aria-label="Pick a course">
+          <button type="button" class="btn" data-first-course="acit4050">ACIT4050</button>
+          <button type="button" class="btn" data-first-course="acit4100">ACIT4100</button>
+          <button type="button" class="btn" data-first-course="acit4280">ACIT4280</button>
+        </div>
+        <div class="tut-actions">
+          <button type="button" class="btn btn-primary" id="first-win-next">Next</button>
+          <button type="button" class="btn ghost" id="first-win-skip">Skip intro</button>
+        </div>
+      </div>
+      <div id="first-win-step-2" class="first-win-step" hidden>
+        <h3>Your first win</h3>
+        <p>Flip <strong>3 cards</strong> in Browse (no pressure). Then tap <strong>Continue due</strong> when you want the app to remember what to drill.</p>
+        <div class="tut-actions">
+          <button type="button" class="btn btn-primary" id="first-win-browse">Flip 3 cards now</button>
+          <button type="button" class="btn ghost" id="first-win-quiz">Go to Quiz home</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <header class="hero">
     <div class="hero-inner">
       <div class="hero-top">
@@ -2781,6 +2945,31 @@
           </div>
           <div id="trophy-toast" class="trophy-toast" hidden role="status" aria-live="polite"></div>
           <div id="quiz-materials" class="quiz-materials hidden" aria-live="polite"></div>
+          <div id="quiz-home" class="quiz-home" hidden aria-label="Review home">
+            <p class="quiz-home-kicker">Review due</p>
+            <p class="quiz-home-due"><b id="quiz-home-due-n">0</b> cards ready now</p>
+            <p class="quiz-home-sub" id="quiz-home-sub">Start a short session. Progress stays on this device.</p>
+            <div class="quiz-home-goal">
+              <div class="quiz-home-goal-meta">
+                <span>Daily goal</span>
+                <span id="quiz-home-goal-label">0 / 10 today</span>
+              </div>
+              <div class="quiz-home-goal-bar" id="quiz-home-goal-bar"><span id="quiz-home-goal-fill"></span></div>
+              <div class="quiz-home-goals" role="group" aria-label="Daily goal size">
+                <button type="button" data-goal="5">5 / day</button>
+                <button type="button" data-goal="10">10 / day</button>
+                <button type="button" data-goal="20">20 / day</button>
+              </div>
+            </div>
+            <div class="tut-actions quiz-home-actions">
+              <button type="button" class="btn btn-primary" id="quiz-home-start">Continue due cards</button>
+              <div class="btn-row">
+                <button type="button" class="btn" id="quiz-home-quick">Quick 5 cards</button>
+                <button type="button" class="btn ghost" id="quiz-home-browse">Browse deck</button>
+                <button type="button" class="btn ghost" id="quiz-home-weak" hidden>Drill weak</button>
+              </div>
+            </div>
+          </div>
           <div class="quiz-find" id="quiz-find" hidden>
             <label class="visually-hidden" for="quiz-search">Find cards</label>
             <input type="search" id="quiz-search" placeholder="Find in this deck (question, answer, tag)" autocomplete="off" enterkeyhint="search" />
@@ -2929,8 +3118,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock111" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock111"></script>
+  <script src="quiz-decks.js?v=lock112" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock112"></script>
   <script>
   (function () {
   "use strict";
@@ -3443,6 +3632,8 @@ function showCourse(courseKey) {
       quizState.sessionQueue = null;
       quizState.sessionStartCount = 0;
       quizState.sessionDone = 0;
+      quizState.sessionLimit = null;
+      quizState.inSession = isEmbedMode();
       studyLoadAndShow();
     }
     syncCourseHash(courseKey);
@@ -3632,9 +3823,15 @@ function showCourse(courseKey) {
     sessionQueue: null,
     sessionStartCount: 0,
     sessionDone: 0,
+    sessionLimit: null,
+    inSession: false,
     weakOnly: false,
     sched: {}
   };
+
+  var FIRST_WIN_KEY = "acit-first-win-v1";
+  var DAILY_GOAL_KEY = "acit-daily-goal-v1";
+  var firstWinState = { course: "acit4050", flipsNeeded: 0 };
 
   var flashState = {
     order: [],
@@ -4990,6 +5187,138 @@ function showCourse(courseKey) {
     return { due: due, weak: weak };
   }
 
+  function studyDailyGoal() {
+    try {
+      var n = parseInt(localStorage.getItem(DAILY_GOAL_KEY), 10);
+      if (n === 5 || n === 10 || n === 20) return n;
+    } catch (e) { /* ignore */ }
+    return 10;
+  }
+
+  function studySetDailyGoal(n) {
+    n = Number(n);
+    if (n !== 5 && n !== 10 && n !== 20) return;
+    try { localStorage.setItem(DAILY_GOAL_KEY, String(n)); } catch (e) { /* ignore */ }
+    syncQuizHome();
+  }
+
+  function quizShouldShowHome() {
+    return quizState.studyMode === "quiz" && !quizState.inSession && !isEmbedMode();
+  }
+
+  function syncQuizHome() {
+    var home = $("quiz-home");
+    if (!home) return;
+    if (!quizShouldShowHome() || !quizPanelActive()) {
+      home.hidden = true;
+      return;
+    }
+    var deck = quizGetDeck(quizState.deckKey);
+    if (!deck || !Array.isArray(deck.cards) || !deck.cards.length || deckLooksStale(deck, quizState.deckKey)) {
+      home.hidden = true;
+      return;
+    }
+    if (!quizState.sched || !Object.keys(quizState.sched).length) {
+      quizState.sched = quizLoadSched(quizState.deckKey);
+      (deck.cards || []).forEach(function (c) { if (c && c.id) quizEnsureCard(quizState.sched, c.id); });
+    }
+    var counts = studyCountDueAndWeak(quizState.deckKey);
+    var xp = studyLoadXp();
+    var goal = studyDailyGoal();
+    var today = xp.todayReviews || 0;
+    var dueN = $("quiz-home-due-n");
+    var sub = $("quiz-home-sub");
+    var startBtn = $("quiz-home-start");
+    var quickBtn = $("quiz-home-quick");
+    var weakBtn = $("quiz-home-weak");
+    var goalLabel = $("quiz-home-goal-label");
+    var goalBar = $("quiz-home-goal-bar");
+    var goalFill = $("quiz-home-goal-fill");
+    if (dueN) dueN.textContent = String(counts.due);
+    if (sub) {
+      if (counts.due > 0) {
+        sub.textContent = counts.weak > 0
+          ? counts.weak + " weak card" + (counts.weak === 1 ? "" : "s") + " need extra drill."
+          : "Rate cards honestly - Again and Hard come back soon.";
+      } else if (today >= goal) {
+        sub.textContent = "Daily goal reached. Browse or study all cards if you want more.";
+      } else {
+        sub.textContent = "Nothing due right now. Browse the deck or study all cards anyway.";
+      }
+    }
+    if (startBtn) {
+      if (counts.due > 0) {
+        startBtn.textContent = "Continue due (" + counts.due + " card" + (counts.due === 1 ? "" : "s") + ")";
+        startBtn.disabled = false;
+      } else {
+        startBtn.textContent = "Study all cards anyway";
+        startBtn.disabled = false;
+      }
+    }
+    if (quickBtn) {
+      var quickN = counts.due > 0 ? Math.min(5, counts.due) : 5;
+      quickBtn.textContent = "Quick " + quickN + " cards";
+      quickBtn.hidden = counts.due < 1;
+    }
+    if (weakBtn) {
+      weakBtn.hidden = counts.weak < 1;
+      weakBtn.textContent = "Drill " + counts.weak + " weak";
+    }
+    if (goalLabel) goalLabel.textContent = today + " / " + goal + " today";
+    var pct = goal ? Math.min(100, (today / goal) * 100) : 0;
+    if (goalFill) goalFill.style.width = pct + "%";
+    if (goalBar) goalBar.classList.toggle("is-done", today >= goal);
+    document.querySelectorAll(".quiz-home-goals button").forEach(function (btn) {
+      btn.classList.toggle("is-active", Number(btn.getAttribute("data-goal")) === goal);
+    });
+    home.hidden = false;
+    $("quiz-active").classList.add("hidden");
+    $("quiz-empty").classList.add("hidden");
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = true;
+  }
+
+  function quizBeginSession(limit) {
+    quizState.inSession = true;
+    quizState.sessionLimit = typeof limit === "number" && limit > 0 ? limit : null;
+    quizState.forceAll = false;
+    if ($("quiz-home")) $("quiz-home").hidden = true;
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = false;
+    quizLoadAndShow();
+  }
+
+  function firstWinDone() {
+    try { localStorage.setItem(FIRST_WIN_KEY, "1"); } catch (e) { /* ignore */ }
+    firstWinState.flipsNeeded = 0;
+    var modal = $("first-win-modal");
+    if (modal) modal.hidden = true;
+    studyMarkFlag("firstWin");
+    var toast = $("trophy-toast");
+    if (toast) {
+      toast.hidden = false;
+      toast.textContent = "First win complete - nice start!";
+      window.setTimeout(function () { if (toast) toast.hidden = true; }, 3200);
+    }
+  }
+
+  function firstWinMaybeShow() {
+    if (isEmbedMode()) return;
+    try {
+      if (localStorage.getItem(FIRST_WIN_KEY)) return;
+    } catch (e) { return; }
+    var modal = $("first-win-modal");
+    if (!modal) return;
+    modal.hidden = false;
+    if ($("first-win-step-1")) $("first-win-step-1").hidden = false;
+    if ($("first-win-step-2")) $("first-win-step-2").hidden = true;
+  }
+
+  function firstWinPickCourse(key) {
+    firstWinState.course = key;
+    document.querySelectorAll(".first-win-pick button").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-first-course") === key);
+    });
+  }
+
   function studyRefreshHud() {
     var xp = studyLoadXp();
     var counts = studyCountDueAndWeak(quizState.deckKey);
@@ -5024,6 +5353,7 @@ function showCourse(courseKey) {
     }
     var rankHud = $("hud-rank");
     if (rankHud) rankHud.textContent = profileShareOn() ? String(rankMyPlace() || "-") : "-";
+    if (quizShouldShowHome()) syncQuizHome();
   }
 
   function expectedCount(deckKey) {
@@ -5142,6 +5472,12 @@ function showCourse(courseKey) {
     if (mode !== "flashcards" && mode !== "quiz") mode = "quiz";
     quizState.studyMode = mode;
     saveStudyMode(quizState.deckKey, mode);
+    if (mode === "quiz") {
+      quizState.inSession = isEmbedMode();
+      quizState.sessionLimit = null;
+    } else {
+      quizState.inSession = true;
+    }
     applyStudyModeUi(mode);
     studyLoadAndShow();
   }
@@ -5310,6 +5646,10 @@ function showCourse(courseKey) {
           studyFxPop("hud-trophies");
         }
         studyRefreshHud();
+      }
+      if (firstWinState.flipsNeeded > 0 && flashState.flipped) {
+        firstWinState.flipsNeeded -= 1;
+        if (firstWinState.flipsNeeded <= 0) firstWinDone();
       }
     } else {
       cardEl.classList.remove("flipped", "revealed");
@@ -5582,7 +5922,7 @@ function showCourse(courseKey) {
       pairs.forEach(function (pair) { decks[pair[0]] = pair[1]; });
       window.QUIZ_DECKS = decks;
       if (!window.QUIZ_DECKS_META) {
-        window.QUIZ_DECKS_META = { version: "lock111-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
+        window.QUIZ_DECKS_META = { version: "lock112-json-fallback", expected: QUIZ_EXPECTED, loadedAt: Date.now() };
       }
       window.__QUIZ_DECKS_LOAD_OK = quizDecksHealthy();
       quizDeckFallbackPromise = null;
@@ -6034,6 +6374,11 @@ function showCourse(courseKey) {
     applyStudyModeUi(quizState.studyMode);
     quizUpdateMaterials(quizState.deckKey);
 
+    if (quizShouldShowHome()) {
+      syncQuizHome();
+      return;
+    }
+
     var byId = {};
     (deck.cards || []).forEach(function (c) { if (c && c.id) byId[c.id] = c; });
 
@@ -6070,6 +6415,9 @@ function showCourse(courseKey) {
     }
 
     if (!queue) queue = [];
+    if (quizState.sessionLimit && queue.length > quizState.sessionLimit) {
+      queue = queue.slice(0, quizState.sessionLimit);
+    }
     quizUpdateQueueLabel(queue.length);
     studyRefreshHud();
 
@@ -6077,9 +6425,17 @@ function showCourse(courseKey) {
       quizState.sessionQueue = null;
       quizState.forceAll = false;
       quizState.weakOnly = false;
+      quizState.inSession = false;
+      quizState.sessionLimit = null;
+      if (quizShouldShowHome()) {
+        syncQuizHome();
+        return;
+      }
       quizShowEmpty(0);
       return;
     }
+    if ($("quiz-home")) $("quiz-home").hidden = true;
+    if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = false;
     quizRenderCard(queue[0]);
   }
 
@@ -6125,10 +6481,74 @@ function showCourse(courseKey) {
         quizState.sessionQueue = null;
         quizState.forceAll = false;
         quizState.weakOnly = false;
+        quizState.inSession = false;
+        quizState.sessionLimit = null;
       }
     }
     var fxWait = studyReduceMotion() ? 0 : (grade === "again" ? 280 : 180);
     window.setTimeout(function () { quizLoadAndShow(); }, fxWait);
+  }
+
+  if ($("quiz-home-start")) {
+    $("quiz-home-start").addEventListener("click", function () {
+      var counts = studyCountDueAndWeak(quizState.deckKey);
+      quizState.forceAll = counts.due < 1;
+      quizState.weakOnly = false;
+      quizBeginSession();
+    });
+  }
+  if ($("quiz-home-quick")) {
+    $("quiz-home-quick").addEventListener("click", function () {
+      var counts = studyCountDueAndWeak(quizState.deckKey);
+      quizState.forceAll = false;
+      quizState.weakOnly = false;
+      quizBeginSession(Math.min(5, counts.due || 5));
+    });
+  }
+  if ($("quiz-home-browse")) {
+    $("quiz-home-browse").addEventListener("click", function () { setStudyMode("flashcards"); });
+  }
+  if ($("quiz-home-weak")) {
+    $("quiz-home-weak").addEventListener("click", function () {
+      quizState.weakOnly = true;
+      quizState.forceAll = false;
+      quizBeginSession();
+    });
+  }
+  document.querySelectorAll(".quiz-home-goals button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      studySetDailyGoal(btn.getAttribute("data-goal"));
+    });
+  });
+  document.querySelectorAll(".first-win-pick button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      firstWinPickCourse(btn.getAttribute("data-first-course"));
+    });
+  });
+  if ($("first-win-next")) {
+    $("first-win-next").addEventListener("click", function () {
+      showCourse(firstWinState.course || "acit4050");
+      if ($("first-win-step-1")) $("first-win-step-1").hidden = true;
+      if ($("first-win-step-2")) $("first-win-step-2").hidden = false;
+    });
+  }
+  if ($("first-win-skip")) {
+    $("first-win-skip").addEventListener("click", firstWinDone);
+  }
+  if ($("first-win-browse")) {
+    $("first-win-browse").addEventListener("click", function () {
+      showCourse(firstWinState.course || "acit4050");
+      firstWinState.flipsNeeded = 3;
+      setStudyMode("flashcards");
+      if ($("first-win-modal")) $("first-win-modal").hidden = true;
+    });
+  }
+  if ($("first-win-quiz")) {
+    $("first-win-quiz").addEventListener("click", function () {
+      showCourse(firstWinState.course || "acit4050");
+      setStudyMode("quiz");
+      firstWinDone();
+    });
   }
 
   $("quiz-reveal").addEventListener("click", quizReveal);
@@ -7487,8 +7907,9 @@ function showCourse(courseKey) {
     showCourse("terminal");
     showPanel("tutorial");
     showSetup();
-    quizEnsureDecksReady().then(function () {
-      if (courseFromHash()) {
+  quizEnsureDecksReady().then(function () {
+    firstWinMaybeShow();
+    if (courseFromHash()) {
         applyHashRoute();
         return;
       }
