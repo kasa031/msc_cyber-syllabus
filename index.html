@@ -2228,7 +2228,9 @@
       font-weight: 600;
     }
     .test-timer[hidden] { display: none !important; }
-    .first-win-modal {
+    .first-win-modal,
+    .session-recap-modal,
+    .weekly-recap-modal {
       position: fixed;
       inset: 0;
       z-index: 120;
@@ -2238,7 +2240,58 @@
       padding: 1rem;
       background: rgba(26, 20, 16, 0.55);
     }
-    .first-win-modal[hidden] { display: none !important; }
+    .first-win-modal[hidden],
+    .session-recap-modal[hidden],
+    .weekly-recap-modal[hidden] { display: none !important; }
+    .session-recap-stats {
+      list-style: none;
+      margin: 0 0 0.85rem;
+      padding: 0.65rem 0.75rem;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .session-recap-stats li { margin: 0; }
+    .session-recap-stats b { color: var(--palette-red); }
+    .session-recap-goal {
+      margin: 0 0 0.75rem;
+      padding: 0.55rem 0.65rem;
+      background: var(--ochre-soft);
+      border-left: 3px solid var(--palette-orange);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+    .session-recap-goal[hidden] { display: none !important; }
+    .weekly-recap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.45rem;
+      margin: 0 0 0.85rem;
+    }
+    .weekly-recap-stat {
+      padding: 0.55rem 0.6rem;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      text-align: center;
+    }
+    .weekly-recap-stat span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 0.15rem;
+    }
+    .weekly-recap-stat b {
+      font-size: 1.15rem;
+      color: var(--palette-red);
+    }
     .first-win-card {
       width: min(26rem, 100%);
       max-height: min(90vh, 36rem);
@@ -2625,6 +2678,29 @@
       border-color: var(--palette-turquoise);
       color: var(--ink);
     }
+    @media (prefers-contrast: more) {
+      .quiz-grades button {
+        border-width: 2px;
+        font-weight: 700;
+      }
+      .quiz-grades button[data-grade="again"] {
+        background: #3D0299;
+        border-color: #1A1410;
+        color: #FFFFFF;
+      }
+      .quiz-grades button[data-grade="hard"] {
+        border-color: #1A1410;
+        color: #1A1410;
+      }
+      .quiz-grades button[data-grade="good"] {
+        border-color: #1A1410;
+      }
+      .quiz-grades button[data-grade="easy"] {
+        border-color: #1A1410;
+        color: #1A1410;
+        background: #FFFFFF;
+      }
+    }
     .quiz-empty {
       text-align: center;
       padding: 2.5rem 1.25rem;
@@ -2647,6 +2723,11 @@
       margin: 0 auto;
       line-height: 1.5;
       font-size: 0.98rem;
+    }
+    .quiz-empty.is-congrats {
+      border-color: var(--palette-turquoise);
+      border-style: solid;
+      background: var(--signal-soft);
     }
     .quiz-footer-meta {
       display: flex;
@@ -3070,6 +3151,31 @@
           <button type="button" class="btn btn-primary" id="first-win-browse">Flip 3 cards now</button>
           <button type="button" class="btn ghost" id="first-win-quiz">Go to Quiz home</button>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="session-recap-modal" class="session-recap-modal" hidden role="dialog" aria-labelledby="session-recap-title" aria-modal="true">
+    <div class="first-win-card">
+      <h3 id="session-recap-title">Session complete</h3>
+      <p id="session-recap-lede">You rated cards in this session.</p>
+      <ul class="session-recap-stats" id="session-recap-stats"></ul>
+      <p class="session-recap-goal" id="session-recap-goal" hidden></p>
+      <div class="tut-actions">
+        <button type="button" class="btn btn-primary" id="session-recap-done">Back to Quiz home</button>
+        <button type="button" class="btn ghost" id="session-recap-weak" hidden>Drill weak cards</button>
+        <button type="button" class="btn ghost" id="session-recap-continue" hidden>Continue due cards</button>
+      </div>
+    </div>
+  </div>
+  <div id="weekly-recap-modal" class="weekly-recap-modal" hidden role="dialog" aria-labelledby="weekly-recap-title" aria-modal="true">
+    <div class="first-win-card">
+      <h3 id="weekly-recap-title">Weekly recap</h3>
+      <p id="weekly-recap-lede">Your study week at a glance.</p>
+      <div class="weekly-recap-grid" id="weekly-recap-grid"></div>
+      <p id="weekly-recap-focus" class="quiz-home-sub" style="margin-bottom:0.75rem;"></p>
+      <div class="tut-actions">
+        <button type="button" class="btn btn-primary" id="weekly-recap-start">Continue due cards</button>
+        <button type="button" class="btn ghost" id="weekly-recap-dismiss">Close</button>
       </div>
     </div>
   </div>
@@ -3790,7 +3896,9 @@
             <h3 id="quiz-empty-title">Nothing due right now</h3>
             <p id="quiz-empty-text">All caught up for this course. Come back later, or review every card anyway.</p>
             <div class="tut-actions" id="quiz-empty-actions" style="justify-content:center;margin-top:1rem;">
-              <button type="button" class="btn" id="quiz-study-all">Study all cards anyway</button>
+              <button type="button" class="btn btn-primary" id="quiz-empty-browse">Browse deck</button>
+              <button type="button" class="btn ghost" id="quiz-empty-weak" hidden>Drill weak cards</button>
+              <button type="button" class="btn ghost" id="quiz-study-all">Study all cards anyway</button>
             </div>
             <div class="tut-actions hidden" id="quiz-reload-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn" id="quiz-reload-data">Reload quiz data</button>
@@ -4467,6 +4575,9 @@ function showCourse(courseKey) {
       quizState.sessionLimit = null;
       quizState.tagFilter = null;
       quizState.inSession = isEmbedMode();
+      if (quizState.inSession) {
+        quizState.sessionStats = { again: 0, hard: 0, good: 0, easy: 0, points: 0, reviews: 0 };
+      }
       studyLoadAndShow();
     }
     syncCourseHash(courseKey);
@@ -4643,13 +4754,15 @@ function showCourse(courseKey) {
     inSession: false,
     tagFilter: null,
     weakOnly: false,
-    sched: {}
+    sched: {},
+    sessionStats: null
   };
 
   var FIRST_WIN_KEY = "acit-first-win-v1";
   var ONBOARD_KEY = "acit-onboard-v1";
   var PWA_INSTALLED_KEY = "acit-pwa-installed";
   var DAILY_GOAL_KEY = "acit-daily-goal-v1";
+  var WEEKLY_RECAP_KEY = "acit-weekly-recap-v1";
   var firstWinState = { course: "acit4050", persona: "steady", flipsNeeded: 0 };
 
   /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
@@ -6594,6 +6707,7 @@ function showCourse(courseKey) {
     quizState.sessionLimit = typeof limit === "number" && limit > 0 ? limit : null;
     quizState.tagFilter = tagFilter || null;
     quizState.forceAll = false;
+    quizState.sessionStats = { again: 0, hard: 0, good: 0, easy: 0, points: 0, reviews: 0 };
     if ($("quiz-home")) $("quiz-home").hidden = true;
     if ($("quiz-progress-wrap")) $("quiz-progress-wrap").hidden = false;
     quizLoadAndShow();
@@ -6614,6 +6728,7 @@ function showCourse(courseKey) {
       toast.textContent = "First win complete - open Settings for the setup checklist.";
       window.setTimeout(function () { if (toast) toast.hidden = true; }, 3600);
     }
+    window.setTimeout(weeklyRecapMaybeShow, 500);
   }
 
   function onboardLoad() {
@@ -6769,6 +6884,142 @@ function showCourse(courseKey) {
     if ($("first-win-step-1")) $("first-win-step-1").hidden = true;
     if ($("first-win-step-2")) $("first-win-step-2").hidden = true;
     applyOnboardPersona(firstWinState.persona || "steady");
+  }
+
+  function studyIsoWeekKey(d) {
+    d = d || new Date();
+    var th = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var day = th.getDay();
+    th.setDate(th.getDate() + 4 - (day || 7));
+    var yearStart = new Date(th.getFullYear(), 0, 1);
+    var week = Math.ceil((((th - yearStart) / 86400000) + 1) / 7);
+    return th.getFullYear() + "-W" + String(week).padStart(2, "0");
+  }
+
+  function studyReviewsSumDays(n) {
+    var xp = studyLoadXp();
+    var log = xp.reviewLog || {};
+    var total = 0;
+    var today = studyTodayKey();
+    for (var i = 0; i < n; i++) {
+      var parts = today.split("-");
+      var d = new Date(Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])));
+      d.setUTCDate(d.getUTCDate() - i);
+      var key = d.toISOString().slice(0, 10);
+      total += log[key] || 0;
+    }
+    return total;
+  }
+
+  function studyWeakestMapTag(deckKey) {
+    var units = COURSE_MAP[deckKey] || [];
+    var best = null;
+    var bestWeak = 0;
+    units.forEach(function (u) {
+      if (u.soon || !u.tag) return;
+      var st = studyCountTagStats(deckKey, u.tag);
+      if (st.weak > bestWeak) {
+        bestWeak = st.weak;
+        best = u;
+      }
+    });
+    return bestWeak > 0 ? best : null;
+  }
+
+  function sessionRecapClose() {
+    var modal = $("session-recap-modal");
+    if (modal) modal.hidden = true;
+    quizState.pendingSessionRecap = null;
+  }
+
+  function showSessionRecapModal(recap) {
+    if (isEmbedMode() || !recap || !recap.reviews) return;
+    var modal = $("session-recap-modal");
+    if (!modal) return;
+    var deck = quizGetDeck(recap.deckKey || quizState.deckKey);
+    var deckLabel = deck ? (deck.course || recap.deckKey) : recap.deckKey;
+    var lede = $("session-recap-lede");
+    if (lede) {
+      lede.textContent = "You rated " + recap.reviews + " card" + (recap.reviews === 1 ? "" : "s") + " in " + deckLabel + ".";
+    }
+    var statsEl = $("session-recap-stats");
+    if (statsEl) {
+      statsEl.innerHTML =
+        "<li><b>" + recap.reviews + "</b> rated</li>" +
+        "<li>Again <b>" + (recap.again || 0) + "</b> | Hard <b>" + (recap.hard || 0) + "</b> | Good <b>" + (recap.good || 0) + "</b> | Easy <b>" + (recap.easy || 0) + "</b></li>" +
+        "<li>Points this session: <b>+" + (recap.points || 0) + "</b></li>";
+    }
+    var xp = studyLoadXp();
+    var goal = studyDailyGoal();
+    var today = xp.todayReviews || 0;
+    var goalEl = $("session-recap-goal");
+    if (goalEl) {
+      if (today >= goal) {
+        goalEl.textContent = "Daily goal reached (" + today + " / " + goal + "). Rest up or keep going if you want.";
+        goalEl.hidden = false;
+      } else {
+        goalEl.textContent = "Daily goal: " + today + " / " + goal + " cards today.";
+        goalEl.hidden = false;
+      }
+    }
+    var counts = studyCountDueAndWeak(recap.deckKey || quizState.deckKey, recap.tagFilter || null);
+    var weakBtn = $("session-recap-weak");
+    var contBtn = $("session-recap-continue");
+    if (weakBtn) weakBtn.hidden = counts.weak < 1;
+    if (contBtn) contBtn.hidden = counts.due < 1;
+    quizState.pendingSessionRecap = recap;
+    modal.hidden = false;
+  }
+
+  function renderWeeklyRecapModal() {
+    var xp = studyLoadXp();
+    var weekReviews = studyReviewsSumDays(7);
+    var counts = studyCountDueAndWeak(quizState.deckKey);
+    var goal = studyDailyGoal();
+    var grid = $("weekly-recap-grid");
+    if (grid) {
+      grid.innerHTML =
+        '<div class="weekly-recap-stat"><span>7-day reviews</span><b>' + weekReviews + "</b></div>" +
+        '<div class="weekly-recap-stat"><span>Streak</span><b>' + (xp.streak || 0) + "</b></div>" +
+        '<div class="weekly-recap-stat"><span>Due now</span><b>' + counts.due + "</b></div>" +
+        '<div class="weekly-recap-stat"><span>Today</span><b>' + (xp.todayReviews || 0) + " / " + goal + "</b></div>";
+    }
+    var focusEl = $("weekly-recap-focus");
+    var weakTag = studyWeakestMapTag(quizState.deckKey);
+    if (focusEl) {
+      if (weakTag) {
+        focusEl.textContent = "Most weak cards: " + weakTag.label + " (" + studyCountTagStats(quizState.deckKey, weakTag.tag).weak + " to drill).";
+      } else if (counts.due > 0) {
+        focusEl.textContent = counts.due + " cards are due now. A short session keeps the streak alive.";
+      } else {
+        focusEl.textContent = "You are caught up on due cards. Browse or try Test mode before the week starts.";
+      }
+    }
+    var startBtn = $("weekly-recap-start");
+    if (startBtn) startBtn.textContent = counts.due > 0 ? "Continue due (" + counts.due + ")" : "Open Quiz home";
+  }
+
+  function weeklyRecapDismiss() {
+    try { localStorage.setItem(WEEKLY_RECAP_KEY, studyIsoWeekKey()); } catch (e) { /* ignore */ }
+    var modal = $("weekly-recap-modal");
+    if (modal) modal.hidden = true;
+  }
+
+  function weeklyRecapMaybeShow() {
+    if (isEmbedMode()) return;
+    var now = new Date();
+    if (now.getDay() !== 0) return;
+    var wk = studyIsoWeekKey(now);
+    try {
+      if (localStorage.getItem(WEEKLY_RECAP_KEY) === wk) return;
+    } catch (e) { return; }
+    var firstWin = $("first-win-modal");
+    if (firstWin && !firstWin.hidden) return;
+    var sessionRecap = $("session-recap-modal");
+    if (sessionRecap && !sessionRecap.hidden) return;
+    renderWeeklyRecapModal();
+    var modal = $("weekly-recap-modal");
+    if (modal) modal.hidden = false;
   }
 
   function firstWinPickCourse(key) {
@@ -8234,10 +8485,14 @@ function showCourse(courseKey) {
     quizState.card = null;
     $("quiz-active").classList.add("hidden");
     $("quiz-empty").classList.remove("hidden");
+    var emptyBox = $("quiz-empty");
     var title = $("quiz-empty-title");
     var text = $("quiz-empty-text");
     var actions = $("quiz-empty-actions");
     var reloadActions = $("quiz-reload-actions");
+    var weakBtn = $("quiz-empty-weak");
+    var counts = studyCountDueAndWeak(quizState.deckKey, quizState.tagFilter);
+    if (emptyBox) emptyBox.classList.remove("is-congrats");
     if (opts.loading) {
       if (title) title.textContent = "Loading quiz data";
       if (text) text.textContent = "Fetching cards for this course. This only takes a moment when you are online.";
@@ -8254,14 +8509,25 @@ function showCourse(courseKey) {
       if (actions) actions.classList.add("hidden");
       if (reloadActions) reloadActions.classList.remove("hidden");
     } else {
-      if (title) title.textContent = quizState.weakOnly ? "No weak cards to drill" : "Nothing due right now";
+      var xp = studyLoadXp();
+      var caughtUp = !quizState.weakOnly;
+      if (title) {
+        title.textContent = quizState.weakOnly ? "No weak cards to drill" : (caughtUp ? "Congratulations!" : "Nothing due right now");
+      }
       if (text) {
-        text.textContent = quizState.weakOnly
-          ? "You have not marked any cards as Again or Hard yet. Use Quiz on due cards first - misses show up here."
-          : "All caught up for this course. Come back later, or review every card anyway.";
+        if (quizState.weakOnly) {
+          text.textContent = "You have not marked any cards as Again or Hard yet. Use Quiz on due cards first - misses show up here.";
+        } else if (caughtUp) {
+          var streakNote = (xp.streak || 0) > 1 ? " Streak: " + xp.streak + " days." : "";
+          text.textContent = "All due cards rated for this course." + streakNote + " Cards you marked Again or Hard come back soon. Browse or switch course until then.";
+        } else {
+          text.textContent = "All caught up for this course. Come back later, or review every card anyway.";
+        }
       }
       if (actions) actions.classList.remove("hidden");
       if (reloadActions) reloadActions.classList.add("hidden");
+      if (emptyBox && caughtUp && !quizState.weakOnly) emptyBox.classList.add("is-congrats");
+      if (weakBtn) weakBtn.hidden = counts.weak < 1;
     }
     quizUpdateQueueLabel(dueCount);
     quizUpdateProgress();
@@ -8413,7 +8679,7 @@ function showCourse(courseKey) {
     $("quiz-face-label").textContent = "Answer";
     $("quiz-a").classList.remove("hidden");
     $("quiz-reveal-row").classList.add("hidden");
-    SolvableFlow.reveal($("quiz-solvable-banner"), "Rate honestly with 1-4. Again if you missed it.");
+    SolvableFlow.reveal($("quiz-solvable-banner"), "Misses are normal - tap Again and this card comes back soon.");
     quizUpdateGradePreviews();
     $("quiz-grades").classList.remove("hidden");
     try {
@@ -8430,6 +8696,18 @@ function showCourse(courseKey) {
   function quizAfterGrade(grade) {
     if (!quizState.card) return;
     var id = quizState.card.id;
+    if (!quizState.sessionStats && quizState.inSession) {
+      quizState.sessionStats = { again: 0, hard: 0, good: 0, easy: 0, points: 0, reviews: 0 };
+    }
+    if (quizState.sessionStats) {
+      if (grade === "again" || grade === "hard" || grade === "good" || grade === "easy") {
+        quizState.sessionStats[grade] = (quizState.sessionStats[grade] || 0) + 1;
+      }
+      quizState.sessionStats.points = (quizState.sessionStats.points || 0) + (XP_POINTS[grade] || 0);
+      quizState.sessionStats.reviews = (quizState.sessionStats.reviews || 0) + 1;
+    }
+    var sessionEnded = false;
+    var sessionRecap = null;
     quizGrade(id, grade);
     studyApplyXp(grade);
     studyRefreshHud();
@@ -8451,10 +8729,27 @@ function showCourse(courseKey) {
         quizState.weakOnly = false;
         quizState.inSession = false;
         quizState.sessionLimit = null;
+        sessionEnded = true;
       }
     }
+    if (sessionEnded && quizState.sessionStats && quizState.sessionStats.reviews > 0) {
+      sessionRecap = {
+        deckKey: quizState.deckKey,
+        tagFilter: quizState.tagFilter,
+        again: quizState.sessionStats.again,
+        hard: quizState.sessionStats.hard,
+        good: quizState.sessionStats.good,
+        easy: quizState.sessionStats.easy,
+        points: quizState.sessionStats.points,
+        reviews: quizState.sessionStats.reviews
+      };
+      quizState.sessionStats = null;
+    }
     var fxWait = studyReduceMotion() ? 0 : (grade === "again" ? 280 : 180);
-    window.setTimeout(function () { quizLoadAndShow(); }, fxWait);
+    window.setTimeout(function () {
+      quizLoadAndShow();
+      if (sessionRecap) showSessionRecapModal(sessionRecap);
+    }, fxWait);
   }
 
   if ($("quiz-home-start")) {
@@ -8743,11 +9038,63 @@ function showCourse(courseKey) {
   $("quiz-study-all").addEventListener("click", function () {
     quizState.forceAll = true;
     quizState.weakOnly = false;
-    quizState.sessionQueue = null;
-    quizState.sessionStartCount = 0;
-    quizState.sessionDone = 0;
-    quizLoadAndShow();
+    quizBeginSession();
   });
+  if ($("quiz-empty-browse")) {
+    $("quiz-empty-browse").addEventListener("click", function () { setStudyMode("flashcards"); });
+  }
+  if ($("quiz-empty-weak")) {
+    $("quiz-empty-weak").addEventListener("click", function () {
+      quizState.weakOnly = true;
+      quizState.forceAll = false;
+      quizBeginSession();
+    });
+  }
+  if ($("session-recap-done")) {
+    $("session-recap-done").addEventListener("click", sessionRecapClose);
+  }
+  if ($("session-recap-weak")) {
+    $("session-recap-weak").addEventListener("click", function () {
+      sessionRecapClose();
+      quizState.weakOnly = true;
+      quizState.forceAll = false;
+      quizBeginSession();
+    });
+  }
+  if ($("session-recap-continue")) {
+    $("session-recap-continue").addEventListener("click", function () {
+      sessionRecapClose();
+      quizState.weakOnly = false;
+      quizState.forceAll = false;
+      quizBeginSession();
+    });
+  }
+  if ($("session-recap-modal")) {
+    $("session-recap-modal").addEventListener("click", function (e) {
+      if (e.target === $("session-recap-modal")) sessionRecapClose();
+    });
+  }
+  if ($("weekly-recap-dismiss")) {
+    $("weekly-recap-dismiss").addEventListener("click", weeklyRecapDismiss);
+  }
+  if ($("weekly-recap-start")) {
+    $("weekly-recap-start").addEventListener("click", function () {
+      weeklyRecapDismiss();
+      var counts = studyCountDueAndWeak(quizState.deckKey);
+      if (counts.due > 0) {
+        quizState.forceAll = false;
+        quizState.weakOnly = false;
+        quizBeginSession();
+      } else {
+        setStudyMode("quiz");
+      }
+    });
+  }
+  if ($("weekly-recap-modal")) {
+    $("weekly-recap-modal").addEventListener("click", function (e) {
+      if (e.target === $("weekly-recap-modal")) weeklyRecapDismiss();
+    });
+  }
   if ($("quiz-drill-weak")) {
     $("quiz-drill-weak").addEventListener("click", function () {
       var xp = studyLoadXp();
@@ -10002,6 +10349,7 @@ function showCourse(courseKey) {
     showSetup();
   quizEnsureDecksReady().then(function () {
     firstWinMaybeShow();
+    window.setTimeout(weeklyRecapMaybeShow, 800);
     if (courseFromHash()) {
         applyHashRoute();
         return;
