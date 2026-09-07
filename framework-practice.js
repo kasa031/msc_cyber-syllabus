@@ -37,6 +37,8 @@
   var KILL_COLORS = ["#5003C0", "#AB03A9", "#FF467A", "#FFD51E"];
   var KILL_BLUE = KILL_COLORS[0];
 
+  var practiceResets = [];
+
   function shuffle(arr) {
     var a = arr.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -572,6 +574,7 @@
     }
 
     if (resetBtn) resetBtn.addEventListener("click", setup);
+    practiceResets.push(setup);
     setup();
   }
 
@@ -638,6 +641,7 @@
     }
 
     if (resetBtn) resetBtn.addEventListener("click", setup);
+    practiceResets.push(setup);
     setup();
   }
 
@@ -704,7 +708,13 @@
     }
 
     if (resetBtn) resetBtn.addEventListener("click", setup);
+    practiceResets.push(setup);
     setup();
+  }
+
+  function resetAllPractice() {
+    practiceResets.forEach(function (fn) { fn(); });
+    showPracticeSection("nist");
   }
 
   function normalizePracticeSection(which) {
@@ -758,6 +768,8 @@
     if (tabN) tabN.addEventListener("click", function () { showPracticeSection("nist"); });
     if (tabK) tabK.addEventListener("click", function () { showPracticeSection("killchain"); });
     if (tabM) tabM.addEventListener("click", function () { showPracticeSection("mitre"); });
+    var resetAllBtn = document.getElementById("practice-reset-all");
+    if (resetAllBtn) resetAllBtn.addEventListener("click", resetAllPractice);
     var nistNext = document.getElementById("nist-next");
     if (nistNext) {
       nistNext.addEventListener("click", function () { showPracticeSection("killchain"); });
@@ -780,7 +792,8 @@
 
   global.FrameworkPractice = {
     init: init,
-    showSection: showPracticeSection
+    showSection: showPracticeSection,
+    resetAll: resetAllPractice
   };
 
   if (document.readyState === "loading") {

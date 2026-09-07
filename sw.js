@@ -5,7 +5,7 @@
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  * file:// opens index.html directly (no SW); HTTPS/PWA uses this cache after one online visit.
  */
-const CACHE = "msc-cyber-lock146";
+const CACHE = "msc-cyber-lock147";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
@@ -27,9 +27,6 @@ const CRITICAL = [
 ];
 const ASSETS = [
   "./",
-  "./figures/mode-exam-prep.svg",
-  "./figures/mode-flip-cards.svg",
-  "./figures/mode-practice.svg",
   "./figures/ai-declare.svg",
   "./figures/anonymity-trilemma.svg",
   "./figures/apa-anatomy.svg",
@@ -63,6 +60,9 @@ const ASSETS = [
   "./figures/k-anonymity.svg",
   "./figures/linddun.svg",
   "./figures/litsearch.svg",
+  "./figures/mode-exam-prep.svg",
+  "./figures/mode-flip-cards.svg",
+  "./figures/mode-practice.svg",
   "./figures/network-packet.svg",
   "./figures/oecd-principles.svg",
   "./figures/one-stop.svg",
@@ -749,22 +749,12 @@ const ASSETS = [
   "./fonts/space-grotesk-500.woff2",
   "./fonts/space-grotesk-600.woff2",
   "./fonts/space-grotesk-700.woff2",
-  "./framework-practice.js",
   "./icons/apple-touch-icon.png",
   "./icons/favicon-32.png",
   "./icons/favicon.svg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
-  "./icons/icon.svg",
-  "./index.html",
-  "./manifest.webmanifest",
-  "./quiz-data/acit4050.json",
-  "./quiz-data/acit4100.json",
-  "./quiz-data/acit4280.json",
-  "./quiz-data/computer-basics.json",
-  "./quiz-data/fellesjam-general.json",
-  "./quiz-decks.js",
-  "./sw.js"
+  "./icons/icon.svg"
 ];
 
 function cacheOk(request, response) {

@@ -4437,6 +4437,9 @@
         <div class="practice-wrap">
           <h2 class="setup-title">Diagram practice</h2>
           <p class="practice-intro">Drag labels onto the diagram (or tap a chip, then tap a slot). Wrong placements bounce back. Matches ACIT4050 lecture slides.</p>
+          <div class="tut-actions" style="margin:0 0 0.65rem;">
+            <button type="button" class="btn ghost" id="practice-reset-all">Start over all</button>
+          </div>
           <div class="mode-tabs" role="tablist" aria-label="Diagram exercises">
             <button type="button" role="tab" id="tab-practice-nist" class="active" aria-selected="true" aria-controls="practice-nist" tabindex="0">NIST CSF 2.0 wheel</button>
             <button type="button" role="tab" id="tab-practice-kill" aria-selected="false" aria-controls="practice-kill" tabindex="-1">Kill Chain</button>
@@ -4501,7 +4504,7 @@
   </main>
 
   <script src="quiz-decks.js?v=lock128" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock146"></script>
+  <script src="framework-practice.js?v=lock147"></script>
   <script>
   (function () {
   "use strict";
