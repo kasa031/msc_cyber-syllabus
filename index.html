@@ -23,10 +23,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="icons/favicon.svg?v=lock149" type="image/svg+xml" />
-  <link rel="icon" href="icons/favicon-32.png?v=lock149" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock149" sizes="180x180" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock149" sizes="192x192" />
+  <link rel="icon" href="icons/favicon.svg?v=lock150" type="image/svg+xml" />
+  <link rel="icon" href="icons/favicon-32.png?v=lock150" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=lock150" sizes="180x180" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png?v=lock150" sizes="192x192" />
   <!-- MSc Cybersecurity Practise Syllabus 1st Year - terminal tutorial + spaced-repetition quiz -->
   <link rel="stylesheet" href="fonts/fonts.css" />
 
@@ -710,6 +710,8 @@
       background: var(--signal);
       color: #FFF9E6;
       transition: background 0.15s, opacity 0.15s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .btn:hover { background: var(--signal-bright); }
     .btn-primary {
@@ -1351,6 +1353,8 @@
       background: transparent;
       color: var(--ink);
       transition: background 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .course-tabs button:not(.active):hover {
       background: #AB03A9;
@@ -4586,8 +4590,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock128" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock147"></script>
+  <script src="quiz-decks.js?v=lock150" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock150"></script>
   <script>
   (function () {
   "use strict";
@@ -8738,6 +8742,8 @@ function showCourse(courseKey) {
     box.scrollIntoView({ block: "nearest", behavior: "smooth" });
     syncQuizSessionUi();
   }
+
+  function testStart() {
     var deck = quizGetDeck(quizState.deckKey);
     if (!deck) return;
     var questions = testBuildQuestions(deck);
@@ -11746,10 +11752,7 @@ function showCourse(courseKey) {
   window.addEventListener("hashchange", function () {
     applyHashRoute();
   });
-})();
-  </script>
 
-  <script>
   window.addEventListener("appinstalled", function () {
     try { localStorage.setItem(PWA_INSTALLED_KEY, "1"); } catch (e) { /* ignore */ }
     refreshSettingsProgressUi();
@@ -11793,7 +11796,7 @@ function showCourse(courseKey) {
   }
 
   function queueSwUpdate(worker) {
-          if (!worker) return;
+    if (!worker) return;
     swWaitingWorker = worker;
     showSwUpdateToast(
       studyInActiveSession()
@@ -11828,6 +11831,7 @@ function showCourse(courseKey) {
       }).catch(function () { /* ignore offline/file:// */ });
     });
   }
+})();
   </script>
 </body>
 </html>
