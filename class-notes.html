@@ -920,14 +920,23 @@
 
     <section id="p4050-l4-ids">
       <h2>Lecture 4 - Intrusion Detection Systems (08 Sep 2026)</h2>
-      <p>Class Tue 08.09 12:30-14:15 PI850. Slides expected on Canvas the same day - quiz cards and detailed notes will land after crawl.</p>
-      <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture4</code> when cards appear. Placeholder in course map until slides are processed.</p>
+      <p>Class Tue 08.09 12:30-14:15 PI850. Local slides: <code>L4-ids.pdf</code>, <code>L4-IDS-usecase.pdf</code> under <code>Emner/ACIT4050/Lecture_04/</code>. L04 article review submitted 13.09 (grade pending).</p>
+      <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture4</code>.</p>
     </section>
 
     <section id="p4050-l5-firewalls">
       <h2>Lecture 5 - Firewalls (15 Sep 2026)</h2>
-      <p>Class Mon 15.09. Prep cards in the quiz deck (tag <code>Lecture5</code>): packet vs stateful vs application firewalls, default deny, DMZ, egress filtering, WAF, firewall vs IDS.</p>
-      <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture5</code>. Slides will refine cards after Canvas crawl.</p>
+      <p>Class Tue 15.09 12:30-14:15 PI850 (Nurul Momen). Local slides: <code>L7-firewalls.pdf</code> (49 pages) and <code>firewall-usecase.pdf</code> (Ruter fictional SOC) under <code>Emner/ACIT4050/Lecture_05/</code>.</p>
+      <ul>
+        <li>Firewall as a trust border: dedicated box, screening router, stateful / application-protocol, deep packet inspection (incl. TLS escrow).</li>
+        <li>DMZ for a more open zone; NAT as a simple hide-the-inside function.</li>
+        <li>iptables: first match wins. Specific ACCEPT before general DROP (SSH 10.0.3.1 vs 0.0.0.0/0).</li>
+        <li>Default deny, SANS rule order (anti-spoof, user permit, management permit, noise drops, deny-and-alert, deny-and-log).</li>
+        <li>Intra-firewall anomalies: shadowing, correlation, generalization, redundancy, irrelevance.</li>
+        <li>Ruter usecase: Event 1 stale tcp/8080 allow (rule hygiene); Event 2 QUIC on UDP/443 dropped while only TCP/443 was permitted (policy gap, not a firewall bug).</li>
+      </ul>
+      <p><strong>L05 assignment</strong> (10 pts) due Tue 22.09.2026 23:59: apply a small rule set to given packets. Unsubmitted on crawl 16.09.</p>
+      <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture5</code>. Cache lock151.</p>
     </section>
 
     <section id="p4050-info">
