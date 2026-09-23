@@ -2802,6 +2802,27 @@
       ]
     },
     {
+      "id": "4050-l9-q13-dac",
+      "q": "L-9 Assignment Q13: Which description best defines Discretionary Access Control (DAC)?",
+      "a": "Identity-based access with OWNERSHIP: the owner of a resource may grant or revoke access rights. (Not MAC = labels/clearances; not RBAC = organizational roles/positions; not ABAC = subject/object/env properties + policy.)",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-access-models-match",
+      "q": "L-9: Match MAC, RBAC, DAC, ABAC to their standard descriptions?",
+      "a": "MAC: security labels vs clearances (mandatory policy). RBAC: access via roles/positions in org. DAC: owner grants/revokes rights on owned resources. ABAC: allow/deny from subject, object, action, environment attributes + policy.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
       "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
