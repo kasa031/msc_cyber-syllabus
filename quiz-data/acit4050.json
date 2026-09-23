@@ -2856,6 +2856,17 @@
       ]
     },
     {
+      "id": "4050-l9-q17-authn-challenges",
+      "q": "L-9 Assignment Q17: Three authentication challenges IAM helps solve?",
+      "a": "(1) Password fatigue and weak reuse - central IdP/SSO, MFA enforcement, password managers or passkeys reduce many local passwords. (2) Inconsistent auth strength per app - IAM sets org-wide MFA/AAL (e.g. NIST), conditional access, step-up for risk. (3) Orphaned accounts and stale credentials - joiner-mover-leaver ties authentication lifecycle to HR; disable auth on leave; federated login reduces ghost local accounts.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
       "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
