@@ -2703,6 +2703,105 @@
       ]
     },
     {
+      "id": "4050-l9-q4-hibp-politician",
+      "q": "L-9 Assignment Q4: Which Oslo @oslobystyre.no email is pwned on Have I Been Pwned (check live)?",
+      "a": "Verify on haveibeenpwned.com. As of Sep 2026: Marit Halse (marit.halse@oslobystyre.no) and Ivar Johansen (ivar.johansen@oslobystyre.no) show breaches; Odd Einar Dorum and Shoaib Sultan did not. Canvas may key one answer (try Marit Halse first). Lesson: work email on consumer sites + reuse links leaks to HIBP.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q5-passwordmonster-phrase",
+      "q": "L-9 Assignment Q5: passwordmonster.com crack time for theworldinyourhand?",
+      "a": "0 second (instant in the tool). Long phrase but predictable/common pattern, lowercase only - hits dictionary lists (OWASP: test against top 10k worst passwords). Length alone is not enough.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q6-passwordmonster-lab",
+      "q": "L-9 Assignment Q6: passwordmonster.com crack time for lab password 0l4vLy5n3*?",
+      "a": "13 thousand years (Password Monster estimate). Mixed case, digits, symbol - not a common dictionary phrase. Contrast with Q5: complexity + unpredictability vs obvious phrases.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q7-password-mitigations",
+      "q": "L-9 Assignment Q7: Recommend ways to strengthen password authentication (select correct)?",
+      "a": "YES: Implement MFA; Limit logon attempts (rate limiting / throttling, NIST 800-63B). NO: Enforce only 6 characters (NIST min 8 for user-chosen secrets); MD5 for password storage (use salted slow hashes: Argon2, bcrypt, PBKDF2).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q8-mfa-standards",
+      "q": "L-9 Assignment Q8: Standards/protocols that help implement 2FA/MFA (not access-control models)?",
+      "a": "Select: HOTP, TOTP, WebAuthn/FIDO2. NOT for MFA implementation: RBAC, ABAC, ReBAC (those are authorization models - who may do what after login).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q9-breach-implications",
+      "q": "L-9 Assignment Q9 (essay): Security implications when politicians' passwords appear in breach data?",
+      "a": "Credential reuse/stuffing; offline cracking of leaked hashes; spear phishing with OSINT; account takeover of email/cloud; trust and national-security risk; third-party breaches still hit orgs when officials use work email on SaaS. Recommend: unique passwords + manager, MFA (FIDO2), no work email on consumer sites, HIBP monitoring, rate limits, modern hashing, incident response.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q10-pet-passwords",
+      "q": "L-9 Assignment Q10 (essay): Implications of passwords from spouse/child/pet name + birth year?",
+      "a": "Low effective entropy; predictable masks/rules; OSINT on public figures; targeted guessing; fast offline crack after any leak; false policy compliance; worse with reuse. Use random secrets/passphrases, password manager, MFA.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q11-access-steps",
+      "q": "L-9 Assignment Q11: Four steps to access a resource - what is Box 3?",
+      "a": "Authorization (what the subject may do with the object). Flow: 1 Identification, 2 Authentication, 3 Authorization, then Resource access, 4 Accountability/Auditing (logging).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q12-abac",
+      "q": "L-9 Assignment Q12: AuthZ from arbitrary user traits, object traits, and environment conditions?",
+      "a": "Attribute-Based Access Control (ABAC). NIST SP 800-162 style: policy on subject/resource/action/environment attributes. RBAC = roles; DAC = owner discretion; MAC = mandatory labels/classification.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
       "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
