@@ -2640,6 +2640,17 @@
       ]
     },
     {
+      "id": "4050-l9-q3-nist-threat",
+      "q": "L-9 Assignment Q3 (NIST SP 800-63B): Authenticator exposed using analytical methods OUTSIDE the authentication mechanism - which threat?",
+      "a": "Offline Cracking: attacker gets verifier/hash (e.g. stolen DB) and attacks it offline. Eavesdropping = intercept in transit during use. Online Guessing = tries via live auth interface. Duplication = copy/clone authenticator (e.g. card skim).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l9-q2-behavioral",
       "q": "L-9 Assignment Q2: Which option is Type III based on behavioral attributes (what you are)?",
       "a": "Keystrokes (keystroke dynamics: timing/rhythm of typing). Voice can be behavioral too, but passphrase = Type I (know), IP address = Type IV (where you are / location context).",
