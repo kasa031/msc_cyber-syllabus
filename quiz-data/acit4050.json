@@ -2630,6 +2630,47 @@
       ]
     },
     {
+      "id": "4050-l9-def-password",
+      "q": "L-9 Assignment Q1: Which definition correctly defines Password?",
+      "a": "A secret data value, usually a character string, that is presented to a system by a user to authenticate the user's identity. (Not identification, not verification of a claim in general, not authorization.)",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-def-identification",
+      "q": "L-9: Which definition matches identification (contrast with password)?",
+      "a": "An act or process that presents something to a system so that the system can recognize a system entity and distinguish it from other entities (e.g. username, ID card, biometric sample presented).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-def-authentication",
+      "q": "L-9: Which definition matches authentication?",
+      "a": "The process of verifying a claim that a system entity or resource has a certain attribute value - evidence that binds the attribute to that entity (e.g. checking a password, MFA, ticket).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-def-authorization",
+      "q": "L-9: Which definition matches authorization?",
+      "a": "An approval granted to a system entity to access a system resource (what you may do after identity is established).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
       "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
