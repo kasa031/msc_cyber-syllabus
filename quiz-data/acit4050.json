@@ -2398,6 +2398,246 @@
         "Lecture5",
         "firewall"
       ]
+    },
+    {
+      "id": "4050-l6-iam-def",
+      "q": "What is Identity and Access Management (IAM) in L9 (Nurul, 22 Sep 2026)?",
+      "a": "The security discipline that ensures the right entities (human and machine) have the right access to the right resources, at the right time, for the right reasons. Lifecycle: provisioning, administration, de-provisioning.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "IAM"
+      ]
+    },
+    {
+      "id": "4050-l6-aaa",
+      "q": "AAA in IAM: what does each A mean, and what is the dependency order?",
+      "a": "Authentication: who are you (verify identity). Authorization: what may you do (allow/deny). Accounting: log what was done (audit). Authorization depends on successful authentication first.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-arch-roles",
+      "q": "IAM architecture: IdP, SP/RP, PEP, PDP, PIP - one line each (L9).",
+      "a": "IdP: stores/verifies identity. SP/RP: app that requests identity. PEP: intercepts requests (e.g. API gateway), enforces decision. PDP: evaluates policy (core of Zero Trust). PIP: supplies attributes (HR, device posture, threat intel).",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-pep-pdp",
+      "q": "Does the PEP decide access by itself (L9 flow)?",
+      "a": "No. The PEP only enforces what the PDP returns after the PDP consults IdP (identity) and PIP (context).",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-lifecycle",
+      "q": "Joiner-Mover-Leaver identity lifecycle controls (L9).",
+      "a": "Joiner: provisioning (SCIM RFC 7644, or JIT on first federated login). Mover: update/remove roles when duties change. Leaver: timely de-provisioning. Recertification: periodic review that access is still justified (touches all stages on a schedule).",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-sod",
+      "q": "Segregation of Duties (SoD) in IAM governance (L9).",
+      "a": "No single user should hold conflicting high-risk permissions (e.g. cannot both approve and execute a payment). NIST SP 800-53 Rev. 5 control AC-5. Complements least privilege.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-access-models",
+      "q": "DAC vs MAC vs RBAC vs ABAC - control style and typical use (L9 table).",
+      "a": "DAC: owner-controlled per resource (hard to audit). MAC: system labels (classified). RBAC: roles/job functions (role explosion risk). ABAC: policy on subject/resource/action/environment attributes (cloud, IoT, APIs; avoids some role explosion).",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-rbac-failures",
+      "q": "RBAC failure modes named in L9 (Sandhu et al.).",
+      "a": "Role explosion (too many near-duplicate roles). Privilege creep (roles copied ad hoc without governance).",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-abac-example",
+      "q": "Give the L9 ABAC policy example and why it beats coarse RBAC there.",
+      "a": "Permit read only if User.Department = Resource.Department AND during business hours. Finer least privilege and context (time, attributes) without exploding roles.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-opa",
+      "q": "Policy-as-Code in L9: XACML vs OPA.",
+      "a": "XACML: standardized declarative policy language (often verbose). Policy-as-Code: policies in version control with review/tests. OPA with Rego is a common PDP engine; microservices (PEPs) send attributes, OPA returns permit/deny.",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-least-privilege",
+      "q": "Principle of Least Privilege (L9) and relation to SoD.",
+      "a": "Minimum permissions for minimum necessary time (Saltzer & Schroeder). SoD limits completing a sensitive process alone; least privilege limits how much one identity can do. Practice: JIT elevation, time-bound access, prompt removal.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-mfa-weak",
+      "q": "Authentication weaknesses and MFA bypass patterns (L9).",
+      "a": "Passwords: reuse, breaches, guessing. MFA bypass: SMS OTP (SIM swap), push notification bombing/fatigue, AiTM phishing proxies capturing session tokens after MFA. Lapsus$ (DEV-0537): social engineering, SIM swap, MFA fatigue, help-desk resets.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-fido2",
+      "q": "What makes FIDO2/Passkeys phishing-resistant (L9)?",
+      "a": "WebAuthn + CTAP. Credential is cryptographically bound to the origin where registered; private key stays in secure element. No shared secret for a fake site to steal. Not phishing-resistant: magic links, simple local biometrics alone.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-federation",
+      "q": "Federation and SSO trade-off (L9).",
+      "a": "RP trusts IdP to vouch for user; SSO = authenticate once, access many apps. Benefit: fewer passwords, centralized deprovisioning. Risk: IdP is a high-value single target.",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-saml",
+      "q": "SAML 2.0 vs OAuth 2.0 vs OIDC - purpose and key artifact (L9).",
+      "a": "SAML: XML assertions IdP to RP (enterprise SSO); attacks if replay/signature-wrapping mishandled. OAuth 2.0: authorization framework (not authn); access token scoped/time-limited. OIDC: identity layer on OAuth; ID Token (JWT with sub, iss, exp) plus access token.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-oidc-flow",
+      "q": "OIDC mobile banking flow (L9): which token goes to the API?",
+      "a": "Client starts OIDC at Authorization Server; user auth (ideally FIDO2); AS issues ID Token (who) and Access Token (what). App sends Access Token to Resource Server API; API validates token. Resource Server does not need the ID Token for data access.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-kerberos",
+      "q": "Kerberos basics and known attacks (L9).",
+      "a": "Ticket-based auth via KDC (RFC 4120): TGT from Authentication Server, service tickets from TGS without re-entering password (AD backbone). Attacks: Golden Ticket, Kerberoasting (weak/over-privileged service account keys).",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-zero-trust",
+      "q": "Zero Trust Architecture (NIST SP 800-207): motto and three tenets from L9.",
+      "a": "Never trust, always verify - no implicit trust by network location. Tenets cited: all data sources/services are resources; all communication secured regardless of location; access granted per session to individual resources. PDP checks every request (internal or external).",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-carta",
+      "q": "CARTA vs ZTA (L9).",
+      "a": "CARTA (Gartner 2017): continuously recalculate trust/risk score, not one-time binary allow. Complements ZTA (architecture): e.g. Oslo login then minutes later access from another continent triggers re-auth or block.",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-machine-id",
+      "q": "Machine identity and API security (L9).",
+      "a": "Non-human identities often outnumber humans; APIs are the new perimeter. M2M: OAuth Client Credentials Grant (no user context, needs secret rotation). mTLS: both sides present certs. Credential sprawl = governance failure.",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-owasp",
+      "q": "Which OWASP Top 10 2021 categories does L9 tie IAM to?",
+      "a": "A01 Broken Access Control and A07 Identification and Authentication Failures. IAM mitigates both; do not build custom auth - use established IAM components.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-ruter-chain",
+      "q": "Ruter IAM usecase (IAM-usecase.pdf): four events and IAM concepts.",
+      "a": "Initial: credential stuffing/reused password. Event 1 (15 Aug): MFA fatigue + attacker registers own FIDO2. Event 2 (17-18 Aug): SAML assertion replay, OAuth refresh replay. Event 3 (19 Aug): leaked service secret; gateway checks scope only (no ABAC/PDP). Event 4 (20 Aug): SoD violation (self-approved privileged grant).",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l6-ruter-gateway",
+      "q": "Ruter Artifact 3.2: what was wrong at the finance API gateway?",
+      "a": "PEP checked only the token scope string; no PDP evaluated subject/environment context (ABAC gap). Leaked over-scoped machine credential was trusted unquestioningly.",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-takeaways",
+      "q": "L9 key takeaways (slide close).",
+      "a": "IAM fights broken access control and auth failures; adopt Zero Trust plus continuous trust (CARTA); phishing-resistant MFA; move from static RBAC to ABAC/policy-as-code where needed; govern machine identities like humans; governance (SoD, recertification, deprovisioning) closes gaps tech cannot see.",
+      "tags": [
+        "Lecture6",
+        "l9-identity"
+      ]
+    },
+    {
+      "id": "4050-l6-l9-assignment",
+      "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
+      "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
+      "tags": [
+        "Lecture6",
+        "l9-identity",
+        "canvas"
+      ]
     }
   ]
 }
