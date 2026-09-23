@@ -2834,6 +2834,17 @@
       ]
     },
     {
+      "id": "4050-l9-q15-otp-generation",
+      "q": "L-9 Assignment Q15: How is the 6-digit OTP on a kodebrikke/software token generated (standards + tech)?",
+      "a": "Shared secret K provisioned at enrollment. TOTP (RFC 6238): T = floor((Unix time - T0)/X), often X=30s; HOTP (RFC 4226): counter C increments each use. OTP = Dynamic Truncate(HMAC-SHA1(K, T or C)) to 6 decimal digits. Verifier computes same value; accepts once per step (replay resistance). NIST 800-63B: OTP is something you have; rate-limit failed attempts.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
       "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
