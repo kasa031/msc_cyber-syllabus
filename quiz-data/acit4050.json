@@ -2630,6 +2630,27 @@
       ]
     },
     {
+      "id": "4050-l9-auth-factors",
+      "q": "L-9: Four authentication types (Springer Ch. 1) - Type I through IV?",
+      "a": "I What you know (password, passphrase). II What you have (token, smart card). III What you are (physiological + behavioral biometrics). IV Where you are (location, e.g. geo/IP context).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l9-q2-behavioral",
+      "q": "L-9 Assignment Q2: Which option is Type III based on behavioral attributes (what you are)?",
+      "a": "Keystrokes (keystroke dynamics: timing/rhythm of typing). Voice can be behavioral too, but passphrase = Type I (know), IP address = Type IV (where you are / location context).",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l9-def-password",
       "q": "L-9 Assignment Q1: Which definition correctly defines Password?",
       "a": "A secret data value, usually a character string, that is presented to a system by a user to authenticate the user's identity. (Not identification, not verification of a claim in general, not authorization.)",
