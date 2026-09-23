@@ -2823,6 +2823,17 @@
       ]
     },
     {
+      "id": "4050-l9-q14-rbac",
+      "q": "L-9 Assignment Q14: Which description best defines Role-Based Access Control (RBAC)?",
+      "a": "Identity-based access where controlled entities are functional positions (roles) in an organization or process; users get permissions via assigned roles (Sandhu et al.). Not MAC, DAC, or ABAC descriptions.",
+      "tags": [
+        "l9-identity",
+        "l9-assignment",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
       "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: unsubmitted on crawl 23.09. Slides: L9-iam.pdf, IAM-usecase.pdf. Exam page says format similar to this assignment.",
