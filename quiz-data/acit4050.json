@@ -2875,6 +2875,183 @@
         "l9-identity",
         "canvas"
       ]
+    },
+    {
+      "id": "4050-l7-gdpr-scope",
+      "q": "Lecture 7 (Lysne, 29 Sep 2026): what is the GDPR, where does it apply, and from when?",
+      "a": "Unified data-protection rules for the EU and the EEA (Liechtenstein, Norway, Iceland). Applies from 25 May 2018. Goals on the slide: protect personal data and strengthen individual privacy rights, and give people control over data about themselves.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-how",
+      "q": "How does the Lecture 7 deck say the GDPR achieves those goals?",
+      "a": "It sets out how personal data of EU citizens may and may not be used. Controllers and processors must comply and be able to demonstrate compliance. Non-compliance carries significant penalties.",
+      "tags": [
+        "Lecture7",
+        "gdpr"
+      ]
+    },
+    {
+      "id": "4050-l7-data-types",
+      "q": "Lecture 7: personal data vs special categories.",
+      "a": "Personal data: any information that can identify a data subject (name, date of birth, address, phone, email, photos, and more as technology develops), plus information about an identifiable individual such as movements, purchases, family and friends. Special categories need stricter protection: religion, ethnicity, sexual orientation, trade union membership, medical information, and similar.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-roles",
+      "q": "Lecture 7 GDPR stakeholders: subject, controller, processor, DPO, authority.",
+      "a": "Data subject: the individual the data is about (EU resident). Controller: organisation or person who decides processing (example: your bank). Processor: processes on behalf of the controller (example: EVRY, Microsoft). DPO: person appointed by the controller to oversee protection practices. Data authority: public supervisor in the member country. In Norway: Datatilsynet.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-rights",
+      "q": "Individual rights listed on the Lecture 7 GDPR slides.",
+      "a": "Consent to process data about you. Right to be forgotten. Right to modify or correct personal data. Right to be informed (what is collected, how it will be used, where stored, who has access). Right to request your data in a portable format.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-company",
+      "q": "Company obligations on the Lecture 7 GDPR slides.",
+      "a": "Audit data usage. Appoint a Data Protection Officer. Check data processors. Monitor breaches and report a data breach to the authority within 72 hours.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-seven",
+      "q": "Name the seven GDPR principles from Lecture 7, in order.",
+      "a": "1 Lawfulness, fairness, transparency. 2 Purpose limitation. 3 Data minimisation. 4 Accuracy. 5 Storage limitation. 6 Integrity and confidentiality. 7 Accountability (comply and be able to demonstrate compliance).",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-principles-detail",
+      "q": "Lecture 7 one-liners for purpose limitation, minimisation, accuracy, storage, security, accountability.",
+      "a": "Purpose must be specified, explicit and legitimate, and use stays inside what was communicated and consented. Collect only what is adequate, relevant and necessary, and be able to justify the amount. Keep data accurate and erase inaccurate data without delay. Keep identifiable data no longer than necessary, with a justified retention period. Security includes protection against unlawful processing and accidental loss, destruction or damage, including anonymisation or pseudonymisation. Accountability means documented policies you can show the authority.",
+      "tags": [
+        "Lecture7",
+        "gdpr"
+      ]
+    },
+    {
+      "id": "4050-l7-breach",
+      "q": "Lecture 7: what counts as a data breach, and what about encrypted loss?",
+      "a": "Losing data, sending it to the wrong person, unauthorised access, or emailing it unencrypted. Applies to electronic and paper copies. Serious breaches must be reported to the data authority within 72 hours. Loss of encrypted data does not have to be reported (slide example: encrypted memory sticks).",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-fines",
+      "q": "Lecture 7 fine ceiling, and which infringements it names.",
+      "a": "Up to 20 million euro, or 4% of worldwide annual turnover of the prior financial year, whichever is higher. Named for: basic processing principles including consent conditions; data-subject rights; unlawful transfer to a third country or international organisation; non-compliance with an order by a supervisory authority.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-lifecycle",
+      "q": "Lecture 7 information life cycle, including the extra GDPR step.",
+      "a": "Capture, Store, Use, Destroy. GDPR adds Assess up front: data protection by design and by default, a DPIA, and documentation of decisions. Capture adds minimisation, privacy notices, stating rights, and freely given explicit consent. Store adds security, restricted access, inventory, subject access, processor contracts, and breach processes. Use adds purpose limit, consent or other lawful basis, managing withdrawal, limits on profiling and automated decisions, and extra safeguards for transfers outside the EU. Destroy adds a justified retention period, erasure on request, portability, and deleting third-party copies.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-dpia",
+      "q": "When does Lecture 7 say a DPIA is required?",
+      "a": "For new technology, profiling, large-scale processing, or engaging a new third-party data processor. Projects must consider privacy impact from the outset (by design and by default), and the rationale should be documented.",
+      "tags": [
+        "Lecture7",
+        "gdpr"
+      ]
+    },
+    {
+      "id": "4050-l7-li-what",
+      "q": "Lecture 7: what is the Norwegian lawful-interception / digital border-control proposal?",
+      "a": "An installation giving Etterretningstjenesten access to data from internet cables crossing the Norwegian border. Most electronic traffic that crosses the border uses those cables. The deck notes similar setups in Sweden, Germany, France, Great Britain, the USA and Canada.",
+      "tags": [
+        "Lecture7",
+        "lawful-interception",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-li-mission",
+      "q": "Lecture 7: Etterretningstjenesten mission limits named on the slides.",
+      "a": "Foreign intelligence, civil and military: information on foreign states, organisations and individuals relevant to Norwegian interests, to support Norwegian authorities and defence. The slides say the information is not intended for fighting crime, and that the service is not allowed to collect information on Norwegians residing in Norway.",
+      "tags": [
+        "Lecture7",
+        "lawful-interception",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-li-why-hard",
+      "q": "Why does Lecture 7 say cable interception is difficult for privacy?",
+      "a": "A large and growing share of digital activity by people in Norway crosses those border cables, and less of daily life stays fully analogue. Access to the cables therefore reaches daily life at a new scale. The deck flags privacy, human rights, legality, and trust in the service.",
+      "tags": [
+        "Lecture7",
+        "lawful-interception"
+      ]
+    },
+    {
+      "id": "4050-l7-meta-content",
+      "q": "Lecture 7: metadata vs content in lawful interception.",
+      "a": "Metadata is stored over time and can answer when the first attack occurred and who else was attacked. Content is retained when there is reasonable suspicion, so the attack can be analysed technically. Slide example: a foreign terrorist cell, whether they have been in contact with someone in Norway, and what they are saying if they are moving.",
+      "tags": [
+        "Lecture7",
+        "lawful-interception",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-li-gdpr",
+      "q": "What does the Lecture 7 deck claim about lawful interception and the GDPR?",
+      "a": "The slide says lawful interception is exempt from the GDPR because its purpose comes from national security. It then asks whether lawful interception breaks the European Declaration of Human Rights. The deck poses that question; it does not answer it on the slide.",
+      "tags": [
+        "Lecture7",
+        "lawful-interception",
+        "gdpr",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-l7-assignment",
+      "q": "ACIT4050 GDPR assignment (Lecture 7) - rules and due date (crawl 29.09.2026)?",
+      "a": "Interactive Canvas quiz, style similar to the final exam. 100 points, at least 60 to pass, five attempts, only the highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Unsubmitted on the 29.09 crawl. Slides: Personvern GDPR DGF 26.pdf.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "canvas"
+      ]
     }
   ]
 }
