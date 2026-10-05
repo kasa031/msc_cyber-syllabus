@@ -2625,7 +2625,7 @@
     {
       "id": "4280-quiz-design-strategies",
       "q": "Privacy design strategies quiz: name all eight Hoepman-style strategies you may need to match to scenarios.",
-      "a": "Minimise; Hide; Separate; Aggregate (abstract); Inform; Control; Enforce; Demonstrate.",
+      "a": "Minimise; Hide; Separate; Aggregate (abstract); Inform; Control; Enforce; Demonstrate. Canvas 1-pt ticketing quiz (id 123200) is a separate item from the 6-pt strategies quiz.",
       "tags": [
         "Ch3",
         "Hoepman",
@@ -3000,6 +3000,27 @@
       "tags": [
         "Lecture6",
         "architecture",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4280-pds-q1-ticketing",
+      "q": "Quiz on privacy design strategies Q1: public-transport ticket app stored purchase history on central servers. Architect (1) lets users switch off history and (2) stores history on the phone if it stays on. Which Hoepman strategies?",
+      "a": "Control and Separate only. Canvas 05.10 1/1: switching off history is Control (user agency over processing). Local storage instead of central servers is Separate. Not Minimise (data still stored if on, just moved). Not Hide, Aggregate/Abstract, Inform, Enforce, or Demonstrate.",
+      "tags": [
+        "Lecture6",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pds-status",
+      "q": "ACIT4280 Quiz on privacy design strategies - rules and Karina status (05.10.2026)?",
+      "a": "Chapter 6 third module, 1 question, 1 point, no due date, unlimited attempts. Must get the question right to pass. Karina attempt 1: 1/1 in 5 minutes (submitted 05.10 11:41). Canvas id 123200, not the 6-pt Privacy design strategies quiz.",
+      "tags": [
+        "Lecture6",
+        "Hoepman",
         "Canvas-quiz"
       ]
     },
