@@ -3231,6 +3231,60 @@
       ]
     },
     {
+      "id": "4280-pp-q1-onion",
+      "q": "Privacy Patterns Q1: which statements about Onion Routing are true?",
+      "a": "It uses more bandwidth and can add latency. Messages are usually encrypted several times. The problem is obfuscating senders and receivers (unlinkability). Not: banking content is automatically protected (exit node can see plaintext without HTTPS). Not: the main goal is hiding message content. Canvas 05.10 4/4.",
+      "tags": [
+        "Lecture6",
+        "patterns",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pp-q2-dummies",
+      "q": "Privacy Patterns Q2: health-site searches leak to a third-party analyser and the backend cannot be changed. Which pattern is most useful and easiest?",
+      "a": "Use of dummies. Canvas: fake searches (e.g. a confuse-the-analyser plugin) hide which diseases are real. Not Pseudonymous identity, Added-noise measurement obfuscation, or Protection Against Tracking.",
+      "tags": [
+        "Lecture6",
+        "patterns",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pp-q3-strip",
+      "q": "Privacy Patterns Q3: which cases apply Strip Invisible Metadata?",
+      "a": "A browser plugin that removes browser version from requests, and a blog that strips EXIF (date, location) before upload. Not: blackening a diagnosis on a sick-leave form (visible content). Not: hiding date of birth from other users (still stored).",
+      "tags": [
+        "Lecture6",
+        "patterns",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pp-q4-unusual",
+      "q": "Privacy Patterns Q4: which statements about Handling unusual account activities with multiple factors are true?",
+      "a": "Inform the account holder as soon as possible, and the pattern balances usability and privacy (extra factor only when activity looks unusual). Not: always a hardware token; SMS OTP is a secure second factor; always authenticate everyone with MFA.",
+      "tags": [
+        "Lecture6",
+        "patterns",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pp-status",
+      "q": "ACIT4280 Privacy Patterns quiz - rules and Karina status (05.10.2026)?",
+      "a": "Chapter 6 fourth module, 4 questions, 4 points, no due date, unlimited, must get each question right. Karina attempt 1: 4/4 in 5 minutes (submitted 05.10 12:46). Canvas id 123192.",
+      "tags": [
+        "Lecture6",
+        "patterns",
+        "Canvas-quiz"
+      ]
+    },
+    {
       "id": "4280-ryde-claim",
       "q": "After a company breach (Ryde, Aug 2026), is support mail where you bill them, and is there a time limit to tell people?",
       "a": "Support mail is customer service, not a damages invoice. DPO for privacy rights; Datatilsynet to complain; Art. 82 in court for money. Art. 33: notify the authority without undue delay, where feasible in 72 hours. Art. 34: notify people only if high risk, without undue delay (no 72-hour number). Name what was lost, not only that a breach happened.",
