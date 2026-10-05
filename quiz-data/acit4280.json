@@ -2657,8 +2657,8 @@
     },
     {
       "id": "4280-quiz-privacy-controls",
-      "q": "Privacy controls quiz: what is risk treatment via controls (Lecture 5)?",
-      "a": "Select and implement technical and/or administrative controls (from catalogues such as ISO 27001 annex / NIST SP 800-53) to reduce or remove risks in infrastructure, procedures and resources.",
+      "q": "Privacy controls quiz Q1: name the four control types Canvas accepts (use plural controls).",
+      "a": "Preventative controls or Preventive controls; Detective controls or Detection controls; Corrective controls or Correction controls; Remedial controls or Compensatory/Compensation controls. Canvas 05.10: singular Preventative control scored 0 on that blank (2/4).",
       "tags": [
         "Ch5",
         "controls",
@@ -3173,6 +3173,60 @@
       "tags": [
         "Lecture6",
         "GDPR",
+        "Canvas-quiz"
+      ]
+    },
+    {
+      "id": "4280-pc-q1-types",
+      "q": "Privacy controls quiz Q1: fill the four types. Prevent a threat becoming damage / recognise a threat affected the system / reduce damage realized / lessen damage with alternative resources.",
+      "a": "Preventative controls (or Preventive controls); Detective controls (or Detection controls); Corrective controls (or Correction controls); Remedial controls (or Compensatory / Compensation controls). Must say controls (plural). Canvas 05.10 2/4 when the first blank was singular.",
+      "tags": [
+        "Lecture5",
+        "controls",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pc-q2-detective",
+      "q": "Privacy controls quiz Q2: Detective controls mitigate privacy risks when...?",
+      "a": "A risk has been realized that should get acted upon immediately. Canvas 05.10 1/1: detection of realized risks triggers containment and helps prevent future risks. Not: impact changed after DPIA, or new CVEs in vulnerability databases.",
+      "tags": [
+        "Lecture5",
+        "controls",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pc-q3-colesky",
+      "q": "Privacy controls quiz Q3: which eight strategies did Colesky, Hoepman and Hillen propose?",
+      "a": "Minimize; Hide; Separate; Abstract; Inform; Control; Enforce; Demonstrate. Not Store, Change, Collect, Operate, Retain, Share, Breach. Canvas 05.10 2/2. Here the fourth is Abstract, not Aggregate.",
+      "tags": [
+        "Lecture6",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pc-q4-select",
+      "q": "Privacy controls quiz Q4: which criteria are used to select privacy controls?",
+      "a": "Procedural feasibility (must fit existing admin/IT processes); goal conflicts (e.g. minimisation vs archive/transparency law); budget limitations (licence plus operate, maintain, extra complexity). Not churn rate, phone models, CEO qualification, or machine learning. Canvas 05.10 3/3.",
+      "tags": [
+        "Lecture5",
+        "controls",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pc-status",
+      "q": "ACIT4280 Privacy controls quiz - rules and Karina status (05.10.2026)?",
+      "a": "Chapter 4/5, 4 questions, 10 points, no due date, unlimited, can change answers. Karina attempt 1: 8/10 (Q1 2/4, singular Preventative control). Retry Q1 with plural Preventative controls or Preventive controls for 10/10. Canvas id 123199.",
+      "tags": [
+        "Lecture5",
+        "controls",
         "Canvas-quiz"
       ]
     },
