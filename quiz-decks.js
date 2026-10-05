@@ -3055,8 +3055,8 @@
       },
       {
         "id": "4050-l7-assignment",
-        "q": "ACIT4050 GDPR assignment (Lecture 7) - rules and due date (crawl 29.09.2026)?",
-        "a": "Interactive Canvas quiz, style similar to the final exam. 100 points, at least 60 to pass, five attempts, only the highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Still unsubmitted on crawl 05.10.2026. Slides: Personvern GDPR DGF 26.pdf.",
+        "q": "ACIT4050 GDPR assignment (Lecture 7) - rules and Karina status (05.10.2026)?",
+        "a": "Interactive Canvas quiz, exam style. 100 points, pass 60, five attempts, highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Karina attempt 1: 93.333/100 (11 min 22 s), four attempts left. Lost points on Q1 (extra: LI replaces consent with safeguards) and Q6 (extra: delete irrelevant regularly). Slides: Personvern GDPR DGF 26.pdf.",
         "tags": [
           "Lecture7",
           "gdpr",
@@ -3066,7 +3066,7 @@
       {
         "id": "4050-gdpr-q1-li-balance",
         "q": "GDPR assignment Q1: which statements best reflect the balance between GDPR and lawful interception? (select all)",
-        "a": "Without exemption, lawful interception would likely be illegal under GDPR. GDPR protects individuals; LI prioritises national security. Not: LI strengthens all GDPR rights; LI replaces consent with safeguards; GDPR does not apply in Europe; national security has no legal limits.",
+        "a": "Without exemption, lawful interception would likely be illegal under GDPR. GDPR protects individuals; LI prioritises national security. Canvas attempt 1 confirmed those two only. Trap: LI replaces individual consent with safeguards is wrong (exemption, not a consent swap). Also not: LI strengthens all GDPR rights; GDPR does not apply in Europe; national security has no legal limits.",
         "tags": [
           "Lecture7",
           "gdpr",
@@ -3123,7 +3123,7 @@
       {
         "id": "4050-gdpr-q6-minimisation",
         "q": "GDPR assignment Q6: what is meant by data minimisation under GDPR? (select all)",
-        "a": "Collect only data necessary for the specified purpose. Ensure data is not excessive (adequate, relevant, limited to what is necessary; justify the amount). Not: avoid encrypting; collect as soon as available; use collected data as little as possible. Regular deletion of irrelevant data is storage limitation, not this principle.",
+        "a": "Collect only data necessary for the specified purpose. Ensure data is not excessive. Canvas attempt 1 confirmed those two only. Trap: Delete irrelevant data regularly is storage limitation, not minimisation. Also not: avoid encrypting; collect as soon as available; use collected data as little as possible.",
         "tags": [
           "Lecture7",
           "gdpr",
@@ -11063,7 +11063,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock159",
+    version: "lock160",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
