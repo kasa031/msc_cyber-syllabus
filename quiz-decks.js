@@ -10303,6 +10303,173 @@
           "classic-style",
           "in-class"
         ]
+      },
+      {
+        "id": "4100-w3-slide-two-types",
+        "q": "Structure of a paper slides: two main paper types, and who follows IMRaD?",
+        "a": "Research papers report novel findings or methodologies and follow IMRaD. Review papers overview recent work and typically name gaps; they are like a long background section and do not follow the IMRaD structure in this deck.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-point",
+        "q": "Structure of a paper slides: what does a research paper do, and why write one?",
+        "a": "It asks a relevant research question, answers it, and makes a novel contribution. You write so others can use the findings, to claim ideas as your own, and to show productivity (funding, degree).",
+        "tags": [
+          "week3",
+          "literature",
+          "slides"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-parts",
+        "q": "Structure of a paper slides: list the main parts, and what is front matter vs main text?",
+        "a": "Title, Authors, Abstract, Introduction, Methods, Results, Discussion, Conclusion. Front matter: title, authors, abstract. Main text: IMRaD plus conclusion.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-alt-formats",
+        "q": "Structure of a paper slides: two alternatives to standard IMRaD?",
+        "a": "Methods at the end (IMRaD but methods after discussion). Or discuss results as you go: Result 1 + Discussion 1, then Result 2 + Discussion 2, and so on.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-intro-gap",
+        "q": "Structure of a paper slides: Introduction as What and So what?",
+        "a": "Three moves: broad context, identify a gap, fill the gap.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-methods-si",
+        "q": "Structure of a paper slides: how complete must Methods be?",
+        "a": "Enough to understand (and ideally replicate) the study. Extra replication detail often sits in Supplementary Information. If you use someone else's method, a research paper may just cite the original; a thesis often needs more detail.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-results",
+        "q": "Structure of a paper slides: three Results rules when Results is separate from Discussion?",
+        "a": "Little to no interpretation. Often figure-heavy; good figures need little text. Present in a logical order, not necessarily chronological.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-discussion",
+        "q": "Structure of a paper slides: what belongs in Discussion?",
+        "a": "Interpret results and show how they support the claim, with no leaps of logic. Note unexpected results, relate to prior studies, consider generality, address shortcomings, and mention future work (or put that in the conclusion).",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-conclusion",
+        "q": "Structure of a paper slides: what does the Conclusion do?",
+        "a": "May be combined with Discussion. Summarise main points, reiterate the claim and key implications, and state conclusions without retelling the whole logical path.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-abstract",
+        "q": "Structure of a paper slides: rules for the Abstract?",
+        "a": "Self-contained: you should not need the paper to understand the abstract, or vice versa. Often 1-3 sentences per IMRaD part. All important parts of the study belong in the abstract.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-authors",
+        "q": "Structure of a paper slides: titles, last author, and affiliations?",
+        "a": "Titles hold keywords on topic and often findings. Last author is often the lab head or supervisor. Check affiliations for bias (e.g. a company selling a product used in the study).",
+        "tags": [
+          "week3",
+          "literature",
+          "slides"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-read-order",
+        "q": "Structure of a paper slides: how to read papers in a literature search?",
+        "a": "Start with reviews (read them more thoroughly; they point to more papers). Do not scour every research paper. Read title and abstract, the last paragraph of the introduction, the figures (especially results), then skim the discussion. Tailor depth to what you need.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w3-slide-write-order",
+        "q": "Structure of a paper slides: suggested order to write a paper or thesis?",
+        "a": "Literature review, Methods, Results, formulate conclusions, then Discussion and Introduction, and last Abstract and Title.",
+        "tags": [
+          "week3",
+          "literature",
+          "slides",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w2-deconstruct",
+        "q": "Week 2 critical-thinking lecture: what is statement deconstruction?",
+        "a": "Pick a claim apart word by word to find unstated assumptions and implicit premises. The big claim only holds if those smaller claims are true. Canvas: So you say there is a chance (Gemma 4 summary).",
+        "tags": [
+          "week2",
+          "rhetoric",
+          "critical-thinking"
+        ]
+      },
+      {
+        "id": "4100-w2-deconstruct-use",
+        "q": "Week 2: why deconstruct statements when reading and writing?",
+        "a": "Reading: spot hidden assumptions and the limits of an author's claim. Writing: stack a controversial claim on smaller obvious claims the reader already accepts, so they stay on board.",
+        "tags": [
+          "week2",
+          "rhetoric",
+          "critical-thinking"
+        ]
+      },
+      {
+        "id": "4100-w2-deconstruct-os",
+        "q": "Week 2 example: what does 'Windows is less secure than Linux' assume?",
+        "a": "Both have the property security; security is a spectrum (less), not a binary; the two OSs are comparable; security can be tied to OS architecture. Surface reading looks like a simple preference.",
+        "tags": [
+          "week2",
+          "rhetoric",
+          "critical-thinking"
+        ]
       }
     ]
   },
@@ -10890,13 +11057,13 @@
   var EXPECTED = {
     acit4050: 305,
     acit4280: 218,
-    acit4100: 373,
+    acit4100: 389,
     computer-basics: 28,
     fellesjam-general: 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock158",
+    version: "lock159",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
