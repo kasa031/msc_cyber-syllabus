@@ -2961,6 +2961,49 @@
       ]
     },
     {
+      "id": "4280-swarch-q1",
+      "q": "Software Architecture Concepts Q1: which statements about architecture are correct? (select all)",
+      "a": "Architecting integrates what to build and how to build it. A tactic is a reusable decision for one quality attribute. Quality attributes matter especially to the architect. Architecture is principal design decisions from alternatives that set macro-structures to meet requirements. Not: architecture must contain all details; architect need not understand requirements; agile systems have/need no architecture; architecture means big design up front. Canvas 05.10: 3/3.",
+      "tags": [
+        "Lecture6",
+        "architecture",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-swarch-q2",
+      "q": "Software Architecture Concepts Q2: classify these health-system requirements (functional / quality attribute / constraint).",
+      "a": "Output within 1 second: quality attribute. Auto reports after 17:30 last working day: functional. Implement HStan-03-2006-priv: constraint. Authenticate with health authority ID card: functional. Manager insists on 128-bit encryption: constraint. Java because that is team expertise: constraint. Available Mon-Fri 08:30-17:30, downtime max 5 seconds/day: quality attribute.",
+      "tags": [
+        "Lecture6",
+        "architecture",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-swarch-q3",
+      "q": "Software Architecture Concepts Q3: match each requirement to its ISO 25010 quality attribute (or not a QA).",
+      "a": "Runs unmodified on any OS with JRE 7+: Portability. Interchange book data in the national library format: Compatibility (Canvas spelling Compatability). Search within 1 s at 50% load: Performance. No access without authentication: Security. Down at most 5% of a year: Reliability. Category-2 fix in 4.5 person-days incl. test and docs: Maintainability. 75% of functions after 2 hours training: Usability. Monthly login-count report: Not a quality attribute (functional).",
+      "tags": [
+        "Lecture6",
+        "quality",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-swarch-status",
+      "q": "ACIT4280 Software Architecture Concepts quiz - rules and Karina status (05.10.2026)?",
+      "a": "Chapter 6 second module, 3 questions, 3 points, no due date, unlimited attempts. Must get each question right to pass. Karina attempt 1: 3/3 in 8 minutes (submitted 05.10 11:34).",
+      "tags": [
+        "Lecture6",
+        "architecture",
+        "Canvas-quiz"
+      ]
+    },
+    {
       "id": "4280-ryde-claim",
       "q": "After a company breach (Ryde, Aug 2026), is support mail where you bill them, and is there a time limit to tell people?",
       "a": "Support mail is customer service, not a damages invoice. DPO for privacy rights; Datatilsynet to complain; Art. 82 in court for money. Art. 33: notify the authority without undue delay, where feasible in 72 hours. Art. 34: notify people only if high risk, without undue delay (no 72-hour number). Name what was lost, not only that a breach happened.",
