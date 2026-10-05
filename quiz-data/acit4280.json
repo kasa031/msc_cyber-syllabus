@@ -2635,8 +2635,8 @@
     },
     {
       "id": "4280-quiz-dark-side",
-      "q": "The Dark Side quiz: name three privacy dark patterns from the Lecture 6 survey excerpt.",
-      "a": "Any three of: Privacy Zuckering; Bad Defaults; Forced Registration; Hidden Legalese; Immortal Accounts; Address Book Leeching; Shadow User Profiles.",
+      "q": "The Dark Side (Canvas module 5, 1 pt): tick the true statements about privacy dark patterns.",
+      "a": "Tick exactly these three (verified Canvas 05 Oct 2026, 1/1): (1) Terms and conditions formulated in an unclear or complicated way are a known dark privacy pattern (Hidden Legalese / Obscure). (2) Privacy dark patterns work because they often take advantage of psychological properties of human beings (Bösch et al., System 1 / need to belong). (3) The privacy dark pattern implements the Maximize strategy (dark strategies vs Hoepman; many patterns list Maximize among others). Do NOT tick: anti-patterns and dark patterns synonymous (Bösch distinguishes intent); dark pattern = privacy pattern not proven useful; Privacy Zuckering = not allowing users to modify settings (settings exist but are confusing); Shadow User Profiles only for registered users (non-users are affected). Name-three recall: Privacy Zuckering; Bad Defaults; Forced Registration; Hidden Legalese; Immortal Accounts; Address Book Leeching; Shadow User Profiles.",
       "tags": [
         "Ch5",
         "dark-patterns",
