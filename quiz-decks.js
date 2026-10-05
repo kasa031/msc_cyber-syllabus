@@ -3121,6 +3121,62 @@
         ]
       },
       {
+        "id": "4050-gdpr-q6-minimisation",
+        "q": "GDPR assignment Q6: what is meant by data minimisation under GDPR? (select all)",
+        "a": "Collect only data necessary for the specified purpose. Ensure data is not excessive (adequate, relevant, limited to what is necessary; justify the amount). Not: avoid encrypting; collect as soon as available; use collected data as little as possible. Regular deletion of irrelevant data is storage limitation, not this principle.",
+        "tags": [
+          "Lecture7",
+          "gdpr",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-gdpr-q7-transparency-li",
+        "q": "GDPR assignment Q7: how does lawful interception challenge GDPR transparency? (select all)",
+        "a": "Trust must rely on oversight instead of consent. Secrecy is required to protect intelligence operations. Citizens cannot be individually informed. Not: every citizen notified in real time; only companies must be transparent; full transparency is guaranteed.",
+        "tags": [
+          "Lecture7",
+          "gdpr",
+          "lawful-interception",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-gdpr-q8-company",
+        "q": "GDPR assignment Q8: what obligations does a company have under GDPR? (select all)",
+        "a": "Report data breaches within 72 hours. Appoint a Data Protection Officer. Audit data usage. Not: permanently delete all customer data; share with intelligence on request; allow employee access to data.",
+        "tags": [
+          "Lecture7",
+          "gdpr",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-gdpr-q9-fines",
+        "q": "GDPR assignment Q9: which actions can cause a GDPR fine of up to 20 million euro or 4% turnover? (select all)",
+        "a": "Failure to respect data subject rights. Processing without a lawful basis (basic principles including consent). Unlawful transfer to a third country. Not: hiring a DPO; providing privacy notices; encrypting personal data.",
+        "tags": [
+          "Lecture7",
+          "gdpr",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-gdpr-q10-personal",
+        "q": "GDPR assignment Q10: which of the following are personal data under GDPR? (select all)",
+        "a": "Name and date of birth. Email address and phone number. IP address and geolocation data (identifiable person / movements). Not: accumulated statistics; randomly generated non-identifiable codes; country population numbers.",
+        "tags": [
+          "Lecture7",
+          "gdpr",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
         "id": "4050-lab-intro-06oct",
         "q": "ACIT4050 lab intro Tue 06.10.2026 - what, where, status (crawl 05.10)?",
         "a": "Campus lab introduction 12:30-14:00 with Ahsan and Nurul (not streamed). Ahsan emailed that earlier lab invitations expired and a new invite would be sent before 6 Oct. Optional colloquium 13:00-14:00 PI646. Lecture 8 module still empty on Canvas.",
@@ -10832,7 +10888,7 @@
 };
 
   var EXPECTED = {
-    acit4050: 300,
+    acit4050: 305,
     acit4280: 218,
     acit4100: 373,
     computer-basics: 28,
@@ -10840,7 +10896,7 @@
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock157",
+    version: "lock158",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
