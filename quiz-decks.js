@@ -5836,8 +5836,8 @@
       },
       {
         "id": "4280-quiz-pia-risk",
-        "q": "PIA and risk assessment quiz: what is a PIA according to Lecture 4?",
-        "a": "A systematic process for identifying and evaluating privacy risks/impacts of a project - anticipatory, done in advance or in parallel with the initiative, not only a one-off report.",
+        "q": "PIA and risk assessment quiz Q4 fill-in: A PIA is ________ for identifying and addressing privacy issues... (Canvas 05.10)?",
+        "a": "Canvas accepts: an on-going process; a permanent process; a regular process; a cyclic process. It rejected a systematic process (0/2) even though Lecture 4 uses that phrase. Stress continuing lifecycle, not a one-off report.",
         "tags": [
           "Ch4",
           "PIA",
@@ -6211,6 +6211,82 @@
         "tags": [
           "Lecture6",
           "Hoepman",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4280-pia-q1-process",
+        "q": "PIA and risk assessment quiz Q1: which elements are part of the privacy risk management process?",
+        "a": "Establishing the context; assessing risks; treating risks; monitoring and reviewing risks and controls; communications and consultation with stakeholders. Canvas 05.10 2/2. Not: management report, publish breaches, PII debug log, revise policy, or end-user education.",
+        "tags": [
+          "Lecture4",
+          "PIA",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pia-q2-inputs",
+        "q": "PIA and risk assessment quiz Q2: which input data is used to assess privacy risk?",
+        "a": "Likelihood/probability that a privacy risk occurs, and magnitude (cost and impact) of an occurring risk. Canvas 05.10 2/2. Not attitudes, admin cost, identity-theft statistics, or legal violation as a separate input.",
+        "tags": [
+          "Lecture4",
+          "risk",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pia-q3-types",
+        "q": "PIA and risk assessment quiz Q3: which types of privacy shall a PIA consider?",
+        "a": "Privacy of the person; of personal behavior; of personal information; of personal communications. Canvas 05.10 2/2. Not CIO, business networks, provider transactions, or business transactions.",
+        "tags": [
+          "Lecture4",
+          "PIA",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pia-q4-ongoing",
+        "q": "PIA and risk assessment quiz Q4: A PIA is ________ for identifying and addressing privacy issues in a system that considers future privacy consequences. What word does Canvas want?",
+        "a": "An on-going process (also accepted: a permanent process; a regular process; a cyclic process). Canvas rejected a systematic process. Trap: the lecture definition says systematic, but this fill-in wants continuing/cyclic, not a one-off.",
+        "tags": [
+          "Lecture4",
+          "PIA",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pia-q5-duality",
+        "q": "PIA and risk assessment quiz Q5: what does duality of privacy risks mean?",
+        "a": "Privacy risk is realized as business risks and user risks. Canvas 05.10 1/1. Not systemic vs personal, and not compliance vs regulation.",
+        "tags": [
+          "Lecture4",
+          "risk",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pia-q6-isms",
+        "q": "PIA and risk assessment quiz Q6: what best describes the core process of an ISMS?",
+        "a": "A systematic approach to managing sensitive company information so it remains secure. People, processes and IT systems, with a risk process in PLAN, DO, CHECK, ACT phases. Not a military society, not a CIO software platform, not automatic risk calculus.",
+        "tags": [
+          "Lecture5",
+          "ISMS",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pia-status",
+        "q": "ACIT4280 PIA and risk assessment quiz - rules and Karina status (05.10.2026)?",
+        "a": "Chapter 4, 6 questions, 10 points, counts toward the grade, no due date (old 31 May 2018 text), unlimited attempts. Canvas lists it twice (ids 123219 and 123198). Karina attempt 1: 8/10 (Q4 fill-in 0/2). Retry Q4 with on-going/cyclic process.",
+        "tags": [
+          "Lecture4",
+          "PIA",
           "Canvas-quiz"
         ]
       },
@@ -11120,14 +11196,14 @@
 
   var EXPECTED = {
     acit4050: 305,
-    acit4280: 224,
+    acit4280: 231,
     acit4100: 389,
     computer-basics: 28,
     fellesjam-general: 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock162",
+    version: "lock163",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
