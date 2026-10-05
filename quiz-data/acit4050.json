@@ -3054,6 +3054,63 @@
       ]
     },
     {
+      "id": "4050-gdpr-q1-li-balance",
+      "q": "GDPR assignment Q1: which statements best reflect the balance between GDPR and lawful interception? (select all)",
+      "a": "Without exemption, lawful interception would likely be illegal under GDPR. GDPR protects individuals; LI prioritises national security. Not: LI strengthens all GDPR rights; LI replaces consent with safeguards; GDPR does not apply in Europe; national security has no legal limits.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "lawful-interception",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-gdpr-q2-li-exempt",
+      "q": "GDPR assignment Q2: why is lawful interception of internet traffic exempt from GDPR? (select all)",
+      "a": "GDPR explicitly excludes national security, and LI is conducted for national security purposes. Not: citizens signed blanket waivers; easier for intelligence agencies; GDPR applies only to companies not governments.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "lawful-interception",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-gdpr-q3-principles",
+      "q": "GDPR assignment Q3: which of these are among the seven core GDPR principles? (select all)",
+      "a": "Lawfulness, fairness, transparency. Purpose limitation. Accountability. Not: profitability; effective and efficient data collection; unlimited retention.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-gdpr-q4-storage",
+      "q": "GDPR assignment Q4: what does storage limitation mean under GDPR? (select all)",
+      "a": "Data should only be kept as long as necessary. Data must be deleted after the retention period expires. Retention times must be documented and justified. Not: store indefinitely; only metadata may be retained; all data must be stored in Norway.",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
+      "id": "4050-gdpr-q5-special",
+      "q": "GDPR assignment Q5: which are special categories of personal data needing extra protection? (select all)",
+      "a": "Religion. Medical information. Political opinions (GDPR art. 9 / slide etc.). Not: IP address; preferred web browser; shopping history (ordinary personal data on the slide).",
+      "tags": [
+        "Lecture7",
+        "gdpr",
+        "canvas",
+        "exam"
+      ]
+    },
+    {
       "id": "4050-lab-intro-06oct",
       "q": "ACIT4050 lab intro Tue 06.10.2026 - what, where, status (crawl 05.10)?",
       "a": "Campus lab introduction 12:30-14:00 with Ahsan and Nurul (not streamed). Ahsan emailed that earlier lab invitations expired and a new invite would be sent before 6 Oct. Optional colloquium 13:00-14:00 PI646. Lecture 8 module still empty on Canvas.",
