@@ -1,18 +1,8 @@
 /**
  * Quiz decks for the study app (file://-friendly).
- *
- * Why no API in v1: one device, offline, privacy - localStorage holds
- * spaced-repetition state. Fetching local JSON often fails under file://
- * (browser CORS). Decks are inlined here and loaded via <script>.
- *
- * JSON under quiz-data/ uses the same schema for maintenance / later sync.
- * Update both the JSON files and this file (or ask the agent to sync them).
- *
- * Cards may include optional figure: { type:"img", src, alt, caption? }
- * or { type:"svg", svg, alt?, caption? }. Figures live under figures/.
- *
- * Updated from autumn 2026 materials + visual figures for conceptual cards.
- * No GitHub push.
+ * Figure fields: type, src|svg, alt, caption?, shows?, attribution?
+ * Prefer figures/real/ terminal mockups and Wikimedia Commons (attributed).
+ * Sync quiz-data/*.json when editing. No GitHub push.
  */
 (function (global) {
   "use strict";
@@ -2413,7 +2403,7 @@
       {
         "id": "4050-l5-assignment",
         "q": "What is the L05 home assignment (from the lecture close)?",
-        "a": "Analyse how firewall rules work: Canvas gives a small rule set; you apply the rules to given data packets. Module/lecture L05 on Canvas. Due Tue 22.09.2026 23:59 (10 pts).",
+        "a": "Analyse how firewall rules work: Canvas gives a small rule set; you apply the rules to given data packets. Due Tue 22.09.2026 23:59 (10 pts). Karina: submitted 23.09 (late), graded 10/10 on crawl 05.10.2026.",
         "tags": [
           "Lecture5",
           "firewall"
@@ -2650,9 +2640,246 @@
         ]
       },
       {
+        "id": "4050-l9-auth-factors",
+        "q": "L-9: Four authentication types (Springer Ch. 1) - Type I through IV?",
+        "a": "I What you know (password, passphrase). II What you have (token, smart card). III What you are (physiological + behavioral biometrics). IV Where you are (location, e.g. geo/IP context).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q3-nist-threat",
+        "q": "L-9 Assignment Q3 (NIST SP 800-63B): Authenticator exposed using analytical methods OUTSIDE the authentication mechanism - which threat?",
+        "a": "Offline Cracking: attacker gets verifier/hash (e.g. stolen DB) and attacks it offline. Eavesdropping = intercept in transit during use. Online Guessing = tries via live auth interface. Duplication = copy/clone authenticator (e.g. card skim).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q2-behavioral",
+        "q": "L-9 Assignment Q2: Which option is Type III based on behavioral attributes (what you are)?",
+        "a": "Keystrokes (keystroke dynamics: timing/rhythm of typing). Voice can be behavioral too, but passphrase = Type I (know), IP address = Type IV (where you are / location context).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-def-password",
+        "q": "L-9 Assignment Q1: Which definition correctly defines Password?",
+        "a": "A secret data value, usually a character string, that is presented to a system by a user to authenticate the user's identity. (Not identification, not verification of a claim in general, not authorization.)",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-def-identification",
+        "q": "L-9: Which definition matches identification (contrast with password)?",
+        "a": "An act or process that presents something to a system so that the system can recognize a system entity and distinguish it from other entities (e.g. username, ID card, biometric sample presented).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-def-authentication",
+        "q": "L-9: Which definition matches authentication?",
+        "a": "The process of verifying a claim that a system entity or resource has a certain attribute value - evidence that binds the attribute to that entity (e.g. checking a password, MFA, ticket).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-def-authorization",
+        "q": "L-9: Which definition matches authorization?",
+        "a": "An approval granted to a system entity to access a system resource (what you may do after identity is established).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q4-hibp-politician",
+        "q": "L-9 Assignment Q4: Which Oslo @oslobystyre.no email is pwned on Have I Been Pwned (check live)?",
+        "a": "Verify on haveibeenpwned.com. As of Sep 2026: Marit Halse (marit.halse@oslobystyre.no) and Ivar Johansen (ivar.johansen@oslobystyre.no) show breaches; Odd Einar Dorum and Shoaib Sultan did not. Canvas may key one answer (try Marit Halse first). Lesson: work email on consumer sites + reuse links leaks to HIBP.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q5-passwordmonster-phrase",
+        "q": "L-9 Assignment Q5: passwordmonster.com crack time for theworldinyourhand?",
+        "a": "0 second (instant in the tool). Long phrase but predictable/common pattern, lowercase only - hits dictionary lists (OWASP: test against top 10k worst passwords). Length alone is not enough.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q6-passwordmonster-lab",
+        "q": "L-9 Assignment Q6: passwordmonster.com crack time for lab password 0l4vLy5n3*?",
+        "a": "13 thousand years (Password Monster estimate). Mixed case, digits, symbol - not a common dictionary phrase. Contrast with Q5: complexity + unpredictability vs obvious phrases.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q7-password-mitigations",
+        "q": "L-9 Assignment Q7: Recommend ways to strengthen password authentication (select correct)?",
+        "a": "YES: Implement MFA; Limit logon attempts (rate limiting / throttling, NIST 800-63B). NO: Enforce only 6 characters (NIST min 8 for user-chosen secrets); MD5 for password storage (use salted slow hashes: Argon2, bcrypt, PBKDF2).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q8-mfa-standards",
+        "q": "L-9 Assignment Q8: Standards/protocols that help implement 2FA/MFA (not access-control models)?",
+        "a": "Select: HOTP, TOTP, WebAuthn/FIDO2. NOT for MFA implementation: RBAC, ABAC, ReBAC (those are authorization models - who may do what after login).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q9-breach-implications",
+        "q": "L-9 Assignment Q9 (essay): Security implications when politicians' passwords appear in breach data?",
+        "a": "Credential reuse/stuffing; offline cracking of leaked hashes; spear phishing with OSINT; account takeover of email/cloud; trust and national-security risk; third-party breaches still hit orgs when officials use work email on SaaS. Recommend: unique passwords + manager, MFA (FIDO2), no work email on consumer sites, HIBP monitoring, rate limits, modern hashing, incident response.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q10-pet-passwords",
+        "q": "L-9 Assignment Q10 (essay): Implications of passwords from spouse/child/pet name + birth year?",
+        "a": "Low effective entropy; predictable masks/rules; OSINT on public figures; targeted guessing; fast offline crack after any leak; false policy compliance; worse with reuse. Use random secrets/passphrases, password manager, MFA.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q11-access-steps",
+        "q": "L-9 Assignment Q11: Four steps to access a resource - what is Box 3?",
+        "a": "Authorization (what the subject may do with the object). Flow: 1 Identification, 2 Authentication, 3 Authorization, then Resource access, 4 Accountability/Auditing (logging).",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q12-abac",
+        "q": "L-9 Assignment Q12: AuthZ from arbitrary user traits, object traits, and environment conditions?",
+        "a": "Attribute-Based Access Control (ABAC). NIST SP 800-162 style: policy on subject/resource/action/environment attributes. RBAC = roles; DAC = owner discretion; MAC = mandatory labels/classification.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q13-dac",
+        "q": "L-9 Assignment Q13: Which description best defines Discretionary Access Control (DAC)?",
+        "a": "Identity-based access with OWNERSHIP: the owner of a resource may grant or revoke access rights. (Not MAC = labels/clearances; not RBAC = organizational roles/positions; not ABAC = subject/object/env properties + policy.)",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-access-models-match",
+        "q": "L-9: Match MAC, RBAC, DAC, ABAC to their standard descriptions?",
+        "a": "MAC: security labels vs clearances (mandatory policy). RBAC: access via roles/positions in org. DAC: owner grants/revokes rights on owned resources. ABAC: allow/deny from subject, object, action, environment attributes + policy.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q14-rbac",
+        "q": "L-9 Assignment Q14: Which description best defines Role-Based Access Control (RBAC)?",
+        "a": "Identity-based access where controlled entities are functional positions (roles) in an organization or process; users get permissions via assigned roles (Sandhu et al.). Not MAC, DAC, or ABAC descriptions.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q15-otp-generation",
+        "q": "L-9 Assignment Q15: How is the 6-digit OTP on a kodebrikke/software token generated (standards + tech)?",
+        "a": "Shared secret K provisioned at enrollment. TOTP (RFC 6238): T = floor((Unix time - T0)/X), often X=30s; HOTP (RFC 4226): counter C increments each use. OTP = Dynamic Truncate(HMAC-SHA1(K, T or C)) to 6 decimal digits. Verifier computes same value; accepts once per step (replay resistance). NIST 800-63B: OTP is something you have; rate-limit failed attempts.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q16-authz-challenges",
+        "q": "L-9 Assignment Q16: Three authorization challenges IAM helps solve?",
+        "a": "(1) Privilege creep / excessive access across many apps - IAM centralizes roles/entitlements, recertification, least privilege, timely deprovisioning (Leaver/Mover). (2) SoD violations - governance rules block conflicting permissions (e.g. create + approve payment). (3) Inconsistent policy enforcement - IAM/IdP + PDP/PEP or ABAC/policy-as-code gives one place to define and audit who may do what.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l9-q17-authn-challenges",
+        "q": "L-9 Assignment Q17: Three authentication challenges IAM helps solve?",
+        "a": "(1) Password fatigue and weak reuse - central IdP/SSO, MFA enforcement, password managers or passkeys reduce many local passwords. (2) Inconsistent auth strength per app - IAM sets org-wide MFA/AAL (e.g. NIST), conditional access, step-up for risk. (3) Orphaned accounts and stale credentials - joiner-mover-leaver ties authentication lifecycle to HR; disable auth on leave; federated login reduces ghost local accounts.",
+        "tags": [
+          "l9-identity",
+          "l9-assignment",
+          "canvas",
+          "exam"
+        ]
+      },
+      {
         "id": "4050-l6-l9-assignment",
         "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
-        "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: submitted 23.09.2026 ~23:21 (grade pending). Slides: L6-iam.pdf, IAM-usecase.pdf on Canvas. Exam page says format similar to this assignment.",
+        "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: submitted 23.09.2026 ~23:21, still pending_review on crawl 05.10.2026. Slides: L6-iam.pdf, IAM-usecase.pdf on Canvas. Exam page says format similar to this assignment.",
         "tags": [
           "Lecture6",
           "l9-identity",
@@ -2829,11 +3056,21 @@
       {
         "id": "4050-l7-assignment",
         "q": "ACIT4050 GDPR assignment (Lecture 7) - rules and due date (crawl 29.09.2026)?",
-        "a": "Interactive Canvas quiz, style similar to the final exam. 100 points, at least 60 to pass, five attempts, only the highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Unsubmitted on the 29.09 crawl. Slides: Personvern GDPR DGF 26.pdf.",
+        "a": "Interactive Canvas quiz, style similar to the final exam. 100 points, at least 60 to pass, five attempts, only the highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Still unsubmitted on crawl 05.10.2026. Slides: Personvern GDPR DGF 26.pdf.",
         "tags": [
           "Lecture7",
           "gdpr",
           "canvas"
+        ]
+      },
+      {
+        "id": "4050-lab-intro-06oct",
+        "q": "ACIT4050 lab intro Tue 06.10.2026 - what, where, status (crawl 05.10)?",
+        "a": "Campus lab introduction 12:30-14:00 with Ahsan and Nurul (not streamed). Ahsan emailed that earlier lab invitations expired and a new invite would be sent before 6 Oct. Optional colloquium 13:00-14:00 PI646. Lecture 8 module still empty on Canvas.",
+        "tags": [
+          "lab",
+          "canvas",
+          "Lecture8"
         ]
       }
     ]
@@ -7430,7 +7667,7 @@
       {
         "id": "4100-assign1-due-2026",
         "q": "When is ACIT4100 Assignment 1 due on Canvas Fall 2026?",
-        "a": "Literature taxonomy spreadsheet: 25 September 2026 at 12:00 (API due_at 2026-09-25T10:00:00Z).",
+        "a": "Literature taxonomy spreadsheet: 25 September 2026 at 12:00 (API 2026-09-25T10:00:00Z). Submitted 20.09; graded complete on crawl 05.10.2026.",
         "tags": [
           "mandatory",
           "assignment-1",
@@ -7440,7 +7677,7 @@
       {
         "id": "4100-assign2-due-2026",
         "q": "When is ACIT4100 Assignment 2 due on Canvas Fall 2026?",
-        "a": "Presentation recording: 30 October 2026 at 13:00 local / API 2026-10-30T11:00:00Z.",
+        "a": "Presentation recording: 30 October 2026 at 12:00 (API 2026-10-30T11:00:00Z). That is 12:00 CET after the 25.10 DST change, not 13:00.",
         "tags": [
           "mandatory",
           "assignment-2",
@@ -9492,6 +9729,467 @@
           "week4",
           "philosophy"
         ]
+      },
+      {
+        "id": "4100-w5-module",
+        "q": "What is Week 5 in ACIT4100 about?",
+        "a": "Using AI tools for text analysis: Notebook LM tutorial on a shared paper set, then grouping papers from your taxonomy to find patterns for the essay.",
+        "tags": [
+          "week5",
+          "AI",
+          "literature"
+        ]
+      },
+      {
+        "id": "4100-w5-notebooklm-purpose",
+        "q": "Week 5: what is Notebook LM for in this course?",
+        "a": "Ask questions across many uploaded papers so you can see methods, problems, similarities, venues, history, and philosophy-of-science angles before you write.",
+        "tags": [
+          "week5",
+          "AI",
+          "NotebookLM"
+        ]
+      },
+      {
+        "id": "4100-w5-notebooklm-account",
+        "q": "Week 5 Notebook LM: account rule, and what if you refuse Google?",
+        "a": "Notebook LM (beta) needs a personal Gmail account. If you do not have one or refuse to create one, Canvas says come see the teachers for an alternative.",
+        "tags": [
+          "week5",
+          "AI",
+          "NotebookLM"
+        ]
+      },
+      {
+        "id": "4100-w5-notebooklm-limits",
+        "q": "Week 5: two Notebook LM limits named on Canvas.",
+        "a": "Chat history may vanish on refresh, so pin answers as notes to keep them. Some studio features can fail; failed uploads should be removed and re-added.",
+        "tags": [
+          "week5",
+          "AI",
+          "NotebookLM"
+        ]
+      },
+      {
+        "id": "4100-w5-notebooklm-notes",
+        "q": "Week 5: why pin Notebook LM answers, then select several notes?",
+        "a": "Pinned notes become the next query target (not the raw PDFs). Canvas then lets you run suggested prompts such as Create outline on those notes.",
+        "tags": [
+          "week5",
+          "AI",
+          "NotebookLM"
+        ]
+      },
+      {
+        "id": "4100-w5-grouping-why",
+        "q": "Week 5: why group papers from the taxonomy?",
+        "a": "Patterns you find, or that are suspiciously absent, help you later structure the essay. The course cares more about the grouping technique than about a huge sample.",
+        "tags": [
+          "week5",
+          "literature",
+          "taxonomy"
+        ]
+      },
+      {
+        "id": "4100-w5-grouping-constructivist",
+        "q": "Week 5: how do you decide what counts as a group of papers?",
+        "a": "It is constructivist: you define the characteristic, and you may mix grouping rules if you stay open about them. Example: last-decade papers, then check whether they share a method or problem.",
+        "tags": [
+          "week5",
+          "literature",
+          "taxonomy"
+        ]
+      },
+      {
+        "id": "4100-w5-grouping-patterns",
+        "q": "Name four Week 5 pattern questions for a taxonomy.",
+        "a": "Change over time; distinct approaches to the same problem; industry involvement; methods discussed vs engineering; result types; link to an event (e.g. GDPR); central research groups. Puzzle-solving: are they the hammer or the nail?",
+        "tags": [
+          "week5",
+          "literature",
+          "taxonomy"
+        ]
+      },
+      {
+        "id": "4100-w5-small-sample",
+        "q": "Week 5: what about sweeping claims from a small paper set?",
+        "a": "Be careful. The essay accepts a small sample; a larger review would collect more, but the analysis path stays the same. A missing contrast method is a reason to search for one extra paper.",
+        "tags": [
+          "week5",
+          "literature",
+          "essay"
+        ]
+      },
+      {
+        "id": "4100-w6-module",
+        "q": "What is Week 6 in ACIT4100 about (slides 21.09.2026)?",
+        "a": "Merton's norms, the scientific ethos, and the lab studies. Slides: ACIT4100_H26_Merton_Cudos_Labstudies.pdf. Plus TED Why trust scientists (Oreskes) and a supplementary vaccine-scepticism video.",
+        "tags": [
+          "week6",
+          "Merton",
+          "science"
+        ]
+      },
+      {
+        "id": "4100-w6-merton-who",
+        "q": "Who is Robert K. Merton on the Week 6 slides?",
+        "a": "Founding figure in sociology of science (1910-2003). Coined many everyday terms. His ethos of science is a theory about the autonomy and institutional values of science.",
+        "tags": [
+          "week6",
+          "Merton",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-cudos",
+        "q": "Name Merton's CUDOS norms from the Week 6 slides, in order.",
+        "a": "Communality, Universalism, Disinterestedness, Organized Skepticism. The deck calls them values: a methodological guideline and a moral code.",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-cudos-quote",
+        "q": "Week 6 Merton 1973 quote: which four institutional imperatives make the ethos of modern science?",
+        "a": "Universalism, communism (later labelled communality), disinterestedness, and organized skepticism.",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-science-of-society",
+        "q": "Week 6: what common mistake about science and society does Merton attack?",
+        "a": "Thinking science is in society but not of it, and claiming overly strong autonomy. Science is a basic institution in a liberal democratic order: it influences other institutions and is influenced by them.",
+        "tags": [
+          "week6",
+          "Merton",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-communality",
+        "q": "Week 6: what is Communality (Merton's original label Communism)?",
+        "a": "Common ownership of findings and data; full disclosure; an imperative to publish novel insights. Achievements rest on prior knowledge. Scientists give up IP on the discovery in exchange for recognition.",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-universalism",
+        "q": "Week 6: what is Universalism in CUDOS?",
+        "a": "Objectivity precludes particularism. Truth-claims face impersonal investigation. Race, gender, religion, class, and nationality are irrelevant to whether a claim holds.",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-disinterestedness",
+        "q": "Week 6: what is Disinterestedness in CUDOS?",
+        "a": "Interest is the common societal undertaking of science, not egoistic or altruistic private motives. Curiosity and passion for knowledge; serve the common good. Linked to the self-correcting nature of science.",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-organized-skepticism",
+        "q": "Week 6: what is Organized skepticism in CUDOS?",
+        "a": "Evidence goes under collective scrutiny. Approaches and hypotheses face organised critical trial. Everything can be questioned; you have a duty to answer justified critique. Skepticism is a scientific virtue.",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-later-norms",
+        "q": "Which two norms did Merton add later (Week 6 slide, also Kalleberg)?",
+        "a": "Originality and Humility (Merton 1957; see also Kalleberg 2002, 2007).",
+        "tags": [
+          "week6",
+          "Merton",
+          "CUDOS"
+        ]
+      },
+      {
+        "id": "4100-w6-popper",
+        "q": "Week 6: how do the slides link Merton and Popper?",
+        "a": "Popper: falsification over verification. Both stress new insights from new questions (originality; Kant). Their political thought aligns: democracy and free science.",
+        "tags": [
+          "week6",
+          "Merton",
+          "Popper",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w6-kuhn",
+        "q": "Week 6: how do the slides place Kuhn next to Merton?",
+        "a": "Thomas Kuhn (1922-1996), paradigm perspective (1962), critique of Popper. Aligns with Merton on the scientific community and institutional values.",
+        "tags": [
+          "week6",
+          "Merton",
+          "Kuhn",
+          "philosophy"
+        ]
+      },
+      {
+        "id": "4100-w6-labstudies",
+        "q": "Week 6: what are laboratory studies on the slides?",
+        "a": "A cultural approach to studying science, given momentum by Merton/Kuhn. Canonical book 1979. Fieldwork, go native, study lab practices and how nature is translated into scientific texts. Unfinished knowledge and controversy studies. Science as practice.",
+        "tags": [
+          "week6",
+          "lab-studies",
+          "STS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-latour",
+        "q": "Week 6: what does Latour's Science in Action add?",
+        "a": "Bruno Latour (1947-2022). Scientific facts are not discovered but made, in networks of people, institutions, and tools (technologies of seeing that translate a fact). Science and Technology Studies (STS).",
+        "tags": [
+          "week6",
+          "Latour",
+          "STS",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-alignment",
+        "q": "Week 6: where do Merton and Kuhn align?",
+        "a": "Science as a social enterprise and the importance of practices (Kuhn). Sociological interest in science as a legitimate object, plus institutional boundaries (Merton).",
+        "tags": [
+          "week6",
+          "Merton",
+          "Kuhn"
+        ]
+      },
+      {
+        "id": "4100-w6-separation",
+        "q": "Week 6: how do lab studies separate from Merton?",
+        "a": "From mind to matter, macro to micro, and deconstructing the paradigm (Kuhn). From sociology of science (Merton) to sociology of scientific knowledge: the content of the fact. From norms to practices, showing scientists as competitive and driven by diverse interests.",
+        "tags": [
+          "week6",
+          "Merton",
+          "lab-studies",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w6-oreskes",
+        "q": "Week 6 TED page: what does Naomi Oreskes argue?",
+        "a": "In a climate of distrust (vaccines, climate), we should still trust scientists. Twist: the textbook model of science is wrong, and she explains why that still supports trusting science.",
+        "tags": [
+          "week6",
+          "trust",
+          "TED"
+        ]
+      },
+      {
+        "id": "4100-a1-status-2026-10",
+        "q": "ACIT4100 Assignment 1 status after crawl 05.10.2026?",
+        "a": "Literature taxonomy spreadsheet: submitted 20.09.2026, now graded complete (pass/complete, score 0 in Grades because it is not a points assignment). Next mandatory: Assignment 2 presentation recording, due Fri 30.10.2026 12:00 (API 2026-10-30T11:00:00Z, CET after DST).",
+        "tags": [
+          "assignment-1",
+          "Canvas-crawl",
+          "mandatory"
+        ]
+      },
+      {
+        "id": "4100-w7-module",
+        "q": "What is Week 7 in ACIT4100 about?",
+        "a": "Genres: academic vs popular science writing (parts 1-4), Classic Style video, in-class draft in classic style, and an AI summary of the classic-style lecture. Class was Mon 28.09.2026.",
+        "tags": [
+          "week7",
+          "genres",
+          "classic-style"
+        ]
+      },
+      {
+        "id": "4100-w7-audience",
+        "q": "Week 7 Part 1: what lens makes writing make sense?",
+        "a": "The intended audience. Student reports exist because examiners must read them and award points. After graduation that forced reader is gone, so the old grade-maximising habits stop working.",
+        "tags": [
+          "week7",
+          "genres",
+          "audience"
+        ]
+      },
+      {
+        "id": "4100-w7-mcenerny",
+        "q": "Week 7 Part 1: what is Larry McEnerny's point (watch 10:31-14:30)?",
+        "a": "School writing has a strange writer/audience relationship: the reader is paid to care. Real audiences are not. Student tricks (bullet dumps, conclusion last) serve that assessment system.",
+        "tags": [
+          "week7",
+          "genres",
+          "audience"
+        ]
+      },
+      {
+        "id": "4100-w7-academic-duality",
+        "q": "Week 7 Part 2: why is academic writing a duality?",
+        "a": "You communicate new knowledge and you persuade the community to keep reading. Style gets you in the door; perceived value makes them finish. Persuasion here is not manipulation.",
+        "tags": [
+          "week7",
+          "genres",
+          "academic"
+        ]
+      },
+      {
+        "id": "4100-w7-tcp-paper",
+        "q": "Week 7 Part 2: why compare a paper to a TCP packet?",
+        "a": "Readers need the core message and support in predictable places so they can navigate a hard topic. Abstract holds a short conclusion; discussion follows results; next steps follow the conclusion.",
+        "tags": [
+          "week7",
+          "genres",
+          "academic"
+        ]
+      },
+      {
+        "id": "4100-w7-academese",
+        "q": "Week 7 Part 2: what is Pinker's academese, and the curse of knowledge?",
+        "a": "Incomprehensible academic prose. Pinker doubts ego is the main cause. Curse of knowledge: experts cannot easily imagine not knowing their jargon. His book A Sense of Style argues for classic style.",
+        "tags": [
+          "week7",
+          "genres",
+          "Pinker",
+          "classic-style"
+        ]
+      },
+      {
+        "id": "4100-w7-popsci-trinity",
+        "q": "Week 7 Part 3: why is popular science a trinity, not a duality?",
+        "a": "Same two jobs as academic writing (content + keep attention), plus emotional engagement: fear, humour, or personal attachment. Popular = for the people, not 'successful'.",
+        "tags": [
+          "week7",
+          "genres",
+          "popular-science"
+        ]
+      },
+      {
+        "id": "4100-w7-popsci-audience",
+        "q": "Week 7 Part 3: who consumes popular science, and when?",
+        "a": "A non-professional audience, in leisure time. It competes with TV, audiobooks and magazines, so entertainment demand is stronger than for academic papers read as work.",
+        "tags": [
+          "week7",
+          "genres",
+          "popular-science"
+        ]
+      },
+      {
+        "id": "4100-w7-ted-hook",
+        "q": "Week 7 Part 3: what TED opening hook does the page flag?",
+        "a": "The most popular TED talks start with a personal story. Talk Like TED: the self-story makes the speaker relatable, creates an emotional connection, and sharpens attention.",
+        "tags": [
+          "week7",
+          "genres",
+          "TED"
+        ]
+      },
+      {
+        "id": "4100-w7-icecream",
+        "q": "Week 7 Part 4: ice-cream metaphor for writing?",
+        "a": "Learn the process (make ice cream); genre is the flavour. Writing starts before typing: value for the reader (McEnerny), a relatable story (TED), or breaking the curse of knowledge (Pinker).",
+        "tags": [
+          "week7",
+          "genres",
+          "process"
+        ]
+      },
+      {
+        "id": "4100-w7-essay-genre",
+        "q": "Week 7 Part 4: is the ACIT4100 essay popular science or academic?",
+        "a": "Popular science, so you practise the trinity. The content is still a literature review. The master-thesis background chapter reuses the same process in academic flavour.",
+        "tags": [
+          "week7",
+          "genres",
+          "essay",
+          "2026"
+        ]
+      },
+      {
+        "id": "4100-w7-externalize",
+        "q": "Week 7 Part 4: externalized vs internalized writing knowledge?",
+        "a": "This course names steps and concepts (taxonomy, ABT, rhetoric, classic style) so you can reflect. Pros internalize them as habits, like a baker who just knows 'enough flour'. Supervisors may feel a text needs more flour without being able to say why.",
+        "tags": [
+          "week7",
+          "genres",
+          "process"
+        ]
+      },
+      {
+        "id": "4100-w7-classic-def",
+        "q": "Week 7 AI summary: what is Classic Style here (Pinker)?",
+        "a": "Not old-fashioned classical literature. Popular-science prose for the populace. Writer and reader are on the same intellectual level; they only differ in the information they hold. Source: Canvas AI summary of the in-class lecture (gemma 4, 30.09.2026).",
+        "tags": [
+          "week7",
+          "classic-style",
+          "Pinker",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w7-classic-vs-textbook",
+        "q": "Week 7: Classic Style vs a textbook?",
+        "a": "A textbook assumes a knowledge gap and teaches across it. Classic Style assumes an equally capable reader, so you may use metaphor, skip non-essential explanation, and skip proving expertise with jargon.",
+        "tags": [
+          "week7",
+          "classic-style"
+        ]
+      },
+      {
+        "id": "4100-w7-tempo",
+        "q": "Week 7 AI summary: high tempo vs low tempo?",
+        "a": "High tempo: new information with little repetition (research papers; high focus). Low tempo: stay on one point, rephrase ('in other words') so short-term memory can catch up.",
+        "tags": [
+          "week7",
+          "classic-style"
+        ]
+      },
+      {
+        "id": "4100-w7-show-dont-tell",
+        "q": "Week 7 AI summary: show, don't tell in Classic Style?",
+        "a": "Use scenes and sensory structure so the reader's emotional centres help process and remember. Manage drama and information order like a composer.",
+        "tags": [
+          "week7",
+          "classic-style"
+        ]
+      },
+      {
+        "id": "4100-w7-inclass",
+        "q": "Week 7 in-class page (30.09.2026): what was the writing task?",
+        "a": "Draft an introductory paragraph on your chosen topic in classic style. Note where you get stuck and write questions. Over-explain first if needed, then cut, reorder and rephrase until it is simple and narrative. Volunteers read aloud.",
+        "tags": [
+          "week7",
+          "classic-style",
+          "in-class"
+        ]
+      },
+      {
+        "id": "4100-w7-stuck",
+        "q": "Week 7: why does classic style feel hard this early?",
+        "a": "Classic style needs comfort with the topic, and you are still searching literature. Getting stuck is expected. Teachers also help with the taxonomy in the same class.",
+        "tags": [
+          "week7",
+          "classic-style",
+          "in-class"
+        ]
       }
     ]
   },
@@ -9792,6 +10490,314 @@
         ]
       }
     ]
+  },
+  "fellesjam-general": {
+    "course": "Fellesjam",
+    "title": "General cyber foundations",
+    "cards": [
+      {
+        "id": "fj-curl",
+        "q": "What is curl used for on the command line?",
+        "a": "curl transfers data to or from a server using URLs. Common uses: fetch a page (curl https://example.com) or inspect HTTP headers only with curl -I (HEAD request, no body).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "cli",
+          "http"
+        ]
+      },
+      {
+        "id": "fj-dig",
+        "q": "What does dig do?",
+        "a": "dig (domain information groper) performs DNS lookups from the CLI - shows how a name resolves (A, MX, NS, etc.) and which DNS server answered.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-dns-analogy",
+        "q": "What is DNS, in plain terms?",
+        "a": "DNS (Domain Name System) maps human-readable domain names to IP addresses and other records - like a phone book for the internet.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-fqdn",
+        "q": "What is an FQDN?",
+        "a": "FQDN = Fully Qualified Domain Name - the complete hostname including all domain labels, e.g. www.example.com. (not a relative name like www only).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-bind-dig",
+        "q": "How do bind, bind9-tools, and dig relate on Ubuntu?",
+        "a": "BIND is one of the most widely used DNS server implementations. On Ubuntu, bind9-tools installs dig (and related utilities). bind9 is the server package.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "linux"
+        ]
+      },
+      {
+        "id": "fj-dns-a-record",
+        "q": "What is a DNS A record?",
+        "a": "An A record maps a hostname to an IPv4 address (e.g. www.example.com -> 93.184.216.34).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-dns-mx-record",
+        "q": "What is a DNS MX record?",
+        "a": "MX (Mail eXchange) records point a domain to mail servers that receive email for that domain, with priority values when several exist.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-zonefile",
+        "q": "What is a DNS zone file?",
+        "a": "A zone file is the text configuration for a DNS zone - it lists records (SOA, NS, A, MX, CNAME, etc.) served for a domain on an authoritative server.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns"
+        ]
+      },
+      {
+        "id": "fj-apt",
+        "q": "What is apt on Debian/Ubuntu?",
+        "a": "apt (Advanced Package Tool) installs, updates, and removes software packages from configured repositories (e.g. sudo apt update && sudo apt install bind9-tools).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-ipv4-ipv6",
+        "q": "IPv4 vs IPv6 - what is the main difference?",
+        "a": "IPv4 uses 32-bit addresses (e.g. 192.0.2.1). IPv6 uses 128-bit addresses (e.g. 2001:db8::1) for a much larger address space. DNS A = IPv4; AAAA = IPv6.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "network"
+        ]
+      },
+      {
+        "id": "fj-cdn",
+        "q": "What is a CDN (Content Delivery Network)?",
+        "a": "A CDN caches and serves static content from edge servers close to users - faster loads and less load on the origin. KeyCDN is one commercial CDN provider (example name in course materials).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "network",
+          "web"
+        ]
+      },
+      {
+        "id": "fj-tcp-port",
+        "q": "What is a TCP port?",
+        "a": "A 16-bit number (0-65535) that identifies a service on a host within one IP address. TCP (and UDP) use ports so many services can share one IP (e.g. 443 HTTPS, 53 DNS).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "network"
+        ]
+      },
+      {
+        "id": "fj-whois",
+        "q": "What is whois used for?",
+        "a": "whois queries registration databases for domain and IP allocation info - registrant contacts (often redacted), name servers, dates, etc.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-bash",
+        "q": "What is the bash shell?",
+        "a": "bash (Bourne Again SHell) is a common Unix/Linux command-line shell and scripting language - default on many distros; runs commands, scripts, pipes, and redirects.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-man",
+        "q": "What does man do?",
+        "a": "man opens the manual page for a command (e.g. man dig, man curl). Use / to search inside the page; q to quit.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-pgp",
+        "q": "What is PGP used for?",
+        "a": "PGP (Pretty Good Privacy) and OpenPGP-style tools provide encryption and digital signatures for email and files - confidentiality, integrity, and sender authentication via key pairs.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto"
+        ]
+      },
+      {
+        "id": "fj-linux-vs-ubuntu",
+        "q": "Linux vs Ubuntu - what is the difference?",
+        "a": "Linux is the kernel (core of the OS). Ubuntu is a Linux distribution (kernel + GNU tools + desktop/package management + vendor support). Many distros exist (Debian, Arch, Kali, etc.).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "linux"
+        ]
+      },
+      {
+        "id": "fj-encrypt-cipher-auth-hash",
+        "q": "Encryption vs cipher vs authentication vs hashing - how do they differ?",
+        "a": "Encryption: reversible hiding of data with a key. Cipher: the algorithm/mode that performs encryption. Authentication: proving identity (who you are). Hashing: one-way fingerprint of data (integrity, passwords) - not meant to be decrypted.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto"
+        ]
+      },
+      {
+        "id": "fj-openssl",
+        "q": "What is OpenSSL?",
+        "a": "OpenSSL is a widely used open-source toolkit for TLS/SSL and general cryptography - certificates, key generation, and the libssl/libcrypto libraries behind many servers and clients.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-tls",
+        "q": "What does TLS do on the web?",
+        "a": "TLS (Transport Layer Security) encrypts and authenticates traffic between client and server (e.g. HTTPS on port 443) - confidentiality and integrity in transit.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-tls12-tls13",
+        "q": "TLS 1.2 vs TLS 1.3 - what should you remember?",
+        "a": "Both are modern TLS versions. TLS 1.3 is newer: fewer weak cipher options, faster handshakes, and 1.3-only features. Servers and clients negotiate the highest version both support; disable legacy SSL/TLS 1.0/1.1.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-ssl-vs-tls",
+        "q": "SSL vs TLS - which name is correct today?",
+        "a": "SSL (Secure Sockets Layer) is the old protocol (SSLv3 and earlier are obsolete/insecure). TLS replaced SSL; people still say \"SSL\" but mean TLS. Use TLS 1.2+ or TLS 1.3 in practice.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "crypto",
+          "tls"
+        ]
+      },
+      {
+        "id": "fj-win-snap",
+        "q": "How do you snap two windows side by side on Windows?",
+        "a": "Select a window title bar and drag to the left or right edge until a outline appears, then pick the other window for the other half. Shortcut: Win+Left / Win+Right arrow keys.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "windows"
+        ]
+      },
+      {
+        "id": "fj-own-dns-free",
+        "q": "What does \"set up your own DNS server (free tier)\" usually mean in labs?",
+        "a": "Run an authoritative or recursive DNS instance you control - often in a VM or a provider free tier - configure a zone file (SOA, NS, A, MX), then test with dig @your-server. Exact steps depend on course lab (needs Canvas crawl for official procedure).",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "needs-canvas"
+        ]
+      },
+      {
+        "id": "fj-nslookup",
+        "q": "What does nslookup do, and how does it differ from dig?",
+        "a": "nslookup queries DNS interactively or for one name (built into Windows and Linux). dig is more script-friendly and verbose. Both resolve names to records; dig is common on Linux lab VMs.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "dns",
+          "cli"
+        ]
+      },
+      {
+        "id": "fj-mastodon-server",
+        "q": "What is a Mastodon server (\"Mastodontserver\" in Norwegian notes)?",
+        "a": "A Mastodon server (instance) runs fediverse software so users can post, follow, and federate with other instances via ActivityPub. In cyber labs it may mean self-hosting or connecting to an instance - not a separate protocol from Mastodon itself.",
+        "tags": [
+          "fellesjam",
+          "general",
+          "fediverse",
+          "web"
+        ]
+      }
+    ]
   }
 };
+
+  var EXPECTED = {
+    acit4050: 295,
+    acit4280: 218,
+    acit4100: 373,
+    computer-basics: 28,
+    fellesjam-general: 26
+  };
+
+  global.QUIZ_DECKS_META = {
+    version: "lock156",
+    expected: EXPECTED,
+    loadedAt: Date.now()
+  };
+  global.__QUIZ_DECKS_LOAD_OK = true;
+
+  try {
+    var mismatch = [];
+    Object.keys(EXPECTED).forEach(function (key) {
+      var deck = global.QUIZ_DECKS[key];
+      var n = deck && Array.isArray(deck.cards) ? deck.cards.length : -1;
+      if (n !== EXPECTED[key]) mismatch.push(key + "=" + n);
+    });
+    if (mismatch.length && typeof console !== "undefined" && console.warn) {
+      console.warn("[quiz-decks] count mismatch:", mismatch.join(", "));
+    }
+  } catch (e) {}
 })(typeof window !== "undefined" ? window : globalThis);

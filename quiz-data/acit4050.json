@@ -2393,7 +2393,7 @@
     {
       "id": "4050-l5-assignment",
       "q": "What is the L05 home assignment (from the lecture close)?",
-      "a": "Analyse how firewall rules work: Canvas gives a small rule set; you apply the rules to given data packets. Module/lecture L05 on Canvas. Due Tue 22.09.2026 23:59 (10 pts).",
+      "a": "Analyse how firewall rules work: Canvas gives a small rule set; you apply the rules to given data packets. Due Tue 22.09.2026 23:59 (10 pts). Karina: submitted 23.09 (late), graded 10/10 on crawl 05.10.2026.",
       "tags": [
         "Lecture5",
         "firewall"
@@ -2869,7 +2869,7 @@
     {
       "id": "4050-l6-l9-assignment",
       "q": "ACIT4050 L-9 Assignment (Identity Management) - Canvas rules and status (Sep 2026)?",
-      "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: submitted 23.09.2026 ~23:21 (grade pending). Slides: L6-iam.pdf, IAM-usecase.pdf on Canvas. Exam page says format similar to this assignment.",
+      "a": "17 questions, 100 pts, due Tue 29.09.2026 23:59 (no time limit, unlimited attempts). New Quizzes style like Networks. Karina: submitted 23.09.2026 ~23:21, still pending_review on crawl 05.10.2026. Slides: L6-iam.pdf, IAM-usecase.pdf on Canvas. Exam page says format similar to this assignment.",
       "tags": [
         "Lecture6",
         "l9-identity",
@@ -3046,11 +3046,21 @@
     {
       "id": "4050-l7-assignment",
       "q": "ACIT4050 GDPR assignment (Lecture 7) - rules and due date (crawl 29.09.2026)?",
-      "a": "Interactive Canvas quiz, style similar to the final exam. 100 points, at least 60 to pass, five attempts, only the highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Unsubmitted on the 29.09 crawl. Slides: Personvern GDPR DGF 26.pdf.",
+      "a": "Interactive Canvas quiz, style similar to the final exam. 100 points, at least 60 to pass, five attempts, only the highest counts. Does not count toward the course grade. Due Tue 06.10.2026 23:59. Still unsubmitted on crawl 05.10.2026. Slides: Personvern GDPR DGF 26.pdf.",
       "tags": [
         "Lecture7",
         "gdpr",
         "canvas"
+      ]
+    },
+    {
+      "id": "4050-lab-intro-06oct",
+      "q": "ACIT4050 lab intro Tue 06.10.2026 - what, where, status (crawl 05.10)?",
+      "a": "Campus lab introduction 12:30-14:00 with Ahsan and Nurul (not streamed). Ahsan emailed that earlier lab invitations expired and a new invite would be sent before 6 Oct. Optional colloquium 13:00-14:00 PI646. Lecture 8 module still empty on Canvas.",
+      "tags": [
+        "lab",
+        "canvas",
+        "Lecture8"
       ]
     }
   ]
