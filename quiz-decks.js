@@ -6291,6 +6291,82 @@
         ]
       },
       {
+        "id": "4280-pf-q1-gdpr",
+        "q": "Privacy foundations Q1: which GDPR statements are correct? (select all)",
+        "a": "Processing of personal data of European data subjects must meet the GDPR. One goal of the GDPR is to harmonise data protection law across Europe. Not: only if the processor is based in Europe; controllers process on behalf of processors; law enforcement is covered by the GDPR. Canvas 05.10 6/6.",
+        "tags": [
+          "Lecture6",
+          "GDPR",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pf-q2-pbd",
+        "q": "Privacy foundations Q2: map each bad design phrase to the Cavoukian principle it violates.",
+        "a": "Deal with it if it shows up: Proactive not reactive. Opt-in for improved privacy: Privacy as the default. Privacy component later: Privacy Embedded Into Design. Privacy or full functionality: Full Functionality. HTTPS only is enough: End-to-end security. Do not tell how we protect data: Visibility and transparency (Canvas spelling transparancy). Hide the policy behind a tiny button: Respect for user privacy.",
+        "tags": [
+          "Lecture6",
+          "PbD",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pf-q3-dpia",
+        "q": "Privacy foundations Q3: you must perform a PIA of a system if... (GDPR)",
+        "a": "Processing is likely to result in a high risk to rights and freedoms of natural persons (Art. 35 DPIA). Not: any new technology, any EU-citizen data, any personal data, or GDPR has no PIA rules.",
+        "tags": [
+          "Lecture6",
+          "PIA",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pf-q4-not-step",
+        "q": "Privacy foundations Q4: which is not a typical step in PIAs?",
+        "a": "Implement countermeasures into the system. Typical steps: threshold analysis, identify privacy issues, identify and consult stakeholders, map the flow of personal information. PIA recommends measures; building them in is implementation.",
+        "tags": [
+          "Lecture6",
+          "PIA",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pf-q5-pet-obj",
+        "q": "Privacy foundations Q5: which are objectives of PETs? (select all)",
+        "a": "All four: data security and integrity; control over personal data; lawful processing of data; data minimization / avoidance. Canvas 05.10 6/6.",
+        "tags": [
+          "Lecture6",
+          "PETs",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pf-q6-pet-gdpr",
+        "q": "Privacy foundations Q6: why are PETs important in the context of the GDPR?",
+        "a": "PETs are countermeasures to be included in the DPIA. Not: PETs are irrelevant; PETs equal GDPR; GDPR lists the PETs; GDPR is a collection of PETs.",
+        "tags": [
+          "Lecture6",
+          "PETs",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4280-pf-status",
+        "q": "ACIT4280 Privacy foundations quiz - rules and Karina status (05.10.2026)?",
+        "a": "Chapter 6 first module, 6 questions, 6 points, no due date, unlimited attempts. Karina attempt 1: 6/6 in 20 minutes (submitted 05.10 12:16). Canvas id 123201. Not the same as Quiz 1.",
+        "tags": [
+          "Lecture6",
+          "GDPR",
+          "Canvas-quiz"
+        ]
+      },
+      {
         "id": "4280-ryde-claim",
         "q": "After a company breach (Ryde, Aug 2026), is support mail where you bill them, and is there a time limit to tell people?",
         "a": "Support mail is customer service, not a damages invoice. DPO for privacy rights; Datatilsynet to complain; Art. 82 in court for money. Art. 33: notify the authority without undue delay, where feasible in 72 hours. Art. 34: notify people only if high risk, without undue delay (no 72-hour number). Name what was lost, not only that a breach happened.",
@@ -11196,14 +11272,14 @@
 
   var EXPECTED = {
     acit4050: 305,
-    acit4280: 231,
+    acit4280: 238,
     acit4100: 389,
     computer-basics: 28,
     fellesjam-general: 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock163",
+    version: "lock164",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
