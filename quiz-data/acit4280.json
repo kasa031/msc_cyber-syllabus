@@ -2624,13 +2624,14 @@
     },
     {
       "id": "4280-quiz-design-strategies",
-      "q": "Privacy design strategies quiz: name all eight Hoepman-style strategies you may need to match to scenarios.",
-      "a": "Minimise; Hide; Separate; Aggregate (abstract); Inform; Control; Enforce; Demonstrate. Canvas 1-pt ticketing quiz (id 123200) is a separate item from the 6-pt strategies quiz.",
+      "q": "Privacy design strategies quiz (6 pts, module 3, id 123196): match Hoepman strategies to architect scenarios.",
+      "a": "Eight strategies: Minimise; Hide; Separate; Aggregate/Abstract; Inform; Control; Enforce; Demonstrate. Verified scenario keys (Canvas feedback 05 Oct 2026): Q1 ticketing Control+Separate; Q2 webshop cloud Inform+Hide; Q3 e-learning ID Minimise only; Q4 legacy Demonstrate only (doc+demo - not Inform); Q5 messaging Hide+Separate+Minimise; Q6 recommendations Control+Minimise+Aggregate/Abstract. Separate 1-pt ticketing quiz id 123200.",
       "tags": [
         "Ch3",
         "Hoepman",
         "Canvas-quiz",
-        "Canvas-crawl"
+        "Canvas-crawl",
+        "exam"
       ]
     },
     {
@@ -3005,10 +3006,65 @@
     },
     {
       "id": "4280-pds-q1-ticketing",
-      "q": "Quiz on privacy design strategies Q1: public-transport ticket app stored purchase history on central servers. Architect (1) lets users switch off history and (2) stores history on the phone if it stays on. Which Hoepman strategies?",
-      "a": "Control and Separate only. Canvas 05.10 1/1: switching off history is Control (user agency over processing). Local storage instead of central servers is Separate. Not Minimise (data still stored if on, just moved). Not Hide, Aggregate/Abstract, Inform, Enforce, or Demonstrate.",
+      "q": "Privacy design strategies Q1 (6-pt quiz): ticket app purchase history on central servers. Switch off history + store on device if on. Strategies?",
+      "a": "Control and Separate only (Canvas 05.10 1/1). Not Minimise, Hide, Inform, Enforce, Demonstrate, Aggregate/Abstract.",
       "tags": [
-        "Lecture6",
+        "Ch3",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pds-q2-webshop-cloud",
+      "q": "Privacy design strategies Q2: webshop moved to cloud. Registration tells users data at third party and stored encrypted. Strategies?",
+      "a": "Inform and Hide only (Canvas 05.10 1/1). Encryption = Hide; telling new users = Inform.",
+      "tags": [
+        "Ch3",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pds-q3-elearning-id",
+      "q": "Privacy design strategies Q3: Canvas-style student ID drops YYMMDD prefix; random digits only. Strategies?",
+      "a": "Minimise only (Canvas 05.10 1/1). Fewer revealing fields in the identifier. Not Abstract alone in Canvas key.",
+      "tags": [
+        "Ch3",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pds-q4-legacy-demo",
+      "q": "Privacy design strategies Q4: legacy system - document personal-data processing and keep demo showing flows for new customers. Strategies?",
+      "a": "Demonstrate only (Canvas 05.10 - Inform wrong). Documentation plus demo trail = accountability/Demonstrate, not Inform.",
+      "tags": [
+        "Ch3",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pds-q5-messaging",
+      "q": "Privacy design strategies Q5: IM - encrypt messages and sender/receiver refs; separate message DB; drop IP retention except legal. Strategies?",
+      "a": "Hide, Separate, and Minimise (Canvas 05.10 1/1). Encrypt = Hide; own DB = Separate; no IP unless law = Minimise.",
+      "tags": [
+        "Ch3",
+        "Hoepman",
+        "Canvas-quiz",
+        "exam"
+      ]
+    },
+    {
+      "id": "4280-pds-q6-webshop-reco",
+      "q": "Privacy design strategies Q6: webshop recommendations - user can switch off; then billing/shipping only; category not product; year not date. Strategies?",
+      "a": "Control, Minimise, and Aggregate/Abstract (Canvas 05.10 needs all three; 0.5/1 if Minimise missing). Switch off = Control; purpose-limited storage = Minimise; coarser product/time = Abstract.",
+      "tags": [
+        "Ch3",
         "Hoepman",
         "Canvas-quiz",
         "exam"
@@ -3016,10 +3072,10 @@
     },
     {
       "id": "4280-pds-status",
-      "q": "ACIT4280 Quiz on privacy design strategies - rules and Karina status (05.10.2026)?",
-      "a": "Chapter 6 third module, 1 question, 1 point, no due date, unlimited attempts. Must get the question right to pass. Karina attempt 1: 1/1 in 5 minutes (submitted 05.10 11:41). Canvas id 123200, not the 6-pt Privacy design strategies quiz.",
+      "q": "ACIT4280 privacy design strategies quizzes - rules and Karina status (05.10.2026)?",
+      "a": "6-pt quiz (module 3, id 123196): 6 scenarios, unlimited attempts, all correct to pass. Karina attempt 1: 4.5/6 (19:44) - fix Q4 tick Demonstrate only; Q6 add Minimise. 1-pt ticketing quiz (id 123200): 1/1 at 11:41.",
       "tags": [
-        "Lecture6",
+        "Ch3",
         "Hoepman",
         "Canvas-quiz"
       ]
