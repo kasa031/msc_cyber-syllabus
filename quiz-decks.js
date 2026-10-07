@@ -10695,6 +10695,80 @@
         ]
       },
       {
+        "id": "4100-w7-genres-quiz-meta",
+        "q": "What is the Canvas self-test for Week 7 - Genres?",
+        "a": "Self-test quiz - Genres (6 questions, 6 pts, unlimited attempts, no due date). Verified on Canvas 7 Oct 2026: Karina 5/6 (Q5 trap below).",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w7-genres-q1",
+        "q": "Genres self-test: When no one is paid to read your writing (Larry McEnerney), the writing must be:",
+        "a": "Valuable (readers continue when they perceive value). Not merely Organized, Persuasive, or Clear as the keyed Canvas answer.",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz",
+          "McEnerny"
+        ]
+      },
+      {
+        "id": "4100-w7-genres-q2",
+        "q": "Genres self-test: Which is NOT a good goal when writing an academic paper?",
+        "a": "Using complicated academic language so the reader thinks you are smarter. Good goals: balance knowledge with persuading the reader to keep reading; conform to the appropriate style guide.",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4100-w7-genres-q3",
+        "q": "Genres self-test: Pinker's curse of knowledge means:",
+        "a": "When you are an expert, it is hard to imagine not knowing the field (jargon feels obvious). NOT that research is too advanced for others, or that less knowledge would make better papers.",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz",
+          "Pinker"
+        ]
+      },
+      {
+        "id": "4100-w7-genres-q4",
+        "q": "Genres self-test (multi-select): three elements of popular science writing?",
+        "a": "Persuasion, Academic content, Entertainment value (trinity: content + keep attention + emotional engagement). NOT advanced academic language or standardized structure.",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz",
+          "popular-science"
+        ]
+      },
+      {
+        "id": "4100-w7-genres-q5",
+        "q": "Genres self-test: Which element is common to BOTH academic writing and popular science writing?",
+        "a": "Research prior to writing (gather and prepare knowledge before drafting). Canvas keys this, NOT Intended audience (both have an audience, but the quiz expects research). Entertainment purpose and standardized structure are mainly genre-specific.",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4100-w7-genres-q6",
+        "q": "Genres self-test: Is writing relevant for YOU?",
+        "a": "Yes, of course it is! (MSc career: reports, meetings, presentations, evaluating others' writing.)",
+        "tags": [
+          "week7",
+          "genres",
+          "Canvas-quiz"
+        ]
+      },
+      {
         "id": "4100-w3-slide-two-types",
         "q": "Structure of a paper slides: two main paper types, and who follows IMRaD?",
         "a": "Research papers report novel findings or methodologies and follow IMRaD. Review papers overview recent work and typically name gaps; they are like a long background section and do not follow the IMRaD structure in this deck.",
