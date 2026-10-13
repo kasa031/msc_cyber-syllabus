@@ -1056,7 +1056,7 @@
     {
       "id": "4050-lecture-schedule-f26",
       "q": "ACIT4050 Fall 2026 lecture schedule from Canvas modules (names + dates)?",
-      "a": "L1 Intro 18 Aug; L2 Phishing 25 Aug; L3 Networks 01 Sep; L4 IDS 08 Sep; L5 Firewalls 15 Sep; L6 Identity 22 Sep; L7 Security vs Privacy 29 Sep; L8 Anatomy of Attack 06 Oct; L9 Monitoring 13 Oct; L10 Supply chain 20 Oct; L11 Defense I 27 Oct; L12 Defense II 03 Nov; L13 Zero-Trust 10 Nov.",
+      "a": "L1 Intro 18 Aug; L2 Phishing 25 Aug; L3 Networks 01 Sep; L4 IDS 08 Sep; L5 Firewalls 15 Sep; L6 Identity 22 Sep; L7 Security vs Privacy 29 Sep; L8 Anatomy of Attack 06 Oct; L9 Monitoring campus slot 13 Oct cancelled (topic with L11 on 27 Oct); L10 Supply chain 20 Oct; L11 Defense I 27 Oct; L12 Defense II 03 Nov; L13 Zero-Trust 10 Nov.",
       "tags": [
         "syllabus",
         "Canvas-crawl"
@@ -3173,6 +3173,16 @@
       "tags": [
         "lab",
         "canvas",
+        "Lecture8"
+      ]
+    },
+    {
+      "id": "4050-anatomy-assign-due-2026",
+      "q": "When is ACIT4050 Assignment - Anatomy of an Attack due on Canvas (Fall 2026)?",
+      "a": "Wednesday 22 October 2026 at 23:59 (Canvas assignment 126408). Still unsubmitted on crawl 13 Oct. Use Lecture 8 material; Cybrex lab is scheduled later (Bernardo module label 03 Nov on Canvas). L9 campus lecture 13 Oct was cancelled; continuous monitoring topic moves to 27 Oct with L11 Defense I.",
+      "tags": [
+        "canvas",
+        "deadlines",
         "Lecture8"
       ]
     }

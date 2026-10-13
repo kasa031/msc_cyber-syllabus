@@ -3655,6 +3655,7 @@
       <div class="hero-top">
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
+          <a class="btn ghost" href="UKAS_LESNING.html">This week</a>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
         </div>
       </div>
@@ -4585,12 +4586,12 @@
 
       <footer>
         <p class="footer-copy">&copy; Ms.Tery</p>
-        <p class="footer-privacy">Progress stays on this device. No tracking cookies. Scores stay private unless you tick Share. <a href="privacy-policy.html">Privacy policy: what we store and what we do not</a>.</p>
+        <p class="footer-privacy">Progress stays on this device. No tracking cookies. Scores stay private unless you tick Share. <a href="UKAS_LESNING.html">Week readings and Canvas todos</a>. <a href="privacy-policy.html">Privacy policy: what we store and what we do not</a>.</p>
       </footer>
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock166" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock168" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -5441,20 +5442,23 @@ function showCourse(courseKey) {
   /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
   var STUDY_FOCUS = {
     acit4050: [
-      { tag: "Lecture5", label: "Lecture 5 Firewalls", due: "2026-09-22" },
+      { tag: "Lecture8", label: "Anatomy of an Attack assignment", due: "2026-10-22" },
+      { tag: "l9-identity", label: "L-9 Identity Management quiz", due: "2026-09-29", done: true },
+      { tag: "Lecture7", label: "Lecture 7 GDPR quiz", due: "2026-10-06", done: true },
       { tag: "l05-firewall", label: "L05 Firewall rules assignment", due: "2026-09-22", done: true },
-      { tag: "l9-identity", label: "L-9 Identity Management quiz", due: "2026-09-29" },
-      { tag: "Lecture6", label: "Lecture 6 Identity (recap)", due: "2026-09-29" },
       { tag: "Lecture4", label: "Lecture 4 IDS", due: "2026-09-16", done: true }
     ],
     acit4100: [
-      { tag: "week7", label: "Week 7 Genres", due: "2026-09-28" },
+      { tag: "assignment-2", label: "Assignment 2 presentation recording", due: "2026-10-30" },
+      { tag: "week7", label: "Week 7 Genres", due: "2026-09-28", done: true },
       { tag: "assign1", label: "Assignment 1 taxonomy", due: "2026-09-25", done: true },
       { tag: "week6", label: "Week 6 Merton", due: "2026-09-21", done: true }
     ],
     acit4280: [
-      { tag: "1A", label: "Group 1A Webbkoll", due: "2026-09-01", done: true },
-      { tag: "Lecture5", label: "Lecture 5 Privacy Management", due: "2026-09-24" }
+      { tag: "Lecture6", label: "Lecture 6 engineering patterns", due: "2026-10-20" },
+      { tag: "PIA", label: "PIA and privacy quizzes (optional retake)", due: "2026-10-25" },
+      { tag: "Lecture5", label: "Lecture 5 Privacy Management", due: "2026-09-24", done: true },
+      { tag: "1A", label: "Group 1A Webbkoll", due: "2026-09-01", done: true }
     ]
   };
 
