@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>This week's reading - OsloMet</title>
+  <style>
+    :root {
+      --burgundy: #800020;
+      --cream: #F3E6D5;
+      --paper: #FFF9F2;
+      --todo: #D45060;
+      --charcoal: #3a2028;
+      --teal: #800020;
+      --dusty: #F3E6D5;
+      --mint: #FFF9F2;
+      --urgent: #D45060;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--mint);
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+    header {
+      background: var(--burgundy);
+      color: var(--paper);
+      padding: 1.25rem clamp(0.75rem, 2vw, 2rem);
+    }
+    header h1 {
+      margin: 0 0 0.35rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    header p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .wrap {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 1rem clamp(0.75rem, 2vw, 2rem) 2rem;
+    }
+    .week-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      align-items: start;
+    }
+    @media (min-width: 820px) {
+      .week-top {
+        grid-template-columns: minmax(260px, 34%) 1fr;
+      }
+    }
+    .week-top .panel h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+    }
+    .week-top .panel .day {
+      margin-bottom: 0;
+    }
+    .material-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+    @media (min-width: 640px) {
+      .material-cols { grid-template-columns: repeat(3, 1fr); }
+    }
+    .material-cols h4 {
+      margin: 0 0 0.35rem;
+      font-size: 0.88rem;
+    }
+    .material-cols .links a {
+      display: block;
+      margin: 0.28rem 0;
+      font-size: 0.88rem;
+    }
+    .week41-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 900px) {
+      .week41-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    .day-block h2 {
+      margin: 0 0 0.45rem;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      border-bottom: none;
+      padding: 0;
+    }
+    .day-block .day {
+      height: 100%;
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+    .day-block .note { font-size: 0.85rem; }
+    details.archive-older {
+      border: 1px solid var(--teal);
+      background: var(--cream);
+      padding: 0.35rem 0.75rem 0.75rem;
+      margin-top: 0.5rem;
+    }
+    details.archive-older > summary {
+      cursor: pointer;
+      font-weight: 700;
+      padding: 0.45rem 0;
+      color: var(--burgundy);
+    }
+    details.archive-older h2 {
+      margin-top: 1.1rem;
+    }
+    .meta {
+      background: var(--dusty);
+      border: 1px solid var(--teal);
+      border-left: 5px solid var(--teal);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .meta strong { color: var(--charcoal); }
+    .schedule {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      margin: 0.4rem 0 0;
+    }
+    h2 {
+      margin: 1.5rem 0 0.6rem;
+      font-size: 1.15rem;
+      color: var(--charcoal);
+      border-bottom: 2px solid var(--teal);
+      padding-bottom: 0.25rem;
+    }
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      color: var(--charcoal);
+    }
+    h4 {
+      margin: 0.85rem 0 0.4rem;
+      font-size: 0.95rem;
+      color: var(--teal);
+    }
+    .day {
+      background: var(--dusty);
+      padding: 1rem 1rem 0.9rem;
+      margin-bottom: 0.85rem;
+      border: 1px solid var(--teal);
+      border-top: 4px solid var(--teal);
+    }
+    .day.no-slides { border-top-color: var(--dusty); }
+    .day.critical {
+      border: 3px solid var(--todo);
+      border-top: 4px solid var(--todo);
+      background: var(--paper);
+    }
+    .course-tag {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--mint);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0.55rem;
+      margin-bottom: 0.35rem;
+      max-width: 100%;
+      line-height: 1.35;
+    }
+    .badge-critical {
+      display: inline-block;
+      background: var(--urgent);
+      color: var(--mint);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      margin: 0.35rem 0 0.5rem;
+    }
+    .todo {
+      background: var(--mint);
+      border: 1px solid var(--teal);
+      border-left: 4px solid var(--teal);
+      padding: 0.75rem 0.9rem;
+      margin: 0.5rem 0 0.85rem;
+    }
+    .todo.critical {
+      background: var(--paper);
+      border: 3px solid var(--todo);
+      border-left: 4px solid var(--todo);
+    }
+    .todo-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem 0.75rem;
+      margin-bottom: 0.45rem;
+    }
+    .todo h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .todo-reset {
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
+      background: #fff;
+      border: 1px solid var(--teal);
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+    .todo-reset:hover {
+      background: var(--dusty);
+      color: var(--charcoal);
+    }
+    .todo ul.ukas-todos {
+      margin: 0.25rem 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .todo ul.ukas-todos > li {
+      margin: 0.45rem 0;
+      padding: 0;
+      font-size: 0.92rem;
+      list-style: none;
+    }
+    .todo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      cursor: pointer;
+      width: 100%;
+      min-width: 0;
+    }
+    .todo-item input[type="checkbox"] {
+      flex: 0 0 auto;
+      width: 1.05rem;
+      height: 1.05rem;
+      margin: 0.2rem 0 0;
+      accent-color: var(--burgundy);
+      cursor: pointer;
+    }
+    .todo-item .todo-text {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .todo-item:has(input:checked) .todo-text {
+      text-decoration: line-through;
+      opacity: 0.72;
+    }
+    .soft { opacity: 0.92; }
+    ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.2rem;
+    }
+    li { margin: 0.25rem 0; }
+    a {
+      color: var(--teal);
+      word-break: break-word;
+      text-decoration-color: var(--dusty);
+      font-weight: 600;
+    }
+    a:hover {
+      color: var(--charcoal);
+      background: var(--dusty);
+    }
+    .links a {
+      display: inline-block;
+      margin-right: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    .deadlines {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .deadlines th,
+    .deadlines td {
+      border: 1px solid var(--teal);
+      padding: 0.3rem 0.45rem;
+      text-align: left;
+    }
+    .deadlines th {
+      background: var(--teal);
+      color: var(--mint);
+    }
+    .deadlines td { background: #fff; }
+    .extra {
+      background: var(--dusty);
+      padding: 1rem;
+      border: 1px solid var(--teal);
+      border-left: 5px solid var(--teal);
+    }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--teal);
+      font-size: 0.8rem;
+      color: var(--charcoal);
+    }
+    .edit-hint {
+      font-size: 0.75rem;
+      color: var(--teal);
+      font-family: Consolas, monospace;
+      margin-bottom: 0.5rem;
+    }
+    code {
+      font-family: Consolas, monospace;
+      font-size: 0.88em;
+      background: #fff;
+      padding: 0.05rem 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>This week's reading</h1>
+    <p>Week 42 · reading notes and checkboxes</p>
+  </header>
+
+  <div class="wrap">
+    <!-- UPDATE EACH WEEK: week heading, todos, day blocks -->
+
+    <div class="meta">
+      <strong>Week 42: 13-19 October 2026</strong>
+      <p class="schedule">Mon 4100 · Tue 4050 (lecture cancelled) · Thu 4280. Crawl 13.10 Feide OK. <a href="../Oversikt/Ukeplan.html#week-board">Week planner</a>.</p>
+    </div>
+
+    <section class="week-top">
+      <div class="panel panel-todo">
+        <h2 id="open-canvas-w42">To do</h2>
+        <div class="day critical">
+          <h3>Not done yet</h3>
+          <div class="todo critical" data-week-todos="open-w42-canvas">
+            <ul class="ukas-todos">
+              <li>
+                <label class="todo-item">
+                  <input type="checkbox" data-todo-id="4050-anatomy-attack" />
+                  <span class="todo-text"><strong>4050 Anatomy of an Attack</strong> - due 22.10 23:59. Cybrex RED + <a href="https://oslomet.instructure.com/courses/34599/assignments/126408" target="_blank" rel="noopener">Canvas</a></span>
+                </label>
+              </li>
+              <li>
+                <label class="todo-item">
+                  <input type="checkbox" data-todo-id="4100-a2-presentation" />
+                  <span class="todo-text"><strong>4100 A2</strong> - due 30.10 12:00. <a href="https://oslomet.instructure.com/courses/34603/assignments/124068" target="_blank" rel="noopener">Canvas</a></span>
+                </label>
+              </li>
+              <li>
+                <label class="todo-item">
+                  <input type="checkbox" data-todo-id="4100-genres-self-test" data-todo-default="1" checked />
+                  <span class="todo-text"><strong>4100 Genres</strong> self-test - submitted 7 Oct, <strong>5/6</strong> (retake optional). <a href="https://oslomet.instructure.com/courses/34603/quizzes/24405" target="_blank" rel="noopener">Canvas</a> · <a href="https://kasa031.github.io/msc_cyber-syllabus/#4100" target="_blank" rel="noopener">Study app</a></span>
+                </label>
+              </li>
+              <li>
+                <label class="todo-item">
+                  <input type="checkbox" data-todo-id="4280-pia-quiz-123198" data-todo-default="1" checked />
+                  <span class="todo-text"><strong>4280 PIA</strong> quiz - submitted 5 Oct, <strong>8/10</strong>. Use <a href="https://oslomet.instructure.com/courses/34604/assignments/123198" target="_blank" rel="noopener">123198</a> (not ghost 123219).</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-links">
+        <h2 id="week42-materials">Slides and video</h2>
+        <div class="day">
+          <p class="note" style="margin-top:0">Also on <a href="../Oversikt/Ukeplan.html#week-board">Week planner</a>.</p>
+          <div class="material-cols">
+            <div>
+              <h4>4100</h4>
+              <div class="links">
+                <a href="https://oslomet.instructure.com/courses/34603/modules/items/928315" target="_blank" rel="noopener">Classic Style video</a>
+                <a href="https://oslomet.instructure.com/courses/34603/modules/items/928320" target="_blank" rel="noopener">Week 8 Narrative video</a>
+                <a href="https://oslomet.instructure.com/courses/34603/modules/items/928328" target="_blank" rel="noopener">Week 9 Part 1 (A2)</a>
+                <a href="https://oslomet.instructure.com/courses/34603/modules/items/928325" target="_blank" rel="noopener">Writing in the Sciences PDF</a>
+              </div>
+            </div>
+            <div>
+              <h4>4050</h4>
+              <div class="links">
+                <a href="https://oslomet.instructure.com/courses/34599/assignments/126408" target="_blank" rel="noopener">Anatomy assignment</a>
+                <a href="https://cybrex.labs" target="_blank" rel="noopener">Cybrex lab</a>
+                <a href="../Emner/ACIT4050/Lab_Cybrxec/CYBRXEC_LAB_KLAR.md">Cybrex checklist</a>
+                <a href="https://oslomet.instructure.com/courses/34599/discussion_topics/508489" target="_blank" rel="noopener">Lecture cancelled 13 Oct</a>
+              </div>
+            </div>
+            <div>
+              <h4>4280</h4>
+              <div class="links">
+                <a href="https://oslomet.instructure.com/courses/34604/modules/items/921699" target="_blank" rel="noopener">Chapter 6 slides</a>
+                <a href="https://oslomet.instructure.com/courses/34604/modules/items/921673" target="_blank" rel="noopener">Chapter 6 overview</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="week41-row" aria-label="Week 41 notes">
+    <div class="day-block">
+    <h2 id="monday-w41-4100">Mon 05.10 - 4100 campus</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Flipped class today 08:30-14:15 P32 N020.025</h3>
+      <p class="note">Crawl 05.10 08:54 (Feide OK). FAQ: not hybrid, not recorded. Canvas Conferences disabled. No Week 8 module (next published: Week 9 Public speaking). Week 7 follow-up now on Canvas: <a href="https://oslomet.instructure.com/courses/34603/modules/items/928317" target="_blank" rel="noopener">Try your hand at classic style</a>, <a href="https://oslomet.instructure.com/courses/34603/modules/items/952759" target="_blank" rel="noopener">AI generated summary</a>. Drill: study app tags <code>week5</code>, <code>week6</code>, <code>week7</code> (lock156). Same card: <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</p>
+      <div class="todo" data-week-todos="4100-w41-class">
+        <div class="todo-head">
+          <h3>This week - to do</h3>
+        </div>
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4100-w41-campus" />
+              <span class="todo-text">Campus class only if you go (attendance not mandatory). No Zoom fallback.</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div class="day-block">
+    <h2 id="monday-w41-4280-instantons">Mon 05.10 - 4280 InstantONS</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4280 - Privacy by Design</span>
+      <h3>Impact assessment, risk assessment, control selection (InstantONS dating scenario)</h3>
+      <p class="note">No Canvas due date (50 pts). Submitted Mon 05.10 evening. Local source: <a href="../Emner/ACIT4280/Assignments/InstantONS/ACIT4280_InstantONS_PIA_risk_controls.md">ACIT4280_InstantONS_PIA_risk_controls.md</a>. Upload file: <code>Nilssen_309980_ACIT4280_InstantONS_PIA_risk_controls.pdf</code>. Same row in <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34604/assignments/123203" target="_blank" rel="noopener">Canvas assignment 123203</a>
+        <a href="../Emner/ACIT4280/Assignments/InstantONS/Nilssen_309980_ACIT4280_InstantONS_PIA_risk_controls.pdf">Local submission PDF</a>
+      </div>
+      <div class="todo" data-week-todos="4280-w41-instantons">
+        <div class="todo-head">
+          <h3>This week - to do</h3>
+        </div>
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4280-instantons-123203" data-todo-default="1" checked />
+              <span class="todo-text"><strong>InstantONS</strong> (50 pts) - submitted Mon 05.10 evening.</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4280-dark-side-quiz" data-todo-default="1" checked />
+              <span class="todo-text"><strong>The Dark Side</strong> quiz - 1/1 (05.10 19:34). Study app card <code>4280-quiz-dark-side</code>.</span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4280-pds-quiz-6pt" />
+              <span class="todo-text"><strong>Privacy design strategies quiz</strong> (6 pts) - attempt 1: 4.5/6. Retry: Q4 <strong>Demonstrate only</strong> (not Inform); Q6 add <strong>Minimise</strong> with Control + Aggregate/Abstract. Study app <code>4280-pds-q4-legacy-demo</code>, <code>4280-pds-q6-webshop-reco</code>.</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div class="day-block">
+    <h2 id="tuesday-w41-4050-lab">Tue 06.10 - 4050 lab</h2>
+    <div class="day critical">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Lab intro 12:30-14:00 (campus) + GDPR 23:59</h3>
+      <p class="note">Lab intro with Ahsan and Nurul. Not streamed. Cybrex access OK. GDPR already submitted 05.10: 93.33/100. Lecture 8 module still empty on Canvas. Optional colloquium 13:00-14:00 PI646 (overlaps). <a href="../Oversikt/Ukeplan.html#col-4050">Ukeplan 4050 column</a>.</p>
+      <div class="todo critical" data-week-todos="4050-gdpr-prep">
+        <div class="todo-head">
+          <h3>This week - to do</h3>
+        </div>
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-lab-intro-0610" />
+              <span class="todo-text">Lab intro Tue 06.10 12:30-14:00. Cybrex access OK 05.10. Bookmark https://cybrex.labs - do not start the assignment unless they say so. Notes: <a href="../Emner/ACIT4050/00_Course_info/Lab_platform_for_06_oktober.md">Lab_platform_for_06_oktober.md</a></span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-gdpr-start" data-todo-default="1" checked />
+              <span class="todo-text"><strong>Assignment: GDPR</strong> (100 pts) - <strong>submitted 05.10.2026 attempt 1: 93.33/100</strong> (pass 60, four attempts left). Due was Tue 06.10 23:59. <a href="https://oslomet.instructure.com/courses/34599/assignments/123560" target="_blank" rel="noopener">Canvas GDPR</a></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    </section>
+
+    <details class="archive-older">
+      <summary>Older weeks (archive)</summary>
+
+    <h2 id="tuesday-w40-4050-l7">Tuesday 29.09 - ACIT4050 Lecture 7 (Security vs Privacy)</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Class today PI850 12:30-14:15</h3>
+      <p class="note">Crawl 29.09 11:05 (Feide OK). Slides: <a href="https://oslomet.instructure.com/courses/34599/modules/items/935016" target="_blank" rel="noopener">Personvern GDPR DGF 26.pdf</a> (updated 28.09; local <a href="../Emner/ACIT4050/Lecture_07/Personvern%20GDPR%20DGF%2026.pdf">Lecture_07</a>). Study app tag <code>Lecture7</code>. L-9 submitted 23.09. <strong>GDPR</strong> assignment due <strong>Tue 06.10 23:59</strong> (100 pts, pass at 60, five attempts, highest counts, does not count toward the course grade). <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</p>
+      <div class="todo" data-week-todos="4050-l7-done">
+        <div class="todo-head">
+          <h3>Done - Lecture 7</h3>
+        </div>
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-l7-class" />
+              <span class="todo-text">Attend Lecture 7; skim <em>Personvern GDPR DGF 26.pdf</em> before or after class. GDPR todo is under <a href="#tuesday-w41-4050-lab">Tue 06.10</a>.</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="monday-w40-genres">Monday 28.09 - ACIT4100 Week 7 Genres (done)</h2>
+    <div class="day no-slides">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Flipped class done Mon 28.09</h3>
+      <p class="note">Crawl 29.09: A1 submitted 20.09. Follow-up in Canvas Week 7 module (academic vs popular science, Classic Style video). <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan</a>.</p>
+    </div>
+
+    <h2 id="wednesday-w39-l05">Wednesday 23.09 - L05 + L-9 Identity quiz in</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>L05 and L-9 submitted</h3>
+      <p class="note">Crawl 23.09 15:29 (Feide OK); L-9 reported submitted ~23:21. <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>. L05 <strong>submitted 23.09 ~15:17</strong>. L-9 <strong>submitted 23.09 ~23:21</strong> (100 pts, submitted). Lecture 6 slides on Canvas: <em>L6-iam.pdf</em>, <em>IAM-usecase.pdf</em>. Flashcards: study app tag <code>l9-assignment</code>.</p>
+      <div class="todo" data-week-todos="4050-l05">
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-l05-firewall-rules" data-todo-default="1" checked />
+              <span class="todo-text"><strong>L05: Assignment: Firewall rules</strong> (10 pts) - <strong>submitted 23.09</strong> (late; graded <strong>10/10</strong>, crawl 05.10). <a href="https://oslomet.instructure.com/courses/34599/assignments/123569" target="_blank" rel="noopener">Canvas L05</a></span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-l9-identity-quiz" data-todo-default="1" checked />
+              <span class="todo-text"><strong>L-9: Identity Management quiz</strong> (100 pts) - <strong>submitted 23.09.2026 ~23:21</strong> (submitted). Official due was Tue 29.09 23:59. <a href="https://oslomet.instructure.com/courses/34599/assignments/123556" target="_blank" rel="noopener">Canvas L-9</a></span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-l04-ids-article" data-todo-default="1" checked />
+              <span class="todo-text"><strong>L04: Anomaly-based IDS article review</strong> (10 pts) - <strong>submitted Sun 13.09.2026 20:07</strong> (submitted, graded 9/10). Official due 16.09 is past. <a href="https://oslomet.instructure.com/courses/34599/assignments/123567" target="_blank" rel="noopener">Canvas</a></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34599/assignments/123569" target="_blank" rel="noopener">Canvas L05 assignment</a>
+        <a href="https://oslomet.instructure.com/courses/34599/assignments/123567" target="_blank" rel="noopener">Canvas L04 assignment</a>
+        <a href="https://oslomet.instructure.com/courses/34599/modules" target="_blank" rel="noopener">Canvas modules (4050) - Lecture 6 slides</a>
+        <a href="../Oversikt/Ukeplan.html">Week plan</a>
+        <a href="index.html#4050">Study app - ACIT4050 (local)</a>
+      </div>
+    </div>
+
+    <h2 id="monday-w40-genres-links">Monday 28.09 - ACIT4100 Week 7 Genres (links)</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 7 - Genres (08:30-14:15)</h3>
+      <p class="note">Class was Mon 28.09. Canvas Week 7 (crawl 29.09): academic vs popular science writing parts 1-4, self-test quiz, Classic Style video (16:00). <a href="../Oversikt/Ukeplan.html">Ukeplan</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928310" target="_blank" rel="noopener">Genres part 1</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928315" target="_blank" rel="noopener">Video about Classic Style (16:00)</a>
+        <a href="../Oversikt/Ukeplan.html">Week plan</a>
+      </div>
+    </div>
+
+    <h2 id="sunday-w38-l05">Sunday 20.09 - L05 Firewall rules (prep, done as a day)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>L05 Assignment: Firewall rules (prep day)</h3>
+      <p class="note">Prep day Sun 20.09. Active deadline is under <a href="#tuesday-w39-l05">Tuesday 22.09</a> and in <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</p>
+      <div class="todo critical" data-week-todos="4050-l05">
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-l05-firewall-rules" />
+              <span class="todo-text"><strong>L05: Assignment: Firewall rules</strong> (10 pts) - due <strong>Tue 22.09.2026 23:59</strong>, last live status unsubmitted. Analyse a small rule set against given packets (from L5 slides). Local slides: <a href="../Emner/ACIT4050/Lecture_05/L7-firewalls.pdf"><em>L7-firewalls.pdf</em></a>, <a href="../Emner/ACIT4050/Lecture_05/firewall-usecase.pdf"><em>firewall-usecase.pdf</em></a>. <a href="https://oslomet.instructure.com/courses/34599/assignments/123569" target="_blank" rel="noopener">Canvas L05</a></span>
+            </label>
+          </li>
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-l04-ids-article" data-todo-default="1" checked />
+              <span class="todo-text"><strong>L04: Anomaly-based IDS article review</strong> (10 pts) - <strong>submitted Sun 13.09.2026 20:07</strong> (submitted, graded 9/10). Official due 16.09 is past. <a href="https://oslomet.instructure.com/courses/34599/assignments/123567" target="_blank" rel="noopener">Canvas</a></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34599/assignments/123569" target="_blank" rel="noopener">Canvas L05 assignment</a>
+        <a href="https://oslomet.instructure.com/courses/34599/assignments/123567" target="_blank" rel="noopener">Canvas L04 assignment</a>
+        <a href="../Oversikt/Ukeplan.html">Week plan</a>
+        <a href="index.html#4050">Study app - ACIT4050 (local)</a>
+      </div>
+    </div>
+
+    <h2 id="monday-w39-merton">Monday 21.09 - ACIT4100 Week 6 (Merton, done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 6 - Merton and closing remarks on science (08:30-14:15)</h3>
+      <p class="note">Class was Mon 21.09 P32 N020.025. Same card in <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan flipped</a> (next: Week 7 Genres). Last live crawl 16.09: TED Why trust scientists (19:00) plus supplementary vaccine-scepticism video (1h 44 m). No new Week 6 PDFs locally.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928299" target="_blank" rel="noopener">TED-talk: Why trust scientists? (19:00)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928301" target="_blank" rel="noopener">Supplementary: Vaccine scepticism video</a>
+        <a href="../Oversikt/Ukeplan.html">Week plan</a>
+      </div>
+    </div>
+
+    <h2 id="wednesday-w38-l04">Wednesday 16.09 - ACIT4050 L04 submitted (done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>L04 Anomaly-based IDS article review (submitted)</h3>
+      <p class="note">Official due was Wed 16.09 23:59. Same list in <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>. Last live Canvas 16.09 08:49: submitted Sun 13.09 20:07 (submitted). Active L05 todo is under <a href="#sunday-w38-l05">Sunday 20.09</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34599/assignments/123567" target="_blank" rel="noopener">Canvas L04 assignment</a>
+        <a href="../Oversikt/Ukeplan.html">Week plan</a>
+      </div>
+    </div>
+
+    <h2 id="tuesday-w38-fw">Tuesday 15.09 - ACIT4050 Lecture 5 Firewalls (done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Lecture 5 - Firewalls (12:30-14:15 PI850)</h3>
+      <p class="note">Class done Tue 15.09. Local slides: <a href="../Emner/ACIT4050/Lecture_05/L7-firewalls.pdf"><em>L7-firewalls.pdf</em></a>, <a href="../Emner/ACIT4050/Lecture_05/firewall-usecase.pdf"><em>firewall-usecase.pdf</em></a>. Drill: study app tag <strong>Lecture5</strong> (iptables order, SANS checklist, Ruter usecase). Home assignment: <a href="#sunday-w38-l05">L05 Firewall rules due Tue 22.09</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34599/modules" target="_blank" rel="noopener">Canvas modules (4050)</a>
+        <a href="index.html#4050">Study app - ACIT4050 (local)</a>
+        <a href="https://kasa031.github.io/msc_cyber-syllabus/#4050" target="_blank" rel="noopener">Study app - ACIT4050 (live)</a>
+      </div>
+    </div>
+
+    <h2 id="monday-w38-ai">Monday 14.09 - ACIT4100 Week 5 (done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 5 - Using AI tools for text analysis (08:30-14:15)</h3>
+      <p class="note">Class was Mon 14.09 P32 N020.025. Week 5 pages on Canvas: <a href="https://oslomet.instructure.com/courses/34603/modules/items/928296" target="_blank" rel="noopener">Notebook LM Tutorial</a>, <a href="https://oslomet.instructure.com/courses/34603/modules/items/928297" target="_blank" rel="noopener">Grouping papers together based on category</a>. Same card in <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan flipped</a>.</p>
+    </div>
+
+    <h2 id="tuesday-w37-ids">Tuesday 08.09 - ACIT4050 Lecture 4 IDS (done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Lecture 4 - Intrusion Detection Systems (12:30-14:15 PI850)</h3>
+      <p class="note">Class done Tue 08.09. Slides on Canvas: <a href="https://oslomet.instructure.com/courses/34599/modules/items/945337" target="_blank" rel="noopener">L4-ids.pdf</a>, <a href="https://oslomet.instructure.com/courses/34599/modules/items/945340" target="_blank" rel="noopener">L4-IDS-usecase.pdf</a>. Drill: study app tag <strong>Lecture4</strong> (preview cards only until PDF cards land). L04 todo is under <a href="#wednesday-w38-l04">Wednesday 16.09</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34599/modules" target="_blank" rel="noopener">Canvas modules (4050)</a>
+        <a href="index.html#4050">Study app - ACIT4050 (local)</a>
+        <a href="https://kasa031.github.io/msc_cyber-syllabus/#4050" target="_blank" rel="noopener">Study app - ACIT4050 (live)</a>
+        <a href="class-notes.html#p4050">Lecture summaries</a>
+      </div>
+    </div>
+
+    <h2 id="monday-w37-prep">Monday 07.09 - ACIT4050 Networks assignment (done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Assignment: Networks - submitted</h3>
+      <div class="todo" data-week-todos="4050-networks">
+        <ul class="ukas-todos">
+          <li>
+            <label class="todo-item">
+              <input type="checkbox" data-todo-id="4050-networks-assignment" checked />
+              <span class="todo-text"><strong>Assignment: Networks</strong> (New Quizzes, 100 pts) - <strong>submitted Mon 07.09.2026 13:44</strong> (attempt 1; graded 100/100). <a href="https://oslomet.instructure.com/courses/34599/assignments/123559" target="_blank" rel="noopener">Canvas</a>. Slides: <a href="../Emner/ACIT4050/Lecture_03/Networks26.pdf"><em>Networks26.pdf</em></a> (local). Official due Tue 08.09.2026 23:59.</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <p class="note">Notes: <a href="../Emner/ACIT4050/Assignment_Networks_New_Quizzes.md">Assignment_Networks_New_Quizzes.md</a>. Same list in <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>. Review: <a href="index.html#4050">4050 flashcards</a> (tag <strong>Lecture3</strong> / <strong>network</strong>) or <a href="https://kasa031.github.io/msc_cyber-syllabus/#4050" target="_blank" rel="noopener">live</a>.</p>
+    </div>
+
+    <h2 id="sunday-w36-end">Sunday 06.09 - end of week 36</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Assignment 1 taxonomy submitted (early)</h3>
+      <ol>
+        <li><strong>Assignment 1 literature taxonomy</strong> submitted to Canvas 06.09.2026 23:01 (pass/no pass; official due Fri 25.09 12:00).</li>
+        <li><strong>4280 group 1A</strong> submitted Mon 01.09 20:28 (40 pts, graded 40/40). <a href="https://oslomet.instructure.com/courses/34604/assignments/123204" target="_blank" rel="noopener">Canvas 1A</a>.</li>
+        <li><strong>Mon 07.09:</strong> Week 4 class (Philosophy of science) - done. Watch flipped videos: <a href="#flipped-w4">Week 4 prep</a>.</li>
+      </ol>
+      <p class="note">Same list in <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</p>
+    </div>
+
+    <h2 id="flipped-w4">Flipped classroom prep - ACIT4100 Week 4 (Mon 07.09 - done)</h2>
+    <div class="day ok">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 4 - Philosophy of science (class Mon 07.09)</h3>
+      <p class="note">Same links in <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan flipped card</a>. Drill: <a href="index.html#4100">study app Week 4 cards</a> (tag <strong>week4</strong>) or <a href="https://kasa031.github.io/msc_cyber-syllabus/#4100" target="_blank" rel="noopener">live</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928289" target="_blank" rel="noopener">Philosophy of science - part 1 (12:00)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928290" target="_blank" rel="noopener">Philosophy of science - part 2 (14:25)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules" target="_blank" rel="noopener">Canvas modules</a>
+      </div>
+    </div>
+
+    <h2 id="tuesday-morning-w36">Tuesday 01.09 - ACIT4050 Lecture 3 (Networks) (done)</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Lecture 3 Networks (was Tue 01.09 12:30-14:15 PI850)</h3>
+      <ol>
+        <li>Class today PI850. Slides: <a href="../Emner/ACIT4050/Lecture_03/Networks26.pdf"><em>Networks26.pdf</em></a> (local, Lecture 3).</li>
+        <li>L03 Phishing submitted 31.08 (10 pts, graded 9.5/10). Due Tue 01.09 23:59 if resubmit needed.</li>
+        <li>Exam prep: <a href="https://oslomet.instructure.com/courses/34599/pages/examples-of-possible-exam-questions" target="_blank" rel="noopener">Examples of possible exam questions</a> (8 phishing prompts). Local: <a href="../Emner/ACIT4050/00_Course_info/Examples_of_possible_exam_questions.md">Examples_of_possible_exam_questions.md</a> · <a href="class-notes.html#p4050-exam-questions">class notes</a> · ACIT4050 quiz (tag exam).</li>
+        <li>After class: 4280 1A final push (due Thu 03.09 08:00).</li>
+      </ol>
+      <p class="note">Same list in <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</p>
+    </div>
+
+    <h2 id="monday-morning-w36">Monday 31.08 - ACIT4100 Week 3 class (done)</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 3 - Searching for and sorting literature (was 08:30-14:15)</h3>
+      <ol>
+        <li>Class was Mon 31.08 P32 N020.025. Flipped prep: <a href="#flipped-w3">Week 3 videos</a> on Canvas.</li>
+        <li>In class: create your own taxonomy for your survey (feeds Assignment 1 due 25.09).</li>
+        <li>Focus now: <strong>4280 1A</strong> (due Thu 03.09 08:00) + today's 4050 lecture.</li>
+      </ol>
+      <p class="note">Same list in <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan flipped card</a>.</p>
+    </div>
+
+    <h2 id="friday-morning">Friday 28.08 - prep weekend (done)</h2>
+    <div class="day">
+      <span class="course-tag">All courses</span>
+      <h3>Weekend prep completed partly</h3>
+      <ol>
+        <li><strong>4050 L03</strong> submitted 31.08 (10 pts, graded 9.5/10).</li>
+        <li><strong>4280 1A</strong> still due Thu 03.09 08:00 (40 pts). <a href="https://oslomet.instructure.com/courses/34604/assignments/123204" target="_blank" rel="noopener">Canvas 1A</a>.</li>
+        <li><strong>Studentweb exam registration</strong> - done 31.08 (4050 / 4280 / 4100).</li>
+      </ol>
+    </div>
+
+    <h2 id="tuesday-morning">Tuesday 25.08 (done)</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Lecture 2 phishing (was Tue 25.08 12:30-14:15 PI850)</h3>
+      <ol>
+        <li>Class was Tue 25.08. Canvas: <a href="https://oslomet.instructure.com/courses/34599" target="_blank" rel="noopener">ACIT4050</a>.</li>
+        <li>Lecture 2 had phishing readings and <em>a Tool kit.pdf</em> on last live crawl (24.08). Slides unknown until Feide crawl.</li>
+        <li>Intro quiz done 22.08: <strong>80/100</strong> (deadline 25.08 passed).</li>
+      </ol>
+    </div>
+
+    <h2 id="monday-morning">Monday 24.08 (done)</h2>
+    <div class="day">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 2 class was yesterday</h3>
+      <ol>
+        <li>Class was 08:30-14:15, Pilestredet 32 N020.025. Module: <a href="https://oslomet.instructure.com/courses/34603/modules" target="_blank" rel="noopener">Canvas ACIT4100</a>.</li>
+        <li>All five Week 2 parts remain done (4/5, 4/4, 5/6, 1/2, 2/2).</li>
+      </ol>
+    </div>
+
+    <h2 id="flipped-w3">This week's flipped classroom - ACIT4100 Week 3</h2>
+    <div class="day critical">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 3 - Searching for and sorting literature (class Mon 31.08)</h3>
+      <p class="note">Prep before or after today's class. Same links in <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan flipped card</a>.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928274" target="_blank" rel="noopener">Where to find papers</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928275" target="_blank" rel="noopener">Structure of a research paper (16:14)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928277" target="_blank" rel="noopener">Self-test: Structure of a paper</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928276" target="_blank" rel="noopener">Review article approach (5:13)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928278" target="_blank" rel="noopener">Safari: Review article (15:50)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules/items/928279" target="_blank" rel="noopener">Safari: Research paper (25:33)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules" target="_blank" rel="noopener">Canvas modules</a>
+      </div>
+    </div>
+    <div class="todo critical" data-week-todos="4100-w3">
+      <div class="todo-head">
+        <h3>Week 3 videos - to do</h3>
+        <button type="button" class="todo-reset" data-reset-week="4100-w3">Clear checks</button>
+      </div>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w3-papers" />
+            <span class="todo-text"><strong>Where to find papers on your topic</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w3-structure" />
+            <span class="todo-text"><strong>Structure of a research paper (16:14) + self-test</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w3-review" />
+            <span class="todo-text"><strong>How to approach reading a review article (5:13)</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w3-safari-r" />
+            <span class="todo-text"><strong>Safari: Review article (15:50)</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w3-safari-p" />
+            <span class="todo-text"><strong>Safari: Research paper (25:33)</strong></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <h2 id="flipped-w2">Week 2 flipped classroom - ACIT4100 (done)</h2>
+    <div class="day critical">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 2 - Rhetoric / Toulmin (done - class Mon 24.08)</h3>
+      <p class="note">No slides PDF. All five parts done: 4/5, 4/4, 5/6, 1/2, <strong>2/2</strong>. Next flipped week: <strong>Week 3</strong> Mon 31.08 (<em>Searching for and sorting literature</em>). Same links in <a href="../Oversikt/Ukeplan.html#flipped-card">Ukeplan</a>. Recap: <a href="4100-week2-toulmin-recap.html">Toulmin recap (23 Aug)</a>.</p>
+      <p class="note"><strong>If not asked Mon 24.08:</strong> What is the passing score for the Rhetoric self-tests (parts 1-5)? Canvas does not state a min score, and they are not listed under Assignments.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34603/pages/the-toulmin-model-part-1-why-debates-are-important-29-24" target="_blank" rel="noopener">Part 1 (29:24)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/quizzes/24401" target="_blank" rel="noopener">Quiz 1</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/the-toulmin-model-part-2-the-model-22-09" target="_blank" rel="noopener">Part 2 (22:09)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/quizzes/24402" target="_blank" rel="noopener">Quiz 2</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/the-toulmin-model-part-3-arguing-for-the-affirmative-34-46" target="_blank" rel="noopener">Part 3 (34:46)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/quizzes/24399" target="_blank" rel="noopener">Quiz 3</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/the-toulmin-model-part-4-arguing-for-the-negative-22-01" target="_blank" rel="noopener">Part 4 (22:01)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/quizzes/24404" target="_blank" rel="noopener">Quiz 4</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/the-toulmin-model-part-5-debates-as-a-tool-for-decisionmaking-and-final-remarks-25-12" target="_blank" rel="noopener">Part 5 (25:12)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/quizzes/24398" target="_blank" rel="noopener">Quiz 5</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules" target="_blank" rel="noopener">Canvas modules</a>
+      </div>
+    </div>
+    <div class="todo critical" data-week-todos="4100-w2">
+      <div class="todo-head">
+        <h3>Week 2 videos - to do</h3>
+        <button type="button" class="todo-reset" data-reset-week="4100-w2">Clear checks</button>
+      </div>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w2-p1" data-todo-default="1" checked />
+            <span class="todo-text"><strong>Part 1 Why debates are important (29:24) + self-test 1</strong> - done 23.08, <strong>4/5</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w2-p2" data-todo-default="1" checked />
+            <span class="todo-text"><strong>Part 2 The model (22:09) + self-test 2</strong> - done 23.08, <strong>4/4</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w2-p3" data-todo-default="1" checked />
+            <span class="todo-text"><strong>Part 3 Arguing for the affirmative (34:46) + self-test 3</strong> - done 23.08, <strong>5/6</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w2-p4" data-todo-default="1" checked />
+            <span class="todo-text"><strong>Part 4 Arguing for the negative (22:01) + self-test 4</strong> - done 23.08, <strong>1/2</strong></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-w2-p5" data-todo-default="1" checked />
+            <span class="todo-text"><strong>Part 5 Debates as a tool for decision-making (25:12) + self-test 5</strong> - done 24.08, <strong>2/2</strong></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ============================================================
+         UPDATE HERE EACH WEEK: todos per course
+         ============================================================ -->
+
+    <h2>Weekend 22-23 Aug - before week 35</h2>
+    <div class="todo critical" data-week-todos="helg">
+      <div class="todo-head">
+        <h3>This weekend - to do</h3>
+        <button type="button" class="todo-reset" data-reset-week="helg">Clear checks</button>
+      </div>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="helg-4050-quiz" data-todo-default="1" checked />
+            <span class="todo-text"><strong>ACIT4050 Introduction Lecture quiz</strong> - done 22.08, <strong>80/100</strong> (pass, 60 required). Due was Tue 25.08 23:59. - <a href="https://oslomet.instructure.com/courses/34599/assignments/123562" target="_blank" rel="noopener">Canvas</a></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="helg-4050-l2" />
+            <span class="todo-text">Skim Canvas Lecture 2 (phishing links) before class <strong>today</strong> Tue 25.08 12:30. No slides PDF on the last live dump (24.08). After Feide, check Modules.</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="helg-4280-1a" data-todo-default="1" checked />
+            <span class="todo-text"><strong>ACIT4280 1A</strong> (HARD) Webbkoll + ICO - submitted <strong>Mon 01.09 20:28</strong> (40 pts, graded 40/40). <a href="https://oslomet.instructure.com/courses/34604/assignments/123204" target="_blank" rel="noopener">Canvas 1A</a>. Quiz 1: 10/10.</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="helg-4100-w2" data-todo-default="1" checked />
+            <span class="todo-text">ACIT4100 Week 2 flipped prep - <strong>done 24.08</strong> (4/5, 4/4, 5/6, 1/2, 2/2). Class was Mon 24.08. Links in <a href="#monday-morning">Monday 24.08</a> and <a href="../Oversikt/Ukeplan.html#today-card">Ukeplan Today</a>.</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- UPDATE HERE EACH WEEK: Monday ACIT4100 -->
+    <h2>Monday 17 Aug - ACIT4100 - Understanding and Communicating Research</h2>
+
+    <div class="todo" data-week-todos="4100">
+      <!-- UPDATE HERE EACH WEEK -->
+      <div class="todo-head">
+        <h3>This week - to do</h3>
+        <button type="button" class="todo-reset" data-reset-week="4100">Clear checks</button>
+      </div>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-1" />
+            <span class="todo-text">Watch the <a href="https://oslomet.instructure.com/courses/34603/pages/acit4100-introduction-video-33-08" target="_blank" rel="noopener">intro video (33:08)</a> - Canvas Week 1</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-2" />
+            <span class="todo-text">Read <a href="https://oslomet.instructure.com/courses/34603/pages/the-flipped-classroom-teaching-approach" target="_blank" rel="noopener">flipped classroom</a> - digital material before class; in class: activities + individual work with teacher help</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-3" />
+            <span class="todo-text">Skim <a href="https://oslomet.instructure.com/courses/34603/pages/mandatory-assignments-and-exam" target="_blank" rel="noopener">Mandatory assignments and exam</a> + <a href="https://oslomet.instructure.com/courses/34603/pages/essay-as-an-exam" target="_blank" rel="noopener">Essay as an exam</a> + <a href="https://oslomet.instructure.com/courses/34603/pages/rules-for-use-of-ai-and-similar-tools-in-this-course" target="_blank" rel="noopener">Rules for use of AI</a></span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-4" />
+            <span class="todo-text">Soft: local <a href="../Emner/ACIT4100/Essay/Essay_requirements_for_2026.html">Essay requirements for 2026</a> / <a href="../Emner/ACIT4100/00_Course_info/Mandatory_assignments_and_exam.html">Mandatory assignments (local)</a></span>
+          </label>
+        </li>
+      </ul>
+
+      <h4>Intro video - remember</h4>
+      <ul>
+        <li>The video still uses the old name "Research methods &amp; Ethics". The course is now <strong>Understanding and Communicating Research</strong> (search, organise, understand research)</li>
+        <li>Teachers now: <strong>Kyrre Begnum</strong> and <strong>Sylvia Lysgard</strong> (not Pedro/Kristine)</li>
+        <li>12 000 words in the video is outdated - see the current requirements below</li>
+      </ul>
+
+      <h4>Flipped classroom (short)</h4>
+      <ul>
+        <li>Lecture = homework (digital before class); class = shared activities + individual work with teacher help</li>
+        <li>Material comes ASAP (at least 1 week ahead). If it is late there may be a recording in class - OK, but the commitment still stands</li>
+        <li>Principles: professional and inclusive; breaks and food outside the room; arrive on time if you come</li>
+      </ul>
+
+      <h4>FAQ (Canvas) - teaching and practical</h4>
+      <ul>
+        <li>Attendance is <strong>not</strong> mandatory; you do not need to notify if you are away. Sessions are built for active participation / group work</li>
+        <li><strong>Not</strong> hybrid teaching</li>
+        <li>Sessions are <strong>not</strong> recorded (safe to speak + learning through participation)</li>
+        <li>Research papers: search <strong>Oria</strong> via the OsloMet library <a href="https://www.oslomet.no/en/ul" target="_blank" rel="noopener">oslomet.no/en/ul</a> - sign in; use VPN / OsloMet network. Google Scholar often works too</li>
+        <li>Exam submission: <strong>Inspera</strong> via Studentweb - <a href="https://student.oslomet.no/hjemmeeksamen" target="_blank" rel="noopener">student.oslomet.no/hjemmeeksamen</a></li>
+        <li>Find your <strong>candidate number</strong> in Studentweb before the deadline</li>
+        <li>Video: CC captions in English only (speech recognition). Browsers: Chrome / Firefox / Edge / Safari. Allow pop-ups</li>
+      </ul>
+
+      <h4>Exam / essay + goal-posts</h4>
+      <ul>
+        <li>Individual essay (not group) = the exam: <strong>5500-6500 words</strong> (not 12 000). Write continuously - iterative process</li>
+        <li>Not a typical literature review - assessment criteria are in Canvas</li>
+        <li>Essay = exam form. Check formal OsloMet requirements for the <strong>correct year</strong>: <a href="https://student.oslomet.no/studier/-/studieinfo/emne/ACIT4100/2026/H%C3%98ST" target="_blank" rel="noopener">course info 2026 autumn</a> (a Canvas link may still show 2024 - pick 2026 autumn)</li>
+        <li>Success: understand the material + written communication + <strong>time every week</strong> (like sculpture, not "code it once")</li>
+        <li>English: correct grammar and a fitting tone; plain English is OK; fancy language is not extra credit; avoid a patchwork style</li>
+      </ul>
+
+      <h4>Plagiarism / cheating (OsloMet - short)</h4>
+      <ul>
+        <li>Essay = individual exam: <strong>sharing the essay with others = a breach</strong>; plagiarism from sources is also forbidden</li>
+        <li>Electronic submission is checked against the internet + other exams (earlier years/courses); it catches synonym swaps and systematic rewriting</li>
+        <li>Process: report, notify + meeting, central board, decision</li>
+        <li>Sanctions: acquittal; annulled grade (retake the course); annulled + banned from all Norwegian higher education for up to 1 year</li>
+        <li>Experience in this course: cheaters often get the strictest sanction</li>
+        <li>Teachers help you write <strong>about</strong> other people's work - not write what they write</li>
+        <li>Rules: <a href="https://student.oslomet.no/en/cheating" target="_blank" rel="noopener">student.oslomet.no/en/cheating</a></li>
+      </ul>
+
+      <h4>Resit and retaking the course</h4>
+      <ul>
+        <li>Fail: a resit exam is available; it counts as a <strong>new exam attempt</strong>. Reasons for fail are in the assessment info document</li>
+        <li>After a fail you may <strong>keep working on the same essay</strong> you submitted (how much rewrite you need varies)</li>
+        <li>Pass, but want a better grade next year: you must submit a <strong>new essay</strong> (you cannot improve the same text the way failed students can on a resit)</li>
+        <li>Earlier approved mandatory work: valid only for the <strong>last two years</strong>; older work must be done again</li>
+        <li class="soft">Soft: local <a href="../Emner/ACIT4100/Essay/Essay_assessment_information.html">Essay assessment information</a></li>
+      </ul>
+
+      <h4>Essay requirements 2026 (short)</h4>
+      <ul>
+        <li>Topic: a research field in ACIT (your choice) - focus on the <strong>research</strong>, not mainly a technology</li>
+        <li>Perspectives (examples): methods; lab/experiment; philosophy of science; publishing/journal/conference; history; ethics/regulation; industry/society</li>
+        <li>The assessment criteria make some areas more mandatory - check that document</li>
+        <li>You are not an anthropologist: search/summarise/synthesise other people's knowledge; do not judge finding quality as an expert</li>
+        <li>Style: <strong>classic (Pinker)</strong> and/or <strong>narrative (short story)</strong>; hybrid OK (documentary cut-scenes)</li>
+        <li>Style alone will not save thin content; best grade = rich content + well executed style</li>
+        <li>Weekly material starts the topics; you still need your own work + reading practice; writing exercises in class</li>
+      </ul>
+
+      <h4>Not syllabus (further reading)</h4>
+      <p class="note" style="margin-top:0"><strong>Not syllabus.</strong> The course has no single textbook. The Canvas list <em>List of source material</em> is optional further reading (sorted by theme, not by importance).</p>
+      <ul>
+        <li><strong>Writing:</strong> Olson (narrative); Clark (X-Ray Reading); Pinker <em>Sense of Style</em>; Freytag's Pyramid</li>
+        <li><strong>Philosophy of science:</strong> Kuhn; Sanders (YouTube); Merton (CUDOS / Science and the Social Order)</li>
+        <li><strong>Political philosophy / expert:</strong> Popper; Gouldner; Sanders Professional Ethics; Staloff on Gouldner</li>
+        <li><strong>Rhetoric:</strong> Atchison; Sinek; Gallo (TED); Kermode</li>
+        <li><strong>Technology and Society:</strong> Verbeek; Waelbers; Winner</li>
+        <li class="soft">Full list: <a href="../Emner/_ekstra_ikke_pensum/ACIT4100_source_list.md">ACIT4100_source_list.md</a> (md may open poorly in a browser)</li>
+      </ul>
+
+      <h4>AI rules (short)</h4>
+      <ul>
+        <li><strong>Cheating:</strong> AI that literally writes parts of the essay = cheating (the exam = you write). Examples: AI writes from your ideas; AI "fixes" the draft; AI builds an essay from your material; AI restyles your paragraph into essay style</li>
+        <li>AI text is often flat/polished/business-like and gets weak grades; it also skips the learning of understanding and communicating research</li>
+        <li><strong>Allowed / recommended:</strong> summarise/explain papers; group papers into categories; AI summarises YOUR draft/outline so you check coverage; discuss topic/structure; help finding material / common knowledge; learn grammar/writing from YOUR paragraph (you improve it yourself)</li>
+        <li><strong>Grammarly and similar:</strong> not cheating if only on your own text; not recommended (the text often becomes unnecessarily "advanced")</li>
+        <li><strong>Declaration</strong> at the end of the essay (after references): tools + activities, OR that you did not use AI. Outside the word count. AI is not required for a good grade. OsloMet: <a href="https://student.oslomet.no/en/veiledning-kunstig-intelligens-studentoppgaver" target="_blank" rel="noopener">guidance on AI in student work</a></li>
+      </ul>
+
+      <h4>Essay assessment (short) - high value</h4>
+      <p class="note" style="margin-top:0">Local: <a href="../Emner/ACIT4100/Essay/Essay_assessment_information.html">Essay assessment information</a>. Stars = relative weight (rough). Do not compute your own grade / reverse-engineer against sample texts (the list changes yearly). Two examiners.</p>
+      <table class="deadlines">
+        <thead>
+          <tr><th>Category</th><th>*</th><th>Remember</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Literature survey</td><td>***</td><td>~10 low, ~20 high; use &gt; count; categorise; storyline; non-scientific for context</td></tr>
+          <tr><td>Research methods</td><td>***</td><td>identify; background/paradigm/strengths/weaknesses; examples from the literature</td></tr>
+          <tr><td>Flow / structure</td><td>**</td><td>easy to follow; topic paragraphs; intro focus; transitions; coherence</td></tr>
+          <tr><td>Rhetoric</td><td>**</td><td>attention in the intro; rhetoric/drama; Toulmin; classic style</td></tr>
+          <tr><td>Ethics</td><td>**</td><td>professional/research/society; viewpoints; deconstruction</td></tr>
+          <tr><td>Visual</td><td>*</td><td>same format/captions; complements the text (does not replace it)</td></tr>
+          <tr><td>Language / other</td><td>*</td><td>English; quotes/refs (IEEE or APA mentioned) - course standard: APA7 stricter for papers</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>References:</strong> APA7-based, stricter for scientific papers: <strong>page number AND paragraph number</strong> (or lines when that fits). Books/websites: ordinary APA7. <a href="https://www.kildekompasset.no/en/referencing-styles/apa-7th/" target="_blank" rel="noopener">Kildekompasset APA 7th</a></li>
+        <li><strong>Overleaf / LaTeX:</strong> the Canvas page <a href="https://oslomet.instructure.com/courses/34603/pages/referencing-example-for-overleaf-latex" target="_blank" rel="noopener">Referencing example for OverLeaf / LaTeX</a> shows how to attach page and paragraph numbers in citations (csquotes + biblatex with style=apa, backend=biber). Compiled PDF on the same page: <strong>APA_example.pdf</strong>. Local copy: <a href="../Emner/ACIT4100/Readings/Referencing_example_for_OverLeaf_LaTeX.html">Referencing example (HTML)</a> / <a href="../Emner/ACIT4100/Readings/apa_example_overleaf.tex">apa_example_overleaf.tex</a></li>
+        <li><strong>Fail risk:</strong> missing AI declaration; &lt;10 research papers; does not follow the criteria / too little research focus / not technology / no standard refs / too much rewriting ("not your own text")</li>
+        <li><strong>Cheating signs (will be reported):</strong> text generators; other people's text as your own / without a source; paper lists from other people's lit reviews instead of your own searches</li>
+      </ul>
+
+      <h4>Grades / Canvas status (15 Aug 2026)</h4>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-grades-course-info-quiz" data-todo-default="1" />
+            <span class="todo-text"><strong>Course information quiz</strong> - 3/3 done</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-grades-mandatory-info-quiz" data-todo-default="1" />
+            <span class="todo-text"><strong>Mandatory information quiz</strong> - 10/10 done (7 Aug). Must be passed to open the rest of the course</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-a1-literature-taxonomy" data-todo-default="1" checked />
+            <span class="todo-text"><strong>Assignment 1 - Literature taxonomy spreadsheet</strong> - submitted; graded <strong>complete</strong> (crawl 05.10). Official due was Fri 25.09.2026 12:00.</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4100-a2-presentation-recording" />
+            <span class="todo-text"><strong>Assignment 2 - Presentation recording</strong> - unsubmitted. Last live Canvas crawl 24.08 due: <strong>Fri 30.10.2026 12:00</strong> (older announcement says 31.10 at 12:00)</span>
+          </label>
+        </li>
+      </ul>
+      <p class="note">Course assignments are not weighted in Grades; quizzes so far 13/13. A1 submitted 06.09.2026. Next goal-post: presentation recording 30 Oct 2026.</p>
+
+      <h4>Deadlines (A1 status updated 06.09.2026; other rows from live crawl 24.08.2026)</h4>
+      <table class="deadlines">
+        <thead>
+          <tr><th>What (official Grades name)</th><th>Canvas text</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Assignment 1 - Literature taxonomy spreadsheet</strong> (10+ scientific papers)</td><td>Fri 25.09.2026 12:00 - <strong>submitted 06.09.2026</strong></td></tr>
+          <tr><td><strong>Assignment 2 - Presentation recording</strong> (5-10 min, recording)</td><td>Fri 30.10.2026 12:00 (announcement: 31.10 at 12:00)</td></tr>
+          <tr><td>Essay exam</td><td>check Studentweb 2026 autumn (not a 2025 template)</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Assignment due dates are <strong>2026</strong> in the Canvas API (not 2025). The announcement for assignment 2 says 31 Oct at 12:00; the assignment itself is due 30.10.2026 12:00.</p>
+    </div>
+
+    <div class="day no-slides">
+      <span class="course-tag">ACIT4100 - Understanding and Communicating Research</span>
+      <h3>Week 1 - intro / flipped (no slides PDF yet)</h3>
+      <p class="note">Material is on Canvas pages. Watch Modules/Files for new files.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34603/pages/acit4100-introduction-video-33-08" target="_blank" rel="noopener">Introvideo (33:08)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/the-flipped-classroom-teaching-approach" target="_blank" rel="noopener">Flipped classroom</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/mandatory-assignments-and-exam" target="_blank" rel="noopener">Mandatory assignments and exam</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/essay-as-an-exam" target="_blank" rel="noopener">Essay as an exam</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/rules-for-use-of-ai-and-similar-tools-in-this-course" target="_blank" rel="noopener">Rules for use of AI</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/referencing-example-for-overleaf-latex" target="_blank" rel="noopener">Referencing example (OverLeaf / LaTeX)</a>
+        <a href="https://oslomet.instructure.com/courses/34603/modules" target="_blank" rel="noopener">Canvas modules (4100)</a>
+        <a href="../Emner/ACIT4100/Essay/Essay_requirements_for_2026.html">Local: Essay requirements</a>
+        <a href="../Emner/ACIT4100/Essay/Essay_assessment_information.html">Local: Essay assessment</a>
+        <a href="../Emner/ACIT4100/Readings/Referencing_example_for_OverLeaf_LaTeX.html">Local: Overleaf referencing example</a>
+        <a href="https://student.oslomet.no/en/veiledning-kunstig-intelligens-studentoppgaver" target="_blank" rel="noopener">OsloMet: AI in student work</a>
+      </div>
+    </div>
+
+    <!-- UPDATE HERE EACH WEEK: Tuesday ACIT4050 -->
+    <h2>Tuesday 18 Aug - ACIT4050 - Applied Computer and Network Security</h2>
+
+    <div class="todo" data-week-todos="4050">
+      <!-- UPDATE HERE EACH WEEK -->
+      <div class="todo-head">
+        <h3>This week - to do</h3>
+        <button type="button" class="todo-reset" data-reset-week="4050">Clear checks</button>
+      </div>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-intro-lecture" data-todo-default="1" />
+            <span class="todo-text"><strong>Assignment: Introduction Lecture</strong> - done 22.08, <strong>80/100</strong> (pass, 60 required). Due was Tue 25 Aug 23:59. 5 attempts, best score counts. Does <strong>not</strong> count in the final grade. - <a href="https://oslomet.instructure.com/courses/34599/assignments" target="_blank" rel="noopener">Canvas Assignments (4050)</a></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-1" />
+            <span class="todo-text">First lecture: read <strong>Introduksjon 26.pdf</strong> (Lysne) - CIA, hierarchy of trust, malware, NIST CSF, Kill Chain</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-2" />
+            <span class="todo-text">Check <a href="https://oslomet.instructure.com/courses/34599/modules" target="_blank" rel="noopener">Modules</a> / <a href="https://oslomet.instructure.com/courses/34599/files" target="_blank" rel="noopener">Files</a> (all material is in Modules; the timetable can change via Announcements)</span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-3" />
+            <span class="todo-text">If still open: check Quizzes for <em>Survey about the hardware</em> (and any academic honesty quiz) - <a href="https://oslomet.instructure.com/courses/34599/quizzes" target="_blank" rel="noopener">Quizzes (4050)</a></span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-l03-phishing" data-todo-default="1" checked />
+            <span class="todo-text"><strong>L03 Assignment: Phishing with exploit kits</strong> - submitted <strong>31.08</strong> (<strong>9.5/10</strong>; due Tue 01.09 23:59). - <a href="https://oslomet.instructure.com/courses/34599/assignments/123566" target="_blank" rel="noopener">Canvas</a></span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-l04-ids-article" data-todo-default="1" checked />
+            <span class="todo-text"><strong>L04: Anomaly-based IDS article review</strong> - submitted <strong>13.09 20:07</strong> (10 pts, graded 9/10). - <a href="https://oslomet.instructure.com/courses/34599/assignments/123567" target="_blank" rel="noopener">Canvas</a></span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-l05-firewall-rules" />
+            <span class="todo-text"><strong>L05: Assignment: Firewall rules</strong> - due <strong>Tue 22.09.2026 23:59</strong> (10 pts, unsubmitted). - <a href="https://oslomet.instructure.com/courses/34599/assignments/123569" target="_blank" rel="noopener">Canvas</a></span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4050-oblig" />
+            <span class="todo-text">Soft: follow <em>Obligatory assignments completion</em> in Canvas (≥8 of ≥11 must be passed for exam access)</span>
+          </label>
+        </li>
+      </ul>
+
+      <h4>Course outline (Lysne intro)</h4>
+      <ul>
+        <li><strong>Syllabus</strong> = the content of the lectures</li>
+        <li>≥11 assignments; <strong>≥8 must be passed</strong> to sit the exam</li>
+        <li>1 week deadline - <strong>HARD</strong>; pass/fail; does <strong>not</strong> count in the final grade</li>
+        <li>Written final exam, no aids, A-F</li>
+        <li>Lecturers: Nurul Momen (<a href="mailto:nurul.momen@oslomet.no">nurul.momen@oslomet.no</a>), Olav Lysne (<a href="mailto:olavl@oslomet.no">olavl@oslomet.no</a>)</li>
+      </ul>
+
+      <h4>Recordings</h4>
+      <ul>
+        <li>Screen + audio only (you are not visible). Your voice may be included; ask in the breaks if you do not want that. Contact the lecturer to remove a question from the recording.</li>
+      </ul>
+      <p class="note"><strong>New discussion 23.08:</strong> <a href="https://oslomet.instructure.com/courses/34599/discussion_topics/499599" target="_blank" rel="noopener">Hello from the Teaching Assistant</a>. Ahsan confirms that the official remote lab is live. His <a href="https://github.com/ahson6184/acit4050-home-lab" target="_blank" rel="noopener">Kali Linux Docker home lab</a> is completely optional and is not required for the course.</p>
+    </div>
+
+    <div class="day">
+      <span class="course-tag">ACIT4050 - Applied Computer and Network Security</span>
+      <h3>Introduction (Lysne)</h3>
+      <p class="note">Read Introduksjon 26. Course lead / lecturer / examiner: Nurul Momen (<a href="mailto:nurul.momen@oslomet.no">nurul.momen@oslomet.no</a>). Lectures: Olav Lysne (<a href="mailto:olavl@oslomet.no">olavl@oslomet.no</a>) + Nurul Momen. TA: Ahsan Sonar (lab help).</p>
+      <p class="note"><strong>From the slides:</strong> intent classes (Spyware / Ransomware / Bot / Rootkit) vs spread (virus / worm / Trojan); DoS/DDoS against <em>availability</em> via botnets; NIST CSF 2.0 (incl. Govern); Kill Chain + AI.</p>
+      <div class="links">
+        <a href="../Emner/ACIT4050/Lecture_01/Introduksjon%2026.pdf">Local PDF: Introduksjon 26.pdf</a>
+        <a href="https://oslomet.instructure.com/courses/34599/files/4735778/download?download_frd=1" target="_blank" rel="noopener">Canvas download</a>
+        <a href="https://oslomet.instructure.com/courses/34599/modules" target="_blank" rel="noopener">Canvas modules (4050)</a>
+        <a href="https://oslomet.instructure.com/courses/34599/assignments" target="_blank" rel="noopener">Assignments (Intro Lecture)</a>
+      </div>
+    </div>
+
+    <!-- UPDATE HERE EACH WEEK: Thursday ACIT4280 (critical this week) -->
+    <h2>Thursday 20 Aug - ACIT4280 - Privacy by Design <span class="badge-critical">critical</span></h2>
+
+    <div class="todo critical" data-week-todos="4280">
+      <!-- UPDATE HERE EACH WEEK -->
+      <div class="todo-head">
+        <h3>This week - to do</h3>
+        <button type="button" class="todo-reset" data-reset-week="4280">Clear checks</button>
+      </div>
+      <ul class="ukas-todos">
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-1" />
+            <span class="todo-text"><strong>Form a group of exactly 3</strong> - done, assigned 1A</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-2" />
+            <span class="todo-text">Email to Lothar sent (subject <code>ACIT4280 group assignment</code>) - assigned 1A</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-3" />
+            <span class="todo-text">Read and pick topics on <a href="https://oslomet.instructure.com/courses/34604/assignments" target="_blank" rel="noopener">Canvas Assignments (4280)</a> (open 1A, 1B, ... one by one)</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-4" />
+            <span class="todo-text">Topics are <strong>first come, first serve</strong> - send early</span>
+          </label>
+        </li>
+        <li>
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-5" data-todo-default="1" checked />
+            <span class="todo-text">1A assigned (not 1B). HARD due <strong>03.09 08:00</strong> - <strong>submitted Mon 01.09 20:28</strong> (submitted). Course 2A/2B due <strong>17.09 08:00</strong> is not your assigned topic unless Canvas says otherwise.</span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-6" />
+            <span class="todo-text">Optional: local plan <a href="../Emner/ACIT4280/00_Course_info/Gruppe_og_assignment_PLAN.md">Gruppe_og_assignment_PLAN.md</a> (md may open poorly in a browser)</span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-7b" />
+            <span class="todo-text">Prep after Ch. 1: <a href="https://oslomet.instructure.com/courses/34604/pages/will-pets-solve-the-problem-an-excursion-into-privacy-enhancing-technology" target="_blank" rel="noopener">Will PETS solve the problem?</a> (TetCat + Fritsch timeline in the quiz)</span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-7" />
+            <span class="todo-text">Prep (Ch. 5): <a href="https://oslomet.instructure.com/courses/34604/pages/preparatory-reading-on-the-concept-of-managed-privacy" target="_blank" rel="noopener">managed privacy</a> - 3 articles (open [link] via Canvas)</span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-7c" />
+            <span class="todo-text">Quiz: <strong>Limitations of PETs in practice</strong> (ROPI, cost, usability, 3 roads) - flashcards in the study app</span>
+          </label>
+        </li>
+        <li class="soft">
+          <label class="todo-item">
+            <input type="checkbox" data-todo-id="4280-7d" />
+            <span class="todo-text">Quiz: <strong>Privacy management: data, processes and administration</strong> (Figure 1, EPAL/XACML, sticky HP-arch, housekeeping) - flashcards</span>
+          </label>
+        </li>
+      </ul>
+
+      <h4>Coming group deadlines (Canvas)</h4>
+      <table class="deadlines">
+        <thead>
+          <tr><th>Assignment</th><th>Due</th><th>Pts</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1A (yours) / 1B</td><td>3 Sep 08:00 HARD</td><td>40</td></tr>
+          <tr><td>2A / 2B</td><td>17 Sep 08:00</td><td>40</td></tr>
+          <tr><td>3A / 3B</td><td>30 Sep 08:00</td><td>40</td></tr>
+          <tr><td>4A / 4B</td><td>15 Oct 08:00</td><td>40</td></tr>
+          <tr><td>5A / 5B</td><td>29 Oct 08:00</td><td>40</td></tr>
+          <tr><td>6A / 6B</td><td>12 Nov 08:00</td><td>40</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Only the dated group assignments are hard innleveringer. Your 1A is submitted (01.09). 2A/2B due 17.09 is the course slot for those groups.</p>
+
+      <h4>Assignment inventory from live Canvas crawl 08.09</h4>
+      <table class="deadlines">
+        <thead>
+          <tr><th>Name</th><th>Kind</th><th>Due</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Group assignment 1A</td><td>HARD innlevering</td><td>03.09 08:00</td><td>Submitted 01.09 20:28 -/40</td></tr>
+          <tr><td>Quiz 1</td><td>Open module quiz</td><td>None</td><td>Done 15.08 10/10</td></tr>
+          <tr><td>Handling legacy data</td><td>Text, no hard date</td><td>None</td><td>Submitted 17.08 22:43 /10</td></tr>
+          <tr><td>Impact assessment / risk / controls (InstantONS)</td><td>Individual work</td><td>None</td><td>Submitted 05.10 evening</td></tr>
+          <tr><td>PIA and risk assessment quiz</td><td>Open module quiz</td><td>None</td><td>Attempt 1 05.10 8/10 (retry Q4)</td></tr>
+          <tr><td>Privacy controls quiz</td><td>Open module quiz</td><td>None</td><td>Attempt 1 05.10 8/10 (retry Q1 plural)</td></tr>
+          <tr><td>Privacy design strategies quiz</td><td>Open module quiz</td><td>None</td><td>Attempt 1 05.10 4.5/6 (retry Q4+Q6)</td></tr>
+          <tr><td>Quiz on privacy design strategies</td><td>Open module quiz</td><td>None</td><td>Done 05.10 1/1</td></tr>
+          <tr><td>Privacy foundations</td><td>Open module quiz</td><td>None</td><td>Done 05.10 6/6</td></tr>
+          <tr><td>Privacy Patterns</td><td>Open module quiz</td><td>None</td><td>Done 05.10 4/4</td></tr>
+          <tr><td>Software Architecture Concepts</td><td>Open module quiz</td><td>None</td><td>Done 05.10 3/3</td></tr>
+          <tr><td>The Dark Side</td><td>Open module quiz</td><td>None</td><td>Done 05.10 1/1</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Last live dump 08.09: 1A submitted 01.09 (submitted). PIA quiz exists as two assignment ids (123219 and 123198). Course assignments not weighted; Quiz 1 remains 10/10. Morning job 16.09 could not recheck (Feide missing).</p>
+    </div>
+
+    <div class="day critical">
+      <span class="course-tag">ACIT4280 - Privacy by Design</span>
+      <h3>Lecture 1 - Privacy / GDPR (Fritsch, 20. aug 2026)</h3>
+      <p class="note">Read Chapter 1 + <code>Lecture1-GDPR.pdf</code>. Compact points below.</p>
+      <div class="links">
+        <a href="../Emner/ACIT4280/Lecture_01/Lecture1-GDPR.pdf">Local PDF: Lecture1-GDPR.pdf</a>
+        <a href="https://oslomet.instructure.com/courses/34604/files/4723030/download?download_frd=1" target="_blank" rel="noopener">Canvas download</a>
+        <a href="https://oslomet.instructure.com/courses/34604/assignments" target="_blank" rel="noopener">Group assignments (Canvas)</a>
+      </div>
+      <ul>
+        <li><strong>History:</strong> Warren &amp; Brandeis "right to be let alone" (1890); Bismarck / right to one's own image (1907); UDHR Art. 12 (1948)</li>
+        <li><strong>Asymmetries:</strong> cost, risk, knowledge, control, profit; chilling effect; attack on sovereignty</li>
+        <li><strong>OECD / basic principles:</strong> lawfulness/consent; minimisation; purpose binding; "non-sensitive data do not exist"; transparency/intervenability; security; accountability</li>
+        <li><strong>GDPR via national law</strong> (e.g. the Personal Data Act in Norway)</li>
+        <li><strong>Tools:</strong> enforcementtracker.com; ICO lawful basis; Webbkoll</li>
+        <li><strong>CIA</strong> (C/I/A) is necessary but not enough for privacy - you also need transparency, intervenability, unlinkability</li>
+        <li><a href="https://www.cs.cornell.edu/~shmat/courses/cs5436/warren-brandeis.pdf" target="_blank" rel="noopener">Warren &amp; Brandeis (1890)</a> · <a href="https://www.oecd.org/en/topics/policy-issues/privacy-and-data-protection.html" target="_blank" rel="noopener">OECD privacy</a> · <a href="https://gdpr.eu/" target="_blank" rel="noopener">GDPR.eu</a></li>
+      </ul>
+    </div>
+
+    <div class="day critical">
+      <span class="course-tag">ACIT4280 - Privacy by Design</span>
+      <h3>Prep: Will PETS solve the problem? (PET / TET)</h3>
+      <p class="note">Next natural reading after Ch. 1. Canvas page + flashcards (PET/TET oral defs, TetCat, Fritsch timeline). Pfitzmann/Hansen (pseudonyms) is a separate text, but belongs on the <strong>opacity</strong> side.</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34604/pages/will-pets-solve-the-problem-an-excursion-into-privacy-enhancing-technology" target="_blank" rel="noopener">Canvas: Will PETS solve the problem?</a>
+        <a href="https://arxiv.org/abs/1507.04914" target="_blank" rel="noopener">Zimmermann TetCat (arXiv:1507.04914)</a>
+        <a href="https://arxiv.org/pdf/1507.04914" target="_blank" rel="noopener">Zimmermann PDF</a>
+      </div>
+      <ul>
+        <li><strong>History:</strong> Chaum MIX (1981) - MixMaster = first practical PET. Fritsch timeline: 1970s debate; 1980s Mix/hiding/stego; 1990s MixMaster/credentials/commercialization; 2000+ regulation/compliance/projects</li>
+        <li><strong>Two PET types:</strong> transparency tools (show processing: audit/log) vs opacity tools (hide identity/link: Tor, MixMaster, pseudonyms)</li>
+        <li><strong>Opacity techniques:</strong> obfuscation, encryption, data separation, anonymization/pseudonymization, access + use restrictions</li>
+        <li><strong>Hedbom TET:</strong> inform; give access to data/logic; counter-profiling</li>
+        <li><strong>Pulls:</strong> transparency can collide with data minimisation (logging/visibility creates new privacy risks)</li>
+        <li><strong>Ex-ante</strong> = before processing · <strong>Ex-post</strong> = after / in real time</li>
+        <li><strong>TetCat (Zimmermann):</strong> Untrusted - Assertion; Trusted Ex Ante Read-only - Awareness / Interactive - Declaration; Trusted Ex Post Read-only - Audit / Interactive Intervention (collection/usage) / Remediation (+ modification/deletion)</li>
+      </ul>
+    </div>
+
+    <div class="day critical">
+      <span class="course-tag">ACIT4280 - Privacy by Design</span>
+      <h3>Preparatory reading - managed privacy (Chapter 5)</h3>
+      <p class="note">Read before class materials on managed privacy / privacy management. The articles' <strong>[link]</strong> in Canvas needs a login - open via the Canvas page (not only arXiv for the first two).</p>
+      <div class="links">
+        <a href="https://oslomet.instructure.com/courses/34604/pages/preparatory-reading-on-the-concept-of-managed-privacy" target="_blank" rel="noopener">Canvas: Preparatory reading on the concept of managed privacy</a>
+        <a href="../Emner/ACIT4280/Lecture_05/Supplementary/Preparatory_reading_on_the_concept_of_managed_privacy.pdf">Local PDF (Canvas page dump)</a>
+      </div>
+      <ul>
+        <li><strong>Fritsch &amp; Abie (2008)</strong> - Towards a Research Road Map to the Management of Privacy Risks in Information Systems (Sicherheit 2008 / LNI 128) - <em>open [link] via Canvas</em></li>
+        <li><strong>Pearson &amp; Casassa-Mont (2011)</strong> - Sticky Policies: An Approach for Managing Privacy across Multiple Parties (IEEE Computer 44(9)) - <em>open [link] via Canvas</em></li>
+        <li><strong>Zimmermann (2015)</strong> - A categorization of transparency-enhancing technologies (arxiv 1507.04914) - <a href="https://arxiv.org/pdf/1507.04914" target="_blank" rel="noopener">PDF</a> / <a href="https://arxiv.org/abs/1507.04914" target="_blank" rel="noopener">abs</a> / <em>or [link] via Canvas</em>. Detailed TetCat tree also under the <em>Will PETS</em> section above.</li>
+        <li class="note" style="list-style:none;margin-top:0.5rem"><strong>Not</strong> Pfitzmann/Hansen (anonymity/pseudonym terminology) - that sits under Chapter 1 / Lecture 2 (search Modules: anonymity, terminology, pseudonym).</li>
+      </ul>
+      <h4>Limitations of PETs in practice (short)</h4>
+      <ul>
+        <li><strong>Three dimensions:</strong> technology, usability/ergonomics, maturity of IT investment decisions</li>
+        <li><strong>Technical:</strong> crypto cost; TOR is slow; IDEMIX/U-Prove/Privacy ABCs are expensive; sticky policies are complex</li>
+        <li><strong>Cost:</strong> PET/IT is often <em>not</em> the main driver (Ponemon) - privacy office, training, law/policy are larger; goal = cheapest sufficient compliance</li>
+        <li><strong>ROPI</strong> (figure): Value of Privacy to Value at Risk to ROPI. Risk model: LB (breach list), PB (probability), CB (cost). Tools: LC (countermeasure list), ICB, efficiency. Formula: ROPI = PB*CB - ICB. Roadmap: Risk Model Road · Cost &amp; Effect Lane (PET catalogue) · Empirics Road to a ROPI instrument (breach reporting = strongest empirics so far)</li>
+      </ul>
+      <h4>Privacy management: data, processes and administration (short)</h4>
+      <ul>
+        <li><strong>Figure 1:</strong> Privacy protection = data flow (Collect/Store/Process/Transfer/Delete) + identity management (Identify/Authenticate/Link/rights/ownership + delegation)</li>
+        <li><strong>Business process:</strong> data-flow models aligned with privacy policy/consent; role/access control; ID management over the full storage period</li>
+        <li><strong>Formal policies:</strong> EPAL and XACML (machine-readable); "privacy policy" is ambiguous (also prose to the end user)</li>
+        <li><strong>Sticky Policies (HP/Pearson):</strong> policy attached to encrypted data + trusted hardware + consent in the flow - complex across subcontractors</li>
+        <li><strong>Housekeeping (GDPR DSR):</strong> labelling/metadata, privacy-friendly logs, policy/consent versioning, long-term ID management</li>
+      </ul>
+    </div>
+
+    <!-- UPDATE HERE EACH WEEK: extra (optional) -->
+    <h2>Extra material (not syllabus)</h2>
+    <div class="extra">
+      <p class="edit-hint">&lt;!-- UPDATE HERE EACH WEEK: add optional links here --&gt;</p>
+      <p class="note" style="margin-top:0"><strong>Not syllabus.</strong> Optional. Not required curriculum.</p>
+      <h4>ACIT4100 - source list (further reading)</h4>
+      <p class="note">No single textbook. Sources by theme (not by importance). See also the section under Monday ACIT4100.</p>
+      <ul>
+        <li>Writing · Philosophy of science · Political philosophy · Rhetoric · Technology and Society</li>
+        <li>Full local list: <a href="../Emner/_ekstra_ikke_pensum/ACIT4100_source_list.md">ACIT4100_source_list.md</a></li>
+      </ul>
+      <div class="links">
+        <a href="../Emner/_ekstra_ikke_pensum/">Folder: _ekstra_ikke_pensum</a>
+        <a href="https://oslomet.instructure.com/courses/34603/pages/list-of-source-material-used-for-this-course" target="_blank" rel="noopener">Canvas: List of source material</a>
+      </div>
+    </div>
+
+    </details>
+
+    <footer>
+      Private local page - not for sharing / not in git.
+      Update each week (search for &laquo;UPDATE HERE EACH WEEK&raquo;). After every Canvas crawl, update this file and Ukeplan.html together.
+      See UKAS_LESNING_README.txt next to this file.
+      Checks are stored locally in the browser (localStorage).
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = "ukas-lesning-todos-v1";
+
+      function loadState() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return {};
+          var parsed = JSON.parse(raw);
+          return parsed && typeof parsed === "object" ? parsed : {};
+        } catch (e) {
+          return {};
+        }
+      }
+
+      function saveState(state) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) { /* private local page - ignore quota/errors */ }
+      }
+
+      var state = loadState();
+      var boxes = document.querySelectorAll('.ukas-todos input[type="checkbox"][data-todo-id]');
+
+      boxes.forEach(function (box) {
+        var id = box.getAttribute("data-todo-id");
+        if (!id) return;
+        if (box.getAttribute("data-todo-default") === "1") {
+          box.checked = true;
+          state[id] = true;
+        } else if (Object.prototype.hasOwnProperty.call(state, id)) {
+          box.checked = !!state[id];
+        } else {
+          box.checked = false;
+        }
+        box.addEventListener("change", function () {
+          state[id] = box.checked;
+          saveState(state);
+        });
+      });
+      saveState(state);
+
+      document.querySelectorAll(".todo-reset[data-reset-week]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var week = btn.getAttribute("data-reset-week");
+          if (!week) return;
+          var block = document.querySelector('.todo[data-week-todos="' + week + '"]');
+          if (!block) return;
+          block.querySelectorAll('input[type="checkbox"][data-todo-id]').forEach(function (box) {
+            var id = box.getAttribute("data-todo-id");
+            box.checked = false;
+            if (id) delete state[id];
+          });
+          saveState(state);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
