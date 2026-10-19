@@ -2,7 +2,7 @@
  * Quiz decks for the study app (file://-friendly).
  * Figure fields: type, src|svg, alt, caption?, shows?, attribution?
  * Prefer figures/real/ terminal mockups and Wikimedia Commons (attributed).
- * Sync quiz-data/*.json when editing. No GitHub push.
+ * Sync quiz-data/*.json when editing. No em dash or en dash in card text.
  */
 (function (global) {
   "use strict";
@@ -3189,11 +3189,93 @@
       {
         "id": "4050-anatomy-assign-due-2026",
         "q": "When is ACIT4050 Assignment - Anatomy of an Attack due on Canvas (Fall 2026)?",
-        "a": "Wednesday 22 October 2026 at 23:59 (Canvas assignment 126408). Still unsubmitted on crawl 13 Oct. Use Lecture 8 material; Cybrex lab is scheduled later (Bernardo module label 03 Nov on Canvas). L9 campus lecture 13 Oct was cancelled; continuous monitoring topic moves to 27 Oct with L11 Defense I.",
+        "a": "Official due was Wednesday 21 October 2026 at 23:59 (Canvas assignment 126408). Submitted 14 Oct 2026. Crawl 19 Oct: pending_review, score not published. Lecture 10 supply chain is the next open quiz (due 27 Oct).",
         "tags": [
           "canvas",
           "deadlines",
           "Lecture8"
+        ]
+      },
+      {
+        "id": "4050-l10-two-scenarios",
+        "q": "Lecture 10: what are the two supply-chain scenarios Lysne distinguishes?",
+        "a": "1) The supplier itself has malicious intent (AG Crypto; Starlink if the Reuters report is right; Huawei is mentioned as speculation without a known smoking gun). 2) Someone attacks the supplier and the product is compromised (SolarWinds, plus more cases in the ENISA supply-chain PDF on Canvas).",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-four-phases",
+        "q": "Lecture 10: what are the four phases of an upstream supply-chain attack?",
+        "a": "1) Attack the supplier. 2) Compromise the supplier product. 3) The supplier delivers or installs that product at the customer. 4) The attacker exploits the compromised product against the customer. Phases 1-2 are ordinary supplier security. Phases 3-4 are the customer problem.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-properties",
+        "q": "Lecture 10: which properties of digital supply chains does the lecture stress?",
+        "a": "Faults can propagate instantly, sometimes in unpredictable ways. A team building a service on top of the chain struggles to see inherited vulnerabilities. Some services sit at the bottom of a very large number of chains. Hardware, software, and service chains are all in scope.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-trusting-trust",
+        "q": "Lecture 10: what does Thompson, Reflections on Trusting Trust (1984), show for untrusted vendors?",
+        "a": "A backdoor can be inserted by the compiler, synthesis tool, or manufacturing step. Clean source code does not prove the executable is clean, and clean hardware source does not prove the chip is clean. The development team does not have to know.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-undecidable",
+        "q": "Lecture 10: why does the lecture say AI will never detect every vulnerability?",
+        "a": "A perfect detector P is not decidable. If program B does something malicious only when P says it is safe, running B on itself is a contradiction. The same limit is used for hidden leakage that looks like noise: not every malicious case is detectable.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-golden",
+        "q": "Lecture 10: why can ordinary malware detection miss a vendor-inserted backdoor?",
+        "a": "Effective methods compare the unit with a clean golden sample. If the vendor inserted the trojan, no golden sample exists.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-takeaways",
+        "q": "Lecture 10: what is the takeaway when the equipment vendor is the adversary?",
+        "a": "Against an outside attacker, professional controls can make a quiet break-in hard. Against the vendor, no classical method currently has a significant effect even when applied professionally. AI might change that, but how far is unclear in 2026. Heterogeneous equipment gives a fallback, and vendor vetting matters.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-customer-controls",
+        "q": "Lecture 10: which customer-side controls does the lecture list?",
+        "a": "Runtime monitoring of odd connections, activity, and privilege escalation. File integrity monitoring. Supplier audits, a secure development lifecycle, and contract clauses such as patch timelines and breach reporting. Prefer ISO 27001 or SOC 2. Code signing, hash checks against the official release, and watching third-party repositories.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-quiz-rules",
+        "q": "Lecture 10: how is the supply-chain Canvas assignment scored (slides, crawl 19 Oct 2026)?",
+        "a": "Interactive quiz, assignment 123563. Maximum 100 points, at least 60 to pass, up to five attempts, highest score counts. It does not count toward the final course grade. Due 27 October 2026 at 23:59. Not submitted on the 19 Oct crawl.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "canvas"
         ]
       }
     ]
@@ -11519,15 +11601,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 306,
+    acit4050: 315,
     acit4280: 253,
     acit4100: 396,
-    computer-basics: 28,
-    fellesjam-general: 26
+    "computer-basics": 28,
+    "fellesjam-general": 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock166",
+    version: "lock169",
     expected: EXPECTED,
     loadedAt: Date.now()
   };
