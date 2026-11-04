@@ -11,7 +11,7 @@
   <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Study app | MSc Cyber Year 1</title>
-  <meta name="description" content="Flashcards, terminal practice, and diagrams for ACIT4050, ACIT4280, and ACIT4100. Works offline. No personal data." />
+  <meta name="description" content="Exam repetition for ACIT4050 and ACIT4280: flashcards, timed exam prep, terminal lab, and framework drills. Works offline. No personal data." />
   <meta property="og:title" content="MSc Cybersecurity Practise Syllabus 1st Year" />
   <meta property="og:description" content="Flashcards, terminal practice, and diagrams for MSc Cyber Year 1. Offline-friendly. No personal data." />
   <meta property="og:type" content="website" />
@@ -2478,6 +2478,13 @@
     }
     .embed .quiz-home { display: none !important; }
     .embed #tab-study-test { display: none !important; }
+    html.exam-focus #tab-course-acit4100,
+    html.exam-focus #tab-course-fellesjam { display: none !important; }
+    html.exam-focus #btn-notes-to-4100 { display: none !important; }
+    html.exam-focus .settings-study-setup [data-first-course="acit4100"] { display: none !important; }
+    html.exam-focus .hero-lede-exam { display: block; }
+    html.exam-focus .hero-lede-default { display: none; }
+    .hero-lede-exam { display: none; }
     .test-mode .quiz-card {
       border-top: 4px solid var(--palette-red);
     }
@@ -3655,6 +3662,7 @@
       <div class="hero-top">
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
+          <a class="btn ghost" href="exam-rep.html">Exam repetition</a>
           <a class="btn ghost" href="UKAS_LESNING.html">This week</a>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
         </div>
@@ -3662,7 +3670,8 @@
       <div class="hero-body">
         <div class="hero-copy">
           <h1 id="hero-title">Practice terminal commands step by step.</h1>
-          <p class="hero-lede" id="hero-lede">Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
+          <p class="hero-lede hero-lede-default" id="hero-lede">Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
+          <p class="hero-lede hero-lede-exam">Exam focus: <strong>4050</strong> (26 Nov) and <strong>4280</strong> (10 Dec). Use Exam prep mode for timed drills. Essay course tabs are hidden - open <a href="exam-rep.html" style="color:#FFD51E">exam dashboard</a>.</p>
         </div>
       </div>
     </div>
@@ -4591,7 +4600,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock169" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock170" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -5442,22 +5451,19 @@ function showCourse(courseKey) {
   /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
   var STUDY_FOCUS = {
     acit4050: [
-      { tag: "Lecture8", label: "Anatomy of an Attack assignment", due: "2026-10-22" },
-      { tag: "l9-identity", label: "L-9 Identity Management quiz", due: "2026-09-29", done: true },
-      { tag: "Lecture7", label: "Lecture 7 GDPR quiz", due: "2026-10-06", done: true },
-      { tag: "l05-firewall", label: "L05 Firewall rules assignment", due: "2026-09-22", done: true },
-      { tag: "Lecture4", label: "Lecture 4 IDS", due: "2026-09-16", done: true }
+      { tag: "Lecture11", label: "L-11 data in transit quiz", due: "2026-11-08" },
+      { tag: "Lecture10", label: "L-10 data at rest (submitted, grade pending)", due: "2026-11-08", done: true },
+      { tag: "exam", label: "WISEflow written exam", due: "2026-11-26" },
+      { tag: "Lecture8", label: "Anatomy of an Attack", due: "2026-10-31", done: true },
+      { tag: "Lecture7", label: "GDPR quiz", due: "2026-10-06", done: true }
     ],
     acit4100: [
-      { tag: "assignment-2", label: "Assignment 2 presentation recording", due: "2026-10-30" },
-      { tag: "week7", label: "Week 7 Genres", due: "2026-09-28", done: true },
-      { tag: "assign1", label: "Assignment 1 taxonomy", due: "2026-09-25", done: true },
-      { tag: "week6", label: "Week 6 Merton", due: "2026-09-21", done: true }
+      { tag: "essay", label: "Essay exam (hidden in exam focus mode)", due: "2026-12-01" }
     ],
     acit4280: [
-      { tag: "Lecture6", label: "Lecture 6 engineering patterns", due: "2026-10-20" },
-      { tag: "PIA", label: "PIA and privacy quizzes (optional retake)", due: "2026-10-25" },
-      { tag: "Lecture5", label: "Lecture 5 Privacy Management", due: "2026-09-24", done: true },
+      { tag: "PIA", label: "PIA / risk / controls (exam themes)", due: "2026-12-10" },
+      { tag: "Lecture6", label: "Privacy patterns and PETs", due: "2026-12-10" },
+      { tag: "exam", label: "WISEflow written exam", due: "2026-12-10" },
       { tag: "1A", label: "Group 1A Webbkoll", due: "2026-09-01", done: true }
     ]
   };
@@ -11719,6 +11725,10 @@ function showCourse(courseKey) {
   function isEmbedMode() {
     return document.documentElement.classList.contains("embed");
   }
+  var EXAM_FOCUS_KEY = "acit-exam-focus-v1";
+  var pendingStudyQuery = null;
+  var pendingTagQuery = null;
+
   function ensureEmbedClass() {
     try {
       if (new URLSearchParams(window.location.search || "").get("embed") === "1") {
@@ -11727,7 +11737,42 @@ function showCourse(courseKey) {
       }
     } catch (e) { /* ignore */ }
   }
+
+  function ensureExamFocusClass() {
+    try {
+      var p = new URLSearchParams(window.location.search || "");
+      if (p.get("exam") === "1") {
+        localStorage.setItem(EXAM_FOCUS_KEY, "1");
+      } else if (p.get("exam") === "0") {
+        localStorage.removeItem(EXAM_FOCUS_KEY);
+      }
+      if (localStorage.getItem(EXAM_FOCUS_KEY) === "1") {
+        document.documentElement.classList.add("exam-focus");
+        var ht = $("hero-title");
+        if (ht) ht.textContent = "Repeat for your written exams.";
+      }
+      var study = p.get("study");
+      if (study === "quiz" || study === "test" || study === "flash" || study === "flashcards") {
+        pendingStudyQuery = study === "flash" ? "flashcards" : study;
+      }
+      var tag = p.get("tag");
+      if (tag) pendingTagQuery = tag;
+    } catch (e) { /* ignore */ }
+  }
+
+  function applyPendingStudyQuery() {
+    if (pendingStudyQuery) {
+      setStudyMode(pendingStudyQuery);
+      pendingStudyQuery = null;
+    }
+    if (pendingTagQuery && typeof studyApplyUnitFilter === "function") {
+      studyApplyUnitFilter(pendingTagQuery);
+      pendingTagQuery = null;
+    }
+  }
+
   ensureEmbedClass();
+  ensureExamFocusClass();
 
   quizValidateDecksDev();
   studyAuthApplyUi();
@@ -11736,6 +11781,7 @@ function showCourse(courseKey) {
     showCourse(embedCourse);
   quizEnsureDecksReady().then(function () {
       if (courseFromHash()) applyHashRoute();
+      applyPendingStudyQuery();
     });
   } else {
     showCourse(last4050Section());
@@ -11745,11 +11791,13 @@ function showCourse(courseKey) {
     window.setTimeout(weeklyRecapMaybeShow, 800);
     if (courseFromHash()) {
       applyHashRoute();
+      applyPendingStudyQuery();
       return;
     }
     var last = null;
     try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
     if (last && COURSE_TO_HASH[last]) showCourse(last);
+    applyPendingStudyQuery();
   });
   }
   window.addEventListener("hashchange", function () {
