@@ -8937,8 +8937,17 @@ function showCourse(courseKey) {
 
   function testLoadAndShow() {
     if (testState.mixedExam) {
-      quizDeckFallbackTried = false;
       var mix = testMixedPoolStats();
+      if (mix.total < 3 && !quizDeckFallbackTried) {
+        quizDeckFallbackTried = true;
+        quizShowEmpty(0, { loading: true });
+        quizFetchJsonFallback().then(function (ok) {
+          quizDeckFallbackTried = false;
+          if (ok) testLoadAndShow();
+          else quizShowEmpty(0, { missingDeck: true });
+        });
+        return;
+      }
       if (mix.total < 3) {
         quizShowEmpty(0, { missingDeck: true });
         return;
