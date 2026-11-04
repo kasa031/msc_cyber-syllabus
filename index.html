@@ -2337,6 +2337,16 @@
       color: var(--slate);
       line-height: 1.45;
     }
+    .quiz-home-pensum {
+      margin: 0 0 0.85rem;
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      line-height: 1.45;
+      border-left: 4px solid var(--palette-yellow);
+      padding: 0.45rem 0.65rem;
+      background: var(--palette-cream);
+    }
+    .quiz-home-pensum code { font-size: 0.78rem; }
     .quiz-home-goal {
       margin: 0 0 0.85rem;
     }
@@ -4389,10 +4399,11 @@
                 <p class="quiz-home-due"><b id="test-home-count">10</b> mixed questions</p>
               </div>
             </div>
-            <p class="quiz-home-sub" id="test-home-sub">Written answers and multiple choice like Canvas. Score at the end - does not change your Practice schedule.</p>
-            <div class="tut-actions quiz-home-actions">
-              <button type="button" class="btn btn-primary" id="test-home-start">Start test</button>
-            </div>
+                <p class="quiz-home-sub" id="test-home-sub">Written answers and multiple choice like Canvas. Score at the end - does not change your Practice schedule.</p>
+                <p class="quiz-home-pensum" id="test-home-pensum">Syllabus-linked cards only (lecture slides, Canvas quizzes, official &quot;Examples of possible exam questions&quot;). Cards tagged <code>needs-canvas</code> or optional off-pensum reading are excluded. MCQ wrong options come from other real answers in this deck - never invented filler.</p>
+                <div class="tut-actions quiz-home-actions">
+                  <button type="button" class="btn btn-primary" id="test-home-start">Start test</button>
+                </div>
           </div>
           <div class="quiz-find" id="quiz-find" hidden>
             <label class="visually-hidden" for="quiz-search">Find cards</label>
@@ -4600,7 +4611,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock170" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock171" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -8454,8 +8465,29 @@ function showCourse(courseKey) {
     return "mcq";
   }
 
+  /** Off-pensum or unverified sources - never use in Exam prep tests. */
+  var STUDY_PENSUM_BLOCK_TAGS = ["needs-canvas", "optional-sources", "inferred", "meta-only", "off-pensum"];
+
+  function studyCardPensumEligible(card) {
+    if (!card || !card.q || !card.a) return false;
+    var tags = card.tags || [];
+    for (var i = 0; i < tags.length; i++) {
+      if (STUDY_PENSUM_BLOCK_TAGS.indexOf(tags[i]) >= 0) return false;
+    }
+    return true;
+  }
+
+  function studyCardExamPriority(card) {
+    if (!card) return 0;
+    if (studyCardHasTag(card, "exam")) return 3;
+    if (studyCardHasTag(card, "Canvas-quiz")) return 2;
+    if (studyCardHasTag(card, "pensum") || studyCardHasTag(card, "syllabus")) return 1;
+    return 0;
+  }
+
   function testBuildPool(deck) {
     var pool = (deck.cards || []).filter(function (c) { return c && c.id && c.q && c.a; });
+    pool = pool.filter(studyCardPensumEligible);
     if (quizState.tagFilter) {
       pool = pool.filter(function (c) { return studyCardHasTag(c, quizState.tagFilter); });
     }
@@ -8475,26 +8507,53 @@ function showCourse(courseKey) {
       if (distractors.some(function (d) { return testNormalizeAnswer(d) === nt; })) return;
       distractors.push(t);
     });
-    while (distractors.length < 3) {
-      distractors.push("Not listed in this deck");
-    }
+    if (distractors.length < 3) return null;
     var choices = flashShuffle([correct].concat(distractors));
     var correctIdx = choices.indexOf(correct);
     return { choices: choices, correctIdx: correctIdx };
   }
 
+  function testPickWeightedPool(pool, limit) {
+    if (!pool.length) return [];
+    var primary = pool.filter(function (c) { return studyCardExamPriority(c) >= 2; });
+    var secondary = pool.filter(function (c) { return studyCardExamPriority(c) < 2; });
+    var want = Math.min(limit, pool.length);
+    var priQuota = Math.min(primary.length, Math.max(Math.ceil(want * 0.6), Math.min(6, want)));
+    var picked = flashShuffle(primary).slice(0, priQuota);
+    var rest = want - picked.length;
+    if (rest > 0) {
+      var sec = flashShuffle(secondary).slice(0, rest);
+      var seen = {};
+      picked.forEach(function (c) { seen[c.id] = true; });
+      sec.forEach(function (c) {
+        if (!seen[c.id]) picked.push(c);
+      });
+    }
+    if (picked.length < want) {
+      flashShuffle(pool).forEach(function (c) {
+        if (picked.length >= want) return;
+        if (!picked.some(function (p) { return p.id === c.id; })) picked.push(c);
+      });
+    }
+    return flashShuffle(picked).slice(0, want);
+  }
+
   function testBuildQuestions(deck) {
     var pool = testBuildPool(deck);
     if (pool.length < 3) return [];
-    var picked = flashShuffle(pool).slice(0, Math.min(TEST_SIZE, pool.length));
+    var picked = testPickWeightedPool(pool, Math.min(TEST_SIZE, pool.length));
     return picked.map(function (card) {
       var type = testPickQuestionType(card);
       var q = { card: card, type: type };
       if (type === "mcq") {
         var mcq = testBuildMcqChoices(card, pool);
-        q.choices = mcq.choices;
-        q.correctIdx = mcq.correctIdx;
+        if (!mcq) type = "written";
+        else {
+          q.choices = mcq.choices;
+          q.correctIdx = mcq.correctIdx;
+        }
       }
+      q.type = type;
       return q;
     });
   }
@@ -8524,8 +8583,13 @@ function showCourse(courseKey) {
     if (countEl) countEl.textContent = String(n);
     if (sub) {
       sub.textContent = pool.length < 3
-        ? "Need at least 3 cards in this deck (or filter) for a test."
+        ? "Need at least 3 syllabus-linked cards in this deck (or filter) for a test."
         : "Written answers and multiple choice like Canvas. Score at the end - does not change your practice schedule.";
+    }
+    var pensumNote = $("test-home-pensum");
+    if (pensumNote) {
+      var pri = pool.filter(function (c) { return studyCardExamPriority(c) >= 2; }).length;
+      pensumNote.textContent = "Syllabus-linked cards only (" + pool.length + " in pool, " + pri + " from official exam examples or Canvas quizzes). MCQ distractors are other real answers from this deck.";
     }
     var startBtn = $("test-home-start");
     if (startBtn) startBtn.disabled = pool.length < 3;
@@ -11771,6 +11835,13 @@ function showCourse(courseKey) {
     }
   }
 
+  function applyPendingTagFromUrl() {
+    try {
+      var tag = new URLSearchParams(window.location.search || "").get("tag");
+      if (tag && typeof studyApplyUnitFilter === "function") studyApplyUnitFilter(tag);
+    } catch (e) { /* ignore */ }
+  }
+
   ensureEmbedClass();
   ensureExamFocusClass();
 
@@ -11792,12 +11863,14 @@ function showCourse(courseKey) {
     if (courseFromHash()) {
       applyHashRoute();
       applyPendingStudyQuery();
+      applyPendingTagFromUrl();
       return;
     }
     var last = null;
     try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
     if (last && COURSE_TO_HASH[last]) showCourse(last);
     applyPendingStudyQuery();
+    applyPendingTagFromUrl();
   });
   }
   window.addEventListener("hashchange", function () {

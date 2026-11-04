@@ -207,6 +207,44 @@
       font-size: 0.85rem;
       opacity: 0.9;
     }
+    .pensum-box {
+      margin-top: 1.25rem;
+      border: 2px solid var(--purple);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      background: #fff;
+      font-size: 0.88rem;
+    }
+    .pensum-box strong { color: var(--magenta); }
+    .due-line {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--magenta);
+      margin: 0.15rem 0 0;
+    }
+    .syllabus-map details {
+      border: 1px solid rgba(80, 3, 192, 0.25);
+      border-radius: var(--radius);
+      padding: 0.55rem 0.75rem;
+      margin: 0.45rem 0;
+      background: var(--cream);
+    }
+    .syllabus-map summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--purple);
+    }
+    .syllabus-map ul {
+      margin: 0.45rem 0 0.2rem;
+      padding-left: 1.15rem;
+      font-size: 0.86rem;
+    }
+    .syllabus-map li { margin: 0.28rem 0; }
+    .src-tag {
+      font-size: 0.72rem;
+      color: var(--magenta);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -221,11 +259,14 @@
         </nav>
       </div>
       <h1>Repeat what matters for the written exams.</h1>
-      <p class="hero-lede">Only <strong>ACIT4050</strong> (26 Nov) and <strong>ACIT4280</strong> (10 Dec). No essay course here - just security, privacy, and Canvas-style drills.</p>
+      <p class="hero-lede">Only <strong>ACIT4050</strong> (26 Nov) and <strong>ACIT4280</strong> (10 Dec). Every flashcard and exam-prep question comes from lecture slides, Canvas quizzes, or official &quot;Examples of possible exam questions&quot; pages - not invented mock items.</p>
     </div>
   </header>
 
   <main class="wrap">
+    <div class="pensum-box" role="note">
+      <strong>Pensum rule in the app:</strong> Exam prep mode excludes cards tagged <code>needs-canvas</code> or optional off-syllabus reading. Multiple-choice wrong answers are taken from other real cards in the same deck (never fake options). When in doubt, check Canvas and your local PDFs under <code>Emner/ACIT4050</code> and <code>Emner/ACIT4280</code>.
+    </div>
     <div class="exam-grid">
       <article class="exam-card" data-course="4050">
         <div class="exam-card-head">
@@ -233,8 +274,9 @@
           <span class="tag">WISEflow 3h</span>
         </div>
         <p class="countdown" id="cd-4050" aria-live="polite">Calculating...</p>
-        <p class="exam-meta"><strong>Exam:</strong> 26 November 2026, 09:00. Open book: slides, notes, and the web (no AI in the exam room).</p>
+        <p class="exam-meta"><strong>Exam:</strong> 26 November 2026, 09:00. Syllabus (Lecture 1 / quiz card <code>4050-exam-format</code>): individual written exam, 3 hours, graded A-F. Confirm permitted aids on Canvas before the day.</p>
         <p class="exam-meta"><strong>Now:</strong> Finish <strong>L-11 data in transit</strong> (due 8 Nov 23:59). L-10 submitted, grade pending.</p>
+        <p class="due-line" id="due-4050">Due cards: loading...</p>
         <div class="action-row">
           <a class="btn cta" href="index.html?exam=1&amp;study=quiz#4050">Practice due cards</a>
           <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4050">Timed exam prep (10 Q)</a>
@@ -249,8 +291,9 @@
           <span class="tag">WISEflow 3h</span>
         </div>
         <p class="countdown" id="cd-4280" aria-live="polite">Calculating...</p>
-        <p class="exam-meta"><strong>Exam:</strong> 10 December 2026, 15:00. Case-style questions: PIA, controls, patterns, GDPR logic.</p>
+        <p class="exam-meta"><strong>Exam:</strong> 10 December 2026, 15:00. Course plan (quiz card <code>4280-exam-format</code>): individual digital written exam, 3 hours, graded A-F. Inspera/WISEflow details on Canvas.</p>
         <p class="exam-meta"><strong>Now:</strong> No class <strong>5 Nov</strong>. Group 6 presentations <strong>12 Nov 08:30</strong> (not your 1A topic).</p>
+        <p class="due-line" id="due-4280">Due cards: loading...</p>
         <div class="action-row">
           <a class="btn cta" href="index.html?exam=1&amp;study=quiz#4280">Practice due cards</a>
           <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4280">Timed exam prep (10 Q)</a>
@@ -269,6 +312,30 @@
       <div class="tut-actions" style="margin-top:0.75rem;">
         <button type="button" class="btn btn-primary" id="check-reset">Reset checklist</button>
       </div>
+    </section>
+
+    <section class="panel syllabus-map" aria-labelledby="syllabus-title">
+      <h2 id="syllabus-title">Syllabus map (official sources)</h2>
+      <p class="panel-lede">Use these Canvas pages and local copies when you practice. Exam prep in the app prioritises tags <code>exam</code> and <code>Canvas-quiz</code>.</p>
+      <details open>
+        <summary>ACIT4050 - lectures and exam examples</summary>
+        <ul>
+          <li><a href="https://oslomet.instructure.com/courses/34599/pages/examples-of-possible-exam-questions" target="_blank" rel="noopener">Lecture 2 - Examples of possible exam questions (phishing)</a> <span class="src-tag">local MD in Emner/ACIT4050/00_Course_info/</span></li>
+          <li><a href="index.html?exam=1&amp;study=test&amp;tag=exam#4050">App: filter tag <code>exam</code></a> (eight official prompts + module lists)</li>
+          <li><a href="index.html?exam=1&amp;study=test&amp;tag=Canvas-quiz#4050">App: L-10 Canvas quiz cards</a> (from submitted New Quiz)</li>
+          <li>Modules: IDS, Firewalls, IAM, GDPR, Anatomy, Supply chain, Data at rest / in transit - see <a href="class-notes.html#acit4050">class notes</a></li>
+          <li>L-11 prep: <code>Emner/ACIT4050/Lecture_12/ACIT4050_L11_DATA_IN_TRANSIT_QUIZ_PREP.md</code> and slides PDF</li>
+        </ul>
+      </details>
+      <details>
+        <summary>ACIT4280 - chapters and exam themes</summary>
+        <ul>
+          <li><a href="https://oslomet.instructure.com/courses/34604/pages/exam-information" target="_blank" rel="noopener">Canvas: Exam information</a></li>
+          <li>Ch I-VI slides on Canvas modules; app tags <code>Ch1</code> ... <code>Lecture6</code>, <code>PIA</code>, <code>PETs</code></li>
+          <li>InstantONS assignment (PIA, risk, controls) - <a href="class-notes.html#p4280-l5-privacy-mgmt">class notes L5</a></li>
+          <li><a href="index.html?exam=1&amp;study=test&amp;tag=Canvas-quiz#4280">App: Canvas module quizzes</a> (exported when you completed them)</li>
+        </ul>
+      </details>
     </section>
 
     <section class="panel" aria-labelledby="modes-title">
@@ -306,17 +373,77 @@
         "4280": { el: "cd-4280", at: "2026-12-10T15:00:00+01:00", label: "4280 exam" }
       };
       var ITEMS = [
-        { id: "4050-l11", course: "4050", text: "Submit 4050 L-11 data in transit quiz (due 8 Nov 23:59)." },
-        { id: "4050-slides-11-12", course: "4050", text: "Skim Lecture 11-12 slides (crypto + TLS themes)." },
-        { id: "4050-test", course: "4050", text: "Run one timed Exam prep session (10 questions) for 4050." },
-        { id: "4050-frameworks", course: "4050", text: "Drag NIST, Kill Chain, and MITRE once in Diagrams mode." },
-        { id: "4050-weak", course: "4050", text: "Drill weak tags from Settings (firewall, IDS, IAM)." },
-        { id: "4280-test", course: "4280", text: "Run one timed Exam prep session for 4280." },
-        { id: "4280-pia", course: "4280", text: "Review PIA / risk / control selection (InstantONS notes)." },
-        { id: "4280-patterns", course: "4280", text: "Repeat privacy patterns and PETs (Lecture 6 cards)." },
-        { id: "4280-gdpr", course: "4280", text: "Refresh Art. 5-6-9 and lawful basis quick cards." },
-        { id: "both-streak", course: "both", text: "Three days in a row: at least your daily card goal (5/10/20)." }
+        { id: "4050-l11", course: "4050", text: "Submit L-11 on Canvas (123557) - same style as Lecture 12 exam examples page." },
+        { id: "4050-slides-11-12", course: "4050", text: "Read local PDFs: Lecture_11 (data at rest) and Lecture_12 (data in transit)." },
+        { id: "4050-exam-eight", course: "4050", text: "Practice the eight official phishing exam prompts (tag exam in app)." },
+        { id: "4050-test", course: "4050", text: "One timed Exam prep round (syllabus pool only)." },
+        { id: "4050-frameworks", course: "4050", text: "NIST CSF + Kill Chain + MITRE drills (Lecture 1 syllabus task)." },
+        { id: "4280-test", course: "4280", text: "One timed Exam prep round (prioritises Canvas-quiz + exam tags)." },
+        { id: "4280-pia", course: "4280", text: "InstantONS / PIA cards + class notes (not ghost quiz 123219)." },
+        { id: "4280-patterns", course: "4280", text: "Lecture 6 engineering patterns (Canvas module + app tag Lecture6)." },
+        { id: "4280-gdpr", course: "4280", text: "GDPR Art. 5-6-9 cards from lecture chapters (not optional reading list)." },
+        { id: "both-streak", course: "both", text: "Three days: hit your daily card goal in Practice mode." }
       ];
+
+      var PENSUM_BLOCK = ["needs-canvas", "optional-sources", "inferred", "meta-only", "off-pensum"];
+
+      function loadSchedForDeck(deckKey) {
+        var found = null;
+        try {
+          for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            if (!k) continue;
+            if (k === "acit-quiz-sr-v1-" + deckKey || k === "acit-srs-v2-" + deckKey) {
+              found = JSON.parse(localStorage.getItem(k) || "{}");
+              break;
+            }
+            if (k.indexOf("acit-srs-v2-") === 0 && k.slice(-deckKey.length) === deckKey) {
+              found = JSON.parse(localStorage.getItem(k) || "{}");
+              break;
+            }
+          }
+        } catch (e) { /* ignore */ }
+        return found || {};
+      }
+
+      function cardDue(sched, cardId) {
+        var s = sched[cardId];
+        if (!s) return true;
+        var due = typeof s.due === "number" ? s.due : 0;
+        return due <= Date.now();
+      }
+
+      function countDue(deckKey) {
+        return fetch("quiz-data/" + deckKey + ".json")
+          .then(function (r) { return r.json(); })
+          .then(function (deck) {
+            var sched = loadSchedForDeck(deckKey);
+            var due = 0;
+            var total = 0;
+            (deck.cards || []).forEach(function (c) {
+              if (!c || !c.id || !c.q || !c.a) return;
+              var tags = c.tags || [];
+              for (var t = 0; t < tags.length; t++) {
+                if (PENSUM_BLOCK.indexOf(tags[t]) >= 0) return;
+              }
+              total += 1;
+              if (cardDue(sched, c.id)) due += 1;
+            });
+            return { due: due, total: total };
+          })
+          .catch(function () { return { due: 0, total: 0 }; });
+      }
+
+      function renderDueCounts() {
+        countDue("acit4050").then(function (n) {
+          var el = document.getElementById("due-4050");
+          if (el) el.textContent = "Practice queue: " + n.due + " due now (" + n.total + " syllabus cards in deck).";
+        });
+        countDue("acit4280").then(function (n) {
+          var el = document.getElementById("due-4280");
+          if (el) el.textContent = "Practice queue: " + n.due + " due now (" + n.total + " syllabus cards in deck).";
+        });
+      }
 
       function pad(n) { return n < 10 ? "0" + n : "" + n; }
 
@@ -398,6 +525,7 @@
       updateCountdowns();
       setInterval(updateCountdowns, 60000);
       renderChecklist();
+      renderDueCounts();
     })();
   </script>
 </body>
