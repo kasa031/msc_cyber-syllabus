@@ -2,14 +2,14 @@
 (function (global) {
   "use strict";
 
-  /* Karina palette - flat solids only */
+  /* Flat solids - sync with css/study-research.css */
   var NIST_SLOTS = [
-    { id: "govern", label: "GOVERN", color: "#5003C0", text: "#FFF9E6" },
-    { id: "identify", label: "IDENTIFY", color: "#AB03A9", text: "#FFF9E6" },
-    { id: "protect", label: "PROTECT", color: "#FF467A", text: "#FFF9E6" },
-    { id: "detect", label: "DETECT", color: "#FFD51E", text: "#5003C0" },
-    { id: "respond", label: "RESPOND", color: "#5003C0", text: "#FFF9E6" },
-    { id: "recover", label: "RECOVER", color: "#AB03A9", text: "#FFF9E6" }
+    { id: "govern", label: "GOVERN", color: "#0f766e", text: "#f8fafc" },
+    { id: "identify", label: "IDENTIFY", color: "#0369a1", text: "#f8fafc" },
+    { id: "protect", label: "PROTECT", color: "#be123c", text: "#f8fafc" },
+    { id: "detect", label: "DETECT", color: "#d97706", text: "#115e59" },
+    { id: "respond", label: "RESPOND", color: "#0d9488", text: "#f8fafc" },
+    { id: "recover", label: "RECOVER", color: "#115e59", text: "#f8fafc" }
   ];
 
   var KILL_SLOTS = [
@@ -34,8 +34,17 @@
     { id: "impact", label: "Impact" }
   ];
 
-  var KILL_COLORS = ["#5003C0", "#AB03A9", "#FF467A", "#FFD51E"];
+  var KILL_COLORS = ["#0f766e", "#0369a1", "#be123c", "#d97706"];
   var KILL_BLUE = KILL_COLORS[0];
+
+  /* InstantONS impact assessment report flow (4280 L5). */
+  var INSTANTONS_SLOTS = [
+    { id: "roles", label: "Controllers / processors" },
+    { id: "inventory", label: "Data sources and types" },
+    { id: "pda", label: "One PDA deep-dive" },
+    { id: "impact", label: "Impact and risk" },
+    { id: "controls", label: "Control selection" }
+  ];
 
   var practiceResets = [];
 
@@ -456,6 +465,28 @@
     host.appendChild(row);
   }
 
+  function buildInstantonsChain(host) {
+    host.innerHTML = "";
+    var row = document.createElement("div");
+    row.className = "kill-row instantons-row";
+    row.setAttribute("role", "list");
+    INSTANTONS_SLOTS.forEach(function (s, i) {
+      var slot = document.createElement("div");
+      slot.className = "fp-slot kill-chevron is-empty";
+      slot.setAttribute("data-slot", s.id);
+      slot.setAttribute("tabindex", "0");
+      slot.setAttribute("role", "button");
+      slot.setAttribute("aria-label", "InstantONS step " + (i + 1));
+      slot.style.setProperty("--kill-blue", KILL_COLORS[i % KILL_COLORS.length]);
+      var label = document.createElement("span");
+      label.className = "fp-slot-label";
+      label.textContent = (i + 1) + "";
+      slot.appendChild(label);
+      row.appendChild(slot);
+    });
+    host.appendChild(row);
+  }
+
   function buildMitreChain(host) {
     host.innerHTML = "";
     var row = document.createElement("div");
@@ -618,7 +649,7 @@
           }
           var bg = KILL_COLORS[idx % KILL_COLORS.length];
           slotEl.style.background = bg;
-          slotEl.style.color = bg === "#FFD51E" ? "#5003C0" : "#FFF9E6";
+          slotEl.style.color = bg === "#d97706" ? "#115e59" : "#f8fafc";
           if (status) {
             fpFlowStatus(status, "ok", labelFor(labelId) + " locked in.");
           }
@@ -685,7 +716,7 @@
           }
           var bg = KILL_COLORS[idx % KILL_COLORS.length];
           slotEl.style.background = bg;
-          slotEl.style.color = bg === "#FFD51E" ? "#5003C0" : "#FFF9E6";
+          slotEl.style.color = bg === "#d97706" ? "#115e59" : "#f8fafc";
           if (status) {
             fpFlowStatus(status, "ok", labelFor(labelId) + " locked in.");
           }
@@ -712,6 +743,73 @@
     setup();
   }
 
+  function initInstantons(root) {
+    var board = root.querySelector("#instantons-board");
+    var tray = root.querySelector("#instantons-tray");
+    var status = root.querySelector("#instantons-status");
+    var resetBtn = root.querySelector("#instantons-reset");
+    if (!board || !tray) return;
+
+    function labelFor(id) {
+      for (var i = 0; i < INSTANTONS_SLOTS.length; i++) {
+        if (INSTANTONS_SLOTS[i].id === id) return INSTANTONS_SLOTS[i].label;
+      }
+      return id;
+    }
+
+    var ctrl;
+    var nextBtn = root.querySelector("#instantons-next");
+
+    function setup() {
+      buildInstantonsChain(board);
+      fillTray(tray, INSTANTONS_SLOTS);
+      root.classList.remove("fp-complete");
+      if (nextBtn) nextBtn.hidden = true;
+      if (status) {
+        fpFlowStatus(status, "idle", "Order the InstantONS report sections left to right (dating scenario PIA).");
+      }
+      ctrl = createDragController({
+        root: root,
+        tray: tray,
+        slotIds: INSTANTONS_SLOTS.map(function (s) { return s.id; }),
+        getSlotEl: function (id) {
+          return root.querySelector('#instantons-board .fp-slot[data-slot="' + id + '"]');
+        },
+        labelFor: labelFor,
+        onCorrect: function (slotId, labelId, slotEl) {
+          var idx = 0;
+          for (var ii = 0; ii < INSTANTONS_SLOTS.length; ii++) {
+            if (INSTANTONS_SLOTS[ii].id === slotId) { idx = ii; break; }
+          }
+          var bg = KILL_COLORS[idx % KILL_COLORS.length];
+          slotEl.style.background = bg;
+          slotEl.style.color = bg === "#d97706" ? "#115e59" : "#f8fafc";
+          if (status) {
+            fpFlowStatus(status, "ok", labelFor(labelId) + " locked in.");
+          }
+        },
+        onWrong: function () {
+          if (status) {
+            fpFlowStatus(status, "soft", "Wrong section for that step - try again.");
+          }
+        },
+        onComplete: function () {
+          root.classList.add("fp-complete");
+          if (nextBtn) nextBtn.hidden = false;
+          if (status) {
+            fpFlowStatus(status, "ok", "Complete - InstantONS analysis structure in order.");
+          }
+          if (typeof window.studyMarkFlag === "function") window.studyMarkFlag("instantonsDone");
+        }
+      });
+      ctrl.bind();
+    }
+
+    if (resetBtn) resetBtn.addEventListener("click", setup);
+    practiceResets.push(setup);
+    setup();
+  }
+
   function resetAllPractice() {
     practiceResets.forEach(function (fn) { fn(); });
     showPracticeSection("nist");
@@ -720,6 +818,7 @@
   function normalizePracticeSection(which) {
     if (which === "killchain" || which === "kill") return "kill";
     if (which === "mitre" || which === "attack") return "mitre";
+    if (which === "instantons" || which === "pia" || which === "4280") return "instantons";
     return "nist";
   }
 
@@ -728,16 +827,20 @@
     var nist = document.getElementById("practice-nist");
     var kill = document.getElementById("practice-kill");
     var mitre = document.getElementById("practice-mitre");
+    var instantons = document.getElementById("practice-instantons");
     var tabN = document.getElementById("tab-practice-nist");
     var tabK = document.getElementById("tab-practice-kill");
     var tabM = document.getElementById("tab-practice-mitre");
-    if (!nist || !kill || !mitre) return;
+    var tabI = document.getElementById("tab-practice-instantons");
+    if (!nist || !kill || !mitre || !instantons) return;
     nist.hidden = section !== "nist";
     kill.hidden = section !== "kill";
     mitre.hidden = section !== "mitre";
+    instantons.hidden = section !== "instantons";
     nist.classList.toggle("active", section === "nist");
     kill.classList.toggle("active", section === "kill");
     mitre.classList.toggle("active", section === "mitre");
+    instantons.classList.toggle("active", section === "instantons");
     if (tabN) {
       tabN.classList.toggle("active", section === "nist");
       tabN.setAttribute("aria-selected", section === "nist" ? "true" : "false");
@@ -753,21 +856,30 @@
       tabM.setAttribute("aria-selected", section === "mitre" ? "true" : "false");
       tabM.tabIndex = section === "mitre" ? 0 : -1;
     }
+    if (tabI) {
+      tabI.classList.toggle("active", section === "instantons");
+      tabI.setAttribute("aria-selected", section === "instantons" ? "true" : "false");
+      tabI.tabIndex = section === "instantons" ? 0 : -1;
+    }
   }
 
   function init() {
     var nistRoot = document.getElementById("practice-nist");
     var killRoot = document.getElementById("practice-kill");
     var mitreRoot = document.getElementById("practice-mitre");
+    var instantonsRoot = document.getElementById("practice-instantons");
     if (nistRoot) initNist(nistRoot);
     if (killRoot) initKill(killRoot);
     if (mitreRoot) initMitre(mitreRoot);
+    if (instantonsRoot) initInstantons(instantonsRoot);
     var tabN = document.getElementById("tab-practice-nist");
     var tabK = document.getElementById("tab-practice-kill");
     var tabM = document.getElementById("tab-practice-mitre");
+    var tabI = document.getElementById("tab-practice-instantons");
     if (tabN) tabN.addEventListener("click", function () { showPracticeSection("nist"); });
     if (tabK) tabK.addEventListener("click", function () { showPracticeSection("killchain"); });
     if (tabM) tabM.addEventListener("click", function () { showPracticeSection("mitre"); });
+    if (tabI) tabI.addEventListener("click", function () { showPracticeSection("instantons"); });
     var resetAllBtn = document.getElementById("practice-reset-all");
     if (resetAllBtn) resetAllBtn.addEventListener("click", resetAllPractice);
     var nistNext = document.getElementById("nist-next");
@@ -784,6 +896,15 @@
         var mainTab = document.getElementById("tab-course-4050-main");
         var quizTab = document.getElementById("tab-section-quiz");
         if (mainTab) mainTab.click();
+        if (quizTab) quizTab.click();
+      });
+    }
+    var instantonsNext = document.getElementById("instantons-next");
+    if (instantonsNext) {
+      instantonsNext.addEventListener("click", function () {
+        var main4280 = document.getElementById("tab-course-4280-main");
+        var quizTab = document.getElementById("tab-section-quiz");
+        if (main4280) main4280.click();
         if (quizTab) quizTab.click();
       });
     }

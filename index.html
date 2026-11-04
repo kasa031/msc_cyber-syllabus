@@ -43,47 +43,46 @@
 
     @layer tokens {
     :root {
-      /* Palette (Karina) - ONLY these four + cream surface */
-      --palette-purple: #5003C0;
-      --palette-magenta: #AB03A9;
-      --palette-pink: #FF467A;
-      --palette-yellow: #FFD51E;
-      --palette-cream: #FFF9E6;
-      --palette-red: #5003C0;
-      --palette-orange: #FFD51E;
-      --palette-turquoise: #AB03A9;
+      /* Sync with css/study-research.css */
+      --palette-purple: #0f766e;
+      --palette-magenta: #0369a1;
+      --palette-pink: #be123c;
+      --palette-yellow: #d97706;
+      --palette-cream: #f4f6f8;
+      --palette-red: #0f766e;
+      --palette-orange: #d97706;
+      --palette-turquoise: #0d9488;
 
-      /* Semantic - derived from palette only */
-      --ink: #5003C0;
-      --ink-2: #5003C0;
-      --ink-3: #AB03A9;
-      --slate: #AB03A9;
-      --mist: #AB03A9;
-      --fog: #FF467A;
-      --paper: #FFF9E6;
-      --paper-2: #FFF9E6;
-      --surface: #FFF9E6;
-      --line: #AB03A9;
-      --line-soft: #FFF9E6;
-      --line-accent: #FFD51E;
-      --signal: #AB03A9;
-      --signal-bright: #AB03A9;
-      --signal-soft: #FFF9E6;
-      --signal-deep: #5003C0;
-      --ochre: #FFD51E;
-      --ochre-soft: #FFF9E6;
-      --warn: #5003C0;
-      --warn-hot: #5003C0;
-      --warn-soft: #FFF9E6;
-      --console: #5003C0;
-      --console-fg: #FFF9E6;
-      --console-dim: #FFD51E;
-      --prompt: #FFD51E;
-      --kill-1: #5003C0;
-      --kill-2: #AB03A9;
-      --kill-3: #FF467A;
-      --kill-4: #FFD51E;
-      --kill-empty: #FFF9E6;
+      --ink: #1e293b;
+      --ink-2: #334155;
+      --ink-3: #64748b;
+      --slate: #64748b;
+      --mist: #94a3b8;
+      --fog: #cbd5e1;
+      --paper: #f4f6f8;
+      --paper-2: #ffffff;
+      --surface: #ffffff;
+      --line: #e2e8f0;
+      --line-soft: #f1f5f9;
+      --line-accent: #99f6e4;
+      --signal: #0d9488;
+      --signal-bright: #14b8a6;
+      --signal-soft: #ecfdf5;
+      --signal-deep: #115e59;
+      --ochre: #d97706;
+      --ochre-soft: #fffbeb;
+      --warn: #b45309;
+      --warn-hot: #92400e;
+      --warn-soft: #fffbeb;
+      --console: #134e4a;
+      --console-fg: #f8fafc;
+      --console-dim: #5eead4;
+      --prompt: #2dd4bf;
+      --kill-1: #0f766e;
+      --kill-2: #0369a1;
+      --kill-3: #be123c;
+      --kill-4: #d97706;
+      --kill-empty: #f1f5f9;
 
       /* 8px spacing scale */
       --space-1: 0.25rem;
@@ -111,17 +110,17 @@
       /* Layout */
       --max: 52rem;
       --page-gutter: 1.25rem;
-      --radius-sm: 3px;
-      --radius-md: 4px;
-      --radius-lg: 8px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
       --radius-pill: 999px;
-      --shadow-sm: 0 1px 0 rgba(80, 3, 192, 0.12);
-      --shadow-md: 0 4px 16px rgba(80, 3, 192, 0.14);
-      --shadow-lg: 0 12px 40px rgba(80, 3, 192, 0.18);
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 16px 48px rgba(15, 23, 42, 0.1);
 
       /* Motion + focus */
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --focus: 0 0 0 3px rgba(171, 3, 169, 0.45);
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+      --focus: 0 0 0 3px rgba(13, 148, 136, 0.35);
 
       /* Safe areas + touch (Apple HIG 44px) */
       --safe-top: env(safe-area-inset-top, 0px);
@@ -411,17 +410,17 @@
       margin-bottom: -1px;
       cursor: pointer;
       background: transparent;
-      color: #5003C0;
+      color: var(--signal-deep);
       transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.2s var(--ease);
     }
-    .mode-tabs button:hover { color: #5003C0; background: rgba(80,20,192,0.04); transform: translateY(-1px); }
+    .mode-tabs button:hover { color: var(--signal-deep); background: rgba(15,118,110,0.04); transform: translateY(-1px); }
     .mode-tabs button.active {
       color: #FFF9E6;
       border-bottom-color: var(--palette-turquoise);
       background: var(--palette-turquoise);
     }
     .mode-tabs button.active:hover {
-      color: #5003C0;
+      color: var(--signal-deep);
       background: var(--palette-turquoise);
       transform: translateY(-1px);
     }
@@ -492,7 +491,7 @@
     }
     .track-btn:active {
       transform: scale(0.98);
-      box-shadow: inset 0 2px 0 rgba(80, 3, 192, 0.12);
+      box-shadow: inset 0 2px 0 rgba(15, 118, 110, 0.12);
     }
     .track-btn strong {
       display: block;
@@ -762,7 +761,7 @@
     .tut-feedback code {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.88em;
-      background: rgba(80,20,192,0.08);
+      background: rgba(15,118,110,0.08);
       padding: 0.1em 0.35em;
       border-radius: 2px;
     }
@@ -799,7 +798,7 @@
       text-transform: uppercase;
     }
     .solvable-banner.is-miss .solvable-banner-kicker,
-    .solvable-banner.is-hint .solvable-banner-kicker { color: #5003C0; }
+    .solvable-banner.is-hint .solvable-banner-kicker { color: var(--signal-deep); }
     .solvable-banner.is-reveal .solvable-banner-kicker,
     .solvable-banner.is-correct .solvable-banner-kicker { color: #AB03A9; }
     .solvable-banner.is-wrong .solvable-banner-kicker { color: #FF467A; }
@@ -934,10 +933,10 @@
     p { margin: 0.6rem 0; }
     a { color: var(--signal); }
     a:hover { color: var(--signal-bright); }
-    .maal { color: #5003C0; margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
-    .maal strong { color: #5003C0; font-weight: 600; }
-    .ov-wrap .steps li { color: #5003C0; }
-    .ov-wrap h3 { color: #5003C0; }
+    .maal { color: var(--signal-deep); margin: 0.3rem 0 0.7rem; font-size: 0.98rem; }
+    .maal strong { color: var(--signal-deep); font-weight: 600; }
+    .ov-wrap .steps li { color: var(--signal-deep); }
+    .ov-wrap h3 { color: var(--signal-deep); }
 
     .steps { list-style: none; padding-left: 0; margin: 0.45rem 0 1rem; }
     .steps li {
@@ -1192,7 +1191,7 @@
       border-color: #AB03A9;
     }
     .streak-cal-day.is-today {
-      box-shadow: 0 0 0 2px #5003C0;
+      box-shadow: 0 0 0 2px var(--signal-deep);
     }
     .streak-calendar-wrap {
       margin: 0 0 1rem;
@@ -1290,7 +1289,7 @@
       border-radius: 6px;
       overflow: hidden;
       background: var(--palette-orange);
-      box-shadow: 0 2px 0 rgba(80, 3, 192, 0.06);
+      box-shadow: 0 2px 0 rgba(15, 118, 110, 0.06);
     }
     /* -- Course tabs -- */
     .course-tabs {
@@ -1358,7 +1357,7 @@
     }
     .course-tabs button:not(.active):hover {
       background: #AB03A9;
-      color: #5003C0;
+      color: var(--signal-deep);
       transform: translateY(-1px);
     }
     .course-tabs button.active {
@@ -1366,7 +1365,7 @@
       color: #FFF9E6;
     }
     .course-tabs button.active:hover {
-      color: #5003C0;
+      color: var(--signal-deep);
       background: var(--palette-turquoise);
       transform: translateY(-1px);
     }
@@ -1438,7 +1437,7 @@
       font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
       font-size: 15px;
       font-weight: 700;
-      fill: #5003C0;
+      fill: var(--signal-deep);
       pointer-events: none;
     }
     .nist-hub-sub {
@@ -1481,19 +1480,20 @@
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
       padding-left: 0.45rem;
     }
-    .kill-chevron.is-empty { background: var(--kill-empty); color: #5003C0; }
+    .kill-chevron.is-empty { background: var(--kill-empty); color: var(--signal-deep); }
     .kill-chevron.is-target { outline: 2px solid var(--signal); outline-offset: 2px; }
     .kill-chevron.is-filled { background: var(--kill-1); color: #FFF9E6; }
     .kill-chevron:nth-child(2) { background: var(--kill-3); }
     .kill-chevron:nth-child(2).is-filled { background: var(--kill-3); }
-    .kill-chevron:nth-child(3) { background: var(--kill-4); color: #5003C0; }
-    .kill-chevron:nth-child(3).is-filled { background: var(--kill-4); color: #5003C0; }
+    .kill-chevron:nth-child(3) { background: var(--kill-4); color: var(--signal-deep); }
+    .kill-chevron:nth-child(3).is-filled { background: var(--kill-4); color: var(--signal-deep); }
     .kill-chevron:nth-child(4) { background: var(--kill-1); }
     .kill-chevron:nth-child(5) { background: var(--kill-2); }
     .kill-chevron:nth-child(6) { background: var(--kill-3); }
-    .kill-chevron:nth-child(7) { background: var(--kill-4); color: #5003C0; }
+    .kill-chevron:nth-child(7) { background: var(--kill-4); color: var(--signal-deep); }
     .kill-chevron .fp-slot-label { pointer-events: none; line-height: 1.15; }
-    .mitre-row .kill-chevron {
+    .mitre-row .kill-chevron,
+    .instantons-row .kill-chevron {
       flex: 1 0 3.6rem;
       min-width: 3.6rem;
       font-size: 0.72rem;
@@ -1548,7 +1548,7 @@
       border-radius: 4px;
       background: #FFF9E6;
       border: 1px solid var(--signal);
-      box-shadow: 0 8px 24px rgba(80, 3, 192, 0.18);
+      box-shadow: 0 8px 24px rgba(15, 118, 110, 0.18);
       opacity: 0.95;
       will-change: transform;
     }
@@ -1693,7 +1693,7 @@
     }
     .quiz-mode .quiz-card-front {
       border-top-width: 4px;
-      border-top-color: #5003C0;
+      border-top-color: var(--signal-deep);
     }
     .test-mode .quiz-card {
       cursor: default;
@@ -1733,7 +1733,7 @@
       font-size: clamp(1.45rem, 4.2vw, 2.15rem);
       font-weight: 800;
       line-height: 1.15;
-      color: #5003C0;
+      color: var(--signal-deep);
     }
     .study-mode-cards {
       display: grid;
@@ -1750,7 +1750,7 @@
       text-align: left;
       font: inherit;
       padding: 0;
-      border: 2px solid #5003C0;
+      border: 2px solid var(--signal-deep);
       border-radius: 6px;
       background: #FFF9E6;
       cursor: pointer;
@@ -1770,7 +1770,7 @@
       box-shadow: 0 0 0 2px #FFD51E;
     }
     .study-mode-card:focus-visible {
-      outline: 3px solid #5003C0;
+      outline: 3px solid var(--signal-deep);
       outline-offset: 2px;
     }
     .study-mode-card img {
@@ -1789,7 +1789,7 @@
       display: block;
       font-size: 1.05rem;
       font-weight: 800;
-      color: #5003C0;
+      color: var(--signal-deep);
       margin: 0 0 0.25rem;
     }
     .study-mode-card-desc {
@@ -1812,7 +1812,7 @@
     .quiz-home-visual {
       flex: 0 0 auto;
       width: min(100%, 9.5rem);
-      border: 2px solid #5003C0;
+      border: 2px solid var(--signal-deep);
       border-radius: 6px;
       overflow: hidden;
       background: #FFF9E6;
@@ -1836,7 +1836,7 @@
       font-size: 0.92rem;
     }
     .flash-mode .study-mode-banner {
-      border-left-color: #5003C0;
+      border-left-color: var(--signal-deep);
     }
     .study-hud {
       display: grid;
@@ -1854,7 +1854,7 @@
     }
     .study-hud-item {
       background: #FFF9E6;
-      border: 1px solid #5003C0;
+      border: 1px solid var(--signal-deep);
       border-radius: 4px;
       padding: 0.55rem 0.65rem;
       text-align: center;
@@ -1873,7 +1873,7 @@
     }
     .study-hud-item b {
       font-size: 1.2rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-weight: 700;
     }
     .profile-bar {
@@ -1886,19 +1886,19 @@
     .study-auth {
       background: #FFF9E6;
       border: 1px solid var(--line);
-      border-top: 4px solid #5003C0;
+      border-top: 4px solid var(--signal-deep);
       border-radius: 4px;
       padding: 1.1rem 1.15rem 1.25rem;
       margin: 0 0 1rem;
     }
     .study-auth h3 {
       margin: 0 0 0.4rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-size: 1.15rem;
     }
     .study-auth p {
       margin: 0 0 0.85rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-size: 0.92rem;
     }
     .study-auth label {
@@ -1909,7 +1909,7 @@
       margin: 0.55rem 0 0.25rem;
     }
     .study-auth-error {
-      color: #5003C0;
+      color: var(--signal-deep);
       font-weight: 700;
       min-height: 1.2em;
     }
@@ -1937,7 +1937,7 @@
       letter-spacing: 0.04em;
       font-weight: 700;
       background: #FFF9E6;
-      color: #5003C0;
+      color: var(--signal-deep);
       border: 1px solid var(--line);
       border-radius: 4px;
       padding: 0.7rem 0.85rem;
@@ -1970,7 +1970,7 @@
       border: 1px solid var(--line);
       border-radius: 4px;
       font: inherit;
-      color: #5003C0;
+      color: var(--signal-deep);
       background: #FFF9E6;
       flex: 1 1 10rem;
     }
@@ -1983,7 +1983,7 @@
       border: 1px solid var(--line);
       border-radius: 4px;
       background: #FFF9E6;
-      color: #5003C0;
+      color: var(--signal-deep);
       font: inherit;
       font-weight: 600;
       cursor: pointer;
@@ -1992,7 +1992,7 @@
       width: 1.85rem;
       height: 1.85rem;
       border-radius: 4px;
-      background: #5003C0;
+      background: var(--signal-deep);
       color: #FFF9E6;
       display: inline-flex;
       align-items: center;
@@ -2027,7 +2027,7 @@
       gap: 0.55rem;
       margin: 0.35rem 0 0.45rem;
       font-weight: 600;
-      color: #5003C0;
+      color: var(--signal-deep);
       cursor: pointer;
     }
     .settings-check input {
@@ -2058,22 +2058,22 @@
     .rank-place {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-weight: 700;
-      color: #5003C0;
+      color: var(--signal-deep);
     }
-    .rank-row.is-top1 .rank-place { color: #5003C0; }
+    .rank-row.is-top1 .rank-place { color: var(--signal-deep); }
     .rank-row.is-top2 .rank-place { color: #FF467A; }
     .rank-row.is-top3 .rank-place { color: #AB03A9; }
-    .rank-name { font-weight: 600; color: #5003C0; }
+    .rank-name { font-weight: 600; color: var(--signal-deep); }
     .rank-meta { font-size: 0.78rem; color: #AB03A9; }
     .rank-pts {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-weight: 700;
-      color: #5003C0;
+      color: var(--signal-deep);
       white-space: nowrap;
     }
     .rank-empty {
       margin: 0 0 0.85rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-size: 0.92rem;
     }
     .review-heatmap-wrap {
@@ -2123,7 +2123,7 @@
     .heatmap-cell.level-3 { background: rgba(171, 3, 169, 0.72); }
     .heatmap-cell.level-4 { background: #AB03A9; }
     .heatmap-cell:focus-visible {
-      outline: 2px solid #5003C0;
+      outline: 2px solid var(--signal-deep);
       outline-offset: 1px;
     }
     .heatmap-legend {
@@ -2171,7 +2171,7 @@
       border: 1.5px solid #FF467A;
       border-radius: 999px;
       background: #FFF9E6;
-      color: #5003C0;
+      color: var(--signal-deep);
       cursor: pointer;
     }
     .weak-tag-btn:hover {
@@ -2203,18 +2203,18 @@
       border: 1px solid var(--line);
       border-radius: 4px;
       font: inherit;
-      color: #5003C0;
+      color: var(--signal-deep);
       background: #FFF9E6;
       flex: 1 1 10rem;
     }
     .profile-modal-card h3 {
       margin: 0 0 0.45rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-size: 1.15rem;
     }
     .profile-modal-card p {
       margin: 0 0 0.85rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-size: 0.92rem;
     }
     .profile-list {
@@ -2251,7 +2251,7 @@
       border-color: #AB03A9;
     }
     .trophy-card.kind-badge.is-on {
-      border-color: #5003C0;
+      border-color: var(--signal-deep);
     }
     .trophy-group-title {
       grid-column: 1 / -1;
@@ -2260,10 +2260,10 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #5003C0;
+      color: var(--signal-deep);
     }
     .trophy-icon { font-size: 1.25rem; line-height: 1; }
-    .trophy-title { font-weight: 700; color: #5003C0; margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
+    .trophy-title { font-weight: 700; color: var(--signal-deep); margin: 0.25rem 0 0.1rem; font-size: 0.88rem; }
     .trophy-hint { font-size: 0.75rem; color: #AB03A9; margin: 0; }
     .trophy-toast {
       position: fixed;
@@ -2275,7 +2275,7 @@
       border: 2px solid #AB03A9;
       border-radius: 4px;
       padding: 0.7rem 1rem;
-      color: #5003C0;
+      color: var(--signal-deep);
       font-weight: 700;
       text-align: center;
       max-width: min(22rem, calc(100vw - 2rem));
@@ -2479,7 +2479,7 @@
       border-radius: 4px;
       font-size: 0.85rem;
       font-weight: 600;
-      color: #5003C0;
+      color: var(--signal-deep);
     }
     .quiz-leech-banner[hidden] { display: none !important; }
     .quiz-tags .quiz-tag-chip {
@@ -2621,7 +2621,7 @@
       align-items: center;
       justify-content: center;
       padding: 1rem;
-      background: rgba(80, 3, 192, 0.55);
+      background: rgba(15, 118, 110, 0.55);
     }
     .session-recap-modal[hidden],
     .weekly-recap-modal[hidden] { display: none !important; }
@@ -2683,7 +2683,7 @@
       border-top: 4px solid var(--palette-red);
       border-radius: 4px;
       padding: 1.15rem 1.2rem 1.2rem;
-      box-shadow: 0 12px 40px rgba(80, 3, 192, 0.18);
+      box-shadow: 0 12px 40px rgba(15, 118, 110, 0.18);
     }
     .first-win-card h3 {
       margin: 0 0 0.45rem;
@@ -2727,7 +2727,7 @@
       padding: 0.85rem 0.9rem;
       background: #FFF9E6;
       border: 1px solid var(--line);
-      border-left: 4px solid #5003C0;
+      border-left: 4px solid var(--signal-deep);
       border-radius: 0 4px 4px 0;
     }
     .settings-study-setup h3 {
@@ -2862,7 +2862,7 @@
     .orient-nudge .btn { padding: 0.25rem 0.55rem; min-height: auto; font-size: 0.78rem; }
     .notif-optin-nudge {
       background: #FFF9E6;
-      border: 2px solid #5003C0;
+      border: 2px solid var(--signal-deep);
     }
     .settings-notif-hint {
       margin: 0.35rem 0 0.75rem;
@@ -2902,7 +2902,7 @@
         padding: var(--space-3) var(--space-2) calc(var(--space-3) + var(--safe-bottom));
         background: var(--paper);
         border-top: 1px solid var(--line);
-        box-shadow: 0 -6px 20px rgba(80, 3, 192, 0.1);
+        box-shadow: 0 -6px 20px rgba(15, 118, 110, 0.1);
       }
       .quiz-wrap.quiz-in-session #quiz-action-dock.is-visible #quiz-reveal-row .btn-primary {
         width: 100%;
@@ -3043,7 +3043,7 @@
       font-weight: 600;
       padding: 0.2rem 0.5rem;
       background: #FFF9E6;
-      color: #5003C0;
+      color: var(--signal-deep);
       border: 1.5px solid #AB03A9;
       border-radius: 999px;
     }
@@ -3091,7 +3091,7 @@
       line-height: 1;
       padding: 0.15rem 0.4rem;
       border-radius: 2px;
-      background: rgba(80,20,192,0.12);
+      background: rgba(15,118,110,0.12);
       margin-bottom: 0.2rem;
     }
     .quiz-grades button:hover {
@@ -3140,29 +3140,29 @@
         font-weight: 700;
       }
       .quiz-grades button[data-grade="again"] {
-        background: #5003C0;
-        border-color: #5003C0;
+        background: var(--signal-deep);
+        border-color: var(--signal-deep);
         color: #FFF9E6;
       }
       .quiz-grades button[data-grade="hard"] {
-        border-color: #5003C0;
-        color: #5003C0;
+        border-color: var(--signal-deep);
+        color: var(--signal-deep);
       }
       .quiz-grades button[data-grade="good"] {
-        border-color: #5003C0;
+        border-color: var(--signal-deep);
       }
       .quiz-grades button[data-grade="easy"] {
-        border-color: #5003C0;
-        color: #5003C0;
+        border-color: var(--signal-deep);
+        color: var(--signal-deep);
         background: #FFF9E6;
       }
       .quiz-tags .quiz-tag-chip,
       .quiz-tag-filters .quiz-tag-chip {
         border-width: 2px;
-        color: #5003C0;
+        color: var(--signal-deep);
         font-weight: 700;
       }
-      .quiz-q { color: #5003C0; }
+      .quiz-q { color: var(--signal-deep); }
     }
     .quiz-empty {
       text-align: center;
@@ -3394,7 +3394,7 @@
     .mastery-dot.is-on.level-1 { background: #FFD51E; border-color: #FFD51E; }
     .mastery-dot.is-on.level-2 { background: #FF467A; border-color: #FF467A; }
     .mastery-dot.is-on.level-3 { background: #AB03A9; border-color: #AB03A9; }
-    .mastery-dot.is-on.level-4 { background: #5003C0; border-color: #5003C0; }
+    .mastery-dot.is-on.level-4 { background: var(--signal-deep); border-color: var(--signal-deep); }
     .course-map-unit-meta {
       display: block;
       font-size: 0.65rem;
@@ -3431,7 +3431,7 @@
     .unit-progress-meta b { color: var(--ink); }
     .unit-progress-pct {
       font-weight: 700;
-      color: #5003C0;
+      color: var(--signal-deep);
     }
     .unit-progress-bar {
       height: 0.45rem;
@@ -3457,7 +3457,7 @@
       font-size: 0.82rem;
       color: var(--slate);
     }
-    .quiz-deck-pct b { color: #5003C0; }
+    .quiz-deck-pct b { color: var(--signal-deep); }
     .quiz-deck-pct[hidden] { display: none !important; }
     .embed .unit-progress { display: none !important; }
     #quiz-active {
@@ -3540,7 +3540,7 @@
       background: #FFF9E6;
       border: 2px solid var(--palette-turquoise);
       border-radius: 4px;
-      box-shadow: 0 4px 16px rgba(80, 3, 192, 0.12);
+      box-shadow: 0 4px 16px rgba(15, 118, 110, 0.12);
     }
     .sw-toast[hidden] { display: none !important; }
     .sw-toast.is-action {
@@ -3563,7 +3563,7 @@
       .hero { min-height: 0; padding: 1rem 0 0.75rem; }
       .shell-lift { margin-top: 0; }
       .panel, .course-panel { display: block !important; animation: none !important; }
-      body { background: #FFF9E6; color: #5003C0; }
+      body { background: #FFF9E6; color: var(--signal-deep); }
       .console, pre {
         border: 1px solid #333;
         -webkit-print-color-adjust: exact;
@@ -3637,7 +3637,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock176" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock177" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4572,6 +4572,7 @@
             <button type="button" role="tab" id="tab-practice-nist" class="active" aria-selected="true" aria-controls="practice-nist" tabindex="0">NIST CSF 2.0 wheel</button>
             <button type="button" role="tab" id="tab-practice-kill" aria-selected="false" aria-controls="practice-kill" tabindex="-1">Kill Chain</button>
             <button type="button" role="tab" id="tab-practice-mitre" aria-selected="false" aria-controls="practice-mitre" tabindex="-1">MITRE ATT&CK</button>
+            <button type="button" role="tab" id="tab-practice-instantons" aria-selected="false" aria-controls="practice-instantons" tabindex="-1">InstantONS (4280)</button>
           </div>
 
           <section id="practice-nist" class="practice-block panel active" role="tabpanel" aria-labelledby="tab-practice-nist">
@@ -4606,6 +4607,17 @@
               <button type="button" class="btn btn-primary" id="mitre-next" hidden>Done - open 4050 flashcards</button>
             </div>
           </section>
+
+          <section id="practice-instantons" class="practice-block panel" role="tabpanel" aria-labelledby="tab-practice-instantons" hidden>
+            <p class="fp-hint">Order the InstantONS impact assessment report sections (4280 dating scenario). Matches the assignment structure in class notes L5.</p>
+            <div class="fp-board" id="instantons-board" aria-label="InstantONS report step slots"></div>
+            <p class="fp-status" id="instantons-status" aria-live="polite"></p>
+            <div class="fp-tray" id="instantons-tray" aria-label="InstantONS section labels"></div>
+            <div class="fp-actions">
+              <button type="button" class="btn ghost" id="instantons-reset">Reset</button>
+              <button type="button" class="btn btn-primary" id="instantons-next" hidden>Done - open 4280 flashcards</button>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -4631,8 +4643,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock176" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock151"></script>
+  <script src="quiz-decks.js?v=lock177" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock177"></script>
   <script>
   (function () {
   "use strict";
@@ -5185,12 +5197,21 @@
     ledeEl.textContent = copy.lede;
   }
 
+  function syncResearchSessionBar(courseKey) {
+    var bar = $("research-session-bar");
+    if (!bar) return;
+    var quizCourses = { acit4050: 1, acit4280: 1, acit4100: 1, fellesjam: 1 };
+    var show = !!quizCourses[courseKey];
+    bar.hidden = !show;
+  }
+
 function showCourse(courseKey) {
     var isTerminal = courseKey === "terminal";
     var isPc = courseKey === "computer-basics";
     var isPractice = courseKey === "practice";
     var isNotes = courseKey === "notes";
     var isQuiz = !isTerminal && !isPc && !isPractice && !isNotes;
+    syncResearchSessionBar(courseKey);
     var term = $("course-terminal");
     var pc = $("course-pc");
     var quiz = $("course-quiz");
@@ -5272,6 +5293,8 @@ function showCourse(courseKey) {
     "kill-chain": "practice",
     mitre: "practice",
     attack: "practice",
+    instantons: "practice",
+    pia: "practice",
     "4280": "acit4280",
     "quiz-4280": "acit4280",
     acit4280: "acit4280",
@@ -5335,6 +5358,7 @@ function showCourse(courseKey) {
         if (globalThis.FrameworkPractice && FrameworkPractice.showSection) {
           if (h === "killchain" || h === "kill-chain") FrameworkPractice.showSection("killchain");
           else if (h === "mitre" || h === "attack") FrameworkPractice.showSection("mitre");
+          else if (h === "instantons" || h === "pia") FrameworkPractice.showSection("instantons");
           else FrameworkPractice.showSection("nist");
         }
       } else if (course === "computer-basics") {
@@ -6695,7 +6719,7 @@ function showCourse(courseKey) {
     if (studyReduceMotion()) return;
     var layer = $("fx-layer");
     if (!layer) return;
-    var colors = ["#5003C0", "#FFD51E", "#AB03A9", "#FF467A"];
+    var colors = ["var(--signal-deep)", "#FFD51E", "#AB03A9", "#FF467A"];
     var n = count || 10;
     var i;
     for (i = 0; i < n; i++) {
@@ -7192,6 +7216,63 @@ function showCourse(courseKey) {
     return xp;
   }
 
+  var EXAM_REP_CHECKLIST_KEY = "acit-exam-rep-checklist-v1";
+
+  function examRepChecklistLoad() {
+    try {
+      var raw = localStorage.getItem(EXAM_REP_CHECKLIST_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+    return {};
+  }
+
+  function examRepChecklistSave(state) {
+    try { localStorage.setItem(EXAM_REP_CHECKLIST_KEY, JSON.stringify(state || {})); } catch (e) { /* ignore */ }
+  }
+
+  function examRepChecklistTick(id) {
+    if (!id) return;
+    var state = examRepChecklistLoad();
+    if (state[id]) return;
+    state[id] = true;
+    examRepChecklistSave(state);
+  }
+
+  function examRepChecklistSyncFromXp() {
+    var xp = studyLoadXp();
+    var state = examRepChecklistLoad();
+    var changed = false;
+    function tick(id, ok) {
+      if (!ok || state[id]) return;
+      state[id] = true;
+      changed = true;
+    }
+    tick("4050-frameworks", (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1 && (xp.mitreDone || 0) >= 1);
+    tick("4280-pia", (xp.instantonsDone || 0) >= 1);
+    tick("both-streak", (xp.streak || 0) >= 3);
+    tick("4050-test", (xp.test4050Done || 0) >= 1);
+    tick("4280-test", (xp.test4280Done || 0) >= 1);
+    if (changed) examRepChecklistSave(state);
+  }
+
+  function examRepChecklistAfterTest() {
+    if (testState.mixedExam) {
+      examRepChecklistTick("4050-test");
+      examRepChecklistTick("4280-test");
+    } else if (quizState.deckKey === "acit4050") examRepChecklistTick("4050-test");
+    else if (quizState.deckKey === "acit4280") examRepChecklistTick("4280-test");
+    else return;
+    if (!profileIsAuthed()) return;
+    var xp = studyLoadXp();
+    if (testState.mixedExam) {
+      xp.test4050Done = 1;
+      xp.test4280Done = 1;
+    } else if (quizState.deckKey === "acit4050") xp.test4050Done = 1;
+    else if (quizState.deckKey === "acit4280") xp.test4280Done = 1;
+    studySaveXp(xp);
+    examRepChecklistSyncFromXp();
+  }
+
   function studyMarkFlag(key) {
     if (!profileIsAuthed() || !key) return;
     var xp = studyLoadXp();
@@ -7209,6 +7290,7 @@ function showCourse(courseKey) {
     }
     studyRefreshHud();
     refreshSettingsProgressUi();
+    examRepChecklistSyncFromXp();
   }
   window.studyMarkFlag = studyMarkFlag;
 
@@ -8576,8 +8658,11 @@ function showCourse(courseKey) {
 
   function testQuestionFromCard(card, pool, deckKey) {
     var type = testPickQuestionType(card);
-    if (deckKey === "acit4280" && String(card.a || "").length <= 320) {
-      type = "written";
+    if (deckKey === "acit4280") {
+      var examFocus = document.documentElement.classList.contains("exam-focus");
+      if (String(card.a || "").length <= 420) type = "written";
+      else if (examFocus && Math.random() < 0.82) type = "written";
+      else if (Math.random() < 0.65) type = "written";
     }
     var q = { card: card, type: type };
     if (type === "mcq") {
@@ -8898,6 +8983,7 @@ function showCourse(courseKey) {
     }
     box.scrollIntoView({ block: "nearest", behavior: "smooth" });
     syncQuizSessionUi();
+    examRepChecklistAfterTest();
   }
 
   function testStart() {
@@ -12011,6 +12097,7 @@ function showCourse(courseKey) {
   quizEnsureDecksReady().then(function () {
     renderSettingsStudySetup();
     renderOrientChecklist();
+    examRepChecklistSyncFromXp();
     window.setTimeout(weeklyRecapMaybeShow, 800);
     if (courseFromHash()) {
       applyHashRoute();
@@ -12109,6 +12196,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock176" defer></script>
+  <script src="js/learning-session.js?v=lock177" defer></script>
 </body>
 </html>

@@ -321,6 +321,7 @@
         <div class="action-row">
           <a class="btn cta" href="index.html?exam=1&amp;study=quiz#4280">Practice</a>
           <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4280">Timed test</a>
+          <a class="btn" href="index.html?exam=1#instantons">InstantONS drill</a>
           <a class="btn" href="class-notes.html#acit4280">Class notes</a>
         </div>
       </article>
@@ -478,9 +479,29 @@
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
       }
 
+      function autoSyncChecklistFromApp() {
+        var state = loadState();
+        var changed = false;
+        function tick(id, ok) {
+          if (!ok || state[id]) return;
+          state[id] = true;
+          changed = true;
+        }
+        try {
+          var xp = JSON.parse(localStorage.getItem("acit-study-xp-v1") || "{}");
+          tick("4050-frameworks", (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1 && (xp.mitreDone || 0) >= 1);
+          tick("4280-pia", (xp.instantonsDone || 0) >= 1);
+          tick("both-streak", (xp.streak || 0) >= 3);
+          tick("4050-test", (xp.test4050Done || 0) >= 1);
+          tick("4280-test", (xp.test4280Done || 0) >= 1);
+        } catch (e) { /* ignore */ }
+        if (changed) saveState(state);
+        return state;
+      }
+
       function renderChecklist() {
         var ul = document.getElementById("exam-checklist");
-        var state = loadState();
+        var state = autoSyncChecklistFromApp();
         ul.innerHTML = "";
         ITEMS.forEach(function (item) {
           var li = document.createElement("li");
