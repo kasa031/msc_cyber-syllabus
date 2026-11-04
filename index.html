@@ -17,7 +17,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kasa031.github.io/msc_cyber-syllabus/" />
   <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#5003C0" />
+  <meta name="theme-color" content="#0f766e" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="MSc Cyber Y1" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -39,7 +39,7 @@
     }
 
     /* First-paint: light canvas before fonts settle */
-    html { background: #FFF9E6; }
+    html { background: #f4f6f8; }
 
     @layer tokens {
     :root {
@@ -3637,6 +3637,7 @@
     }
 
   </style>
+  <link rel="stylesheet" href="css/study-research.css?v=lock174" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3686,6 +3687,20 @@
       </div>
     </div>
   </header>
+  <div class="research-session-bar" id="research-session-bar" role="region" aria-label="Daily retrieval session">
+    <div class="research-session-inner">
+      <div class="research-daily-ring" id="research-daily-ring" style="--ring-pct: 0%" aria-hidden="true"><span id="research-daily-label">0/10</span></div>
+      <div class="research-session-copy">
+        <strong>Today&apos;s retrieval session</strong>
+        <p id="research-session-sub">Short spaced practice beats one long cram session.</p>
+      </div>
+      <p class="research-tip" id="research-tip">Loading learning tip...</p>
+      <div class="research-actions">
+        <button type="button" class="btn" id="research-start-session">Start due cards</button>
+        <button type="button" class="btn" id="research-break-btn">Focus block (25 min)</button>
+      </div>
+    </div>
+  </div>
   <div id="profile-modal" class="profile-modal" hidden>
     <div class="profile-modal-card" role="dialog" aria-labelledby="profile-modal-title">
       <h3 id="profile-modal-title">Settings</h3>
@@ -4377,6 +4392,12 @@
                 <button type="button" data-goal="20">20 / day</button>
               </div>
             </div>
+            <details class="science-callout">
+              <summary>Why this app works (research snapshot)</summary>
+              <p><strong>Spacing:</strong> Several short sessions across days beat one marathon (Cepeda et al.; Nature Reviews Psychology 2022).</p>
+              <p><strong>Retrieval:</strong> Practice mode asks you to recall before feedback - testing with correction improves retention (PMC web-app study on spacing + feedback + testing).</p>
+              <p><strong>Manageable load:</strong> A daily goal you can finish supports habit; backlog guilt reduces motivation (UX research on spaced-repetition tools).</p>
+            </details>
             <div class="quiz-home-custom" id="quiz-home-custom">
               <p class="quiz-home-custom-label">Custom study</p>
               <div class="quiz-home-custom-btns" role="group" aria-label="Custom study shortcuts">
@@ -4616,7 +4637,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock173" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock174" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -7156,6 +7177,10 @@ function showCourse(courseKey) {
     if (quizState.deckKey) xp.courses[quizState.deckKey] = 1;
     var unlocked = studyUnlockTrophies(xp);
     studySaveXp(xp);
+    try {
+      document.dispatchEvent(new CustomEvent("acit-xp-updated"));
+      if (window.acitLearningSessionSync) window.acitLearningSessionSync();
+    } catch (eXpEv) { /* ignore */ }
     if (add > 0) {
       studyPlayPointsChime();
       studyFxBurstAt($("quiz-card"), grade === "easy" ? 16 : 10);
@@ -7841,6 +7866,7 @@ function showCourse(courseKey) {
     var pct = goal ? Math.min(100, (today / goal) * 100) : 0;
     if (goalFill) goalFill.style.width = pct + "%";
     if (goalBar) goalBar.classList.toggle("is-done", today >= goal);
+    if (window.acitLearningSessionSync) window.acitLearningSessionSync();
     document.querySelectorAll(".quiz-home-goals button").forEach(function (btn) {
       btn.classList.toggle("is-active", Number(btn.getAttribute("data-goal")) === goal);
     });
@@ -12001,5 +12027,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
+  <script src="js/learning-session.js?v=lock174" defer></script>
 </body>
 </html>

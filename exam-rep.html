@@ -3,37 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#5003C0" />
+  <meta name="theme-color" content="#0f766e" />
   <title>Exam repetition | ACIT4050 and ACIT4280</title>
   <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="icon" href="icons/favicon.svg?v=lock170" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock174" />
+  <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root {
-      --purple: #5003C0;
-      --magenta: #AB03A9;
-      --pink: #FF467A;
-      --yellow: #FFD51E;
-      --cream: #FFF9E6;
-      --ink: #5003C0;
-      --radius: 10px;
-      --shadow: 0 8px 28px rgba(80, 3, 192, 0.12);
+      --radius: 14px;
+      --shadow: var(--shadow-md);
+      --purple: var(--palette-purple);
+      --magenta: var(--palette-magenta);
+      --pink: var(--palette-pink);
+      --yellow: var(--ochre);
+      --cream: var(--paper);
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html { background: var(--cream); }
+    html { background: var(--paper); }
     body {
       margin: 0;
       font-family: "Space Grotesk", "Segoe UI", sans-serif;
       color: var(--ink);
       line-height: 1.55;
-      background: var(--cream);
+      background: var(--paper);
     }
-    a { color: var(--magenta); font-weight: 600; }
-    a:hover { color: var(--pink); }
+    a { color: var(--palette-magenta); font-weight: 600; }
+    a:hover { color: var(--signal-deep); }
     .wrap { max-width: 56rem; margin: 0 auto; padding: 1.25rem 1.1rem 3rem; }
     header.hero {
-      background: var(--purple);
-      color: var(--cream);
+      background: linear-gradient(145deg, #134e4a 0%, #0f766e 100%);
+      color: #f8fafc;
       padding: 1.5rem 1.1rem 1.75rem;
     }
     .hero-inner { max-width: 56rem; margin: 0 auto; }
@@ -52,9 +52,9 @@
       align-items: center;
       justify-content: center;
       gap: 0.35rem;
-      border: 2px solid var(--cream);
+      border: 1px solid rgba(248, 250, 252, 0.45);
       background: transparent;
-      color: var(--cream);
+      color: #f8fafc;
       font: inherit;
       font-weight: 600;
       font-size: 0.88rem;
@@ -65,9 +65,9 @@
     }
     .btn:hover { background: rgba(255, 249, 230, 0.12); }
     .btn-primary {
-      background: var(--yellow);
-      border-color: var(--yellow);
-      color: var(--purple);
+      background: #fff;
+      border-color: #fff;
+      color: var(--signal-deep);
     }
     .btn-primary:hover { filter: brightness(1.03); }
     .hero h1 {
@@ -86,17 +86,19 @@
       .exam-grid { grid-template-columns: 1fr 1fr; }
     }
     .exam-card {
-      background: #fff;
-      border: 3px solid var(--magenta);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 1rem 1.05rem 1.1rem;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
       gap: 0.65rem;
+      transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
     }
-    .exam-card[data-course="4050"] { border-color: var(--purple); }
-    .exam-card[data-course="4280"] { border-color: var(--magenta); }
+    .exam-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .exam-card[data-course="4050"] { border-top: 4px solid var(--signal); }
+    .exam-card[data-course="4280"] { border-top: 4px solid var(--palette-magenta); }
     .exam-card-head {
       display: flex;
       justify-content: space-between;
@@ -247,13 +249,14 @@
     }
     .l11-urgent {
       margin-top: 1.1rem;
-      border: 3px solid var(--pink);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--ochre);
       border-radius: var(--radius);
       padding: 1rem 1.05rem;
       background: #fff;
       box-shadow: var(--shadow);
     }
-    .l11-urgent h2 { margin: 0 0 0.35rem; font-size: 1.12rem; color: var(--pink); }
+    .l11-urgent h2 { margin: 0 0 0.35rem; font-size: 1.12rem; color: var(--warn-hot); }
     .l11-urgent .action-row { margin-top: 0.65rem; }
   </style>
 </head>
