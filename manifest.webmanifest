@@ -1,9 +1,9 @@
 {
-  "name": "MSc Cybersecurity Practise Syllabus 1st Year",
-  "short_name": "MSc Cyber Y1",
-  "description": "Terminal tutorial and spaced-repetition quiz for MSc Cybersecurity Practise Syllabus 1st Year. Offline-friendly. No personal data.",
+  "name": "Exam repetition - ACIT4050 and ACIT4280",
+  "short_name": "Exam rep",
+  "description": "Syllabus-only exam prep for ACIT4050 and ACIT4280: flashcards, timed tests, and checklists. English UI. Offline-friendly.",
   "id": "/msc_cyber-syllabus/",
-  "start_url": "/msc_cyber-syllabus/index.html",
+  "start_url": "/msc_cyber-syllabus/exam-rep.html",
   "scope": "/msc_cyber-syllabus/",
   "display": "standalone",
   "orientation": "any",

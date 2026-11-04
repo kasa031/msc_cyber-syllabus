@@ -245,6 +245,16 @@
       color: var(--magenta);
       font-weight: 600;
     }
+    .l11-urgent {
+      margin-top: 1.1rem;
+      border: 3px solid var(--pink);
+      border-radius: var(--radius);
+      padding: 1rem 1.05rem;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .l11-urgent h2 { margin: 0 0 0.35rem; font-size: 1.12rem; color: var(--pink); }
+    .l11-urgent .action-row { margin-top: 0.65rem; }
   </style>
 </head>
 <body>
@@ -255,7 +265,7 @@
         <nav class="hero-nav" aria-label="Quick links">
           <a class="btn" href="index.html?exam=1">Full study app</a>
           <a class="btn" href="../Oversikt/Ukeplan.html">Week planner</a>
-          <a class="btn" href="class-notes.html">Class notes</a>
+          <a class="btn" href="class-notes.html?exam=1">Class notes (4050 + 4280)</a>
         </nav>
       </div>
       <h1>Repeat what matters for the written exams.</h1>
@@ -265,8 +275,26 @@
 
   <main class="wrap">
     <div class="pensum-box" role="note">
-      <strong>Pensum rule in the app:</strong> Exam prep mode excludes cards tagged <code>needs-canvas</code> or optional off-syllabus reading. Multiple-choice wrong answers are taken from other real cards in the same deck (never fake options). When in doubt, check Canvas and your local PDFs under <code>Emner/ACIT4050</code> and <code>Emner/ACIT4280</code>.
+      <strong>Syllabus-only rule:</strong> Exam prep mode excludes cards tagged <code>needs-canvas</code> or optional off-syllabus reading. Multiple-choice wrong answers are taken from other real cards in the same deck (never fake options). When in doubt, check Canvas and your local PDFs under <code>Emner/ACIT4050</code> and <code>Emner/ACIT4280</code>.
     </div>
+
+    <section class="l11-urgent" aria-labelledby="l11-title">
+      <h2 id="l11-title">4050 priority: L-11 data in transit (due 8 Nov 23:59)</h2>
+      <p class="exam-meta" style="margin:0">Canvas states exam questions for this module match the <strong>L-11 assignment format</strong> (see Lecture 12 page: Examples of possible exam questions - data-in-transit). Sources are lecture PDFs only - not invented drills.</p>
+      <ul style="margin:0.55rem 0 0;padding-left:1.15rem;font-size:0.9rem;">
+        <li><a href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Canvas assignment 123557</a></li>
+        <li><a href="../Emner/ACIT4050/Lecture_12/L11-data-in-transit.pdf">Lecture 12 slides (local PDF)</a></li>
+        <li><a href="https://oslomet.instructure.com/courses/34599/modules/items/924544" target="_blank" rel="noopener">Canvas: Examples of possible exam questions (data in transit)</a></li>
+        <li><a href="https://oslomet.instructure.com/courses/34599/modules/items/924543" target="_blank" rel="noopener">L-11 quiz on Canvas (module item)</a></li>
+        <li>Cybrxec lab: stop the L-10 session first, then open <strong>Assignment Data Security - Protecting data-in-transit</strong> (blue card on the platform)</li>
+      </ul>
+      <div class="action-row">
+        <a class="btn cta" href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Open L-11 on Canvas</a>
+        <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4050">Exam prep test (4050)</a>
+        <a class="btn" href="index.html?exam=1&amp;study=quiz#4050">Practice due cards</a>
+      </div>
+    </section>
+
     <div class="exam-grid">
       <article class="exam-card" data-course="4050">
         <div class="exam-card-head">

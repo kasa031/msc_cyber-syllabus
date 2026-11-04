@@ -168,9 +168,9 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html#notes">Back to the study app</a></p>
+    <p class="back"><a href="index.html#notes" id="notes-back-app">Back to the study app</a> · <a href="exam-rep.html">Exam repetition</a></p>
     <h1>Class notes</h1>
-    <p class="lede">Organised from handwritten pages. Sources are linked. More pages will be added as you send them.</p>
+    <p class="lede">Organised from handwritten pages. Sources are linked. More pages will be added as you send them. All notes follow syllabus sources (slides, Canvas, saved PDFs).</p>
     <p class="jump"><a href="#acit4280">ACIT4280</a> · <a href="#acit4100">ACIT4100</a> · <a href="#acit4050">ACIT4050</a></p>
     <h2 id="acit4280">ACIT4280 Privacy by Design</h2>
     <p class="meta">Pages 1-5 - 22 Aug 2026</p>
@@ -953,7 +953,7 @@
 
     <section id="p4050-l4-ids">
       <h2>Lecture 4 - Intrusion Detection Systems (08 Sep 2026)</h2>
-      <p>Class Tue 08.09 12:30-14:15 PI850. Local slides: <code>L4-ids.pdf</code>, <code>L4-IDS-usecase.pdf</code> under <code>Emner/ACIT4050/Lecture_04/</code>. L04 article review submitted 13.09 (grade pending).</p>
+      <p>Class Tue 08.09 12:30-14:15 PI850. Local slides: <code>L4-ids.pdf</code>, <code>L4-IDS-usecase.pdf</code> under <code>Emner/ACIT4050/Lecture_04/</code>. L04 article review submitted 13.09 - graded 9/10.</p>
       <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture4</code>.</p>
     </section>
 
@@ -974,7 +974,7 @@
 
     <section id="p4050-l6-iam">
       <h2>Lecture 6 - Identity Management (22 Sep 2026)</h2>
-      <p>Slides on Canvas: <code>L6-iam.pdf</code>, <code>IAM-usecase.pdf</code>. L-9 assignment (17 questions, 100 pts) submitted 23.09, still pending_review on crawl 05.10.</p>
+      <p>Slides on Canvas: <code>L6-iam.pdf</code>, <code>IAM-usecase.pdf</code>. L-9 assignment (17 questions, 100 pts) submitted 23.09.</p>
       <p class="src"><a href="index.html#4050">Open ACIT4050 quiz</a> - filter <code>Lecture6</code> or <code>l9-assignment</code>.</p>
     </section>
 
@@ -1069,7 +1069,34 @@
       <p class="src">Local copy: <a href="../Emner/ACIT4050/00_Course_info/Examples_of_possible_exam_questions.md">Examples_of_possible_exam_questions.md</a>. Practice answers in <a href="index.html#4050">ACIT4050 quiz</a> (filter tag exam or phishing).</p>
     </section>
 
-    <p class="back"><a href="index.html#4280">Open the ACIT4280 quiz</a> · <a href="index.html#4100">Open the ACIT4100 quiz</a> · <a href="index.html#4050">Open the ACIT4050 quiz</a></p>
+    <p class="back"><a href="index.html?exam=1#4280">Open the ACIT4280 quiz</a> · <a href="index.html?exam=1#4100" id="notes-footer-4100">Open the ACIT4100 quiz</a> · <a href="index.html?exam=1#4050">Open the ACIT4050 quiz</a></p>
   </div>
+  <script>
+    (function () {
+      try {
+        var exam = new URLSearchParams(window.location.search || "").get("exam") === "1";
+        if (!exam) return;
+        document.documentElement.classList.add("exam-notes");
+        var back = document.getElementById("notes-back-app");
+        if (back) {
+          back.href = "exam-rep.html";
+          back.textContent = "Back to exam repetition";
+        }
+        var h4100 = document.getElementById("acit4100");
+        var h4050 = document.getElementById("acit4050");
+        if (h4100 && h4050) {
+          var el = h4100;
+          while (el && el !== h4050) {
+            var next = el.nextElementSibling;
+            el.hidden = true;
+            el = next;
+          }
+        }
+        document.querySelectorAll('a[href="#acit4100"]').forEach(function (a) { a.hidden = true; });
+        var f4100 = document.getElementById("notes-footer-4100");
+        if (f4100) f4100.hidden = true;
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
 </body>
 </html>

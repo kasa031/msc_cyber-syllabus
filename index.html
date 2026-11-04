@@ -3735,6 +3735,11 @@
             <span>Remind me when cards are due</span>
           </label>
           <p class="settings-notif-hint" id="settings-notif-status">Off by default. Needs browser permission. One gentle ping per day when cards are waiting.</p>
+          <label class="settings-check" for="settings-exam-focus">
+            <input id="settings-exam-focus" type="checkbox" />
+            <span>Exam focus (show 4050 and 4280 only - hide 4100 and Mixed)</span>
+          </label>
+          <p class="settings-notif-hint">Same as opening <a href="exam-rep.html">Exam repetition</a> or <code>?exam=1</code>. Turn off to see all courses again.</p>
           <div class="tut-actions settings-pref-actions">
             <button type="button" class="btn ghost" id="settings-jump-trophies">See your trophies</button>
           </div>
@@ -4611,7 +4616,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock171" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock172" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -7945,6 +7950,7 @@ function showCourse(courseKey) {
     if (!firstWinState.course) firstWinState.course = "acit4050";
     syncStudySetupUi();
     syncSettingsSetupDot();
+    syncExamFocusSettingsUi();
   }
 
   function settingsSaveStudyFocus() {
@@ -10201,6 +10207,12 @@ function showCourse(courseKey) {
       renderOrientChecklist();
     });
   }
+  if ($("settings-exam-focus")) {
+    $("settings-exam-focus").addEventListener("change", function () {
+      setExamFocus(!!$("settings-exam-focus").checked);
+      settingsSetMsg($("settings-exam-focus").checked ? "Exam focus on." : "Exam focus off.");
+    });
+  }
   if ($("settings-first-browse")) {
     $("settings-first-browse").addEventListener("click", function () {
       onboardSaveFocus(true);
@@ -11802,6 +11814,34 @@ function showCourse(courseKey) {
     } catch (e) { /* ignore */ }
   }
 
+  function examFocusEnabled() {
+    try { return localStorage.getItem(EXAM_FOCUS_KEY) === "1"; } catch (e) { return false; }
+  }
+
+  function applyExamFocusUi(on) {
+    document.documentElement.classList.toggle("exam-focus", !!on);
+    var ht = $("hero-title");
+    if (ht) {
+      ht.textContent = on
+        ? "Repeat for your written exams."
+        : "Practice terminal commands step by step.";
+    }
+    syncExamFocusSettingsUi();
+  }
+
+  function setExamFocus(on) {
+    try {
+      if (on) localStorage.setItem(EXAM_FOCUS_KEY, "1");
+      else localStorage.removeItem(EXAM_FOCUS_KEY);
+    } catch (e) { /* ignore */ }
+    applyExamFocusUi(on);
+  }
+
+  function syncExamFocusSettingsUi() {
+    var cb = $("settings-exam-focus");
+    if (cb) cb.checked = examFocusEnabled();
+  }
+
   function ensureExamFocusClass() {
     try {
       var p = new URLSearchParams(window.location.search || "");
@@ -11810,11 +11850,7 @@ function showCourse(courseKey) {
       } else if (p.get("exam") === "0") {
         localStorage.removeItem(EXAM_FOCUS_KEY);
       }
-      if (localStorage.getItem(EXAM_FOCUS_KEY) === "1") {
-        document.documentElement.classList.add("exam-focus");
-        var ht = $("hero-title");
-        if (ht) ht.textContent = "Repeat for your written exams.";
-      }
+      applyExamFocusUi(examFocusEnabled());
       var study = p.get("study");
       if (study === "quiz" || study === "test" || study === "flash" || study === "flashcards") {
         pendingStudyQuery = study === "flash" ? "flashcards" : study;
