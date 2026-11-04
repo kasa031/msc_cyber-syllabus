@@ -4616,7 +4616,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock172" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock173" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -8483,6 +8483,14 @@ function showCourse(courseKey) {
     return true;
   }
 
+  function studyFilterDeckCards(cards) {
+    var list = (cards || []).filter(function (c) { return c && c.id; });
+    if (examFocusEnabled()) {
+      list = list.filter(studyCardPensumEligible);
+    }
+    return list;
+  }
+
   function studyCardExamPriority(card) {
     if (!card) return 0;
     if (studyCardHasTag(card, "exam")) return 3;
@@ -9025,7 +9033,7 @@ function showCourse(courseKey) {
 
   function flashBuildOrder(deck) {
     var q = (flashState.query || "").trim().toLowerCase();
-    var ids = (deck.cards || []).filter(function (c) {
+    var ids = studyFilterDeckCards(deck.cards).filter(function (c) {
       return c && c.id && cardMatchesQuery(c, q);
     }).map(function (c) { return c.id; });
     if (q) {
@@ -9962,7 +9970,7 @@ function showCourse(courseKey) {
     }
     if (!quizState.sessionQueue || !quizState.sessionQueue.length) {
       if (quizState.forceAll) {
-        quizState.sessionQueue = (deck.cards || []).filter(function (c) { return c && c.id; }).map(function (c) { return c.id; });
+        quizState.sessionQueue = studyFilterDeckCards(deck.cards).map(function (c) { return c.id; });
         quizState.sessionStartCount = quizState.sessionQueue.length;
         quizState.sessionDone = 0;
         queue = quizState.sessionQueue.map(function (id) { return byId[id]; }).filter(Boolean);

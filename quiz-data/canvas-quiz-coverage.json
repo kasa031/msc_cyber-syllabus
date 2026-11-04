@@ -1,0 +1,21 @@
+{
+  "updated": "2026-11-04",
+  "source": "Canvas module crawl 2026-11-04 + deck audit",
+  "4050": {
+    "moduleClassicQuizzes": 5,
+    "deckCanvasQuizCards": 48,
+    "notes": "L1-L7 weekly assignments use New Quizzes (not module Quiz items). Deck also has assignment cards from graded submissions (L3-L9, supply chain L10).",
+    "quizzes": [
+      { "id": 24331, "title": "Survey about the hardware", "deck": "partial (survey cards)" },
+      { "id": 24330, "title": "L-9 Identity IAM", "deck": "yes (17+ assignment Q cards, tag canvas)" },
+      { "id": 24677, "title": "Anatomy of an Attack", "deck": "partial (concept + lab prompts)" },
+      { "id": 24333, "title": "L-10 data-at-rest", "deck": "pending (submitted, muted - add when graded)" },
+      { "id": 24332, "title": "L-11 data-in-transit", "deck": "partial (concept MCQ + essays; lab tagged needs-canvas)" }
+    ]
+  },
+  "4280": {
+    "moduleClassicQuizzes": 44,
+    "deckCanvasQuizCards": 53,
+    "notes": "Module chapter quizzes largely mirrored as Canvas-quiz cards (Ch1-5 + PIA/PET drills). Re-verify after each new Canvas module quiz."
+  }
+}
