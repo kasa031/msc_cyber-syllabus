@@ -3637,7 +3637,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock174" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock176" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4631,7 +4631,7 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock174" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="quiz-decks.js?v=lock176" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
   <script src="framework-practice.js?v=lock151"></script>
   <script>
   (function () {
@@ -5507,9 +5507,11 @@ function showCourse(courseKey) {
   };
 
   var TEST_SIZE = 10;
+  var MIXED_TEST_PER_COURSE = 5;
   var LEECH_LAPSES = 8;
   var testState = {
     active: false,
+    mixedExam: false,
     questions: [],
     index: 0,
     results: [],
@@ -8572,23 +8574,63 @@ function showCourse(courseKey) {
     return flashShuffle(picked).slice(0, want);
   }
 
+  function testQuestionFromCard(card, pool, deckKey) {
+    var type = testPickQuestionType(card);
+    if (deckKey === "acit4280" && String(card.a || "").length <= 320) {
+      type = "written";
+    }
+    var q = { card: card, type: type };
+    if (type === "mcq") {
+      var mcq = testBuildMcqChoices(card, pool);
+      if (!mcq) type = "written";
+      else {
+        q.choices = mcq.choices;
+        q.correctIdx = mcq.correctIdx;
+      }
+    }
+    q.type = type;
+    return q;
+  }
+
   function testBuildQuestions(deck) {
     var pool = testBuildPool(deck);
     if (pool.length < 3) return [];
     var picked = testPickWeightedPool(pool, Math.min(TEST_SIZE, pool.length));
+    var dk = quizState.deckKey || "";
     return picked.map(function (card) {
-      var type = testPickQuestionType(card);
-      var q = { card: card, type: type };
-      if (type === "mcq") {
-        var mcq = testBuildMcqChoices(card, pool);
-        if (!mcq) type = "written";
-        else {
-          q.choices = mcq.choices;
-          q.correctIdx = mcq.correctIdx;
-        }
-      }
-      q.type = type;
-      return q;
+      return testQuestionFromCard(card, pool, dk);
+    });
+  }
+
+  function testMixedPoolStats() {
+    var keys = ["acit4050", "acit4280"];
+    var total = 0;
+    var per = {};
+    keys.forEach(function (dk) {
+      var deck = quizGetDeck(dk);
+      var pool = deck ? testBuildPool(deck) : [];
+      per[dk] = pool.length;
+      total += pool.length;
+    });
+    return { total: total, per: per };
+  }
+
+  function testBuildMixedQuestions() {
+    var keys = ["acit4050", "acit4280"];
+    var bundle = [];
+    keys.forEach(function (dk) {
+      var deck = quizGetDeck(dk);
+      if (!deck) return;
+      var pool = testBuildPool(deck);
+      var picked = testPickWeightedPool(pool, Math.min(MIXED_TEST_PER_COURSE, pool.length));
+      picked.forEach(function (card) {
+        bundle.push({ card: card, pool: pool, deckKey: dk });
+      });
+    });
+    bundle = flashShuffle(bundle);
+    if (bundle.length < 3) return [];
+    return bundle.map(function (row) {
+      return testQuestionFromCard(row.card, row.pool, row.deckKey);
     });
   }
 
@@ -8605,26 +8647,34 @@ function showCourse(courseKey) {
       home.hidden = true;
       return;
     }
-    var deck = quizGetDeck(quizState.deckKey);
-    if (!deck || !Array.isArray(deck.cards) || !deck.cards.length || deckLooksStale(deck, quizState.deckKey)) {
-      home.hidden = true;
-      return;
+    var pool;
+    var n;
+    if (testState.mixedExam) {
+      var mix = testMixedPoolStats();
+      pool = { length: mix.total };
+      n = Math.min(MIXED_TEST_PER_COURSE * 2, mix.total);
+      if ($("quiz-course-title")) $("quiz-course-title").textContent = "4050 + 4280 - mixed exam dry run";
+    } else {
+      var deck = quizGetDeck(quizState.deckKey);
+      if (!deck || !Array.isArray(deck.cards) || !deck.cards.length || deckLooksStale(deck, quizState.deckKey)) {
+        home.hidden = true;
+        return;
+      }
+      pool = testBuildPool(deck);
+      n = Math.min(TEST_SIZE, pool.length);
     }
-    var pool = testBuildPool(deck);
-    var n = Math.min(TEST_SIZE, pool.length);
     var countEl = $("test-home-count");
     var sub = $("test-home-sub");
-    if (countEl) countEl.textContent = String(n);
+    if (countEl) countEl.textContent = testState.mixedExam ? String(MIXED_TEST_PER_COURSE) + "+" + String(MIXED_TEST_PER_COURSE) : String(n);
     if (sub) {
-      sub.textContent = pool.length < 3
-        ? "Need at least 3 syllabus-linked cards in this deck (or filter) for a test."
-        : "Written answers and multiple choice like Canvas. Score at the end - does not change your practice schedule.";
+      sub.textContent = testState.mixedExam
+        ? "Five questions from each course. Timed. Does not change Practice schedule."
+        : (pool.length < 3
+          ? "Need at least 3 cards in this deck."
+          : "Timed mix. Does not change Practice schedule.");
     }
     var pensumNote = $("test-home-pensum");
-    if (pensumNote) {
-      var pri = pool.filter(function (c) { return studyCardExamPriority(c) >= 2; }).length;
-      pensumNote.textContent = "Syllabus-linked cards only (" + pool.length + " in pool, " + pri + " from official exam examples or Canvas quizzes). MCQ distractors are other real answers from this deck.";
-    }
+    if (pensumNote) pensumNote.hidden = true;
     var startBtn = $("test-home-start");
     if (startBtn) startBtn.disabled = pool.length < 3;
     home.hidden = false;
@@ -8851,9 +8901,13 @@ function showCourse(courseKey) {
   }
 
   function testStart() {
-    var deck = quizGetDeck(quizState.deckKey);
-    if (!deck) return;
-    var questions = testBuildQuestions(deck);
+    var questions = testState.mixedExam
+      ? testBuildMixedQuestions()
+      : testBuildQuestions(quizGetDeck(quizState.deckKey));
+    if (!testState.mixedExam) {
+      var deck = quizGetDeck(quizState.deckKey);
+      if (!deck) return;
+    }
     if (questions.length < 3) {
       $("quiz-active").classList.add("hidden");
       $("quiz-empty").classList.remove("hidden");
@@ -8882,6 +8936,23 @@ function showCourse(courseKey) {
   }
 
   function testLoadAndShow() {
+    if (testState.mixedExam) {
+      quizDeckFallbackTried = false;
+      var mix = testMixedPoolStats();
+      if (mix.total < 3) {
+        quizShowEmpty(0, { missingDeck: true });
+        return;
+      }
+      $("quiz-course-title").textContent = "4050 + 4280 - mixed exam dry run";
+      applyStudyModeUi("test");
+      if (testState.active) {
+        if ($("test-home")) $("test-home").hidden = true;
+        testRenderCurrent();
+        return;
+      }
+      syncTestHome();
+      return;
+    }
     var deck = quizGetDeck(quizState.deckKey);
     var countMismatch = deckLooksStale(deck, quizState.deckKey);
     if (!deck || countMismatch) {
@@ -8989,6 +9060,7 @@ function showCourse(courseKey) {
     testStopTimer();
     if (mode !== "test") {
       testState.active = false;
+      testState.mixedExam = false;
       testState.questions = [];
       testState.index = 0;
       testState.results = [];
@@ -11832,6 +11904,7 @@ function showCourse(courseKey) {
   var EXAM_FOCUS_KEY = "acit-exam-focus-v1";
   var pendingStudyQuery = null;
   var pendingTagQuery = null;
+  var pendingMixedTest = false;
 
   function ensureEmbedClass() {
     try {
@@ -11885,10 +11958,16 @@ function showCourse(courseKey) {
       }
       var tag = p.get("tag");
       if (tag) pendingTagQuery = tag;
+      if (p.get("mixed") === "1") pendingMixedTest = true;
     } catch (e) { /* ignore */ }
   }
 
   function applyPendingStudyQuery() {
+    if (pendingMixedTest) {
+      testState.mixedExam = true;
+      pendingMixedTest = false;
+      showCourse("acit4050");
+    }
     if (pendingStudyQuery) {
       setStudyMode(pendingStudyQuery);
       pendingStudyQuery = null;
@@ -12021,6 +12100,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock174" defer></script>
+  <script src="js/learning-session.js?v=lock176" defer></script>
 </body>
 </html>

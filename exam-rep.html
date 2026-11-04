@@ -7,7 +7,7 @@
   <title>Exam repetition | ACIT4050 and ACIT4280</title>
   <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock174" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock176" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root {
@@ -326,16 +326,22 @@
       </article>
     </div>
 
-    <section class="panel" aria-labelledby="checklist-title">
-      <h2 id="checklist-title">Checklist</h2>
-      <p class="panel-lede">Saved on this device. <a href="../Oversikt/Ukeplan.html">Week planner</a></p>
+    <p class="exam-meta" style="margin:1rem 0 0;text-align:center;">
+      <a class="btn cta" style="display:inline-flex;border-color:var(--signal);color:var(--signal-deep);background:var(--signal-soft)" href="index.html?exam=1&amp;study=test&amp;mixed=1">Mixed dry run (5+5 questions)</a>
+    </p>
+
+    <details class="panel" style="margin-top:1rem;border:1px solid var(--line);border-radius:var(--radius);padding:0.75rem 1rem;background:var(--surface);">
+      <summary style="cursor:pointer;font-weight:700;color:var(--ink);">Checklist (optional)</summary>
+      <section aria-labelledby="checklist-title" style="margin-top:0.65rem;">
+      <p class="panel-lede" style="margin:0 0 0.5rem;font-size:0.88rem;">Saved on this device. <a href="../Oversikt/Ukeplan.html">Week planner</a></p>
       <p class="progress-label"><span id="check-done">0</span> / <span id="check-total">0</span> done</p>
       <div class="progress-bar" aria-hidden="true"><span id="check-fill"></span></div>
       <ul class="checklist" id="exam-checklist"></ul>
       <div class="tut-actions" style="margin-top:0.75rem;">
         <button type="button" class="btn btn-primary" id="check-reset">Reset checklist</button>
       </div>
-    </section>
+      </section>
+    </details>
 
     <section class="panel syllabus-map" aria-labelledby="syllabus-title">
       <h2 id="syllabus-title">Canvas links</h2>
