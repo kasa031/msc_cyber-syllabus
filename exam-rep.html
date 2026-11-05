@@ -7,7 +7,7 @@
   <title>Exam repetition | ACIT4050 and ACIT4280</title>
   <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock176" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock182" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root {
@@ -258,6 +258,49 @@
     }
     .l11-urgent h2 { margin: 0 0 0.35rem; font-size: 1.12rem; color: var(--warn-hot); }
     .l11-urgent .action-row { margin-top: 0.65rem; }
+    .today-strip {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+    .today-strip strong { color: var(--signal-deep); }
+    .today-strip .mini-ring {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: conic-gradient(var(--signal) var(--ring-pct, 0%), var(--line-soft) 0);
+      display: grid;
+      place-items: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+    }
+    .today-strip .mini-ring span {
+      width: 1.85rem;
+      height: 1.85rem;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+    }
+    section.panel.modes-panel { border-color: var(--line); background: var(--surface); }
+    .mode-tile {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .mode-tile a.btn {
+      border-color: var(--signal);
+      color: var(--signal-deep);
+      background: var(--signal-soft);
+    }
   </style>
 </head>
 <body>
@@ -272,14 +315,20 @@
         </nav>
       </div>
       <h1>Exam prep</h1>
-      <p class="hero-lede"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec</p>
+      <p class="hero-lede"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · practice modes below</p>
     </div>
   </header>
 
   <main class="wrap">
+    <div class="today-strip" id="today-strip" aria-live="polite">
+      <div class="mini-ring" id="today-ring" style="--ring-pct: 0%"><span id="today-ring-label">0/10</span></div>
+      <p style="margin:0"><strong>Today on this device:</strong> <span id="today-reviews">0</span> cards rated · streak <span id="today-streak">0</span> days</p>
+      <a class="btn cta" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="index.html?exam=1&amp;study=quiz#4050">Continue practice</a>
+    </div>
+
     <section class="l11-urgent" aria-labelledby="l11-title">
-      <h2 id="l11-title">Next deadline: L-11 data in transit · 8 Nov 23:59</h2>
-      <p class="exam-meta" style="margin:0">Submitted 5 Nov 2026 (confirm score in Canvas). Lab answers synced in study deck.</p>
+      <h2 id="l11-title">Rep: L-11 data in transit</h2>
+      <p class="exam-meta" style="margin:0">Deadline was 8 Nov 23:59. You submitted 5 Nov (confirm score in Canvas). Use the deck to rehearse TLS/PKI before the written exam.</p>
       <ul style="margin:0.55rem 0 0;padding-left:1.15rem;font-size:0.9rem;">
         <li><a href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Assignment 123557 (40 pts)</a></li>
         <li><a href="https://oslomet.instructure.com/courses/34599/quizzes/24332" target="_blank" rel="noopener">Quiz 24332 (13 questions, same as assignment)</a></li>
@@ -291,7 +340,47 @@
         <a class="btn cta" href="https://oslomet.instructure.com/courses/34599/quizzes/24332" target="_blank" rel="noopener">Open quiz</a>
         <a class="btn cta alt" href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Assignment</a>
         <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4050">Timed test</a>
-        <a class="btn" href="index.html?exam=1&amp;study=quiz#4050">Practice</a>
+        <a class="btn" href="index.html?exam=1&amp;tag=data-in-transit&amp;study=quiz#4050">L-11 cards only</a>
+        <button type="button" class="btn" id="l11-mark-submitted">Mark L-11 submitted (checklist)</button>
+      </div>
+    </section>
+
+    <section class="panel modes-panel" aria-labelledby="modes-title">
+      <h2 id="modes-title">Practice modes</h2>
+      <p class="panel-lede">Same app, exam focus on. Pick one block per study session.</p>
+      <div class="modes">
+        <div class="mode-tile">
+          <strong>Flashcards</strong>
+          <p>Due cards first, honest 1-4 ratings.</p>
+          <a class="btn" href="index.html?exam=1&amp;study=quiz#4050">4050</a>
+          <a class="btn" href="index.html?exam=1&amp;study=quiz#4280" style="margin-top:0.35rem">4280</a>
+        </div>
+        <div class="mode-tile">
+          <strong>Timed test</strong>
+          <p>Written-style recall under time.</p>
+          <a class="btn" href="index.html?exam=1&amp;study=test#4050">4050 test</a>
+          <a class="btn" href="index.html?exam=1&amp;study=test#4280" style="margin-top:0.35rem">4280 test</a>
+        </div>
+        <div class="mode-tile">
+          <strong>Mixed dry run</strong>
+          <p>5 questions from each course.</p>
+          <a class="btn" href="index.html?exam=1&amp;study=test&amp;mixed=1">Start mixed 5+5</a>
+        </div>
+        <div class="mode-tile">
+          <strong>Frameworks</strong>
+          <p>NIST, Kill Chain, MITRE.</p>
+          <a class="btn" href="index.html?exam=1#practice">Open diagrams</a>
+        </div>
+        <div class="mode-tile">
+          <strong>InstantONS</strong>
+          <p>4280 privacy impact drill.</p>
+          <a class="btn" href="index.html?exam=1#instantons">Drag and drop</a>
+        </div>
+        <div class="mode-tile">
+          <strong>Class notes</strong>
+          <p>Figures and lecture summaries.</p>
+          <a class="btn" href="class-notes.html?exam=1">Open notes</a>
+        </div>
       </div>
     </section>
 
@@ -303,7 +392,7 @@
         </div>
         <p class="countdown" id="cd-4050" aria-live="polite">Calculating...</p>
         <p class="exam-meta">Written exam 26 Nov, 09:00 (3 h). Check permitted aids on Canvas.</p>
-        <p class="exam-meta"><strong>Now:</strong> L-11 due 8 Nov. L-10 submitted.</p>
+        <p class="exam-meta"><strong>Now:</strong> Rep L-11 + exam examples. L-10 submitted.</p>
         <p class="due-line" id="due-4050">Due cards: loading...</p>
         <div class="action-row">
           <a class="btn cta" href="index.html?exam=1&amp;study=quiz#4050">Practice</a>
@@ -497,6 +586,7 @@
           tick("both-streak", (xp.streak || 0) >= 3);
           tick("4050-test", (xp.test4050Done || 0) >= 1);
           tick("4280-test", (xp.test4280Done || 0) >= 1);
+          tick("4050-l11", localStorage.getItem("acit-l11-submitted-v1") === "1");
         } catch (e) { /* ignore */ }
         if (changed) saveState(state);
         return state;
@@ -545,12 +635,55 @@
         renderChecklist();
       });
 
+      function renderTodayStrip() {
+        var reviewsEl = document.getElementById("today-reviews");
+        var streakEl = document.getElementById("today-streak");
+        var ring = document.getElementById("today-ring");
+        var ringLabel = document.getElementById("today-ring-label");
+        var goal = 10;
+        try {
+          var g = parseInt(localStorage.getItem("acit-daily-goal-v1"), 10);
+          if (g > 0) goal = g;
+        } catch (eG) { /* ignore */ }
+        var today = 0;
+        var streak = 0;
+        try {
+          var xp = JSON.parse(localStorage.getItem("acit-study-xp-v1") || "{}");
+          today = xp.todayReviews || 0;
+          streak = xp.streak || 0;
+        } catch (eXp) { /* ignore */ }
+        if (reviewsEl) reviewsEl.textContent = String(today);
+        if (streakEl) streakEl.textContent = String(streak);
+        var pct = goal ? Math.min(100, Math.round((today / goal) * 100)) : 0;
+        if (ring) ring.style.setProperty("--ring-pct", pct + "%");
+        if (ringLabel) ringLabel.textContent = today + "/" + goal;
+      }
+
+      var l11Btn = document.getElementById("l11-mark-submitted");
+      if (l11Btn) {
+        l11Btn.addEventListener("click", function () {
+          try { localStorage.setItem("acit-l11-submitted-v1", "1"); } catch (e) { /* ignore */ }
+          renderChecklist();
+          l11Btn.textContent = "L-11 marked submitted";
+          l11Btn.disabled = true;
+        });
+        try {
+          if (localStorage.getItem("acit-l11-submitted-v1") === "1") {
+            l11Btn.textContent = "L-11 marked submitted";
+            l11Btn.disabled = true;
+          }
+        } catch (eL) { /* ignore */ }
+      }
+
       try { localStorage.setItem("acit-exam-focus-v1", "1"); } catch (e) { /* ignore */ }
 
       updateCountdowns();
       setInterval(updateCountdowns, 60000);
       renderChecklist();
       renderDueCounts();
+      renderTodayStrip();
+      window.addEventListener("storage", renderTodayStrip);
+      document.addEventListener("acit-xp-updated", renderTodayStrip);
     })();
   </script>
 </body>

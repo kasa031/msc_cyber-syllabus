@@ -3637,7 +3637,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock181" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock182" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4643,8 +4643,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock181" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock181"></script>
+  <script src="quiz-decks.js?v=lock182" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock182"></script>
   <script>
   (function () {
   "use strict";
@@ -6787,6 +6787,34 @@ function showCourse(courseKey) {
     setTimeout(function () { el.hidden = true; }, 3200);
   }
 
+  function studyCelebrateDailyGoal(today, goal) {
+    studyPlayTrophyFanfare();
+    var el = $("trophy-toast");
+    if (el) {
+      el.textContent = "Daily goal done - " + today + " / " + goal + " cards.";
+      el.hidden = false;
+      setTimeout(function () { el.hidden = true; }, 3200);
+    }
+    var ring = $("research-daily-ring");
+    if (ring) {
+      ring.classList.add("is-celebrate");
+      setTimeout(function () { ring.classList.remove("is-celebrate"); }, 1800);
+    }
+    studyFxBurstAt(ring || $("quiz-card"), 14);
+    studyFxPop("hud-points");
+  }
+
+  function studyCelebrateStreak(days) {
+    if (days !== 3 && days !== 7 && days !== 14) return;
+    var el = $("trophy-toast");
+    if (el) {
+      el.textContent = "Streak: " + days + " days in a row. Keep going.";
+      el.hidden = false;
+      setTimeout(function () { el.hidden = true; }, 3200);
+    }
+    studyPlayPointsChime();
+  }
+
   function studyUnlockTrophies(xp) {
     if (!xp.badges || typeof xp.badges !== "object") xp.badges = {};
     var fresh = [];
@@ -7147,9 +7175,11 @@ function showCourse(courseKey) {
     if (!profileIsAuthed()) return studyDefaultXp();
     var xp = studyLoadXp();
     var today = studyTodayKey();
+    var streakJustSet = null;
     if (xp.lastStudyDay !== today) {
       if (xp.lastStudyDay && xp.lastStudyDay === studyYesterdayKey(today)) xp.streak = (xp.streak || 0) + 1;
       else xp.streak = 1;
+      streakJustSet = xp.streak;
       xp.todayPoints = 0;
       xp.todayReviews = 0;
       xp.todayAgain = 0;
@@ -7158,12 +7188,24 @@ function showCourse(courseKey) {
     }
     var add = XP_POINTS[grade];
     if (typeof add !== "number") add = 0;
+    var goal = studyDailyGoal();
+    var prevTodayReviews = xp.todayReviews || 0;
     xp.points = (xp.points || 0) + add;
     xp.todayPoints = (xp.todayPoints || 0) + add;
-    xp.todayReviews = (xp.todayReviews || 0) + 1;
+    xp.todayReviews = prevTodayReviews + 1;
     xp.lifetimeReviews = (xp.lifetimeReviews || 0) + 1;
     studyBumpReviewLog(xp);
     if (xp.todayReviews > (xp.maxTodayReviews || 0)) xp.maxTodayReviews = xp.todayReviews;
+    if (prevTodayReviews < goal && xp.todayReviews >= goal) {
+      var hitKey = "acit-daily-goal-hit-" + today;
+      try {
+        if (!localStorage.getItem(hitKey)) {
+          localStorage.setItem(hitKey, "1");
+          studyCelebrateDailyGoal(xp.todayReviews, goal);
+        }
+      } catch (eGoal) { studyCelebrateDailyGoal(xp.todayReviews, goal); }
+    }
+    if (streakJustSet) studyCelebrateStreak(streakJustSet);
     if (grade === "again") {
       xp.againCount = (xp.againCount || 0) + 1;
       xp.todayAgain = (xp.todayAgain || 0) + 1;
@@ -7252,6 +7294,9 @@ function showCourse(courseKey) {
     tick("both-streak", (xp.streak || 0) >= 3);
     tick("4050-test", (xp.test4050Done || 0) >= 1);
     tick("4280-test", (xp.test4280Done || 0) >= 1);
+    try {
+      tick("4050-l11", localStorage.getItem("acit-l11-submitted-v1") === "1");
+    } catch (eL11) { /* ignore */ }
     if (changed) examRepChecklistSave(state);
   }
 
@@ -12196,6 +12241,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock181" defer></script>
+  <script src="js/learning-session.js?v=lock182" defer></script>
 </body>
 </html>
