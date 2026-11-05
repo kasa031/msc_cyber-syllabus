@@ -7,7 +7,7 @@
   <title>Exam repetition | ACIT4050 and ACIT4280</title>
   <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock184" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock185" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root {
@@ -436,8 +436,8 @@
     </section>
 
     <section class="l11-urgent" aria-labelledby="l11-title">
-      <h2 id="l11-title">Rep: L-11 data in transit</h2>
-      <p class="exam-meta" style="margin:0">Deadline was 8 Nov 23:59. You submitted 5 Nov (confirm score in Canvas). Use the deck to rehearse TLS/PKI before the written exam.</p>
+      <h2 id="l11-title">L-11 submitted - rep for written exam</h2>
+      <p class="exam-meta" style="margin:0"><strong>Submitted 5 Nov 2026</strong> (you confirmed). Check score in Canvas when graded. Keep rehearsing TLS/PKI in the app before 26 Nov.</p>
       <ul style="margin:0.55rem 0 0;padding-left:1.15rem;font-size:0.9rem;">
         <li><a href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Assignment 123557 (40 pts)</a></li>
         <li><a href="https://oslomet.instructure.com/courses/34599/quizzes/24332" target="_blank" rel="noopener">Quiz 24332 (13 questions, same as assignment)</a></li>
@@ -446,11 +446,10 @@
         <li><a href="https://oslomet.instructure.com/courses/34599/modules/items/924544" target="_blank" rel="noopener">Example exam questions</a></li>
       </ul>
       <div class="action-row">
-        <a class="btn cta" href="https://oslomet.instructure.com/courses/34599/quizzes/24332" target="_blank" rel="noopener">Open quiz</a>
-        <a class="btn cta alt" href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Assignment</a>
-        <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4050">Timed test</a>
-        <a class="btn" href="index.html?exam=1&amp;tag=data-in-transit&amp;study=quiz#4050">L-11 cards only</a>
-        <button type="button" class="btn" id="l11-mark-submitted">Mark L-11 submitted (checklist)</button>
+        <a class="btn cta" href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">View in Canvas</a>
+        <a class="btn cta alt" href="index.html?tag=data-in-transit&amp;study=quiz#4050">L-11 cards only</a>
+        <a class="btn" href="index.html?study=test#4050">Timed test</a>
+        <span class="btn" id="l11-submitted-badge" style="cursor:default;opacity:0.95">Checklist: submitted</span>
       </div>
     </section>
 
@@ -572,12 +571,21 @@
   <script>
     (function () {
       var STORAGE_KEY = "acit-exam-rep-checklist-v1";
+      var L11_SUBMITTED_KEY = "acit-l11-submitted-v1";
+      var L11_SUBMITTED_AT = "2026-11-05";
+
+      function ensureL11SubmittedState() {
+        try {
+          localStorage.setItem(L11_SUBMITTED_KEY, "1");
+          localStorage.setItem("acit-l11-submitted-at-v1", L11_SUBMITTED_AT);
+        } catch (e) { /* ignore */ }
+      }
       var EXAMS = {
         "4050": { el: "cd-4050", at: "2026-11-26T09:00:00+01:00", label: "4050 exam" },
         "4280": { el: "cd-4280", at: "2026-12-10T15:00:00+01:00", label: "4280 exam" }
       };
       var ITEMS = [
-        { id: "4050-l11", course: "4050", text: "Submit L-11 on Canvas" },
+        { id: "4050-l11", course: "4050", text: "L-11 submitted on Canvas (5 Nov 2026)" },
         { id: "4050-slides-11-12", course: "4050", text: "Read slides: data at rest + data in transit" },
         { id: "4050-exam-eight", course: "4050", text: "Practice official phishing exam examples", href: "index.html?exam=1&tag=exam&study=quiz#4050" },
         { id: "4050-test", course: "4050", text: "One timed test in the app" },
@@ -791,7 +799,7 @@
           tick("both-streak", (xp.streak || 0) >= 3);
           tick("4050-test", (xp.test4050Done || 0) >= 1);
           tick("4280-test", (xp.test4280Done || 0) >= 1);
-          tick("4050-l11", localStorage.getItem("acit-l11-submitted-v1") === "1");
+          tick("4050-l11", localStorage.getItem(L11_SUBMITTED_KEY) === "1");
         } catch (e) { /* ignore */ }
         if (changed) saveState(state);
         return state;
@@ -872,21 +880,7 @@
         if (ringLabel) ringLabel.textContent = today + "/" + goal;
       }
 
-      var l11Btn = document.getElementById("l11-mark-submitted");
-      if (l11Btn) {
-        l11Btn.addEventListener("click", function () {
-          try { localStorage.setItem("acit-l11-submitted-v1", "1"); } catch (e) { /* ignore */ }
-          renderChecklist();
-          l11Btn.textContent = "L-11 marked submitted";
-          l11Btn.disabled = true;
-        });
-        try {
-          if (localStorage.getItem("acit-l11-submitted-v1") === "1") {
-            l11Btn.textContent = "L-11 marked submitted";
-            l11Btn.disabled = true;
-          }
-        } catch (eL) { /* ignore */ }
-      }
+      ensureL11SubmittedState();
 
       try { localStorage.setItem("acit-exam-focus-v1", "1"); } catch (e) { /* ignore */ }
 

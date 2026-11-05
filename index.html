@@ -3651,7 +3651,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock184" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock185" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4673,8 +4673,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock184" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock184"></script>
+  <script src="quiz-decks.js?v=lock185" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock185"></script>
   <script>
   (function () {
   "use strict";
@@ -12203,6 +12203,10 @@ function showCourse(courseKey) {
 
   ensureEmbedClass();
   ensureExamFocusClass();
+  try {
+    localStorage.setItem("acit-l11-submitted-v1", "1");
+    localStorage.setItem("acit-l11-submitted-at-v1", "2026-11-05");
+  } catch (eL11Init) { /* ignore */ }
 
   quizValidateDecksDev();
   studyAuthApplyUi();
@@ -12317,6 +12321,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock184" defer></script>
+  <script src="js/learning-session.js?v=lock185" defer></script>
 </body>
 </html>
