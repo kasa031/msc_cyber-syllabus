@@ -4379,6 +4379,23 @@
         "rhetoric",
         "critical-thinking"
       ]
+    },
+    {
+      "id": "4100-w10-five-thinkers-common",
+      "q": "What do Toulmin, Kuhn, Popper, Merton and Gouldner have in common?",
+      "a": "In ACIT4100 they are used together to study science, argument, and the role of the expert: how knowledge claims are justified and how scientists/intellectuals relate to society (not as value-free technicians detached from politics and ethics). Toulmin: argument structure; Popper/Kuhn/Merton: philosophy and sociology of science; Gouldner: intellectuals and power (Week 10 professional ethics / political philosophy strand).",
+      "tags": [
+        "week10",
+        "expert",
+        "philosophy",
+        "Toulmin",
+        "Popper",
+        "Kuhn",
+        "Merton",
+        "Gouldner",
+        "exam",
+        "pensum"
+      ]
     }
   ]
 }

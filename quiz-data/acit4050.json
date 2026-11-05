@@ -3524,51 +3524,51 @@
     {
       "id": "4050-l11-canvas-q01",
       "q": "Canvas L-11 Q1 (lab): Find username and password in http-2.pcapng with tshark.",
-      "a": "Complete in Cybrxec Linux lab: copy http-2.pcapng to /tmp, analyze with tshark -r. Answers are packet-specific (Canvas quiz 24332).",
+      "a": "HTTP Basic Auth in cleartext (frame with Authorization: Basic ...). Example from lab capture: username lothar, password d3zKrJ]xwN (decode base64 after Basic). Commands: cp to /tmp; tshark -r /tmp/http-2.pcapng -Y http.authorization -T fields -e http.authorization; echo '...' | base64 -d",
       "tags": [
         "Lecture12",
         "data-in-transit",
         "Canvas-quiz",
-        "needs-canvas"
+        "exam"
       ]
     },
     {
       "id": "4050-l11-canvas-q03",
       "q": "Canvas L-11 Q3 (lab): Random Bytes value in first frame of tls.pcapng?",
-      "a": "Complete in lab with tshark on /tmp/tls.pcapng after copy from Assignments/L-11/TLS. Value is capture-specific (quiz 24332).",
+      "a": "From frame 1 Client Hello (grep Random Bytes): 5c2a19eeee330e4cfee02de166f0948003f371207a1d8305dc70f854 (lab tls.pcapng, quiz 24332).",
       "tags": [
         "Lecture12",
         "data-in-transit",
         "Canvas-quiz",
-        "needs-canvas"
+        "exam"
       ]
     },
     {
       "id": "4050-l11-canvas-q05",
       "q": "Canvas L-11 Q5 (lab): Certificate type issued to https://www.uio.no ?",
-      "a": "Inspect cert in Firefox (Canvas hint). Record the validation type shown (DV/OV/EV) for your attempt - quiz 24332.",
+      "a": "Organizational Validation Certificate (OV) - subject includes O=Universitetet i Oslo (live cert; use Firefox cert viewer wording if Canvas auto-grader is strict).",
       "tags": [
         "Lecture12",
         "data-in-transit",
         "Canvas-quiz",
-        "needs-canvas"
+        "exam"
       ]
     },
     {
       "id": "4050-l11-canvas-q07",
       "q": "Canvas L-11 Q7 (lab): Fields from cert-5.pem via openssl x509 -noout -text",
-      "a": "Fill serial number, Not After, signature algorithm, Authority Key Identifier, Subject Key Identifier from lab cert-5.pem (Assignments/L-11/Certs).",
+      "a": "cert-5.pem (nav.no, Buypass): Serial 4c:db:7b:be:21:2b:94:89:ae:d5; Not After Mar  8 22:59:00 2025 GMT; Signature Algorithm sha256WithRSAEncryption; Authority Key Identifier 22:30:2E:D2:FB:F6:4B:CA:C0:B8:3B:D2:04:C4:E9:72:E6:97:9B:0C; Subject Key Identifier 38:5E:63:17:5D:4B:32:46:F0:A4:16:23:28:F3:86:16:83:62:53:DA",
       "tags": [
         "Lecture12",
         "data-in-transit",
         "Canvas-quiz",
-        "needs-canvas"
+        "exam"
       ]
     },
     {
       "id": "4050-l11-canvas-q08",
       "q": "Canvas L-11 Q8 (MA): Which CA pem files exist under /etc/ssl/certs on the lab VM?",
-      "a": "Use ls -l /etc/ssl/certs/ | grep -i NAME for each choice (Go_Daddy_Class_2_CA.pem, Izenpe.com.pem, Swisscom_Public_CA_1.pem, PSCProcert_Root-CA.pem). Select those present on your VM (quiz 24332).",
+      "a": "Present on standard Cybrxec lab VM: Go_Daddy_Class_2_CA.pem and Izenpe.com.pem. Not present: Swisscom_Public_CA_1.pem, PSCProcert_Root-CA.pem (verify with ls -l /etc/ssl/certs/ | grep -i).",
       "tags": [
         "Lecture12",
         "data-in-transit",
