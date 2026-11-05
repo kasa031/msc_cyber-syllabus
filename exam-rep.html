@@ -4,390 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0f766e" />
-  <title>Exam repetition | ACIT4050 and ACIT4280</title>
-  <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
+  <title>Exam prep playground | 4050 + 4280</title>
+  <meta name="description" content="Interactive written-exam prep for ACIT4050 and ACIT4280. Flashcards, timed tests, drills. Syllabus-only questions." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock185" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock186" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock186" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
-    :root {
-      --radius: 14px;
-      --shadow: var(--shadow-md);
-      --purple: var(--palette-purple);
-      --magenta: var(--palette-magenta);
-      --pink: var(--palette-pink);
-      --yellow: var(--ochre);
-      --cream: var(--paper);
-    }
+    :root { --radius: 14px; --shadow: var(--shadow-md); --cream: var(--paper); }
     *, *::before, *::after { box-sizing: border-box; }
-    html { background: var(--paper); }
-    body {
-      margin: 0;
-      font-family: "Space Grotesk", "Segoe UI", sans-serif;
-      color: var(--ink);
-      line-height: 1.55;
-      background: var(--paper);
-    }
-    a { color: var(--palette-magenta); font-weight: 600; }
-    a:hover { color: var(--signal-deep); }
+    body { margin: 0; font-family: "Space Grotesk", "Segoe UI", sans-serif; color: var(--ink); background: var(--paper); line-height: 1.55; }
+    a { color: var(--signal-deep); font-weight: 600; }
     .wrap { max-width: 56rem; margin: 0 auto; padding: 1.25rem 1.1rem 3rem; }
-    header.hero {
-      background: linear-gradient(145deg, #134e4a 0%, #0f766e 100%);
-      color: #f8fafc;
-      padding: 1.5rem 1.1rem 1.75rem;
-    }
+    header.hero { background: linear-gradient(145deg, #134e4a 0%, #0f766e 100%); color: #f8fafc; padding: 1.5rem 1.1rem 1.75rem; }
     .hero-inner { max-width: 56rem; margin: 0 auto; }
-    .hero-top {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
+    .hero-top { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
     .brand { margin: 0; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.92; }
     .hero-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      border: 1px solid rgba(248, 250, 252, 0.45);
-      background: transparent;
-      color: #f8fafc;
-      font: inherit;
-      font-weight: 600;
-      font-size: 0.88rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn:hover { background: rgba(255, 249, 230, 0.12); }
-    .btn-primary {
-      background: #fff;
-      border-color: #fff;
-      color: var(--signal-deep);
-    }
-    .btn-primary:hover { filter: brightness(1.03); }
-    .hero-layout {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 1.25rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .hero-layout img {
-      width: min(7.5rem, 28vw);
-      height: auto;
-      flex-shrink: 0;
-      opacity: 0.95;
-    }
-    .hero h1 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(1.65rem, 4.5vw, 2.35rem);
-      line-height: 1.15;
-      max-width: 22ch;
-    }
-    .hero-lede { margin: 0; max-width: 40rem; opacity: 0.95; font-size: 1.02rem; }
-    .exam-grid {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.35rem;
-    }
-    @media (min-width: 720px) {
-      .exam-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .exam-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem 1.05rem 1.1rem;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      transition: box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
-    }
-    .exam-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .hero-nav a { display: inline-flex; padding: 0.45rem 0.85rem; border-radius: var(--radius); border: 1px solid rgba(248,250,252,0.45); color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 600; }
+    .hero-nav a.roadmap { background: #fff; color: var(--signal-deep); border-color: #fff; }
+    .hero-layout { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
+    .hero h1 { margin: 0 0 0.35rem; font-size: clamp(1.65rem, 4.5vw, 2.35rem); max-width: 20ch; line-height: 1.12; }
+    .hero-lede { margin: 0; opacity: 0.95; max-width: 38rem; }
+    .today-strip { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .mini-ring { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: conic-gradient(var(--signal) var(--ring-pct,0%), var(--line-soft) 0); display: grid; place-items: center; font-size: 0.62rem; font-weight: 700; }
+    .mini-ring span { width: 1.85rem; height: 1.85rem; border-radius: 50%; background: #fff; display: grid; place-items: center; }
+    .exam-grid { display: grid; gap: 1rem; margin-top: 1rem; }
+    @media (min-width: 720px) { .exam-grid { grid-template-columns: 1fr 1fr; } }
+    .exam-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); }
     .exam-card[data-course="4050"] { border-top: 4px solid var(--signal); }
     .exam-card[data-course="4280"] { border-top: 4px solid var(--palette-magenta); }
-    .exam-card-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    .exam-card h2 { margin: 0; font-size: 1.15rem; }
-    .tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 999px;
-      background: var(--yellow);
-      color: var(--purple);
-    }
-    .countdown {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--magenta);
-    }
-    .countdown.urgent { color: var(--pink); }
-    .exam-meta { margin: 0; font-size: 0.88rem; }
-    .action-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.25rem; }
-    .action-row .btn {
-      border-color: var(--purple);
-      color: var(--purple);
-      background: var(--cream);
-      font-size: 0.82rem;
-      padding: 0.4rem 0.7rem;
-    }
-    .action-row .btn.cta {
-      background: var(--purple);
-      border-color: var(--purple);
-      color: var(--cream);
-    }
-    .action-row .btn.cta.alt {
-      background: var(--magenta);
-      border-color: var(--magenta);
-    }
-    section.panel {
-      margin-top: 1.35rem;
-      background: #fff;
-      border: 2px solid var(--yellow);
-      border-radius: var(--radius);
-      padding: 1rem 1.05rem;
-      box-shadow: var(--shadow);
-    }
+    .countdown { font-weight: 700; color: var(--signal-deep); margin: 0.35rem 0; }
+    .countdown.urgent { color: var(--warn-hot); }
+    .exam-meta { margin: 0; font-size: 0.88rem; color: var(--slate); }
+    .action-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.55rem; }
+    .action-row a { font-size: 0.82rem; padding: 0.4rem 0.7rem; border-radius: 10px; background: var(--signal-soft); border: 1px solid var(--signal); text-decoration: none; color: var(--signal-deep); }
+    .action-row a.cta { background: var(--signal); color: #fff; border-color: var(--signal); }
+    section.panel { margin-top: 1.25rem; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
     section.panel h2 { margin: 0 0 0.35rem; font-size: 1.12rem; }
-    .panel-lede { margin: 0 0 0.85rem; font-size: 0.9rem; }
+    .panel-lede { margin: 0 0 0.65rem; font-size: 0.88rem; color: var(--slate); }
+    .modes { display: grid; gap: 0.75rem; }
+    @media (min-width: 600px) { .modes { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 599px) { .mode-tile a.btn { min-height: 2.75rem; } }
+    .mode-tile { border: 1px solid var(--line); border-radius: var(--radius); padding: 0.75rem; text-align: center; background: #fff; }
+    .mode-tile a.btn { display: block; margin-top: 0.35rem; padding: 0.45rem; border-radius: 10px; background: var(--signal-soft); color: var(--signal-deep); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+    .weak-spots { display: grid; gap: 0.75rem; }
+    @media (min-width: 640px) { .weak-spots { grid-template-columns: 1fr 1fr; } }
+    .weak-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 0.85rem; background: #fff; }
     .checklist { list-style: none; margin: 0; padding: 0; }
-    .checklist li {
-      border-bottom: 1px solid rgba(171, 3, 169, 0.2);
-      padding: 0.55rem 0;
-    }
-    .checklist li:last-child { border-bottom: none; }
-    .check-item {
-      display: flex;
-      gap: 0.65rem;
-      align-items: flex-start;
-      cursor: pointer;
-    }
-    .check-item input {
-      width: 1.15rem;
-      height: 1.15rem;
-      margin-top: 0.15rem;
-      accent-color: var(--magenta);
-      flex-shrink: 0;
-    }
-    .check-text { flex: 1; font-size: 0.92rem; }
-    .check-text.done { opacity: 0.65; text-decoration: line-through; }
-    .progress-bar {
-      height: 10px;
-      background: var(--cream);
-      border: 2px solid var(--purple);
-      border-radius: 999px;
-      overflow: hidden;
-      margin: 0.65rem 0 0.25rem;
-    }
-    .progress-bar span {
-      display: block;
-      height: 100%;
-      background: var(--magenta);
-      width: 0%;
-      transition: width 0.25s ease;
-    }
-    .progress-label { font-size: 0.82rem; font-weight: 600; }
-    .modes {
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-    @media (min-width: 600px) {
-      .modes { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 599px) {
-      .modes { grid-template-columns: 1fr; }
-      .mode-tile a.btn { min-height: 2.75rem; font-size: 0.92rem; }
-    }
-    .week-focus {
-      margin-top: 1rem;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--signal);
-      border-radius: var(--radius);
-      padding: 1rem 1.05rem;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-    .week-focus h2 { margin: 0 0 0.35rem; font-size: 1.08rem; }
-    .week-focus ul { margin: 0.45rem 0 0; padding-left: 1.15rem; font-size: 0.9rem; }
-    .weak-spots {
-      margin-top: 1rem;
-      display: grid;
-      gap: 0.75rem;
-    }
-    @media (min-width: 640px) {
-      .weak-spots { grid-template-columns: 1fr 1fr; }
-    }
-    .weak-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 0.85rem 1rem;
-      background: #fff;
-      font-size: 0.88rem;
-    }
-    .weak-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
-    .weak-card p { margin: 0 0 0.5rem; }
-    .mode-tile {
-      background: var(--cream);
-      border: 2px solid var(--purple);
-      border-radius: var(--radius);
-      padding: 0.75rem;
-      text-align: center;
-    }
-    .mode-tile strong { display: block; margin-bottom: 0.25rem; }
-    .mode-tile p { margin: 0 0 0.5rem; font-size: 0.82rem; }
-    .mode-tile a.btn { width: 100%; }
-    footer.note {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-    .pensum-box {
-      margin-top: 1.25rem;
-      border: 2px solid var(--purple);
-      border-radius: var(--radius);
-      padding: 0.85rem 1rem;
-      background: #fff;
-      font-size: 0.88rem;
-    }
-    .pensum-box strong { color: var(--magenta); }
-    .due-line {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--magenta);
-      margin: 0.15rem 0 0;
-    }
-    .syllabus-map details {
-      border: 1px solid rgba(80, 3, 192, 0.25);
-      border-radius: var(--radius);
-      padding: 0.55rem 0.75rem;
-      margin: 0.45rem 0;
-      background: var(--cream);
-    }
-    .syllabus-map summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--purple);
-    }
-    .syllabus-map ul {
-      margin: 0.45rem 0 0.2rem;
-      padding-left: 1.15rem;
-      font-size: 0.86rem;
-    }
-    .syllabus-map li { margin: 0.28rem 0; }
-    .src-tag {
-      font-size: 0.72rem;
-      color: var(--magenta);
-      font-weight: 600;
-    }
-    .l11-urgent {
-      margin-top: 1.1rem;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--ochre);
-      border-radius: var(--radius);
-      padding: 1rem 1.05rem;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-    .l11-urgent h2 { margin: 0 0 0.35rem; font-size: 1.12rem; color: var(--warn-hot); }
-    .l11-urgent .action-row { margin-top: 0.65rem; }
-    .todo-banner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.65rem;
-      margin-top: 1rem;
-      padding: 0.85rem 1rem;
-      border-radius: var(--radius);
-      border: 2px solid var(--signal);
-      background: var(--signal-soft);
-      box-shadow: var(--shadow);
-    }
-    .todo-banner strong { color: var(--signal-deep); font-size: 1.05rem; }
-    .todo-banner a.btn-roadmap {
-      background: var(--signal);
-      border: 1px solid var(--signal);
-      color: #fff;
-      font-weight: 700;
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-    }
-    .todo-banner a.btn-roadmap:hover { filter: brightness(1.05); }
-    .today-strip {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      align-items: center;
-      padding: 0.75rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      font-size: 0.9rem;
-    }
-    .today-strip strong { color: var(--signal-deep); }
-    .today-strip .mini-ring {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      background: conic-gradient(var(--signal) var(--ring-pct, 0%), var(--line-soft) 0);
-      display: grid;
-      place-items: center;
-      font-size: 0.62rem;
-      font-weight: 700;
-    }
-    .today-strip .mini-ring span {
-      width: 1.85rem;
-      height: 1.85rem;
-      border-radius: 50%;
-      background: #fff;
-      display: grid;
-      place-items: center;
-    }
-    section.panel.modes-panel { border-color: var(--line); background: var(--surface); }
-    .mode-tile {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-    .mode-tile a.btn {
-      border-color: var(--signal);
-      color: var(--signal-deep);
-      background: var(--signal-soft);
-    }
+    .check-item { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.45rem 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+    .check-text.done { opacity: 0.6; text-decoration: line-through; }
+    .progress-bar { height: 8px; background: var(--line-soft); border-radius: 999px; overflow: hidden; margin: 0.5rem 0; }
+    .progress-bar span { display: block; height: 100%; background: var(--signal); width: 0%; transition: width 0.3s ease; }
+    footer.note { margin-top: 1.5rem; font-size: 0.85rem; color: var(--slate); }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-inner">
       <div class="hero-top">
-        <p class="brand">MSc Cyber - exam repetition</p>
-        <nav class="hero-nav" aria-label="Quick links">
-          <a class="btn" href="index.html">Practice app</a>
-          <a class="btn btn-roadmap" href="exam-app-todo.html">Roadmap (TODO)</a>
-          <a class="btn" href="../Oversikt/Ukeplan.html">Week planner</a>
-          <a class="btn" href="class-notes.html?exam=1">Class notes (4050 + 4280)</a>
+        <p class="brand">Written exam prep - 4050 + 4280</p>
+        <nav class="hero-nav" aria-label="Navigation">
+          <a href="index.html">Practice app</a>
+          <a class="roadmap" href="exam-app-todo.html">Roadmap</a>
+          <a href="class-notes.html">Class notes</a>
         </nav>
       </div>
       <div class="hero-layout">
         <div>
-          <h1>Exam prep</h1>
-          <p class="hero-lede"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · practice modes below</p>
+          <h1>Play your way to exam day</h1>
+          <p class="hero-lede">No assignment deadlines here - only recall, timed tests, and drills tied to lecture pensum.</p>
+          <div class="exam-hub-hero-play">
+            <a class="play-main" id="hero-play-main" href="index.html?study=quiz#4050">Play today</a>
+            <a href="index.html?study=test&amp;mixed=1" style="color:#fff;opacity:0.95">Mixed 5+5</a>
+          </div>
         </div>
         <img src="figures/mode-exam-prep.svg" width="120" height="120" alt="" decoding="async" />
       </div>
@@ -395,504 +85,138 @@
   </header>
 
   <main class="wrap">
-    <div class="todo-banner" role="region" aria-label="App roadmap">
-      <p style="margin:0"><strong>17 tasks left</strong> on the exam app roadmap (5 syllabus data items first).</p>
-      <a class="btn-roadmap" href="exam-app-todo.html">Open TODO list</a>
+    <div class="today-strip" aria-live="polite">
+      <div class="mini-ring" id="today-ring" style="--ring-pct:0%"><span id="today-ring-label">0/10</span></div>
+      <p style="margin:0"><strong>Session:</strong> <span id="today-reviews">0</span> cards rated today · streak <span id="today-streak">0</span> days</p>
+      <a href="index.html?study=quiz#4050" style="font-size:0.88rem">Continue</a>
     </div>
 
-    <div class="today-strip" id="today-strip" aria-live="polite">
-      <div class="mini-ring" id="today-ring" style="--ring-pct: 0%"><span id="today-ring-label">0/10</span></div>
-      <p style="margin:0"><strong>Today on this device:</strong> <span id="today-reviews">0</span> cards rated · streak <span id="today-streak">0</span> days</p>
-      <a class="btn cta" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="index.html?exam=1&amp;study=quiz#4050">Continue practice</a>
-      <a class="btn btn-roadmap" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="exam-app-todo.html">Roadmap</a>
-    </div>
-
-    <section class="week-focus" aria-labelledby="week-focus-title">
-      <h2 id="week-focus-title">This week (45)</h2>
-      <p class="exam-meta" style="margin:0">3-9 Nov 2026 - cyber exam lane only (4050 + 4280).</p>
-      <ul>
-        <li>Rep <strong>L-11 data in transit</strong> in the app and slides before 4050 written exam.</li>
-        <li>One <strong>timed test</strong> per course + one <strong>mixed 5+5</strong> dry run.</li>
-        <li>4280: <strong>InstantONS</strong> and privacy patterns (Lecture 6) while 4100 essay is not in this dashboard.</li>
-      </ul>
-      <p class="exam-meta" style="margin:0.55rem 0 0"><a href="../Oversikt/Ukeplan.html">Week planner</a> · <a href="UKAS_LESNING.html">This week reading</a></p>
+    <section class="challenge-card" aria-labelledby="challenge-title">
+      <h2 id="challenge-title">Today's challenge</h2>
+      <p id="challenge-body">Loading...</p>
+      <p class="challenge-meta" id="challenge-meta"></p>
+      <a class="challenge-go" id="challenge-go" href="index.html?study=quiz#4050">Start challenge</a>
     </section>
 
-    <section class="panel" aria-labelledby="weak-title" style="margin-top:1rem;border:1px solid var(--line);border-radius:var(--radius);padding:1rem 1.05rem;background:var(--surface);">
-      <h2 id="weak-title" style="margin:0 0 0.35rem;font-size:1.12rem">Weakest topics (this device)</h2>
-      <p class="panel-lede" style="margin:0 0 0.65rem">Based on missed/lapsed cards in your schedule. Opens filtered practice in the app.</p>
-      <div class="weak-spots">
-        <div class="weak-card" id="weak-4050">
+    <section class="panel" aria-labelledby="ready-title">
+      <h2 id="ready-title">Readiness (this device)</h2>
+      <p class="panel-lede">How much of the syllabus deck you have touched at least once. Not a grade - just honest practice progress.</p>
+      <div class="readiness-grid">
+        <div class="readiness-card">
           <h3>4050</h3>
-          <p id="weak-4050-text">Loading...</p>
-          <a class="btn cta" id="weak-4050-go" href="index.html?exam=1&amp;study=quiz#4050" hidden>Practice topic</a>
+          <div class="readiness-bar"><span id="ready-bar-4050"></span></div>
+          <p class="exam-meta" id="ready-label-4050">Loading...</p>
+          <p class="exam-meta" id="due-4050"></p>
         </div>
-        <div class="weak-card" id="weak-4280">
+        <div class="readiness-card">
           <h3>4280</h3>
-          <p id="weak-4280-text">Loading...</p>
-          <a class="btn cta" id="weak-4280-go" href="index.html?exam=1&amp;study=quiz#4280" hidden>Practice topic</a>
+          <div class="readiness-bar"><span id="ready-bar-4280"></span></div>
+          <p class="exam-meta" id="ready-label-4280">Loading...</p>
+          <p class="exam-meta" id="due-4280"></p>
         </div>
       </div>
     </section>
 
-    <section class="l11-urgent" aria-labelledby="l11-title">
-      <h2 id="l11-title">L-11 submitted - rep for written exam</h2>
-      <p class="exam-meta" style="margin:0"><strong>Submitted 5 Nov 2026</strong> (you confirmed). Check score in Canvas when graded. Keep rehearsing TLS/PKI in the app before 26 Nov.</p>
-      <ul style="margin:0.55rem 0 0;padding-left:1.15rem;font-size:0.9rem;">
-        <li><a href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">Assignment 123557 (40 pts)</a></li>
-        <li><a href="https://oslomet.instructure.com/courses/34599/quizzes/24332" target="_blank" rel="noopener">Quiz 24332 (13 questions, same as assignment)</a></li>
-        <li><a href="https://cybrxec.com/" target="_blank" rel="noopener">Cybrxec lab: BLUE card &quot;Protecting data-in-transit&quot;</a> (not data-at-rest)</li>
-        <li><a href="https://oslomet.instructure.com/courses/34599/modules/items/924540" target="_blank" rel="noopener">Lecture slides (PDF)</a></li>
-        <li><a href="https://oslomet.instructure.com/courses/34599/modules/items/924544" target="_blank" rel="noopener">Example exam questions</a></li>
-      </ul>
-      <div class="action-row">
-        <a class="btn cta" href="https://oslomet.instructure.com/courses/34599/assignments/123557" target="_blank" rel="noopener">View in Canvas</a>
-        <a class="btn cta alt" href="index.html?tag=data-in-transit&amp;study=quiz#4050">L-11 cards only</a>
-        <a class="btn" href="index.html?study=test#4050">Timed test</a>
-        <span class="btn" id="l11-submitted-badge" style="cursor:default;opacity:0.95">Checklist: submitted</span>
+    <section class="panel" aria-labelledby="weak-title">
+      <h2 id="weak-title">Train weak spots</h2>
+      <p class="panel-lede">Topics where you tapped Forgot or lapsed most. One tap opens filtered play.</p>
+      <div class="weak-spots">
+        <div class="weak-card">
+          <h3>4050</h3>
+          <p id="weak-4050-text">Loading...</p>
+          <a class="btn cta" id="weak-4050-go" href="index.html?study=quiz#4050" hidden>Practice</a>
+        </div>
+        <div class="weak-card">
+          <h3>4280</h3>
+          <p id="weak-4280-text">Loading...</p>
+          <a class="btn cta" id="weak-4280-go" href="index.html?study=quiz#4280" hidden>Practice</a>
+        </div>
       </div>
     </section>
 
     <section class="panel modes-panel" aria-labelledby="modes-title">
-      <h2 id="modes-title">Practice modes</h2>
-      <p class="panel-lede">Same app, exam focus on. Pick one block per study session.</p>
+      <h2 id="modes-title">Pick a mode</h2>
       <div class="modes">
         <div class="mode-tile">
+          <div class="mode-icon" aria-hidden="true">1</div>
           <strong>Flashcards</strong>
-          <p>Due cards first, honest 1-4 ratings.</p>
-          <a class="btn" href="index.html?exam=1&amp;study=quiz#4050">4050</a>
-          <a class="btn" href="index.html?exam=1&amp;study=quiz#4280" style="margin-top:0.35rem">4280</a>
+          <p class="panel-lede">Due first, rate 1-4</p>
+          <a class="btn" href="index.html?study=quiz#4050">4050</a>
+          <a class="btn" href="index.html?study=quiz#4280">4280</a>
         </div>
         <div class="mode-tile">
+          <div class="mode-icon" aria-hidden="true">2</div>
           <strong>Timed test</strong>
-          <p>Written-style recall under time.</p>
-          <a class="btn" href="index.html?exam=1&amp;study=test#4050">4050 test</a>
-          <a class="btn" href="index.html?exam=1&amp;study=test#4280" style="margin-top:0.35rem">4280 test</a>
+          <p class="panel-lede">Written-style recall</p>
+          <a class="btn" href="index.html?study=test#4050">4050</a>
+          <a class="btn" href="index.html?study=test#4280">4280</a>
         </div>
         <div class="mode-tile">
-          <strong>Mixed dry run</strong>
-          <p>5 questions from each course.</p>
-          <a class="btn" href="index.html?exam=1&amp;study=test&amp;mixed=1">Start mixed 5+5</a>
+          <div class="mode-icon" aria-hidden="true">3</div>
+          <strong>Mixed 5+5</strong>
+          <p class="panel-lede">Both courses</p>
+          <a class="btn" href="index.html?study=test&amp;mixed=1">Start</a>
         </div>
         <div class="mode-tile">
+          <div class="mode-icon" aria-hidden="true">4</div>
           <strong>Frameworks</strong>
-          <p>NIST, Kill Chain, MITRE.</p>
-          <a class="btn" href="index.html?exam=1#practice">Open diagrams</a>
+          <p class="panel-lede">NIST, Kill Chain, MITRE</p>
+          <a class="btn" href="index.html#practice">Play</a>
         </div>
         <div class="mode-tile">
+          <div class="mode-icon" aria-hidden="true">5</div>
           <strong>InstantONS</strong>
-          <p>4280 privacy impact drill.</p>
-          <a class="btn" href="index.html?exam=1#instantons">Drag and drop</a>
+          <p class="panel-lede">4280 drag drill</p>
+          <a class="btn" href="index.html#instantons">Play</a>
         </div>
         <div class="mode-tile">
-          <strong>Class notes</strong>
-          <p>Figures and lecture summaries.</p>
-          <a class="btn" href="class-notes.html?exam=1">Open notes</a>
+          <div class="mode-icon" aria-hidden="true">6</div>
+          <strong>Notes</strong>
+          <p class="panel-lede">Figures and summaries</p>
+          <a class="btn" href="class-notes.html">Open</a>
         </div>
       </div>
     </section>
 
     <div class="exam-grid">
       <article class="exam-card" data-course="4050">
-        <div class="exam-card-head">
-          <h2>ACIT4050 Network security</h2>
-          <span class="tag">WISEflow 3h</span>
-        </div>
-        <p class="countdown" id="cd-4050" aria-live="polite">Calculating...</p>
-        <p class="exam-meta">Written exam 26 Nov, 09:00 (3 h). Check permitted aids on Canvas.</p>
-        <p class="exam-meta"><strong>Now:</strong> Rep L-11 + exam examples. L-10 submitted.</p>
-        <p class="due-line" id="due-4050">Due cards: loading...</p>
+        <h2 style="margin:0;font-size:1.1rem">4050 Network security</h2>
+        <p class="countdown" id="cd-4050">...</p>
+        <p class="exam-meta">Written exam 26 Nov 2026, 09:00 (3 h). Permitted aids: check WISEflow.</p>
         <div class="action-row">
-          <a class="btn cta" href="index.html?exam=1&amp;study=quiz#4050">Practice</a>
-          <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4050">Timed test</a>
-          <a class="btn" href="index.html?exam=1#practice">Diagrams</a>
+          <a class="cta" href="index.html?study=quiz#4050">Practice</a>
+          <a href="index.html?study=test#4050">Timed test</a>
+          <a href="index.html?tag=exam&amp;study=quiz#4050">Exam examples</a>
         </div>
       </article>
-
       <article class="exam-card" data-course="4280">
-        <div class="exam-card-head">
-          <h2>ACIT4280 Privacy by design</h2>
-          <span class="tag">WISEflow 3h</span>
-        </div>
-        <p class="countdown" id="cd-4280" aria-live="polite">Calculating...</p>
-        <p class="exam-meta">Written exam 10 Dec, 15:00 (3 h). Details on Canvas.</p>
-        <p class="exam-meta">No class 5 Nov.</p>
-        <p class="due-line" id="due-4280">Due cards: loading...</p>
+        <h2 style="margin:0;font-size:1.1rem">4280 Privacy by design</h2>
+        <p class="countdown" id="cd-4280">...</p>
+        <p class="exam-meta">Written exam 10 Dec 2026, 15:00 (3 h).</p>
         <div class="action-row">
-          <a class="btn cta" href="index.html?exam=1&amp;study=quiz#4280">Practice</a>
-          <a class="btn cta alt" href="index.html?exam=1&amp;study=test#4280">Timed test</a>
-          <a class="btn" href="index.html?exam=1#instantons">InstantONS drill</a>
-          <a class="btn" href="class-notes.html#acit4280">Class notes</a>
+          <a class="cta" href="index.html?study=quiz#4280">Practice</a>
+          <a href="index.html?study=test#4280">Timed test</a>
+          <a href="index.html#instantons">InstantONS</a>
         </div>
       </article>
     </div>
 
-    <p class="exam-meta" style="margin:1rem 0 0;text-align:center;">
-      <a class="btn cta" style="display:inline-flex;border-color:var(--signal);color:var(--signal-deep);background:var(--signal-soft)" href="index.html?exam=1&amp;study=test&amp;mixed=1">Mixed dry run (5+5 questions)</a>
-    </p>
+    <p class="pensum-trust" id="pensum-trust-text">Loading syllabus stats...</p>
 
-    <details class="panel" style="margin-top:1rem;border:1px solid var(--line);border-radius:var(--radius);padding:0.75rem 1rem;background:var(--surface);">
-      <summary style="cursor:pointer;font-weight:700;color:var(--ink);">Checklist (optional)</summary>
-      <section aria-labelledby="checklist-title" style="margin-top:0.65rem;">
-      <p class="panel-lede" style="margin:0 0 0.5rem;font-size:0.88rem;">Saved on this device. <a href="../Oversikt/Ukeplan.html">Week planner</a></p>
-      <p class="progress-label"><span id="check-done">0</span> / <span id="check-total">0</span> done</p>
-      <div class="progress-bar" aria-hidden="true"><span id="check-fill"></span></div>
-      <ul class="checklist" id="exam-checklist"></ul>
-      <div class="tut-actions" style="margin-top:0.75rem;">
-        <button type="button" class="btn btn-primary" id="check-reset">Reset checklist</button>
-      </div>
-      </section>
+    <details class="panel">
+      <summary>Prep milestones (optional)</summary>
+      <p class="panel-lede"><span id="milestone-done">0</span> / 8 - synced from your play on this device.</p>
+      <div class="progress-bar"><span id="milestone-fill"></span></div>
+      <ul class="checklist" id="prep-milestones"></ul>
+      <button type="button" id="milestone-reset" style="margin-top:0.65rem;padding:0.4rem 0.75rem;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer">Reset milestones</button>
     </details>
-
-    <section class="panel syllabus-map" aria-labelledby="syllabus-title">
-      <h2 id="syllabus-title">Canvas links</h2>
-      <details>
-        <summary>4050</summary>
-        <ul>
-          <li><a href="https://oslomet.instructure.com/courses/34599/pages/examples-of-possible-exam-questions" target="_blank" rel="noopener">Example exam questions (phishing)</a></li>
-          <li><a href="class-notes.html#acit4050">Class notes</a></li>
-        </ul>
-      </details>
-      <details>
-        <summary>4280</summary>
-        <ul>
-          <li><a href="https://oslomet.instructure.com/courses/34604/pages/exam-information" target="_blank" rel="noopener">Exam information</a></li>
-          <li><a href="class-notes.html#acit4280">Class notes</a></li>
-        </ul>
-      </details>
-    </section>
 
     <footer class="note">
       <a href="index.html">Practice app</a> ·
-      <a href="exam-app-todo.html"><strong>Roadmap (TODO)</strong></a>
+      <a href="exam-app-todo.html"><strong>Roadmap (agent backlog)</strong></a>
     </footer>
   </main>
 
-  <script>
-    (function () {
-      var STORAGE_KEY = "acit-exam-rep-checklist-v1";
-      var L11_SUBMITTED_KEY = "acit-l11-submitted-v1";
-      var L11_SUBMITTED_AT = "2026-11-05";
-
-      function ensureL11SubmittedState() {
-        try {
-          localStorage.setItem(L11_SUBMITTED_KEY, "1");
-          localStorage.setItem("acit-l11-submitted-at-v1", L11_SUBMITTED_AT);
-        } catch (e) { /* ignore */ }
-      }
-      var EXAMS = {
-        "4050": { el: "cd-4050", at: "2026-11-26T09:00:00+01:00", label: "4050 exam" },
-        "4280": { el: "cd-4280", at: "2026-12-10T15:00:00+01:00", label: "4280 exam" }
-      };
-      var ITEMS = [
-        { id: "4050-l11", course: "4050", text: "L-11 submitted on Canvas (5 Nov 2026)" },
-        { id: "4050-slides-11-12", course: "4050", text: "Read slides: data at rest + data in transit" },
-        { id: "4050-exam-eight", course: "4050", text: "Practice official phishing exam examples", href: "index.html?exam=1&tag=exam&study=quiz#4050" },
-        { id: "4050-test", course: "4050", text: "One timed test in the app" },
-        { id: "4050-frameworks", course: "4050", text: "NIST + Kill Chain + MITRE drills" },
-        { id: "4280-test", course: "4280", text: "One timed test in the app" },
-        { id: "4280-pia", course: "4280", text: "InstantONS / PIA (class notes L5)" },
-        { id: "4280-patterns", course: "4280", text: "Privacy patterns (Lecture 6)" },
-        { id: "4280-gdpr", course: "4280", text: "GDPR principles (Ch I-III)" },
-        { id: "both-streak", course: "both", text: "Three days at your daily card goal" }
-      ];
-
-      var PENSUM_BLOCK = ["needs-canvas", "optional-sources", "inferred", "meta-only", "off-pensum"];
-      var UNIT_MAP = {
-        acit4050: [
-          { tag: "data-in-transit", label: "L-11 data in transit" },
-          { tag: "Lecture2", label: "Phishing and malware" },
-          { tag: "Lecture3", label: "Networks and TCP/IP" },
-          { tag: "exam", label: "Exam-style questions" }
-        ],
-        acit4280: [
-          { tag: "Lecture1", label: "GDPR intro" },
-          { tag: "Lecture2", label: "PETs" },
-          { tag: "Lecture3", label: "Privacy by design" },
-          { tag: "Lecture5", label: "Privacy management" },
-          { tag: "Lecture6", label: "Engineering patterns" }
-        ]
-      };
-
-      function loadSchedForDeck(deckKey) {
-        var found = null;
-        try {
-          for (var i = 0; i < localStorage.length; i++) {
-            var k = localStorage.key(i);
-            if (!k) continue;
-            if (k === "acit-quiz-sr-v1-" + deckKey || k === "acit-srs-v2-" + deckKey) {
-              found = JSON.parse(localStorage.getItem(k) || "{}");
-              break;
-            }
-            if (k.indexOf("acit-srs-v2-") === 0 && k.slice(-deckKey.length) === deckKey) {
-              found = JSON.parse(localStorage.getItem(k) || "{}");
-              break;
-            }
-          }
-        } catch (e) { /* ignore */ }
-        return found || {};
-      }
-
-      function cardDue(sched, cardId) {
-        var s = sched[cardId];
-        if (!s) return true;
-        var due = typeof s.due === "number" ? s.due : 0;
-        return due <= Date.now();
-      }
-
-      function countDue(deckKey) {
-        return fetch("quiz-data/" + deckKey + ".json")
-          .then(function (r) { return r.json(); })
-          .then(function (deck) {
-            var sched = loadSchedForDeck(deckKey);
-            var due = 0;
-            var total = 0;
-            (deck.cards || []).forEach(function (c) {
-              if (!c || !c.id || !c.q || !c.a) return;
-              var tags = c.tags || [];
-              for (var t = 0; t < tags.length; t++) {
-                if (PENSUM_BLOCK.indexOf(tags[t]) >= 0) return;
-              }
-              total += 1;
-              if (cardDue(sched, c.id)) due += 1;
-            });
-            return { due: due, total: total };
-          })
-          .catch(function () { return { due: 0, total: 0 }; });
-      }
-
-      function renderDueCounts() {
-        countDue("acit4050").then(function (n) {
-          var el = document.getElementById("due-4050");
-          if (el) el.textContent = "Practice queue: " + n.due + " due now (" + n.total + " syllabus cards in deck).";
-        });
-        countDue("acit4280").then(function (n) {
-          var el = document.getElementById("due-4280");
-          if (el) el.textContent = "Practice queue: " + n.due + " due now (" + n.total + " syllabus cards in deck).";
-        });
-      }
-
-      function cardHasTag(c, tag) {
-        var tags = c.tags || [];
-        return tags.indexOf(tag) >= 0;
-      }
-
-      function cardIsBlocked(c) {
-        var tags = c.tags || [];
-        for (var t = 0; t < tags.length; t++) {
-          if (PENSUM_BLOCK.indexOf(tags[t]) >= 0) return true;
-        }
-        return false;
-      }
-
-      function schedEntryWeak(s) {
-        if (!s) return false;
-        if (s.status === "relearning") return true;
-        if ((s.lapses || 0) >= 1) return true;
-        if (s.status === "learning" && ((s.learningStep || 0) > 0 || (s.repetitions || 0) > 0)) return true;
-        return false;
-      }
-
-      function weakestUnit(deckKey) {
-        var units = UNIT_MAP[deckKey] || [];
-        return fetch("quiz-data/" + deckKey + ".json")
-          .then(function (r) { return r.json(); })
-          .then(function (deck) {
-            var sched = loadSchedForDeck(deckKey);
-            var best = null;
-            var bestWeak = 0;
-            units.forEach(function (u) {
-              var weak = 0;
-              (deck.cards || []).forEach(function (c) {
-                if (!c || !c.id || cardIsBlocked(c) || !cardHasTag(c, u.tag)) return;
-                if (schedEntryWeak(sched[c.id])) weak += 1;
-              });
-              if (weak > bestWeak) {
-                bestWeak = weak;
-                best = u;
-              }
-            });
-            return { unit: best, weak: bestWeak };
-          })
-          .catch(function () { return { unit: null, weak: 0 }; });
-      }
-
-      function renderWeakSpots() {
-        weakestUnit("acit4050").then(function (res) {
-          var text = document.getElementById("weak-4050-text");
-          var go = document.getElementById("weak-4050-go");
-          if (!text) return;
-          if (!res.unit || res.weak < 1) {
-            text.textContent = "No weak topic detected yet - rate cards honestly (Forgot/Tricky) so the app can guide you.";
-            if (go) go.hidden = true;
-            return;
-          }
-          text.textContent = res.unit.label + ": " + res.weak + " missed or lapsed card" + (res.weak === 1 ? "" : "s") + ".";
-          if (go) {
-            go.hidden = false;
-            go.textContent = "Practice " + res.unit.tag;
-            go.href = "index.html?exam=1&tag=" + encodeURIComponent(res.unit.tag) + "&study=quiz#4050";
-          }
-        });
-        weakestUnit("acit4280").then(function (res) {
-          var text = document.getElementById("weak-4280-text");
-          var go = document.getElementById("weak-4280-go");
-          if (!text) return;
-          if (!res.unit || res.weak < 1) {
-            text.textContent = "No weak topic detected yet - start with GDPR (Lecture 1) flashcards.";
-            if (go) go.hidden = true;
-            return;
-          }
-          text.textContent = res.unit.label + ": " + res.weak + " missed or lapsed card" + (res.weak === 1 ? "" : "s") + ".";
-          if (go) {
-            go.hidden = false;
-            go.textContent = "Practice " + res.unit.tag;
-            go.href = "index.html?exam=1&tag=" + encodeURIComponent(res.unit.tag) + "&study=quiz#4280";
-          }
-        });
-      }
-
-      function pad(n) { return n < 10 ? "0" + n : "" + n; }
-
-      function updateCountdowns() {
-        var now = Date.now();
-        Object.keys(EXAMS).forEach(function (k) {
-          var cfg = EXAMS[k];
-          var node = document.getElementById(cfg.el);
-          if (!node) return;
-          var t = new Date(cfg.at).getTime() - now;
-          if (t <= 0) {
-            node.textContent = cfg.label + ": exam date passed (check Studentweb).";
-            return;
-          }
-          var days = Math.floor(t / 86400000);
-          var hrs = Math.floor((t % 86400000) / 3600000);
-          node.textContent = days + " days, " + hrs + " hours until " + cfg.label;
-          node.classList.toggle("urgent", days < 14);
-        });
-      }
-
-      function loadState() {
-        try {
-          var raw = localStorage.getItem(STORAGE_KEY);
-          if (raw) return JSON.parse(raw);
-        } catch (e) { /* ignore */ }
-        return {};
-      }
-
-      function saveState(state) {
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
-      }
-
-      function autoSyncChecklistFromApp() {
-        var state = loadState();
-        var changed = false;
-        function tick(id, ok) {
-          if (!ok || state[id]) return;
-          state[id] = true;
-          changed = true;
-        }
-        try {
-          var xp = JSON.parse(localStorage.getItem("acit-study-xp-v1") || "{}");
-          tick("4050-frameworks", (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1 && (xp.mitreDone || 0) >= 1);
-          tick("4280-pia", (xp.instantonsDone || 0) >= 1);
-          tick("both-streak", (xp.streak || 0) >= 3);
-          tick("4050-test", (xp.test4050Done || 0) >= 1);
-          tick("4280-test", (xp.test4280Done || 0) >= 1);
-          tick("4050-l11", localStorage.getItem(L11_SUBMITTED_KEY) === "1");
-        } catch (e) { /* ignore */ }
-        if (changed) saveState(state);
-        return state;
-      }
-
-      function renderChecklist() {
-        var ul = document.getElementById("exam-checklist");
-        var state = autoSyncChecklistFromApp();
-        ul.innerHTML = "";
-        ITEMS.forEach(function (item) {
-          var li = document.createElement("li");
-          var label = document.createElement("label");
-          label.className = "check-item";
-          var cb = document.createElement("input");
-          cb.type = "checkbox";
-          cb.checked = !!state[item.id];
-          cb.dataset.id = item.id;
-          var span = document.createElement("span");
-          span.className = "check-text" + (cb.checked ? " done" : "");
-          span.innerHTML = "<span class=\"tag\" style=\"margin-right:0.35rem\">" + item.course + "</span>" + item.text;
-          label.appendChild(cb);
-          label.appendChild(span);
-          if (item.href) {
-            var link = document.createElement("a");
-            link.href = item.href;
-            link.textContent = "Open in app";
-            link.style.fontSize = "0.82rem";
-            link.style.marginLeft = "0.35rem";
-            label.appendChild(link);
-          }
-          li.appendChild(label);
-          ul.appendChild(li);
-          cb.addEventListener("change", function () {
-            state[item.id] = cb.checked;
-            saveState(state);
-            span.classList.toggle("done", cb.checked);
-            syncProgress(state);
-          });
-        });
-        document.getElementById("check-total").textContent = String(ITEMS.length);
-        syncProgress(state);
-      }
-
-      function syncProgress(state) {
-        var done = ITEMS.filter(function (i) { return state[i.id]; }).length;
-        document.getElementById("check-done").textContent = String(done);
-        var pct = ITEMS.length ? Math.round((done / ITEMS.length) * 100) : 0;
-        document.getElementById("check-fill").style.width = pct + "%";
-      }
-
-      document.getElementById("check-reset").addEventListener("click", function () {
-        if (!confirm("Clear all checklist ticks on this device?")) return;
-        saveState({});
-        renderChecklist();
-      });
-
-      function renderTodayStrip() {
-        var reviewsEl = document.getElementById("today-reviews");
-        var streakEl = document.getElementById("today-streak");
-        var ring = document.getElementById("today-ring");
-        var ringLabel = document.getElementById("today-ring-label");
-        var goal = 10;
-        try {
-          var g = parseInt(localStorage.getItem("acit-daily-goal-v1"), 10);
-          if (g > 0) goal = g;
-        } catch (eG) { /* ignore */ }
-        var today = 0;
-        var streak = 0;
-        try {
-          var xp = JSON.parse(localStorage.getItem("acit-study-xp-v1") || "{}");
-          today = xp.todayReviews || 0;
-          streak = xp.streak || 0;
-        } catch (eXp) { /* ignore */ }
-        if (reviewsEl) reviewsEl.textContent = String(today);
-        if (streakEl) streakEl.textContent = String(streak);
-        var pct = goal ? Math.min(100, Math.round((today / goal) * 100)) : 0;
-        if (ring) ring.style.setProperty("--ring-pct", pct + "%");
-        if (ringLabel) ringLabel.textContent = today + "/" + goal;
-      }
-
-      ensureL11SubmittedState();
-
-      try { localStorage.setItem("acit-exam-focus-v1", "1"); } catch (e) { /* ignore */ }
-
-      updateCountdowns();
-      setInterval(updateCountdowns, 60000);
-      renderChecklist();
-      renderDueCounts();
-      renderWeakSpots();
-      renderTodayStrip();
-      window.addEventListener("storage", renderTodayStrip);
-      document.addEventListener("acit-xp-updated", renderTodayStrip);
-    })();
-  </script>
+  <script src="js/exam-prep-hub.js?v=lock186" defer></script>
 </body>
 </html>

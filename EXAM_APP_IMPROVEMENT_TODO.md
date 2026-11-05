@@ -10,14 +10,16 @@ Agent oppdaterer denne listen etter hver runde. Kryss av manuelt når du er forn
 
 ---
 
-## For deg denne uken
+## For deg nå (kun skriftlig eksamen)
 
-- [ ] 10 kort/dag i appen (Settings: daily goal)
-- [ ] Én **timed test** per emne (4050 + 4280)
-- [ ] **Mixed 5+5** minst én gang
-- [ ] **L-11 rep:** `?tag=data-in-transit` eller knapp på exam-rep
-- [ ] Les **official exam examples** (4050 phishing-side på Canvas)
-- [ ] **InstantONS** én runde (4280)
+- [ ] **Daily challenge** på exam-rep (Play today)
+- [ ] 10 kort/dag (Settings: daily goal)
+- [ ] Timed test **4050** + **4280**
+- [ ] **Mixed 5+5**
+- [ ] **Exam-tag** kort (4050 official examples i appen)
+- [ ] **InstantONS** + framework drills
+
+(Ingen Canvas assignment-deadlines i exam-appen lenger.)
 
 ---
 
@@ -40,6 +42,8 @@ Agent oppdaterer denne listen etter hver runde. Kryss av manuelt når du er forn
 | `reward-exam-trophies` | Trofeer: 4050/4280 dry run + mixed 5+5 (lock183) |
 | `link-todo-everywhere` | `exam-app-todo.html` + banner på exam-rep (lock184) |
 | `exam-app-default` | Exam prep er standard (exam-app), ikke valgbar modus (lock184) |
+| `prep-hub-playground` | exam-rep omgjort: challenge, readiness, modes, uten assignments (lock186) |
+| `pensum-audit-md` | `quiz-data/PENSUM_AUDIT_exam_app.md` |
 
 ---
 

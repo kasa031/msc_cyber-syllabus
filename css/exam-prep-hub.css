@@ -1,0 +1,184 @@
+/* Exam prep hub + in-app challenge UI (4050 + 4280 only) */
+
+.exam-hub-hero-play {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.exam-hub-hero-play .play-main {
+  background: #fff;
+  color: var(--signal-deep);
+  border: none;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 0 rgba(15, 118, 110, 0.35);
+  transition: transform 0.15s var(--ease, ease), box-shadow 0.15s var(--ease, ease);
+}
+
+.exam-hub-hero-play .play-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(15, 118, 110, 0.3);
+}
+
+.exam-hub-hero-play .play-main:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(15, 118, 110, 0.35);
+}
+
+.challenge-card {
+  margin-top: 1.1rem;
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  border: 2px solid var(--signal);
+  background: linear-gradient(135deg, var(--signal-soft) 0%, #fff 55%);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.challenge-card::after {
+  content: "";
+  position: absolute;
+  inset: -40% auto auto -20%;
+  width: 12rem;
+  height: 12rem;
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.challenge-card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  color: var(--signal-deep);
+}
+
+.challenge-card p { margin: 0 0 0.65rem; font-size: 0.92rem; }
+
+.challenge-card .challenge-meta {
+  font-size: 0.82rem;
+  color: var(--slate);
+  margin-bottom: 0.65rem;
+}
+
+.challenge-card a.challenge-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--signal);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.readiness-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .readiness-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.readiness-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.readiness-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+
+.readiness-bar {
+  height: 8px;
+  background: var(--line-soft);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.45rem 0;
+}
+
+.readiness-bar span {
+  display: block;
+  height: 100%;
+  background: var(--signal);
+  width: 0%;
+  transition: width 0.6s var(--ease, ease);
+}
+
+.prep-milestones summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.mode-tile {
+  transition: transform 0.2s var(--ease, ease), box-shadow 0.2s var(--ease, ease);
+}
+
+.mode-tile:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--shadow-md);
+}
+
+.mode-tile .mode-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.pensum-trust {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--slate);
+  padding: 0.65rem 0.85rem;
+  border-left: 3px solid var(--signal);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+}
+
+html.exam-app .exam-challenge-banner {
+  display: block;
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--signal);
+  background: var(--signal-soft);
+}
+
+html.exam-app .exam-challenge-banner[hidden] {
+  display: none !important;
+}
+
+html.exam-app .exam-challenge-banner p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.exam-confetti-bit {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: examConfettiFall 1.1s var(--ease, ease) forwards;
+}
+
+@keyframes examConfettiFall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(120px) rotate(420deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mode-tile:hover { transform: none; }
+  .exam-hub-hero-play .play-main { transition: none; }
+  .exam-confetti-bit { animation: none; opacity: 0; }
+}

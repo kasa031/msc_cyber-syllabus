@@ -5,7 +5,7 @@
  * Never reads or writes cookies; quiz progress lives in page localStorage only.
  * file:// opens index.html directly (no SW); HTTPS/PWA uses this cache after one online visit.
  */
-const CACHE = "msc-cyber-lock185";
+const CACHE = "msc-cyber-lock186";
 /* Shell + quiz payloads must install; figures may be skipped if missing. */
 const CRITICAL = [
   "./",
@@ -19,6 +19,8 @@ const CRITICAL = [
   "./UKAS_LESNING.html",
   "./quiz-decks.js",
   "./css/study-research.css",
+  "./css/exam-prep-hub.css",
+  "./js/exam-prep-hub.js",
   "./js/learning-session.js",
   "./framework-practice.js",
   "./quiz-data/acit4050.json",

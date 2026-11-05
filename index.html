@@ -3651,7 +3651,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock185" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock186" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock186" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4391,6 +4392,10 @@
               </div>
             </div>
             <p class="quiz-home-sub" id="quiz-home-sub">Pick a session below. Your progress stays on this device.</p>
+            <div class="exam-challenge-banner" id="exam-challenge-banner" hidden>
+              <p><strong>Today's challenge:</strong> <span id="exam-challenge-banner-text">Loading...</span></p>
+              <a class="btn btn-primary" id="exam-challenge-banner-go" href="exam-rep.html">From dashboard</a>
+            </div>
             <div id="orient-nudge" class="orient-nudge" hidden>
               <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
             </div>
@@ -4673,8 +4678,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock185" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock185"></script>
+  <script src="quiz-decks.js?v=lock186" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock186"></script>
   <script>
   (function () {
   "use strict";
@@ -6851,6 +6856,45 @@ function showCourse(courseKey) {
     studyPlayPointsChime();
   }
 
+  function studyExamConfetti(n) {
+    if (!examAppOnly()) return;
+    try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    } catch (eRm) { /* ignore */ }
+    var count = typeof n === "number" ? n : 24;
+    var colors = ["#0f766e", "#14b8a6", "#0369a1", "#d97706", "#134e4a"];
+    for (var i = 0; i < count; i++) {
+      var bit = document.createElement("span");
+      bit.className = "exam-confetti-bit";
+      bit.style.left = (10 + Math.random() * 80) + "vw";
+      bit.style.top = (15 + Math.random() * 25) + "vh";
+      bit.style.background = colors[i % colors.length];
+      bit.style.animationDelay = (Math.random() * 0.35) + "s";
+      document.body.appendChild(bit);
+      (function (node) {
+        setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 1400);
+      })(bit);
+    }
+  }
+
+  function studySyncExamChallengeBanner() {
+    if (!examAppOnly()) return;
+    var box = $("exam-challenge-banner");
+    if (!box) return;
+    if (typeof window.examPrepBuildChallenge !== "function") {
+      box.hidden = true;
+      return;
+    }
+    window.examPrepBuildChallenge().then(function (ch) {
+      if (!ch) { box.hidden = true; return; }
+      box.hidden = false;
+      var text = $("exam-challenge-banner-text");
+      var go = $("exam-challenge-banner-go");
+      if (text) text.textContent = ch.label + " (" + (ch.deckKey === "acit4280" ? "4280" : "4050") + ")";
+      if (go && window.examPrepChallengePlayUrl) go.href = window.examPrepChallengePlayUrl(ch);
+    }).catch(function () { box.hidden = true; });
+  }
+
   function studyUnlockTrophies(xp) {
     if (!xp.badges || typeof xp.badges !== "object") xp.badges = {};
     var fresh = [];
@@ -7242,6 +7286,10 @@ function showCourse(courseKey) {
       } catch (eGoal) { studyCelebrateDailyGoal(xp.todayReviews, goal); }
     }
     if (streakJustSet) studyCelebrateStreak(streakJustSet);
+    if (examAppOnly() && quizState.deckKey === "acit4050" && quizState.tagFilter === "exam" && (grade === "good" || grade === "easy")) {
+      xp.examTag4050Reviews = (xp.examTag4050Reviews || 0) + 1;
+      if (xp.examTag4050Reviews >= 5) xp.examTag4050Done = 1;
+    }
     if (grade === "again") {
       xp.againCount = (xp.againCount || 0) + 1;
       xp.todayAgain = (xp.todayAgain || 0) + 1;
@@ -7532,6 +7580,21 @@ function showCourse(courseKey) {
   }
 
   function studyFocusList(deckKey) {
+    if (examAppOnly()) {
+      var EXAM_PREP_FOCUS = {
+        acit4050: [
+          { tag: "exam", label: "Official exam-style questions", due: "2026-11-26" },
+          { tag: "data-in-transit", label: "TLS and PKI (data in transit)", due: "2026-11-26" },
+          { tag: "Lecture2", label: "Phishing and malware", due: "2026-11-26" }
+        ],
+        acit4280: [
+          { tag: "Lecture6", label: "Privacy patterns", due: "2026-12-10" },
+          { tag: "Lecture1", label: "GDPR intro", due: "2026-12-10" },
+          { tag: "PIA", label: "PIA and risk themes", due: "2026-12-10" }
+        ]
+      };
+      return EXAM_PREP_FOCUS[deckKey] || [];
+    }
     return STUDY_FOCUS[deckKey] || [];
   }
 
@@ -8055,6 +8118,7 @@ function showCourse(courseKey) {
       }
     }
     home.hidden = false;
+    studySyncExamChallengeBanner();
     var leechHome = $("quiz-leech-home");
     var leechCount = studyCountLeeches(quizState.deckKey);
     if (leechHome) {
@@ -9073,6 +9137,7 @@ function showCourse(courseKey) {
     box.scrollIntoView({ block: "nearest", behavior: "smooth" });
     syncQuizSessionUi();
     examRepChecklistAfterTest();
+    if (examAppOnly() && total > 0 && correctN / total >= 0.6) studyExamConfetti(28);
   }
 
   function testStart() {
@@ -12203,10 +12268,6 @@ function showCourse(courseKey) {
 
   ensureEmbedClass();
   ensureExamFocusClass();
-  try {
-    localStorage.setItem("acit-l11-submitted-v1", "1");
-    localStorage.setItem("acit-l11-submitted-at-v1", "2026-11-05");
-  } catch (eL11Init) { /* ignore */ }
 
   quizValidateDecksDev();
   studyAuthApplyUi();
@@ -12321,6 +12382,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock185" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock186" defer></script>
+  <script src="js/learning-session.js?v=lock186" defer></script>
 </body>
 </html>
