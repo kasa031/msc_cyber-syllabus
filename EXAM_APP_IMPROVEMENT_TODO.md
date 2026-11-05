@@ -32,6 +32,13 @@ Agent oppdaterer denne listen etter hver runde. Kryss av manuelt når du er forn
 | `reward-daily-celebrate` | Toast + ring-puls når daily goal nås (lock182) |
 | `reward-streak-toast` | Toast ved streak 3 / 7 / 14 dager |
 | `track-4050-4280` | Essay/4100-promotering fjernet (lock181) |
+| `ux-week-focus` | **This week (45)**-kort på exam-rep (lock183) |
+| `ux-weak-spots` | Weakest topics 4050/4280 + filter-lenker (lock183) |
+| `ux-session-recap` | Lenke til exam-rep etter session og timed test (lock183) |
+| `ui-keyboard-map` | Hjelp-modal **?** + Settings + quiz home (lock183) |
+| `ui-exam-focus-teal` | Teal feedback i exam focus mode (lock183) |
+| `reward-exam-trophies` | Trofeer: 4050/4280 dry run + mixed 5+5 (lock183) |
+| `link-todo-everywhere` | Lenke til denne filen fra app, exam-rep, ukeplan (lock183) |
 
 ---
 
@@ -51,10 +58,10 @@ Agent oppdaterer denne listen etter hver runde. Kryss av manuelt når du er forn
 
 | ID | Status | Oppgave |
 |----|--------|---------|
-| `ux-week-focus` | open | Exam-rep: «denne uken»-kort (auto fra Ukeplan-dato, manuell tekst til crawl) |
-| `ux-weak-spots` | open | «Weakest topic»-knapp på exam-rep (gjenbruk app-logikk `studyWeakestMapTag`) |
-| `ux-session-recap` | partial | Session recap finnes; kort lenke tilbake til exam-rep etter test |
-| `reward-more-milestones` | partial | Streak toast; trophies finnes - flere eksamens-spesifikke badges? |
+| `ux-week-focus` | **partial** | Uke 45 manuell tekst; auto fra crawl senere |
+| `ux-weak-spots` | **done lock183** | Weakest topics på exam-rep |
+| `ux-session-recap` | **done lock183** | Exam dashboard-lenke etter test/session |
+| `reward-more-milestones` | **partial** | Exam trophies + streak toast; flere badges valgfritt |
 | `checklist-canvas` | open | Auto-tick L-11 fra Canvas crawl (ikke bare manuell knapp) |
 
 ---
@@ -67,7 +74,7 @@ Agent oppdaterer denne listen etter hver runde. Kryss av manuelt når du er forn
 | `ui-ab03a9-purge` | open | Erstatt `#AB03A9` med `--signal` / tokens i quiz-feedback |
 | `ui-reduced-motion` | partial | Daily ring; utvid til fx-layer og streak-animasjoner |
 | `ui-mobile-modes` | open | Practice modes: én kolonne, større touch targets på mobil |
-| `ui-keyboard-map` | open | Hjelp-modal: tastatur i quiz og timed test |
+| `ui-keyboard-map` | **partial lock183** | Modal + ? ; utvide med test MCQ-taster senere |
 | `rep-hero-figure` | open | Enkel SVG (skjold / privacy) på exam-rep uten tung grafikk |
 | `rep-offline-smoke` | open | Sjekkliste: ett besøk online → flymodus → exam-rep + mixed |
 

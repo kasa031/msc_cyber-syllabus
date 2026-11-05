@@ -2495,6 +2495,14 @@
     html.exam-focus .hero-lede-exam { display: block; }
     html.exam-focus .hero-lede-default { display: none; }
     .hero-lede-exam { display: none; }
+    html.exam-focus .quiz-card.fx-good { border-color: var(--signal); }
+    html.exam-focus .tut-feedback.is-reveal { border-left-color: var(--signal); background: var(--signal-soft); }
+    html.exam-focus .fp-status.is-correct { border-left-color: var(--signal); background: var(--signal-soft); }
+    html.exam-focus .solvable-banner.is-correct .solvable-banner-kicker { color: var(--signal-deep); }
+    html.exam-focus .trophy-toast:not([hidden]) { border-color: var(--signal); color: var(--ink); }
+    html.exam-focus .quiz-home-goal-bar.is-done span { background: var(--signal); }
+    .exam-only-link { display: none; }
+    html.exam-focus .exam-only-link { display: inline-flex; }
     .test-mode .quiz-card {
       border-top: 4px solid var(--palette-red);
     }
@@ -3637,7 +3645,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock182" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock183" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3653,6 +3661,22 @@
         <button type="button" class="btn btn-primary" id="session-recap-done">Back to start screen</button>
         <button type="button" class="btn ghost" id="session-recap-weak" hidden>Retry missed cards</button>
         <button type="button" class="btn ghost" id="session-recap-continue" hidden>Review due cards</button>
+        <a class="btn ghost exam-only-link" id="session-recap-exam-rep" href="exam-rep.html">Exam dashboard</a>
+      </div>
+    </div>
+  </div>
+  <div id="keyboard-help-modal" class="session-recap-modal" hidden role="dialog" aria-labelledby="keyboard-help-title" aria-modal="true">
+    <div class="first-win-card">
+      <h3 id="keyboard-help-title">Keyboard shortcuts</h3>
+      <ul class="session-recap-stats" id="keyboard-help-list">
+        <li><b>Practice:</b> Space or Enter - reveal answer</li>
+        <li><b>Practice:</b> 1 Forgot · 2 Tricky · 3 OK · 4 Easy</li>
+        <li><b>Flip cards:</b> Arrow keys · Space flip · / focus search</li>
+        <li><b>Timed test:</b> Enter submit · Enter continue after feedback</li>
+        <li><b>Anywhere:</b> ? open this help · Esc close dialogs</li>
+      </ul>
+      <div class="tut-actions">
+        <button type="button" class="btn btn-primary" id="keyboard-help-close">Close</button>
       </div>
     </div>
   </div>
@@ -3674,6 +3698,7 @@
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
           <a class="btn ghost" href="exam-rep.html">Exam repetition</a>
+          <a class="btn ghost" href="EXAM_APP_IMPROVEMENT_TODO.md">App TODO</a>
           <a class="btn ghost" href="UKAS_LESNING.html">This week</a>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
         </div>
@@ -3682,7 +3707,7 @@
         <div class="hero-copy">
           <h1 id="hero-title">Practice terminal commands step by step.</h1>
           <p class="hero-lede hero-lede-default" id="hero-lede">Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
-          <p class="hero-lede hero-lede-exam"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Exam dashboard</a></p>
+          <p class="hero-lede hero-lede-exam"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Exam dashboard</a> · <a href="EXAM_APP_IMPROVEMENT_TODO.md">Improvement plan</a></p>
         </div>
       </div>
     </div>
@@ -3755,8 +3780,10 @@
             <span>Exam focus (show 4050 and 4280 only - hide 4100 and Mixed)</span>
           </label>
           <p class="settings-notif-hint">Same as opening <a href="exam-rep.html">Exam repetition</a> or <code>?exam=1</code>. Turn off to see all courses again.</p>
+          <p class="settings-notif-hint">Roadmap: <a href="EXAM_APP_IMPROVEMENT_TODO.md">Exam app improvement TODO</a> (4050 + 4280).</p>
           <div class="tut-actions settings-pref-actions">
             <button type="button" class="btn ghost" id="settings-jump-trophies">See your trophies</button>
+            <button type="button" class="btn ghost" id="settings-keyboard-help">Keyboard shortcuts</button>
           </div>
         </div>
         <h3>Sharing</h3>
@@ -4391,6 +4418,7 @@
                 <button type="button" data-goal="10">10 / day</button>
                 <button type="button" data-goal="20">20 / day</button>
               </div>
+              <button type="button" class="btn ghost" id="quiz-keyboard-help" style="margin-top:0.45rem;font-size:0.85rem">Keyboard shortcuts (?)</button>
             </div>
             <div class="quiz-home-custom" id="quiz-home-custom">
               <p class="quiz-home-custom-label">Custom study</p>
@@ -4526,6 +4554,7 @@
             <div class="tut-actions" style="justify-content:center;margin-top:1rem;">
               <button type="button" class="btn btn-primary" id="test-retake">Retake test</button>
               <button type="button" class="btn ghost" id="test-back-quiz">Back to Practice</button>
+              <a class="btn ghost exam-only-link" id="test-exam-rep" href="exam-rep.html">Exam dashboard</a>
             </div>
           </div>
 
@@ -4643,8 +4672,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock182" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock182"></script>
+  <script src="quiz-decks.js?v=lock183" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock183"></script>
   <script>
   (function () {
   "use strict";
@@ -5599,6 +5628,9 @@ function showCourse(courseKey) {
     { id: "kill", group: "Explorer", kind: "badge", icon: "KC", title: "Kill Chain", hint: "Complete the Kill Chain diagram", test: function (xp) { return (xp.killDone || 0) >= 1; } },
     { id: "mitre", group: "Explorer", kind: "badge", icon: "AT", title: "MITRE ATT&CK", hint: "Complete the MITRE ATT&CK tactic drill", test: function (xp) { return (xp.mitreDone || 0) >= 1; } },
     { id: "frameworks", group: "Explorer", kind: "trophy", icon: "FW", title: "Framework trio", hint: "Complete all three practice diagrams", test: function (xp) { return (xp.nistDone || 0) >= 1 && (xp.killDone || 0) >= 1 && (xp.mitreDone || 0) >= 1; } },
+    { id: "exam-test-4050", group: "Exam", kind: "trophy", icon: "E5", title: "4050 dry run", hint: "Finish one timed test in ACIT4050", test: function (xp) { return (xp.test4050Done || 0) >= 1; } },
+    { id: "exam-test-4280", group: "Exam", kind: "trophy", icon: "E8", title: "4280 dry run", hint: "Finish one timed test in ACIT4280", test: function (xp) { return (xp.test4280Done || 0) >= 1; } },
+    { id: "exam-mixed", group: "Exam", kind: "trophy", icon: "MX", title: "Mixed exam run", hint: "Finish the 5+5 mixed timed test", test: function (xp) { return (xp.mixedTestDone || 0) >= 1; } },
     { id: "drill", group: "Retry", kind: "trophy", icon: "D", title: "Retry starter", hint: "Retry a missed card session", test: function (xp) { return (xp.drills || 0) >= 1; } },
     { id: "drill-5", group: "Retry", kind: "badge", icon: "D5", title: "Retry regular", hint: "Retry missed cards 5 times", test: function (xp) { return (xp.drills || 0) >= 5; } }
   ];
@@ -7312,10 +7344,17 @@ function showCourse(courseKey) {
     if (testState.mixedExam) {
       xp.test4050Done = 1;
       xp.test4280Done = 1;
+      xp.mixedTestDone = 1;
     } else if (quizState.deckKey === "acit4050") xp.test4050Done = 1;
     else if (quizState.deckKey === "acit4280") xp.test4280Done = 1;
+    var unlocked = studyUnlockTrophies(xp);
     studySaveXp(xp);
     examRepChecklistSyncFromXp();
+    if (unlocked.length) {
+      studyPlayTrophyFanfare();
+      studyShowTrophyToast(unlocked[0], unlocked.length - 1);
+      studyFxBurstAt($("trophy-toast"), 22);
+    }
   }
 
   function studyMarkFlag(key) {
@@ -7534,6 +7573,7 @@ function showCourse(courseKey) {
       { tag: "Lecture1", short: "L1", label: "Lecture 1 - security basics" },
       { tag: "Lecture2", short: "L2", label: "Lecture 2 - phishing and malware" },
       { tag: "Lecture3", short: "L3", label: "Lecture 3 - networks and TCP/IP" },
+      { tag: "data-in-transit", short: "L11", label: "L-11 data in transit" },
       { tag: "Lecture4", short: "L4", label: "Lecture 4 - IDS", soon: true },
       { tag: "Lecture5", short: "L5", label: "Lecture 5 - firewalls", soon: true },
       { tag: "exam", short: "Exam", label: "Exam-style questions" }
@@ -10882,6 +10922,16 @@ function showCourse(courseKey) {
     if (modal) modal.hidden = true;
   }
 
+  function keyboardHelpOpen() {
+    var modal = $("keyboard-help-modal");
+    if (modal) modal.hidden = false;
+  }
+
+  function keyboardHelpClose() {
+    var modal = $("keyboard-help-modal");
+    if (modal) modal.hidden = true;
+  }
+
   if ($("profile-open")) {
     $("profile-open").addEventListener("click", function () {
       if (!profileIsAuthed()) {
@@ -10893,6 +10943,9 @@ function showCourse(courseKey) {
     });
   }
   if ($("profile-settings-btn")) $("profile-settings-btn").addEventListener("click", profileOpenModal);
+  if ($("settings-keyboard-help")) $("settings-keyboard-help").addEventListener("click", keyboardHelpOpen);
+  if ($("quiz-keyboard-help")) $("quiz-keyboard-help").addEventListener("click", keyboardHelpOpen);
+  if ($("keyboard-help-close")) $("keyboard-help-close").addEventListener("click", keyboardHelpClose);
   if ($("quiz-go-account")) {
     $("quiz-go-account").addEventListener("click", function () {
       studyAuthApplyUi();
@@ -11520,6 +11573,17 @@ function showCourse(courseKey) {
     if (profileModal && !profileModal.hidden && e.key === "Escape") {
       e.preventDefault();
       profileCloseModal();
+      return;
+    }
+    var keyboardModal = $("keyboard-help-modal");
+    if (keyboardModal && !keyboardModal.hidden && e.key === "Escape") {
+      e.preventDefault();
+      keyboardHelpClose();
+      return;
+    }
+    if (e.key === "?" && !isTypingTarget(e.target)) {
+      e.preventDefault();
+      keyboardHelpOpen();
       return;
     }
 
@@ -12241,6 +12305,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock182" defer></script>
+  <script src="js/learning-session.js?v=lock183" defer></script>
 </body>
 </html>

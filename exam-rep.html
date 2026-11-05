@@ -7,7 +7,7 @@
   <title>Exam repetition | ACIT4050 and ACIT4280</title>
   <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock182" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock183" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root {
@@ -70,6 +70,19 @@
       color: var(--signal-deep);
     }
     .btn-primary:hover { filter: brightness(1.03); }
+    .hero-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-layout img {
+      width: min(7.5rem, 28vw);
+      height: auto;
+      flex-shrink: 0;
+      opacity: 0.95;
+    }
     .hero h1 {
       margin: 0 0 0.5rem;
       font-size: clamp(1.65rem, 4.5vw, 2.35rem);
@@ -194,6 +207,38 @@
     @media (min-width: 600px) {
       .modes { grid-template-columns: repeat(3, 1fr); }
     }
+    @media (max-width: 599px) {
+      .modes { grid-template-columns: 1fr; }
+      .mode-tile a.btn { min-height: 2.75rem; font-size: 0.92rem; }
+    }
+    .week-focus {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--signal);
+      border-radius: var(--radius);
+      padding: 1rem 1.05rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .week-focus h2 { margin: 0 0 0.35rem; font-size: 1.08rem; }
+    .week-focus ul { margin: 0.45rem 0 0; padding-left: 1.15rem; font-size: 0.9rem; }
+    .weak-spots {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .weak-spots { grid-template-columns: 1fr 1fr; }
+    }
+    .weak-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      background: #fff;
+      font-size: 0.88rem;
+    }
+    .weak-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .weak-card p { margin: 0 0 0.5rem; }
     .mode-tile {
       background: var(--cream);
       border: 2px solid var(--purple);
@@ -310,12 +355,18 @@
         <p class="brand">MSc Cyber - exam repetition</p>
         <nav class="hero-nav" aria-label="Quick links">
           <a class="btn" href="index.html?exam=1">Full study app</a>
+          <a class="btn" href="EXAM_APP_IMPROVEMENT_TODO.md">App TODO</a>
           <a class="btn" href="../Oversikt/Ukeplan.html">Week planner</a>
           <a class="btn" href="class-notes.html?exam=1">Class notes (4050 + 4280)</a>
         </nav>
       </div>
-      <h1>Exam prep</h1>
-      <p class="hero-lede"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · practice modes below</p>
+      <div class="hero-layout">
+        <div>
+          <h1>Exam prep</h1>
+          <p class="hero-lede"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · practice modes below</p>
+        </div>
+        <img src="figures/mode-exam-prep.svg" width="120" height="120" alt="" decoding="async" />
+      </div>
     </div>
   </header>
 
@@ -324,7 +375,36 @@
       <div class="mini-ring" id="today-ring" style="--ring-pct: 0%"><span id="today-ring-label">0/10</span></div>
       <p style="margin:0"><strong>Today on this device:</strong> <span id="today-reviews">0</span> cards rated · streak <span id="today-streak">0</span> days</p>
       <a class="btn cta" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="index.html?exam=1&amp;study=quiz#4050">Continue practice</a>
+      <a class="btn" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="EXAM_APP_IMPROVEMENT_TODO.md">Improvement plan</a>
     </div>
+
+    <section class="week-focus" aria-labelledby="week-focus-title">
+      <h2 id="week-focus-title">This week (45)</h2>
+      <p class="exam-meta" style="margin:0">3-9 Nov 2026 - cyber exam lane only (4050 + 4280).</p>
+      <ul>
+        <li>Rep <strong>L-11 data in transit</strong> in the app and slides before 4050 written exam.</li>
+        <li>One <strong>timed test</strong> per course + one <strong>mixed 5+5</strong> dry run.</li>
+        <li>4280: <strong>InstantONS</strong> and privacy patterns (Lecture 6) while 4100 essay is not in this dashboard.</li>
+      </ul>
+      <p class="exam-meta" style="margin:0.55rem 0 0"><a href="../Oversikt/Ukeplan.html">Week planner</a> · <a href="UKAS_LESNING.html">This week reading</a></p>
+    </section>
+
+    <section class="panel" aria-labelledby="weak-title" style="margin-top:1rem;border:1px solid var(--line);border-radius:var(--radius);padding:1rem 1.05rem;background:var(--surface);">
+      <h2 id="weak-title" style="margin:0 0 0.35rem;font-size:1.12rem">Weakest topics (this device)</h2>
+      <p class="panel-lede" style="margin:0 0 0.65rem">Based on missed/lapsed cards in your schedule. Opens filtered practice in the app.</p>
+      <div class="weak-spots">
+        <div class="weak-card" id="weak-4050">
+          <h3>4050</h3>
+          <p id="weak-4050-text">Loading...</p>
+          <a class="btn cta" id="weak-4050-go" href="index.html?exam=1&amp;study=quiz#4050" hidden>Practice topic</a>
+        </div>
+        <div class="weak-card" id="weak-4280">
+          <h3>4280</h3>
+          <p id="weak-4280-text">Loading...</p>
+          <a class="btn cta" id="weak-4280-go" href="index.html?exam=1&amp;study=quiz#4280" hidden>Practice topic</a>
+        </div>
+      </div>
+    </section>
 
     <section class="l11-urgent" aria-labelledby="l11-title">
       <h2 id="l11-title">Rep: L-11 data in transit</h2>
@@ -455,7 +535,9 @@
     </section>
 
     <footer class="note">
-      <a href="index.html?exam=1">Full study app</a> · 4100 hidden in exam mode (Settings to change).
+      <a href="index.html?exam=1">Full study app</a> ·
+      <a href="EXAM_APP_IMPROVEMENT_TODO.md">Improvement TODO</a> ·
+      4100 hidden in exam mode (Settings to change).
     </footer>
   </main>
 
@@ -469,7 +551,7 @@
       var ITEMS = [
         { id: "4050-l11", course: "4050", text: "Submit L-11 on Canvas" },
         { id: "4050-slides-11-12", course: "4050", text: "Read slides: data at rest + data in transit" },
-        { id: "4050-exam-eight", course: "4050", text: "Practice official phishing exam examples" },
+        { id: "4050-exam-eight", course: "4050", text: "Practice official phishing exam examples", href: "index.html?exam=1&tag=exam&study=quiz#4050" },
         { id: "4050-test", course: "4050", text: "One timed test in the app" },
         { id: "4050-frameworks", course: "4050", text: "NIST + Kill Chain + MITRE drills" },
         { id: "4280-test", course: "4280", text: "One timed test in the app" },
@@ -480,6 +562,21 @@
       ];
 
       var PENSUM_BLOCK = ["needs-canvas", "optional-sources", "inferred", "meta-only", "off-pensum"];
+      var UNIT_MAP = {
+        acit4050: [
+          { tag: "data-in-transit", label: "L-11 data in transit" },
+          { tag: "Lecture2", label: "Phishing and malware" },
+          { tag: "Lecture3", label: "Networks and TCP/IP" },
+          { tag: "exam", label: "Exam-style questions" }
+        ],
+        acit4280: [
+          { tag: "Lecture1", label: "GDPR intro" },
+          { tag: "Lecture2", label: "PETs" },
+          { tag: "Lecture3", label: "Privacy by design" },
+          { tag: "Lecture5", label: "Privacy management" },
+          { tag: "Lecture6", label: "Engineering patterns" }
+        ]
+      };
 
       function loadSchedForDeck(deckKey) {
         var found = null;
@@ -536,6 +633,86 @@
         countDue("acit4280").then(function (n) {
           var el = document.getElementById("due-4280");
           if (el) el.textContent = "Practice queue: " + n.due + " due now (" + n.total + " syllabus cards in deck).";
+        });
+      }
+
+      function cardHasTag(c, tag) {
+        var tags = c.tags || [];
+        return tags.indexOf(tag) >= 0;
+      }
+
+      function cardIsBlocked(c) {
+        var tags = c.tags || [];
+        for (var t = 0; t < tags.length; t++) {
+          if (PENSUM_BLOCK.indexOf(tags[t]) >= 0) return true;
+        }
+        return false;
+      }
+
+      function schedEntryWeak(s) {
+        if (!s) return false;
+        if (s.status === "relearning") return true;
+        if ((s.lapses || 0) >= 1) return true;
+        if (s.status === "learning" && ((s.learningStep || 0) > 0 || (s.repetitions || 0) > 0)) return true;
+        return false;
+      }
+
+      function weakestUnit(deckKey) {
+        var units = UNIT_MAP[deckKey] || [];
+        return fetch("quiz-data/" + deckKey + ".json")
+          .then(function (r) { return r.json(); })
+          .then(function (deck) {
+            var sched = loadSchedForDeck(deckKey);
+            var best = null;
+            var bestWeak = 0;
+            units.forEach(function (u) {
+              var weak = 0;
+              (deck.cards || []).forEach(function (c) {
+                if (!c || !c.id || cardIsBlocked(c) || !cardHasTag(c, u.tag)) return;
+                if (schedEntryWeak(sched[c.id])) weak += 1;
+              });
+              if (weak > bestWeak) {
+                bestWeak = weak;
+                best = u;
+              }
+            });
+            return { unit: best, weak: bestWeak };
+          })
+          .catch(function () { return { unit: null, weak: 0 }; });
+      }
+
+      function renderWeakSpots() {
+        weakestUnit("acit4050").then(function (res) {
+          var text = document.getElementById("weak-4050-text");
+          var go = document.getElementById("weak-4050-go");
+          if (!text) return;
+          if (!res.unit || res.weak < 1) {
+            text.textContent = "No weak topic detected yet - rate cards honestly (Forgot/Tricky) so the app can guide you.";
+            if (go) go.hidden = true;
+            return;
+          }
+          text.textContent = res.unit.label + ": " + res.weak + " missed or lapsed card" + (res.weak === 1 ? "" : "s") + ".";
+          if (go) {
+            go.hidden = false;
+            go.textContent = "Practice " + res.unit.tag;
+            go.href = "index.html?exam=1&tag=" + encodeURIComponent(res.unit.tag) + "&study=quiz#4050";
+          }
+        });
+        weakestUnit("acit4280").then(function (res) {
+          var text = document.getElementById("weak-4280-text");
+          var go = document.getElementById("weak-4280-go");
+          if (!text) return;
+          if (!res.unit || res.weak < 1) {
+            text.textContent = "No weak topic detected yet - start with GDPR (Lecture 1) flashcards.";
+            if (go) go.hidden = true;
+            return;
+          }
+          text.textContent = res.unit.label + ": " + res.weak + " missed or lapsed card" + (res.weak === 1 ? "" : "s") + ".";
+          if (go) {
+            go.hidden = false;
+            go.textContent = "Practice " + res.unit.tag;
+            go.href = "index.html?exam=1&tag=" + encodeURIComponent(res.unit.tag) + "&study=quiz#4280";
+          }
         });
       }
 
@@ -609,6 +786,14 @@
           span.innerHTML = "<span class=\"tag\" style=\"margin-right:0.35rem\">" + item.course + "</span>" + item.text;
           label.appendChild(cb);
           label.appendChild(span);
+          if (item.href) {
+            var link = document.createElement("a");
+            link.href = item.href;
+            link.textContent = "Open in app";
+            link.style.fontSize = "0.82rem";
+            link.style.marginLeft = "0.35rem";
+            label.appendChild(link);
+          }
           li.appendChild(label);
           ul.appendChild(li);
           cb.addEventListener("change", function () {
@@ -681,6 +866,7 @@
       setInterval(updateCountdowns, 60000);
       renderChecklist();
       renderDueCounts();
+      renderWeakSpots();
       renderTodayStrip();
       window.addEventListener("storage", renderTodayStrip);
       document.addEventListener("acit-xp-updated", renderTodayStrip);
