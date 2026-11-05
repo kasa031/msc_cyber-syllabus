@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f766e" />
   <title>Exam app roadmap | 4050 + 4280</title>
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock184" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock187" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     body { margin: 0; font-family: "Space Grotesk", "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.55; }
@@ -68,11 +68,11 @@
   <header>
     <div class="wrap">
       <h1>Exam app roadmap</h1>
-      <p class="lede">ACIT4050 + ACIT4280 only. Source for agents: <code>EXAM_APP_IMPROVEMENT_TODO.md</code></p>
+      <p class="lede">Written exam prep for ACIT4050 + ACIT4280 only. No assignment deadlines in the app. Source for agents: <code>EXAM_APP_IMPROVEMENT_TODO.md</code></p>
       <div class="stats" aria-label="Progress summary">
-        <div class="stat"><b>17</b> agent tasks open</div>
-        <div class="stat"><b>14</b> shipped (5 Nov)</div>
-        <div class="stat"><b>6</b> your week checks</div>
+        <div class="stat"><b>595</b> syllabus cards in pool</div>
+        <div class="stat"><b>5</b> blocked until verified</div>
+        <div class="stat"><b>lock187</b> prep playground</div>
       </div>
       <nav class="top" aria-label="App navigation">
         <a class="primary" href="exam-rep.html">Exam dashboard</a>
@@ -83,14 +83,14 @@
   </header>
   <main class="wrap">
     <section aria-labelledby="you-title">
-      <h2 id="you-title">Your checklist this week</h2>
+      <h2 id="you-title">Your prep rhythm</h2>
       <ul class="tasks">
+        <li>Daily challenge on exam-rep (Play today)</li>
         <li>10 cards/day (Settings: daily goal)</li>
-        <li>One timed test per course (4050 + 4280)</li>
-        <li>Mixed 5+5 dry run at least once</li>
-        <li>L-11 rep: data-in-transit cards on exam-rep</li>
-        <li>Read official 4050 exam examples on Canvas</li>
-        <li>One InstantONS round (4280)</li>
+        <li>Timed test 4050 + 4280</li>
+        <li>Mixed 5+5 dry run</li>
+        <li>Exam-tag cards (official 4050 examples in-app)</li>
+        <li>InstantONS + framework drills (4280 / 4050)</li>
       </ul>
     </section>
 
@@ -100,7 +100,7 @@
         <thead><tr><th>ID</th><th>Status</th><th>Task</th></tr></thead>
         <tbody>
           <tr><td>data-l11-grade</td><td><span class="tag-open">OPEN</span></td><td>L-11 graded answers into deck when Canvas shows score</td></tr>
-          <tr><td>data-l10-atrest</td><td><span class="tag-open">OPEN</span></td><td>L-10 quiz 24333 when answers visible</td></tr>
+          <tr><td>data-l10-atrest</td><td><span class="tag-open">OPEN</span></td><td>L-10 quiz when answers visible</td></tr>
           <tr><td>data-anatomy-lab</td><td><span class="tag-open">OPEN</span></td><td>L-8 anatomy lab verified cards</td></tr>
           <tr><td>data-4280-gaps</td><td><span class="tag-open">OPEN</span></td><td>Missing module quiz cards (see canvas-quiz-coverage.json)</td></tr>
           <tr><td>data-exam-eight</td><td><span class="tag-open">OPEN</span></td><td>All official exam example questions as tagged cards</td></tr>
@@ -112,11 +112,11 @@
       <h2 id="p1-title">P1 - learning and motivation</h2>
       <table>
         <tbody>
-          <tr><td>ux-week-focus</td><td><span class="tag-part">PARTIAL</span></td><td>Week 45 text on exam-rep; auto from crawl later</td></tr>
+          <tr><td>prep-hub-playground</td><td><span class="tag-done">DONE</span></td><td>exam-rep: challenge, readiness, milestones (no Canvas checklist)</td></tr>
           <tr><td>ux-weak-spots</td><td><span class="tag-done">DONE</span></td><td>Weakest topics on exam-rep</td></tr>
           <tr><td>ux-session-recap</td><td><span class="tag-done">DONE</span></td><td>Back to dashboard after session/test</td></tr>
-          <tr><td>reward-more-milestones</td><td><span class="tag-part">PARTIAL</span></td><td>Exam trophies + streak toasts</td></tr>
-          <tr><td>checklist-canvas</td><td><span class="tag-open">OPEN</span></td><td>Auto-tick L-11 from Canvas crawl</td></tr>
+          <tr><td>reward-more-milestones</td><td><span class="tag-part">PARTIAL</span></td><td>Confetti, exam trophies, streak toasts</td></tr>
+          <tr><td>ux-daily-challenge</td><td><span class="tag-done">DONE</span></td><td>Shared challenge on hub + quiz home</td></tr>
         </tbody>
       </table>
     </section>
@@ -125,12 +125,12 @@
       <h2 id="p2-title">P2 - design and UX</h2>
       <table>
         <tbody>
-          <tr><td>ui-exam-rep-polish</td><td><span class="tag-part">PARTIAL</span></td><td>Teal tokens; more cleanup</td></tr>
+          <tr><td>ui-exam-rep-polish</td><td><span class="tag-part">PARTIAL</span></td><td>Teal tokens; mode tile motion</td></tr>
           <tr><td>ui-ab03a9-purge</td><td><span class="tag-open">OPEN</span></td><td>Replace legacy purple in quiz UI</td></tr>
-          <tr><td>ui-reduced-motion</td><td><span class="tag-part">PARTIAL</span></td><td>Daily ring done; extend to fx-layer</td></tr>
+          <tr><td>ui-reduced-motion</td><td><span class="tag-part">PARTIAL</span></td><td>Confetti respects reduced motion</td></tr>
           <tr><td>ui-mobile-modes</td><td><span class="tag-open">OPEN</span></td><td>Larger touch targets on practice tiles</td></tr>
           <tr><td>ui-keyboard-map</td><td><span class="tag-part">PARTIAL</span></td><td>? modal; add test MCQ keys</td></tr>
-          <tr><td>rep-hero-figure</td><td><span class="tag-open">OPEN</span></td><td>Light SVG on exam-rep (started)</td></tr>
+          <tr><td>rep-hero-figure</td><td><span class="tag-done">DONE</span></td><td>SVG on exam-rep hero</td></tr>
           <tr><td>rep-offline-smoke</td><td><span class="tag-open">OPEN</span></td><td>Offline test checklist</td></tr>
         </tbody>
       </table>
@@ -146,13 +146,14 @@
     </section>
 
     <section aria-labelledby="done-title">
-      <h2 id="done-title">Recently shipped</h2>
-      <p class="lede" style="color:var(--slate);margin:0 0 0.5rem">Practice modes, today strip, weak spots, keyboard help, exam trophies, daily goal celebrate, 4100 removed from this product.</p>
+      <h2 id="done-title">Recently shipped (5 Nov)</h2>
+      <p class="lede" style="color:var(--slate);margin:0">Prep playground, daily challenge, pensum audit doc, assignment UI removed from exam product, 4100 lane removed.</p>
     </section>
 
     <footer>
-      Live app: <a href="https://kasa031.github.io/msc_cyber-syllabus/exam-rep.html">exam-rep</a> ·
-      Updated 5 Nov 2026 (lock184). Ctrl+F5 if the list looks old.
+      Live: <a href="https://kasa031.github.io/msc_cyber-syllabus/exam-rep.html">exam-rep</a> ·
+      <a href="https://kasa031.github.io/msc_cyber-syllabus/">practice app</a> ·
+      Updated 5 Nov 2026 (lock187). Ctrl+F5 if cache looks old.
     </footer>
   </main>
 </body>

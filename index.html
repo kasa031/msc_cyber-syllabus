@@ -2508,6 +2508,9 @@
     html.exam-app .solvable-banner.is-correct .solvable-banner-kicker { color: var(--signal-deep); }
     html.exam-app .trophy-toast:not([hidden]) { border-color: var(--signal); color: var(--ink); }
     html.exam-app .quiz-home-goal-bar.is-done span { background: var(--signal); }
+    html.exam-app .footer-full-app-only { display: none !important; }
+    html.exam-app a[href="UKAS_LESNING.html"] { display: none !important; }
+    html:not(.exam-app) .footer-exam-only { display: none; }
     .exam-only-link { display: inline-flex; }
     .test-mode .quiz-card {
       border-top: 4px solid var(--palette-red);
@@ -3651,8 +3654,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock186" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock186" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock187" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock187" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3706,7 +3709,7 @@
         <div class="profile-bar" id="profile-bar">
           <a class="btn ghost" href="exam-rep.html">Dashboard</a>
           <a class="btn ghost" href="exam-app-todo.html" style="border-color:var(--signal);color:var(--signal-deep)">Roadmap</a>
-          <a class="btn ghost" href="UKAS_LESNING.html">This week</a>
+          <a class="btn ghost footer-full-app-only" href="UKAS_LESNING.html">This week</a>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
         </div>
       </div>
@@ -4394,7 +4397,7 @@
             <p class="quiz-home-sub" id="quiz-home-sub">Pick a session below. Your progress stays on this device.</p>
             <div class="exam-challenge-banner" id="exam-challenge-banner" hidden>
               <p><strong>Today's challenge:</strong> <span id="exam-challenge-banner-text">Loading...</span></p>
-              <a class="btn btn-primary" id="exam-challenge-banner-go" href="exam-rep.html">From dashboard</a>
+              <a class="btn btn-primary" id="exam-challenge-banner-go" href="exam-rep.html">Play challenge</a>
             </div>
             <div id="orient-nudge" class="orient-nudge" hidden>
               <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
@@ -4673,13 +4676,13 @@
 
       <footer>
         <p class="footer-copy">&copy; Ms.Tery</p>
-        <p class="footer-privacy">Progress stays on this device. No tracking cookies. Scores stay private unless you tick Share. <a href="UKAS_LESNING.html">Week readings and Canvas todos</a>. <a href="privacy-policy.html">Privacy policy: what we store and what we do not</a>.</p>
+        <p class="footer-privacy">Progress stays on this device. No tracking cookies. Scores stay private unless you tick Share. <a href="exam-rep.html" class="footer-exam-only">Exam dashboard</a><span class="footer-exam-only"> · </span><a href="UKAS_LESNING.html" class="footer-full-app-only">Week readings and Canvas todos</a><span class="footer-full-app-only"> · </span><a href="privacy-policy.html">Privacy policy: what we store and what we do not</a>.</p>
       </footer>
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock186" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock186"></script>
+  <script src="quiz-decks.js?v=lock187" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock187"></script>
   <script>
   (function () {
   "use strict";
@@ -7378,9 +7381,6 @@ function showCourse(courseKey) {
     tick("both-streak", (xp.streak || 0) >= 3);
     tick("4050-test", (xp.test4050Done || 0) >= 1);
     tick("4280-test", (xp.test4280Done || 0) >= 1);
-    try {
-      tick("4050-l11", localStorage.getItem("acit-l11-submitted-v1") === "1");
-    } catch (eL11) { /* ignore */ }
     if (changed) examRepChecklistSave(state);
   }
 
@@ -8108,8 +8108,11 @@ function showCourse(courseKey) {
       if (focus && focus.stats.total > 0) {
         var dueLine = focus.stats.due > 0 ? focus.stats.due + " ready" : "none ready";
         var missedLine = focus.stats.weak > 0 ? ", " + focus.stats.weak + " missed" : "";
-        var when = focus.days === 0 ? "today" : (focus.days === 1 ? "tomorrow" : (focus.days < 0 ? "past due" : "in " + focus.days + " days"));
-        nextText.innerHTML = "<strong>" + escapeHtml(focus.label) + "</strong> (" + escapeHtml(focus.tag) + "): " + dueLine + missedLine + ". Class/deadline " + escapeHtml(when) + ".";
+        var when = focus.days === 0 ? "today" : (focus.days === 1 ? "tomorrow" : (focus.days < 0 ? "passed" : "in " + focus.days + " days"));
+        var whenLine = examAppOnly()
+          ? "Written exam " + escapeHtml(when) + "."
+          : "Class/deadline " + escapeHtml(when) + ".";
+        nextText.innerHTML = "<strong>" + escapeHtml(focus.label) + "</strong> (" + escapeHtml(focus.tag) + "): " + dueLine + missedLine + ". " + whenLine;
         nextGo.textContent = "Study " + focus.tag + (focus.stats.due > 0 ? " (" + focus.stats.due + " ready)" : "");
         nextGo.setAttribute("data-focus-tag", focus.tag);
         nextBox.hidden = false;
@@ -12382,7 +12385,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock186" defer></script>
-  <script src="js/learning-session.js?v=lock186" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock187" defer></script>
+  <script src="js/learning-session.js?v=lock187" defer></script>
 </body>
 </html>
