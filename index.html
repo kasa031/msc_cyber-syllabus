@@ -2492,18 +2492,9 @@
     html.exam-focus #tab-course-fellesjam { display: none !important; }
     html.exam-focus #btn-notes-to-4100 { display: none !important; }
     html.exam-focus .settings-study-setup [data-first-course="acit4100"] { display: none !important; }
-    html.essay-focus #tab-course-acit4050,
-    html.essay-focus #tab-course-acit4280,
-    html.essay-focus #tab-course-fellesjam,
-    html.essay-focus #tab-course-terminal,
-    html.essay-focus #tab-course-computer-basics { display: none !important; }
-    html.essay-focus .hero-lede-exam { display: none; }
-    html.essay-focus .hero-lede-essay { display: block; }
-    html.essay-focus .hero-lede-default { display: none; }
     html.exam-focus .hero-lede-exam { display: block; }
     html.exam-focus .hero-lede-default { display: none; }
     .hero-lede-exam { display: none; }
-    .hero-lede-essay { display: none; }
     .test-mode .quiz-card {
       border-top: 4px solid var(--palette-red);
     }
@@ -3646,7 +3637,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock180" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock181" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3692,7 +3683,6 @@
           <h1 id="hero-title">Practice terminal commands step by step.</h1>
           <p class="hero-lede hero-lede-default" id="hero-lede">Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
           <p class="hero-lede hero-lede-exam"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Exam dashboard</a></p>
-          <p class="hero-lede hero-lede-essay"><strong>ACIT4100</strong> essay prep · Toulmin, philosophy of science, expert role · <a href="4100-week2-toulmin-recap.html">Toulmin recap</a></p>
         </div>
       </div>
     </div>
@@ -3763,10 +3753,6 @@
           <label class="settings-check" for="settings-exam-focus">
             <input id="settings-exam-focus" type="checkbox" />
             <span>Exam focus (show 4050 and 4280 only - hide 4100 and Mixed)</span>
-          </label>
-          <label class="settings-check" for="settings-essay-focus">
-            <input id="settings-essay-focus" type="checkbox" />
-            <span>Essay focus (4100 only - hide cyber exam tabs)</span>
           </label>
           <p class="settings-notif-hint">Same as opening <a href="exam-rep.html">Exam repetition</a> or <code>?exam=1</code>. Turn off to see all courses again.</p>
           <div class="tut-actions settings-pref-actions">
@@ -4657,8 +4643,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock180" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock180"></script>
+  <script src="quiz-decks.js?v=lock181" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock181"></script>
   <script>
   (function () {
   "use strict";
@@ -4712,7 +4698,7 @@
       });
     }
   }
-  var QUIZ_EXPECTED = { acit4050: 305, acit4280: 248, acit4100: 390, "computer-basics": 28, "fellesjam-general": 26 };
+  var QUIZ_EXPECTED = { acit4050: 305, acit4280: 248, acit4100: 389, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -10422,13 +10408,6 @@ function showCourse(courseKey) {
       settingsSetMsg($("settings-exam-focus").checked ? "Exam focus on." : "Exam focus off.");
     });
   }
-  if ($("settings-essay-focus")) {
-    $("settings-essay-focus").addEventListener("change", function () {
-      setEssayFocus(!!$("settings-essay-focus").checked);
-      if ($("settings-essay-focus").checked) showCourse("acit4100");
-      settingsSetMsg($("settings-essay-focus").checked ? "Essay focus on (4100)." : "Essay focus off.");
-    });
-  }
   if ($("settings-first-browse")) {
     $("settings-first-browse").addEventListener("click", function () {
       onboardSaveFocus(true);
@@ -12018,11 +11997,9 @@ function showCourse(courseKey) {
     return document.documentElement.classList.contains("embed");
   }
   var EXAM_FOCUS_KEY = "acit-exam-focus-v1";
-  var ESSAY_FOCUS_KEY = "acit-essay-focus-v1";
   var pendingStudyQuery = null;
   var pendingTagQuery = null;
   var pendingMixedTest = false;
-  var pendingEssayCourse = false;
 
   function ensureEmbedClass() {
     try {
@@ -12037,14 +12014,10 @@ function showCourse(courseKey) {
     try { return localStorage.getItem(EXAM_FOCUS_KEY) === "1"; } catch (e) { return false; }
   }
 
-  function essayFocusEnabled() {
-    try { return localStorage.getItem(ESSAY_FOCUS_KEY) === "1"; } catch (e) { return false; }
-  }
-
   function applyExamFocusUi(on) {
     document.documentElement.classList.toggle("exam-focus", !!on);
     var ht = $("hero-title");
-    if (ht && !essayFocusEnabled()) {
+    if (ht) {
       ht.textContent = on
         ? "Repeat for your written exams."
         : "Practice terminal commands step by step.";
@@ -12052,43 +12025,17 @@ function showCourse(courseKey) {
     syncExamFocusSettingsUi();
   }
 
-  function applyEssayFocusUi(on) {
-    document.documentElement.classList.toggle("essay-focus", !!on);
-    var ht = $("hero-title");
-    if (ht && on) {
-      ht.textContent = "Understand and communicate research.";
-    }
-    syncExamFocusSettingsUi();
-    if (on) applyExamFocusUi(false);
-  }
-
   function setExamFocus(on) {
     try {
-      if (on) {
-        localStorage.setItem(EXAM_FOCUS_KEY, "1");
-        localStorage.removeItem(ESSAY_FOCUS_KEY);
-      } else localStorage.removeItem(EXAM_FOCUS_KEY);
+      if (on) localStorage.setItem(EXAM_FOCUS_KEY, "1");
+      else localStorage.removeItem(EXAM_FOCUS_KEY);
     } catch (e) { /* ignore */ }
-    applyExamFocusUi(on && !essayFocusEnabled());
-    applyEssayFocusUi(essayFocusEnabled());
-  }
-
-  function setEssayFocus(on) {
-    try {
-      if (on) {
-        localStorage.setItem(ESSAY_FOCUS_KEY, "1");
-        localStorage.removeItem(EXAM_FOCUS_KEY);
-      } else localStorage.removeItem(ESSAY_FOCUS_KEY);
-    } catch (e) { /* ignore */ }
-    applyEssayFocusUi(on);
-    applyExamFocusUi(examFocusEnabled() && !on);
+    applyExamFocusUi(on);
   }
 
   function syncExamFocusSettingsUi() {
     var cb = $("settings-exam-focus");
-    if (cb) cb.checked = examFocusEnabled() && !essayFocusEnabled();
-    var eb = $("settings-essay-focus");
-    if (eb) eb.checked = essayFocusEnabled();
+    if (cb) cb.checked = examFocusEnabled();
   }
 
   function ensureExamFocusClass() {
@@ -12096,19 +12043,10 @@ function showCourse(courseKey) {
       var p = new URLSearchParams(window.location.search || "");
       if (p.get("exam") === "1") {
         localStorage.setItem(EXAM_FOCUS_KEY, "1");
-        localStorage.removeItem(ESSAY_FOCUS_KEY);
       } else if (p.get("exam") === "0") {
         localStorage.removeItem(EXAM_FOCUS_KEY);
       }
-      if (p.get("essay") === "1") {
-        localStorage.setItem(ESSAY_FOCUS_KEY, "1");
-        localStorage.removeItem(EXAM_FOCUS_KEY);
-        pendingEssayCourse = true;
-      } else if (p.get("essay") === "0") {
-        localStorage.removeItem(ESSAY_FOCUS_KEY);
-      }
-      applyEssayFocusUi(essayFocusEnabled());
-      applyExamFocusUi(examFocusEnabled() && !essayFocusEnabled());
+      applyExamFocusUi(examFocusEnabled());
       var study = p.get("study");
       if (study === "quiz" || study === "test" || study === "flash" || study === "flashcards") {
         pendingStudyQuery = study === "flash" ? "flashcards" : study;
@@ -12120,11 +12058,6 @@ function showCourse(courseKey) {
   }
 
   function applyPendingStudyQuery() {
-    if (pendingEssayCourse) {
-      pendingEssayCourse = false;
-      showCourse("acit4100");
-      if (typeof studyApplyUnitFilter === "function") studyApplyUnitFilter("week10");
-    }
     if (pendingMixedTest) {
       testState.mixedExam = true;
       pendingMixedTest = false;
@@ -12263,6 +12196,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock180" defer></script>
+  <script src="js/learning-session.js?v=lock181" defer></script>
 </body>
 </html>
