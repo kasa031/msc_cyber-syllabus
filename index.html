@@ -2511,6 +2511,30 @@
     html.exam-app .footer-full-app-only { display: none !important; }
     html.exam-app a[href="UKAS_LESNING.html"] { display: none !important; }
     html:not(.exam-app) .footer-exam-only { display: none; }
+    html.exam-app #orient-nudge { display: none !important; }
+    html.exam-app .exam-express-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 0.75rem 0;
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid var(--signal);
+      background: var(--signal-soft);
+    }
+    html.exam-app .exam-express-kicker {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--signal-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    html.exam-app .exam-express-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
     .exam-only-link { display: inline-flex; }
     .test-mode .quiz-card {
       border-top: 4px solid var(--palette-red);
@@ -3654,8 +3678,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock187" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock187" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock188" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock188" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3715,9 +3739,9 @@
       </div>
       <div class="hero-body">
         <div class="hero-copy">
-          <h1 id="hero-title">Repeat for your written exams.</h1>
+          <h1 id="hero-title">Repeat what matters in the shortest time.</h1>
           <p class="hero-lede hero-lede-default" id="hero-lede" hidden>Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
-          <p class="hero-lede hero-lede-exam"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Dashboard</a> · <a href="exam-app-todo.html"><strong>Roadmap (TODO)</strong></a></p>
+          <p class="hero-lede hero-lede-exam">Due cards and exam-style tags first - aim for <strong>5-10 minute</strong> sprints. <strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Express dashboard</a></p>
         </div>
       </div>
     </div>
@@ -3727,7 +3751,7 @@
       <div class="research-daily-ring" id="research-daily-ring" style="--ring-pct: 0%" aria-hidden="true"><span id="research-daily-label">0/10</span></div>
       <div class="research-session-copy">
         <strong>Today</strong>
-        <p id="research-session-sub">Daily recall goal</p>
+        <p id="research-session-sub">Short sprints add up</p>
       </div>
       <p class="research-tip" id="research-tip" hidden></p>
       <div class="research-actions">
@@ -4399,6 +4423,14 @@
               <p><strong>Today's challenge:</strong> <span id="exam-challenge-banner-text">Loading...</span></p>
               <a class="btn btn-primary" id="exam-challenge-banner-go" href="exam-rep.html">Play challenge</a>
             </div>
+            <div class="exam-express-row" id="exam-express-row" hidden aria-label="Short high-yield sessions">
+              <p class="exam-express-kicker">Express (~5 min)</p>
+              <div class="exam-express-btns">
+                <button type="button" class="btn btn-primary" id="exam-express-5due">5 due cards</button>
+                <button type="button" class="btn" id="exam-express-missed" hidden>Missed only</button>
+                <button type="button" class="btn ghost" id="exam-express-exam4050" hidden>4050 exam examples</button>
+              </div>
+            </div>
             <div id="orient-nudge" class="orient-nudge" hidden>
               <p><span><b id="orient-nudge-count">0</b> / 5 setup steps left.</span> <button type="button" class="btn ghost" id="orient-nudge-open">Open checklist</button></p>
             </div>
@@ -4681,8 +4713,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock187" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock187"></script>
+  <script src="quiz-decks.js?v=lock188" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock188"></script>
   <script>
   (function () {
   "use strict";
@@ -7583,9 +7615,10 @@ function showCourse(courseKey) {
     if (examAppOnly()) {
       var EXAM_PREP_FOCUS = {
         acit4050: [
-          { tag: "exam", label: "Official exam-style questions", due: "2026-11-26" },
+          { tag: "exam", label: "Official exam-style questions (highest yield)", due: "2026-11-26" },
           { tag: "data-in-transit", label: "TLS and PKI (data in transit)", due: "2026-11-26" },
-          { tag: "Lecture2", label: "Phishing and malware", due: "2026-11-26" }
+          { tag: "Lecture2", label: "Phishing and malware", due: "2026-11-26" },
+          { tag: "Lecture3", label: "Networks and TCP/IP", due: "2026-11-26" }
         ],
         acit4280: [
           { tag: "Lecture6", label: "Privacy patterns", due: "2026-12-10" },
@@ -7939,7 +7972,12 @@ function showCourse(courseKey) {
       var days = studyDaysUntil(f.due);
       var need = stats.due + stats.weak;
       if (need < 1 && days > 10) return;
-      var score = (days < 0 ? 0 : days) * 8 - need * 3 - (stats.weak * 2);
+      var score = (days < 0 ? 0 : days) * 8 - need * 5 - (stats.weak * 4);
+      if (examAppOnly()) {
+        if (f.tag === "exam") score -= 80;
+        if (f.tag === "data-in-transit" && deckKey === "acit4050") score -= 25;
+        if (f.tag === "PIA" && deckKey === "acit4280") score -= 25;
+      }
       if (score < bestScore) {
         bestScore = score;
         best = {
@@ -7956,6 +7994,7 @@ function showCourse(courseKey) {
 
   function studyCardQueuePriority(card, sched, deckKey) {
     var pri = 500;
+    if (examAppOnly() && studyCardHasTag(card, "exam")) pri = Math.min(pri, -2);
     studyFocusList(deckKey).forEach(function (f) {
       if (f.done || !studyCardHasTag(card, f.tag)) return;
       var days = studyDaysUntil(f.due);
@@ -8043,7 +8082,11 @@ function showCourse(courseKey) {
     if (dueN) dueN.textContent = String(counts.due);
     if (sub) {
       var filterNote = quizState.tagFilter ? " Filter: " + quizState.tagFilter + "." : "";
-      if (counts.due > 0) {
+      if (examAppOnly() && !quizState.tagFilter) {
+        sub.textContent = counts.due > 0
+          ? "Start with Express: 5 due cards (~5 min). Highest-yield tags are queued first."
+          : "No due cards - try exam examples (4050) or a timed test.";
+      } else if (counts.due > 0) {
         sub.textContent = (counts.weak > 0
           ? counts.weak + " missed card" + (counts.weak === 1 ? "" : "s") + " need extra practice."
           : "Tap 1-4 honestly - Forgot and Tricky come back soon.") + filterNote;
@@ -8064,8 +8107,27 @@ function showCourse(courseKey) {
     }
     if (quickBtn) {
       var quickN = counts.due > 0 ? Math.min(5, counts.due) : 5;
-      quickBtn.textContent = "Quick " + quickN + " cards";
-      quickBtn.hidden = counts.due < 1;
+      quickBtn.textContent = examAppOnly() ? "Express " + quickN + " due" : ("Quick " + quickN + " cards");
+      quickBtn.hidden = examAppOnly() ? false : counts.due < 1;
+    }
+    var expressRow = $("exam-express-row");
+    var express5 = $("exam-express-5due");
+    var expressMiss = $("exam-express-missed");
+    var expressExam = $("exam-express-exam4050");
+    if (expressRow && examAppOnly()) {
+      expressRow.hidden = false;
+      if (express5) {
+        var n5 = counts.due > 0 ? Math.min(5, counts.due) : 5;
+        express5.textContent = "5 due (~5 min)";
+        express5.disabled = counts.due < 1 && !quizState.tagFilter;
+      }
+      if (expressMiss) {
+        expressMiss.hidden = counts.weak < 1;
+        expressMiss.textContent = "Missed (" + counts.weak + ")";
+      }
+      if (expressExam) expressExam.hidden = quizState.deckKey !== "acit4050";
+    } else if (expressRow) {
+      expressRow.hidden = true;
     }
     if (weakBtn) {
       weakBtn.hidden = counts.weak < 1;
@@ -10487,11 +10549,34 @@ function showCourse(courseKey) {
   }
   if ($("quiz-home-quick")) {
     $("quiz-home-quick").addEventListener("click", function () {
-      var counts = studyCountDueAndWeak(quizState.deckKey);
+      var counts = studyCountDueAndWeak(quizState.deckKey, quizState.tagFilter);
       quizState.forceAll = false;
       quizState.weakOnly = false;
-      quizState.customStudyMode = null;
+      quizState.customStudyMode = examAppOnly() ? "dueOnly" : null;
       quizBeginSession(Math.min(5, counts.due || 5));
+    });
+  }
+  function examExpressStart(opts) {
+    opts = opts || {};
+    var counts = studyCountDueAndWeak(quizState.deckKey, opts.tag || quizState.tagFilter);
+    quizState.forceAll = false;
+    quizState.weakOnly = !!opts.weak;
+    quizState.customStudyMode = opts.weak ? null : "dueOnly";
+    if (opts.tag && typeof studyApplyUnitFilter === "function") studyApplyUnitFilter(opts.tag);
+    var lim = opts.limit || 5;
+    if (opts.weak) lim = Math.min(8, counts.weak || 8);
+    else lim = Math.min(lim, counts.due || lim);
+    quizBeginSession(lim > 0 ? lim : 5);
+  }
+  if ($("exam-express-5due")) {
+    $("exam-express-5due").addEventListener("click", function () { examExpressStart({ limit: 5 }); });
+  }
+  if ($("exam-express-missed")) {
+    $("exam-express-missed").addEventListener("click", function () { examExpressStart({ weak: true }); });
+  }
+  if ($("exam-express-exam4050")) {
+    $("exam-express-exam4050").addEventListener("click", function () {
+      examExpressStart({ tag: "exam", limit: 6 });
     });
   }
   if ($("quiz-home-browse")) {
@@ -12180,6 +12265,7 @@ function showCourse(courseKey) {
   var EXAM_FOCUS_KEY = "acit-exam-focus-v1";
   var pendingStudyQuery = null;
   var pendingTagQuery = null;
+  var pendingExpress = null;
   var pendingMixedTest = false;
 
   function ensureEmbedClass() {
@@ -12206,7 +12292,7 @@ function showCourse(courseKey) {
     document.documentElement.classList.toggle("exam-app", examAppOnly());
     var ht = $("hero-title");
     if (ht && examAppOnly()) {
-      ht.textContent = "Repeat for your written exams.";
+      ht.textContent = "Repeat what matters in the shortest time.";
     } else if (ht) {
       ht.textContent = active
         ? "Repeat for your written exams."
@@ -12243,7 +12329,28 @@ function showCourse(courseKey) {
       var tag = p.get("tag");
       if (tag) pendingTagQuery = tag;
       if (p.get("mixed") === "1") pendingMixedTest = true;
+      var lim = parseInt(p.get("limit"), 10);
+      var dueOnly = p.get("due") === "1";
+      var weakOnly = p.get("weak") === "1";
+      if ((lim > 0 && lim <= 50) || dueOnly || weakOnly) {
+        pendingExpress = {
+          limit: lim > 0 && lim <= 50 ? lim : (weakOnly ? 8 : 5),
+          dueOnly: dueOnly,
+          weakOnly: weakOnly
+        };
+      }
     } catch (e) { /* ignore */ }
+  }
+
+  function applyPendingExpressSession() {
+    if (!pendingExpress) return;
+    var ex = pendingExpress;
+    pendingExpress = null;
+    quizState.weakOnly = !!ex.weakOnly;
+    quizState.leechOnly = false;
+    quizState.forceAll = false;
+    quizState.customStudyMode = ex.dueOnly && !ex.weakOnly ? "dueOnly" : null;
+    quizBeginSession(ex.limit, quizState.tagFilter || null);
   }
 
   function applyPendingStudyQuery() {
@@ -12260,6 +12367,7 @@ function showCourse(courseKey) {
       studyApplyUnitFilter(pendingTagQuery);
       pendingTagQuery = null;
     }
+    if (pendingExpress) applyPendingExpressSession();
   }
 
   function applyPendingTagFromUrl() {
@@ -12385,7 +12493,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock187" defer></script>
-  <script src="js/learning-session.js?v=lock187" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock188" defer></script>
+  <script src="js/learning-session.js?v=lock188" defer></script>
 </body>
 </html>

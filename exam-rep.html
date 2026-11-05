@@ -7,8 +7,8 @@
   <title>Exam prep playground | 4050 + 4280</title>
   <meta name="description" content="Interactive written-exam prep for ACIT4050 and ACIT4280. Flashcards, timed tests, drills. Syllabus-only questions." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock187" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock187" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock188" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock188" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root { --radius: 14px; --shadow: var(--shadow-md); --cream: var(--paper); }
@@ -72,8 +72,8 @@
       </div>
       <div class="hero-layout">
         <div>
-          <h1>Play your way to exam day</h1>
-          <p class="hero-lede">No assignment deadlines here - only recall, timed tests, and drills tied to lecture pensum.</p>
+          <h1>High-yield reps in minutes</h1>
+          <p class="hero-lede">Weeks to exam: do 5-10 minute sprints on due cards, missed topics, and official exam examples - not long reading lists.</p>
           <div class="exam-hub-hero-play">
             <a class="play-main" id="hero-play-main" href="index.html?study=quiz#4050">Play today</a>
             <a href="index.html?study=test&amp;mixed=1" style="color:#fff;opacity:0.95">Mixed 5+5</a>
@@ -90,6 +90,12 @@
       <p style="margin:0"><strong>Session:</strong> <span id="today-reviews">0</span> cards rated today · streak <span id="today-streak">0</span> days</p>
       <a href="index.html?study=quiz#4050" style="font-size:0.88rem">Continue</a>
     </div>
+
+    <section class="panel express-panel" aria-labelledby="express-title">
+      <h2 id="express-title">Express</h2>
+      <p class="panel-lede">One tap starts a short session. Due cards and exam tags are prioritized automatically.</p>
+      <div class="express-grid" id="express-grid"></div>
+    </section>
 
     <section class="challenge-card" aria-labelledby="challenge-title">
       <h2 id="challenge-title">Today's challenge</h2>
@@ -217,6 +223,6 @@
     </footer>
   </main>
 
-  <script src="js/exam-prep-hub.js?v=lock187" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock188" defer></script>
 </body>
 </html>

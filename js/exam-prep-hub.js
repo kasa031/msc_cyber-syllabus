@@ -1,6 +1,6 @@
 /**
  * Exam prep hub (exam-rep.html) - no Canvas assignment deadlines.
- * Written exam countdowns + practice/challenge/readiness only.
+ * Product goal: repeat highest-yield pensum in the shortest time (5-10 min sprints).
  */
 (function () {
   var STORAGE_CHECKLIST = "acit-exam-prep-milestones-v1";
@@ -133,17 +133,59 @@
     });
   }
 
+  function daysUntil(isoDate) {
+    try {
+      var parts = String(isoDate).split("-");
+      var target = Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      var tp = todayKey().split("-");
+      var now = Date.UTC(Number(tp[0]), Number(tp[1]) - 1, Number(tp[2]));
+      return Math.round((target - now) / 86400000);
+    } catch (e) {
+      return 99;
+    }
+  }
+
+  function expressPlayUrl(deckKey, opts) {
+    opts = opts || {};
+    var hash = deckKey === "acit4280" ? "4280" : "4050";
+    var parts = ["study=quiz"];
+    if (opts.weak) {
+      parts.push("weak=1", "limit=8");
+    } else {
+      parts.push("due=1", "limit=" + (opts.limit || 5));
+    }
+    if (opts.tag) parts.push("tag=" + encodeURIComponent(opts.tag));
+    return "index.html?" + parts.join("&") + "#" + hash;
+  }
+
   function buildDailyChallenge() {
     var day = todayKey();
     try {
       var raw = localStorage.getItem(STORAGE_CHALLENGE);
       if (raw) {
         var prev = JSON.parse(raw);
-        if (prev && prev.day === day) return prev;
+        if (prev && prev.day === day) return Promise.resolve(prev);
       }
     } catch (e) { /* ignore */ }
 
-    var deckPick = day.charCodeAt(day.length - 1) % 2 === 0 ? "acit4050" : "acit4280";
+    var deckPick = daysUntil("2026-11-26") <= daysUntil("2026-12-10") ? "acit4050" : "acit4280";
+    if (day.charCodeAt(day.length - 1) % 2 === 1) {
+      deckPick = deckPick === "acit4050" ? "acit4280" : "acit4050";
+    }
+    var near4050 = daysUntil("2026-11-26") <= 21;
+    if (near4050 && deckPick === "acit4050") {
+      return Promise.resolve({
+        day: day,
+        deckKey: "acit4050",
+        hash: "4050",
+        tag: "exam",
+        label: "Official exam-style questions",
+        goal: 6
+      }).then(function (ch) {
+        try { localStorage.setItem(STORAGE_CHALLENGE, JSON.stringify(ch)); } catch (e2) { /* ignore */ }
+        return ch;
+      });
+    }
     return weakestUnit(deckPick).then(function (w) {
       if (!w) w = { deckKey: "acit4050", tag: "exam", label: "Exam-style questions", weak: 0 };
       var hash = w.deckKey === "acit4280" ? "4280" : "4050";
@@ -153,7 +195,7 @@
         hash: hash,
         tag: w.tag,
         label: w.label,
-        goal: 8
+        goal: 6
       };
       try { localStorage.setItem(STORAGE_CHALLENGE, JSON.stringify(ch)); } catch (e2) { /* ignore */ }
       return ch;
@@ -260,7 +302,7 @@
       var hero = document.getElementById("hero-play-main");
       if (title) title.textContent = "Today's challenge";
       if (body) body.textContent = ch.label + " (" + (ch.deckKey === "acit4280" ? "4280" : "4050") + ")";
-      if (meta) meta.textContent = "Goal: rate " + ch.goal + " cards. Syllabus-only deck; unverified lab cards stay out of timed tests.";
+      if (meta) meta.textContent = "About 5-8 min: rate " + ch.goal + " cards. Syllabus-only; due and exam tags come first in the queue.";
       var url = challengePlayUrl(ch);
       if (go) go.href = url;
       if (hero) hero.href = url;
@@ -355,12 +397,43 @@
     if (fill) fill.style.width = (MILESTONES.length ? Math.round((done / MILESTONES.length) * 100) : 0) + "%";
   }
 
+  function renderExpressGrid() {
+    var grid = document.getElementById("express-grid");
+    if (!grid) return;
+    var items = [
+      { label: "4050: 5 due", href: expressPlayUrl("acit4050", { limit: 5 }), primary: true },
+      { label: "4280: 5 due", href: expressPlayUrl("acit4280", { limit: 5 }), primary: true },
+      { label: "4050 exam examples", href: expressPlayUrl("acit4050", { tag: "exam", limit: 6 }), primary: false },
+      { label: "Mixed test 5+5 (~10 min)", href: "index.html?study=test&mixed=1", primary: false }
+    ];
+    grid.innerHTML = "";
+    items.forEach(function (it) {
+      var a = document.createElement("a");
+      a.href = it.href;
+      a.className = it.primary ? "express-tile primary" : "express-tile";
+      a.textContent = it.label;
+      grid.appendChild(a);
+    });
+    Promise.all([weakestUnit("acit4050"), weakestUnit("acit4280")]).then(function (pair) {
+      pair.forEach(function (res, i) {
+        if (!res || res.weak < 1) return;
+        var dk = i === 0 ? "acit4050" : "acit4280";
+        var a = document.createElement("a");
+        a.href = expressPlayUrl(dk, { weak: true });
+        a.className = "express-tile warn";
+        a.textContent = (i === 0 ? "4050" : "4280") + ": missed (" + res.weak + ")";
+        grid.appendChild(a);
+      });
+    });
+  }
+
   function init() {
     try { localStorage.setItem("acit-exam-focus-v1", "1"); } catch (e) { /* ignore */ }
     updateCountdowns();
     setInterval(updateCountdowns, 60000);
     renderTodayStrip();
     renderChallenge();
+    renderExpressGrid();
     renderReadiness();
     renderWeakSpots();
     renderPensumTrust();
