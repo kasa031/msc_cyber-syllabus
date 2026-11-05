@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="exam-app exam-focus">
 <head>
   <meta charset="UTF-8" />
   <script>
     try {
+      document.documentElement.classList.add("exam-app", "exam-focus");
       if (/[?&]embed=1(?:&|$)/.test(location.search)) document.documentElement.classList.add("embed");
     } catch (e) {}
   </script>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'self'" />
   <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Study app | MSc Cyber Year 1</title>
-  <meta name="description" content="Exam repetition for ACIT4050 and ACIT4280: flashcards, timed exam prep, terminal lab, and framework drills. Works offline. No personal data." />
+  <title>Exam prep | ACIT4050 and ACIT4280</title>
+  <meta name="description" content="Exam prep for ACIT4050 and ACIT4280: flashcards, timed tests, frameworks, and InstantONS. Works offline." />
   <meta property="og:title" content="MSc Cybersecurity Practise Syllabus 1st Year" />
   <meta property="og:description" content="Flashcards, terminal practice, and diagrams for MSc Cyber Year 1. Offline-friendly. No personal data." />
   <meta property="og:type" content="website" />
@@ -2488,21 +2489,26 @@
     }
     .embed .quiz-home { display: none !important; }
     .embed #tab-study-test { display: none !important; }
-    html.exam-focus #tab-course-acit4100,
-    html.exam-focus #tab-course-fellesjam { display: none !important; }
-    html.exam-focus #btn-notes-to-4100 { display: none !important; }
-    html.exam-focus .settings-study-setup [data-first-course="acit4100"] { display: none !important; }
-    html.exam-focus .hero-lede-exam { display: block; }
-    html.exam-focus .hero-lede-default { display: none; }
+    html.exam-app #tab-course-acit4100,
+    html.exam-app #tab-course-fellesjam,
+    html.exam-app #tab-course-computer-basics { display: none !important; }
+    html.exam-app #btn-notes-to-4100 { display: none !important; }
+    html.exam-app .settings-study-setup [data-first-course="acit4100"] { display: none !important; }
+    html.exam-app #tab-section-terminal,
+    html.exam-app #course-terminal,
+    html.exam-app #course-pc { display: none !important; }
+    html.exam-app .course-section-tabs { display: none !important; }
+    html.exam-app .hero-lede-exam { display: block; }
+    html.exam-app .hero-lede-default { display: none; }
     .hero-lede-exam { display: none; }
-    html.exam-focus .quiz-card.fx-good { border-color: var(--signal); }
-    html.exam-focus .tut-feedback.is-reveal { border-left-color: var(--signal); background: var(--signal-soft); }
-    html.exam-focus .fp-status.is-correct { border-left-color: var(--signal); background: var(--signal-soft); }
-    html.exam-focus .solvable-banner.is-correct .solvable-banner-kicker { color: var(--signal-deep); }
-    html.exam-focus .trophy-toast:not([hidden]) { border-color: var(--signal); color: var(--ink); }
-    html.exam-focus .quiz-home-goal-bar.is-done span { background: var(--signal); }
-    .exam-only-link { display: none; }
-    html.exam-focus .exam-only-link { display: inline-flex; }
+    html.exam-app .exam-only-link { display: inline-flex; }
+    html.exam-app .quiz-card.fx-good { border-color: var(--signal); }
+    html.exam-app .tut-feedback.is-reveal { border-left-color: var(--signal); background: var(--signal-soft); }
+    html.exam-app .fp-status.is-correct { border-left-color: var(--signal); background: var(--signal-soft); }
+    html.exam-app .solvable-banner.is-correct .solvable-banner-kicker { color: var(--signal-deep); }
+    html.exam-app .trophy-toast:not([hidden]) { border-color: var(--signal); color: var(--ink); }
+    html.exam-app .quiz-home-goal-bar.is-done span { background: var(--signal); }
+    .exam-only-link { display: inline-flex; }
     .test-mode .quiz-card {
       border-top: 4px solid var(--palette-red);
     }
@@ -3645,7 +3651,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock183" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock184" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3697,17 +3703,17 @@
       <div class="hero-top">
         <p class="brand">MSc Cybersecurity Practise Syllabus 1st Year</p>
         <div class="profile-bar" id="profile-bar">
-          <a class="btn ghost" href="exam-rep.html">Exam repetition</a>
-          <a class="btn ghost" href="EXAM_APP_IMPROVEMENT_TODO.md">App TODO</a>
+          <a class="btn ghost" href="exam-rep.html">Dashboard</a>
+          <a class="btn ghost" href="exam-app-todo.html" style="border-color:var(--signal);color:var(--signal-deep)">Roadmap</a>
           <a class="btn ghost" href="UKAS_LESNING.html">This week</a>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
         </div>
       </div>
       <div class="hero-body">
         <div class="hero-copy">
-          <h1 id="hero-title">Practice terminal commands step by step.</h1>
-          <p class="hero-lede hero-lede-default" id="hero-lede">Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
-          <p class="hero-lede hero-lede-exam"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Exam dashboard</a> · <a href="EXAM_APP_IMPROVEMENT_TODO.md">Improvement plan</a></p>
+          <h1 id="hero-title">Repeat for your written exams.</h1>
+          <p class="hero-lede hero-lede-default" id="hero-lede" hidden>Type real PowerShell and Arch commands for ACIT4050 lab work. Mistakes get hints, then answers.</p>
+          <p class="hero-lede hero-lede-exam"><strong>4050</strong> 26 Nov · <strong>4280</strong> 10 Dec · <a href="exam-rep.html">Dashboard</a> · <a href="exam-app-todo.html"><strong>Roadmap (TODO)</strong></a></p>
         </div>
       </div>
     </div>
@@ -3775,12 +3781,7 @@
             <span>Remind me when cards are due</span>
           </label>
           <p class="settings-notif-hint" id="settings-notif-status">Off by default. Needs browser permission. One gentle ping per day when cards are waiting.</p>
-          <label class="settings-check" for="settings-exam-focus">
-            <input id="settings-exam-focus" type="checkbox" />
-            <span>Exam focus (show 4050 and 4280 only - hide 4100 and Mixed)</span>
-          </label>
-          <p class="settings-notif-hint">Same as opening <a href="exam-rep.html">Exam repetition</a> or <code>?exam=1</code>. Turn off to see all courses again.</p>
-          <p class="settings-notif-hint">Roadmap: <a href="EXAM_APP_IMPROVEMENT_TODO.md">Exam app improvement TODO</a> (4050 + 4280).</p>
+          <p class="settings-notif-hint">This build is <strong>exam prep only</strong> (4050 + 4280). Roadmap: <a href="exam-app-todo.html">exam-app-todo.html</a>.</p>
           <div class="tut-actions settings-pref-actions">
             <button type="button" class="btn ghost" id="settings-jump-trophies">See your trophies</button>
             <button type="button" class="btn ghost" id="settings-keyboard-help">Keyboard shortcuts</button>
@@ -4672,8 +4673,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock183" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock183"></script>
+  <script src="quiz-decks.js?v=lock184" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock184"></script>
   <script>
   (function () {
   "use strict";
@@ -4703,8 +4704,11 @@
   function last4050Section() {
     var last = null;
     try { last = localStorage.getItem(LAST_COURSE_KEY); } catch (e) { /* ignore */ }
-    if (last === "terminal" || last === "acit4050" || last === "practice") return last;
-    return "terminal";
+    if (last === "terminal" || last === "acit4050" || last === "practice") {
+      if (document.documentElement.classList.contains("exam-app") && last === "terminal") return "acit4050";
+      return last;
+    }
+    return document.documentElement.classList.contains("exam-app") ? "acit4050" : "terminal";
   }
 
   function syncCourseNav(courseKey) {
@@ -12119,22 +12123,34 @@ function showCourse(courseKey) {
     } catch (e) { /* ignore */ }
   }
 
+  function examAppOnly() {
+    return document.documentElement.classList.contains("exam-app");
+  }
+
   function examFocusEnabled() {
+    if (examAppOnly()) return true;
     try { return localStorage.getItem(EXAM_FOCUS_KEY) === "1"; } catch (e) { return false; }
   }
 
   function applyExamFocusUi(on) {
-    document.documentElement.classList.toggle("exam-focus", !!on);
+    var active = examAppOnly() || !!on;
+    document.documentElement.classList.toggle("exam-focus", active);
+    document.documentElement.classList.toggle("exam-app", examAppOnly());
     var ht = $("hero-title");
-    if (ht) {
-      ht.textContent = on
+    if (ht && examAppOnly()) {
+      ht.textContent = "Repeat for your written exams.";
+    } else if (ht) {
+      ht.textContent = active
         ? "Repeat for your written exams."
         : "Practice terminal commands step by step.";
     }
-    syncExamFocusSettingsUi();
   }
 
   function setExamFocus(on) {
+    if (examAppOnly()) {
+      applyExamFocusUi(true);
+      return;
+    }
     try {
       if (on) localStorage.setItem(EXAM_FOCUS_KEY, "1");
       else localStorage.removeItem(EXAM_FOCUS_KEY);
@@ -12142,20 +12158,16 @@ function showCourse(courseKey) {
     applyExamFocusUi(on);
   }
 
-  function syncExamFocusSettingsUi() {
-    var cb = $("settings-exam-focus");
-    if (cb) cb.checked = examFocusEnabled();
-  }
-
   function ensureExamFocusClass() {
     try {
       var p = new URLSearchParams(window.location.search || "");
-      if (p.get("exam") === "1") {
+      if (examAppOnly()) {
         localStorage.setItem(EXAM_FOCUS_KEY, "1");
-      } else if (p.get("exam") === "0") {
-        localStorage.removeItem(EXAM_FOCUS_KEY);
+        applyExamFocusUi(true);
+      } else {
+        if (p.get("exam") === "1") localStorage.setItem(EXAM_FOCUS_KEY, "1");
+        applyExamFocusUi(examFocusEnabled());
       }
-      applyExamFocusUi(examFocusEnabled());
       var study = p.get("study");
       if (study === "quiz" || study === "test" || study === "flash" || study === "flashcards") {
         pendingStudyQuery = study === "flash" ? "flashcards" : study;
@@ -12305,6 +12317,6 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/learning-session.js?v=lock183" defer></script>
+  <script src="js/learning-session.js?v=lock184" defer></script>
 </body>
 </html>

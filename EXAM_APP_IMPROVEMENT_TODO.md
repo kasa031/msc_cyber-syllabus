@@ -2,7 +2,7 @@
 
 **Mål (fra 4. nov):** Interaktiv repetisjonsapp for skriftlig eksamen - fokus **ACIT4050** og **ACIT4280**, ikke essay/4100 i denne løypa.
 
-**Live:** [exam-rep](https://kasa031.github.io/msc_cyber-syllabus/exam-rep.html) · [app ?exam=1](https://kasa031.github.io/msc_cyber-syllabus/index.html?exam=1)
+**Live:** [exam-rep](https://kasa031.github.io/msc_cyber-syllabus/exam-rep.html) · [practice app](https://kasa031.github.io/msc_cyber-syllabus/index.html) · **[roadmap HTML](https://kasa031.github.io/msc_cyber-syllabus/exam-app-todo.html)** (les denne i nettleseren)
 
 **Relaterte filer:** `Guider/EXAM_REP_TODO.md` (agent backlog) · `Guider/STUDY_APP_TODO.md` (bredere app)
 
@@ -38,7 +38,8 @@ Agent oppdaterer denne listen etter hver runde. Kryss av manuelt når du er forn
 | `ui-keyboard-map` | Hjelp-modal **?** + Settings + quiz home (lock183) |
 | `ui-exam-focus-teal` | Teal feedback i exam focus mode (lock183) |
 | `reward-exam-trophies` | Trofeer: 4050/4280 dry run + mixed 5+5 (lock183) |
-| `link-todo-everywhere` | Lenke til denne filen fra app, exam-rep, ukeplan (lock183) |
+| `link-todo-everywhere` | `exam-app-todo.html` + banner på exam-rep (lock184) |
+| `exam-app-default` | Exam prep er standard (exam-app), ikke valgbar modus (lock184) |
 
 ---
 

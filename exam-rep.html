@@ -7,7 +7,7 @@
   <title>Exam repetition | ACIT4050 and ACIT4280</title>
   <meta name="description" content="Interactive exam prep for Applied Network Security and Privacy by Design. Checklists, countdowns, and links to practice modes." />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <link rel="stylesheet" href="css/study-research.css?v=lock183" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock184" />
   <link rel="icon" href="icons/favicon.svg?v=lock174" type="image/svg+xml" />
   <style>
     :root {
@@ -303,6 +303,30 @@
     }
     .l11-urgent h2 { margin: 0 0 0.35rem; font-size: 1.12rem; color: var(--warn-hot); }
     .l11-urgent .action-row { margin-top: 0.65rem; }
+    .todo-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius);
+      border: 2px solid var(--signal);
+      background: var(--signal-soft);
+      box-shadow: var(--shadow);
+    }
+    .todo-banner strong { color: var(--signal-deep); font-size: 1.05rem; }
+    .todo-banner a.btn-roadmap {
+      background: var(--signal);
+      border: 1px solid var(--signal);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+    }
+    .todo-banner a.btn-roadmap:hover { filter: brightness(1.05); }
     .today-strip {
       margin-top: 1rem;
       display: flex;
@@ -354,8 +378,8 @@
       <div class="hero-top">
         <p class="brand">MSc Cyber - exam repetition</p>
         <nav class="hero-nav" aria-label="Quick links">
-          <a class="btn" href="index.html?exam=1">Full study app</a>
-          <a class="btn" href="EXAM_APP_IMPROVEMENT_TODO.md">App TODO</a>
+          <a class="btn" href="index.html">Practice app</a>
+          <a class="btn btn-roadmap" href="exam-app-todo.html">Roadmap (TODO)</a>
           <a class="btn" href="../Oversikt/Ukeplan.html">Week planner</a>
           <a class="btn" href="class-notes.html?exam=1">Class notes (4050 + 4280)</a>
         </nav>
@@ -371,11 +395,16 @@
   </header>
 
   <main class="wrap">
+    <div class="todo-banner" role="region" aria-label="App roadmap">
+      <p style="margin:0"><strong>17 tasks left</strong> on the exam app roadmap (5 syllabus data items first).</p>
+      <a class="btn-roadmap" href="exam-app-todo.html">Open TODO list</a>
+    </div>
+
     <div class="today-strip" id="today-strip" aria-live="polite">
       <div class="mini-ring" id="today-ring" style="--ring-pct: 0%"><span id="today-ring-label">0/10</span></div>
       <p style="margin:0"><strong>Today on this device:</strong> <span id="today-reviews">0</span> cards rated · streak <span id="today-streak">0</span> days</p>
       <a class="btn cta" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="index.html?exam=1&amp;study=quiz#4050">Continue practice</a>
-      <a class="btn" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="EXAM_APP_IMPROVEMENT_TODO.md">Improvement plan</a>
+      <a class="btn btn-roadmap" style="font-size:0.82rem;padding:0.35rem 0.65rem" href="exam-app-todo.html">Roadmap</a>
     </div>
 
     <section class="week-focus" aria-labelledby="week-focus-title">
@@ -535,9 +564,8 @@
     </section>
 
     <footer class="note">
-      <a href="index.html?exam=1">Full study app</a> ·
-      <a href="EXAM_APP_IMPROVEMENT_TODO.md">Improvement TODO</a> ·
-      4100 hidden in exam mode (Settings to change).
+      <a href="index.html">Practice app</a> ·
+      <a href="exam-app-todo.html"><strong>Roadmap (TODO)</strong></a>
     </footer>
   </main>
 
