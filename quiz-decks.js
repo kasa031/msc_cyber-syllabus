@@ -2,7 +2,7 @@
  * Quiz decks for the study app (file://-friendly).
  * Figure fields: type, src|svg, alt, caption?, shows?, attribution?
  * Prefer figures/real/ terminal mockups and Wikimedia Commons (attributed).
- * Sync quiz-data/*.json when editing. No em dash or en dash in card text.
+ * Sync quiz-data/*.json when editing. No GitHub push.
  */
 (function (global) {
   "use strict";
@@ -2657,7 +2657,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2668,7 +2669,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2679,7 +2681,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2720,7 +2723,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2731,7 +2735,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2742,7 +2747,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2753,7 +2759,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2764,7 +2771,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2775,7 +2783,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2786,7 +2795,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2797,7 +2807,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2808,7 +2819,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2819,7 +2831,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2840,7 +2853,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2851,7 +2865,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2862,7 +2877,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2873,7 +2889,8 @@
           "l9-identity",
           "l9-assignment",
           "canvas",
-          "exam"
+          "exam",
+          "Canvas-quiz"
         ]
       },
       {
@@ -2883,7 +2900,8 @@
         "tags": [
           "Lecture6",
           "l9-identity",
-          "canvas"
+          "canvas",
+          "Canvas-quiz"
         ]
       },
       {
@@ -3271,11 +3289,345 @@
       {
         "id": "4050-l10-quiz-rules",
         "q": "Lecture 10: how is the supply-chain Canvas assignment scored (slides, crawl 19 Oct 2026)?",
-        "a": "Interactive quiz, assignment 123563. Maximum 100 points, at least 60 to pass, up to five attempts, highest score counts. It does not count toward the final course grade. Due 27 October 2026 at 23:59. Not submitted on the 19 Oct crawl.",
+        "a": "Interactive quiz, assignment 123563. Maximum 100 points, at least 60 to pass, up to five attempts, highest score counts. It does not count toward the final course grade. Due 27 October 2026 at 23:59. Karina attempt 1: 92.5/100 (23 Oct 2026, 14m36s).",
         "tags": [
           "Lecture10",
           "supply-chain",
           "canvas"
+        ]
+      },
+      {
+        "id": "4050-l10-enisa-definition",
+        "q": "ENISA (2021): when is an incident a supply chain attack?",
+        "a": "At least two attacks: first the supplier is targeted, then that compromise is used to reach the customer (or another supplier) and their assets. Both supplier and customer must be targets.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "enisa"
+        ]
+      },
+      {
+        "id": "4050-l10-enisa-cases",
+        "q": "Name prominent supply chain attacks from the ENISA 2021 report (besides SolarWinds).",
+        "a": "Mimecast (cloud security services), Ledger (hardware wallet), Kaseya (IT management / MSP ransomware), SITA passenger service system, and others in Annex A (24 incidents Jan 2020 - Jul 2021).",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "enisa"
+        ]
+      },
+      {
+        "id": "4050-l10-norway-apps",
+        "q": "Lecture 10: where do machines that Norwegian apps talk to often run?",
+        "a": "Over 70% of the machines that Norwegian apps (e.g. DNB, Vipps) communicate with are located outside Norway (iOS/Android measurement cited on slides).",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-software-updates",
+        "q": "Lecture 10: can you stop vendor backdoors by refusing all software updates?",
+        "a": "In principle yes, but the reasons to accept updates are strong, including patching against third-party attacks. Updates are necessary even though they can be a delivery channel for compromise.",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-three-chains",
+        "q": "Lecture 10: name the three types of digital supply chains on the slides.",
+        "a": "Hardware provenance and supply chains, software provenance and supply chains, and service chains (outsourced operations linking many providers).",
+        "tags": [
+          "Lecture10",
+          "supply-chain"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q01",
+        "q": "Canvas L10 Q1 (MA): Which statements describe challenges to national digital autonomy?",
+        "a": "Select: Popular global tech trends/platforms can undermine a nation's security policies. Small countries depend on foreign hardware/cloud, reducing control over critical infrastructure. Hosting critical government services on foreign-owned cloud creates jurisdictional and data sovereignty risks. NOT: everything controlled within national borders; NOT: autonomy means you stop monitoring supply chains.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q02",
+        "q": "Canvas L10 Q2 (MA): True properties/challenges of digital value chains that increase cyber risk?",
+        "a": "Select: Faults in one part can propagate instantly through the chain. Difficult to trace inherited vulnerabilities through complex service layers. Some services depend on foundational components buried deep in long dependency chains. NOT: same legal regime for all components in a country; NOT: developers have full visibility.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q03",
+        "q": "Canvas L10 Q3 (MA): Key characteristics of supply chain attacks (Canvas key, attempt 1 2026)?",
+        "a": "Select: Hardware and firmware as entry points. Compromised software update as vector. Attacks target orgs by compromising third-party components or services they rely on. Do NOT select on this quiz: trust in third-party vendors (marked wrong in Canvas). NOT: only original target; NOT: easy to detect.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q04",
+        "q": "Canvas L10 Q4 (MA): Which incidents are supply chain attacks?",
+        "a": "Select: Compromise vendor update mechanism to deliver backdoored updates (SolarWinds-type). Malware injected into popular open-source library. Malicious code in firmware during third-party manufacturing. NOT: internal ransomware via unpatched OS; NOT: phishing for credentials; NOT: exploit of own web portal.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q05",
+        "q": "Canvas L10 Q5 (MA): Components in digital supply chains that can introduce vulnerabilities?",
+        "a": "Select: Third-party firmware in devices. Cloud-based API services from external vendors. Open-source libraries in development. NOT: marketing/ads; NOT: user training; NOT: international logistics routes for shipping hardware (on this quiz).",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q06",
+        "q": "Canvas L10 Q6 (MA): Malicious functionality unique to supply chain attacks (Canvas key)?",
+        "a": "Select: Kill switch embedded in product. Hardware trojans. Backdoors embedded in security updates. NOT: generic software trojans, worms, botnets, virus (common malware, not unique to supply chain on this quiz).",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q07",
+        "q": "Canvas L10 Q7 (MA): Valid categories of digital supply chains?",
+        "a": "Select: Hardware supply chains. Software supply chains. Supply chain of digital services. NOT: cryptocurrency transaction chains; NOT: social engineering supply chains.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q08",
+        "q": "Canvas L10 Q8 (MA): Capabilities/limitations detecting supply chain attacks (Canvas key, attempt 1 2026)?",
+        "a": "Select: AI has potential to become important for detecting supply-chain vulnerabilities. Theoretically impossible for AI to detect all supply chain attacks (undecidability). Runtime monitoring can detect certain malicious behavior at runtime. Do NOT select: malware scanners reliably detect vendor-inserted backdoors; Do NOT select golden sample comparison helps (marked wrong in Canvas attempt 1).",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q09",
+        "q": "Canvas L10 Q9 (MA): Factors that make securing digital supply chains difficult?",
+        "a": "Select: One vulnerable library can impact hundreds/thousands of dependents. Many services rely on third-party APIs and cloud outside their control. Dependencies nested many layers deep beyond end-user visibility. NOT: components always isolated; NOT: encryption eliminates supply chain risk; NOT: all vulnerabilities must be intentional.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l10-canvas-q10",
+        "q": "Canvas L10 Q10 (MA): Effective defense strategies against supply chain attacks (Canvas key, attempt 1 2026)?",
+        "a": "Select: Increasing infrastructure heterogeneity to avoid single points of failure. End-to-end cryptographic verification of software updates. Do NOT select on this quiz: background checks on vendor employees (marked wrong). NOT: only high-profile libraries; NOT: rely solely on vendor reputation; NOT: host everything in cloud to offload responsibility.",
+        "tags": [
+          "Lecture10",
+          "supply-chain",
+          "Canvas-quiz"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q02",
+        "q": "Canvas L-11 Q2 (MA): TLS CipherSuite typically includes or contains which items?",
+        "a": "Select: Key exchange algorithms; Signing algorithms; Asymmetric encryption algorithms. Do NOT select: Compression algorithms (not part of the CipherSuite list on this quiz). Source: Canvas quiz 24332.",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q04",
+        "q": "Canvas L-11 Q4 (MCQ): Correct definition of Relying Party (RP) in PKI?",
+        "a": "A system entity that depends on the validity of information (such as another entity public key value) provided by a digital certificate. (Not the CA, not the RA, not merely the subject named in a cert.)",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q06",
+        "q": "Canvas L-11 Q6 (MCQ): Web app needs strong assurance the site belongs to the organization - which certificate type?",
+        "a": "Extended Validation Certificate (EV). OV validates organization at moderate level; DV only domain control; self-signed triggers browser warnings.",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q09",
+        "q": "Canvas L-11 Q9 (essay): How could Heartbleed be exploited and affect confidentiality?",
+        "a": "OpenSSL Heartbeat extension did not bound the payload length; attacker sent malformed heartbeat and read up to 64KB of server memory per response, often including private keys, session tokens, or user data - breaking confidentiality of TLS-protected traffic. (Original wording required on Canvas.)",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q10",
+        "q": "Canvas L-11 Q10 (essay): Difference between Public Key Cryptography (PKC) and PKI?",
+        "a": "PKC is the mathematical/crypto mechanism using key pairs for encryption, signatures, and key agreement. PKI is the governance and infrastructure (CAs, certificates, revocation, policies, trust stores) that binds identities to keys and distributes trust at scale.",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q11",
+        "q": "Canvas L-11 Q11 (essay): Steps to obtain a certificate from a trusted third party for a login site?",
+        "a": "Generate key pair on server; create CSR with public key and identity; choose cert type (DV/OV/EV); prove control (domain validation, org docs for OV/EV); CA issues signed certificate; install cert + chain on server; configure TLS; test with browser/tools; plan renewal and secure private key storage.",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q12",
+        "q": "Canvas L-11 Q12 (essay): Difference between PGP and PKI?",
+        "a": "PGP uses decentralized Web-of-Trust between individuals signing each others keys. PKI uses hierarchical Certificate Authorities and standardized X.509 certificates in system/browser trust stores.",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q13",
+        "q": "Canvas L-11 Q13 (essay): How does Web-of-Trust work in PGP?",
+        "a": "Users sign other users public keys after verifying identity; your client computes trust from signature paths (owner trust + valid signatures). No central CA - trust is a social graph of vouches rather than a single root CA list.",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q01",
+        "q": "Canvas L-11 Q1 (lab): Find username and password in http-2.pcapng with tshark.",
+        "a": "HTTP Basic Auth in cleartext (frame with Authorization: Basic ...). Example from lab capture: username lothar, password d3zKrJ]xwN (decode base64 after Basic). Commands: cp to /tmp; tshark -r /tmp/http-2.pcapng -Y http.authorization -T fields -e http.authorization; echo '...' | base64 -d",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q03",
+        "q": "Canvas L-11 Q3 (lab): Random Bytes value in first frame of tls.pcapng?",
+        "a": "From frame 1 Client Hello (grep Random Bytes): 5c2a19eeee330e4cfee02de166f0948003f371207a1d8305dc70f854 (lab tls.pcapng, quiz 24332).",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q05",
+        "q": "Canvas L-11 Q5 (lab): Certificate type issued to https://www.uio.no ?",
+        "a": "Organizational Validation Certificate (OV) - subject includes O=Universitetet i Oslo (live cert; use Firefox cert viewer wording if Canvas auto-grader is strict).",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q07",
+        "q": "Canvas L-11 Q7 (lab): Fields from cert-5.pem via openssl x509 -noout -text",
+        "a": "cert-5.pem (nav.no, Buypass): Serial 4c:db:7b:be:21:2b:94:89:ae:d5; Not After Mar  8 22:59:00 2025 GMT; Signature Algorithm sha256WithRSAEncryption; Authority Key Identifier 22:30:2E:D2:FB:F6:4B:CA:C0:B8:3B:D2:04:C4:E9:72:E6:97:9B:0C; Subject Key Identifier 38:5E:63:17:5D:4B:32:46:F0:A4:16:23:28:F3:86:16:83:62:53:DA",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l11-canvas-q08",
+        "q": "Canvas L-11 Q8 (MA): Which CA pem files exist under /etc/ssl/certs on the lab VM?",
+        "a": "Present on standard Cybrxec lab VM: Go_Daddy_Class_2_CA.pem and Izenpe.com.pem. Not present: Swisscom_Public_CA_1.pem, PSCProcert_Root-CA.pem (verify with ls -l /etc/ssl/certs/ | grep -i).",
+        "tags": [
+          "Lecture12",
+          "data-in-transit",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l8-canvas-q06",
+        "q": "Canvas L-8 Q6 (essay): Why pivot with ligolo-ng after compromising ssh-ext?",
+        "a": "Low-priv shells on a bastion often lack nmap/scanners. An agent on the compromised host tunnels to Kali; proxy adds routes (TUN) so Kali scans internal hosts through the tunnel without installing tools on the victim (educational lab narrative, quiz 24677).",
+        "tags": [
+          "Lecture8",
+          "anatomy",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l8-canvas-q07",
+        "q": "Canvas L-8 Q7 (report): MITRE ATT&CK mapping for lab attack chain - what did Canvas expect?",
+        "a": "Map each lab task to tactics (Reconnaissance, Initial Access, Discovery, Credential Access, Lateral Movement, Collection) with techniques (e.g. T1566 phishing, T1046 service scan, T1110 brute force). Use a table: task, procedure, tactic, technique ID. PDF upload (quiz 24677).",
+        "tags": [
+          "Lecture8",
+          "anatomy",
+          "Canvas-quiz",
+          "exam"
+        ]
+      },
+      {
+        "id": "4050-l8-canvas-lab-meta",
+        "q": "Canvas L-8 Anatomy quiz 24677 (7 questions) - lab-heavy items?",
+        "a": "Q1-Q5 and Q7 include Cybrxec/Kali tasks (file-5.txt, nmap/fping, GoPhish CSV, hydra/CUPP, internal pivot). Complete on Canvas; flashcards for numeric answers stay in needs-canvas until you finish the lab.",
+        "tags": [
+          "Lecture8",
+          "anatomy",
+          "Canvas-quiz",
+          "needs-canvas"
+        ]
+      },
+      {
+        "id": "4050-l10-rest-meta",
+        "q": "Canvas L-10 data-at-rest quiz 24333 (13 questions) - deck status?",
+        "a": "You submitted 29 Oct 2026; score muted until grading. When Canvas shows answers, sync cards like supply-chain L10. Until then use lecture PDFs L10-Data-at-Rest and crypto slides.",
+        "tags": [
+          "Lecture11",
+          "data-at-rest",
+          "Canvas-quiz",
+          "needs-canvas"
         ]
       }
     ]
@@ -11601,15 +11953,15 @@
 };
 
   var EXPECTED = {
-    acit4050: 315,
+    acit4050: 347,
     acit4280: 253,
     acit4100: 396,
-    "computer-basics": 28,
-    "fellesjam-general": 26
+    computer-basics: 28,
+    fellesjam-general: 26
   };
 
   global.QUIZ_DECKS_META = {
-    version: "lock169",
+    version: "lock166",
     expected: EXPECTED,
     loadedAt: Date.now()
   };

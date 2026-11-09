@@ -3678,8 +3678,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock188" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock188" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock189" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock189" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4713,8 +4713,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock188" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock188"></script>
+  <script src="quiz-decks.js?v=lock189" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock189"></script>
   <script>
   (function () {
   "use strict";
@@ -4771,7 +4771,7 @@
       });
     }
   }
-  var QUIZ_EXPECTED = { acit4050: 305, acit4280: 248, acit4100: 389, "computer-basics": 28, "fellesjam-general": 26 };
+  var QUIZ_EXPECTED = { acit4050: 347, acit4280: 253, acit4100: 396, "computer-basics": 28, "fellesjam-general": 26 };
   var FELLESJAM_SOURCE_DECKS = ["acit4050", "acit4280", "acit4100", "computer-basics", "fellesjam-general"];
   var QUIZ_JSON_FILES = {
     acit4050: "quiz-data/acit4050.json",
@@ -7550,6 +7550,7 @@ function showCourse(courseKey) {
       deck.cards.forEach(function (c) {
         if (!c || !c.id) return;
         if (tagFilter && !studyCardHasTag(c, tagFilter)) return;
+        if ((examFocusEnabled() || document.documentElement.classList.contains("exam-app")) && !studyCardPensumEligible(c)) return;
         var s = quizEnsureCard(sched, c.id);
         if (s.due <= now) due += 1;
         if (quizCardIsWeak(s)) weak += 1;
@@ -8807,7 +8808,7 @@ function showCourse(courseKey) {
 
   function studyFilterDeckCards(cards) {
     var list = (cards || []).filter(function (c) { return c && c.id; });
-    if (examFocusEnabled()) {
+    if (examFocusEnabled() || document.documentElement.classList.contains("exam-app")) {
       list = list.filter(studyCardPensumEligible);
     }
     return list;
@@ -12493,7 +12494,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock188" defer></script>
-  <script src="js/learning-session.js?v=lock188" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock189" defer></script>
+  <script src="js/learning-session.js?v=lock189" defer></script>
 </body>
 </html>

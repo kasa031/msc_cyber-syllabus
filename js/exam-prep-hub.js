@@ -203,8 +203,9 @@
   }
 
   function challengePlayUrl(ch) {
-    if (!ch) return "index.html?study=quiz#4050";
-    return "index.html?study=quiz&tag=" + encodeURIComponent(ch.tag) + "#" + ch.hash;
+    if (!ch) return "index.html?study=quiz&due=1&limit=6#4050";
+    var goal = ch.goal && ch.goal > 0 ? ch.goal : 6;
+    return "index.html?study=quiz&due=1&limit=" + goal + "&tag=" + encodeURIComponent(ch.tag) + "#" + ch.hash;
   }
 
   function updateCountdowns() {
