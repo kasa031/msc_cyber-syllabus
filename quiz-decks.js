@@ -3624,9 +3624,10 @@
         "q": "Canvas L-10 data-at-rest quiz 24333 (13 questions) - deck status?",
         "a": "You submitted 29 Oct 2026; score muted until grading. When Canvas shows answers, sync cards like supply-chain L10. Until then use lecture PDFs L10-Data-at-Rest and crypto slides.",
         "tags": [
-          "Lecture11",
+          "Lecture10",
           "data-at-rest",
           "Canvas-quiz",
+          "meta-only",
           "needs-canvas"
         ]
       }

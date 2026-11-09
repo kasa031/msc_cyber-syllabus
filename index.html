@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="exam-app exam-focus">
 <head>
   <meta charset="UTF-8" />
@@ -3678,8 +3678,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock189" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock189" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock190" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock190" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4713,8 +4713,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock189" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock189"></script>
+  <script src="quiz-decks.js?v=lock190" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock190"></script>
   <script>
   (function () {
   "use strict";
@@ -5579,8 +5579,8 @@ function showCourse(courseKey) {
   /** Sync with Ukeplan / Canvas - bump when deadlines shift. */
   var STUDY_FOCUS = {
     acit4050: [
-      { tag: "Lecture11", label: "L-11 data in transit quiz", due: "2026-11-08" },
-      { tag: "Lecture10", label: "L-10 data at rest (submitted, grade pending)", due: "2026-11-08", done: true },
+      { tag: "data-in-transit", label: "L-11 data in transit (graded 24/40)", due: "2026-11-08", done: true },
+      { tag: "data-at-rest", label: "L-10 data at rest (graded 88/90)", due: "2026-11-08", done: true },
       { tag: "exam", label: "WISEflow written exam", due: "2026-11-26" },
       { tag: "Lecture8", label: "Anatomy of an Attack", due: "2026-10-31", done: true },
       { tag: "Lecture7", label: "GDPR quiz", due: "2026-10-06", done: true }
@@ -7901,9 +7901,9 @@ function showCourse(courseKey) {
   }
 
   function studyApplyUnitFilter(tag) {
-    tag = tag || "";
+    tag = studyNormalizeFilterTag(tag || "");
     quizState.tagFilter = tag || null;
-    flashState.query = tag;
+    flashState.query = "";
     if ($("quiz-search")) $("quiz-search").value = tag;
     syncQuizTagChips(tag);
     if (quizState.studyMode === "test") {
@@ -8659,10 +8659,19 @@ function showCourse(courseKey) {
   }
 
   function deckLooksStale(deck, deckKey) {
-    if (!deck || !Array.isArray(deck.cards)) return true;
+    if (!deck || !Array.isArray(deck.cards) || !deck.cards.length) return true;
     var exp = expectedCount(deckKey);
     if (!exp) return false;
-    return deck.cards.length < exp;
+    if (deck.cards.length >= exp) return false;
+    if (deck.cards.length >= Math.floor(exp * 0.88)) return false;
+    return deck.cards.length < Math.floor(exp * 0.5);
+  }
+
+  var STUDY_TAG_ALIASES = { Lecture11: "data-in-transit", Lecture10: "data-at-rest" };
+
+  function studyNormalizeFilterTag(tag) {
+    if (!tag) return tag;
+    return STUDY_TAG_ALIASES[tag] || tag;
   }
 
   function cardMatchesQuery(card, q) {
@@ -9439,9 +9448,13 @@ function showCourse(courseKey) {
   }
 
   function flashBuildOrder(deck) {
-    var q = (flashState.query || "").trim().toLowerCase();
+    var tag = quizState.tagFilter;
+    var q = tag ? "" : (flashState.query || "").trim().toLowerCase();
     var ids = studyFilterDeckCards(deck.cards).filter(function (c) {
-      return c && c.id && cardMatchesQuery(c, q);
+      if (!c || !c.id) return false;
+      if (tag) return studyCardHasTag(c, tag);
+      if (!q) return true;
+      return cardMatchesQuery(c, q);
     }).map(function (c) { return c.id; });
     if (q) {
       flashState.order = ids;
@@ -9605,7 +9618,8 @@ function showCourse(courseKey) {
         quizDeckFallbackTried = true;
         quizShowEmpty(0, { loading: true });
         quizFetchJsonFallback().then(function (ok) {
-          if (ok) studyLoadAndShow();
+          quizDeckFallbackTried = false;
+          if (ok) flashLoadAndShow();
           else {
             quizDeckFallbackTried = false;
             quizShowEmpty(0, { missingDeck: true });
@@ -11709,6 +11723,7 @@ function showCourse(courseKey) {
 
   if ($("quiz-reload-data")) {
     $("quiz-reload-data").addEventListener("click", function () {
+      quizDeckFallbackTried = false;
       quizPurgeCachesAndReload();
     });
   }
@@ -12494,7 +12509,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock189" defer></script>
-  <script src="js/learning-session.js?v=lock189" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock190" defer></script>
+  <script src="js/learning-session.js?v=lock190" defer></script>
 </body>
 </html>
