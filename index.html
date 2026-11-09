@@ -2,6 +2,31 @@
 <html lang="en" class="exam-app exam-focus">
 <head>
   <meta charset="UTF-8" />
+  <meta name="acit-build" content="lock197" />
+  <script>
+    (function () {
+      var BUILD = "lock197";
+      try {
+        var prev = localStorage.getItem("acit-app-build");
+        if (prev && prev !== BUILD) {
+          localStorage.setItem("acit-app-build", BUILD);
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function (regs) {
+              regs.forEach(function (r) { r.unregister(); });
+            });
+          }
+          if (window.caches && caches.keys) {
+            caches.keys().then(function (keys) {
+              keys.forEach(function (k) { caches.delete(k); });
+            });
+          }
+          location.reload();
+          return;
+        }
+        if (!prev) localStorage.setItem("acit-app-build", BUILD);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
   <script>
     try {
       document.documentElement.classList.add("exam-app", "exam-focus");
@@ -2519,20 +2544,26 @@
     html.exam-app a[href="UKAS_LESNING.html"] { display: none !important; }
     html:not(.exam-app) .footer-exam-only { display: none; }
     html.exam-app #orient-nudge { display: none !important; }
+    html.exam-app .research-session-bar {
+      position: relative;
+      top: auto;
+      z-index: 5;
+    }
     html.exam-app .course-nav.course-tabs-sticky {
       position: relative;
       top: auto;
       z-index: 3;
     }
+    html.exam-app .shell-lift {
+      margin-top: 0.75rem !important;
+    }
     html.exam-app #research-session-bar:not([hidden]) ~ .shell .shell-lift {
-      margin-top: 0.9rem;
+      margin-top: 0.85rem !important;
     }
     @media (max-width: 640px) {
+      html.exam-app .shell-lift,
       html.exam-app #research-session-bar:not([hidden]) ~ .shell .shell-lift {
-        margin-top: 1rem;
-      }
-      html.exam-app .shell-lift {
-        margin-top: 0;
+        margin-top: 0.85rem !important;
       }
     }
     html.exam-app .exam-express-row {
@@ -3707,8 +3738,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock196" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock196" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock197" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock197" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3766,8 +3797,10 @@
         </div>
         <script>
         (function () {
-          document.addEventListener("click", function (e) {
+          function openSettingsFromTap(e) {
             if (!e.target.closest || !e.target.closest("#profile-settings-btn")) return;
+            e.preventDefault();
+            e.stopPropagation();
             var modal = document.getElementById("profile-modal");
             if (!modal) return;
             var body = document.getElementById("settings-body");
@@ -3776,7 +3809,8 @@
             try {
               if (typeof window.__acitOpenSettings === "function") window.__acitOpenSettings();
             } catch (err) { /* ignore */ }
-          });
+          }
+          document.addEventListener("click", openSettingsFromTap, true);
         })();
         </script>
       </div>
@@ -4756,8 +4790,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock196" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock196"></script>
+  <script src="quiz-decks.js?v=lock197" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock197"></script>
   <script>
   (function () {
   "use strict";
@@ -12603,7 +12637,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock196" defer></script>
-  <script src="js/learning-session.js?v=lock196" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock197" defer></script>
+  <script src="js/learning-session.js?v=lock197" defer></script>
 </body>
 </html>

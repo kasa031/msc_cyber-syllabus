@@ -277,6 +277,12 @@ body {
   display: none !important;
 }
 
+html.exam-app .research-session-bar {
+  position: relative;
+  top: auto;
+  z-index: 5;
+}
+
 html:not(.exam-focus) #test-home-pensum {
   display: none;
 }
