@@ -163,9 +163,10 @@ body {
   padding: 0.65rem var(--page-gutter, 1.25rem);
   position: sticky;
   top: 0;
-  z-index: var(--z-sticky, 20);
+  z-index: calc(var(--z-sticky, 20) + 2);
   backdrop-filter: blur(10px);
   background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 1px 0 var(--line);
 }
 
 .research-session-inner {
