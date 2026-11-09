@@ -1261,24 +1261,25 @@
     .quiz-tag-filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem;
-      margin: 0.5rem 0 0.65rem;
+      gap: 0.45rem;
+      margin: 0.5rem 0 0.75rem;
     }
     .quiz-tag-chip {
       font: inherit;
       font-size: 0.78rem;
-      font-weight: 600;
-      padding: 0.35rem 0.65rem;
-      border: 1.5px solid var(--palette-turquoise);
+      font-weight: 700;
+      padding: 0.4rem 0.7rem;
+      border: 2px solid var(--signal);
       border-radius: 999px;
-      background: #FFF9E6;
-      color: var(--ink);
+      background: #f8fafc;
+      color: #134e4a;
       cursor: pointer;
     }
     .quiz-tag-chip:hover,
     .quiz-tag-chip.is-active {
-      background: var(--palette-turquoise);
-      color: #FFF9E6;
+      background: var(--signal);
+      border-color: var(--signal);
+      color: #ffffff;
     }
 
     .course-nav {
@@ -3087,11 +3088,11 @@
     .quiz-tags .quiz-tag-chip {
       font-family: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
       font-size: 0.68rem;
-      font-weight: 600;
-      padding: 0.2rem 0.5rem;
-      background: #FFF9E6;
-      color: var(--signal-deep);
-      border: 1.5px solid #AB03A9;
+      font-weight: 700;
+      padding: 0.25rem 0.55rem;
+      background: #f8fafc;
+      color: #134e4a;
+      border: 2px solid var(--signal);
       border-radius: 999px;
     }
     .quiz-grades {
@@ -3206,8 +3207,14 @@
       .quiz-tags .quiz-tag-chip,
       .quiz-tag-filters .quiz-tag-chip {
         border-width: 2px;
-        color: var(--signal-deep);
+        background: #f8fafc;
+        color: #134e4a;
         font-weight: 700;
+      }
+      .quiz-tags .quiz-tag-chip.is-active,
+      .quiz-tag-filters .quiz-tag-chip.is-active {
+        background: var(--signal);
+        color: #ffffff;
       }
       .quiz-q { color: var(--signal-deep); }
     }
@@ -3684,8 +3691,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock192" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock192" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock193" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock193" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4719,8 +4726,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock192" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock192"></script>
+  <script src="quiz-decks.js?v=lock193" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock193"></script>
   <script>
   (function () {
   "use strict";
@@ -12540,7 +12547,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock192" defer></script>
-  <script src="js/learning-session.js?v=lock192" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock193" defer></script>
+  <script src="js/learning-session.js?v=lock193" defer></script>
 </body>
 </html>
