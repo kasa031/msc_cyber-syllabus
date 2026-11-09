@@ -316,3 +316,19 @@ html.exam-app .solvable-banner.is-correct .solvable-banner-kicker,
 html.exam-app .orient-checklist-list li.is-done .orient-check {
   color: var(--signal);
 }
+
+/* Tag filters: always dark text on light chips (fixes dark OS theme) */
+.quiz-tag-filters .quiz-tag-chip,
+.quiz-tags .quiz-tag-chip {
+  background: #f8fafc;
+  color: #134e4a;
+  border-color: var(--signal);
+}
+.quiz-tag-filters .quiz-tag-chip:hover,
+.quiz-tags .quiz-tag-chip:hover,
+.quiz-tag-filters .quiz-tag-chip.is-active,
+.quiz-tags .quiz-tag-chip.is-active {
+  background: var(--signal);
+  color: #ffffff;
+  border-color: var(--signal);
+}
