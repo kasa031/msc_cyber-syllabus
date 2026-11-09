@@ -3678,8 +3678,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock190" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock190" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock191" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock191" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4713,8 +4713,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock190" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock190"></script>
+  <script src="quiz-decks.js?v=lock191" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock191"></script>
   <script>
   (function () {
   "use strict";
@@ -7413,7 +7413,17 @@ function showCourse(courseKey) {
     tick("both-streak", (xp.streak || 0) >= 3);
     tick("4050-test", (xp.test4050Done || 0) >= 1);
     tick("4280-test", (xp.test4280Done || 0) >= 1);
+    tick("4050-l11-canvas", studyFocusItemDone("acit4050", "data-in-transit"));
+    tick("4050-l10-canvas", studyFocusItemDone("acit4050", "data-at-rest"));
     if (changed) examRepChecklistSave(state);
+  }
+
+  function studyFocusItemDone(deckKey, tag) {
+    var list = STUDY_FOCUS[deckKey] || [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].tag === tag && list[i].done) return true;
+    }
+    return false;
   }
 
   function examRepChecklistAfterTest() {
@@ -7658,8 +7668,10 @@ function showCourse(courseKey) {
     var weak = 0;
     var total = 0;
     if (!deck || !Array.isArray(deck.cards)) return { due: 0, weak: 0, total: 0 };
+    tag = studyNormalizeFilterTag(tag);
     deck.cards.forEach(function (c) {
       if (!c || !c.id || !studyCardHasTag(c, tag)) return;
+      if ((examFocusEnabled() || document.documentElement.classList.contains("exam-app")) && !studyCardPensumEligible(c)) return;
       total += 1;
       var s = quizEnsureCard(sched, c.id);
       if (s.due <= now) due += 1;
@@ -7674,6 +7686,7 @@ function showCourse(courseKey) {
       { tag: "Lecture1", short: "L1", label: "Lecture 1 - security basics" },
       { tag: "Lecture2", short: "L2", label: "Lecture 2 - phishing and malware" },
       { tag: "Lecture3", short: "L3", label: "Lecture 3 - networks and TCP/IP" },
+      { tag: "Lecture10", short: "L10", label: "L-10 data at rest" },
       { tag: "data-in-transit", short: "L11", label: "L-11 data in transit" },
       { tag: "Lecture4", short: "L4", label: "Lecture 4 - IDS", soon: true },
       { tag: "Lecture5", short: "L5", label: "Lecture 5 - firewalls", soon: true },
@@ -8667,7 +8680,11 @@ function showCourse(courseKey) {
     return deck.cards.length < Math.floor(exp * 0.5);
   }
 
-  var STUDY_TAG_ALIASES = { Lecture11: "data-in-transit", Lecture10: "data-at-rest" };
+  var STUDY_TAG_ALIASES = {
+    Lecture11: "data-in-transit",
+    Lecture10: "Lecture10",
+    "data-at-rest": "Lecture10"
+  };
 
   function studyNormalizeFilterTag(tag) {
     if (!tag) return tag;
@@ -9878,7 +9895,12 @@ function showCourse(courseKey) {
 
   function quizEnsureDecksReady() {
     if (quizDecksHealthy()) return Promise.resolve(true);
-    return quizFetchJsonFallback();
+    return quizFetchJsonFallback().then(function (ok) {
+      if (!ok && !window.__QUIZ_DECKS_LOAD_ERROR) {
+        quizDeckFallbackTried = false;
+      }
+      return ok;
+    });
   }
 
   function quizPurgeCachesAndReload() {
@@ -10138,7 +10160,10 @@ function showCourse(courseKey) {
       box.innerHTML = "Pensum: ACIT4280 Lectures 1-6 (GDPR, PETs, privacy by design, PIA/risk, privacy management, engineering patterns) + textbook Ch.1. Cards match lecture tags L1-L6.";
     } else if (deckKey === "acit4050") {
       box.classList.remove("hidden");
-      box.innerHTML = "207 cards from ACIT4050 lectures and lab. Networks this week: tap <strong>Lecture3</strong> or search <em>network</em>. Terminal tab for hands-on commands.";
+      var d4050 = quizGetDeck("acit4050");
+      var n4050 = d4050 && Array.isArray(d4050.cards) ? d4050.cards.length : 0;
+      var pensum4050 = n4050 ? studyFilterDeckCards(d4050.cards).length : 0;
+      box.innerHTML = pensum4050 + " syllabus cards (" + n4050 + " in deck). Rep: <strong>L11 transit</strong>, <strong>exam</strong>, or <strong>L3 network</strong>. Terminal tab for lab commands.";
     } else if (deckKey === "acit4100") {
       box.classList.remove("hidden");
       box.innerHTML = "328 cards for research communication. Week 3 literature: <strong>week3</strong>. Week 4 philosophy: <strong>week4</strong>. Toulmin rhetoric: <strong>Toulmin</strong> or <strong>week2-part2</strong>.";
@@ -10776,6 +10801,8 @@ function showCourse(courseKey) {
       { filter: "Canvas-quiz", label: "Canvas quiz" },
       { filter: "Lecture4", label: "L4 IDS" },
       { filter: "Lecture5", label: "L5 firewalls" },
+      { filter: "Lecture10", label: "L10 at rest" },
+      { filter: "data-in-transit", label: "L11 transit" },
       { filter: "exam", label: "exam" },
       { filter: "", label: "All" }
     ],
@@ -10838,25 +10865,7 @@ function showCourse(courseKey) {
     });
   }
   function applyQuizTagFilter(tag) {
-    tag = tag == null ? "" : String(tag);
-    quizState.tagFilter = tag || null;
-    flashState.query = tag;
-    if ($("quiz-search")) $("quiz-search").value = tag;
-    syncQuizTagChips(tag);
-    studyRenderCourseMap(quizState.deckKey);
-    if (quizState.studyMode === "test") {
-      syncTestHome();
-      return;
-    }
-    if (quizState.studyMode === "quiz") {
-      quizState.sessionQueue = null;
-      quizState.inSession = false;
-      if (quizShouldShowHome()) syncQuizHome();
-      else quizLoadAndShow();
-      return;
-    }
-    if (quizState.studyMode !== "flashcards") setStudyMode("flashcards");
-    else flashLoadAndShow();
+    studyApplyUnitFilter(tag == null ? "" : String(tag));
   }
   if ($("quiz-tag-filters")) {
     $("quiz-tag-filters").addEventListener("click", function (e) {
@@ -12509,7 +12518,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock190" defer></script>
-  <script src="js/learning-session.js?v=lock190" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock191" defer></script>
+  <script src="js/learning-session.js?v=lock191" defer></script>
 </body>
 </html>

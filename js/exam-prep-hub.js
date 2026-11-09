@@ -404,6 +404,7 @@
     var items = [
       { label: "4050: 5 due", href: expressPlayUrl("acit4050", { limit: 5 }), primary: true },
       { label: "4280: 5 due", href: expressPlayUrl("acit4280", { limit: 5 }), primary: true },
+      { label: "4050 L-11 transit (13)", href: expressPlayUrl("acit4050", { tag: "data-in-transit", limit: 8 }), primary: false },
       { label: "4050 exam examples", href: expressPlayUrl("acit4050", { tag: "exam", limit: 6 }), primary: false },
       { label: "Mixed test 5+5 (~10 min)", href: "index.html?study=test&mixed=1", primary: false }
     ];
@@ -428,8 +429,15 @@
     });
   }
 
+  function renderWeekBanner() {
+    var el = document.querySelector(".hero-lede");
+    if (!el) return;
+    el.textContent = "Week 46 (10-16 Nov): written exams soon - 5-10 min sprints on due cards, L-11 transit rep, and official exam examples.";
+  }
+
   function init() {
     try { localStorage.setItem("acit-exam-focus-v1", "1"); } catch (e) { /* ignore */ }
+    renderWeekBanner();
     updateCountdowns();
     setInterval(updateCountdowns, 60000);
     renderTodayStrip();

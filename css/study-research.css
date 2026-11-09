@@ -299,3 +299,19 @@ html:not(.exam-focus) #test-home-pensum {
 body.exam-rep-page {
   background: var(--paper);
 }
+
+/* Exam lane: teal feedback (no legacy magenta in quiz UI) */
+html.exam-app .quiz-card.fx-good,
+html.exam-app .fp-status.is-correct,
+html.exam-app .tut-feedback.is-reveal {
+  border-color: var(--signal);
+}
+html.exam-app .fp-status.is-correct,
+html.exam-app .tut-feedback.is-reveal {
+  background: var(--signal-soft);
+  border-left-color: var(--signal);
+}
+html.exam-app .solvable-banner.is-correct .solvable-banner-kicker,
+html.exam-app .orient-checklist-list li.is-done .orient-check {
+  color: var(--signal);
+}
