@@ -97,6 +97,9 @@
     if (!bar) return;
     rotateTip();
     syncRing();
+    if (typeof window.syncResearchStickyOffset === "function") {
+      window.syncResearchStickyOffset();
+    }
     setInterval(rotateTip, 60000);
     window.addEventListener("storage", syncRing);
     document.addEventListener("acit-xp-updated", syncRing);

@@ -161,6 +161,7 @@ body {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
   padding: 0.65rem var(--page-gutter, 1.25rem);
+  margin-bottom: 0.35rem;
   position: sticky;
   top: 0;
   z-index: calc(var(--z-sticky, 20) + 2);

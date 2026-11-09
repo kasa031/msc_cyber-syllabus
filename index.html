@@ -2519,6 +2519,22 @@
     html.exam-app a[href="UKAS_LESNING.html"] { display: none !important; }
     html:not(.exam-app) .footer-exam-only { display: none; }
     html.exam-app #orient-nudge { display: none !important; }
+    html.exam-app .course-nav.course-tabs-sticky {
+      position: relative;
+      top: auto;
+      z-index: 3;
+    }
+    html.exam-app #research-session-bar:not([hidden]) ~ .shell .shell-lift {
+      margin-top: 0.9rem;
+    }
+    @media (max-width: 640px) {
+      html.exam-app #research-session-bar:not([hidden]) ~ .shell .shell-lift {
+        margin-top: 1rem;
+      }
+      html.exam-app .shell-lift {
+        margin-top: 0;
+      }
+    }
     html.exam-app .exam-express-row {
       display: flex;
       flex-direction: column;
@@ -3691,8 +3707,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock195" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock195" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock196" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock196" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -3748,6 +3764,21 @@
           <a class="btn ghost footer-full-app-only" href="UKAS_LESNING.html">This week</a>
           <button type="button" class="btn ghost" id="profile-settings-btn">Settings<span class="settings-setup-dot" id="settings-setup-dot" hidden title="Set study focus"></span></button>
         </div>
+        <script>
+        (function () {
+          document.addEventListener("click", function (e) {
+            if (!e.target.closest || !e.target.closest("#profile-settings-btn")) return;
+            var modal = document.getElementById("profile-modal");
+            if (!modal) return;
+            var body = document.getElementById("settings-body");
+            if (body) body.hidden = false;
+            modal.hidden = false;
+            try {
+              if (typeof window.__acitOpenSettings === "function") window.__acitOpenSettings();
+            } catch (err) { /* ignore */ }
+          });
+        })();
+        </script>
       </div>
       <div class="hero-body">
         <div class="hero-copy">
@@ -4725,8 +4756,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock195" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock195"></script>
+  <script src="quiz-decks.js?v=lock196" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock196"></script>
   <script>
   (function () {
   "use strict";
@@ -5287,10 +5318,19 @@
     var px = "0px";
     if (bar && !bar.hidden) {
       var h = bar.offsetHeight;
-      if (h > 0) px = h + "px";
+      if (h > 0) px = Math.ceil(h + 4) + "px";
     }
     document.documentElement.style.setProperty("--research-session-offset", px);
   }
+
+  (function attachResearchBarResizeObserver() {
+    var bar = $("research-session-bar");
+    if (!bar || typeof ResizeObserver === "undefined") return;
+    try {
+      var ro = new ResizeObserver(function () { syncResearchStickyOffset(); });
+      ro.observe(bar);
+    } catch (e) { /* ignore */ }
+  })();
 
   function syncResearchSessionBar(courseKey) {
     var bar = $("research-session-bar");
@@ -11125,6 +11165,7 @@ function showCourse(courseKey) {
       settingsSetMsg("Some settings could not load. Try Ctrl+F5 if this repeats.");
     }
   }
+  window.__acitOpenSettings = profileOpenModal;
 
   function profileCloseModal() {
     var modal = $("profile-modal");
@@ -11151,7 +11192,6 @@ function showCourse(courseKey) {
       profileOpenModal();
     });
   }
-  if ($("profile-settings-btn")) $("profile-settings-btn").addEventListener("click", profileOpenModal);
   if ($("settings-keyboard-help")) $("settings-keyboard-help").addEventListener("click", keyboardHelpOpen);
   if ($("quiz-keyboard-help")) $("quiz-keyboard-help").addEventListener("click", keyboardHelpOpen);
   if ($("keyboard-help-close")) $("keyboard-help-close").addEventListener("click", keyboardHelpClose);
@@ -12481,6 +12521,7 @@ function showCourse(courseKey) {
     syncResearchStickyOffset();
   });
   syncResearchStickyOffset();
+  window.syncResearchStickyOffset = syncResearchStickyOffset;
 
   window.addEventListener("appinstalled", function () {
     try { localStorage.setItem(PWA_INSTALLED_KEY, "1"); } catch (e) { /* ignore */ }
@@ -12562,7 +12603,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock195" defer></script>
-  <script src="js/learning-session.js?v=lock195" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock196" defer></script>
+  <script src="js/learning-session.js?v=lock196" defer></script>
 </body>
 </html>
