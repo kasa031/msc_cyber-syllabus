@@ -382,6 +382,12 @@
       position: relative;
       z-index: 2;
     }
+    #research-session-bar:not([hidden]) ~ .shell .shell-lift {
+      margin-top: 0.35rem;
+    }
+    html.exam-app #research-session-bar:not([hidden]) ~ .shell .shell-lift {
+      margin-top: 0.5rem;
+    }
     @media (max-width: 640px) {
       :root { --page-gutter: 1rem; }
       .shell { padding: 0 var(--page-gutter) 3.25rem; }
@@ -1280,8 +1286,8 @@
     }
     .course-nav.course-tabs-sticky {
       position: sticky;
-      top: var(--safe-top);
-      z-index: 20;
+      top: calc(var(--safe-top, 0px) + var(--research-session-offset, 0px));
+      z-index: 19;
       background: var(--palette-cream);
       padding-bottom: 0.35rem;
     }
@@ -3678,8 +3684,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock191" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock191" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock192" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock192" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4713,8 +4719,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock191" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock191"></script>
+  <script src="quiz-decks.js?v=lock192" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock192"></script>
   <script>
   (function () {
   "use strict";
@@ -5270,12 +5276,23 @@
     ledeEl.textContent = copy.lede;
   }
 
+  function syncResearchStickyOffset() {
+    var bar = $("research-session-bar");
+    var px = "0px";
+    if (bar && !bar.hidden) {
+      var h = bar.offsetHeight;
+      if (h > 0) px = h + "px";
+    }
+    document.documentElement.style.setProperty("--research-session-offset", px);
+  }
+
   function syncResearchSessionBar(courseKey) {
     var bar = $("research-session-bar");
     if (!bar) return;
     var quizCourses = { acit4050: 1, acit4280: 1, acit4100: 1, fellesjam: 1 };
     var show = !!quizCourses[courseKey];
     bar.hidden = !show;
+    syncResearchStickyOffset();
   }
 
 function showCourse(courseKey) {
@@ -8663,6 +8680,7 @@ function showCourse(courseKey) {
     else syncOrientNudge();
     studySyncDueNotification();
     refreshSettingsProgressUi();
+    syncResearchStickyOffset();
   }
 
   function expectedCount(deckKey) {
@@ -12437,6 +12455,10 @@ function showCourse(courseKey) {
   window.addEventListener("hashchange", function () {
     applyHashRoute();
   });
+  window.addEventListener("resize", function () {
+    syncResearchStickyOffset();
+  });
+  syncResearchStickyOffset();
 
   window.addEventListener("appinstalled", function () {
     try { localStorage.setItem(PWA_INSTALLED_KEY, "1"); } catch (e) { /* ignore */ }
@@ -12518,7 +12540,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock191" defer></script>
-  <script src="js/learning-session.js?v=lock191" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock192" defer></script>
+  <script src="js/learning-session.js?v=lock192" defer></script>
 </body>
 </html>
