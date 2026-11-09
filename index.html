@@ -3691,8 +3691,8 @@
     }
 
   </style>
-  <link rel="stylesheet" href="css/study-research.css?v=lock193" />
-  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock193" />
+  <link rel="stylesheet" href="css/study-research.css?v=lock194" />
+  <link rel="stylesheet" href="css/exam-prep-hub.css?v=lock194" />
 </head>
 <body>
   <div id="fx-layer" aria-hidden="true"></div>
@@ -4726,8 +4726,8 @@
     </div>
   </main>
 
-  <script src="quiz-decks.js?v=lock193" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
-  <script src="framework-practice.js?v=lock193"></script>
+  <script src="quiz-decks.js?v=lock194" onerror="window.__QUIZ_DECKS_LOAD_ERROR=true"></script>
+  <script src="framework-practice.js?v=lock194"></script>
   <script>
   (function () {
   "use strict";
@@ -11119,8 +11119,12 @@ function showCourse(courseKey) {
     if (!modal) return;
     if ($("settings-body")) $("settings-body").hidden = false;
     settingsSetMsg("");
-    profileRenderModal();
     modal.hidden = false;
+    try {
+      profileRenderModal();
+    } catch (err) {
+      settingsSetMsg("Some settings could not load. Try Ctrl+F5 if this repeats.");
+    }
   }
 
   function profileCloseModal() {
@@ -12362,6 +12366,18 @@ function showCourse(courseKey) {
     applyExamFocusUi(on);
   }
 
+  function syncExamFocusSettingsUi() {
+    var cb = $("settings-exam-focus");
+    if (!cb) return;
+    if (examAppOnly()) {
+      cb.checked = true;
+      cb.disabled = true;
+      return;
+    }
+    cb.disabled = false;
+    cb.checked = examFocusEnabled();
+  }
+
   function ensureExamFocusClass() {
     try {
       var p = new URLSearchParams(window.location.search || "");
@@ -12547,7 +12563,7 @@ function showCourse(courseKey) {
   }
 })();
   </script>
-  <script src="js/exam-prep-hub.js?v=lock193" defer></script>
-  <script src="js/learning-session.js?v=lock193" defer></script>
+  <script src="js/exam-prep-hub.js?v=lock194" defer></script>
+  <script src="js/learning-session.js?v=lock194" defer></script>
 </body>
 </html>
